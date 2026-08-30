@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
 import type { CatalogEntry, Title } from "../types/content";
-import type { GameMode } from "../types/game";
+import type { GameSetup } from "../components/SetupScreen";
 import { getTitle, listCatalogEntries } from "../lib/content/browser";
 import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
+import { buildMiniGameQueue } from "../lib/game/miniGame";
 import {
   progressLabel,
   skipQuestion,
@@ -11,6 +12,7 @@ import {
   submitAnswer,
   type GameRun,
 } from "../lib/game/session";
+import { getStarredLineIndices } from "../lib/stars/store";
 import { LibraryScreen } from "../components/LibraryScreen";
 import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
@@ -23,6 +25,7 @@ export function App() {
   const [screen, setScreen] = useState<Screen>("library");
   const [pendingEntry, setPendingEntry] = useState<CatalogEntry | null>(null);
   const [activeEntry, setActiveEntry] = useState<CatalogEntry | null>(null);
+  const [lastSetup, setLastSetup] = useState<GameSetup | null>(null);
   const [title, setTitle] = useState<Title | null>(null);
   const [run, setRun] = useState<GameRun | null>(null);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | "skipped" | null>(null);
@@ -33,14 +36,33 @@ export function App() {
     return buildMcq(title, run.promptLineIndex);
   }, [title, run]);
 
-  function beginGame(entry: CatalogEntry, mode: GameMode) {
+  function beginGame(entry: CatalogEntry, setup: GameSetup) {
     const loaded = getTitle(entry.id);
-    const firstPlayable = loaded ? getFirstPlayableLine(loaded) : undefined;
-    if (!loaded || !firstPlayable) return;
+    if (!loaded) return;
+
+    let firstPromptLineIndex: number | undefined;
+    let questionQueue: number[] | undefined;
+
+    if (setup.length === "mini") {
+      questionQueue = buildMiniGameQueue(loaded, getStarredLineIndices(entry.id));
+      firstPromptLineIndex = questionQueue[0];
+    } else {
+      firstPromptLineIndex = getFirstPlayableLine(loaded)?.index;
+    }
+
+    if (firstPromptLineIndex === undefined) return;
 
     setActiveEntry(entry);
+    setLastSetup(setup);
     setTitle(loaded);
-    setRun(startRun(entry.id, mode, firstPlayable.index));
+    setRun(
+      startRun(entry.id, {
+        mode: setup.mode,
+        length: setup.length,
+        firstPromptLineIndex,
+        questionQueue,
+      }),
+    );
     setFeedback(null);
     setSkipReveal(null);
     setScreen("play");
@@ -84,14 +106,15 @@ export function App() {
   }
 
   function handleRestart() {
-    if (!activeEntry || !run) return;
-    beginGame(activeEntry, run.mode);
+    if (!activeEntry || !lastSetup) return;
+    beginGame(activeEntry, lastSetup);
   }
 
   function handleBackToLibrary() {
     setScreen("library");
     setPendingEntry(null);
     setActiveEntry(null);
+    setLastSetup(null);
     setTitle(null);
     setRun(null);
     setFeedback(null);
@@ -110,7 +133,7 @@ export function App() {
       {screen === "setup" && pendingEntry && (
         <SetupScreen
           entry={pendingEntry}
-          onStart={(mode) => beginGame(pendingEntry, mode)}
+          onStart={(setup) => beginGame(pendingEntry, setup)}
           onBack={handleBackToLibrary}
         />
       )}

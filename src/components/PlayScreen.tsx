@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { Title } from "../types/content";
 import type { McqQuestion } from "../lib/game/mcq";
 import type { GameRun } from "../lib/game/session";
+import { isStarred, toggleStar } from "../lib/stars/store";
 import { HistorySidebar } from "./HistorySidebar";
 
 type Props = {
@@ -29,6 +30,14 @@ export function PlayScreen({
   onQuit,
   onFeedbackDone,
 }: Props) {
+  const [starred, setStarred] = useState(() =>
+    isStarred(title.id, question.promptLineIndex),
+  );
+
+  useEffect(() => {
+    setStarred(isStarred(title.id, question.promptLineIndex));
+  }, [title.id, question.promptLineIndex]);
+
   useEffect(() => {
     if (!feedback) return;
     const delay = feedback === "wrong" ? 900 : 1200;
@@ -37,6 +46,12 @@ export function PlayScreen({
   }, [feedback, onFeedbackDone]);
 
   const modeLabel = run.mode === "fun" ? "Fun" : run.mode === "medium" ? "Medium" : "Hard";
+  const lengthLabel = run.length === "mini" ? "Mini" : "Full";
+
+  function handleToggleStar() {
+    const nowStarred = toggleStar(title.id, question.promptLineIndex, question.promptText);
+    setStarred(nowStarred);
+  }
 
   return (
     <div className="play-layout">
@@ -47,6 +62,7 @@ export function PlayScreen({
           </button>
           <div className="play-stats">
             <span className="mode-badge">{modeLabel}</span>
+            <span className="mode-badge length-badge">{lengthLabel}</span>
             <span>{progress}</span>
             <span className="muted">
               ✓ {run.correctCount} · ✗ {run.wrongCount}
@@ -58,7 +74,18 @@ export function PlayScreen({
         <p className="episode-label">{title.title}</p>
 
         <div className="prompt-block">
-          <p className="prompt-label">Current line</p>
+          <div className="prompt-header">
+            <p className="prompt-label">Current line</p>
+            <button
+              type="button"
+              className={`star-button${starred ? " starred" : ""}`}
+              aria-pressed={starred}
+              aria-label={starred ? "Unstar this line" : "Star this line for mini-games"}
+              onClick={handleToggleStar}
+            >
+              {starred ? "★ Starred" : "☆ Star"}
+            </button>
+          </div>
           <blockquote className="prompt-text">{question.promptText}</blockquote>
         </div>
 

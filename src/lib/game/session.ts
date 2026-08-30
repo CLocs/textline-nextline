@@ -4,13 +4,13 @@ import {
   playableQuestionNumber,
   type LineSource,
 } from "../content/playable.js";
-import type { GameMode } from "../../types/game.js";
+import type { GameLength, GameMode } from "../../types/game.js";
 
 export type GamePhase = "playing" | "complete";
 
 export type EndReason = "finished" | "miss";
 
-export type HistoryVia = "start" | "correct" | "skip" | "incorrect";
+export type HistoryVia = "start" | "correct" | "skip" | "incorrect" | "prompt";
 
 export type HistoryEntry = {
   lineIndex: number;
@@ -20,7 +20,10 @@ export type HistoryEntry = {
 export type GameRun = {
   titleId: string;
   mode: GameMode;
+  length: GameLength;
   promptLineIndex: number;
+  questionQueue?: number[];
+  questionIndex: number;
   correctCount: number;
   wrongCount: number;
   skipCount: number;
@@ -29,11 +32,22 @@ export type GameRun = {
   endReason?: EndReason;
 };
 
-export function startRun(titleId: string, mode: GameMode, firstPromptLineIndex: number): GameRun {
+export type StartRunOptions = {
+  mode: GameMode;
+  length: GameLength;
+  firstPromptLineIndex: number;
+  questionQueue?: number[];
+};
+
+export function startRun(titleId: string, options: StartRunOptions): GameRun {
+  const { mode, length, firstPromptLineIndex, questionQueue } = options;
   return {
     titleId,
     mode,
+    length,
     promptLineIndex: firstPromptLineIndex,
+    questionQueue,
+    questionIndex: 0,
     correctCount: 0,
     wrongCount: 0,
     skipCount: 0,
@@ -62,7 +76,7 @@ function missRun(run: GameRun): GameRun {
 
 function appendHistory(run: GameRun, lineIndex: number, via: HistoryVia): HistoryEntry[] {
   const last = run.history[run.history.length - 1];
-  if (last?.lineIndex === lineIndex) return run.history;
+  if (last?.lineIndex === lineIndex && last.via === via) return run.history;
   return [...run.history, { lineIndex, via }];
 }
 
@@ -75,6 +89,58 @@ function appendWrongGuess(run: GameRun, selectedLineIndex: number): GameRun {
     ...run,
     wrongCount: run.wrongCount + 1,
     history: [...run.history, { lineIndex: selectedLineIndex, via: "incorrect" }],
+  };
+}
+
+function totalQuestions(run: GameRun, source: LineSource): number {
+  if (run.length === "mini" && run.questionQueue) {
+    return run.questionQueue.length;
+  }
+  return countPlayableQuestions(source);
+}
+
+function advanceAfterReveal(
+  run: GameRun,
+  source: LineSource,
+  correctLineIndex: number,
+  history: HistoryEntry[],
+  updates: Partial<GameRun>,
+): GameRun {
+  if (run.length === "mini" && run.questionQueue) {
+    const nextQuestionIndex = run.questionIndex + 1;
+    if (nextQuestionIndex >= run.questionQueue.length) {
+      return completeRun(run, {
+        ...updates,
+        promptLineIndex: correctLineIndex,
+        history,
+        questionIndex: nextQuestionIndex,
+      });
+    }
+
+    const nextPrompt = run.questionQueue[nextQuestionIndex]!;
+    return {
+      ...run,
+      ...updates,
+      promptLineIndex: nextPrompt,
+      questionIndex: nextQuestionIndex,
+      history: appendHistory({ ...run, history }, nextPrompt, "prompt"),
+    };
+  }
+
+  const hasAnotherQuestion = getNextPlayableLine(source, correctLineIndex) !== undefined;
+  if (!hasAnotherQuestion) {
+    return completeRun(run, {
+      ...updates,
+      promptLineIndex: correctLineIndex,
+      history,
+    });
+  }
+
+  return {
+    ...run,
+    ...updates,
+    promptLineIndex: correctLineIndex,
+    history,
   };
 }
 
@@ -111,26 +177,9 @@ export function submitAnswer(
 
   const correctCount = run.correctCount + 1;
   const history = appendHistory(run, correctLine.index, "correct");
-  const hasAnotherQuestion = getNextPlayableLine(source, correctLine.index) !== undefined;
-
-  if (!hasAnotherQuestion) {
-    return {
-      run: completeRun(run, {
-        promptLineIndex: correctLine.index,
-        correctCount,
-        history,
-      }),
-      correct: true,
-    };
-  }
 
   return {
-    run: {
-      ...run,
-      promptLineIndex: correctLine.index,
-      correctCount,
-      history,
-    },
+    run: advanceAfterReveal(run, source, correctLine.index, history, { correctCount }),
     correct: true,
   };
 }
@@ -147,38 +196,34 @@ export function skipQuestion(run: GameRun, source: LineSource): SkipResult | nul
   }
 
   const history = appendHistory(run, correctLine.index, "skip");
-  const hasAnotherQuestion = getNextPlayableLine(source, correctLine.index) !== undefined;
-
-  if (!hasAnotherQuestion) {
-    return {
-      run: completeRun(run, {
-        promptLineIndex: correctLine.index,
-        skipCount: run.skipCount + 1,
-        history,
-      }),
-      revealedText: correctLine.text,
-    };
-  }
+  const skipCount = run.skipCount + 1;
 
   return {
-    run: {
-      ...run,
-      promptLineIndex: correctLine.index,
-      skipCount: run.skipCount + 1,
-      history,
-    },
+    run: advanceAfterReveal(run, source, correctLine.index, history, { skipCount }),
     revealedText: correctLine.text,
   };
 }
 
 export function progressLabel(run: GameRun, source: LineSource): string {
-  const total = countPlayableQuestions(source);
+  const total = totalQuestions(run, source);
   if (run.phase === "complete") {
     if (run.endReason === "miss") {
+      if (run.length === "mini") {
+        return `Stopped at question ${run.questionIndex + 1}`;
+      }
       return `Stopped at question ${playableQuestionNumber(source, run.promptLineIndex)}`;
     }
     return `Finished — ${run.correctCount} / ${total}`;
   }
+
+  if (run.length === "mini") {
+    return `Question ${run.questionIndex + 1} of ${total}`;
+  }
+
   const current = playableQuestionNumber(source, run.promptLineIndex);
   return `Question ${current} of ${total}`;
+}
+
+export function questionTotal(run: GameRun, source: LineSource): number {
+  return totalQuestions(run, source);
 }

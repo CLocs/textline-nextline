@@ -17,14 +17,18 @@ const title: Title = {
   ],
 };
 
+function fullRun(firstPrompt = 1) {
+  return startRun("test", { mode: "fun", length: "full", firstPromptLineIndex: firstPrompt });
+}
+
 describe("submitAnswer", () => {
   it("starts history with the opening line", () => {
-    const run = startRun("test", "fun", 1);
+    const run = fullRun(1);
     expect(run.history).toEqual([{ lineIndex: 1, via: "start" }]);
   });
 
   it("tracks wrong answers without ending Fun mode runs", () => {
-    const run = startRun("test", "fun", 1);
+    const run = fullRun(1);
     const result = submitAnswer(run, title, 4);
     expect(result.correct).toBe(false);
     expect(result.run.wrongCount).toBe(1);
@@ -37,7 +41,7 @@ describe("submitAnswer", () => {
   });
 
   it("advances to the next playable line on a correct answer", () => {
-    const run = startRun("test", "fun", 1);
+    const run = fullRun(1);
     const result = submitAnswer(run, title, 3);
     expect(result.correct).toBe(true);
     expect(result.run.correctCount).toBe(1);
@@ -50,7 +54,7 @@ describe("submitAnswer", () => {
   });
 
   it("completes after the final playable next-line guess", () => {
-    const run = startRun("test", "fun", 3);
+    const run = fullRun(3);
     const result = submitAnswer(run, title, 4);
     expect(result.correct).toBe(true);
     expect(result.run.phase).toBe("complete");
@@ -58,7 +62,7 @@ describe("submitAnswer", () => {
   });
 
   it("ends medium mode on a miss", () => {
-    const run = startRun("test", "medium", 1);
+    const run = startRun("test", { mode: "medium", length: "full", firstPromptLineIndex: 1 });
     const result = submitAnswer(run, title, 4);
     expect(result.correct).toBe(false);
     expect(result.run.phase).toBe("complete");
@@ -70,9 +74,36 @@ describe("submitAnswer", () => {
   });
 });
 
+describe("mini-game runs", () => {
+  it("jumps to queued prompts instead of walking sequentially", () => {
+    const run = startRun("test", {
+      mode: "fun",
+      length: "mini",
+      firstPromptLineIndex: 1,
+      questionQueue: [1, 3],
+    });
+    const result = submitAnswer(run, title, 3);
+    expect(result.run.promptLineIndex).toBe(3);
+    expect(result.run.questionIndex).toBe(1);
+    expect(result.run.phase).toBe("playing");
+  });
+
+  it("completes after the last queued question", () => {
+    const run = startRun("test", {
+      mode: "fun",
+      length: "mini",
+      firstPromptLineIndex: 3,
+      questionQueue: [3],
+    });
+    const result = submitAnswer(run, title, 4);
+    expect(result.run.phase).toBe("complete");
+    expect(result.run.correctCount).toBe(1);
+  });
+});
+
 describe("skipQuestion", () => {
   it("reveals the answer and advances in fun mode", () => {
-    const run = startRun("test", "fun", 1);
+    const run = fullRun(1);
     const result = skipQuestion(run, title);
     expect(result).not.toBeNull();
     expect(result!.revealedText).toBe("Goodbye.");

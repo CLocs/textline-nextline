@@ -1,6 +1,5 @@
 import type { Title } from "../types/content";
-import { countPlayableQuestions } from "../lib/content/playable";
-import type { GameRun } from "../lib/game/session";
+import { questionTotal, type GameRun } from "../lib/game/session";
 
 type Props = {
   title: Title;
@@ -10,12 +9,13 @@ type Props = {
 };
 
 export function CompleteScreen({ title, run, onPlayAgain, onBack }: Props) {
-  const totalQuestions = countPlayableQuestions(title);
+  const totalQuestions = questionTotal(run, title);
   const finished = run.endReason !== "miss";
+  const sessionLabel = run.length === "mini" ? "Mini-game complete" : "Episode complete";
 
   return (
     <section className="panel complete-panel">
-      <h2>{finished ? "Episode complete" : "Run over"}</h2>
+      <h2>{finished ? sessionLabel : "Run over"}</h2>
       <p className="episode-label">{title.title}</p>
 
       {!finished && (

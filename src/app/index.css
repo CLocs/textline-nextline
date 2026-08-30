@@ -116,7 +116,8 @@ button {
   user-select: text;
 }
 
-.history-text.via-start {
+.history-text.via-start,
+.history-text.via-prompt {
   color: var(--ink);
 }
 
@@ -263,6 +264,37 @@ button {
 
 .prompt-block {
   margin-bottom: 1.25rem;
+}
+
+.prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.prompt-header .prompt-label {
+  margin: 0;
+}
+
+.star-button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: white;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.star-button.starred {
+  border-color: #c4a035;
+  color: #9a7b0a;
+  background: #fffbeb;
+}
+
+.length-badge {
+  color: var(--muted);
 }
 
 .prompt-text {
