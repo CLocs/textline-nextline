@@ -191,7 +191,7 @@ Distractors for multiple choice come from **other lines in the same transcript**
 | **0 — Foundation** | Repo, stack choice, content schema, import path from transcript_maker JSON | ✅ Import script + content store; query lines by index |
 | **0.5 — Content seed** | Export 3–5 episodes via transcript_maker; validate + check in | Enough variety to dogfood the game |
 | **1 — Single-player MVP** | Title picker, MCQ game loop, score | ✅ Playable solo run on curated episodes |
-| **1.5 — Content & UX** | More episodes, better browse/search, distractor quality, restart UI | Library grows steadily; game feels polished |
+| **1.5 — Content & UX** | Stars, mini-games, deploy | ✅ Stars + mini-game; static deploy on Cloudflare Pages |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
@@ -277,6 +277,16 @@ npm test
 npm run build
 npm run preview
 ```
+
+### Deploy
+
+Static hosting on **Cloudflare Pages** — no backend required. See [docs/DEPLOY.md](docs/DEPLOY.md).
+
+```bash
+npm run deploy          # local: build + wrangler pages deploy
+```
+
+Or connect GitHub Actions (push to `main`) with `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets.
 
 ### Project layout
 
