@@ -1,0 +1,49 @@
+{
+  "title": "Sample Episode",
+  "sourceFilename": "sample-episode.srt",
+  "cues": [],
+  "transcript": {
+    "generatedAt": 1700000000000,
+    "options": {
+      "mergeContinuations": true,
+      "stripTags": true,
+      "includeSdh": true,
+      "gapMsForParagraph": 1500
+    },
+    "blocks": [
+      {
+        "startMs": 0,
+        "endMs": 2000,
+        "cueIndices": [1],
+        "text": "- D'oh!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2000,
+        "endMs": 4500,
+        "cueIndices": [2],
+        "text": "- Why you little—",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 4500,
+        "endMs": 7000,
+        "cueIndices": [3],
+        "text": "[Bart giggles]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 7000,
+        "endMs": 10000,
+        "cueIndices": [4],
+        "text": "- Don't have a cow, man.",
+        "kind": "dialogue"
+      }
+    ]
+  },
+  "film": {
+    "tmdbId": 0,
+    "title": "Sample Episode",
+    "year": 1990
+  }
+}

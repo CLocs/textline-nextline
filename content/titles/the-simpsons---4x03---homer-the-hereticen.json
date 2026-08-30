@@ -1,0 +1,2081 @@
+{
+  "id": "the-simpsons---4x03---homer-the-hereticen",
+  "title": "The Simpsons - 4x03 - Homer the Heretic.en",
+  "sourceFilename": "The Simpsons - 4x03 - Homer the Heretic.en.srt",
+  "importedAt": "2026-08-30T22:20:24.100Z",
+  "lineCount": 296,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[Chorus] ## TheSimpsons ##",
+      "kind": "dialogue",
+      "startMs": 4300,
+      "endMs": 7599
+    },
+    {
+      "index": 1,
+      "text": "[Bell Ringing]",
+      "kind": "sdh",
+      "startMs": 18381,
+      "endMs": 20281
+    },
+    {
+      "index": 2,
+      "text": "[Whistle Blowing]",
+      "kind": "sdh",
+      "startMs": 25154,
+      "endMs": 28214
+    },
+    {
+      "index": 3,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 30693,
+      "endMs": 32593
+    },
+    {
+      "index": 4,
+      "text": "## [Jazzy Solo ]",
+      "kind": "dialogue",
+      "startMs": 38334,
+      "endMs": 40234
+    },
+    {
+      "index": 5,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 60323,
+      "endMs": 62223
+    },
+    {
+      "index": 6,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 62325,
+      "endMs": 64225
+    },
+    {
+      "index": 7,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 65595,
+      "endMs": 67529
+    },
+    {
+      "index": 8,
+      "text": "[ Sighs ]",
+      "kind": "sdh",
+      "startMs": 82411,
+      "endMs": 83969
+    },
+    {
+      "index": 9,
+      "text": "[ Thinking ] Ah, another beautiful day in the womb.",
+      "kind": "dialogue",
+      "startMs": 84080,
+      "endMs": 87709
+    },
+    {
+      "index": 10,
+      "text": "####[Classical] # La, la, la, la, la # # La, la, la # ##La, la, la####",
+      "kind": "dialogue",
+      "startMs": 87817,
+      "endMs": 96182
+    },
+    {
+      "index": 11,
+      "text": "[ Gasping ]",
+      "kind": "sdh",
+      "startMs": 96292,
+      "endMs": 99261
+    },
+    {
+      "index": 12,
+      "text": "Let go! Let go!",
+      "kind": "dialogue",
+      "startMs": 99362,
+      "endMs": 101262
+    },
+    {
+      "index": 13,
+      "text": "I'm all naked and wet!",
+      "kind": "dialogue",
+      "startMs": 101364,
+      "endMs": 103332
+    },
+    {
+      "index": 14,
+      "text": "Get up, Homer. It's time for church. I don't wanna go.",
+      "kind": "dialogue",
+      "startMs": 103432,
+      "endMs": 106765
+    },
+    {
+      "index": 15,
+      "text": "It's church. You have to go. Too cold out.",
+      "kind": "dialogue",
+      "startMs": 106869,
+      "endMs": 109633
+    },
+    {
+      "index": 16,
+      "text": "I'm tired of having this argument every Sunday. Get dressed.",
+      "kind": "dialogue",
+      "startMs": 113809,
+      "endMs": 117575
+    },
+    {
+      "index": 17,
+      "text": "Oh, stupid, itchy church pants.",
+      "kind": "dialogue",
+      "startMs": 117680,
+      "endMs": 120171
+    },
+    {
+      "index": 18,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 120283,
+      "endMs": 122774
+    },
+    {
+      "index": 19,
+      "text": "One size fits all, my butt!",
+      "kind": "dialogue",
+      "startMs": 122885,
+      "endMs": 125080
+    },
+    {
+      "index": 20,
+      "text": "Come on. We're going to be late. [Pants Tearing] Forget it. I'm not going.",
+      "kind": "dialogue",
+      "startMs": 125188,
+      "endMs": 130956
+    },
+    {
+      "index": 21,
+      "text": "[ Growls ]",
+      "kind": "sdh",
+      "startMs": 132261,
+      "endMs": 134161
+    },
+    {
+      "index": 22,
+      "text": "Hey, where's Homer? Your father's... resting.",
+      "kind": "dialogue",
+      "startMs": 143172,
+      "endMs": 146733
+    },
+    {
+      "index": 23,
+      "text": "\"Resting\" hungover, \"resting\" got fired? Help me out here.",
+      "kind": "dialogue",
+      "startMs": 146842,
+      "endMs": 150243
+    },
+    {
+      "index": 24,
+      "text": "Ahhh, I'm just a big, toasty cinnamon bun.",
+      "kind": "dialogue",
+      "startMs": 150346,
+      "endMs": 154544
+    },
+    {
+      "index": 25,
+      "text": "I never wanna leave this bed.",
+      "kind": "dialogue",
+      "startMs": 154650,
+      "endMs": 157710
+    },
+    {
+      "index": 26,
+      "text": "Uh-oh. Gotta take a whiz.",
+      "kind": "dialogue",
+      "startMs": 157820,
+      "endMs": 160220
+    },
+    {
+      "index": 27,
+      "text": "Think, man. Think.",
+      "kind": "dialogue",
+      "startMs": 160323,
+      "endMs": 162883
+    },
+    {
+      "index": 28,
+      "text": "Think, think, think. I better get up.",
+      "kind": "dialogue",
+      "startMs": 162992,
+      "endMs": 166894
+    },
+    {
+      "index": 29,
+      "text": "I'm whizzin' with the door open, and I love it.",
+      "kind": "dialogue",
+      "startMs": 168397,
+      "endMs": 172231
+    },
+    {
+      "index": 30,
+      "text": "## [ Singing ]",
+      "kind": "dialogue",
+      "startMs": 174503,
+      "endMs": 177336
+    },
+    {
+      "index": 31,
+      "text": "[ Blubbering ]",
+      "kind": "sdh",
+      "startMs": 177807,
+      "endMs": 179707
+    },
+    {
+      "index": 32,
+      "text": "[Man] It's 1 1 K-BBL degrees below zero.",
+      "kind": "dialogue",
+      "startMs": 179809,
+      "endMs": 183711
+    },
+    {
+      "index": 33,
+      "text": "I hope you're someplace warm. You bet your sweet... ass!",
+      "kind": "dialogue",
+      "startMs": 183813,
+      "endMs": 189950
+    },
+    {
+      "index": 34,
+      "text": "I'm afraid our furnace isn't working.",
+      "kind": "dialogue",
+      "startMs": 194423,
+      "endMs": 196914
+    },
+    {
+      "index": 35,
+      "text": "[Man] Yeah, what's the story?",
+      "kind": "dialogue",
+      "startMs": 197026,
+      "endMs": 199119
+    },
+    {
+      "index": 36,
+      "text": "But let's just put it out of our minds... and turn to the lamentations of Jeremiah... long version.",
+      "kind": "dialogue",
+      "startMs": 199228,
+      "endMs": 206691
+    },
+    {
+      "index": 37,
+      "text": "\"Joy is gone from our hearts... our dancing has turned to mourning. '\"",
+      "kind": "dialogue",
+      "startMs": 206802,
+      "endMs": 212203
+    },
+    {
+      "index": 38,
+      "text": "####[Rock And Roll] ####[Girls Singing] ## [ Singing ]",
+      "kind": "dialogue",
+      "startMs": 217446,
+      "endMs": 225482
+    },
+    {
+      "index": 39,
+      "text": "The perfect chance to make my patented, space-age... out-of-this-world moon waffles.",
+      "kind": "dialogue",
+      "startMs": 228124,
+      "endMs": 233795
+    },
+    {
+      "index": 40,
+      "text": "Let's see here.",
+      "kind": "dialogue",
+      "startMs": 233896,
+      "endMs": 236228
+    },
+    {
+      "index": 41,
+      "text": "Caramels. Waffle batter.",
+      "kind": "dialogue",
+      "startMs": 236332,
+      "endMs": 239426
+    },
+    {
+      "index": 42,
+      "text": "Liquid smoke.",
+      "kind": "dialogue",
+      "startMs": 239535,
+      "endMs": 241560
+    },
+    {
+      "index": 43,
+      "text": "Oooh, waffle runoff.",
+      "kind": "dialogue",
+      "startMs": 243272,
+      "endMs": 246139
+    },
+    {
+      "index": 44,
+      "text": "Mmm, fattening.",
+      "kind": "dialogue",
+      "startMs": 255818,
+      "endMs": 258810
+    },
+    {
+      "index": 45,
+      "text": "And he was cast into the fiery cauldron of hell!",
+      "kind": "dialogue",
+      "startMs": 258921,
+      "endMs": 264382
+    },
+    {
+      "index": 46,
+      "text": "The searing heat... the scalding rivers of molten sulfur!",
+      "kind": "dialogue",
+      "startMs": 264493,
+      "endMs": 269760
+    },
+    {
+      "index": 47,
+      "text": "Ahhh, I'm there.",
+      "kind": "dialogue",
+      "startMs": 269865,
+      "endMs": 271924
+    },
+    {
+      "index": 48,
+      "text": "Uh-oh. [ Whistling ] Here, boy.",
+      "kind": "dialogue",
+      "startMs": 273202,
+      "endMs": 277371
+    },
+    {
+      "index": 49,
+      "text": "Okay, okay, okay, okay.",
+      "kind": "dialogue",
+      "startMs": 282812,
+      "endMs": 285007
+    },
+    {
+      "index": 50,
+      "text": "The service has ended. Go in peace.",
+      "kind": "dialogue",
+      "startMs": 285114,
+      "endMs": 288106
+    },
+    {
+      "index": 51,
+      "text": "####[Pipe Organ]",
+      "kind": "dialogue",
+      "startMs": 288217,
+      "endMs": 290777
+    },
+    {
+      "index": 52,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 290886,
+      "endMs": 292854
+    },
+    {
+      "index": 53,
+      "text": "The door's frozen shut, and it's the only way out!",
+      "kind": "dialogue",
+      "startMs": 292955,
+      "endMs": 296356
+    },
+    {
+      "index": 54,
+      "text": "[ Chattering ] Our Father who art in heaven, hallowed be-- Lisa, this is neither the time nor the place.",
+      "kind": "dialogue",
+      "startMs": 296459,
+      "endMs": 301925
+    },
+    {
+      "index": 55,
+      "text": "[Man On Radio] That was Johnny Calhoun with...",
+      "kind": "dialogue",
+      "startMs": 302031,
+      "endMs": 303999
+    },
+    {
+      "index": 56,
+      "text": "\"Gonna Find Mea Genie With a Magic Bikini. '\" [Man #2]Johnny's next record was a spoken word album of his right-wing political views.",
+      "kind": "dialogue",
+      "startMs": 304100,
+      "endMs": 309765
+    },
+    {
+      "index": 57,
+      "text": "It killed his career. If you can tell me the name Of that album, call our contest line now.",
+      "kind": "dialogue",
+      "startMs": 309872,
+      "endMs": 313899
+    },
+    {
+      "index": 58,
+      "text": "[ Gasps ] I know that!",
+      "kind": "dialogue",
+      "startMs": 314009,
+      "endMs": 316102
+    },
+    {
+      "index": 59,
+      "text": "[ Line Ringing ]",
+      "kind": "sdh",
+      "startMs": 319582,
+      "endMs": 321482
+    },
+    {
+      "index": 60,
+      "text": "Hello. This is Homer Simpson. [ Man ] Homer, can you name that title?",
+      "kind": "dialogue",
+      "startMs": 321584,
+      "endMs": 325281
+    },
+    {
+      "index": 61,
+      "text": "\"This Things I Believe.\" [ Man #2 ] Uh, can we accept that?",
+      "kind": "dialogue",
+      "startMs": 325388,
+      "endMs": 329791
+    },
+    {
+      "index": 62,
+      "text": "[ Cash Register Ringing ] Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 329892,
+      "endMs": 331917
+    },
+    {
+      "index": 63,
+      "text": "How's that door coming, Willy? Miracles are your department, Reverend.",
+      "kind": "dialogue",
+      "startMs": 334697,
+      "endMs": 338633
+    },
+    {
+      "index": 64,
+      "text": "Uh, while we're waiting, Why don't I read from the Sunday bulletin?",
+      "kind": "dialogue",
+      "startMs": 338734,
+      "endMs": 342932
+    },
+    {
+      "index": 65,
+      "text": "Card table for sale. Top badly damaged. Leg missing.",
+      "kind": "dialogue",
+      "startMs": 343038,
+      "endMs": 345973
+    },
+    {
+      "index": 66,
+      "text": "Otherwise fine. One dollar or best offer.",
+      "kind": "dialogue",
+      "startMs": 346075,
+      "endMs": 349567
+    },
+    {
+      "index": 67,
+      "text": "[ Woman On TV] You must be the three chiropractors I sent for.",
+      "kind": "dialogue",
+      "startMs": 349678,
+      "endMs": 352875
+    },
+    {
+      "index": 68,
+      "text": "Now, start manipulating my spine.",
+      "kind": "dialogue",
+      "startMs": 352982,
+      "endMs": 355280
+    },
+    {
+      "index": 69,
+      "text": "[Curly]Hey, Moe, we don't know nothin' about manipulatin.",
+      "kind": "dialogue",
+      "startMs": 355384,
+      "endMs": 357579
+    },
+    {
+      "index": 70,
+      "text": "[Moe] You heard the lady. Grab her spine and get crackin. - [Punch Landing]",
+      "kind": "dialogue",
+      "startMs": 357686,
+      "endMs": 360484
+    },
+    {
+      "index": 71,
+      "text": "[ Chuckling ] Moe is their leader. [Curly Whooping] -[Moe] Why, you! -[Punch Landing] -[Curly]Hey!",
+      "kind": "dialogue",
+      "startMs": 360589,
+      "endMs": 365059
+    },
+    {
+      "index": 72,
+      "text": "[ Grunting ] Huzzah!",
+      "kind": "dialogue",
+      "startMs": 366896,
+      "endMs": 369057
+    },
+    {
+      "index": 73,
+      "text": "Plea-Please, Christians, don't push.",
+      "kind": "dialogue",
+      "startMs": 370933,
+      "endMs": 373561
+    },
+    {
+      "index": 74,
+      "text": "Excuse me. Pardon me. Whoop. Coming through. Howya doing? Love that hat, baby.",
+      "kind": "dialogue",
+      "startMs": 373669,
+      "endMs": 377264
+    },
+    {
+      "index": 75,
+      "text": "Come on, TV. Give me some of that sweet, sweet pap.",
+      "kind": "dialogue",
+      "startMs": 377373,
+      "endMs": 381241
+    },
+    {
+      "index": 76,
+      "text": "Well, let's define our terms, gentlemen.",
+      "kind": "dialogue",
+      "startMs": 381343,
+      "endMs": 383573
+    },
+    {
+      "index": 77,
+      "text": "Are we talking about redistricting or are we talking about reapportionment?",
+      "kind": "dialogue",
+      "startMs": 383679,
+      "endMs": 387046
+    },
+    {
+      "index": 78,
+      "text": "Oh, well, can't win 'em all.",
+      "kind": "dialogue",
+      "startMs": 387149,
+      "endMs": 389379
+    },
+    {
+      "index": 79,
+      "text": "[ Man ] We interrupt this public affairs program to bring you a football game.",
+      "kind": "dialogue",
+      "startMs": 389485,
+      "endMs": 393421
+    },
+    {
+      "index": 80,
+      "text": "Yes! [ Whistle Blowing ]",
+      "kind": "dialogue",
+      "startMs": 393522,
+      "endMs": 395422
+    },
+    {
+      "index": 81,
+      "text": "[ Engine Not Turning Over] [Marge Imitating Engine]",
+      "kind": "dialogue",
+      "startMs": 397259,
+      "endMs": 399784
+    },
+    {
+      "index": 82,
+      "text": "[ Imitating Engine ]",
+      "kind": "sdh",
+      "startMs": 401497,
+      "endMs": 404295
+    },
+    {
+      "index": 83,
+      "text": "Give it a little more gas. [Pedal Banging] No, no, that's too much. You know what I think would help?",
+      "kind": "dialogue",
+      "startMs": 404400,
+      "endMs": 409663
+    },
+    {
+      "index": 84,
+      "text": "What? What would help? Nothing.",
+      "kind": "dialogue",
+      "startMs": 409772,
+      "endMs": 412832
+    },
+    {
+      "index": 85,
+      "text": "Oh, doctor. A 98-yard triple reverse... ties the score at 63-63.",
+      "kind": "dialogue",
+      "startMs": 412942,
+      "endMs": 418880
+    },
+    {
+      "index": 86,
+      "text": "We have seen nothing but razzle-dazzle here today... three visits from Morganna the Kissing Bandit... and the astonishing return of Jim Brown.",
+      "kind": "dialogue",
+      "startMs": 418981,
+      "endMs": 425687
+    },
+    {
+      "index": 87,
+      "text": "Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 425788,
+      "endMs": 427688
+    },
+    {
+      "index": 88,
+      "text": "Is that what I think it is?",
+      "kind": "dialogue",
+      "startMs": 427790,
+      "endMs": 430588
+    },
+    {
+      "index": 89,
+      "text": "Mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 434163,
+      "endMs": 436597
+    },
+    {
+      "index": 90,
+      "text": "I found... a penny!",
+      "kind": "dialogue",
+      "startMs": 436699,
+      "endMs": 439862
+    },
+    {
+      "index": 91,
+      "text": "Could this be the best day of my life?",
+      "kind": "dialogue",
+      "startMs": 439969,
+      "endMs": 443234
+    },
+    {
+      "index": 92,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 445841,
+      "endMs": 447741
+    },
+    {
+      "index": 93,
+      "text": "Looks like we have a new champion.",
+      "kind": "dialogue",
+      "startMs": 450079,
+      "endMs": 451979
+    },
+    {
+      "index": 94,
+      "text": "Ah, my beloved family.",
+      "kind": "dialogue",
+      "startMs": 453816,
+      "endMs": 455841
+    },
+    {
+      "index": 95,
+      "text": "How was church? [ Muttering ]",
+      "kind": "dialogue",
+      "startMs": 455951,
+      "endMs": 458613
+    },
+    {
+      "index": 96,
+      "text": "[ Snorting ]",
+      "kind": "sdh",
+      "startMs": 458721,
+      "endMs": 460450
+    },
+    {
+      "index": 97,
+      "text": "I, on the other hand, have been having the best day of my life... and I owe it all to skipping church.",
+      "kind": "dialogue",
+      "startMs": 460556,
+      "endMs": 465859
+    },
+    {
+      "index": 98,
+      "text": "That's a terrible thing to say! Kids, your father doesn't really mean that.",
+      "kind": "dialogue",
+      "startMs": 465961,
+      "endMs": 469761
+    },
+    {
+      "index": 99,
+      "text": "Like fun I don't. Marge, I'm never going to church again!",
+      "kind": "dialogue",
+      "startMs": 469665,
+      "endMs": 474159
+    },
+    {
+      "index": 100,
+      "text": "Homer, are you actually giving up your faith?",
+      "kind": "dialogue",
+      "startMs": 474270,
+      "endMs": 477671
+    },
+    {
+      "index": 101,
+      "text": "No. No, no, no, no, no, no.",
+      "kind": "dialogue",
+      "startMs": 477773,
+      "endMs": 480799
+    },
+    {
+      "index": 102,
+      "text": "Well, yes.",
+      "kind": "dialogue",
+      "startMs": 480910,
+      "endMs": 482741
+    },
+    {
+      "index": 103,
+      "text": "I can't believe you're giving up church, Homer.",
+      "kind": "dialogue",
+      "startMs": 486482,
+      "endMs": 489747
+    },
+    {
+      "index": 104,
+      "text": "Hey, what's the big deal about going to some building every Sunday?",
+      "kind": "dialogue",
+      "startMs": 489852,
+      "endMs": 493379
+    },
+    {
+      "index": 105,
+      "text": "I mean, isn't God everywhere? Amen, brother.",
+      "kind": "dialogue",
+      "startMs": 493489,
+      "endMs": 496049
+    },
+    {
+      "index": 106,
+      "text": "And don't you think that the Almighty has better things to worry about... than where one little guy spends one measly hour of his week?",
+      "kind": "dialogue",
+      "startMs": 496158,
+      "endMs": 502193
+    },
+    {
+      "index": 107,
+      "text": "Tell it, Daddy. And what if we pick the wrong religion?",
+      "kind": "dialogue",
+      "startMs": 502298,
+      "endMs": 505358
+    },
+    {
+      "index": 108,
+      "text": "Every week we're just making God madder and madder.",
+      "kind": "dialogue",
+      "startMs": 505468,
+      "endMs": 507993
+    },
+    {
+      "index": 109,
+      "text": "Testify!",
+      "kind": "dialogue",
+      "startMs": 508104,
+      "endMs": 510572
+    },
+    {
+      "index": 110,
+      "text": "[ Groaning ]",
+      "kind": "sdh",
+      "startMs": 510673,
+      "endMs": 512538
+    },
+    {
+      "index": 111,
+      "text": "Lord, my husband is by no means perfect... but he's a kind, decent man.",
+      "kind": "dialogue",
+      "startMs": 512641,
+      "endMs": 517805
+    },
+    {
+      "index": 112,
+      "text": "Please show him the error of his ways.",
+      "kind": "dialogue",
+      "startMs": 517913,
+      "endMs": 519972
+    },
+    {
+      "index": 113,
+      "text": "Marge, come to bed.",
+      "kind": "dialogue",
+      "startMs": 520082,
+      "endMs": 521982
+    },
+    {
+      "index": 114,
+      "text": "No, Homer.",
+      "kind": "dialogue",
+      "startMs": 522084,
+      "endMs": 523984
+    },
+    {
+      "index": 115,
+      "text": "He doesn't mean to be sacrilegious, Lord.",
+      "kind": "dialogue",
+      "startMs": 524086,
+      "endMs": 526680
+    },
+    {
+      "index": 116,
+      "text": "He just likes to sleep in on Sundays.",
+      "kind": "dialogue",
+      "startMs": 526789,
+      "endMs": 529417
+    },
+    {
+      "index": 117,
+      "text": "Marge. Come to bed, Marge.",
+      "kind": "dialogue",
+      "startMs": 529525,
+      "endMs": 532961
+    },
+    {
+      "index": 118,
+      "text": "[ Whispering ] Lord, please. He's not a bad person, Lord, really.",
+      "kind": "dialogue",
+      "startMs": 534797,
+      "endMs": 538096
+    },
+    {
+      "index": 119,
+      "text": "It's good for what ails ya. He doesn't mean any harm.",
+      "kind": "dialogue",
+      "startMs": 538200,
+      "endMs": 542261
+    },
+    {
+      "index": 120,
+      "text": "I can wait all--",
+      "kind": "dialogue",
+      "startMs": 542371,
+      "endMs": 544601
+    },
+    {
+      "index": 121,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 544707,
+      "endMs": 546937
+    },
+    {
+      "index": 122,
+      "text": "[Rumbling]",
+      "kind": "sdh",
+      "startMs": 552214,
+      "endMs": 554114
+    },
+    {
+      "index": 123,
+      "text": "[ Gasps ]",
+      "kind": "sdh",
+      "startMs": 554216,
+      "endMs": 556616
+    },
+    {
+      "index": 124,
+      "text": "[ Static Humming ]",
+      "kind": "sdh",
+      "startMs": 556719,
+      "endMs": 559119
+    },
+    {
+      "index": 125,
+      "text": "[ Gulps ]",
+      "kind": "sdh",
+      "startMs": 564226,
+      "endMs": 566160
+    },
+    {
+      "index": 126,
+      "text": "God?",
+      "kind": "dialogue",
+      "startMs": 566262,
+      "endMs": 568423
+    },
+    {
+      "index": 127,
+      "text": "Thou has forsaken my church!",
+      "kind": "dialogue",
+      "startMs": 568531,
+      "endMs": 572092
+    },
+    {
+      "index": 128,
+      "text": "Well, kind of, but-- But what?",
+      "kind": "dialogue",
+      "startMs": 572201,
+      "endMs": 575534
+    },
+    {
+      "index": 129,
+      "text": "I'm not a bad guy. I work hard and I love my kids.",
+      "kind": "dialogue",
+      "startMs": 575638,
+      "endMs": 580132
+    },
+    {
+      "index": 130,
+      "text": "So why should I spend half my Sunday hearing about how I'm going to hell?",
+      "kind": "dialogue",
+      "startMs": 580242,
+      "endMs": 583837
+    },
+    {
+      "index": 131,
+      "text": "Hmm, you've got a point there.",
+      "kind": "dialogue",
+      "startMs": 585047,
+      "endMs": 587709
+    },
+    {
+      "index": 132,
+      "text": "You know, sometimes... even I'd rather be watching football.",
+      "kind": "dialogue",
+      "startMs": 587817,
+      "endMs": 592948
+    },
+    {
+      "index": 133,
+      "text": "Does St. Louis still have a team?",
+      "kind": "dialogue",
+      "startMs": 593055,
+      "endMs": 594955
+    },
+    {
+      "index": 134,
+      "text": "No, they moved to Phoenix. Oh, yeah.",
+      "kind": "dialogue",
+      "startMs": 595057,
+      "endMs": 597116
+    },
+    {
+      "index": 135,
+      "text": "You know what I really hate about church? Those boring sermons.",
+      "kind": "dialogue",
+      "startMs": 597226,
+      "endMs": 601458
+    },
+    {
+      "index": 136,
+      "text": "Oh, I couldn't agree more.",
+      "kind": "dialogue",
+      "startMs": 601564,
+      "endMs": 604226
+    },
+    {
+      "index": 137,
+      "text": "That Reverend Lovejoy really displeases me.",
+      "kind": "dialogue",
+      "startMs": 604333,
+      "endMs": 606961
+    },
+    {
+      "index": 138,
+      "text": "I think I'll give him a canker sore.",
+      "kind": "dialogue",
+      "startMs": 607069,
+      "endMs": 609594
+    },
+    {
+      "index": 139,
+      "text": "Give him one for me. I will.",
+      "kind": "dialogue",
+      "startMs": 609705,
+      "endMs": 612230
+    },
+    {
+      "index": 140,
+      "text": "So I figure I should just try to live right-- [ Purring ] and worship you in my own way.",
+      "kind": "dialogue",
+      "startMs": 612341,
+      "endMs": 617404
+    },
+    {
+      "index": 141,
+      "text": "Homer, it's a deal.",
+      "kind": "dialogue",
+      "startMs": 617513,
+      "endMs": 619572
+    },
+    {
+      "index": 142,
+      "text": "Now, if you'll excuse me, I have to appear on a tortilla in Mexico.",
+      "kind": "dialogue",
+      "startMs": 619682,
+      "endMs": 623448
+    },
+    {
+      "index": 143,
+      "text": "Dad, can I ask you a question? Sure, honey.",
+      "kind": "dialogue",
+      "startMs": 633395,
+      "endMs": 635556
+    },
+    {
+      "index": 144,
+      "text": "Why are you dedicating your life to blasphemy?",
+      "kind": "dialogue",
+      "startMs": 635664,
+      "endMs": 638155
+    },
+    {
+      "index": 145,
+      "text": "Don't worry, sweetheart. If I'm wrong, I'll recant on my deathbed.",
+      "kind": "dialogue",
+      "startMs": 638267,
+      "endMs": 642135
+    },
+    {
+      "index": 146,
+      "text": "Hello, my animal friends. Peace be with you.",
+      "kind": "dialogue",
+      "startMs": 644440,
+      "endMs": 648069
+    },
+    {
+      "index": 147,
+      "text": "Guys, please, could you give me five minutes?",
+      "kind": "dialogue",
+      "startMs": 649778,
+      "endMs": 652144
+    },
+    {
+      "index": 148,
+      "text": "Reverend Lovejoy, I had a bit Of an ulterior motive in inviting you to dinner.",
+      "kind": "dialogue",
+      "startMs": 652248,
+      "endMs": 656810
+    },
+    {
+      "index": 149,
+      "text": "[ Shouts ] What? No, it's nothing bad.",
+      "kind": "dialogue",
+      "startMs": 656919,
+      "endMs": 659547
+    },
+    {
+      "index": 150,
+      "text": "I'm just concerned because my husband hasn't been attending your services lately.",
+      "kind": "dialogue",
+      "startMs": 659655,
+      "endMs": 663682
+    },
+    {
+      "index": 151,
+      "text": "Well, I wasn't sure I was doing the right thing... but then God himself told me I should seek a new path.",
+      "kind": "dialogue",
+      "startMs": 663792,
+      "endMs": 669195
+    },
+    {
+      "index": 152,
+      "text": "Oh, really? Yeah. He appeared before me in a dream... and I knew that was special because I usually dream about naked... Marge.",
+      "kind": "dialogue",
+      "startMs": 669298,
+      "endMs": 677029
+    },
+    {
+      "index": 153,
+      "text": "[ Groans ] So, Homer, you saw the big cheese?",
+      "kind": "dialogue",
+      "startMs": 677139,
+      "endMs": 680438
+    },
+    {
+      "index": 154,
+      "text": "What'd he look like? Perfect teeth, nice smell, a class act all the way.",
+      "kind": "dialogue",
+      "startMs": 680543,
+      "endMs": 685003
+    },
+    {
+      "index": 155,
+      "text": "Homer, you're crazy! Tell him this is all crazy.",
+      "kind": "dialogue",
+      "startMs": 685114,
+      "endMs": 689175
+    },
+    {
+      "index": 156,
+      "text": "Homer, I'd like you to remember Matthew 7:26.",
+      "kind": "dialogue",
+      "startMs": 689285,
+      "endMs": 692516
+    },
+    {
+      "index": 157,
+      "text": "The foolish man who built his house on sand.",
+      "kind": "dialogue",
+      "startMs": 692621,
+      "endMs": 695954
+    },
+    {
+      "index": 158,
+      "text": "And you remember...",
+      "kind": "dialogue",
+      "startMs": 696058,
+      "endMs": 698686
+    },
+    {
+      "index": 159,
+      "text": "Matthew 21 :1 7.",
+      "kind": "dialogue",
+      "startMs": 698794,
+      "endMs": 702252
+    },
+    {
+      "index": 160,
+      "text": "\"And he left them and went out of the city into Bethany and he lodged there\"?",
+      "kind": "dialogue",
+      "startMs": 702364,
+      "endMs": 706926
+    },
+    {
+      "index": 161,
+      "text": "Yeah. Think about it.",
+      "kind": "dialogue",
+      "startMs": 708270,
+      "endMs": 710602
+    },
+    {
+      "index": 162,
+      "text": "Hello, work? This is Homer Simpson.",
+      "kind": "dialogue",
+      "startMs": 710706,
+      "endMs": 713106
+    },
+    {
+      "index": 163,
+      "text": "I won't be coming in tomorrow. Religious holiday.",
+      "kind": "dialogue",
+      "startMs": 713208,
+      "endMs": 716439
+    },
+    {
+      "index": 164,
+      "text": "The, uh, Feast of Maximum Occupancy.",
+      "kind": "dialogue",
+      "startMs": 716545,
+      "endMs": 720037
+    },
+    {
+      "index": 165,
+      "text": "Pretty slick. You should join my religion, Moe.",
+      "kind": "dialogue",
+      "startMs": 720149,
+      "endMs": 723607
+    },
+    {
+      "index": 166,
+      "text": "It's great. No hell, no kneeling-- Sorry, Homer. I was born a snake handler, and I'll die a snake handler.",
+      "kind": "dialogue",
+      "startMs": 723719,
+      "endMs": 730014
+    },
+    {
+      "index": 167,
+      "text": "[Doorbell Rings]",
+      "kind": "sdh",
+      "startMs": 730125,
+      "endMs": 731615
+    },
+    {
+      "index": 168,
+      "text": "Neighbor, I heard about your heresy... and we've made it our mission to win you back to the flock.",
+      "kind": "dialogue",
+      "startMs": 732895,
+      "endMs": 738659
+    },
+    {
+      "index": 169,
+      "text": "No sale. Homer, Christian life isn't all praying and sacrifice.",
+      "kind": "dialogue",
+      "startMs": 738767,
+      "endMs": 742794
+    },
+    {
+      "index": 170,
+      "text": "Hey, dig this.",
+      "kind": "dialogue",
+      "startMs": 742905,
+      "endMs": 744805
+    },
+    {
+      "index": 171,
+      "text": "## [ Singing Religious Song ]",
+      "kind": "dialogue",
+      "startMs": 744907,
+      "endMs": 749173
+    },
+    {
+      "index": 172,
+      "text": "[ Snoring ] [Phone Ringing] ## [ Flanders Family Singing ]",
+      "kind": "dialogue",
+      "startMs": 749278,
+      "endMs": 756174
+    },
+    {
+      "index": 173,
+      "text": "## [ Singing ]",
+      "kind": "dialogue",
+      "startMs": 760322,
+      "endMs": 764122
+    },
+    {
+      "index": 174,
+      "text": "Leave me alone. Dad, the heathen's getting away.",
+      "kind": "dialogue",
+      "startMs": 764226,
+      "endMs": 767889
+    },
+    {
+      "index": 175,
+      "text": "I see him, son.",
+      "kind": "dialogue",
+      "startMs": 767997,
+      "endMs": 770090
+    },
+    {
+      "index": 176,
+      "text": "[ Crossing Bells Dinging ]",
+      "kind": "sdh",
+      "startMs": 773102,
+      "endMs": 774899
+    },
+    {
+      "index": 177,
+      "text": "[ Horn Blaring ]",
+      "kind": "sdh",
+      "startMs": 776472,
+      "endMs": 779100
+    },
+    {
+      "index": 178,
+      "text": "[ Screams ]",
+      "kind": "sdh",
+      "startMs": 793389,
+      "endMs": 795380
+    },
+    {
+      "index": 179,
+      "text": "[ Chuckles ]",
+      "kind": "sdh",
+      "startMs": 797393,
+      "endMs": 800692
+    },
+    {
+      "index": 180,
+      "text": "Where we going? Garbage Island.",
+      "kind": "dialogue",
+      "startMs": 800796,
+      "endMs": 802855
+    },
+    {
+      "index": 181,
+      "text": "[ Horn Blaring ]",
+      "kind": "sdh",
+      "startMs": 802965,
+      "endMs": 805229
+    },
+    {
+      "index": 182,
+      "text": "Huh?",
+      "kind": "dialogue",
+      "startMs": 829358,
+      "endMs": 831258
+    },
+    {
+      "index": 183,
+      "text": "[ Screaming ]",
+      "kind": "sdh",
+      "startMs": 832728,
+      "endMs": 835629
+    },
+    {
+      "index": 184,
+      "text": "[ Cheering ]",
+      "kind": "sdh",
+      "startMs": 840002,
+      "endMs": 841902
+    },
+    {
+      "index": 185,
+      "text": "Let's go, kids.",
+      "kind": "dialogue",
+      "startMs": 843238,
+      "endMs": 845138
+    },
+    {
+      "index": 186,
+      "text": "How come we have to go to church and Dad gets to stay home and watch cartoons?",
+      "kind": "dialogue",
+      "startMs": 845240,
+      "endMs": 848641
+    },
+    {
+      "index": 187,
+      "text": "[ Groans ]",
+      "kind": "sdh",
+      "startMs": 848744,
+      "endMs": 850735
+    },
+    {
+      "index": 188,
+      "text": "I have a responsibility to raise these children right.",
+      "kind": "dialogue",
+      "startMs": 850846,
+      "endMs": 854247
+    },
+    {
+      "index": 189,
+      "text": "And unless you change, I'll have to tell them their father is... well, wicked.",
+      "kind": "dialogue",
+      "startMs": 854349,
+      "endMs": 860149
+    },
+    {
+      "index": 190,
+      "text": "Kids, let me tell you about another so-called \"wicked\" guy.",
+      "kind": "dialogue",
+      "startMs": 860255,
+      "endMs": 863088
+    },
+    {
+      "index": 191,
+      "text": "He had long hair and some wild ideas... and he didn't always do what other people thought was right.",
+      "kind": "dialogue",
+      "startMs": 863192,
+      "endMs": 869756
+    },
+    {
+      "index": 192,
+      "text": "And that man's name was--",
+      "kind": "dialogue",
+      "startMs": 869865,
+      "endMs": 872425
+    },
+    {
+      "index": 193,
+      "text": "I forget. But the point is-- I forget that too. Marge, you know who I'm talking about.",
+      "kind": "dialogue",
+      "startMs": 873969,
+      "endMs": 880406
+    },
+    {
+      "index": 194,
+      "text": "He used to drive that blue car. Kids, could you wait outside for us?",
+      "kind": "dialogue",
+      "startMs": 880509,
+      "endMs": 883967
+    },
+    {
+      "index": 195,
+      "text": "Homer, please don't make me choose between my man and my god... because you just can't win.",
+      "kind": "dialogue",
+      "startMs": 885681,
+      "endMs": 890684
+    },
+    {
+      "index": 196,
+      "text": "There you go again. Always taking someone else's side-- Flanders, the water department, God.",
+      "kind": "dialogue",
+      "startMs": 890786,
+      "endMs": 898148
+    },
+    {
+      "index": 197,
+      "text": "I'm only going to ask you one last time.",
+      "kind": "dialogue",
+      "startMs": 898260,
+      "endMs": 901923
+    },
+    {
+      "index": 198,
+      "text": "Are you sure you won't come with us to church?",
+      "kind": "dialogue",
+      "startMs": 902030,
+      "endMs": 904123
+    },
+    {
+      "index": 199,
+      "text": "[ Man On TV] Coming up next: make your own ladder.",
+      "kind": "dialogue",
+      "startMs": 904233,
+      "endMs": 906463
+    },
+    {
+      "index": 200,
+      "text": "Very sure.",
+      "kind": "dialogue",
+      "startMs": 906568,
+      "endMs": 908798
+    },
+    {
+      "index": 201,
+      "text": "My friends, the devil walks among us!",
+      "kind": "dialogue",
+      "startMs": 911640,
+      "endMs": 915041
+    },
+    {
+      "index": 202,
+      "text": "[ Chattering ]",
+      "kind": "sdh",
+      "startMs": 915144,
+      "endMs": 917544
+    },
+    {
+      "index": 203,
+      "text": "I got him! No, don't look for the pitchfork and pointy tail.",
+      "kind": "dialogue",
+      "startMs": 917646,
+      "endMs": 920945
+    },
+    {
+      "index": 204,
+      "text": "Today's devil has assumed a more seductive form... pleasing to the eye.",
+      "kind": "dialogue",
+      "startMs": 921049,
+      "endMs": 925919
+    },
+    {
+      "index": 205,
+      "text": "Oooh, a interview with Lorne Michaels.",
+      "kind": "dialogue",
+      "startMs": 927156,
+      "endMs": 930353
+    },
+    {
+      "index": 206,
+      "text": "Oooh. Wait. That's no good.",
+      "kind": "dialogue",
+      "startMs": 930459,
+      "endMs": 933019
+    },
+    {
+      "index": 207,
+      "text": "Hey, now we're talking.",
+      "kind": "dialogue",
+      "startMs": 933128,
+      "endMs": 935221
+    },
+    {
+      "index": 208,
+      "text": "\"Our unabashed dictionary defines I.U.D. as...",
+      "kind": "dialogue",
+      "startMs": 935330,
+      "endMs": 938663
+    },
+    {
+      "index": 209,
+      "text": "\"love springs internal.\"'",
+      "kind": "dialogue",
+      "startMs": 938767,
+      "endMs": 940894
+    },
+    {
+      "index": 210,
+      "text": "I don't get it. [Doorbell Chimes] Hello.",
+      "kind": "dialogue",
+      "startMs": 942604,
+      "endMs": 946335
+    },
+    {
+      "index": 211,
+      "text": "I'm collecting for the Brotherhood of Jewish Clowns.",
+      "kind": "dialogue",
+      "startMs": 946441,
+      "endMs": 949899
+    },
+    {
+      "index": 212,
+      "text": "Last year, tornadoes claimed the lives of75Jewish clowns.",
+      "kind": "dialogue",
+      "startMs": 950012,
+      "endMs": 954278
+    },
+    {
+      "index": 213,
+      "text": "The worst incident was during our convention in Lubbock, Texas.",
+      "kind": "dialogue",
+      "startMs": 954383,
+      "endMs": 958080
+    },
+    {
+      "index": 214,
+      "text": "There were floppy shoes and rainbow wigs everywhere.",
+      "kind": "dialogue",
+      "startMs": 958187,
+      "endMs": 961884
+    },
+    {
+      "index": 215,
+      "text": "It was terrible. [ Sobbing ] Wait a minute. Is this a religious thing?",
+      "kind": "dialogue",
+      "startMs": 961990,
+      "endMs": 967521
+    },
+    {
+      "index": 216,
+      "text": "A religious clown thing, yes.",
+      "kind": "dialogue",
+      "startMs": 967629,
+      "endMs": 969597
+    },
+    {
+      "index": 217,
+      "text": "Sorry. Well, bless you any-- Remember the Sabbath day, to keep it holy!",
+      "kind": "dialogue",
+      "startMs": 969698,
+      "endMs": 975191
+    },
+    {
+      "index": 218,
+      "text": "Apu, I see you're not in church.",
+      "kind": "dialogue",
+      "startMs": 976872,
+      "endMs": 979033
+    },
+    {
+      "index": 219,
+      "text": "Oh, but I am. I have a shrine to Ganesha... the god of worldly wisdom located in the employee lounge.",
+      "kind": "dialogue",
+      "startMs": 979141,
+      "endMs": 984609
+    },
+    {
+      "index": 220,
+      "text": "Hey, Ganesha, want a peanut? Please do not offer my god a peanut.",
+      "kind": "dialogue",
+      "startMs": 984713,
+      "endMs": 988410
+    },
+    {
+      "index": 221,
+      "text": "No offense, Apu, but when they were handing out religions... you must've been out taking a whiz.",
+      "kind": "dialogue",
+      "startMs": 988517,
+      "endMs": 992753
+    },
+    {
+      "index": 222,
+      "text": "Mr. Simpson, please pay for your purchases and get out and come again.",
+      "kind": "dialogue",
+      "startMs": 992855,
+      "endMs": 996552
+    },
+    {
+      "index": 223,
+      "text": "Pride goeth before destruction!",
+      "kind": "dialogue",
+      "startMs": 996658,
+      "endMs": 999786
+    },
+    {
+      "index": 224,
+      "text": "Boy, everyone is stupid except me.",
+      "kind": "dialogue",
+      "startMs": 999895,
+      "endMs": 1004764
+    },
+    {
+      "index": 225,
+      "text": "[Snoring]",
+      "kind": "sdh",
+      "startMs": 1006068,
+      "endMs": 1007968
+    },
+    {
+      "index": 226,
+      "text": "Marge, turn down the heat.",
+      "kind": "dialogue",
+      "startMs": 1023852,
+      "endMs": 1026377
+    },
+    {
+      "index": 227,
+      "text": "That's better.",
+      "kind": "dialogue",
+      "startMs": 1026488,
+      "endMs": 1028388
+    },
+    {
+      "index": 228,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 1032194,
+      "endMs": 1034094
+    },
+    {
+      "index": 229,
+      "text": "[ Sniffing, Whines ]",
+      "kind": "sdh",
+      "startMs": 1037032,
+      "endMs": 1039057
+    },
+    {
+      "index": 230,
+      "text": "[ Growling ]",
+      "kind": "sdh",
+      "startMs": 1040469,
+      "endMs": 1043438
+    },
+    {
+      "index": 231,
+      "text": "[ Screams ] Fire! What do I do? What do I do?",
+      "kind": "dialogue",
+      "startMs": 1050078,
+      "endMs": 1052911
+    },
+    {
+      "index": 232,
+      "text": "[ Coughing ]",
+      "kind": "sdh",
+      "startMs": 1053015,
+      "endMs": 1054983
+    },
+    {
+      "index": 233,
+      "text": "Oh, the song, the song.",
+      "kind": "dialogue",
+      "startMs": 1055083,
+      "endMs": 1056846
+    },
+    {
+      "index": 234,
+      "text": "## [ Singing ]",
+      "kind": "dialogue",
+      "startMs": 1056952,
+      "endMs": 1060513
+    },
+    {
+      "index": 235,
+      "text": "D'oh! [ Coughing ]",
+      "kind": "dialogue",
+      "startMs": 1065394,
+      "endMs": 1067862
+    },
+    {
+      "index": 236,
+      "text": "[Apu Gasps] Fire at the old Simpson place!",
+      "kind": "dialogue",
+      "startMs": 1069531,
+      "endMs": 1072329
+    },
+    {
+      "index": 237,
+      "text": "You're on your honor not to steal anything. Oh, we won't.",
+      "kind": "dialogue",
+      "startMs": 1075537,
+      "endMs": 1079530
+    },
+    {
+      "index": 238,
+      "text": "Little Jamshed, the store is in your hands.",
+      "kind": "dialogue",
+      "startMs": 1081443,
+      "endMs": 1084776
+    },
+    {
+      "index": 239,
+      "text": "How I have waited for this day. [ Cocks Shotgun ]",
+      "kind": "dialogue",
+      "startMs": 1084880,
+      "endMs": 1087940
+    },
+    {
+      "index": 240,
+      "text": "[ Siren Wailing ]",
+      "kind": "sdh",
+      "startMs": 1090085,
+      "endMs": 1092144
+    },
+    {
+      "index": 241,
+      "text": "[ Quacking ]",
+      "kind": "sdh",
+      "startMs": 1097426,
+      "endMs": 1100418
+    },
+    {
+      "index": 242,
+      "text": "You ducks are really trying my patience!",
+      "kind": "dialogue",
+      "startMs": 1102931,
+      "endMs": 1105832
+    },
+    {
+      "index": 243,
+      "text": "But you're so cute.",
+      "kind": "dialogue",
+      "startMs": 1105934,
+      "endMs": 1107834
+    },
+    {
+      "index": 244,
+      "text": "Homer. Homer!",
+      "kind": "dialogue",
+      "startMs": 1109271,
+      "endMs": 1111831
+    },
+    {
+      "index": 245,
+      "text": "No!",
+      "kind": "dialogue",
+      "startMs": 1119915,
+      "endMs": 1123146
+    },
+    {
+      "index": 246,
+      "text": "[ Homer Moans ]",
+      "kind": "sdh",
+      "startMs": 1126488,
+      "endMs": 1128353
+    },
+    {
+      "index": 247,
+      "text": "Dear Lord, may your loving hand guide Homer to the mattress, square and true.",
+      "kind": "dialogue",
+      "startMs": 1134663,
+      "endMs": 1139066
+    },
+    {
+      "index": 248,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 1144272,
+      "endMs": 1146399
+    },
+    {
+      "index": 249,
+      "text": "[Siren Wailing]",
+      "kind": "sdh",
+      "startMs": 1152347,
+      "endMs": 1154406
+    },
+    {
+      "index": 250,
+      "text": "[ Coughing ]",
+      "kind": "sdh",
+      "startMs": 1154516,
+      "endMs": 1156916
+    },
+    {
+      "index": 251,
+      "text": "Flanders, you saved me.",
+      "kind": "dialogue",
+      "startMs": 1157019,
+      "endMs": 1159715
+    },
+    {
+      "index": 252,
+      "text": "Why?",
+      "kind": "dialogue",
+      "startMs": 1159821,
+      "endMs": 1161618
+    },
+    {
+      "index": 253,
+      "text": "Heck, you'd have done the same for me.",
+      "kind": "dialogue",
+      "startMs": 1161723,
+      "endMs": 1164715
+    },
+    {
+      "index": 254,
+      "text": "Help! Help!",
+      "kind": "dialogue",
+      "startMs": 1164826,
+      "endMs": 1167420
+    },
+    {
+      "index": 255,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 1167529,
+      "endMs": 1169588
+    },
+    {
+      "index": 256,
+      "text": "That's right, old friend.",
+      "kind": "dialogue",
+      "startMs": 1169698,
+      "endMs": 1171928
+    },
+    {
+      "index": 257,
+      "text": "[ Bart, Lisa ] Dad! Oh, Homie, are you all right?",
+      "kind": "dialogue",
+      "startMs": 1172034,
+      "endMs": 1174730
+    },
+    {
+      "index": 258,
+      "text": "Our magazines and roach traps, gone. All gone.",
+      "kind": "dialogue",
+      "startMs": 1174836,
+      "endMs": 1179899
+    },
+    {
+      "index": 259,
+      "text": "[ Cat Screeching ]",
+      "kind": "sdh",
+      "startMs": 1180008,
+      "endMs": 1182203
+    },
+    {
+      "index": 260,
+      "text": "I saved your cat. Ow! That hurt.",
+      "kind": "dialogue",
+      "startMs": 1182310,
+      "endMs": 1187179
+    },
+    {
+      "index": 261,
+      "text": "Hey, what are these axes for?",
+      "kind": "dialogue",
+      "startMs": 1188283,
+      "endMs": 1190751
+    },
+    {
+      "index": 262,
+      "text": "I don't know. Chopping stuff. Gotcha.",
+      "kind": "dialogue",
+      "startMs": 1190852,
+      "endMs": 1193912
+    },
+    {
+      "index": 263,
+      "text": "Uh, that's some nice chopping.",
+      "kind": "dialogue",
+      "startMs": 1196324,
+      "endMs": 1198224
+    },
+    {
+      "index": 264,
+      "text": "Truly, this was an act of God.",
+      "kind": "dialogue",
+      "startMs": 1198326,
+      "endMs": 1201352
+    },
+    {
+      "index": 265,
+      "text": "Hey, wait a minute. Flanders is a regular Charlie Church... and God didn't save his house.",
+      "kind": "dialogue",
+      "startMs": 1203565,
+      "endMs": 1208899
+    },
+    {
+      "index": 266,
+      "text": "D'oh! Any valuables in the house?",
+      "kind": "dialogue",
+      "startMs": 1211306,
+      "endMs": 1214867
+    },
+    {
+      "index": 267,
+      "text": "Well, the Picasso, my collection of classic cars-- Sorry. This policy only covers actual losses, not made-up stuff.",
+      "kind": "dialogue",
+      "startMs": 1214976,
+      "endMs": 1223012
+    },
+    {
+      "index": 268,
+      "text": "Well, that's just great.",
+      "kind": "dialogue",
+      "startMs": 1223118,
+      "endMs": 1224847
+    },
+    {
+      "index": 269,
+      "text": "Fire, man's oldest foe.",
+      "kind": "dialogue",
+      "startMs": 1224953,
+      "endMs": 1227615
+    },
+    {
+      "index": 270,
+      "text": "Insatiable, remorseless, unquenchable.",
+      "kind": "dialogue",
+      "startMs": 1227722,
+      "endMs": 1230418
+    },
+    {
+      "index": 271,
+      "text": "Hey, it's out. [ Cheering ] Coming up next, which work better-- springy clothespins or the other kind?",
+      "kind": "dialogue",
+      "startMs": 1230525,
+      "endMs": 1238226
+    },
+    {
+      "index": 272,
+      "text": "You know, I have a feeling there's a lesson here.",
+      "kind": "dialogue",
+      "startMs": 1242537,
+      "endMs": 1245529
+    },
+    {
+      "index": 273,
+      "text": "Yes, the lesson is-- No, don't tell me. I'll get it.",
+      "kind": "dialogue",
+      "startMs": 1245640,
+      "endMs": 1249201
+    },
+    {
+      "index": 274,
+      "text": "Oh, I know. The Lord is vengeful.",
+      "kind": "dialogue",
+      "startMs": 1249311,
+      "endMs": 1253042
+    },
+    {
+      "index": 275,
+      "text": "O Spiteful One, show me who to smite, and they shall be \"smoten.\"",
+      "kind": "dialogue",
+      "startMs": 1253148,
+      "endMs": 1257517
+    },
+    {
+      "index": 276,
+      "text": "Homer, God didn't Set your house on fire.",
+      "kind": "dialogue",
+      "startMs": 1257619,
+      "endMs": 1260110
+    },
+    {
+      "index": 277,
+      "text": "No, but he was working in the hearts Of your friends and neighbors... when they went to your aid... be they Christian, Jew or... miscellaneous.",
+      "kind": "dialogue",
+      "startMs": 1260222,
+      "endMs": 1269355
+    },
+    {
+      "index": 278,
+      "text": "Hindu. There are 700 million of us.",
+      "kind": "dialogue",
+      "startMs": 1269464,
+      "endMs": 1271728
+    },
+    {
+      "index": 279,
+      "text": "Aw, that's super. I was rude to every one of you.",
+      "kind": "dialogue",
+      "startMs": 1271833,
+      "endMs": 1274996
+    },
+    {
+      "index": 280,
+      "text": "And you saved my life when you could have just left me to fry... like the proverbial pancake that I am.",
+      "kind": "dialogue",
+      "startMs": 1275103,
+      "endMs": 1281567
+    },
+    {
+      "index": 281,
+      "text": "Oh, Homey, I'm so glad to hear you say that.",
+      "kind": "dialogue",
+      "startMs": 1281676,
+      "endMs": 1285009
+    },
+    {
+      "index": 282,
+      "text": "Now, would you give church another try?",
+      "kind": "dialogue",
+      "startMs": 1285113,
+      "endMs": 1288082
+    },
+    {
+      "index": 283,
+      "text": "I'll be there next Sunday, front row, center.",
+      "kind": "dialogue",
+      "startMs": 1288183,
+      "endMs": 1291641
+    },
+    {
+      "index": 284,
+      "text": "[ Snoring Loudly]",
+      "kind": "sdh",
+      "startMs": 1291820,
+      "endMs": 1294653
+    },
+    {
+      "index": 285,
+      "text": "####[Harp] Don't feel bad, Homer. Nine out often religions fail in their first year.",
+      "kind": "dialogue",
+      "startMs": 1296825,
+      "endMs": 1305128
+    },
+    {
+      "index": 286,
+      "text": "That's game, Hendrix!",
+      "kind": "dialogue",
+      "startMs": 1306735,
+      "endMs": 1308999
+    },
+    {
+      "index": 287,
+      "text": "God, I gotta ask you something. What's the meaning of life?",
+      "kind": "dialogue",
+      "startMs": 1309104,
+      "endMs": 1313040
+    },
+    {
+      "index": 288,
+      "text": "Homer, I can't tell you that.",
+      "kind": "dialogue",
+      "startMs": 1313141,
+      "endMs": 1315336
+    },
+    {
+      "index": 289,
+      "text": "Come on. You'll find out when you die.",
+      "kind": "dialogue",
+      "startMs": 1315443,
+      "endMs": 1319379
+    },
+    {
+      "index": 290,
+      "text": "I can't wait that long. You can't wait six months?",
+      "kind": "dialogue",
+      "startMs": 1319481,
+      "endMs": 1322814
+    },
+    {
+      "index": 291,
+      "text": "No, tell me now.",
+      "kind": "dialogue",
+      "startMs": 1322918,
+      "endMs": 1324977
+    },
+    {
+      "index": 292,
+      "text": "Well, okay.",
+      "kind": "dialogue",
+      "startMs": 1325086,
+      "endMs": 1327088
+    },
+    {
+      "index": 293,
+      "text": "Well, okay.",
+      "kind": "dialogue",
+      "startMs": 1327088,
+      "endMs": 1327417
+    },
+    {
+      "index": 294,
+      "text": "The meaning of life is--",
+      "kind": "dialogue",
+      "startMs": 1327522,
+      "endMs": 1330082
+    },
+    {
+      "index": 295,
+      "text": "[ People Chattering ] Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1372167,
+      "endMs": 2000
+    }
+  ]
+}

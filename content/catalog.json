@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-30T22:20:24.102Z",
+  "titles": [
+    {
+      "id": "sample-episode",
+      "title": "Sample Episode",
+      "lineCount": 4,
+      "sourceFilename": "sample-episode.srt",
+      "importedAt": "2026-08-30T21:31:24.762Z",
+      "meta": {
+        "year": 1990
+      }
+    },
+    {
+      "id": "the-simpsons---4x01---kamp-krustyen",
+      "title": "The Simpsons - 4x01 - Kamp Krusty.en",
+      "lineCount": 304,
+      "sourceFilename": "The Simpsons - 4x01 - Kamp Krusty.en.srt",
+      "importedAt": "2026-08-30T22:20:24.094Z"
+    },
+    {
+      "id": "the-simpsons---4x02---a-streetcar-named-margeen",
+      "title": "The Simpsons - 4x02 - A Streetcar Named Marge.en",
+      "lineCount": 265,
+      "sourceFilename": "The Simpsons - 4x02 - A Streetcar Named Marge.en.srt",
+      "importedAt": "2026-08-30T22:20:24.098Z"
+    },
+    {
+      "id": "the-simpsons---4x03---homer-the-hereticen",
+      "title": "The Simpsons - 4x03 - Homer the Heretic.en",
+      "lineCount": 296,
+      "sourceFilename": "The Simpsons - 4x03 - Homer the Heretic.en.srt",
+      "importedAt": "2026-08-30T22:20:24.100Z"
+    },
+    {
+      "id": "the-simpsons---4x04---lisa-the-beauty-queenen",
+      "title": "The Simpsons - 4x04 - Lisa the Beauty Queen.en",
+      "lineCount": 324,
+      "sourceFilename": "The Simpsons - 4x04 - Lisa the Beauty Queen.en.srt",
+      "importedAt": "2026-08-30T22:20:24.101Z"
+    }
+  ]
+}
