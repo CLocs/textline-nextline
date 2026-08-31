@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Title } from "../types/content";
 import type { McqQuestion } from "../lib/game/mcq";
-import type { GameRun } from "../lib/game/session";
+import { canGoBack, type GameRun } from "../lib/game/session";
 import { isStarred, toggleStar } from "../lib/stars/store";
 import { HistorySidebar } from "./HistorySidebar";
 
@@ -14,6 +14,7 @@ type Props = {
   progress: string;
   onChoose: (lineIndex: number) => void;
   onSkip: () => void;
+  onGoBack: () => void;
   onQuit: () => void;
   onFeedbackDone: () => void;
 };
@@ -27,6 +28,7 @@ export function PlayScreen({
   progress,
   onChoose,
   onSkip,
+  onGoBack,
   onQuit,
   onFeedbackDone,
 }: Props) {
@@ -109,6 +111,15 @@ export function PlayScreen({
 
         {run.mode === "fun" && (
           <div className="skip-row">
+            {canGoBack(run) && (
+              <button
+                type="button"
+                className="button ghost"
+                onClick={onGoBack}
+              >
+                ← Previous question
+              </button>
+            )}
             <button
               type="button"
               className="button ghost"

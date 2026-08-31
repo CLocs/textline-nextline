@@ -1,0 +1,2452 @@
+{
+  "id": "the-simpsons---4x19---the-fronten",
+  "title": "The Simpsons - 4x19 - The Front.en",
+  "sourceFilename": "The Simpsons - 4x19 - The Front.en.srt",
+  "importedAt": "2026-08-31T04:14:29.516Z",
+  "lineCount": 349,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[Chorus] ## The Simpsons ##",
+      "kind": "dialogue",
+      "startMs": 2645,
+      "endMs": 5944
+    },
+    {
+      "index": 1,
+      "text": "[Bell Ringing]",
+      "kind": "sdh",
+      "startMs": 16726,
+      "endMs": 18626
+    },
+    {
+      "index": 2,
+      "text": "[Whistle Blowing]",
+      "kind": "sdh",
+      "startMs": 23499,
+      "endMs": 26525
+    },
+    {
+      "index": 3,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 29038,
+      "endMs": 30938
+    },
+    {
+      "index": 4,
+      "text": "## [Jazzy Solo ]",
+      "kind": "dialogue",
+      "startMs": 36679,
+      "endMs": 38544
+    },
+    {
+      "index": 5,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 58668,
+      "endMs": 60568
+    },
+    {
+      "index": 6,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 60670,
+      "endMs": 62570
+    },
+    {
+      "index": 7,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 63940,
+      "endMs": 65840
+    },
+    {
+      "index": 8,
+      "text": "[ Trumpeting ]",
+      "kind": "sdh",
+      "startMs": 81090,
+      "endMs": 83558
+    },
+    {
+      "index": 9,
+      "text": "[Applause]",
+      "kind": "sdh",
+      "startMs": 96906,
+      "endMs": 98806
+    },
+    {
+      "index": 10,
+      "text": "Mmm! Delicious!",
+      "kind": "dialogue",
+      "startMs": 98908,
+      "endMs": 100808
+    },
+    {
+      "index": 11,
+      "text": "Now, Krusty, I hear it's your birthday... so I got your mother's recipe for matzohbrei.",
+      "kind": "dialogue",
+      "startMs": 100910,
+      "endMs": 105312
+    },
+    {
+      "index": 12,
+      "text": "Hey, I don't do The Jewish stuff on the air.",
+      "kind": "dialogue",
+      "startMs": 105414,
+      "endMs": 107814
+    },
+    {
+      "index": 13,
+      "text": "But, Hershel, bubbeleh-- Ix-nay on the ew-Jay. Roll the cartoon.",
+      "kind": "dialogue",
+      "startMs": 107917,
+      "endMs": 112285
+    },
+    {
+      "index": 14,
+      "text": "It's so sad that Krusty is ashamed of his roots.",
+      "kind": "dialogue",
+      "startMs": 112388,
+      "endMs": 115255
+    },
+    {
+      "index": 15,
+      "text": "Marge, it happened again.",
+      "kind": "dialogue",
+      "startMs": 115358,
+      "endMs": 117258
+    },
+    {
+      "index": 16,
+      "text": "[ Groans ]",
+      "kind": "sdh",
+      "startMs": 117360,
+      "endMs": 119328
+    },
+    {
+      "index": 17,
+      "text": "[ Grunting Angrily]",
+      "kind": "sdh",
+      "startMs": 120363,
+      "endMs": 122263
+    },
+    {
+      "index": 18,
+      "text": "Ohh.",
+      "kind": "dialogue",
+      "startMs": 123432,
+      "endMs": 125332
+    },
+    {
+      "index": 19,
+      "text": "What are you gonna change your name to when you grow up?",
+      "kind": "dialogue",
+      "startMs": 125434,
+      "endMs": 128335
+    },
+    {
+      "index": 20,
+      "text": "Lois Sanborn.",
+      "kind": "dialogue",
+      "startMs": 128437,
+      "endMs": 129461
+    },
+    {
+      "index": 21,
+      "text": "Steve Bennett.",
+      "kind": "dialogue",
+      "startMs": 129572,
+      "endMs": 131164
+    },
+    {
+      "index": 22,
+      "text": "####[Singing Theme]",
+      "kind": "dialogue",
+      "startMs": 131274,
+      "endMs": 134266
+    },
+    {
+      "index": 23,
+      "text": "Ow. Hee-hee-hee.",
+      "kind": "dialogue",
+      "startMs": 142518,
+      "endMs": 144042
+    },
+    {
+      "index": 24,
+      "text": "Ow. Hee-hee-hee.",
+      "kind": "dialogue",
+      "startMs": 144153,
+      "endMs": 145711
+    },
+    {
+      "index": 25,
+      "text": "Ow. Hee-hee-hee.",
+      "kind": "dialogue",
+      "startMs": 145821,
+      "endMs": 147755
+    },
+    {
+      "index": 26,
+      "text": "This is a rather lifeless outing.",
+      "kind": "dialogue",
+      "startMs": 147857,
+      "endMs": 149757
+    },
+    {
+      "index": 27,
+      "text": "Don't worry. They're building to something.",
+      "kind": "dialogue",
+      "startMs": 149859,
+      "endMs": 151850
+    },
+    {
+      "index": 28,
+      "text": "Oww. Hee-hee-hee.",
+      "kind": "dialogue",
+      "startMs": 151961,
+      "endMs": 154293
+    },
+    {
+      "index": 29,
+      "text": "[ Together] Kids, say no to drugs!",
+      "kind": "dialogue",
+      "startMs": 154397,
+      "endMs": 157161
+    },
+    {
+      "index": 30,
+      "text": "Ehh, I could pull a better cartoon out of my a-- [ Chuckles ] Hey! Whoa! Wasn't that great, kids?",
+      "kind": "dialogue",
+      "startMs": 163606,
+      "endMs": 169578
+    },
+    {
+      "index": 31,
+      "text": "That's as bad as the tasteless \"Itchy and Sambo\" cartoons of the late '30s.",
+      "kind": "dialogue",
+      "startMs": 169679,
+      "endMs": 174173
+    },
+    {
+      "index": 32,
+      "text": "The writers should be ashamed of themselves.",
+      "kind": "dialogue",
+      "startMs": 174283,
+      "endMs": 176683
+    },
+    {
+      "index": 33,
+      "text": "Cartoons have writers? Ehh, sort of.",
+      "kind": "dialogue",
+      "startMs": 176786,
+      "endMs": 179220
+    },
+    {
+      "index": 34,
+      "text": "Oh, yeah? Well, you and I could write a better cartoon than that.",
+      "kind": "dialogue",
+      "startMs": 179322,
+      "endMs": 182814
+    },
+    {
+      "index": 35,
+      "text": "Write a cartoon ourselves?",
+      "kind": "dialogue",
+      "startMs": 182925,
+      "endMs": 184825
+    },
+    {
+      "index": 36,
+      "text": "Bart, are you thinking what I'm thinking?",
+      "kind": "dialogue",
+      "startMs": 184927,
+      "endMs": 187452
+    },
+    {
+      "index": 37,
+      "text": "Probably not.",
+      "kind": "dialogue",
+      "startMs": 187563,
+      "endMs": 189463
+    },
+    {
+      "index": 38,
+      "text": "Lie in the snow and count to 60.",
+      "kind": "dialogue",
+      "startMs": 189565,
+      "endMs": 192534
+    },
+    {
+      "index": 39,
+      "text": "Hyah!",
+      "kind": "dialogue",
+      "startMs": 193803,
+      "endMs": 195703
+    },
+    {
+      "index": 40,
+      "text": "[Sinister Chuckling]",
+      "kind": "sdh",
+      "startMs": 195805,
+      "endMs": 197705
+    },
+    {
+      "index": 41,
+      "text": "Merry Christmas, suckers!",
+      "kind": "dialogue",
+      "startMs": 197807,
+      "endMs": 200708
+    },
+    {
+      "index": 42,
+      "text": "[Marge] \"Third notice\"?",
+      "kind": "dialogue",
+      "startMs": 201744,
+      "endMs": 203609
+    },
+    {
+      "index": 43,
+      "text": "\"Final notice\"?",
+      "kind": "dialogue",
+      "startMs": 203713,
+      "endMs": 205613
+    },
+    {
+      "index": 44,
+      "text": "\"Some guys are coming\"?",
+      "kind": "dialogue",
+      "startMs": 205715,
+      "endMs": 207615
+    },
+    {
+      "index": 45,
+      "text": "Oh, what's this?",
+      "kind": "dialogue",
+      "startMs": 207717,
+      "endMs": 209981
+    },
+    {
+      "index": 46,
+      "text": "An invitation to our high school reunion.",
+      "kind": "dialogue",
+      "startMs": 210086,
+      "endMs": 212850
+    },
+    {
+      "index": 47,
+      "text": "Gee, that's odd. They didn't send one to you.",
+      "kind": "dialogue",
+      "startMs": 212955,
+      "endMs": 215856
+    },
+    {
+      "index": 48,
+      "text": "[ Thinking ] This is it, Homer.",
+      "kind": "dialogue",
+      "startMs": 215958,
+      "endMs": 217858
+    },
+    {
+      "index": 49,
+      "text": "It's time to tell her the terrible secret from your past.",
+      "kind": "dialogue",
+      "startMs": 217960,
+      "endMs": 220690
+    },
+    {
+      "index": 50,
+      "text": "Marge, I ate those fancy soaps you bought for the bathroom.",
+      "kind": "dialogue",
+      "startMs": 220796,
+      "endMs": 224630
+    },
+    {
+      "index": 51,
+      "text": "Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 224734,
+      "endMs": 226361
+    },
+    {
+      "index": 52,
+      "text": "[ Thinking ] No, the other secret.",
+      "kind": "dialogue",
+      "startMs": 226469,
+      "endMs": 228369
+    },
+    {
+      "index": 53,
+      "text": "Marge, I never graduated from high school.",
+      "kind": "dialogue",
+      "startMs": 228471,
+      "endMs": 231736
+    },
+    {
+      "index": 54,
+      "text": "Well, that still doesn't explain why you ate my soap.",
+      "kind": "dialogue",
+      "startMs": 231841,
+      "endMs": 234742
+    },
+    {
+      "index": 55,
+      "text": "Wait. Maybe it does.",
+      "kind": "dialogue",
+      "startMs": 234844,
+      "endMs": 236971
+    },
+    {
+      "index": 56,
+      "text": "I never passed Remedial Science 1 -A.",
+      "kind": "dialogue",
+      "startMs": 237079,
+      "endMs": 239809
+    },
+    {
+      "index": 57,
+      "text": "And you're a nuclear technician?",
+      "kind": "dialogue",
+      "startMs": 239915,
+      "endMs": 242315
+    },
+    {
+      "index": 58,
+      "text": "Marge, ix-nay on the uclear-nay echnician-tay.",
+      "kind": "dialogue",
+      "startMs": 242418,
+      "endMs": 246081
+    },
+    {
+      "index": 59,
+      "text": "What did you say? I don't know. I flunked Latin too.",
+      "kind": "dialogue",
+      "startMs": 246188,
+      "endMs": 250454
+    },
+    {
+      "index": 60,
+      "text": "According to this book, the first thing we need is a setting.",
+      "kind": "dialogue",
+      "startMs": 251761,
+      "endMs": 254787
+    },
+    {
+      "index": 61,
+      "text": "Okay. Setting, setting, setting... setting.",
+      "kind": "dialogue",
+      "startMs": 254897,
+      "endMs": 259061
+    },
+    {
+      "index": 62,
+      "text": "[ Gasps, Grunts ]",
+      "kind": "sdh",
+      "startMs": 261370,
+      "endMs": 263770
+    },
+    {
+      "index": 63,
+      "text": "[Snap]",
+      "kind": "sdh",
+      "startMs": 263873,
+      "endMs": 265773
+    },
+    {
+      "index": 64,
+      "text": "[ Muttering ]",
+      "kind": "sdh",
+      "startMs": 265875,
+      "endMs": 268343
+    },
+    {
+      "index": 65,
+      "text": "How about a barbershop? Great!",
+      "kind": "dialogue",
+      "startMs": 272548,
+      "endMs": 275711
+    },
+    {
+      "index": 66,
+      "text": "Scratchy is getting a haircut.",
+      "kind": "dialogue",
+      "startMs": 275818,
+      "endMs": 277979
+    },
+    {
+      "index": 67,
+      "text": "[Lisa] Then Itchy, the barber... chops Scratchy's head off with a razor.",
+      "kind": "dialogue",
+      "startMs": 278087,
+      "endMs": 282489
+    },
+    {
+      "index": 68,
+      "text": "####[Mexican]",
+      "kind": "dialogue",
+      "startMs": 283726,
+      "endMs": 285626
+    },
+    {
+      "index": 69,
+      "text": "[Bart, Lisa Laughing]",
+      "kind": "sdh",
+      "startMs": 285728,
+      "endMs": 287628
+    },
+    {
+      "index": 70,
+      "text": "Ah, too predictable.",
+      "kind": "dialogue",
+      "startMs": 287730,
+      "endMs": 289630
+    },
+    {
+      "index": 71,
+      "text": "The way I see it, instead of shampoo...",
+      "kind": "dialogue",
+      "startMs": 289732,
+      "endMs": 291632
+    },
+    {
+      "index": 72,
+      "text": "Itchy covers Scratchy's hair with barbecue sauce...",
+      "kind": "dialogue",
+      "startMs": 291734,
+      "endMs": 294134
+    },
+    {
+      "index": 73,
+      "text": "opens a box of flesh-eating ants... and the rest writes itself.",
+      "kind": "dialogue",
+      "startMs": 295938,
+      "endMs": 300236
+    },
+    {
+      "index": 74,
+      "text": "[ Shrieks ]",
+      "kind": "sdh",
+      "startMs": 300342,
+      "endMs": 302367
+    },
+    {
+      "index": 75,
+      "text": "Ah, this show ain't no good.",
+      "kind": "dialogue",
+      "startMs": 304780,
+      "endMs": 306748
+    },
+    {
+      "index": 76,
+      "text": "[ Typing ] Finished!",
+      "kind": "dialogue",
+      "startMs": 308617,
+      "endMs": 310517
+    },
+    {
+      "index": 77,
+      "text": "Now all we have to do is put our names on it.",
+      "kind": "dialogue",
+      "startMs": 310619,
+      "endMs": 312746
+    },
+    {
+      "index": 78,
+      "text": "Fine. Put my name first. No way!",
+      "kind": "dialogue",
+      "startMs": 312855,
+      "endMs": 315847
+    },
+    {
+      "index": 79,
+      "text": "All right, then to decide it I propose a race around the world.",
+      "kind": "dialogue",
+      "startMs": 315958,
+      "endMs": 319951
+    },
+    {
+      "index": 80,
+      "text": "Meet me at Leicester Square at noon tomorrow.",
+      "kind": "dialogue",
+      "startMs": 320062,
+      "endMs": 322963
+    },
+    {
+      "index": 81,
+      "text": "The queen herself shall drop the checkered flag.",
+      "kind": "dialogue",
+      "startMs": 323065,
+      "endMs": 325533
+    },
+    {
+      "index": 82,
+      "text": "Look, there's only one reasonable way to settle this-- rock, paper, scissors.",
+      "kind": "dialogue",
+      "startMs": 325634,
+      "endMs": 330230
+    },
+    {
+      "index": 83,
+      "text": "[ Thinking ] Poor, predictable Bart.",
+      "kind": "dialogue",
+      "startMs": 330339,
+      "endMs": 332239
+    },
+    {
+      "index": 84,
+      "text": "Always takes rock.",
+      "kind": "dialogue",
+      "startMs": 332341,
+      "endMs": 334241
+    },
+    {
+      "index": 85,
+      "text": "[ Thinking ] Good old rock. Nothing beats that.",
+      "kind": "dialogue",
+      "startMs": 334343,
+      "endMs": 336675
+    },
+    {
+      "index": 86,
+      "text": "Rock. Paper.",
+      "kind": "dialogue",
+      "startMs": 337780,
+      "endMs": 339338
+    },
+    {
+      "index": 87,
+      "text": "D'oh!",
+      "kind": "dialogue",
+      "startMs": 339448,
+      "endMs": 341006
+    },
+    {
+      "index": 88,
+      "text": "[Man] You call this writing?",
+      "kind": "dialogue",
+      "startMs": 341117,
+      "endMs": 343051
+    },
+    {
+      "index": 89,
+      "text": "If I puked in a fountain pen and mailed it to the monkey house, I'd get better scripts.",
+      "kind": "dialogue",
+      "startMs": 343152,
+      "endMs": 346553
+    },
+    {
+      "index": 90,
+      "text": "-But, sir, at Harvard-- -Oh, at Harvard they taught you?",
+      "kind": "dialogue",
+      "startMs": 346655,
+      "endMs": 348782
+    },
+    {
+      "index": 91,
+      "text": "Hit the streets, egghead! You should've majored in not getting fired.",
+      "kind": "dialogue",
+      "startMs": 348891,
+      "endMs": 352054
+    },
+    {
+      "index": 92,
+      "text": "Sir, a Lisa and Bart Simpson sent you a script.",
+      "kind": "dialogue",
+      "startMs": 353295,
+      "endMs": 356196
+    },
+    {
+      "index": 93,
+      "text": "Yeah, yeah, yeah.",
+      "kind": "dialogue",
+      "startMs": 356298,
+      "endMs": 358198
+    },
+    {
+      "index": 94,
+      "text": "\"Dear Mr. Meyers, my brother and I watch your show.",
+      "kind": "dialogue",
+      "startMs": 358300,
+      "endMs": 360734
+    },
+    {
+      "index": 95,
+      "text": "You should be proud that children everywhere--\" Blah-blah-blah, bling-bling-bling-blah.",
+      "kind": "dialogue",
+      "startMs": 360836,
+      "endMs": 365033
+    },
+    {
+      "index": 96,
+      "text": "Hey, egghead! Sing \"Fair Harvard.\"",
+      "kind": "dialogue",
+      "startMs": 366442,
+      "endMs": 369502
+    },
+    {
+      "index": 97,
+      "text": "## [ Singing ]",
+      "kind": "dialogue",
+      "startMs": 369612,
+      "endMs": 371239
+    },
+    {
+      "index": 98,
+      "text": "You, sir, have the boorish manners of a Yalie!",
+      "kind": "dialogue",
+      "startMs": 373249,
+      "endMs": 375183
+    },
+    {
+      "index": 99,
+      "text": "Bart, they rejected our script.",
+      "kind": "dialogue",
+      "startMs": 381657,
+      "endMs": 382749
+    },
+    {
+      "index": 100,
+      "text": "I guess we're just not cut out to be writers.",
+      "kind": "dialogue",
+      "startMs": 382858,
+      "endMs": 385759
+    },
+    {
+      "index": 101,
+      "text": "Maybe he just doesn't take us seriously 'cause we're kids.",
+      "kind": "dialogue",
+      "startMs": 387096,
+      "endMs": 388757
+    },
+    {
+      "index": 102,
+      "text": "Let's put a grown-up's name on it.",
+      "kind": "dialogue",
+      "startMs": 388864,
+      "endMs": 391264
+    },
+    {
+      "index": 103,
+      "text": "How about Grampa? He's pretty out of it.",
+      "kind": "dialogue",
+      "startMs": 391367,
+      "endMs": 393767
+    },
+    {
+      "index": 104,
+      "text": "He let those guys use his checkbook for a whole year.",
+      "kind": "dialogue",
+      "startMs": 393869,
+      "endMs": 396235
+    },
+    {
+      "index": 105,
+      "text": "[Rapid Typing]",
+      "kind": "sdh",
+      "startMs": 396338,
+      "endMs": 398238
+    },
+    {
+      "index": 106,
+      "text": "[Grampa] When I read your magazine...",
+      "kind": "dialogue",
+      "startMs": 398340,
+      "endMs": 400570
+    },
+    {
+      "index": 107,
+      "text": "I don't see one wrinkled face... or a single toothless grin.",
+      "kind": "dialogue",
+      "startMs": 400676,
+      "endMs": 404942
+    },
+    {
+      "index": 108,
+      "text": "For shame!",
+      "kind": "dialogue",
+      "startMs": 405047,
+      "endMs": 406947
+    },
+    {
+      "index": 109,
+      "text": "To the sickos at Modern Bride magazine.",
+      "kind": "dialogue",
+      "startMs": 407049,
+      "endMs": 410246
+    },
+    {
+      "index": 110,
+      "text": "Hey, Grampa, we need to know your first name.",
+      "kind": "dialogue",
+      "startMs": 410352,
+      "endMs": 412684
+    },
+    {
+      "index": 111,
+      "text": "[ Gasps ] You're making my tombstone!",
+      "kind": "dialogue",
+      "startMs": 412788,
+      "endMs": 415086
+    },
+    {
+      "index": 112,
+      "text": "No! We're just curious.",
+      "kind": "dialogue",
+      "startMs": 415191,
+      "endMs": 417250
+    },
+    {
+      "index": 113,
+      "text": "All right, let's see. First name. First name.",
+      "kind": "dialogue",
+      "startMs": 417359,
+      "endMs": 420260
+    },
+    {
+      "index": 114,
+      "text": "Well, whenever I'm confused I just check my underwear.",
+      "kind": "dialogue",
+      "startMs": 420362,
+      "endMs": 423854
+    },
+    {
+      "index": 115,
+      "text": "It holds the answer to all the important questions.",
+      "kind": "dialogue",
+      "startMs": 423966,
+      "endMs": 427299
+    },
+    {
+      "index": 116,
+      "text": "Call me...",
+      "kind": "dialogue",
+      "startMs": 427403,
+      "endMs": 429303
+    },
+    {
+      "index": 117,
+      "text": "Abraham Simpson.",
+      "kind": "dialogue",
+      "startMs": 429405,
+      "endMs": 431600
+    },
+    {
+      "index": 118,
+      "text": "Grampa, how'd you take off your underwear without taking off your pants?",
+      "kind": "dialogue",
+      "startMs": 431707,
+      "endMs": 435438
+    },
+    {
+      "index": 119,
+      "text": "I don't know!",
+      "kind": "dialogue",
+      "startMs": 435544,
+      "endMs": 437774
+    },
+    {
+      "index": 120,
+      "text": "Ehh!",
+      "kind": "dialogue",
+      "startMs": 442618,
+      "endMs": 444711
+    },
+    {
+      "index": 121,
+      "text": "Hmm.",
+      "kind": "dialogue",
+      "startMs": 446755,
+      "endMs": 448723
+    },
+    {
+      "index": 122,
+      "text": "[ Chuckling ]",
+      "kind": "sdh",
+      "startMs": 451227,
+      "endMs": 453127
+    },
+    {
+      "index": 123,
+      "text": "[Knocking] What?",
+      "kind": "dialogue",
+      "startMs": 453229,
+      "endMs": 455129
+    },
+    {
+      "index": 124,
+      "text": "Sir, you locked my office, and I wanted to get my Harvard mug.",
+      "kind": "dialogue",
+      "startMs": 455231,
+      "endMs": 458257
+    },
+    {
+      "index": 125,
+      "text": "Shut up! [ Moans ]",
+      "kind": "dialogue",
+      "startMs": 458367,
+      "endMs": 461564
+    },
+    {
+      "index": 126,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 462805,
+      "endMs": 465000
+    },
+    {
+      "index": 127,
+      "text": "Roxie, get me Abraham Simpson.",
+      "kind": "dialogue",
+      "startMs": 468377,
+      "endMs": 470641
+    },
+    {
+      "index": 128,
+      "text": "[Phone Rings]",
+      "kind": "sdh",
+      "startMs": 470746,
+      "endMs": 472976
+    },
+    {
+      "index": 129,
+      "text": "Phone call, Simpson. Ehh?",
+      "kind": "dialogue",
+      "startMs": 473082,
+      "endMs": 475312
+    },
+    {
+      "index": 130,
+      "text": "Is this the Abraham Simpson who wrote the Itchy and Scratchy episode?",
+      "kind": "dialogue",
+      "startMs": 475417,
+      "endMs": 478978
+    },
+    {
+      "index": 131,
+      "text": "Ishi and what? Oh, you must be some kind of crazy person.",
+      "kind": "dialogue",
+      "startMs": 479088,
+      "endMs": 482990
+    },
+    {
+      "index": 132,
+      "text": "I'm sorry, but we have a substantial check here for a Mr. Abraham Simpson.",
+      "kind": "dialogue",
+      "startMs": 483092,
+      "endMs": 487085
+    },
+    {
+      "index": 133,
+      "text": "That's right. I did the Iggy.",
+      "kind": "dialogue",
+      "startMs": 487196,
+      "endMs": 490324
+    },
+    {
+      "index": 134,
+      "text": "Ah, my high school yearbook.",
+      "kind": "dialogue",
+      "startMs": 492468,
+      "endMs": 494732
+    },
+    {
+      "index": 135,
+      "text": "You handsome devil.",
+      "kind": "dialogue",
+      "startMs": 494837,
+      "endMs": 497397
+    },
+    {
+      "index": 136,
+      "text": "\"I can't believe I ate the whole thing. \"",
+      "kind": "dialogue",
+      "startMs": 497506,
+      "endMs": 500407
+    },
+    {
+      "index": 137,
+      "text": "[ Chuckles ]",
+      "kind": "sdh",
+      "startMs": 500509,
+      "endMs": 502409
+    },
+    {
+      "index": 138,
+      "text": "\"Activities: none. Sports: none.",
+      "kind": "dialogue",
+      "startMs": 502511,
+      "endMs": 506208
+    },
+    {
+      "index": 139,
+      "text": "Honors: none. \" So many memories.",
+      "kind": "dialogue",
+      "startMs": 506315,
+      "endMs": 511314
+    },
+    {
+      "index": 140,
+      "text": "Time to go to the reunion.",
+      "kind": "dialogue",
+      "startMs": 511420,
+      "endMs": 513320
+    },
+    {
+      "index": 141,
+      "text": "It'll be great to see the old gang again-- Potsie, Ralph Malph, the Fonz.",
+      "kind": "dialogue",
+      "startMs": 513422,
+      "endMs": 519156
+    },
+    {
+      "index": 142,
+      "text": "That was Happy Days.",
+      "kind": "dialogue",
+      "startMs": 519261,
+      "endMs": 520990
+    },
+    {
+      "index": 143,
+      "text": "No, they weren't all happy days.",
+      "kind": "dialogue",
+      "startMs": 521096,
+      "endMs": 523257
+    },
+    {
+      "index": 144,
+      "text": "Like the time Pinky Tuscadero crashed her motorcycle.",
+      "kind": "dialogue",
+      "startMs": 523365,
+      "endMs": 525765
+    },
+    {
+      "index": 145,
+      "text": "Or the night I lost all my money to those card sharks... and my dad Tom Bosley had to get it back.",
+      "kind": "dialogue",
+      "startMs": 525868,
+      "endMs": 531672
+    },
+    {
+      "index": 146,
+      "text": "[ Groans ]",
+      "kind": "sdh",
+      "startMs": 531774,
+      "endMs": 533503
+    },
+    {
+      "index": 147,
+      "text": "Hello, Principal Dondelinger.",
+      "kind": "dialogue",
+      "startMs": 537479,
+      "endMs": 539379
+    },
+    {
+      "index": 148,
+      "text": "Oh, Marge Bouvier. It's so good to see you.",
+      "kind": "dialogue",
+      "startMs": 539481,
+      "endMs": 542314
+    },
+    {
+      "index": 149,
+      "text": "Sorry, sir. We're not letting vagrants sleep in the gym tonight.",
+      "kind": "dialogue",
+      "startMs": 542418,
+      "endMs": 545319
+    },
+    {
+      "index": 150,
+      "text": "But we will be putting some scraps by the back door.",
+      "kind": "dialogue",
+      "startMs": 545421,
+      "endMs": 548322
+    },
+    {
+      "index": 151,
+      "text": "D'oh! Oh, it's you, Simpson. Yecch.",
+      "kind": "dialogue",
+      "startMs": 548424,
+      "endMs": 551052
+    },
+    {
+      "index": 152,
+      "text": "####[Disco] Look, there's Bobby Mindich, the class clown.",
+      "kind": "dialogue",
+      "startMs": 551160,
+      "endMs": 557997
+    },
+    {
+      "index": 153,
+      "text": "I... am not a crook!",
+      "kind": "dialogue",
+      "startMs": 558100,
+      "endMs": 560330
+    },
+    {
+      "index": 154,
+      "text": "[ Laughs ] Eh? Richard Nixon.",
+      "kind": "dialogue",
+      "startMs": 560436,
+      "endMs": 562370
+    },
+    {
+      "index": 155,
+      "text": "I know!",
+      "kind": "dialogue",
+      "startMs": 562471,
+      "endMs": 564371
+    },
+    {
+      "index": 156,
+      "text": "## [ Continues ]",
+      "kind": "dialogue",
+      "startMs": 564473,
+      "endMs": 567033
+    },
+    {
+      "index": 157,
+      "text": "[ Both Grunt, Laugh ]",
+      "kind": "sdh",
+      "startMs": 567142,
+      "endMs": 569633
+    },
+    {
+      "index": 158,
+      "text": "Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 569745,
+      "endMs": 571770
+    },
+    {
+      "index": 159,
+      "text": "It's my old boyfriend, Artie Ziff. ## [ Humming ] Hello, Marge. Have you heard? I'm stinking rich. jealous?",
+      "kind": "dialogue",
+      "startMs": 571880,
+      "endMs": 580187
+    },
+    {
+      "index": 160,
+      "text": "I'll bet you'd trade it all for one night with my wife.",
+      "kind": "dialogue",
+      "startMs": 580289,
+      "endMs": 584350
+    },
+    {
+      "index": 161,
+      "text": "I would. Mmm!",
+      "kind": "dialogue",
+      "startMs": 584460,
+      "endMs": 586928
+    },
+    {
+      "index": 162,
+      "text": "Homer!",
+      "kind": "dialogue",
+      "startMs": 587029,
+      "endMs": 588929
+    },
+    {
+      "index": 163,
+      "text": "Hey, Man, it's Dave! Open up, Man!",
+      "kind": "dialogue",
+      "startMs": 589031,
+      "endMs": 591693
+    },
+    {
+      "index": 164,
+      "text": "Dave's not here, Man. [ Laughing ] Okay, now, let's move on-- The guy's so high, he doesn't even know that's Dave!",
+      "kind": "dialogue",
+      "startMs": 591800,
+      "endMs": 600933
+    },
+    {
+      "index": 165,
+      "text": "Homer.",
+      "kind": "dialogue",
+      "startMs": 601043,
+      "endMs": 602943
+    },
+    {
+      "index": 166,
+      "text": "Homer? Homer's not here, Man. [ Chuckles ] Okay, very good.",
+      "kind": "dialogue",
+      "startMs": 603045,
+      "endMs": 607781
+    },
+    {
+      "index": 167,
+      "text": "Now let's get on with our... really big show.",
+      "kind": "dialogue",
+      "startMs": 607883,
+      "endMs": 610852
+    },
+    {
+      "index": 168,
+      "text": "Ed Sullivan. Shh!",
+      "kind": "dialogue",
+      "startMs": 610953,
+      "endMs": 612784
+    },
+    {
+      "index": 169,
+      "text": "First, the award for the alumnus who's gained the most weight--",
+      "kind": "dialogue",
+      "startMs": 612888,
+      "endMs": 616790
+    },
+    {
+      "index": 170,
+      "text": "Homer Simpson! Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 616892,
+      "endMs": 618917
+    },
+    {
+      "index": 171,
+      "text": "How'd you do it, Homer?",
+      "kind": "dialogue",
+      "startMs": 619028,
+      "endMs": 620928
+    },
+    {
+      "index": 172,
+      "text": "I discovered a meal between breakfast and brunch.",
+      "kind": "dialogue",
+      "startMs": 621030,
+      "endMs": 623863
+    },
+    {
+      "index": 173,
+      "text": "And now the award for most improved odor--",
+      "kind": "dialogue",
+      "startMs": 625034,
+      "endMs": 627798
+    },
+    {
+      "index": 174,
+      "text": "Homer Simpson. Yes!",
+      "kind": "dialogue",
+      "startMs": 627903,
+      "endMs": 629803
+    },
+    {
+      "index": 175,
+      "text": "[Applause]",
+      "kind": "sdh",
+      "startMs": 629905,
+      "endMs": 631805
+    },
+    {
+      "index": 176,
+      "text": "And the person who traveled the least distance to be here-- Well, kiss my grits!",
+      "kind": "dialogue",
+      "startMs": 631907,
+      "endMs": 637403
+    },
+    {
+      "index": 177,
+      "text": "Homer Simpson! [Applause]",
+      "kind": "dialogue",
+      "startMs": 637513,
+      "endMs": 639743
+    },
+    {
+      "index": 178,
+      "text": "####[Fanfare] What can I say?",
+      "kind": "dialogue",
+      "startMs": 639848,
+      "endMs": 641748
+    },
+    {
+      "index": 179,
+      "text": "It hasn't been easy staying in my rut.",
+      "kind": "dialogue",
+      "startMs": 641850,
+      "endMs": 644751
+    },
+    {
+      "index": 180,
+      "text": "Class of'74, I was just leafing through your permanent records... when I discovered something shocking.",
+      "kind": "dialogue",
+      "startMs": 644853,
+      "endMs": 650424
+    },
+    {
+      "index": 181,
+      "text": "Homer Simpson never passed Remedial Science 1 -A... and thus never graduated from high school.",
+      "kind": "dialogue",
+      "startMs": 650526,
+      "endMs": 655759
+    },
+    {
+      "index": 182,
+      "text": "[ All Gasp ] I'm sorry, Simpson.",
+      "kind": "dialogue",
+      "startMs": 655864,
+      "endMs": 657764
+    },
+    {
+      "index": 183,
+      "text": "I have to take back those awards. [ All Laughing ]",
+      "kind": "dialogue",
+      "startMs": 657866,
+      "endMs": 660767
+    },
+    {
+      "index": 184,
+      "text": "This is Howard Co-smell.",
+      "kind": "dialogue",
+      "startMs": 666341,
+      "endMs": 668809
+    },
+    {
+      "index": 185,
+      "text": "Homer Simpson is a boob.",
+      "kind": "dialogue",
+      "startMs": 668911,
+      "endMs": 671607
+    },
+    {
+      "index": 186,
+      "text": "What do you think, J.J.?",
+      "kind": "dialogue",
+      "startMs": 671713,
+      "endMs": 673738
+    },
+    {
+      "index": 187,
+      "text": "Dy-no-mite!",
+      "kind": "dialogue",
+      "startMs": 673849,
+      "endMs": 675749
+    },
+    {
+      "index": 188,
+      "text": "Didn't graduate? How low can you get?",
+      "kind": "dialogue",
+      "startMs": 675851,
+      "endMs": 678979
+    },
+    {
+      "index": 189,
+      "text": "Barney, where's your cummerbund?",
+      "kind": "dialogue",
+      "startMs": 679088,
+      "endMs": 680988
+    },
+    {
+      "index": 190,
+      "text": "It fell in the toilet.",
+      "kind": "dialogue",
+      "startMs": 681090,
+      "endMs": 683058
+    },
+    {
+      "index": 191,
+      "text": "I'm going to go to night school, earn my high school diploma... and get back my Most Improved Odor trophy!",
+      "kind": "dialogue",
+      "startMs": 689398,
+      "endMs": 693162
+    },
+    {
+      "index": 192,
+      "text": "[ Groans ]",
+      "kind": "sdh",
+      "startMs": 693268,
+      "endMs": 694428
+    },
+    {
+      "index": 193,
+      "text": "You're a comedy writer? My God, you're so old.",
+      "kind": "dialogue",
+      "startMs": 694536,
+      "endMs": 697437
+    },
+    {
+      "index": 194,
+      "text": "I want my check! [ Laughs ] You're a writer, all right.",
+      "kind": "dialogue",
+      "startMs": 697539,
+      "endMs": 701766
+    },
+    {
+      "index": 195,
+      "text": "Here you go, Simpson. I want another one!",
+      "kind": "dialogue",
+      "startMs": 701877,
+      "endMs": 704402
+    },
+    {
+      "index": 196,
+      "text": "You're a funny guy. How would you like a staff job? I'll start you at $800 a week.",
+      "kind": "dialogue",
+      "startMs": 704513,
+      "endMs": 708916
+    },
+    {
+      "index": 197,
+      "text": "My chest hurts.",
+      "kind": "dialogue",
+      "startMs": 709017,
+      "endMs": 710416
+    },
+    {
+      "index": 198,
+      "text": "All right, leeches, I want you to see what a good writer looks like.",
+      "kind": "dialogue",
+      "startMs": 713188,
+      "endMs": 716487
+    },
+    {
+      "index": 199,
+      "text": "His name is Abraham Simpson... and he's got something you couldn't get at your fancy schools-- life experience.",
+      "kind": "dialogue",
+      "startMs": 716592,
+      "endMs": 723088
+    },
+    {
+      "index": 200,
+      "text": "Actually, you know, I wrote my thesis on life experience, and-- Quiet!",
+      "kind": "dialogue",
+      "startMs": 723198,
+      "endMs": 728101
+    },
+    {
+      "index": 201,
+      "text": "Abe, tell 'em about your amazing life.",
+      "kind": "dialogue",
+      "startMs": 728203,
+      "endMs": 730603
+    },
+    {
+      "index": 202,
+      "text": "I spent 40 years as a night watchman at a cranberry silo.",
+      "kind": "dialogue",
+      "startMs": 730706,
+      "endMs": 733698
+    },
+    {
+      "index": 203,
+      "text": "Wow!",
+      "kind": "dialogue",
+      "startMs": 733809,
+      "endMs": 735709
+    },
+    {
+      "index": 204,
+      "text": "So, this patch steadily releases nicotine into my body... eliminating my need for cigarettes.",
+      "kind": "dialogue",
+      "startMs": 735811,
+      "endMs": 741715
+    },
+    {
+      "index": 205,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 741817,
+      "endMs": 744251
+    },
+    {
+      "index": 206,
+      "text": "[ Groaning ]",
+      "kind": "sdh",
+      "startMs": 748190,
+      "endMs": 750658
+    },
+    {
+      "index": 207,
+      "text": "Roll the cartoon.",
+      "kind": "dialogue",
+      "startMs": 750759,
+      "endMs": 752659
+    },
+    {
+      "index": 208,
+      "text": "####[Singing Theme] Bart! Our cartoon's on TV!",
+      "kind": "dialogue",
+      "startMs": 752761,
+      "endMs": 760693
+    },
+    {
+      "index": 209,
+      "text": "All right! Turn up the volume! ## [ TV] [ Announcer] Erosion is a slow but steady process.",
+      "kind": "dialogue",
+      "startMs": 760802,
+      "endMs": 767537
+    },
+    {
+      "index": 210,
+      "text": "[ Screaming ]",
+      "kind": "sdh",
+      "startMs": 767643,
+      "endMs": 769372
+    },
+    {
+      "index": 211,
+      "text": "Ah, this show ain't no good. Hee-yah!",
+      "kind": "dialogue",
+      "startMs": 770746,
+      "endMs": 773715
+    },
+    {
+      "index": 212,
+      "text": "## [ Plaintive Ballad ] ####[Singing End Theme]",
+      "kind": "dialogue",
+      "startMs": 774783,
+      "endMs": 779379
+    },
+    {
+      "index": 213,
+      "text": "[ Both Sigh ]",
+      "kind": "sdh",
+      "startMs": 795537,
+      "endMs": 797630
+    },
+    {
+      "index": 214,
+      "text": "Bart, Lisa, I have something to tell you, and I'm not proud of it.",
+      "kind": "dialogue",
+      "startMs": 797739,
+      "endMs": 801732
+    },
+    {
+      "index": 215,
+      "text": "Dad, whatever you say... you know you'll always have my love and respect.",
+      "kind": "dialogue",
+      "startMs": 801843,
+      "endMs": 807314
+    },
+    {
+      "index": 216,
+      "text": "I never graduated from high school.",
+      "kind": "dialogue",
+      "startMs": 807416,
+      "endMs": 809884
+    },
+    {
+      "index": 217,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 809985,
+      "endMs": 812579
+    },
+    {
+      "index": 218,
+      "text": "[ Growling ] [ Choking ]",
+      "kind": "dialogue",
+      "startMs": 812688,
+      "endMs": 816055
+    },
+    {
+      "index": 219,
+      "text": "[Doorbell Rings]",
+      "kind": "sdh",
+      "startMs": 816158,
+      "endMs": 818126
+    },
+    {
+      "index": 220,
+      "text": "Hello, son.",
+      "kind": "dialogue",
+      "startMs": 819228,
+      "endMs": 820695
+    },
+    {
+      "index": 221,
+      "text": "I was on my way home from work and thought I'd drop by.",
+      "kind": "dialogue",
+      "startMs": 820796,
+      "endMs": 823924
+    },
+    {
+      "index": 222,
+      "text": "Oh. You have a job?",
+      "kind": "dialogue",
+      "startMs": 824032,
+      "endMs": 826091
+    },
+    {
+      "index": 223,
+      "text": "They pay me $800 a week to tell a cat and mouse what to do!",
+      "kind": "dialogue",
+      "startMs": 826201,
+      "endMs": 831161
+    },
+    {
+      "index": 224,
+      "text": "I see.",
+      "kind": "dialogue",
+      "startMs": 831273,
+      "endMs": 834174
+    },
+    {
+      "index": 225,
+      "text": "## [ Vocalizing ]",
+      "kind": "dialogue",
+      "startMs": 834276,
+      "endMs": 838212
+    },
+    {
+      "index": 226,
+      "text": "[ Bell Rings ]",
+      "kind": "sdh",
+      "startMs": 838313,
+      "endMs": 840281
+    },
+    {
+      "index": 227,
+      "text": "Dad, can we talk to Grampa alone for a minute?",
+      "kind": "dialogue",
+      "startMs": 841683,
+      "endMs": 844584
+    },
+    {
+      "index": 228,
+      "text": "All right. But if he starts to wig out, try to lure him into the cellar.",
+      "kind": "dialogue",
+      "startMs": 844686,
+      "endMs": 848588
+    },
+    {
+      "index": 229,
+      "text": "Then we put your name on the script and sent it in.",
+      "kind": "dialogue",
+      "startMs": 848690,
+      "endMs": 851284
+    },
+    {
+      "index": 230,
+      "text": "Didn't you wonder why you were getting checks for doing absolutely nothing?",
+      "kind": "dialogue",
+      "startMs": 851393,
+      "endMs": 851860
+    },
+    {
+      "index": 231,
+      "text": "Didn't you wonder why you were getting checks for doing absolutely nothing?",
+      "kind": "dialogue",
+      "startMs": 851860,
+      "endMs": 852349
+    },
+    {
+      "index": 232,
+      "text": "Grampa, we could write the scripts for you and split the money three ways.",
+      "kind": "dialogue",
+      "startMs": 858100,
+      "endMs": 861831
+    },
+    {
+      "index": 233,
+      "text": "I don't know. I'd better sleep on it.",
+      "kind": "dialogue",
+      "startMs": 861937,
+      "endMs": 864235
+    },
+    {
+      "index": 234,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 864339,
+      "endMs": 866398
+    },
+    {
+      "index": 235,
+      "text": "Grampa? Grampa!",
+      "kind": "dialogue",
+      "startMs": 867843,
+      "endMs": 869708
+    },
+    {
+      "index": 236,
+      "text": "[ Gasping ] Oh, why did you wake me?",
+      "kind": "dialogue",
+      "startMs": 869811,
+      "endMs": 872746
+    },
+    {
+      "index": 237,
+      "text": "I was having the nicest dream.",
+      "kind": "dialogue",
+      "startMs": 872848,
+      "endMs": 875009
+    },
+    {
+      "index": 238,
+      "text": "I dreamt I was the queen of the Old West.",
+      "kind": "dialogue",
+      "startMs": 875117,
+      "endMs": 878678
+    },
+    {
+      "index": 239,
+      "text": "I kept a six-shooter in my garter, I did.",
+      "kind": "dialogue",
+      "startMs": 878787,
+      "endMs": 881847
+    },
+    {
+      "index": 240,
+      "text": "Do we have a deal? Sure, sure.",
+      "kind": "dialogue",
+      "startMs": 881957,
+      "endMs": 883822
+    },
+    {
+      "index": 241,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 883925,
+      "endMs": 885893
+    },
+    {
+      "index": 242,
+      "text": "Boys, stop! You can both marry me!",
+      "kind": "dialogue",
+      "startMs": 888297,
+      "endMs": 892199
+    },
+    {
+      "index": 243,
+      "text": "Whoo-hoo! Yippee!",
+      "kind": "dialogue",
+      "startMs": 892301,
+      "endMs": 894895
+    },
+    {
+      "index": 244,
+      "text": "Hey, how would you kids like a tour of the studio?",
+      "kind": "dialogue",
+      "startMs": 900909,
+      "endMs": 903469
+    },
+    {
+      "index": 245,
+      "text": "Yea! Yea!",
+      "kind": "dialogue",
+      "startMs": 903578,
+      "endMs": 906479
+    },
+    {
+      "index": 246,
+      "text": "Abe, you comin'? Any stairs?",
+      "kind": "dialogue",
+      "startMs": 906581,
+      "endMs": 908811
+    },
+    {
+      "index": 247,
+      "text": "-Just one. Nuts to you!",
+      "kind": "dialogue",
+      "startMs": 908917,
+      "endMs": 910817
+    },
+    {
+      "index": 248,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 910919,
+      "endMs": 912887
+    },
+    {
+      "index": 249,
+      "text": "Wow, it must be expensive to produce all these cartoons.",
+      "kind": "dialogue",
+      "startMs": 922731,
+      "endMs": 926132
+    },
+    {
+      "index": 250,
+      "text": "Well, we cut corners.",
+      "kind": "dialogue",
+      "startMs": 926234,
+      "endMs": 928134
+    },
+    {
+      "index": 251,
+      "text": "Sometimes to save money... our animators will reuse the same backgrounds over and over and over again.",
+      "kind": "dialogue",
+      "startMs": 928236,
+      "endMs": 931700
+    },
+    {
+      "index": 252,
+      "text": "[ Clears Throat ] Welcome to Remedial Science 1 -A.",
+      "kind": "dialogue",
+      "startMs": 943719,
+      "endMs": 945983
+    },
+    {
+      "index": 253,
+      "text": "My, uh, wife recently passed away.",
+      "kind": "dialogue",
+      "startMs": 946088,
+      "endMs": 947988
+    },
+    {
+      "index": 254,
+      "text": "I thought teaching might ease my loneliness.",
+      "kind": "dialogue",
+      "startMs": 948090,
+      "endMs": 950217
+    },
+    {
+      "index": 255,
+      "text": "Will this be on the test? No!",
+      "kind": "dialogue",
+      "startMs": 950325,
+      "endMs": 952555
+    },
+    {
+      "index": 256,
+      "text": "Oh!",
+      "kind": "dialogue",
+      "startMs": 952661,
+      "endMs": 955289
+    },
+    {
+      "index": 257,
+      "text": "Hey, Mel, bring me another nicotine patch.",
+      "kind": "dialogue",
+      "startMs": 955397,
+      "endMs": 958298
+    },
+    {
+      "index": 258,
+      "text": "Uh, I think there's some space on my butt.",
+      "kind": "dialogue",
+      "startMs": 958400,
+      "endMs": 961233
+    },
+    {
+      "index": 259,
+      "text": "And now, here's another fine Itchy and Scratchy cartoon... by Abraham Simpson!",
+      "kind": "dialogue",
+      "startMs": 961336,
+      "endMs": 966273
+    },
+    {
+      "index": 260,
+      "text": "[ All Cheering ]",
+      "kind": "sdh",
+      "startMs": 966375,
+      "endMs": 968240
+    },
+    {
+      "index": 261,
+      "text": "[ Shrieks ]",
+      "kind": "sdh",
+      "startMs": 978553,
+      "endMs": 980521
+    },
+    {
+      "index": 262,
+      "text": "[ Continues Shrieking ]",
+      "kind": "sdh",
+      "startMs": 981757,
+      "endMs": 984191
+    },
+    {
+      "index": 263,
+      "text": "-[Cash Register Rings] [ Chuckling ]",
+      "kind": "dialogue",
+      "startMs": 991299,
+      "endMs": 993995
+    },
+    {
+      "index": 264,
+      "text": "Hmph!",
+      "kind": "dialogue",
+      "startMs": 999307,
+      "endMs": 1001138
+    },
+    {
+      "index": 265,
+      "text": "Hmph!",
+      "kind": "dialogue",
+      "startMs": 1001243,
+      "endMs": 1003473
+    },
+    {
+      "index": 266,
+      "text": "[ Gasps ]",
+      "kind": "sdh",
+      "startMs": 1004579,
+      "endMs": 1006376
+    },
+    {
+      "index": 267,
+      "text": "[ All Shouting ]",
+      "kind": "sdh",
+      "startMs": 1007416,
+      "endMs": 1010283
+    },
+    {
+      "index": 268,
+      "text": "The bright blue flame indicates this was a particularly sweet doughnut.",
+      "kind": "dialogue",
+      "startMs": 1016558,
+      "endMs": 1020119
+    },
+    {
+      "index": 269,
+      "text": "[ Sobbing ]",
+      "kind": "sdh",
+      "startMs": 1020228,
+      "endMs": 1022059
+    },
+    {
+      "index": 270,
+      "text": "This is not happening. This is not happening!",
+      "kind": "dialogue",
+      "startMs": 1022164,
+      "endMs": 1025099
+    },
+    {
+      "index": 271,
+      "text": "[Typing] [Grampa]Dear Mr. President... there are too many states nowadays.",
+      "kind": "dialogue",
+      "startMs": 1025200,
+      "endMs": 1030497
+    },
+    {
+      "index": 272,
+      "text": "Please eliminate three.",
+      "kind": "dialogue",
+      "startMs": 1030605,
+      "endMs": 1032505
+    },
+    {
+      "index": 273,
+      "text": "I am not a crackpot.",
+      "kind": "dialogue",
+      "startMs": 1032607,
+      "endMs": 1034598
+    },
+    {
+      "index": 274,
+      "text": "Good news, Abe. Who are you?",
+      "kind": "dialogue",
+      "startMs": 1034709,
+      "endMs": 1036609
+    },
+    {
+      "index": 275,
+      "text": "[ Chuckling ] No, no. You've been nominated for an award.",
+      "kind": "dialogue",
+      "startMs": 1036711,
+      "endMs": 1039612
+    },
+    {
+      "index": 276,
+      "text": "You're so good, I fired the other writers.",
+      "kind": "dialogue",
+      "startMs": 1039714,
+      "endMs": 1042114
+    },
+    {
+      "index": 277,
+      "text": "From now on, the fate of the entire company rests on that delightful coconut of yours.",
+      "kind": "dialogue",
+      "startMs": 1042217,
+      "endMs": 1046950
+    },
+    {
+      "index": 278,
+      "text": "Oh, no! We're all doomed!",
+      "kind": "dialogue",
+      "startMs": 1047055,
+      "endMs": 1049353
+    },
+    {
+      "index": 279,
+      "text": "I'm a complete fraud!",
+      "kind": "dialogue",
+      "startMs": 1049458,
+      "endMs": 1051358
+    },
+    {
+      "index": 280,
+      "text": "Huh? Sorry? I didn't catch any of that. And now I gotta go.",
+      "kind": "dialogue",
+      "startMs": 1051460,
+      "endMs": 1054429
+    },
+    {
+      "index": 281,
+      "text": "[ Clears Throat ] All right, here are your exams. Fifty questions.",
+      "kind": "dialogue",
+      "startMs": 1056665,
+      "endMs": 1059566
+    },
+    {
+      "index": 282,
+      "text": "True or false. True.",
+      "kind": "dialogue",
+      "startMs": 1059668,
+      "endMs": 1061192
+    },
+    {
+      "index": 283,
+      "text": "Homer, I was just describing the test. True.",
+      "kind": "dialogue",
+      "startMs": 1061303,
+      "endMs": 1064204
+    },
+    {
+      "index": 284,
+      "text": "Homer, just take the test, and you'll do fine. False.",
+      "kind": "dialogue",
+      "startMs": 1064306,
+      "endMs": 1067104
+    },
+    {
+      "index": 285,
+      "text": "[ Sighs ]",
+      "kind": "sdh",
+      "startMs": 1067209,
+      "endMs": 1069109
+    },
+    {
+      "index": 286,
+      "text": "All right, brain. You don't like me, and I don't like you... but let's just do this and I can get back to killing you with beer.",
+      "kind": "dialogue",
+      "startMs": 1069211,
+      "endMs": 1077107
+    },
+    {
+      "index": 287,
+      "text": "[ Thinking ] It's a deal!",
+      "kind": "dialogue",
+      "startMs": 1077219,
+      "endMs": 1079187
+    },
+    {
+      "index": 288,
+      "text": "Thank you for this award.",
+      "kind": "dialogue",
+      "startMs": 1080555,
+      "endMs": 1082216
+    },
+    {
+      "index": 289,
+      "text": "It is a tribute to this great country... that a man who once took a shot at Teddy Roosevelt could win back your trust.",
+      "kind": "dialogue",
+      "startMs": 1082324,
+      "endMs": 1089354
+    },
+    {
+      "index": 290,
+      "text": "Yo, Grampa, time for the awards.",
+      "kind": "dialogue",
+      "startMs": 1089464,
+      "endMs": 1091364
+    },
+    {
+      "index": 291,
+      "text": "Did you call the girl from the escort service?",
+      "kind": "dialogue",
+      "startMs": 1091466,
+      "endMs": 1094094
+    },
+    {
+      "index": 292,
+      "text": "They said their insurance won't cover you.",
+      "kind": "dialogue",
+      "startMs": 1094202,
+      "endMs": 1096261
+    },
+    {
+      "index": 293,
+      "text": "Oh. That's an onion in the ointment.",
+      "kind": "dialogue",
+      "startMs": 1096371,
+      "endMs": 1098601
+    },
+    {
+      "index": 294,
+      "text": "####[Orchestra: Upbeat]",
+      "kind": "dialogue",
+      "startMs": 1098707,
+      "endMs": 1101676
+    },
+    {
+      "index": 295,
+      "text": "[Emcee]Now, to present the award for outstanding writing in a cartoon series...",
+      "kind": "dialogue",
+      "startMs": 1104813,
+      "endMs": 1108874
+    },
+    {
+      "index": 296,
+      "text": "Krusty the Clown and Brooke Shields.",
+      "kind": "dialogue",
+      "startMs": 1108984,
+      "endMs": 1110884
+    },
+    {
+      "index": 297,
+      "text": "[ Applause ]",
+      "kind": "sdh",
+      "startMs": 1110986,
+      "endMs": 1112453
+    },
+    {
+      "index": 298,
+      "text": "####[Ends] \"Well, here we are.",
+      "kind": "dialogue",
+      "startMs": 1112554,
+      "endMs": 1116456
+    },
+    {
+      "index": 299,
+      "text": "The star of The Blue Lagoon and me, the blue-haired goon!\"",
+      "kind": "dialogue",
+      "startMs": 1116558,
+      "endMs": 1122155
+    },
+    {
+      "index": 300,
+      "text": "What the-- That's terrible!",
+      "kind": "dialogue",
+      "startMs": 1122264,
+      "endMs": 1125028
+    },
+    {
+      "index": 301,
+      "text": "Cartoons have the power to make us laugh and to make us cry.",
+      "kind": "dialogue",
+      "startMs": 1125133,
+      "endMs": 1128068
+    },
+    {
+      "index": 302,
+      "text": "Wouldn't you agree, Krusty?",
+      "kind": "dialogue",
+      "startMs": 1128169,
+      "endMs": 1130069
+    },
+    {
+      "index": 303,
+      "text": "First of all, my hair is green, not blue.",
+      "kind": "dialogue",
+      "startMs": 1130171,
+      "endMs": 1133334
+    },
+    {
+      "index": 304,
+      "text": "I got nothin' to work with here.",
+      "kind": "dialogue",
+      "startMs": 1133441,
+      "endMs": 1135341
+    },
+    {
+      "index": 305,
+      "text": "Nothin'! Uh-- Well, at least I can take off this girdle.",
+      "kind": "dialogue",
+      "startMs": 1135443,
+      "endMs": 1140346
+    },
+    {
+      "index": 306,
+      "text": "[Grunting, Sighing] [Girdle Snaps] Ohh, yeah!",
+      "kind": "dialogue",
+      "startMs": 1140448,
+      "endMs": 1144284
+    },
+    {
+      "index": 307,
+      "text": "Uh, the nominees for best writing in a cartoon series are...",
+      "kind": "dialogue",
+      "startMs": 1144386,
+      "endMs": 1148948
+    },
+    {
+      "index": 308,
+      "text": "Strong-dar, Master of Akom, the wedding episode.",
+      "kind": "dialogue",
+      "startMs": 1149057,
+      "endMs": 1151226
+    },
+    {
+      "index": 309,
+      "text": "Strong-dar, Master of Akom, the wedding episode.",
+      "kind": "dialogue",
+      "startMs": 1151226,
+      "endMs": 1152818
+    },
+    {
+      "index": 310,
+      "text": "[Smattering Of Applause]",
+      "kind": "sdh",
+      "startMs": 1152928,
+      "endMs": 1154828
+    },
+    {
+      "index": 311,
+      "text": "Action Figure Man, the \"How to Buy Action Figure Man\" episode.",
+      "kind": "dialogue",
+      "startMs": 1154930,
+      "endMs": 1158991
+    },
+    {
+      "index": 312,
+      "text": "[ Sobbing ] Please, Mommy. I want it.",
+      "kind": "dialogue",
+      "startMs": 1159100,
+      "endMs": 1162797
+    },
+    {
+      "index": 313,
+      "text": "Hmm. [Applause]",
+      "kind": "dialogue",
+      "startMs": 1162904,
+      "endMs": 1165099
+    },
+    {
+      "index": 314,
+      "text": "Ren and Stimpy, season premiere.",
+      "kind": "dialogue",
+      "startMs": 1167108,
+      "endMs": 1169269
+    },
+    {
+      "index": 315,
+      "text": "[Applause Intensifies]",
+      "kind": "sdh",
+      "startMs": 1169377,
+      "endMs": 1171777
+    },
+    {
+      "index": 316,
+      "text": "And finally, Itchy and Scratchy, the \"Little Barbershop of Horrors\" episode.",
+      "kind": "dialogue",
+      "startMs": 1171880,
+      "endMs": 1176510
+    },
+    {
+      "index": 317,
+      "text": "Cross my fingers for me.",
+      "kind": "dialogue",
+      "startMs": 1176618,
+      "endMs": 1178518
+    },
+    {
+      "index": 318,
+      "text": "[ Snap ] That's gonna hurt come winter.",
+      "kind": "dialogue",
+      "startMs": 1178620,
+      "endMs": 1181453
+    },
+    {
+      "index": 319,
+      "text": "[ Shrieks ] [ Laughing ]",
+      "kind": "dialogue",
+      "startMs": 1183058,
+      "endMs": 1185549
+    },
+    {
+      "index": 320,
+      "text": "[ Chuckling ]",
+      "kind": "sdh",
+      "startMs": 1189064,
+      "endMs": 1190964
+    },
+    {
+      "index": 321,
+      "text": "And the winner is...",
+      "kind": "dialogue",
+      "startMs": 1191066,
+      "endMs": 1193296
+    },
+    {
+      "index": 322,
+      "text": "Itchy and Scratchy, Abraham Simpson-- rise.",
+      "kind": "dialogue",
+      "startMs": 1193401,
+      "endMs": 1196302
+    },
+    {
+      "index": 323,
+      "text": "[ Gasps ]",
+      "kind": "sdh",
+      "startMs": 1196404,
+      "endMs": 1198201
+    },
+    {
+      "index": 324,
+      "text": "####[Orchestra] [Bart]All right, Grampa! Whoo!",
+      "kind": "dialogue",
+      "startMs": 1198306,
+      "endMs": 1200934
+    },
+    {
+      "index": 325,
+      "text": "That was the first time I ever saw Itchy and Scratchy... and I didn't like it one bit!",
+      "kind": "dialogue",
+      "startMs": 1203411,
+      "endMs": 1209012
+    },
+    {
+      "index": 326,
+      "text": "It was disgusting and violent!",
+      "kind": "dialogue",
+      "startMs": 1209117,
+      "endMs": 1211312
+    },
+    {
+      "index": 327,
+      "text": "I think all you people are despicable! For shame!",
+      "kind": "dialogue",
+      "startMs": 1211419,
+      "endMs": 1215947
+    },
+    {
+      "index": 328,
+      "text": "[ Murmuring, Shouting ]",
+      "kind": "sdh",
+      "startMs": 1216057,
+      "endMs": 1219720
+    },
+    {
+      "index": 329,
+      "text": "He's right. We've been wasting our lives.",
+      "kind": "dialogue",
+      "startMs": 1219828,
+      "endMs": 1221728
+    },
+    {
+      "index": 330,
+      "text": "Here, kids. I guess you deserve this.",
+      "kind": "dialogue",
+      "startMs": 1228737,
+      "endMs": 1230705
+    },
+    {
+      "index": 331,
+      "text": "Let's go.",
+      "kind": "dialogue",
+      "startMs": 1230805,
+      "endMs": 1232705
+    },
+    {
+      "index": 332,
+      "text": "I guess nobody likes the truth, huh, Grampa?",
+      "kind": "dialogue",
+      "startMs": 1234009,
+      "endMs": 1236204
+    },
+    {
+      "index": 333,
+      "text": "Nope. [ Bart ] I'll never watch an awards show again.",
+      "kind": "dialogue",
+      "startMs": 1236311,
+      "endMs": 1239508
+    },
+    {
+      "index": 334,
+      "text": "Unless that delightful Billy Crystal's involved.",
+      "kind": "dialogue",
+      "startMs": 1239614,
+      "endMs": 1242845
+    },
+    {
+      "index": 335,
+      "text": "Marge! I passed!",
+      "kind": "dialogue",
+      "startMs": 1242951,
+      "endMs": 1244851
+    },
+    {
+      "index": 336,
+      "text": "That's wonderful, Homie!",
+      "kind": "dialogue",
+      "startMs": 1244953,
+      "endMs": 1247080
+    },
+    {
+      "index": 337,
+      "text": "At our next high school reunion, I'll have nothing to be ashamed of.",
+      "kind": "dialogue",
+      "startMs": 1247188,
+      "endMs": 1251420
+    },
+    {
+      "index": 338,
+      "text": "Hello, Dondelinger.",
+      "kind": "dialogue",
+      "startMs": 1258099,
+      "endMs": 1260067
+    },
+    {
+      "index": 339,
+      "text": "Simpson. Is that a plunger stuck on your head?",
+      "kind": "dialogue",
+      "startMs": 1260168,
+      "endMs": 1263399
+    },
+    {
+      "index": 340,
+      "text": "D'oh! [ Groans ]",
+      "kind": "dialogue",
+      "startMs": 1265306,
+      "endMs": 1267570
+    },
+    {
+      "index": 341,
+      "text": "## [ Upbeat ]",
+      "kind": "dialogue",
+      "startMs": 1271780,
+      "endMs": 1274510
+    },
+    {
+      "index": 342,
+      "text": "Not me!",
+      "kind": "dialogue",
+      "startMs": 1277452,
+      "endMs": 1278783
+    },
+    {
+      "index": 343,
+      "text": "Knock that off, you two! It's time for church!",
+      "kind": "dialogue",
+      "startMs": 1285460,
+      "endMs": 1288361
+    },
+    {
+      "index": 344,
+      "text": "We're not going to church today.",
+      "kind": "dialogue",
+      "startMs": 1288463,
+      "endMs": 1290624
+    },
+    {
+      "index": 345,
+      "text": "[ Gasps ] What? You give me one good reason!",
+      "kind": "dialogue",
+      "startMs": 1290732,
+      "endMs": 1293701
+    },
+    {
+      "index": 346,
+      "text": "It's Saturday!",
+      "kind": "dialogue",
+      "startMs": 1293802,
+      "endMs": 1295269
+    },
+    {
+      "index": 347,
+      "text": "Okilly-dokilly-do!",
+      "kind": "dialogue",
+      "startMs": 1295370,
+      "endMs": 1297838
+    },
+    {
+      "index": 348,
+      "text": "[ People Chattering ] Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1348990,
+      "endMs": 2000
+    }
+  ]
+}

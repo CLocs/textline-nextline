@@ -1,0 +1,4947 @@
+{
+  "title": "The Simpsons - 4x11 - Homer's Triple Bypass.en",
+  "sourceFilename": "The Simpsons - 4x11 - Homer's Triple Bypass.en.srt",
+  "cues": [
+    {
+      "index": 1,
+      "startMs": 4329,
+      "endMs": 7560,
+      "rawText": "[Chorus]\n## The Simpsons ##"
+    },
+    {
+      "index": 2,
+      "startMs": 18043,
+      "endMs": 20204,
+      "rawText": "[Bell Ringing]"
+    },
+    {
+      "index": 3,
+      "startMs": 25116,
+      "endMs": 28051,
+      "rawText": "[Whistle Blowing]"
+    },
+    {
+      "index": 4,
+      "startMs": 31389,
+      "endMs": 33289,
+      "rawText": "[ Beeping ]"
+    },
+    {
+      "index": 5,
+      "startMs": 38163,
+      "endMs": 40063,
+      "rawText": "## [Jazzy Solo ]"
+    },
+    {
+      "index": 6,
+      "startMs": 60318,
+      "endMs": 62252,
+      "rawText": "[ Beeping ]"
+    },
+    {
+      "index": 7,
+      "startMs": 62354,
+      "endMs": 64322,
+      "rawText": "[ Tires Screeching ]"
+    },
+    {
+      "index": 8,
+      "startMs": 65390,
+      "endMs": 67358,
+      "rawText": "D'oh!\n[ Screams ]"
+    },
+    {
+      "index": 9,
+      "startMs": 83174,
+      "endMs": 85301,
+      "rawText": "[Man]\nCOPS: In Springfield."
+    },
+    {
+      "index": 10,
+      "startMs": 85410,
+      "endMs": 88140,
+      "rawText": "- ####[Reggae]\n- [ Screaming ]"
+    },
+    {
+      "index": 11,
+      "startMs": 112604,
+      "endMs": 116665,
+      "rawText": "All right, boys,\ntime to bag us a cattle rustler."
+    },
+    {
+      "index": 12,
+      "startMs": 118643,
+      "endMs": 121510,
+      "rawText": "What in God's name\nAre you doing?"
+    },
+    {
+      "index": 13,
+      "startMs": 121613,
+      "endMs": 124207,
+      "rawText": "Isn't this\n742 Evergreen Terrace?"
+    },
+    {
+      "index": 14,
+      "startMs": 124316,
+      "endMs": 126341,
+      "rawText": "No, that's next door."
+    },
+    {
+      "index": 15,
+      "startMs": 126451,
+      "endMs": 128419,
+      "rawText": "[ Mooing ]"
+    },
+    {
+      "index": 16,
+      "startMs": 131323,
+      "endMs": 135020,
+      "rawText": "Close, but no doughnut, cops."
+    },
+    {
+      "index": 17,
+      "startMs": 135126,
+      "endMs": 138118,
+      "rawText": "This is Papa Bear. Put out\nan A.P.B. for a male suspect..."
+    },
+    {
+      "index": 18,
+      "startMs": 138229,
+      "endMs": 141596,
+      "rawText": "driving a... car of some sort..."
+    },
+    {
+      "index": 19,
+      "startMs": 141700,
+      "endMs": 144134,
+      "rawText": "heading in\nthe direction of, uh..."
+    },
+    {
+      "index": 20,
+      "startMs": 144235,
+      "endMs": 146294,
+      "rawText": "you know, that place\nthat sells chili."
+    },
+    {
+      "index": 21,
+      "startMs": 146404,
+      "endMs": 147496,
+      "rawText": "Suspect is hatless.\nRepeat, hatless."
+    },
+    {
+      "index": 22,
+      "startMs": 153712,
+      "endMs": 155737,
+      "rawText": "Honey, you really shouldn't\neat so much in bed."
+    },
+    {
+      "index": 23,
+      "startMs": 155847,
+      "endMs": 158338,
+      "rawText": "It's not good\nfor your heart."
+    },
+    {
+      "index": 24,
+      "startMs": 158450,
+      "endMs": 161647,
+      "rawText": "My heart is just f--\n[ Gasps, Groans ]"
+    },
+    {
+      "index": 25,
+      "startMs": 161753,
+      "endMs": 165849,
+      "rawText": "- Homie, what is it?\n-Just workin' the turkey through."
+    },
+    {
+      "index": 26,
+      "startMs": 167258,
+      "endMs": 169158,
+      "rawText": "There it goes!"
+    },
+    {
+      "index": 27,
+      "startMs": 172497,
+      "endMs": 175523,
+      "rawText": "Hey, Lise, there was a big train wreck\nlast night. Do you wanna see the victims?"
+    },
+    {
+      "index": 28,
+      "startMs": 175633,
+      "endMs": 178124,
+      "rawText": "- Hmm, okay.\n- Yaah!"
+    },
+    {
+      "index": 29,
+      "startMs": 178236,
+      "endMs": 182798,
+      "rawText": "- Bart, that's gross!\n- You're right. Let's bury them at sea. Bleah!"
+    },
+    {
+      "index": 30,
+      "startMs": 182907,
+      "endMs": 187207,
+      "rawText": "- Da-a-d!\n- [ Gasping ]"
+    },
+    {
+      "index": 31,
+      "startMs": 187312,
+      "endMs": 190145,
+      "rawText": "- What's wrong?\n- You know that feeling you get..."
+    },
+    {
+      "index": 32,
+      "startMs": 190248,
+      "endMs": 194014,
+      "rawText": "when a thousand knives of fire\nare stabbing you in the heart?"
+    },
+    {
+      "index": 33,
+      "startMs": 194119,
+      "endMs": 196679,
+      "rawText": "I got that right now."
+    },
+    {
+      "index": 34,
+      "startMs": 196788,
+      "endMs": 199052,
+      "rawText": "Ooh! Bacon!"
+    },
+    {
+      "index": 35,
+      "startMs": 199157,
+      "endMs": 201921,
+      "rawText": "Homer, I prepared a special\nSurprise just for you."
+    },
+    {
+      "index": 36,
+      "startMs": 202027,
+      "endMs": 204086,
+      "rawText": "It could only be one thing."
+    },
+    {
+      "index": 37,
+      "startMs": 206131,
+      "endMs": 209862,
+      "rawText": "Psst! The best meat's\nin the rump."
+    },
+    {
+      "index": 38,
+      "startMs": 209968,
+      "endMs": 212027,
+      "rawText": "- Here you go.\n- What the hell is this?"
+    },
+    {
+      "index": 39,
+      "startMs": 212137,
+      "endMs": 215698,
+      "rawText": "- Nice, healthy oatmeal.\n- Ooh, oatmeal."
+    },
+    {
+      "index": 40,
+      "startMs": 215807,
+      "endMs": 219573,
+      "rawText": "What a delightful treat.\nOh, there's a bug in it."
+    },
+    {
+      "index": 41,
+      "startMs": 219677,
+      "endMs": 222373,
+      "rawText": "- No, there isn't.\n- Trust me."
+    },
+    {
+      "index": 42,
+      "startMs": 226484,
+      "endMs": 228679,
+      "rawText": "Dad, there's a bug on that."
+    },
+    {
+      "index": 43,
+      "startMs": 228787,
+      "endMs": 230812,
+      "rawText": "Eh."
+    },
+    {
+      "index": 44,
+      "startMs": 233024,
+      "endMs": 235356,
+      "rawText": "[ Horn Honking ]"
+    },
+    {
+      "index": 45,
+      "startMs": 237128,
+      "endMs": 239221,
+      "rawText": "Come on, come on!"
+    },
+    {
+      "index": 46,
+      "startMs": 246237,
+      "endMs": 250799,
+      "rawText": "- Oh, dear. Now you've done it.\n- [Banging]"
+    },
+    {
+      "index": 47,
+      "startMs": 250909,
+      "endMs": 253173,
+      "rawText": "[ Growling ]"
+    },
+    {
+      "index": 48,
+      "startMs": 253278,
+      "endMs": 255712,
+      "rawText": "[Heart Beating]"
+    },
+    {
+      "index": 49,
+      "startMs": 255814,
+      "endMs": 258715,
+      "rawText": "[ Horn Honking ]"
+    },
+    {
+      "index": 50,
+      "startMs": 258817,
+      "endMs": 261843,
+      "rawText": "I keep hearing this horrible\nirregular thumping noise."
+    },
+    {
+      "index": 51,
+      "startMs": 261953,
+      "endMs": 263853,
+      "rawText": "[Heart Beating: Irregular]"
+    },
+    {
+      "index": 52,
+      "startMs": 263955,
+      "endMs": 266924,
+      "rawText": "It's your heart.\nAnd I think it's on its last thump."
+    },
+    {
+      "index": 53,
+      "startMs": 267025,
+      "endMs": 270290,
+      "rawText": "Whew! I was afraid\nit was my transmission."
+    },
+    {
+      "index": 54,
+      "startMs": 270395,
+      "endMs": 272295,
+      "rawText": "Hey, where's he goin'?"
+    },
+    {
+      "index": 55,
+      "startMs": 272397,
+      "endMs": 275389,
+      "rawText": "Billy, remember that old Plymouth\nWe just couldn't fix?"
+    },
+    {
+      "index": 56,
+      "startMs": 275500,
+      "endMs": 280597,
+      "rawText": "- We're gonna sell him to Mr. Nikapopolus?\n- You're a dull boy, Billy."
+    },
+    {
+      "index": 57,
+      "startMs": 282640,
+      "endMs": 286906,
+      "rawText": "Look at that pig stuffing his face\nwith doughnuts on my time!"
+    },
+    {
+      "index": 58,
+      "startMs": 287011,
+      "endMs": 290105,
+      "rawText": "That's right. Keep eating."
+    },
+    {
+      "index": 59,
+      "startMs": 290215,
+      "endMs": 293946,
+      "rawText": "Little do you know you're drawing\never closer to the poisoned doughnut."
+    },
+    {
+      "index": 60,
+      "startMs": 294052,
+      "endMs": 297453,
+      "rawText": "[ Chuckling ] There is a poisoned one--\nisn't there, Smithers?"
+    },
+    {
+      "index": 61,
+      "startMs": 297555,
+      "endMs": 301355,
+      "rawText": "Uh, no, sir. I discussed this with our lawyers.\nThey consider it murder."
+    },
+    {
+      "index": 62,
+      "startMs": 301459,
+      "endMs": 303689,
+      "rawText": "Damn their oily hides!"
+    },
+    {
+      "index": 63,
+      "startMs": 303795,
+      "endMs": 306025,
+      "rawText": "[ Snoring ]"
+    },
+    {
+      "index": 64,
+      "startMs": 306131,
+      "endMs": 308031,
+      "rawText": "Bring him to me!"
+    },
+    {
+      "index": 65,
+      "startMs": 309467,
+      "endMs": 313528,
+      "rawText": "- [ Beating Rapidly]\n- [Mr. Burns]Relax, Simpson."
+    },
+    {
+      "index": 66,
+      "startMs": 313638,
+      "endMs": 316300,
+      "rawText": "I just brought you in here\nfor a friendly hello."
+    },
+    {
+      "index": 67,
+      "startMs": 316407,
+      "endMs": 318967,
+      "rawText": "- [ Sighs ]\n- [ Beating Slows ]"
+    },
+    {
+      "index": 68,
+      "startMs": 319077,
+      "endMs": 321170,
+      "rawText": "And good-bye!\nYou're fired!"
+    },
+    {
+      "index": 69,
+      "startMs": 321279,
+      "endMs": 323179,
+      "rawText": "- [ Gasps ]\n- But wait."
+    },
+    {
+      "index": 70,
+      "startMs": 323281,
+      "endMs": 325181,
+      "rawText": "Perhaps I'm being\nToo hasty."
+    },
+    {
+      "index": 71,
+      "startMs": 325283,
+      "endMs": 327979,
+      "rawText": "- You are highly skilled...\n- [ Sighs ]"
+    },
+    {
+      "index": 72,
+      "startMs": 328086,
+      "endMs": 330213,
+      "rawText": "- at goofing off!.\n- [ Groans ]"
+    },
+    {
+      "index": 73,
+      "startMs": 330321,
+      "endMs": 335122,
+      "rawText": "Now, don't worry, Homer.\nYou're the kind of guy I could really dig..."
+    },
+    {
+      "index": 74,
+      "startMs": 335226,
+      "endMs": 337660,
+      "rawText": "- a grave for!\n- [ Gasps ]"
+    },
+    {
+      "index": 75,
+      "startMs": 337762,
+      "endMs": 340060,
+      "rawText": "Your indolence\nis inefficacious!"
+    },
+    {
+      "index": 76,
+      "startMs": 340165,
+      "endMs": 342133,
+      "rawText": "Oh?"
+    },
+    {
+      "index": 77,
+      "startMs": 342233,
+      "endMs": 344133,
+      "rawText": "That means you're terrible!"
+    },
+    {
+      "index": 78,
+      "startMs": 344235,
+      "endMs": 346760,
+      "rawText": "[ Gasping, Screaming ]"
+    },
+    {
+      "index": 79,
+      "startMs": 350375,
+      "endMs": 352775,
+      "rawText": "- [Thud]\n- Hmm?"
+    },
+    {
+      "index": 80,
+      "startMs": 352877,
+      "endMs": 355402,
+      "rawText": "Mr. Burns,\nI think he's dead."
+    },
+    {
+      "index": 81,
+      "startMs": 355513,
+      "endMs": 358641,
+      "rawText": "Oh, dear.\nSend a ham to his widow."
+    },
+    {
+      "index": 82,
+      "startMs": 358750,
+      "endMs": 361583,
+      "rawText": "Mmm. Ham."
+    },
+    {
+      "index": 83,
+      "startMs": 363288,
+      "endMs": 365256,
+      "rawText": "No, wait. He's alive."
+    },
+    {
+      "index": 84,
+      "startMs": 365356,
+      "endMs": 367984,
+      "rawText": "- Oh, good. Cancel the ham.\n- D'oh!"
+    },
+    {
+      "index": 85,
+      "startMs": 368092,
+      "endMs": 369616,
+      "rawText": "[ Siren Wailing ]"
+    },
+    {
+      "index": 86,
+      "startMs": 376167,
+      "endMs": 379102,
+      "rawText": "- Wow, look at that.\nHow do they know to cross there?\n- [ Groaning ]"
+    },
+    {
+      "index": 87,
+      "startMs": 390014,
+      "endMs": 391641,
+      "rawText": "He was taking a bite,\nand his jaw locked."
+    },
+    {
+      "index": 88,
+      "startMs": 391749,
+      "endMs": 394013,
+      "rawText": "Hey, look. I can fit\nmy entire fist in here."
+    },
+    {
+      "index": 89,
+      "startMs": 395520,
+      "endMs": 396782,
+      "rawText": "[ Muffled ]\nHey, hey, hey. Cut it out."
+    },
+    {
+      "index": 90,
+      "startMs": 396888,
+      "endMs": 398651,
+      "rawText": "- What's that, Chief?\n- Cut it out."
+    },
+    {
+      "index": 91,
+      "startMs": 398756,
+      "endMs": 401088,
+      "rawText": "####[Reggae]"
+    },
+    {
+      "index": 92,
+      "startMs": 403461,
+      "endMs": 406624,
+      "rawText": "Ooh. Buy three tubes\nof Mr. Blister..."
+    },
+    {
+      "index": 93,
+      "startMs": 406731,
+      "endMs": 408631,
+      "rawText": "- get one free.\n- [Phone Ringing]"
+    },
+    {
+      "index": 94,
+      "startMs": 408733,
+      "endMs": 410997,
+      "rawText": "Hello. Yes."
+    },
+    {
+      "index": 95,
+      "startMs": 411102,
+      "endMs": 413263,
+      "rawText": "Oh, dear Lord!"
+    },
+    {
+      "index": 96,
+      "startMs": 413371,
+      "endMs": 416534,
+      "rawText": "Homer's in the hospital!\nThey think it's his heart!"
+    },
+    {
+      "index": 97,
+      "startMs": 416641,
+      "endMs": 419269,
+      "rawText": "- [Door Shuts]\n- Oh, my God."
+    },
+    {
+      "index": 98,
+      "startMs": 419377,
+      "endMs": 423575,
+      "rawText": "- What?\n- Five cents off wax paper."
+    },
+    {
+      "index": 99,
+      "startMs": 423681,
+      "endMs": 425581,
+      "rawText": "- Clear!\n- [ Groans ]"
+    },
+    {
+      "index": 100,
+      "startMs": 425683,
+      "endMs": 428151,
+      "rawText": "[ Steady Beep ]"
+    },
+    {
+      "index": 101,
+      "startMs": 428253,
+      "endMs": 430153,
+      "rawText": "- [ Beep Continues ]\n- More."
+    },
+    {
+      "index": 102,
+      "startMs": 430255,
+      "endMs": 432883,
+      "rawText": "[ Groaning ]\nThank you."
+    },
+    {
+      "index": 103,
+      "startMs": 432991,
+      "endMs": 435687,
+      "rawText": "Oh, Homie,\nI was so frightened!"
+    },
+    {
+      "index": 104,
+      "startMs": 435793,
+      "endMs": 439593,
+      "rawText": "Marge, my whole life\nflashed before my eyes."
+    },
+    {
+      "index": 105,
+      "startMs": 439697,
+      "endMs": 441927,
+      "rawText": "Ah, little Homer."
+    },
+    {
+      "index": 106,
+      "startMs": 444902,
+      "endMs": 447564,
+      "rawText": "How'd he get that?"
+    },
+    {
+      "index": 107,
+      "startMs": 449874,
+      "endMs": 453742,
+      "rawText": "## [ Angelic Singing ]"
+    },
+    {
+      "index": 108,
+      "startMs": 458316,
+      "endMs": 462753,
+      "rawText": "What a voice. Young Homer is\ngoing to make me a millionaire."
+    },
+    {
+      "index": 109,
+      "startMs": 465957,
+      "endMs": 468357,
+      "rawText": "## [ Voice Cracks, Deepens ]"
+    },
+    {
+      "index": 110,
+      "startMs": 468459,
+      "endMs": 470427,
+      "rawText": "Hey, my voice just changed."
+    },
+    {
+      "index": 111,
+      "startMs": 470528,
+      "endMs": 473088,
+      "rawText": "## [ Singing Tunelessly]"
+    },
+    {
+      "index": 112,
+      "startMs": 474866,
+      "endMs": 476493,
+      "rawText": "Dagnabbit!"
+    },
+    {
+      "index": 113,
+      "startMs": 476601,
+      "endMs": 480093,
+      "rawText": "Mr. Simpson, I'm afraid you've just had\na mild heart attack."
+    },
+    {
+      "index": 114,
+      "startMs": 480204,
+      "endMs": 482229,
+      "rawText": "But I'm out of the woods\nnow, right?"
+    },
+    {
+      "index": 115,
+      "startMs": 482340,
+      "endMs": 485173,
+      "rawText": "I mean, whatever doesn't kill me\ncan only make me stronger."
+    },
+    {
+      "index": 116,
+      "startMs": 485276,
+      "endMs": 487176,
+      "rawText": "Oh, no.\nQuite the opposite."
+    },
+    {
+      "index": 117,
+      "startMs": 487278,
+      "endMs": 490145,
+      "rawText": "It's made you weak as a kitten.\n[ Chuckles ]"
+    },
+    {
+      "index": 118,
+      "startMs": 490248,
+      "endMs": 493149,
+      "rawText": "- Look!\n- Hey, come on. Quit it."
+    },
+    {
+      "index": 119,
+      "startMs": 493251,
+      "endMs": 496152,
+      "rawText": "- Coochy coochy coo!\n- Stop. Please stop."
+    },
+    {
+      "index": 120,
+      "startMs": 496254,
+      "endMs": 498745,
+      "rawText": "Oh, you swing like a girl.\nCome on, now."
+    },
+    {
+      "index": 121,
+      "startMs": 498856,
+      "endMs": 501256,
+      "rawText": "- Please have mercy.\n- Got your nose."
+    },
+    {
+      "index": 122,
+      "startMs": 501359,
+      "endMs": 503259,
+      "rawText": "- [ Chuckling ]\n- Not funny."
+    },
+    {
+      "index": 123,
+      "startMs": 503361,
+      "endMs": 505261,
+      "rawText": "How 'bout this little bee?\n[ Buzzing ]"
+    },
+    {
+      "index": 124,
+      "startMs": 505363,
+      "endMs": 507729,
+      "rawText": "No! Oh!"
+    },
+    {
+      "index": 125,
+      "startMs": 507832,
+      "endMs": 511700,
+      "rawText": "Remember your\nhippopotamus oath."
+    },
+    {
+      "index": 126,
+      "startMs": 511803,
+      "endMs": 515239,
+      "rawText": "- Can't you do something for him?\n- Well, we can't fix his heart..."
+    },
+    {
+      "index": 127,
+      "startMs": 515340,
+      "endMs": 518207,
+      "rawText": "but we can tell you\nexactly how damaged it is."
+    },
+    {
+      "index": 128,
+      "startMs": 518343,
+      "endMs": 521210,
+      "rawText": "What an age we live in!"
+    },
+    {
+      "index": 129,
+      "startMs": 521312,
+      "endMs": 524281,
+      "rawText": "Now, what you see here\nis the radioactive dye we injected..."
+    },
+    {
+      "index": 130,
+      "startMs": 524382,
+      "endMs": 526680,
+      "rawText": "flowing through\nyour husband's circulatory system."
+    },
+    {
+      "index": 131,
+      "startMs": 526784,
+      "endMs": 529275,
+      "rawText": "But, Doctor,\nI haven't injected the dye yet!"
+    },
+    {
+      "index": 132,
+      "startMs": 529387,
+      "endMs": 532254,
+      "rawText": "- Good Lord.\n- Hi."
+    },
+    {
+      "index": 133,
+      "startMs": 532357,
+      "endMs": 534825,
+      "rawText": "Now, Homer,\nthis is a new body fat analysis test."
+    },
+    {
+      "index": 134,
+      "startMs": 534926,
+      "endMs": 539056,
+      "rawText": "I start you jiggling and measure\nhow long it takes to stop."
+    },
+    {
+      "index": 135,
+      "startMs": 543334,
+      "endMs": 545894,
+      "rawText": "Whoo-hoo!\nLook at that blubber fly!"
+    },
+    {
+      "index": 136,
+      "startMs": 546003,
+      "endMs": 548198,
+      "rawText": "Yes."
+    },
+    {
+      "index": 137,
+      "startMs": 548306,
+      "endMs": 550206,
+      "rawText": "Nurse, cancel my 1 :00."
+    },
+    {
+      "index": 138,
+      "startMs": 550308,
+      "endMs": 554404,
+      "rawText": "Homer, I'm afraid you'll have to\nundergo a coronary bypass operation."
+    },
+    {
+      "index": 139,
+      "startMs": 554512,
+      "endMs": 558141,
+      "rawText": "- Say it in English, Doc.\n- You're going to need open-heart surgery."
+    },
+    {
+      "index": 140,
+      "startMs": 558249,
+      "endMs": 560274,
+      "rawText": "Spare me your medical\nmumbo jumbo."
+    },
+    {
+      "index": 141,
+      "startMs": 560385,
+      "endMs": 563684,
+      "rawText": "We're going to cut you open\nand tinker with your ticker."
+    },
+    {
+      "index": 142,
+      "startMs": 563788,
+      "endMs": 567918,
+      "rawText": "- Could you dumb it down a shade?\n- Doctor, we'll do whatever\nit takes to get my Homie well."
+    },
+    {
+      "index": 143,
+      "startMs": 568025,
+      "endMs": 570721,
+      "rawText": "Good.\nI must warn you though."
+    },
+    {
+      "index": 144,
+      "startMs": 570828,
+      "endMs": 574559,
+      "rawText": "This procedure will cost you\nupwards of... $30,000."
+    },
+    {
+      "index": 145,
+      "startMs": 574665,
+      "endMs": 578362,
+      "rawText": "- [Homer Gasps, Cries Out]\n- [Thud]"
+    },
+    {
+      "index": 146,
+      "startMs": 578469,
+      "endMs": 581529,
+      "rawText": "[Dr. Hibbert]\nI'm afraid it's now 40,000."
+    },
+    {
+      "index": 147,
+      "startMs": 586744,
+      "endMs": 590373,
+      "rawText": "Okay, Okay. We need $40,000. Now,\nhow much do we have in the checkbook?"
+    },
+    {
+      "index": 148,
+      "startMs": 590481,
+      "endMs": 593143,
+      "rawText": "- Seventy dollars.\n- Hmm."
+    },
+    {
+      "index": 149,
+      "startMs": 593251,
+      "endMs": 596311,
+      "rawText": "Have we deposited any $40,000 checks\nthat haven't cleared yet?"
+    },
+    {
+      "index": 150,
+      "startMs": 596421,
+      "endMs": 598946,
+      "rawText": "No. Don't you have\nhealth insurance at work?"
+    },
+    {
+      "index": 151,
+      "startMs": 599056,
+      "endMs": 602219,
+      "rawText": "Well, actually, we gave it all up\nfor a pinball machine in the lounge."
+    },
+    {
+      "index": 152,
+      "startMs": 602326,
+      "endMs": 604453,
+      "rawText": "- D'oh!\n- Don't worry, Marge."
+    },
+    {
+      "index": 153,
+      "startMs": 604562,
+      "endMs": 608259,
+      "rawText": "America's health care system\nis second only to Japan..."
+    },
+    {
+      "index": 154,
+      "startMs": 608366,
+      "endMs": 612132,
+      "rawText": "Canada, Sweden, Great Britain--\nwell, all of Europe."
+    },
+    {
+      "index": 155,
+      "startMs": 612236,
+      "endMs": 615967,
+      "rawText": "But you can thank your lucky stars\nwe don't live in Paraguay."
+    },
+    {
+      "index": 156,
+      "startMs": 616073,
+      "endMs": 618041,
+      "rawText": "[ Sobbing ]"
+    },
+    {
+      "index": 157,
+      "startMs": 620344,
+      "endMs": 623108,
+      "rawText": "[ Electricity Crackling ]"
+    },
+    {
+      "index": 158,
+      "startMs": 625349,
+      "endMs": 628978,
+      "rawText": "Now, before we give you health insurance,\nI have to ask you a few questions."
+    },
+    {
+      "index": 159,
+      "startMs": 629086,
+      "endMs": 631816,
+      "rawText": "Questions? Questions?\nOh!"
+    },
+    {
+      "index": 160,
+      "startMs": 631923,
+      "endMs": 634483,
+      "rawText": "My whole scheme down the--\nI mean, ask away."
+    },
+    {
+      "index": 161,
+      "startMs": 634592,
+      "endMs": 637390,
+      "rawText": "Oh, good.\nNow, under \"heart attacks,\""
+    },
+    {
+      "index": 162,
+      "startMs": 637495,
+      "endMs": 639486,
+      "rawText": "you crossed out \"3\"\nand wrote \"0.\""
+    },
+    {
+      "index": 163,
+      "startMs": 639597,
+      "endMs": 643089,
+      "rawText": "Oh, I thought that said\n\"brain hemorrhages.\""
+    },
+    {
+      "index": 164,
+      "startMs": 643201,
+      "endMs": 646034,
+      "rawText": "Uh-huh.\nAnd, uh, do you drink?"
+    },
+    {
+      "index": 165,
+      "startMs": 646137,
+      "endMs": 648332,
+      "rawText": "I do enjoy a snifter\nof port at Christmas."
+    },
+    {
+      "index": 166,
+      "startMs": 648439,
+      "endMs": 650339,
+      "rawText": "All right.\nHere's your policy."
+    },
+    {
+      "index": 167,
+      "startMs": 650441,
+      "endMs": 653433,
+      "rawText": "Now let me tell you something,\nMr. Sucker. I just--"
+    },
+    {
+      "index": 168,
+      "startMs": 653544,
+      "endMs": 655842,
+      "rawText": "Oh, hold on there.\nUh, you still have to sign it."
+    },
+    {
+      "index": 169,
+      "startMs": 655947,
+      "endMs": 659007,
+      "rawText": "Oh. I--\n[ Gasps ]"
+    },
+    {
+      "index": 170,
+      "startMs": 659116,
+      "endMs": 661880,
+      "rawText": "Must... sign... policy!"
+    },
+    {
+      "index": 171,
+      "startMs": 661986,
+      "endMs": 663920,
+      "rawText": "Sir, I'm sorry.\nWe can't insure you."
+    },
+    {
+      "index": 172,
+      "startMs": 664021,
+      "endMs": 666285,
+      "rawText": "- I made an \"H.\"\n- No, that doesn't count."
+    },
+    {
+      "index": 173,
+      "startMs": 666390,
+      "endMs": 668551,
+      "rawText": "It's like an \"X.\"\n[ Groans ]"
+    },
+    {
+      "index": 174,
+      "startMs": 668659,
+      "endMs": 670650,
+      "rawText": "Hey, we'd better get you\nto a hospital."
+    },
+    {
+      "index": 175,
+      "startMs": 670761,
+      "endMs": 673195,
+      "rawText": "- Can I have a free calendar?\n- Okay."
+    },
+    {
+      "index": 176,
+      "startMs": 673297,
+      "endMs": 675492,
+      "rawText": "- Clear!\n- [ Groaning ]"
+    },
+    {
+      "index": 177,
+      "startMs": 675600,
+      "endMs": 681038,
+      "rawText": "Oh, Doctor, I was in a wonderful place\nfilled with fire and brimstone."
+    },
+    {
+      "index": 178,
+      "startMs": 681138,
+      "endMs": 685302,
+      "rawText": "And there were all these guys in red\npajamas sticking pitchforks in my butt."
+    },
+    {
+      "index": 179,
+      "startMs": 685409,
+      "endMs": 688378,
+      "rawText": "Mr. Simpson, you must get\nthat operation as soon as possible."
+    },
+    {
+      "index": 180,
+      "startMs": 688479,
+      "endMs": 693314,
+      "rawText": "I can't afford it. Maybe I should\nbuy one of those machines."
+    },
+    {
+      "index": 181,
+      "startMs": 693417,
+      "endMs": 696386,
+      "rawText": "[ Groaning ]\nOh, yeah. That's the stuff."
+    },
+    {
+      "index": 182,
+      "startMs": 696487,
+      "endMs": 698819,
+      "rawText": "Now, I know I haven't been\nthe best Christian."
+    },
+    {
+      "index": 183,
+      "startMs": 698923,
+      "endMs": 701585,
+      "rawText": "In fact, when you're up there\n\"blah, blah, blah-ing,\""
+    },
+    {
+      "index": 184,
+      "startMs": 701692,
+      "endMs": 705594,
+      "rawText": "I'm usually doodling or mentally\nundressing the female parishioners."
+    },
+    {
+      "index": 185,
+      "startMs": 705696,
+      "endMs": 709359,
+      "rawText": "Well, anyhoo,\ncan I have $40,000?"
+    },
+    {
+      "index": 186,
+      "startMs": 709467,
+      "endMs": 711992,
+      "rawText": "Now, I know I haven't\nbeen the best Jew..."
+    },
+    {
+      "index": 187,
+      "startMs": 712103,
+      "endMs": 714936,
+      "rawText": "but I rented Fiddler on the Roof,\nand I will watch it."
+    },
+    {
+      "index": 188,
+      "startMs": 715039,
+      "endMs": 717906,
+      "rawText": "- Anyway, can I have $40,000?\n- Hmm?"
+    },
+    {
+      "index": 189,
+      "startMs": 718009,
+      "endMs": 722139,
+      "rawText": "Now, I know I haven't been the best--\nOh, forget it."
+    },
+    {
+      "index": 190,
+      "startMs": 723714,
+      "endMs": 727081,
+      "rawText": "- Honey, did you have any luck?\n- No, but the rabbi gave me this."
+    },
+    {
+      "index": 191,
+      "startMs": 727184,
+      "endMs": 730676,
+      "rawText": "- What is it, Dad?\n- Son, they call it a \"droodle.\""
+    },
+    {
+      "index": 192,
+      "startMs": 730788,
+      "endMs": 733723,
+      "rawText": "Whoo-hoo!\nLook at it go!"
+    },
+    {
+      "index": 193,
+      "startMs": 733824,
+      "endMs": 737157,
+      "rawText": "Hi, everybody! Are you looking\nfor a way to slash the cost..."
+    },
+    {
+      "index": 194,
+      "startMs": 737261,
+      "endMs": 739161,
+      "rawText": "of your medical expenses?"
+    },
+    {
+      "index": 195,
+      "startMs": 739263,
+      "endMs": 742721,
+      "rawText": "- Boring!\n- Wait! This might be the answer we're looking for."
+    },
+    {
+      "index": 196,
+      "startMs": 742833,
+      "endMs": 747827,
+      "rawText": "I will perform any operation\nfor 1 29.95."
+    },
+    {
+      "index": 197,
+      "startMs": 747939,
+      "endMs": 749839,
+      "rawText": "Come in for brain surgery..."
+    },
+    {
+      "index": 198,
+      "startMs": 749941,
+      "endMs": 752466,
+      "rawText": "and receive a free\nChinese finger trap."
+    },
+    {
+      "index": 199,
+      "startMs": 752577,
+      "endMs": 754568,
+      "rawText": "[ Grunting ]"
+    },
+    {
+      "index": 200,
+      "startMs": 754679,
+      "endMs": 758706,
+      "rawText": "Okay, friend.\nYou tried the best. Now try the rest."
+    },
+    {
+      "index": 201,
+      "startMs": 758816,
+      "endMs": 762013,
+      "rawText": "Call 1 -600-DOCTORB."
+    },
+    {
+      "index": 202,
+      "startMs": 762119,
+      "endMs": 764212,
+      "rawText": "The \"B\" is for \"bargain\"!"
+    },
+    {
+      "index": 203,
+      "startMs": 764322,
+      "endMs": 767519,
+      "rawText": "Well, Marge,\nwe could do worse."
+    },
+    {
+      "index": 204,
+      "startMs": 767625,
+      "endMs": 771686,
+      "rawText": "- How?\n- Uh, some dog could do the operation."
+    },
+    {
+      "index": 205,
+      "startMs": 771796,
+      "endMs": 773855,
+      "rawText": "Operation?\nWhat are you talking about?"
+    },
+    {
+      "index": 206,
+      "startMs": 773965,
+      "endMs": 775865,
+      "rawText": "Kids, I have something\nto tell you."
+    },
+    {
+      "index": 207,
+      "startMs": 775967,
+      "endMs": 778868,
+      "rawText": "Oh, Homie, I don't know.\nThis might upset them."
+    },
+    {
+      "index": 208,
+      "startMs": 778970,
+      "endMs": 782133,
+      "rawText": "Nothing you say can upset us.\nWe're the MTV generation."
+    },
+    {
+      "index": 209,
+      "startMs": 782239,
+      "endMs": 785265,
+      "rawText": "- We feel neither highs nor lows.\n- Really? What's it like?"
+    },
+    {
+      "index": 210,
+      "startMs": 785376,
+      "endMs": 788539,
+      "rawText": "- Eh.\n- Well, you kids are old enough to know the truth..."
+    },
+    {
+      "index": 211,
+      "startMs": 788646,
+      "endMs": 791342,
+      "rawText": "and I'm not gonna\nsugarcoat it."
+    },
+    {
+      "index": 212,
+      "startMs": 791449,
+      "endMs": 795943,
+      "rawText": "So the tiny Aorta fairies\nwill take Mr. Leg Vein on a long trip..."
+    },
+    {
+      "index": 213,
+      "startMs": 796053,
+      "endMs": 798613,
+      "rawText": "to get married to\nPrincess Left Ventricle."
+    },
+    {
+      "index": 214,
+      "startMs": 798723,
+      "endMs": 802682,
+      "rawText": "Dad, are you trying to tell us\nyou're getting a coronary artery bypass graft?"
+    },
+    {
+      "index": 215,
+      "startMs": 802793,
+      "endMs": 805557,
+      "rawText": "- Uh, yeah.\n- Oh, no."
+    },
+    {
+      "index": 216,
+      "startMs": 805663,
+      "endMs": 810362,
+      "rawText": "What if they botch it?\nI won't have a dad... for a while."
+    },
+    {
+      "index": 217,
+      "startMs": 810468,
+      "endMs": 813528,
+      "rawText": "[ Sobbing ]"
+    },
+    {
+      "index": 218,
+      "startMs": 813638,
+      "endMs": 816368,
+      "rawText": "Kids. Kids.\nI'm not gonna die."
+    },
+    {
+      "index": 219,
+      "startMs": 816474,
+      "endMs": 819910,
+      "rawText": "- That only happens to bad people.\n- What about Abraham Lincoln?"
+    },
+    {
+      "index": 220,
+      "startMs": 820011,
+      "endMs": 822571,
+      "rawText": "Uh-- He sold poisoned milk\nto schoolchildren."
+    },
+    {
+      "index": 221,
+      "startMs": 822680,
+      "endMs": 825547,
+      "rawText": "- Homer!\n- Hey, I'm just trying to make it easier on 'em."
+    },
+    {
+      "index": 222,
+      "startMs": 825650,
+      "endMs": 829518,
+      "rawText": "Bedgoes up. Bedgoes down.\nBedgoes up. Bedgoes down."
+    },
+    {
+      "index": 223,
+      "startMs": 829620,
+      "endMs": 831520,
+      "rawText": "Bed goes up.\nBed goes down."
+    },
+    {
+      "index": 224,
+      "startMs": 831622,
+      "endMs": 834284,
+      "rawText": "- Bed goes up. Bed goes down.\n- [Flanders]Homer Simpson!"
+    },
+    {
+      "index": 225,
+      "startMs": 834392,
+      "endMs": 838226,
+      "rawText": "Well, if that don't put\nthe \"dink\" in co-inky-dink."
+    },
+    {
+      "index": 226,
+      "startMs": 838329,
+      "endMs": 840388,
+      "rawText": "Flanders,\nwhat are you doin' here?"
+    },
+    {
+      "index": 227,
+      "startMs": 840498,
+      "endMs": 842693,
+      "rawText": "I'm having a kidney\nand a lung removed."
+    },
+    {
+      "index": 228,
+      "startMs": 842800,
+      "endMs": 846736,
+      "rawText": "- Who are you donating 'em to?\n- First come, first serve. What are you in for?"
+    },
+    {
+      "index": 229,
+      "startMs": 846837,
+      "endMs": 850830,
+      "rawText": "- I got a bad heart.\n- If I could give you my heart, Homer, I would."
+    },
+    {
+      "index": 230,
+      "startMs": 850941,
+      "endMs": 853933,
+      "rawText": "Shut up, Flanders."
+    },
+    {
+      "index": 231,
+      "startMs": 854045,
+      "endMs": 857674,
+      "rawText": "Hi, everybody!\nI'm Dr. Nick Riviera."
+    },
+    {
+      "index": 232,
+      "startMs": 857782,
+      "endMs": 861411,
+      "rawText": "Dr. Riviera. Dr. Nick Riviera.\nPlease report to the coroner immediately."
+    },
+    {
+      "index": 233,
+      "startMs": 861519,
+      "endMs": 864249,
+      "rawText": "The coroner?\nI'm so sick of that guy."
+    },
+    {
+      "index": 234,
+      "startMs": 864355,
+      "endMs": 867415,
+      "rawText": "Well, see you\nin the operating place."
+    },
+    {
+      "index": 235,
+      "startMs": 867525,
+      "endMs": 870619,
+      "rawText": "- [ All Chattering ]\n- Where are the bodies?"
+    },
+    {
+      "index": 236,
+      "startMs": 870728,
+      "endMs": 873993,
+      "rawText": "Oh, such a nice day.\nI think I'll go out the window."
+    },
+    {
+      "index": 237,
+      "startMs": 874098,
+      "endMs": 876396,
+      "rawText": "- Ho!\n- [Objects Clattering]"
+    },
+    {
+      "index": 238,
+      "startMs": 882139,
+      "endMs": 886473,
+      "rawText": "Dear Lord, thank you\nFor Ziggy comics, little baby ducks..."
+    },
+    {
+      "index": 239,
+      "startMs": 886577,
+      "endMs": 890673,
+      "rawText": "and Sweatin' to the Oldies,\nvolumes one, two and four."
+    },
+    {
+      "index": 240,
+      "startMs": 892983,
+      "endMs": 897113,
+      "rawText": "Dear Lord, I'm really scared\nabout this operation tomorrow."
+    },
+    {
+      "index": 241,
+      "startMs": 897221,
+      "endMs": 900019,
+      "rawText": "If something happens,\nplease look after Marge..."
+    },
+    {
+      "index": 242,
+      "startMs": 900124,
+      "endMs": 902718,
+      "rawText": "- and make sure my kids grow up right.\n- Shh!"
+    },
+    {
+      "index": 243,
+      "startMs": 905830,
+      "endMs": 907889,
+      "rawText": "Sorry."
+    },
+    {
+      "index": 244,
+      "startMs": 912903,
+      "endMs": 917203,
+      "rawText": "- And that's why God causes train wrecks.\n- Ah!"
+    },
+    {
+      "index": 245,
+      "startMs": 917308,
+      "endMs": 921210,
+      "rawText": "My dad is very sick.\nWhat's gonna happen if he dies?"
+    },
+    {
+      "index": 246,
+      "startMs": 921312,
+      "endMs": 924611,
+      "rawText": "Well, if he's been good,\nhe'll go to heaven."
+    },
+    {
+      "index": 247,
+      "startMs": 924715,
+      "endMs": 928617,
+      "rawText": "In heaven, you get to do\nWhatever you like best all the time."
+    },
+    {
+      "index": 248,
+      "startMs": 929987,
+      "endMs": 932012,
+      "rawText": "Cloud goes up.\nCloud goes down."
+    },
+    {
+      "index": 249,
+      "startMs": 932123,
+      "endMs": 934023,
+      "rawText": "Cloud goes up.\nCloud goes down."
+    },
+    {
+      "index": 250,
+      "startMs": 934125,
+      "endMs": 936355,
+      "rawText": "Bed goes up.\nBed goes down."
+    },
+    {
+      "index": 251,
+      "startMs": 936460,
+      "endMs": 938928,
+      "rawText": "Hey, hey!\n[ Chuckling ]"
+    },
+    {
+      "index": 252,
+      "startMs": 939029,
+      "endMs": 941691,
+      "rawText": "- [ Gasps, Groans ]\n- Hey, what's the matter?"
+    },
+    {
+      "index": 253,
+      "startMs": 941799,
+      "endMs": 946532,
+      "rawText": "Oh, that's right. My grotesque appearance.\n[ Chuckling ]"
+    },
+    {
+      "index": 254,
+      "startMs": 946637,
+      "endMs": 950004,
+      "rawText": "- Krusty, why are you here?\n- Eh, it's part of my public service..."
+    },
+    {
+      "index": 255,
+      "startMs": 950107,
+      "endMs": 954203,
+      "rawText": "for my glug-glug,\nvroom-vroom, thump-thump."
+    },
+    {
+      "index": 256,
+      "startMs": 954311,
+      "endMs": 956745,
+      "rawText": "Oh. Well, I could use\na good laugh."
+    },
+    {
+      "index": 257,
+      "startMs": 956847,
+      "endMs": 959645,
+      "rawText": "Well, there's nothing funny about\nWhat you're about to go through."
+    },
+    {
+      "index": 258,
+      "startMs": 959750,
+      "endMs": 963015,
+      "rawText": "I know.\nI'm in the zipper club myself."
+    },
+    {
+      "index": 259,
+      "startMs": 964955,
+      "endMs": 966855,
+      "rawText": "- Ahh!\n- You seem okay."
+    },
+    {
+      "index": 260,
+      "startMs": 966957,
+      "endMs": 971894,
+      "rawText": "Yeah? Well, I got news for ya.\nThis ain't makeup."
+    },
+    {
+      "index": 261,
+      "startMs": 971996,
+      "endMs": 977559,
+      "rawText": "They say the greatest tragedy is\nwhen a father outlives his son."
+    },
+    {
+      "index": 262,
+      "startMs": 977668,
+      "endMs": 980364,
+      "rawText": "I've never fully understood\nwhy that is."
+    },
+    {
+      "index": 263,
+      "startMs": 980471,
+      "endMs": 984066,
+      "rawText": "Frankly, I can see an upside to it.\n[ Laughing ]"
+    },
+    {
+      "index": 264,
+      "startMs": 984175,
+      "endMs": 986939,
+      "rawText": "We passed this card around\nat work."
+    },
+    {
+      "index": 265,
+      "startMs": 987044,
+      "endMs": 990536,
+      "rawText": "- Gee, thanks, guys.\n- They had a hell of a time replacing ya."
+    },
+    {
+      "index": 266,
+      "startMs": 993617,
+      "endMs": 997849,
+      "rawText": "When I first heard about the operation,\nI was against it."
+    },
+    {
+      "index": 267,
+      "startMs": 997955,
+      "endMs": 1002551,
+      "rawText": "But then I thought, if Homer\nwants to be a woman, so be it."
+    },
+    {
+      "index": 268,
+      "startMs": 1002660,
+      "endMs": 1005094,
+      "rawText": "Barney, I'm not getting\na sex change!"
+    },
+    {
+      "index": 269,
+      "startMs": 1005196,
+      "endMs": 1008324,
+      "rawText": "What? Well, what the hell\nam I supposed to do..."
+    },
+    {
+      "index": 270,
+      "startMs": 1008432,
+      "endMs": 1010696,
+      "rawText": "with this jumbo thong bikini?"
+    },
+    {
+      "index": 271,
+      "startMs": 1010801,
+      "endMs": 1014168,
+      "rawText": "Uh, Homer, I snuck you in a beer\nfor old times' sake."
+    },
+    {
+      "index": 272,
+      "startMs": 1014271,
+      "endMs": 1016603,
+      "rawText": "Thanks, Moe."
+    },
+    {
+      "index": 273,
+      "startMs": 1016707,
+      "endMs": 1019835,
+      "rawText": "Uh, you know, Homer,\nthat beer ain't free."
+    },
+    {
+      "index": 274,
+      "startMs": 1021879,
+      "endMs": 1023710,
+      "rawText": "Mom, this is fascinating."
+    },
+    {
+      "index": 275,
+      "startMs": 1023814,
+      "endMs": 1027113,
+      "rawText": "Did you know that they'll stop\nDad's heart for six whole minutes?"
+    },
+    {
+      "index": 276,
+      "startMs": 1027218,
+      "endMs": 1031211,
+      "rawText": "[ Groans ] I don't know if I like you\nreading all those cardiology books."
+    },
+    {
+      "index": 277,
+      "startMs": 1031322,
+      "endMs": 1033415,
+      "rawText": "No, Mom.\nIt's very reassuring."
+    },
+    {
+      "index": 278,
+      "startMs": 1033524,
+      "endMs": 1036960,
+      "rawText": "And I've learned a great deal from this\ncow's heart I got at the butcher shop."
+    },
+    {
+      "index": 279,
+      "startMs": 1038429,
+      "endMs": 1041865,
+      "rawText": "- [ Groans ]\n- [Man]Insert the retractor..."
+    },
+    {
+      "index": 280,
+      "startMs": 1041966,
+      "endMs": 1045129,
+      "rawText": "and crank it until the ribs swing open\nlike a rusty drawbridge."
+    },
+    {
+      "index": 281,
+      "startMs": 1045236,
+      "endMs": 1048637,
+      "rawText": "- [ Bones Cracking ]\n- Ah! No! Blood! Ugh!"
+    },
+    {
+      "index": 282,
+      "startMs": 1048739,
+      "endMs": 1051765,
+      "rawText": "Next, make an incision\nin the coronary artery--"
+    },
+    {
+      "index": 283,
+      "startMs": 1051876,
+      "endMs": 1055642,
+      "rawText": "And we are back with more of\nPeople Who Look Like Things."
+    },
+    {
+      "index": 284,
+      "startMs": 1055746,
+      "endMs": 1058442,
+      "rawText": "- ####[Theme]\n- [People Applauding]"
+    },
+    {
+      "index": 285,
+      "startMs": 1063354,
+      "endMs": 1067415,
+      "rawText": "Oh, no! No!\nSomeone taped over the end of this!"
+    },
+    {
+      "index": 286,
+      "startMs": 1067524,
+      "endMs": 1070516,
+      "rawText": "All we ask is to be treated\nwith dignity and respect."
+    },
+    {
+      "index": 287,
+      "startMs": 1070628,
+      "endMs": 1072687,
+      "rawText": "And a new candle\nnow and then?"
+    },
+    {
+      "index": 288,
+      "startMs": 1072796,
+      "endMs": 1075594,
+      "rawText": "- Yes, and a new ca-- No!\n- [People Laughing]"
+    },
+    {
+      "index": 289,
+      "startMs": 1075699,
+      "endMs": 1078361,
+      "rawText": "Oh, my little Maggie."
+    },
+    {
+      "index": 290,
+      "startMs": 1078469,
+      "endMs": 1083099,
+      "rawText": "I may never hold you again.\nEw! Stinky pants!"
+    },
+    {
+      "index": 291,
+      "startMs": 1083207,
+      "endMs": 1087200,
+      "rawText": "Now, Marge, if the unthinkable\nshould happen, you're gonna be lonely--"
+    },
+    {
+      "index": 292,
+      "startMs": 1087311,
+      "endMs": 1090542,
+      "rawText": "- Oh, Homie, I could never remarry.\n- Darn right."
+    },
+    {
+      "index": 293,
+      "startMs": 1090648,
+      "endMs": 1093014,
+      "rawText": "And to make sure, I want to be stuffed\nand put on the couch..."
+    },
+    {
+      "index": 294,
+      "startMs": 1093117,
+      "endMs": 1097213,
+      "rawText": "- as a constant reminder of our marital vows.\n- Ohh. Kids?"
+    },
+    {
+      "index": 295,
+      "startMs": 1097321,
+      "endMs": 1099789,
+      "rawText": "You can come in now."
+    },
+    {
+      "index": 296,
+      "startMs": 1101058,
+      "endMs": 1103356,
+      "rawText": "Bed goes up--\nKids..."
+    },
+    {
+      "index": 297,
+      "startMs": 1103460,
+      "endMs": 1106793,
+      "rawText": "I want to give you some words to remember\nme by in case something happens."
+    },
+    {
+      "index": 298,
+      "startMs": 1106897,
+      "endMs": 1110731,
+      "rawText": "Let's see. Uh--"
+    },
+    {
+      "index": 299,
+      "startMs": 1110834,
+      "endMs": 1113769,
+      "rawText": "- Oh, I'm no good at this.\n- [ Whispering ]"
+    },
+    {
+      "index": 300,
+      "startMs": 1115673,
+      "endMs": 1119905,
+      "rawText": "Bart, the saddest thing about this is\nI won't get to see you grow up, because--"
+    },
+    {
+      "index": 301,
+      "startMs": 1120010,
+      "endMs": 1121910,
+      "rawText": "[ Whispering ]"
+    },
+    {
+      "index": 302,
+      "startMs": 1122012,
+      "endMs": 1125311,
+      "rawText": "I know you're gonna turn out great,\nwith or without your old man."
+    },
+    {
+      "index": 303,
+      "startMs": 1125416,
+      "endMs": 1129682,
+      "rawText": "- Thanks, Dad.\n- And Lisa--"
+    },
+    {
+      "index": 304,
+      "startMs": 1129787,
+      "endMs": 1132051,
+      "rawText": "[ Whispering ]"
+    },
+    {
+      "index": 305,
+      "startMs": 1132156,
+      "endMs": 1134181,
+      "rawText": "I guess this is\nthe time to tell you--"
+    },
+    {
+      "index": 306,
+      "startMs": 1134291,
+      "endMs": 1137385,
+      "rawText": "- [ Whispering ]\n-you're adopted and I don't like you."
+    },
+    {
+      "index": 307,
+      "startMs": 1137494,
+      "endMs": 1139519,
+      "rawText": "Bart!"
+    },
+    {
+      "index": 308,
+      "startMs": 1139630,
+      "endMs": 1141894,
+      "rawText": "But don't worry, because you've got\na big brother who loves you..."
+    },
+    {
+      "index": 309,
+      "startMs": 1141999,
+      "endMs": 1143830,
+      "rawText": "and will always\nlook out for you."
+    },
+    {
+      "index": 310,
+      "startMs": 1143934,
+      "endMs": 1146061,
+      "rawText": "[ Sobbing ]\nOh, Dad."
+    },
+    {
+      "index": 311,
+      "startMs": 1150407,
+      "endMs": 1154810,
+      "rawText": "- Hi, everybody!\n- Hi, Dr. Nick!"
+    },
+    {
+      "index": 312,
+      "startMs": 1154912,
+      "endMs": 1157073,
+      "rawText": "- [ Snoring ]\n- Now, if something should go wrong..."
+    },
+    {
+      "index": 313,
+      "startMs": 1157181,
+      "endMs": 1159809,
+      "rawText": "let's not get\nthe law involved."
+    },
+    {
+      "index": 314,
+      "startMs": 1159917,
+      "endMs": 1164547,
+      "rawText": "One hand washes the other.\nOoh, that reminds me."
+    },
+    {
+      "index": 315,
+      "startMs": 1166991,
+      "endMs": 1170552,
+      "rawText": "These gloves came free\nwith my toilet brush."
+    },
+    {
+      "index": 316,
+      "startMs": 1175866,
+      "endMs": 1178061,
+      "rawText": "What the hell is that?"
+    },
+    {
+      "index": 317,
+      "startMs": 1181672,
+      "endMs": 1184163,
+      "rawText": "Marge, this is Andre."
+    },
+    {
+      "index": 318,
+      "startMs": 1184274,
+      "endMs": 1186139,
+      "rawText": "Hello.\n[ Chuckles ]"
+    },
+    {
+      "index": 319,
+      "startMs": 1186243,
+      "endMs": 1188643,
+      "rawText": "I think you two would make\na lovely couple."
+    },
+    {
+      "index": 320,
+      "startMs": 1188746,
+      "endMs": 1191146,
+      "rawText": "My husband is still alive!"
+    },
+    {
+      "index": 321,
+      "startMs": 1191248,
+      "endMs": 1193808,
+      "rawText": "Oh. Thank God.\nI hope he pulls through."
+    },
+    {
+      "index": 322,
+      "startMs": 1193917,
+      "endMs": 1196112,
+      "rawText": "Not me.\n[ Chuckles ]"
+    },
+    {
+      "index": 323,
+      "startMs": 1196220,
+      "endMs": 1198984,
+      "rawText": "Let's have a minute\nof silent prayer..."
+    },
+    {
+      "index": 324,
+      "startMs": 1199089,
+      "endMs": 1202320,
+      "rawText": "for our good friend,\nHomer Simpson."
+    },
+    {
+      "index": 325,
+      "startMs": 1207431,
+      "endMs": 1209797,
+      "rawText": "- How long has it been?\n- Six seconds."
+    },
+    {
+      "index": 326,
+      "startMs": 1209900,
+      "endMs": 1212596,
+      "rawText": "- Do we have to start over?\n- Hell, no."
+    },
+    {
+      "index": 327,
+      "startMs": 1212703,
+      "endMs": 1216332,
+      "rawText": "Poor Mr. Homer.\nCould it be that my snack treats..."
+    },
+    {
+      "index": 328,
+      "startMs": 1216440,
+      "endMs": 1219603,
+      "rawText": "- are responsible for his wretched health?\n- Gimme some jerky."
+    },
+    {
+      "index": 329,
+      "startMs": 1219710,
+      "endMs": 1222144,
+      "rawText": "- Would you like some vodka with that?\n- Oh, what the hell. Sure."
+    },
+    {
+      "index": 330,
+      "startMs": 1228052,
+      "endMs": 1231647,
+      "rawText": "Doctor, what's wrong?\nDon't you know where to make the incision?"
+    },
+    {
+      "index": 331,
+      "startMs": 1231755,
+      "endMs": 1234315,
+      "rawText": "All right, Nick.\nDon't panic."
+    },
+    {
+      "index": 332,
+      "startMs": 1234425,
+      "endMs": 1236552,
+      "rawText": "Think back to med school."
+    },
+    {
+      "index": 333,
+      "startMs": 1238729,
+      "endMs": 1242358,
+      "rawText": "Seriously, baby.\nI can prescribe anything I want."
+    },
+    {
+      "index": 334,
+      "startMs": 1244368,
+      "endMs": 1248361,
+      "rawText": "I know I'm supposed to cut something,\nbut what? And where?"
+    },
+    {
+      "index": 335,
+      "startMs": 1249673,
+      "endMs": 1252836,
+      "rawText": "Hey! The incision\nin the coronary artery..."
+    },
+    {
+      "index": 336,
+      "startMs": 1252943,
+      "endMs": 1255537,
+      "rawText": "must be made\nbelow the blockage!"
+    },
+    {
+      "index": 337,
+      "startMs": 1255646,
+      "endMs": 1259377,
+      "rawText": "- Below!\n- Thanks, little girl!"
+    },
+    {
+      "index": 338,
+      "startMs": 1259483,
+      "endMs": 1262213,
+      "rawText": "## [ Singing ]"
+    },
+    {
+      "index": 339,
+      "startMs": 1271261,
+      "endMs": 1273229,
+      "rawText": "Uh-oh."
+    },
+    {
+      "index": 340,
+      "startMs": 1275966,
+      "endMs": 1281063,
+      "rawText": "Goodnews!\nThe operation was a complete success."
+    },
+    {
+      "index": 341,
+      "startMs": 1282739,
+      "endMs": 1285902,
+      "rawText": "Oh, that's wonderful!\nMmm!"
+    },
+    {
+      "index": 342,
+      "startMs": 1286009,
+      "endMs": 1288807,
+      "rawText": "Hmm.\n## [ Humming ]"
+    },
+    {
+      "index": 343,
+      "startMs": 1288912,
+      "endMs": 1291972,
+      "rawText": "Dr. Nick Riviera,\nremember me?"
+    },
+    {
+      "index": 344,
+      "startMs": 1292082,
+      "endMs": 1295449,
+      "rawText": "Well if it isn't\nmy old friend Mr. McGreg..."
+    },
+    {
+      "index": 345,
+      "startMs": 1295552,
+      "endMs": 1298646,
+      "rawText": "with a leg for an arm\nand an arm for a leg."
+    },
+    {
+      "index": 346,
+      "startMs": 1302659,
+      "endMs": 1304650,
+      "rawText": "All right, Dad!"
+    },
+    {
+      "index": 347,
+      "startMs": 1304761,
+      "endMs": 1307059,
+      "rawText": "You rule intensive care!"
+    },
+    {
+      "index": 348,
+      "startMs": 1307164,
+      "endMs": 1308165,
+      "rawText": "[ Sniffles ]"
+    },
+    {
+      "index": 349,
+      "startMs": 1366490,
+      "endMs": 1368458,
+      "rawText": "- [ People Chattering ]\n- Shh!"
+    },
+    {
+      "index": 350,
+      "startMs": 500,
+      "endMs": 2000,
+      "rawText": "<font color=\"#ffff00\" size=14>www.tvsubtitles.net</font>"
+    }
+  ],
+  "transcript": {
+    "generatedAt": 1788149373946,
+    "options": {
+      "mergeContinuations": true,
+      "stripTags": true,
+      "includeSdh": true,
+      "gapMsForParagraph": 1500
+    },
+    "blocks": [
+      {
+        "startMs": 4329,
+        "endMs": 7560,
+        "cueIndices": [
+          1
+        ],
+        "text": "[Chorus] ## The Simpsons ##",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 18043,
+        "endMs": 20204,
+        "cueIndices": [
+          2
+        ],
+        "text": "[Bell Ringing]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 25116,
+        "endMs": 28051,
+        "cueIndices": [
+          3
+        ],
+        "text": "[Whistle Blowing]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 31389,
+        "endMs": 33289,
+        "cueIndices": [
+          4
+        ],
+        "text": "[ Beeping ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 38163,
+        "endMs": 40063,
+        "cueIndices": [
+          5
+        ],
+        "text": "## [Jazzy Solo ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 60318,
+        "endMs": 62252,
+        "cueIndices": [
+          6
+        ],
+        "text": "[ Beeping ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 62354,
+        "endMs": 64322,
+        "cueIndices": [
+          7
+        ],
+        "text": "[ Tires Screeching ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 65390,
+        "endMs": 67358,
+        "cueIndices": [
+          8
+        ],
+        "text": "D'oh! [ Screams ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 83174,
+        "endMs": 85301,
+        "cueIndices": [
+          9
+        ],
+        "text": "[Man] COPS: In Springfield.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 85410,
+        "endMs": 88140,
+        "cueIndices": [
+          10
+        ],
+        "text": "- ####[Reggae]\n- [ Screaming ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 112604,
+        "endMs": 116665,
+        "cueIndices": [
+          11
+        ],
+        "text": "All right, boys, time to bag us a cattle rustler.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 118643,
+        "endMs": 121510,
+        "cueIndices": [
+          12
+        ],
+        "text": "What in God's name Are you doing?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 121613,
+        "endMs": 124207,
+        "cueIndices": [
+          13
+        ],
+        "text": "Isn't this 742 Evergreen Terrace?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 124316,
+        "endMs": 126341,
+        "cueIndices": [
+          14
+        ],
+        "text": "No, that's next door.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 126451,
+        "endMs": 128419,
+        "cueIndices": [
+          15
+        ],
+        "text": "[ Mooing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 131323,
+        "endMs": 135020,
+        "cueIndices": [
+          16
+        ],
+        "text": "Close, but no doughnut, cops.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 135126,
+        "endMs": 146294,
+        "cueIndices": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "text": "This is Papa Bear. Put out an A.P.B. for a male suspect... driving a... car of some sort... heading in the direction of, uh... you know, that place that sells chili.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 146404,
+        "endMs": 147496,
+        "cueIndices": [
+          21
+        ],
+        "text": "Suspect is hatless. Repeat, hatless.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 153712,
+        "endMs": 155737,
+        "cueIndices": [
+          22
+        ],
+        "text": "Honey, you really shouldn't eat so much in bed.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 155847,
+        "endMs": 158338,
+        "cueIndices": [
+          23
+        ],
+        "text": "It's not good for your heart.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 158450,
+        "endMs": 161647,
+        "cueIndices": [
+          24
+        ],
+        "text": "My heart is just f-- [ Gasps, Groans ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 161753,
+        "endMs": 165849,
+        "cueIndices": [
+          25
+        ],
+        "text": "- Homie, what is it?\n-Just workin' the turkey through.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 167258,
+        "endMs": 169158,
+        "cueIndices": [
+          26
+        ],
+        "text": "There it goes!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 172497,
+        "endMs": 175523,
+        "cueIndices": [
+          27
+        ],
+        "text": "Hey, Lise, there was a big train wreck last night. Do you wanna see the victims?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 175633,
+        "endMs": 178124,
+        "cueIndices": [
+          28
+        ],
+        "text": "- Hmm, okay.\n- Yaah!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 178236,
+        "endMs": 182798,
+        "cueIndices": [
+          29
+        ],
+        "text": "- Bart, that's gross!\n- You're right. Let's bury them at sea. Bleah!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 182907,
+        "endMs": 187207,
+        "cueIndices": [
+          30
+        ],
+        "text": "- Da-a-d!\n- [ Gasping ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 187312,
+        "endMs": 194014,
+        "cueIndices": [
+          31,
+          32
+        ],
+        "text": "- What's wrong?\n- You know that feeling you get...\nwhen a thousand knives of fire are stabbing you in the heart?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 194119,
+        "endMs": 196679,
+        "cueIndices": [
+          33
+        ],
+        "text": "I got that right now.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 196788,
+        "endMs": 199052,
+        "cueIndices": [
+          34
+        ],
+        "text": "Ooh! Bacon!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 199157,
+        "endMs": 201921,
+        "cueIndices": [
+          35
+        ],
+        "text": "Homer, I prepared a special Surprise just for you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 202027,
+        "endMs": 204086,
+        "cueIndices": [
+          36
+        ],
+        "text": "It could only be one thing.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 206131,
+        "endMs": 209862,
+        "cueIndices": [
+          37
+        ],
+        "text": "Psst! The best meat's in the rump.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 209968,
+        "endMs": 212027,
+        "cueIndices": [
+          38
+        ],
+        "text": "- Here you go.\n- What the hell is this?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 212137,
+        "endMs": 215698,
+        "cueIndices": [
+          39
+        ],
+        "text": "- Nice, healthy oatmeal.\n- Ooh, oatmeal.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 215807,
+        "endMs": 219573,
+        "cueIndices": [
+          40
+        ],
+        "text": "What a delightful treat. Oh, there's a bug in it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 219677,
+        "endMs": 222373,
+        "cueIndices": [
+          41
+        ],
+        "text": "- No, there isn't.\n- Trust me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 226484,
+        "endMs": 228679,
+        "cueIndices": [
+          42
+        ],
+        "text": "Dad, there's a bug on that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 228787,
+        "endMs": 230812,
+        "cueIndices": [
+          43
+        ],
+        "text": "Eh.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 233024,
+        "endMs": 235356,
+        "cueIndices": [
+          44
+        ],
+        "text": "[ Horn Honking ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 237128,
+        "endMs": 239221,
+        "cueIndices": [
+          45
+        ],
+        "text": "Come on, come on!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 246237,
+        "endMs": 250799,
+        "cueIndices": [
+          46
+        ],
+        "text": "- Oh, dear. Now you've done it.\n- [Banging]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 250909,
+        "endMs": 253173,
+        "cueIndices": [
+          47
+        ],
+        "text": "[ Growling ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 253278,
+        "endMs": 255712,
+        "cueIndices": [
+          48
+        ],
+        "text": "[Heart Beating]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 255814,
+        "endMs": 258715,
+        "cueIndices": [
+          49
+        ],
+        "text": "[ Horn Honking ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 258817,
+        "endMs": 261843,
+        "cueIndices": [
+          50
+        ],
+        "text": "I keep hearing this horrible irregular thumping noise.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 261953,
+        "endMs": 263853,
+        "cueIndices": [
+          51
+        ],
+        "text": "[Heart Beating: Irregular]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 263955,
+        "endMs": 266924,
+        "cueIndices": [
+          52
+        ],
+        "text": "It's your heart. And I think it's on its last thump.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 267025,
+        "endMs": 270290,
+        "cueIndices": [
+          53
+        ],
+        "text": "Whew! I was afraid it was my transmission.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 270395,
+        "endMs": 272295,
+        "cueIndices": [
+          54
+        ],
+        "text": "Hey, where's he goin'?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 272397,
+        "endMs": 275389,
+        "cueIndices": [
+          55
+        ],
+        "text": "Billy, remember that old Plymouth We just couldn't fix?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 275500,
+        "endMs": 280597,
+        "cueIndices": [
+          56
+        ],
+        "text": "- We're gonna sell him to Mr. Nikapopolus?\n- You're a dull boy, Billy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 282640,
+        "endMs": 286906,
+        "cueIndices": [
+          57
+        ],
+        "text": "Look at that pig stuffing his face with doughnuts on my time!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 287011,
+        "endMs": 290105,
+        "cueIndices": [
+          58
+        ],
+        "text": "That's right. Keep eating.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 290215,
+        "endMs": 293946,
+        "cueIndices": [
+          59
+        ],
+        "text": "Little do you know you're drawing ever closer to the poisoned doughnut.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 294052,
+        "endMs": 297453,
+        "cueIndices": [
+          60
+        ],
+        "text": "[ Chuckling ] There is a poisoned one-- isn't there, Smithers?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 297555,
+        "endMs": 301355,
+        "cueIndices": [
+          61
+        ],
+        "text": "Uh, no, sir. I discussed this with our lawyers. They consider it murder.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 301459,
+        "endMs": 303689,
+        "cueIndices": [
+          62
+        ],
+        "text": "Damn their oily hides!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 303795,
+        "endMs": 306025,
+        "cueIndices": [
+          63
+        ],
+        "text": "[ Snoring ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 306131,
+        "endMs": 308031,
+        "cueIndices": [
+          64
+        ],
+        "text": "Bring him to me!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 309467,
+        "endMs": 313528,
+        "cueIndices": [
+          65
+        ],
+        "text": "- [ Beating Rapidly]\n- [Mr. Burns]Relax, Simpson.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 313638,
+        "endMs": 316300,
+        "cueIndices": [
+          66
+        ],
+        "text": "I just brought you in here for a friendly hello.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 316407,
+        "endMs": 321170,
+        "cueIndices": [
+          67,
+          68
+        ],
+        "text": "- [ Sighs ]\n- [ Beating Slows ]\nAnd good-bye! You're fired!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 321279,
+        "endMs": 323179,
+        "cueIndices": [
+          69
+        ],
+        "text": "- [ Gasps ]\n- But wait.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 323281,
+        "endMs": 325181,
+        "cueIndices": [
+          70
+        ],
+        "text": "Perhaps I'm being Too hasty.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 325283,
+        "endMs": 327979,
+        "cueIndices": [
+          71
+        ],
+        "text": "- You are highly skilled...\n- [ Sighs ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 328086,
+        "endMs": 335122,
+        "cueIndices": [
+          72,
+          73
+        ],
+        "text": "- at goofing off!.\n- [ Groans ]\nNow, don't worry, Homer. You're the kind of guy I could really dig...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 335226,
+        "endMs": 340060,
+        "cueIndices": [
+          74,
+          75
+        ],
+        "text": "- a grave for!\n- [ Gasps ]\nYour indolence is inefficacious!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 340165,
+        "endMs": 342133,
+        "cueIndices": [
+          76
+        ],
+        "text": "Oh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 342233,
+        "endMs": 344133,
+        "cueIndices": [
+          77
+        ],
+        "text": "That means you're terrible!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 344235,
+        "endMs": 346760,
+        "cueIndices": [
+          78
+        ],
+        "text": "[ Gasping, Screaming ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 350375,
+        "endMs": 352775,
+        "cueIndices": [
+          79
+        ],
+        "text": "- [Thud]\n- Hmm?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 352877,
+        "endMs": 355402,
+        "cueIndices": [
+          80
+        ],
+        "text": "Mr. Burns, I think he's dead.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 355513,
+        "endMs": 358641,
+        "cueIndices": [
+          81
+        ],
+        "text": "Oh, dear. Send a ham to his widow.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 358750,
+        "endMs": 361583,
+        "cueIndices": [
+          82
+        ],
+        "text": "Mmm. Ham.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 363288,
+        "endMs": 365256,
+        "cueIndices": [
+          83
+        ],
+        "text": "No, wait. He's alive.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 365356,
+        "endMs": 367984,
+        "cueIndices": [
+          84
+        ],
+        "text": "- Oh, good. Cancel the ham.\n- D'oh!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 368092,
+        "endMs": 369616,
+        "cueIndices": [
+          85
+        ],
+        "text": "[ Siren Wailing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 376167,
+        "endMs": 379102,
+        "cueIndices": [
+          86
+        ],
+        "text": "- Wow, look at that. How do they know to cross there? - [ Groaning ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 390014,
+        "endMs": 391641,
+        "cueIndices": [
+          87
+        ],
+        "text": "He was taking a bite, and his jaw locked.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 391749,
+        "endMs": 394013,
+        "cueIndices": [
+          88
+        ],
+        "text": "Hey, look. I can fit my entire fist in here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 395520,
+        "endMs": 396782,
+        "cueIndices": [
+          89
+        ],
+        "text": "[ Muffled ] Hey, hey, hey. Cut it out.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 396888,
+        "endMs": 398651,
+        "cueIndices": [
+          90
+        ],
+        "text": "- What's that, Chief?\n- Cut it out.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 398756,
+        "endMs": 401088,
+        "cueIndices": [
+          91
+        ],
+        "text": "####[Reggae]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 403461,
+        "endMs": 406624,
+        "cueIndices": [
+          92
+        ],
+        "text": "Ooh. Buy three tubes of Mr. Blister...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 406731,
+        "endMs": 410997,
+        "cueIndices": [
+          93,
+          94
+        ],
+        "text": "- get one free.\n- [Phone Ringing]\nHello. Yes.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 411102,
+        "endMs": 413263,
+        "cueIndices": [
+          95
+        ],
+        "text": "Oh, dear Lord!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 413371,
+        "endMs": 416534,
+        "cueIndices": [
+          96
+        ],
+        "text": "Homer's in the hospital! They think it's his heart!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 416641,
+        "endMs": 419269,
+        "cueIndices": [
+          97
+        ],
+        "text": "- [Door Shuts]\n- Oh, my God.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 419377,
+        "endMs": 423575,
+        "cueIndices": [
+          98
+        ],
+        "text": "- What?\n- Five cents off wax paper.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 423681,
+        "endMs": 425581,
+        "cueIndices": [
+          99
+        ],
+        "text": "- Clear!\n- [ Groans ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 425683,
+        "endMs": 428151,
+        "cueIndices": [
+          100
+        ],
+        "text": "[ Steady Beep ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 428253,
+        "endMs": 430153,
+        "cueIndices": [
+          101
+        ],
+        "text": "- [ Beep Continues ]\n- More.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 430255,
+        "endMs": 432883,
+        "cueIndices": [
+          102
+        ],
+        "text": "[ Groaning ] Thank you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 432991,
+        "endMs": 435687,
+        "cueIndices": [
+          103
+        ],
+        "text": "Oh, Homie, I was so frightened!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 435793,
+        "endMs": 439593,
+        "cueIndices": [
+          104
+        ],
+        "text": "Marge, my whole life flashed before my eyes.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 439697,
+        "endMs": 441927,
+        "cueIndices": [
+          105
+        ],
+        "text": "Ah, little Homer.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 444902,
+        "endMs": 447564,
+        "cueIndices": [
+          106
+        ],
+        "text": "How'd he get that?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 449874,
+        "endMs": 453742,
+        "cueIndices": [
+          107
+        ],
+        "text": "## [ Angelic Singing ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 458316,
+        "endMs": 462753,
+        "cueIndices": [
+          108
+        ],
+        "text": "What a voice. Young Homer is going to make me a millionaire.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 465957,
+        "endMs": 470427,
+        "cueIndices": [
+          109,
+          110
+        ],
+        "text": "## [ Voice Cracks, Deepens ] Hey, my voice just changed.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 470528,
+        "endMs": 473088,
+        "cueIndices": [
+          111
+        ],
+        "text": "## [ Singing Tunelessly]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 474866,
+        "endMs": 476493,
+        "cueIndices": [
+          112
+        ],
+        "text": "Dagnabbit!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 476601,
+        "endMs": 480093,
+        "cueIndices": [
+          113
+        ],
+        "text": "Mr. Simpson, I'm afraid you've just had a mild heart attack.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 480204,
+        "endMs": 482229,
+        "cueIndices": [
+          114
+        ],
+        "text": "But I'm out of the woods now, right?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 482340,
+        "endMs": 485173,
+        "cueIndices": [
+          115
+        ],
+        "text": "I mean, whatever doesn't kill me can only make me stronger.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 485276,
+        "endMs": 487176,
+        "cueIndices": [
+          116
+        ],
+        "text": "Oh, no. Quite the opposite.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 487278,
+        "endMs": 490145,
+        "cueIndices": [
+          117
+        ],
+        "text": "It's made you weak as a kitten. [ Chuckles ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 490248,
+        "endMs": 493149,
+        "cueIndices": [
+          118
+        ],
+        "text": "- Look!\n- Hey, come on. Quit it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 493251,
+        "endMs": 496152,
+        "cueIndices": [
+          119
+        ],
+        "text": "- Coochy coochy coo!\n- Stop. Please stop.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 496254,
+        "endMs": 498745,
+        "cueIndices": [
+          120
+        ],
+        "text": "Oh, you swing like a girl. Come on, now.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 498856,
+        "endMs": 501256,
+        "cueIndices": [
+          121
+        ],
+        "text": "- Please have mercy.\n- Got your nose.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 501359,
+        "endMs": 503259,
+        "cueIndices": [
+          122
+        ],
+        "text": "- [ Chuckling ]\n- Not funny.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 503361,
+        "endMs": 507729,
+        "cueIndices": [
+          123,
+          124
+        ],
+        "text": "How 'bout this little bee? [ Buzzing ] No! Oh!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 507832,
+        "endMs": 511700,
+        "cueIndices": [
+          125
+        ],
+        "text": "Remember your hippopotamus oath.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 511803,
+        "endMs": 518207,
+        "cueIndices": [
+          126,
+          127
+        ],
+        "text": "- Can't you do something for him?\n- Well, we can't fix his heart...\nbut we can tell you exactly how damaged it is.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 518343,
+        "endMs": 521210,
+        "cueIndices": [
+          128
+        ],
+        "text": "What an age we live in!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 521312,
+        "endMs": 526680,
+        "cueIndices": [
+          129,
+          130
+        ],
+        "text": "Now, what you see here is the radioactive dye we injected... flowing through your husband's circulatory system.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 526784,
+        "endMs": 529275,
+        "cueIndices": [
+          131
+        ],
+        "text": "But, Doctor, I haven't injected the dye yet!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 529387,
+        "endMs": 532254,
+        "cueIndices": [
+          132
+        ],
+        "text": "- Good Lord.\n- Hi.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 532357,
+        "endMs": 534825,
+        "cueIndices": [
+          133
+        ],
+        "text": "Now, Homer, this is a new body fat analysis test.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 534926,
+        "endMs": 539056,
+        "cueIndices": [
+          134
+        ],
+        "text": "I start you jiggling and measure how long it takes to stop.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 543334,
+        "endMs": 545894,
+        "cueIndices": [
+          135
+        ],
+        "text": "Whoo-hoo! Look at that blubber fly!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 546003,
+        "endMs": 548198,
+        "cueIndices": [
+          136
+        ],
+        "text": "Yes.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 548306,
+        "endMs": 550206,
+        "cueIndices": [
+          137
+        ],
+        "text": "Nurse, cancel my 1 :00.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 550308,
+        "endMs": 554404,
+        "cueIndices": [
+          138
+        ],
+        "text": "Homer, I'm afraid you'll have to undergo a coronary bypass operation.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 554512,
+        "endMs": 558141,
+        "cueIndices": [
+          139
+        ],
+        "text": "- Say it in English, Doc.\n- You're going to need open-heart surgery.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 558249,
+        "endMs": 560274,
+        "cueIndices": [
+          140
+        ],
+        "text": "Spare me your medical mumbo jumbo.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 560385,
+        "endMs": 563684,
+        "cueIndices": [
+          141
+        ],
+        "text": "We're going to cut you open and tinker with your ticker.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 563788,
+        "endMs": 567918,
+        "cueIndices": [
+          142
+        ],
+        "text": "- Could you dumb it down a shade? - Doctor, we'll do whatever it takes to get my Homie well.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 568025,
+        "endMs": 570721,
+        "cueIndices": [
+          143
+        ],
+        "text": "Good. I must warn you though.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 570828,
+        "endMs": 574559,
+        "cueIndices": [
+          144
+        ],
+        "text": "This procedure will cost you upwards of... $30,000.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 574665,
+        "endMs": 581529,
+        "cueIndices": [
+          145,
+          146
+        ],
+        "text": "- [Homer Gasps, Cries Out]\n- [Thud]\n[Dr. Hibbert] I'm afraid it's now 40,000.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 586744,
+        "endMs": 590373,
+        "cueIndices": [
+          147
+        ],
+        "text": "Okay, Okay. We need $40,000. Now, how much do we have in the checkbook?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 590481,
+        "endMs": 593143,
+        "cueIndices": [
+          148
+        ],
+        "text": "- Seventy dollars.\n- Hmm.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 593251,
+        "endMs": 596311,
+        "cueIndices": [
+          149
+        ],
+        "text": "Have we deposited any $40,000 checks that haven't cleared yet?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 596421,
+        "endMs": 598946,
+        "cueIndices": [
+          150
+        ],
+        "text": "No. Don't you have health insurance at work?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 599056,
+        "endMs": 602219,
+        "cueIndices": [
+          151
+        ],
+        "text": "Well, actually, we gave it all up for a pinball machine in the lounge.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 602326,
+        "endMs": 604453,
+        "cueIndices": [
+          152
+        ],
+        "text": "- D'oh!\n- Don't worry, Marge.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 604562,
+        "endMs": 608259,
+        "cueIndices": [
+          153
+        ],
+        "text": "America's health care system is second only to Japan...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 608366,
+        "endMs": 612132,
+        "cueIndices": [
+          154
+        ],
+        "text": "Canada, Sweden, Great Britain-- well, all of Europe.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 612236,
+        "endMs": 615967,
+        "cueIndices": [
+          155
+        ],
+        "text": "But you can thank your lucky stars we don't live in Paraguay.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 616073,
+        "endMs": 618041,
+        "cueIndices": [
+          156
+        ],
+        "text": "[ Sobbing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 620344,
+        "endMs": 623108,
+        "cueIndices": [
+          157
+        ],
+        "text": "[ Electricity Crackling ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 625349,
+        "endMs": 628978,
+        "cueIndices": [
+          158
+        ],
+        "text": "Now, before we give you health insurance, I have to ask you a few questions.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 629086,
+        "endMs": 631816,
+        "cueIndices": [
+          159
+        ],
+        "text": "Questions? Questions? Oh!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 631923,
+        "endMs": 634483,
+        "cueIndices": [
+          160
+        ],
+        "text": "My whole scheme down the-- I mean, ask away.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 634592,
+        "endMs": 639486,
+        "cueIndices": [
+          161,
+          162
+        ],
+        "text": "Oh, good. Now, under \"heart attacks,\" you crossed out \"3\" and wrote \"0.\"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 639597,
+        "endMs": 643089,
+        "cueIndices": [
+          163
+        ],
+        "text": "Oh, I thought that said \"brain hemorrhages.\"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 643201,
+        "endMs": 646034,
+        "cueIndices": [
+          164
+        ],
+        "text": "Uh-huh. And, uh, do you drink?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 646137,
+        "endMs": 648332,
+        "cueIndices": [
+          165
+        ],
+        "text": "I do enjoy a snifter of port at Christmas.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 648439,
+        "endMs": 650339,
+        "cueIndices": [
+          166
+        ],
+        "text": "All right. Here's your policy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 650441,
+        "endMs": 655842,
+        "cueIndices": [
+          167,
+          168
+        ],
+        "text": "Now let me tell you something, Mr. Sucker. I just-- Oh, hold on there. Uh, you still have to sign it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 655947,
+        "endMs": 661880,
+        "cueIndices": [
+          169,
+          170
+        ],
+        "text": "Oh. I-- [ Gasps ] Must... sign... policy!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 661986,
+        "endMs": 663920,
+        "cueIndices": [
+          171
+        ],
+        "text": "Sir, I'm sorry. We can't insure you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 664021,
+        "endMs": 666285,
+        "cueIndices": [
+          172
+        ],
+        "text": "- I made an \"H.\"\n- No, that doesn't count.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 666390,
+        "endMs": 670650,
+        "cueIndices": [
+          173,
+          174
+        ],
+        "text": "It's like an \"X.\" [ Groans ] Hey, we'd better get you to a hospital.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 670761,
+        "endMs": 673195,
+        "cueIndices": [
+          175
+        ],
+        "text": "- Can I have a free calendar?\n- Okay.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 673297,
+        "endMs": 681038,
+        "cueIndices": [
+          176,
+          177
+        ],
+        "text": "- Clear!\n- [ Groaning ]\nOh, Doctor, I was in a wonderful place filled with fire and brimstone.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 681138,
+        "endMs": 685302,
+        "cueIndices": [
+          178
+        ],
+        "text": "And there were all these guys in red pajamas sticking pitchforks in my butt.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 685409,
+        "endMs": 688378,
+        "cueIndices": [
+          179
+        ],
+        "text": "Mr. Simpson, you must get that operation as soon as possible.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 688479,
+        "endMs": 693314,
+        "cueIndices": [
+          180
+        ],
+        "text": "I can't afford it. Maybe I should buy one of those machines.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 693417,
+        "endMs": 696386,
+        "cueIndices": [
+          181
+        ],
+        "text": "[ Groaning ] Oh, yeah. That's the stuff.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 696487,
+        "endMs": 698819,
+        "cueIndices": [
+          182
+        ],
+        "text": "Now, I know I haven't been the best Christian.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 698923,
+        "endMs": 705594,
+        "cueIndices": [
+          183,
+          184
+        ],
+        "text": "In fact, when you're up there \"blah, blah, blah-ing,\" I'm usually doodling or mentally undressing the female parishioners.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 705696,
+        "endMs": 709359,
+        "cueIndices": [
+          185
+        ],
+        "text": "Well, anyhoo, can I have $40,000?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 709467,
+        "endMs": 714936,
+        "cueIndices": [
+          186,
+          187
+        ],
+        "text": "Now, I know I haven't been the best Jew... but I rented Fiddler on the Roof, and I will watch it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 715039,
+        "endMs": 717906,
+        "cueIndices": [
+          188
+        ],
+        "text": "- Anyway, can I have $40,000?\n- Hmm?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 718009,
+        "endMs": 722139,
+        "cueIndices": [
+          189
+        ],
+        "text": "Now, I know I haven't been the best-- Oh, forget it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 723714,
+        "endMs": 727081,
+        "cueIndices": [
+          190
+        ],
+        "text": "- Honey, did you have any luck?\n- No, but the rabbi gave me this.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 727184,
+        "endMs": 730676,
+        "cueIndices": [
+          191
+        ],
+        "text": "- What is it, Dad?\n- Son, they call it a \"droodle.\"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 730788,
+        "endMs": 733723,
+        "cueIndices": [
+          192
+        ],
+        "text": "Whoo-hoo! Look at it go!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 733824,
+        "endMs": 739161,
+        "cueIndices": [
+          193,
+          194
+        ],
+        "text": "Hi, everybody! Are you looking for a way to slash the cost... of your medical expenses?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 739263,
+        "endMs": 742721,
+        "cueIndices": [
+          195
+        ],
+        "text": "- Boring!\n- Wait! This might be the answer we're looking for.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 742833,
+        "endMs": 747827,
+        "cueIndices": [
+          196
+        ],
+        "text": "I will perform any operation for 1 29.95.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 747939,
+        "endMs": 752466,
+        "cueIndices": [
+          197,
+          198
+        ],
+        "text": "Come in for brain surgery... and receive a free Chinese finger trap.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 752577,
+        "endMs": 754568,
+        "cueIndices": [
+          199
+        ],
+        "text": "[ Grunting ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 754679,
+        "endMs": 758706,
+        "cueIndices": [
+          200
+        ],
+        "text": "Okay, friend. You tried the best. Now try the rest.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 758816,
+        "endMs": 762013,
+        "cueIndices": [
+          201
+        ],
+        "text": "Call 1 -600-DOCTORB.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 762119,
+        "endMs": 764212,
+        "cueIndices": [
+          202
+        ],
+        "text": "The \"B\" is for \"bargain\"!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 764322,
+        "endMs": 767519,
+        "cueIndices": [
+          203
+        ],
+        "text": "Well, Marge, we could do worse.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 767625,
+        "endMs": 771686,
+        "cueIndices": [
+          204
+        ],
+        "text": "- How?\n- Uh, some dog could do the operation.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 771796,
+        "endMs": 773855,
+        "cueIndices": [
+          205
+        ],
+        "text": "Operation? What are you talking about?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 773965,
+        "endMs": 775865,
+        "cueIndices": [
+          206
+        ],
+        "text": "Kids, I have something to tell you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 775967,
+        "endMs": 778868,
+        "cueIndices": [
+          207
+        ],
+        "text": "Oh, Homie, I don't know. This might upset them.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 778970,
+        "endMs": 782133,
+        "cueIndices": [
+          208
+        ],
+        "text": "Nothing you say can upset us. We're the MTV generation.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 782239,
+        "endMs": 785265,
+        "cueIndices": [
+          209
+        ],
+        "text": "- We feel neither highs nor lows.\n- Really? What's it like?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 785376,
+        "endMs": 791342,
+        "cueIndices": [
+          210,
+          211
+        ],
+        "text": "- Eh.\n- Well, you kids are old enough to know the truth...\nand I'm not gonna sugarcoat it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 791449,
+        "endMs": 798613,
+        "cueIndices": [
+          212,
+          213
+        ],
+        "text": "So the tiny Aorta fairies will take Mr. Leg Vein on a long trip... to get married to Princess Left Ventricle.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 798723,
+        "endMs": 802682,
+        "cueIndices": [
+          214
+        ],
+        "text": "Dad, are you trying to tell us you're getting a coronary artery bypass graft?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 802793,
+        "endMs": 805557,
+        "cueIndices": [
+          215
+        ],
+        "text": "- Uh, yeah.\n- Oh, no.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 805663,
+        "endMs": 810362,
+        "cueIndices": [
+          216
+        ],
+        "text": "What if they botch it? I won't have a dad... for a while.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 810468,
+        "endMs": 813528,
+        "cueIndices": [
+          217
+        ],
+        "text": "[ Sobbing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 813638,
+        "endMs": 816368,
+        "cueIndices": [
+          218
+        ],
+        "text": "Kids. Kids. I'm not gonna die.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 816474,
+        "endMs": 819910,
+        "cueIndices": [
+          219
+        ],
+        "text": "- That only happens to bad people.\n- What about Abraham Lincoln?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 820011,
+        "endMs": 822571,
+        "cueIndices": [
+          220
+        ],
+        "text": "Uh-- He sold poisoned milk to schoolchildren.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 822680,
+        "endMs": 825547,
+        "cueIndices": [
+          221
+        ],
+        "text": "- Homer!\n- Hey, I'm just trying to make it easier on 'em.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 825650,
+        "endMs": 829518,
+        "cueIndices": [
+          222
+        ],
+        "text": "Bedgoes up. Bedgoes down. Bedgoes up. Bedgoes down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 829620,
+        "endMs": 831520,
+        "cueIndices": [
+          223
+        ],
+        "text": "Bed goes up. Bed goes down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 831622,
+        "endMs": 834284,
+        "cueIndices": [
+          224
+        ],
+        "text": "- Bed goes up. Bed goes down.\n- [Flanders]Homer Simpson!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 834392,
+        "endMs": 838226,
+        "cueIndices": [
+          225
+        ],
+        "text": "Well, if that don't put the \"dink\" in co-inky-dink.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 838329,
+        "endMs": 840388,
+        "cueIndices": [
+          226
+        ],
+        "text": "Flanders, what are you doin' here?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 840498,
+        "endMs": 842693,
+        "cueIndices": [
+          227
+        ],
+        "text": "I'm having a kidney and a lung removed.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 842800,
+        "endMs": 846736,
+        "cueIndices": [
+          228
+        ],
+        "text": "- Who are you donating 'em to?\n- First come, first serve. What are you in for?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 846837,
+        "endMs": 850830,
+        "cueIndices": [
+          229
+        ],
+        "text": "- I got a bad heart.\n- If I could give you my heart, Homer, I would.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 850941,
+        "endMs": 853933,
+        "cueIndices": [
+          230
+        ],
+        "text": "Shut up, Flanders.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 854045,
+        "endMs": 857674,
+        "cueIndices": [
+          231
+        ],
+        "text": "Hi, everybody! I'm Dr. Nick Riviera.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 857782,
+        "endMs": 861411,
+        "cueIndices": [
+          232
+        ],
+        "text": "Dr. Riviera. Dr. Nick Riviera. Please report to the coroner immediately.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 861519,
+        "endMs": 864249,
+        "cueIndices": [
+          233
+        ],
+        "text": "The coroner? I'm so sick of that guy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 864355,
+        "endMs": 867415,
+        "cueIndices": [
+          234
+        ],
+        "text": "Well, see you in the operating place.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 867525,
+        "endMs": 870619,
+        "cueIndices": [
+          235
+        ],
+        "text": "- [ All Chattering ]\n- Where are the bodies?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 870728,
+        "endMs": 873993,
+        "cueIndices": [
+          236
+        ],
+        "text": "Oh, such a nice day. I think I'll go out the window.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 874098,
+        "endMs": 876396,
+        "cueIndices": [
+          237
+        ],
+        "text": "- Ho!\n- [Objects Clattering]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 882139,
+        "endMs": 890673,
+        "cueIndices": [
+          238,
+          239
+        ],
+        "text": "Dear Lord, thank you For Ziggy comics, little baby ducks... and Sweatin' to the Oldies, volumes one, two and four.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 892983,
+        "endMs": 897113,
+        "cueIndices": [
+          240
+        ],
+        "text": "Dear Lord, I'm really scared about this operation tomorrow.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 897221,
+        "endMs": 900019,
+        "cueIndices": [
+          241
+        ],
+        "text": "If something happens, please look after Marge...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 900124,
+        "endMs": 902718,
+        "cueIndices": [
+          242
+        ],
+        "text": "- and make sure my kids grow up right.\n- Shh!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 905830,
+        "endMs": 907889,
+        "cueIndices": [
+          243
+        ],
+        "text": "Sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 912903,
+        "endMs": 917203,
+        "cueIndices": [
+          244
+        ],
+        "text": "- And that's why God causes train wrecks.\n- Ah!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 917308,
+        "endMs": 921210,
+        "cueIndices": [
+          245
+        ],
+        "text": "My dad is very sick. What's gonna happen if he dies?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 921312,
+        "endMs": 924611,
+        "cueIndices": [
+          246
+        ],
+        "text": "Well, if he's been good, he'll go to heaven.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 924715,
+        "endMs": 928617,
+        "cueIndices": [
+          247
+        ],
+        "text": "In heaven, you get to do Whatever you like best all the time.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 929987,
+        "endMs": 932012,
+        "cueIndices": [
+          248
+        ],
+        "text": "Cloud goes up. Cloud goes down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 932123,
+        "endMs": 934023,
+        "cueIndices": [
+          249
+        ],
+        "text": "Cloud goes up. Cloud goes down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 934125,
+        "endMs": 936355,
+        "cueIndices": [
+          250
+        ],
+        "text": "Bed goes up. Bed goes down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 936460,
+        "endMs": 938928,
+        "cueIndices": [
+          251
+        ],
+        "text": "Hey, hey! [ Chuckling ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 939029,
+        "endMs": 941691,
+        "cueIndices": [
+          252
+        ],
+        "text": "- [ Gasps, Groans ]\n- Hey, what's the matter?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 941799,
+        "endMs": 946532,
+        "cueIndices": [
+          253
+        ],
+        "text": "Oh, that's right. My grotesque appearance. [ Chuckling ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 946637,
+        "endMs": 954203,
+        "cueIndices": [
+          254,
+          255
+        ],
+        "text": "- Krusty, why are you here?\n- Eh, it's part of my public service...\nfor my glug-glug, vroom-vroom, thump-thump.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 954311,
+        "endMs": 956745,
+        "cueIndices": [
+          256
+        ],
+        "text": "Oh. Well, I could use a good laugh.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 956847,
+        "endMs": 959645,
+        "cueIndices": [
+          257
+        ],
+        "text": "Well, there's nothing funny about What you're about to go through.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 959750,
+        "endMs": 963015,
+        "cueIndices": [
+          258
+        ],
+        "text": "I know. I'm in the zipper club myself.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 964955,
+        "endMs": 966855,
+        "cueIndices": [
+          259
+        ],
+        "text": "- Ahh!\n- You seem okay.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 966957,
+        "endMs": 971894,
+        "cueIndices": [
+          260
+        ],
+        "text": "Yeah? Well, I got news for ya. This ain't makeup.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 971996,
+        "endMs": 977559,
+        "cueIndices": [
+          261
+        ],
+        "text": "They say the greatest tragedy is when a father outlives his son.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 977668,
+        "endMs": 980364,
+        "cueIndices": [
+          262
+        ],
+        "text": "I've never fully understood why that is.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 980471,
+        "endMs": 986939,
+        "cueIndices": [
+          263,
+          264
+        ],
+        "text": "Frankly, I can see an upside to it. [ Laughing ] We passed this card around at work.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 987044,
+        "endMs": 990536,
+        "cueIndices": [
+          265
+        ],
+        "text": "- Gee, thanks, guys.\n- They had a hell of a time replacing ya.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 993617,
+        "endMs": 997849,
+        "cueIndices": [
+          266
+        ],
+        "text": "When I first heard about the operation, I was against it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 997955,
+        "endMs": 1002551,
+        "cueIndices": [
+          267
+        ],
+        "text": "But then I thought, if Homer wants to be a woman, so be it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1002660,
+        "endMs": 1005094,
+        "cueIndices": [
+          268
+        ],
+        "text": "Barney, I'm not getting a sex change!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1005196,
+        "endMs": 1010696,
+        "cueIndices": [
+          269,
+          270
+        ],
+        "text": "What? Well, what the hell am I supposed to do... with this jumbo thong bikini?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1010801,
+        "endMs": 1014168,
+        "cueIndices": [
+          271
+        ],
+        "text": "Uh, Homer, I snuck you in a beer for old times' sake.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1014271,
+        "endMs": 1016603,
+        "cueIndices": [
+          272
+        ],
+        "text": "Thanks, Moe.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1016707,
+        "endMs": 1019835,
+        "cueIndices": [
+          273
+        ],
+        "text": "Uh, you know, Homer, that beer ain't free.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1021879,
+        "endMs": 1023710,
+        "cueIndices": [
+          274
+        ],
+        "text": "Mom, this is fascinating.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1023814,
+        "endMs": 1027113,
+        "cueIndices": [
+          275
+        ],
+        "text": "Did you know that they'll stop Dad's heart for six whole minutes?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1027218,
+        "endMs": 1031211,
+        "cueIndices": [
+          276
+        ],
+        "text": "[ Groans ] I don't know if I like you reading all those cardiology books.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1031322,
+        "endMs": 1033415,
+        "cueIndices": [
+          277
+        ],
+        "text": "No, Mom. It's very reassuring.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1033524,
+        "endMs": 1036960,
+        "cueIndices": [
+          278
+        ],
+        "text": "And I've learned a great deal from this cow's heart I got at the butcher shop.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1038429,
+        "endMs": 1045129,
+        "cueIndices": [
+          279,
+          280
+        ],
+        "text": "- [ Groans ]\n- [Man]Insert the retractor...\nand crank it until the ribs swing open like a rusty drawbridge.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1045236,
+        "endMs": 1048637,
+        "cueIndices": [
+          281
+        ],
+        "text": "- [ Bones Cracking ]\n- Ah! No! Blood! Ugh!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1048739,
+        "endMs": 1055642,
+        "cueIndices": [
+          282,
+          283
+        ],
+        "text": "Next, make an incision in the coronary artery-- And we are back with more of People Who Look Like Things.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1055746,
+        "endMs": 1058442,
+        "cueIndices": [
+          284
+        ],
+        "text": "- ####[Theme]\n- [People Applauding]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1063354,
+        "endMs": 1067415,
+        "cueIndices": [
+          285
+        ],
+        "text": "Oh, no! No! Someone taped over the end of this!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1067524,
+        "endMs": 1070516,
+        "cueIndices": [
+          286
+        ],
+        "text": "All we ask is to be treated with dignity and respect.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1070628,
+        "endMs": 1072687,
+        "cueIndices": [
+          287
+        ],
+        "text": "And a new candle now and then?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1072796,
+        "endMs": 1078361,
+        "cueIndices": [
+          288,
+          289
+        ],
+        "text": "- Yes, and a new ca-- No!\n- [People Laughing]\nOh, my little Maggie.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1078469,
+        "endMs": 1083099,
+        "cueIndices": [
+          290
+        ],
+        "text": "I may never hold you again. Ew! Stinky pants!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1083207,
+        "endMs": 1087200,
+        "cueIndices": [
+          291
+        ],
+        "text": "Now, Marge, if the unthinkable should happen, you're gonna be lonely--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1087311,
+        "endMs": 1090542,
+        "cueIndices": [
+          292
+        ],
+        "text": "- Oh, Homie, I could never remarry.\n- Darn right.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1090648,
+        "endMs": 1093014,
+        "cueIndices": [
+          293
+        ],
+        "text": "And to make sure, I want to be stuffed and put on the couch...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1093117,
+        "endMs": 1097213,
+        "cueIndices": [
+          294
+        ],
+        "text": "- as a constant reminder of our marital vows.\n- Ohh. Kids?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1097321,
+        "endMs": 1099789,
+        "cueIndices": [
+          295
+        ],
+        "text": "You can come in now.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1101058,
+        "endMs": 1103356,
+        "cueIndices": [
+          296
+        ],
+        "text": "Bed goes up-- Kids...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1103460,
+        "endMs": 1106793,
+        "cueIndices": [
+          297
+        ],
+        "text": "I want to give you some words to remember me by in case something happens.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1106897,
+        "endMs": 1110731,
+        "cueIndices": [
+          298
+        ],
+        "text": "Let's see. Uh--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1110834,
+        "endMs": 1113769,
+        "cueIndices": [
+          299
+        ],
+        "text": "- Oh, I'm no good at this.\n- [ Whispering ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1115673,
+        "endMs": 1119905,
+        "cueIndices": [
+          300
+        ],
+        "text": "Bart, the saddest thing about this is I won't get to see you grow up, because--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1120010,
+        "endMs": 1121910,
+        "cueIndices": [
+          301
+        ],
+        "text": "[ Whispering ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1122012,
+        "endMs": 1125311,
+        "cueIndices": [
+          302
+        ],
+        "text": "I know you're gonna turn out great, with or without your old man.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1125416,
+        "endMs": 1129682,
+        "cueIndices": [
+          303
+        ],
+        "text": "- Thanks, Dad.\n- And Lisa--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1129787,
+        "endMs": 1132051,
+        "cueIndices": [
+          304
+        ],
+        "text": "[ Whispering ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1132156,
+        "endMs": 1134181,
+        "cueIndices": [
+          305
+        ],
+        "text": "I guess this is the time to tell you--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1134291,
+        "endMs": 1137385,
+        "cueIndices": [
+          306
+        ],
+        "text": "- [ Whispering ]\n-you're adopted and I don't like you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1137494,
+        "endMs": 1139519,
+        "cueIndices": [
+          307
+        ],
+        "text": "Bart!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1139630,
+        "endMs": 1143830,
+        "cueIndices": [
+          308,
+          309
+        ],
+        "text": "But don't worry, because you've got a big brother who loves you... and will always look out for you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1143934,
+        "endMs": 1146061,
+        "cueIndices": [
+          310
+        ],
+        "text": "[ Sobbing ] Oh, Dad.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1150407,
+        "endMs": 1154810,
+        "cueIndices": [
+          311
+        ],
+        "text": "- Hi, everybody!\n- Hi, Dr. Nick!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1154912,
+        "endMs": 1159809,
+        "cueIndices": [
+          312,
+          313
+        ],
+        "text": "- [ Snoring ]\n- Now, if something should go wrong...\nlet's not get the law involved.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1159917,
+        "endMs": 1164547,
+        "cueIndices": [
+          314
+        ],
+        "text": "One hand washes the other. Ooh, that reminds me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1166991,
+        "endMs": 1170552,
+        "cueIndices": [
+          315
+        ],
+        "text": "These gloves came free with my toilet brush.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1175866,
+        "endMs": 1178061,
+        "cueIndices": [
+          316
+        ],
+        "text": "What the hell is that?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1181672,
+        "endMs": 1184163,
+        "cueIndices": [
+          317
+        ],
+        "text": "Marge, this is Andre.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1184274,
+        "endMs": 1188643,
+        "cueIndices": [
+          318,
+          319
+        ],
+        "text": "Hello. [ Chuckles ] I think you two would make a lovely couple.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1188746,
+        "endMs": 1191146,
+        "cueIndices": [
+          320
+        ],
+        "text": "My husband is still alive!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1191248,
+        "endMs": 1193808,
+        "cueIndices": [
+          321
+        ],
+        "text": "Oh. Thank God. I hope he pulls through.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1193917,
+        "endMs": 1202320,
+        "cueIndices": [
+          322,
+          323,
+          324
+        ],
+        "text": "Not me. [ Chuckles ] Let's have a minute of silent prayer... for our good friend, Homer Simpson.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1207431,
+        "endMs": 1209797,
+        "cueIndices": [
+          325
+        ],
+        "text": "- How long has it been?\n- Six seconds.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1209900,
+        "endMs": 1212596,
+        "cueIndices": [
+          326
+        ],
+        "text": "- Do we have to start over?\n- Hell, no.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1212703,
+        "endMs": 1216332,
+        "cueIndices": [
+          327
+        ],
+        "text": "Poor Mr. Homer. Could it be that my snack treats...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1216440,
+        "endMs": 1219603,
+        "cueIndices": [
+          328
+        ],
+        "text": "- are responsible for his wretched health?\n- Gimme some jerky.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1219710,
+        "endMs": 1222144,
+        "cueIndices": [
+          329
+        ],
+        "text": "- Would you like some vodka with that?\n- Oh, what the hell. Sure.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1228052,
+        "endMs": 1231647,
+        "cueIndices": [
+          330
+        ],
+        "text": "Doctor, what's wrong? Don't you know where to make the incision?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1231755,
+        "endMs": 1234315,
+        "cueIndices": [
+          331
+        ],
+        "text": "All right, Nick. Don't panic.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1234425,
+        "endMs": 1236552,
+        "cueIndices": [
+          332
+        ],
+        "text": "Think back to med school.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1238729,
+        "endMs": 1242358,
+        "cueIndices": [
+          333
+        ],
+        "text": "Seriously, baby. I can prescribe anything I want.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1244368,
+        "endMs": 1248361,
+        "cueIndices": [
+          334
+        ],
+        "text": "I know I'm supposed to cut something, but what? And where?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1249673,
+        "endMs": 1255537,
+        "cueIndices": [
+          335,
+          336
+        ],
+        "text": "Hey! The incision in the coronary artery... must be made below the blockage!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1255646,
+        "endMs": 1259377,
+        "cueIndices": [
+          337
+        ],
+        "text": "- Below!\n- Thanks, little girl!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1259483,
+        "endMs": 1262213,
+        "cueIndices": [
+          338
+        ],
+        "text": "## [ Singing ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1271261,
+        "endMs": 1273229,
+        "cueIndices": [
+          339
+        ],
+        "text": "Uh-oh.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1275966,
+        "endMs": 1281063,
+        "cueIndices": [
+          340
+        ],
+        "text": "Goodnews! The operation was a complete success.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1282739,
+        "endMs": 1285902,
+        "cueIndices": [
+          341
+        ],
+        "text": "Oh, that's wonderful! Mmm!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1286009,
+        "endMs": 1291972,
+        "cueIndices": [
+          342,
+          343
+        ],
+        "text": "Hmm. ## [ Humming ] Dr. Nick Riviera, remember me?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1292082,
+        "endMs": 1298646,
+        "cueIndices": [
+          344,
+          345
+        ],
+        "text": "Well if it isn't my old friend Mr. McGreg... with a leg for an arm and an arm for a leg.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1302659,
+        "endMs": 1304650,
+        "cueIndices": [
+          346
+        ],
+        "text": "All right, Dad!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1304761,
+        "endMs": 1307059,
+        "cueIndices": [
+          347
+        ],
+        "text": "You rule intensive care!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1307164,
+        "endMs": 1308165,
+        "cueIndices": [
+          348
+        ],
+        "text": "[ Sniffles ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1366490,
+        "endMs": 2000,
+        "cueIndices": [
+          349,
+          350
+        ],
+        "text": "- [ People Chattering ]\n- Shh!\nwww.tvsubtitles.net",
+        "kind": "dialogue"
+      }
+    ]
+  }
+}

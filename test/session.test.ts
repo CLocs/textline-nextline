@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Title } from "../src/types/content.js";
-import { skipQuestion, startRun, submitAnswer } from "../src/lib/game/session.js";
+import { goBackQuestion, skipQuestion, startRun, submitAnswer } from "../src/lib/game/session.js";
 
 const title: Title = {
   id: "test",
@@ -98,6 +98,33 @@ describe("mini-game runs", () => {
     const result = submitAnswer(run, title, 4);
     expect(result.run.phase).toBe("complete");
     expect(result.run.correctCount).toBe(1);
+  });
+});
+
+describe("goBackQuestion", () => {
+  it("restores the previous prompt after a correct answer", () => {
+    let run = fullRun(1);
+    run = submitAnswer(run, title, 3).run;
+    expect(run.promptLineIndex).toBe(3);
+    expect(run.correctCount).toBe(1);
+
+    const previous = goBackQuestion(run);
+    expect(previous).not.toBeNull();
+    expect(previous!.promptLineIndex).toBe(1);
+    expect(previous!.correctCount).toBe(0);
+    expect(previous!.history).toEqual([{ lineIndex: 1, via: "start" }]);
+  });
+
+  it("restores state after skip", () => {
+    let run = fullRun(1);
+    run = skipQuestion(run, title)!.run;
+    const previous = goBackQuestion(run);
+    expect(previous!.promptLineIndex).toBe(1);
+    expect(previous!.skipCount).toBe(0);
+  });
+
+  it("returns null on the first question", () => {
+    expect(goBackQuestion(fullRun(1))).toBeNull();
   });
 });
 

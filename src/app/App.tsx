@@ -6,6 +6,7 @@ import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue } from "../lib/game/miniGame";
 import {
+  goBackQuestion,
   progressLabel,
   skipQuestion,
   startRun,
@@ -105,6 +106,15 @@ export function App() {
     }
   }
 
+  function handleGoBack() {
+    if (!run) return;
+    const previous = goBackQuestion(run);
+    if (!previous) return;
+    setRun(previous);
+    setFeedback(null);
+    setSkipReveal(null);
+  }
+
   function handleRestart() {
     if (!activeEntry || !lastSetup) return;
     beginGame(activeEntry, lastSetup);
@@ -148,6 +158,7 @@ export function App() {
           progress={progressLabel(run, title)}
           onChoose={handleChoice}
           onSkip={handleSkip}
+          onGoBack={handleGoBack}
           onQuit={handleBackToLibrary}
           onFeedbackDone={() => {
             setFeedback(null);

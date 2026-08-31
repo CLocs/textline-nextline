@@ -17,6 +17,15 @@ export type HistoryEntry = {
   via: HistoryVia;
 };
 
+export type RevertFrame = {
+  promptLineIndex: number;
+  questionIndex: number;
+  correctCount: number;
+  wrongCount: number;
+  skipCount: number;
+  historyLength: number;
+};
+
 export type GameRun = {
   titleId: string;
   mode: GameMode;
@@ -28,6 +37,7 @@ export type GameRun = {
   wrongCount: number;
   skipCount: number;
   history: HistoryEntry[];
+  revertStack: RevertFrame[];
   phase: GamePhase;
   endReason?: EndReason;
 };
@@ -52,6 +62,7 @@ export function startRun(titleId: string, options: StartRunOptions): GameRun {
     wrongCount: 0,
     skipCount: 0,
     history: [{ lineIndex: firstPromptLineIndex, via: "start" }],
+    revertStack: [],
     phase: "playing",
   };
 }
@@ -99,6 +110,20 @@ function totalQuestions(run: GameRun, source: LineSource): number {
   return countPlayableQuestions(source);
 }
 
+function pushRevertFrame(run: GameRun): RevertFrame[] {
+  return [
+    ...run.revertStack,
+    {
+      promptLineIndex: run.promptLineIndex,
+      questionIndex: run.questionIndex,
+      correctCount: run.correctCount,
+      wrongCount: run.wrongCount,
+      skipCount: run.skipCount,
+      historyLength: run.history.length,
+    },
+  ];
+}
+
 function advanceAfterReveal(
   run: GameRun,
   source: LineSource,
@@ -106,6 +131,8 @@ function advanceAfterReveal(
   history: HistoryEntry[],
   updates: Partial<GameRun>,
 ): GameRun {
+  const revertStack = pushRevertFrame(run);
+
   if (run.length === "mini" && run.questionQueue) {
     const nextQuestionIndex = run.questionIndex + 1;
     if (nextQuestionIndex >= run.questionQueue.length) {
@@ -114,6 +141,7 @@ function advanceAfterReveal(
         promptLineIndex: correctLineIndex,
         history,
         questionIndex: nextQuestionIndex,
+        revertStack,
       });
     }
 
@@ -124,6 +152,7 @@ function advanceAfterReveal(
       promptLineIndex: nextPrompt,
       questionIndex: nextQuestionIndex,
       history: appendHistory({ ...run, history }, nextPrompt, "prompt"),
+      revertStack,
     };
   }
 
@@ -133,6 +162,7 @@ function advanceAfterReveal(
       ...updates,
       promptLineIndex: correctLineIndex,
       history,
+      revertStack,
     });
   }
 
@@ -141,6 +171,27 @@ function advanceAfterReveal(
     ...updates,
     promptLineIndex: correctLineIndex,
     history,
+    revertStack,
+  };
+}
+
+export function canGoBack(run: GameRun): boolean {
+  return run.mode === "fun" && run.phase === "playing" && run.revertStack.length > 0;
+}
+
+export function goBackQuestion(run: GameRun): GameRun | null {
+  if (!canGoBack(run)) return null;
+
+  const frame = run.revertStack[run.revertStack.length - 1]!;
+  return {
+    ...run,
+    promptLineIndex: frame.promptLineIndex,
+    questionIndex: frame.questionIndex,
+    correctCount: frame.correctCount,
+    wrongCount: frame.wrongCount,
+    skipCount: frame.skipCount,
+    history: run.history.slice(0, frame.historyLength),
+    revertStack: run.revertStack.slice(0, -1),
   };
 }
 

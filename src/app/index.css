@@ -109,6 +109,16 @@ button {
   background: #fffaf7;
 }
 
+.history-item.starred:not(.current) {
+  border-color: #e8d48a;
+  background: #fffef8;
+}
+
+.history-tag.starred-tag {
+  color: #9a7b0a;
+  background: #fffbeb;
+}
+
 .history-text {
   margin: 0;
   font-size: 0.88rem;
@@ -479,6 +489,9 @@ code {
 }
 
 .skip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-top: 0.75rem;
 }
 

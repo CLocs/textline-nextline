@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import type { Title } from "../types/content";
 import type { HistoryEntry, HistoryVia } from "../lib/game/session";
 import { getLine } from "../lib/content/lines";
+import { isStarred } from "../lib/stars/store";
 
 type Props = {
   title: Title;
@@ -44,14 +45,16 @@ export function HistorySidebar({ title, history, currentLineIndex }: Props) {
 
             const isCurrent = entry.lineIndex === currentLineIndex && entry.via !== "incorrect";
             const tag = viaLabel(entry.via);
+            const starred = isStarred(title.id, entry.lineIndex);
 
             return (
               <li
                 key={`${entry.lineIndex}-${entry.via}-${index}`}
-                className={`history-item${isCurrent ? " current" : ""}`}
+                className={`history-item${isCurrent ? " current" : ""}${starred ? " starred" : ""}`}
               >
                 <div className="history-item-meta">
                   <span className="history-line-num">{index + 1}</span>
+                  {starred && <span className="history-tag starred-tag">★ Starred</span>}
                   {tag && <span className="history-tag">{tag}</span>}
                   {isCurrent && <span className="history-tag current-tag">Now</span>}
                 </div>

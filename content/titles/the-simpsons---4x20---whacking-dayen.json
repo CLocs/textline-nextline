@@ -1,0 +1,2081 @@
+{
+  "id": "the-simpsons---4x20---whacking-dayen",
+  "title": "The Simpsons - 4x20 - Whacking Day.en",
+  "sourceFilename": "The Simpsons - 4x20 - Whacking Day.en.srt",
+  "importedAt": "2026-08-31T04:14:29.517Z",
+  "lineCount": 296,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[Chorus] ## The Simpsons ##",
+      "kind": "dialogue",
+      "startMs": 2200,
+      "endMs": 6000
+    },
+    {
+      "index": 1,
+      "text": "[Bell Ringing]",
+      "kind": "sdh",
+      "startMs": 8173,
+      "endMs": 10368
+    },
+    {
+      "index": 2,
+      "text": "[Whistle Blowing]",
+      "kind": "sdh",
+      "startMs": 11943,
+      "endMs": 14241
+    },
+    {
+      "index": 3,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 18650,
+      "endMs": 20550
+    },
+    {
+      "index": 4,
+      "text": "## [Jazzy Solo ]",
+      "kind": "dialogue",
+      "startMs": 25557,
+      "endMs": 30017
+    },
+    {
+      "index": 5,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 35066,
+      "endMs": 37000
+    },
+    {
+      "index": 6,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 37102,
+      "endMs": 38660
+    },
+    {
+      "index": 7,
+      "text": "[Children Chattering]",
+      "kind": "sdh",
+      "startMs": 53985,
+      "endMs": 56920
+    },
+    {
+      "index": 8,
+      "text": "Children, we've just been tipped off that Superintendent Chalmers... is planning a surprise inspection.",
+      "kind": "dialogue",
+      "startMs": 57022,
+      "endMs": 61718
+    },
+    {
+      "index": 9,
+      "text": "So, let's clean up this pigsty.",
+      "kind": "dialogue",
+      "startMs": 61826,
+      "endMs": 63316
+    },
+    {
+      "index": 10,
+      "text": "Whoa! [ Screeches ] On another topic, the following students have won mountain bikes.",
+      "kind": "dialogue",
+      "startMs": 65096,
+      "endMs": 71998
+    },
+    {
+      "index": 11,
+      "text": "Bart Simpson, Jimbo Jones...",
+      "kind": "dialogue",
+      "startMs": 72103,
+      "endMs": 75072
+    },
+    {
+      "index": 12,
+      "text": "Nelson Muntz.",
+      "kind": "dialogue",
+      "startMs": 75173,
+      "endMs": 77141
+    },
+    {
+      "index": 13,
+      "text": "I want you to keep filling your shirt with crud till I get back.",
+      "kind": "dialogue",
+      "startMs": 77242,
+      "endMs": 81508
+    },
+    {
+      "index": 14,
+      "text": "Y-Yes, sir.",
+      "kind": "dialogue",
+      "startMs": 81613,
+      "endMs": 83513
+    },
+    {
+      "index": 15,
+      "text": "You may pick your bikes up in utility basement \"B.\"",
+      "kind": "dialogue",
+      "startMs": 85150,
+      "endMs": 89780
+    },
+    {
+      "index": 16,
+      "text": "Fools. [ Evil Laugh ]",
+      "kind": "dialogue",
+      "startMs": 89888,
+      "endMs": 92448
+    },
+    {
+      "index": 17,
+      "text": "[Laughter Continues]",
+      "kind": "sdh",
+      "startMs": 92557,
+      "endMs": 95025
+    },
+    {
+      "index": 18,
+      "text": "Oops. Still on. -[Shuts Off] Hey, what do you think he meant by that \"fools\" remark?",
+      "kind": "dialogue",
+      "startMs": 98630,
+      "endMs": 105636
+    },
+    {
+      "index": 19,
+      "text": "Aw, who cares? Time to get me a mountain bike.",
+      "kind": "dialogue",
+      "startMs": 105737,
+      "endMs": 108262
+    },
+    {
+      "index": 20,
+      "text": "Hey, what gives? Where are the mountain bikes?",
+      "kind": "dialogue",
+      "startMs": 113812,
+      "endMs": 117578
+    },
+    {
+      "index": 21,
+      "text": "Sorry about the ruse, gentlemen. [ Grunts ] You're being swept under the rug for the superintendent's visit.",
+      "kind": "dialogue",
+      "startMs": 117682,
+      "endMs": 123084
+    },
+    {
+      "index": 22,
+      "text": "Enjoy. [Lock Clicks] How are we gonna get out of here?",
+      "kind": "dialogue",
+      "startMs": 123188,
+      "endMs": 127991
+    },
+    {
+      "index": 23,
+      "text": "And when are we gonna get our mountain bikes?",
+      "kind": "dialogue",
+      "startMs": 128093,
+      "endMs": 130459
+    },
+    {
+      "index": 24,
+      "text": "Would the world judge me harshly if I threw away the key?",
+      "kind": "dialogue",
+      "startMs": 130562,
+      "endMs": 133531
+    },
+    {
+      "index": 25,
+      "text": "No, but the P.T.A. would tear you a new arse.",
+      "kind": "dialogue",
+      "startMs": 133631,
+      "endMs": 136930
+    },
+    {
+      "index": 26,
+      "text": "Wise counsel, William. But the potty-talk adds nothing.",
+      "kind": "dialogue",
+      "startMs": 137035,
+      "endMs": 139595
+    },
+    {
+      "index": 27,
+      "text": "Aye, sir. You bath-taking, underpants-wearing lily hugger.",
+      "kind": "dialogue",
+      "startMs": 139704,
+      "endMs": 143538
+    },
+    {
+      "index": 28,
+      "text": "[ Tires Screech ]",
+      "kind": "sdh",
+      "startMs": 143641,
+      "endMs": 145108
+    },
+    {
+      "index": 29,
+      "text": "[ Slurping, Grunting ]",
+      "kind": "sdh",
+      "startMs": 146811,
+      "endMs": 149644
+    },
+    {
+      "index": 30,
+      "text": "Superintendent Chalmers, welcome.",
+      "kind": "dialogue",
+      "startMs": 150749,
+      "endMs": 152717
+    },
+    {
+      "index": 31,
+      "text": "Hello, Seymour. - So, what's the word down at One School Board Plaza?",
+      "kind": "dialogue",
+      "startMs": 152817,
+      "endMs": 156947
+    },
+    {
+      "index": 32,
+      "text": "We're dropping the geography requirement.",
+      "kind": "dialogue",
+      "startMs": 157055,
+      "endMs": 158955
+    },
+    {
+      "index": 33,
+      "text": "The children weren't testing well. It was proving to be an embarrassment.",
+      "kind": "dialogue",
+      "startMs": 159057,
+      "endMs": 161685
+    },
+    {
+      "index": 34,
+      "text": "Very good. Back to the three \"R's.\"",
+      "kind": "dialogue",
+      "startMs": 161793,
+      "endMs": 164489
+    },
+    {
+      "index": 35,
+      "text": "Two \"R's\" come October. Hmm.",
+      "kind": "dialogue",
+      "startMs": 164596,
+      "endMs": 166723
+    },
+    {
+      "index": 36,
+      "text": "What do you think of the banners? Transparent toadying.",
+      "kind": "dialogue",
+      "startMs": 166831,
+      "endMs": 169994
+    },
+    {
+      "index": 37,
+      "text": "They were the children's idea. I tried to stop them.",
+      "kind": "dialogue",
+      "startMs": 170101,
+      "endMs": 173298
+    },
+    {
+      "index": 38,
+      "text": "It's always the children's fault, isn't it, Seymour?",
+      "kind": "dialogue",
+      "startMs": 173405,
+      "endMs": 176272
+    },
+    {
+      "index": 39,
+      "text": "Yes. Yes, it is, sir.",
+      "kind": "dialogue",
+      "startMs": 176374,
+      "endMs": 177966
+    },
+    {
+      "index": 40,
+      "text": "Imagine-- a school out there with no bullies.",
+      "kind": "dialogue",
+      "startMs": 178076,
+      "endMs": 182376
+    },
+    {
+      "index": 41,
+      "text": "Science geeks not getting beat up.",
+      "kind": "dialogue",
+      "startMs": 182480,
+      "endMs": 184812
+    },
+    {
+      "index": 42,
+      "text": "Kids using their lunch money for food.",
+      "kind": "dialogue",
+      "startMs": 184916,
+      "endMs": 187544
+    },
+    {
+      "index": 43,
+      "text": "I can't take it! [ Grunts ]",
+      "kind": "dialogue",
+      "startMs": 187652,
+      "endMs": 190120
+    },
+    {
+      "index": 44,
+      "text": "Hey, I think I can squeeze through that vent.",
+      "kind": "dialogue",
+      "startMs": 194192,
+      "endMs": 196319
+    },
+    {
+      "index": 45,
+      "text": "All right. All right, Bart. Do it, man.",
+      "kind": "dialogue",
+      "startMs": 196428,
+      "endMs": 198726
+    },
+    {
+      "index": 46,
+      "text": "[ Grunts ]",
+      "kind": "sdh",
+      "startMs": 203735,
+      "endMs": 205635
+    },
+    {
+      "index": 47,
+      "text": "Now, remember, little dude, you're our only hope.",
+      "kind": "dialogue",
+      "startMs": 207172,
+      "endMs": 211632
+    },
+    {
+      "index": 48,
+      "text": "[ Grunt ] [Bart]Ow!",
+      "kind": "dialogue",
+      "startMs": 211743,
+      "endMs": 213643
+    },
+    {
+      "index": 49,
+      "text": "Got 'im! Way to go, man.",
+      "kind": "dialogue",
+      "startMs": 213745,
+      "endMs": 216908
+    },
+    {
+      "index": 50,
+      "text": "May I interest you in a Jell-O brick, sir? There's a grape in the center.",
+      "kind": "dialogue",
+      "startMs": 217015,
+      "endMs": 220815
+    },
+    {
+      "index": 51,
+      "text": "Well, I'm not made of stone. [ Laughs ]",
+      "kind": "dialogue",
+      "startMs": 220919,
+      "endMs": 223888
+    },
+    {
+      "index": 52,
+      "text": "You're not made of stone. [ Chuckles ] A brick and you're not made of... stone.",
+      "kind": "dialogue",
+      "startMs": 223988,
+      "endMs": 229849
+    },
+    {
+      "index": 53,
+      "text": "[ Engine Sputtering ] Ach, my beauty.",
+      "kind": "dialogue",
+      "startMs": 229961,
+      "endMs": 232293
+    },
+    {
+      "index": 54,
+      "text": "Wait till the superintendent sees you.",
+      "kind": "dialogue",
+      "startMs": 232397,
+      "endMs": 235525
+    },
+    {
+      "index": 55,
+      "text": "Were it not a violation of God's law, I'd make you my wife.",
+      "kind": "dialogue",
+      "startMs": 235633,
+      "endMs": 239364
+    },
+    {
+      "index": 56,
+      "text": "[ Loud Kiss ] Now thar's a lonely man.",
+      "kind": "dialogue",
+      "startMs": 239471,
+      "endMs": 242167
+    },
+    {
+      "index": 57,
+      "text": "[ Gulps ]",
+      "kind": "sdh",
+      "startMs": 244275,
+      "endMs": 246175
+    },
+    {
+      "index": 58,
+      "text": "I'm new in town. Be there a cool loch... where a lass could wash her long, red hair?",
+      "kind": "dialogue",
+      "startMs": 248346,
+      "endMs": 254646
+    },
+    {
+      "index": 59,
+      "text": "Nay, but there's a pool at me apartment complex. There was a rat in the deep end.",
+      "kind": "dialogue",
+      "startMs": 254752,
+      "endMs": 259917
+    },
+    {
+      "index": 60,
+      "text": "But we got 'im! Ah, lead on.",
+      "kind": "dialogue",
+      "startMs": 260024,
+      "endMs": 264825
+    },
+    {
+      "index": 61,
+      "text": "Forty-eight, 49, 50.",
+      "kind": "dialogue",
+      "startMs": 264929,
+      "endMs": 268558
+    },
+    {
+      "index": 62,
+      "text": "Flag's up-to-date. Very good, Seymour.",
+      "kind": "dialogue",
+      "startMs": 268666,
+      "endMs": 271533
+    },
+    {
+      "index": 63,
+      "text": "Now, are these children as smart as they look?",
+      "kind": "dialogue",
+      "startMs": 271636,
+      "endMs": 273763
+    },
+    {
+      "index": 64,
+      "text": "Well, let's, uh, pick one at random. Mmm, how about that one?",
+      "kind": "dialogue",
+      "startMs": 273872,
+      "endMs": 277501
+    },
+    {
+      "index": 65,
+      "text": "You mean this boy here? No! No. Lisa Simpson.",
+      "kind": "dialogue",
+      "startMs": 277609,
+      "endMs": 280169
+    },
+    {
+      "index": 66,
+      "text": "When was the Battle of New Orleans? -January 8, 1 81 5.",
+      "kind": "dialogue",
+      "startMs": 280278,
+      "endMs": 284146
+    },
+    {
+      "index": 67,
+      "text": "Two weeks after the war ended.",
+      "kind": "dialogue",
+      "startMs": 284249,
+      "endMs": 286376
+    },
+    {
+      "index": 68,
+      "text": "First-rate. What's a battle?",
+      "kind": "dialogue",
+      "startMs": 286484,
+      "endMs": 288952
+    },
+    {
+      "index": 69,
+      "text": "[ Forced Laughter] Let's go.",
+      "kind": "dialogue",
+      "startMs": 289053,
+      "endMs": 291578
+    },
+    {
+      "index": 70,
+      "text": "Did that boy say, \"What's a battle?\" He said, \"What's that rattle?\"",
+      "kind": "dialogue",
+      "startMs": 291689,
+      "endMs": 294453
+    },
+    {
+      "index": 71,
+      "text": "About the heating duct. Hmm. It sounded like battle.",
+      "kind": "dialogue",
+      "startMs": 294559,
+      "endMs": 297687
+    },
+    {
+      "index": 72,
+      "text": "I've had a cold, so, uh-- Oh, so you would hear \"R's\" as \"B's?\"",
+      "kind": "dialogue",
+      "startMs": 297795,
+      "endMs": 301322
+    },
+    {
+      "index": 73,
+      "text": "Yes. I understand.",
+      "kind": "dialogue",
+      "startMs": 301432,
+      "endMs": 303127
+    },
+    {
+      "index": 74,
+      "text": "[Engine Sputtering]",
+      "kind": "sdh",
+      "startMs": 303234,
+      "endMs": 305532
+    },
+    {
+      "index": 75,
+      "text": "Come on, Bart. Ride me.",
+      "kind": "dialogue",
+      "startMs": 311042,
+      "endMs": 313772
+    },
+    {
+      "index": 76,
+      "text": "I better not. [ Imitating Chicken ] He's insulting both of us.",
+      "kind": "dialogue",
+      "startMs": 315813,
+      "endMs": 321751
+    },
+    {
+      "index": 77,
+      "text": "Let's go.",
+      "kind": "dialogue",
+      "startMs": 323655,
+      "endMs": 326146
+    },
+    {
+      "index": 78,
+      "text": "[ Yells ]",
+      "kind": "sdh",
+      "startMs": 327425,
+      "endMs": 329120
+    },
+    {
+      "index": 79,
+      "text": "Excellent. Not a trace of urine. Seymour, you run a tight ship.",
+      "kind": "dialogue",
+      "startMs": 339404,
+      "endMs": 343135
+    },
+    {
+      "index": 80,
+      "text": "Well, you know what they say, sir. \"Where there's no smoke, there's no fire.\"",
+      "kind": "dialogue",
+      "startMs": 343241,
+      "endMs": 347200
+    },
+    {
+      "index": 81,
+      "text": "What an odd remark. Why, that looks like a 50-cent piece.",
+      "kind": "dialogue",
+      "startMs": 347312,
+      "endMs": 350281
+    },
+    {
+      "index": 82,
+      "text": "I'll just bend over and get it.",
+      "kind": "dialogue",
+      "startMs": 350381,
+      "endMs": 352941
+    },
+    {
+      "index": 83,
+      "text": "[ Yelling ] Seems to be caught...",
+      "kind": "dialogue",
+      "startMs": 353051,
+      "endMs": 356316
+    },
+    {
+      "index": 84,
+      "text": "between these two flowers. [ Yells ]",
+      "kind": "dialogue",
+      "startMs": 356421,
+      "endMs": 358946
+    },
+    {
+      "index": 85,
+      "text": "[ Yells ]",
+      "kind": "sdh",
+      "startMs": 359057,
+      "endMs": 360684
+    },
+    {
+      "index": 86,
+      "text": "Ow, ow, ow. Seymour, I was thinking of promoting you to assistant superintendent.",
+      "kind": "dialogue",
+      "startMs": 362560,
+      "endMs": 367793
+    },
+    {
+      "index": 87,
+      "text": "But, instead, that plum goes to Holloway.",
+      "kind": "dialogue",
+      "startMs": 367899,
+      "endMs": 370697
+    },
+    {
+      "index": 88,
+      "text": "No. But, sir, he's a drunk. And a pill-popper.",
+      "kind": "dialogue",
+      "startMs": 370802,
+      "endMs": 373032
+    },
+    {
+      "index": 89,
+      "text": "If I could just-- Silence!",
+      "kind": "dialogue",
+      "startMs": 373137,
+      "endMs": 374695
+    },
+    {
+      "index": 90,
+      "text": "And why is a cafeteria worker posing as a nurse?",
+      "kind": "dialogue",
+      "startMs": 374806,
+      "endMs": 378264
+    },
+    {
+      "index": 91,
+      "text": "I get two paychecks this way. D'oh.",
+      "kind": "dialogue",
+      "startMs": 378376,
+      "endMs": 381209
+    },
+    {
+      "index": 92,
+      "text": "There's no detention this time, Simpson.",
+      "kind": "dialogue",
+      "startMs": 382347,
+      "endMs": 384440
+    },
+    {
+      "index": 93,
+      "text": "This is the end.",
+      "kind": "dialogue",
+      "startMs": 384549,
+      "endMs": 386449
+    },
+    {
+      "index": 94,
+      "text": "You are expelled from Springfield Elementary.",
+      "kind": "dialogue",
+      "startMs": 386551,
+      "endMs": 391352
+    },
+    {
+      "index": 95,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 391456,
+      "endMs": 393617
+    },
+    {
+      "index": 96,
+      "text": "[ Maniacal Laughter]",
+      "kind": "sdh",
+      "startMs": 393725,
+      "endMs": 396956
+    },
+    {
+      "index": 97,
+      "text": "Aw.",
+      "kind": "dialogue",
+      "startMs": 397061,
+      "endMs": 398494
+    },
+    {
+      "index": 98,
+      "text": "Tonight on Eye On Springfield, the Munchkins from The Wizard of Oz.",
+      "kind": "dialogue",
+      "startMs": 401899,
+      "endMs": 405699
+    },
+    {
+      "index": 99,
+      "text": "Where are they now?",
+      "kind": "dialogue",
+      "startMs": 405803,
+      "endMs": 409295
+    },
+    {
+      "index": 100,
+      "text": "And we'll visit a nudist camp... for animals.",
+      "kind": "dialogue",
+      "startMs": 409407,
+      "endMs": 412399
+    },
+    {
+      "index": 101,
+      "text": "But, first, a look at the local holiday that was called... distasteful and puerile by a panel of hillbillies, \"Whacking Day.\"",
+      "kind": "dialogue",
+      "startMs": 412510,
+      "endMs": 420741
+    },
+    {
+      "index": 102,
+      "text": "Oh, no, no! In a tradition that dates back to... founding father Jebediah Springfield, every May 1 0, local residents gather... to drive snakes into the center of town and whack them to snake heaven.",
+      "kind": "dialogue",
+      "startMs": 420852,
+      "endMs": 432727
+    },
+    {
+      "index": 103,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 432830,
+      "endMs": 434422
+    },
+    {
+      "index": 104,
+      "text": "After exposing Alger Hiss...",
+      "kind": "dialogue",
+      "startMs": 438036,
+      "endMs": 440834
+    },
+    {
+      "index": 105,
+      "text": "Honorary Grand Marshal Richard Nixon... goes after another deadly hiss.",
+      "kind": "dialogue",
+      "startMs": 440938,
+      "endMs": 446802
+    },
+    {
+      "index": 106,
+      "text": "Oh! [ Grunts ]",
+      "kind": "dialogue",
+      "startMs": 446911,
+      "endMs": 450472
+    },
+    {
+      "index": 107,
+      "text": "I-Is Whacking Day over? [Jeering ] Thank you. Thanks for coming out.",
+      "kind": "dialogue",
+      "startMs": 450581,
+      "endMs": 457817
+    },
+    {
+      "index": 108,
+      "text": "[ Groans ] It's all so barbaric.",
+      "kind": "dialogue",
+      "startMs": 457922,
+      "endMs": 460891
+    },
+    {
+      "index": 109,
+      "text": "Hey, kids, how was school?",
+      "kind": "dialogue",
+      "startMs": 460992,
+      "endMs": 462584
+    },
+    {
+      "index": 110,
+      "text": "I learned how many drams in a pennyweight. I got expelled.",
+      "kind": "dialogue",
+      "startMs": 462694,
+      "endMs": 465993
+    },
+    {
+      "index": 111,
+      "text": "That's my boy. [ Gulping ] Mmm, beer. What?",
+      "kind": "dialogue",
+      "startMs": 466097,
+      "endMs": 471134
+    },
+    {
+      "index": 112,
+      "text": "Look, Dad, I don't need school.",
+      "kind": "dialogue",
+      "startMs": 471235,
+      "endMs": 473362
+    },
+    {
+      "index": 113,
+      "text": "I'll make my way as a bootblack. Shine your boots, guv'nor?",
+      "kind": "dialogue",
+      "startMs": 473471,
+      "endMs": 476929
+    },
+    {
+      "index": 114,
+      "text": "No son of mine is gonna be a 1 9th-century cockney bootblack.",
+      "kind": "dialogue",
+      "startMs": 477041,
+      "endMs": 480169
+    },
+    {
+      "index": 115,
+      "text": "We're gonna find you another school.",
+      "kind": "dialogue",
+      "startMs": 480278,
+      "endMs": 482178
+    },
+    {
+      "index": 116,
+      "text": "Now, remember, Bart. This is a religious school...",
+      "kind": "dialogue",
+      "startMs": 487452,
+      "endMs": 490148
+    },
+    {
+      "index": 117,
+      "text": "so be very careful about what you say and do here. No problemo.",
+      "kind": "dialogue",
+      "startMs": 490254,
+      "endMs": 493485
+    },
+    {
+      "index": 118,
+      "text": "Now, Bart, Since you're new here... perhaps you'd favor us with a psalm.",
+      "kind": "dialogue",
+      "startMs": 493591,
+      "endMs": 498294
+    },
+    {
+      "index": 119,
+      "text": "How about \"Beans, beans, the musical fruit\"?",
+      "kind": "dialogue",
+      "startMs": 498396,
+      "endMs": 502332
+    },
+    {
+      "index": 120,
+      "text": "Well, uh, beans were a staple of the Israelites. Yes, proceed.",
+      "kind": "dialogue",
+      "startMs": 502433,
+      "endMs": 506233
+    },
+    {
+      "index": 121,
+      "text": "[ Clears Throat ] Beans, beans, the musical fruit.",
+      "kind": "dialogue",
+      "startMs": 507772,
+      "endMs": 510138
+    },
+    {
+      "index": 122,
+      "text": "The more you eat, the more you toot.",
+      "kind": "dialogue",
+      "startMs": 510241,
+      "endMs": 512402
+    },
+    {
+      "index": 123,
+      "text": "[ Grunts ]",
+      "kind": "sdh",
+      "startMs": 512510,
+      "endMs": 515001
+    },
+    {
+      "index": 124,
+      "text": "## [ Humming ] Avert your eyes, children. He may take on other forms.",
+      "kind": "dialogue",
+      "startMs": 515113,
+      "endMs": 523118
+    },
+    {
+      "index": 125,
+      "text": "I guess that's it. I just can't be educated.",
+      "kind": "dialogue",
+      "startMs": 523221,
+      "endMs": 526349
+    },
+    {
+      "index": 126,
+      "text": "[ Loud Sigh ]",
+      "kind": "sdh",
+      "startMs": 526457,
+      "endMs": 528925
+    },
+    {
+      "index": 127,
+      "text": "I can always get a job testing dangerous food additives.",
+      "kind": "dialogue",
+      "startMs": 529026,
+      "endMs": 532655
+    },
+    {
+      "index": 128,
+      "text": "We'd like you to try this new diet cola.",
+      "kind": "dialogue",
+      "startMs": 532764,
+      "endMs": 535392
+    },
+    {
+      "index": 129,
+      "text": "We call it \"Nature's Goodness.\" What's in it?",
+      "kind": "dialogue",
+      "startMs": 535500,
+      "endMs": 537968
+    },
+    {
+      "index": 130,
+      "text": "2-4 desoxypropenuramine.",
+      "kind": "dialogue",
+      "startMs": 538069,
+      "endMs": 539969
+    },
+    {
+      "index": 131,
+      "text": "[ Burps ]",
+      "kind": "sdh",
+      "startMs": 544142,
+      "endMs": 546042
+    },
+    {
+      "index": 132,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 547178,
+      "endMs": 549976
+    },
+    {
+      "index": 133,
+      "text": "Sweet.",
+      "kind": "dialogue",
+      "startMs": 550081,
+      "endMs": 551981
+    },
+    {
+      "index": 134,
+      "text": "Pleasing taste. Some \"monsterism.\"",
+      "kind": "dialogue",
+      "startMs": 552083,
+      "endMs": 554881
+    },
+    {
+      "index": 135,
+      "text": "Cool. You're going to get an education.",
+      "kind": "dialogue",
+      "startMs": 556254,
+      "endMs": 559690
+    },
+    {
+      "index": 136,
+      "text": "I'm going to teach you myself. Marge, it's too late.",
+      "kind": "dialogue",
+      "startMs": 559791,
+      "endMs": 563227
+    },
+    {
+      "index": 137,
+      "text": "The boy's 1 0 years old. Let's focus our energy on Lisa and the other one.",
+      "kind": "dialogue",
+      "startMs": 563327,
+      "endMs": 568287
+    },
+    {
+      "index": 138,
+      "text": "What's your problem? Whacking Day's coming.",
+      "kind": "dialogue",
+      "startMs": 568399,
+      "endMs": 570993
+    },
+    {
+      "index": 139,
+      "text": "Whoo-hoo! The greatest day of the year.",
+      "kind": "dialogue",
+      "startMs": 571102,
+      "endMs": 573366
+    },
+    {
+      "index": 140,
+      "text": "But killing snakes is evil.",
+      "kind": "dialogue",
+      "startMs": 573471,
+      "endMs": 575530
+    },
+    {
+      "index": 141,
+      "text": "Maybe so, Lisa, but it's part of our oh, so human nature.",
+      "kind": "dialogue",
+      "startMs": 575640,
+      "endMs": 580202
+    },
+    {
+      "index": 142,
+      "text": "Inside every man is a struggle between good and evil that cannot be resolved.",
+      "kind": "dialogue",
+      "startMs": 580311,
+      "endMs": 584441
+    },
+    {
+      "index": 143,
+      "text": "[ Singsongy] I am evil Homer. I am evil Homer.",
+      "kind": "dialogue",
+      "startMs": 586751,
+      "endMs": 589914
+    },
+    {
+      "index": 144,
+      "text": "I am evil Homer. I am evil Homer.",
+      "kind": "dialogue",
+      "startMs": 590021,
+      "endMs": 593787
+    },
+    {
+      "index": 145,
+      "text": "Have a nice day at school, Lise. I'll just try and make the best of a bad situation.",
+      "kind": "dialogue",
+      "startMs": 599130,
+      "endMs": 602827
+    },
+    {
+      "index": 146,
+      "text": "[ Grunts ] Ahh.",
+      "kind": "dialogue",
+      "startMs": 602934,
+      "endMs": 607564
+    },
+    {
+      "index": 147,
+      "text": "Bart, get dressed for school. I expect you to be in your seat when the bell rings.",
+      "kind": "dialogue",
+      "startMs": 607672,
+      "endMs": 611267
+    },
+    {
+      "index": 148,
+      "text": "[ Chuckling ] I bought a bell.",
+      "kind": "dialogue",
+      "startMs": 612910,
+      "endMs": 616073
+    },
+    {
+      "index": 149,
+      "text": "[ Ringing Shrilly] [ Both Scream ] I think I'll unplug that.",
+      "kind": "dialogue",
+      "startMs": 622086,
+      "endMs": 626722
+    },
+    {
+      "index": 150,
+      "text": "I'm your new teacher. My name is Mrs. Simpson. [ Chuckles ]",
+      "kind": "dialogue",
+      "startMs": 629260,
+      "endMs": 633560
+    },
+    {
+      "index": 151,
+      "text": "[ Forced Chuckle, Groans ]",
+      "kind": "sdh",
+      "startMs": 633664,
+      "endMs": 636599
+    },
+    {
+      "index": 152,
+      "text": "[ Ticking Loudly]",
+      "kind": "sdh",
+      "startMs": 636701,
+      "endMs": 639397
+    },
+    {
+      "index": 153,
+      "text": "[ Imitates Flatulence ] [ Blows Raspberry]",
+      "kind": "dialogue",
+      "startMs": 644308,
+      "endMs": 646367
+    },
+    {
+      "index": 154,
+      "text": "I didn't do it. [ Groans ]",
+      "kind": "dialogue",
+      "startMs": 650047,
+      "endMs": 653175
+    },
+    {
+      "index": 155,
+      "text": "[Knocking] Oh, that's right.",
+      "kind": "dialogue",
+      "startMs": 654886,
+      "endMs": 656854
+    },
+    {
+      "index": 156,
+      "text": "I invited a guest speaker to talk to the class.",
+      "kind": "dialogue",
+      "startMs": 656954,
+      "endMs": 659946
+    },
+    {
+      "index": 157,
+      "text": "Hello, children.",
+      "kind": "dialogue",
+      "startMs": 660057,
+      "endMs": 662082
+    },
+    {
+      "index": 158,
+      "text": "I got separated from my platoon after we parachuted into D�sseldorf.",
+      "kind": "dialogue",
+      "startMs": 662193,
+      "endMs": 667153
+    },
+    {
+      "index": 159,
+      "text": "####[Cabaret] So I rode out the war posing as a German cabaret singer.",
+      "kind": "dialogue",
+      "startMs": 667265,
+      "endMs": 676570
+    },
+    {
+      "index": 160,
+      "text": "## [ Cabaret ]",
+      "kind": "dialogue",
+      "startMs": 676674,
+      "endMs": 679973
+    },
+    {
+      "index": 161,
+      "text": "Yoo-hoo.",
+      "kind": "dialogue",
+      "startMs": 682046,
+      "endMs": 683946
+    },
+    {
+      "index": 162,
+      "text": "[ Gasps ] Ach du Liebe! Das ist not eine booby.",
+      "kind": "dialogue",
+      "startMs": 690421,
+      "endMs": 693549
+    },
+    {
+      "index": 163,
+      "text": "Is that story true, Grampa? Well, most of it.",
+      "kind": "dialogue",
+      "startMs": 693658,
+      "endMs": 697458
+    },
+    {
+      "index": 164,
+      "text": "I did wear a dress for a period in the '40s.",
+      "kind": "dialogue",
+      "startMs": 697562,
+      "endMs": 700190
+    },
+    {
+      "index": 165,
+      "text": "Oh, they had designers then. [ Garage Door Opening ]",
+      "kind": "dialogue",
+      "startMs": 700298,
+      "endMs": 703267
+    },
+    {
+      "index": 166,
+      "text": "[ All Screaming ] [ Screaming ]",
+      "kind": "dialogue",
+      "startMs": 703367,
+      "endMs": 705460
+    },
+    {
+      "index": 167,
+      "text": "Look what I got, Marge. A new whacking stick.",
+      "kind": "dialogue",
+      "startMs": 708306,
+      "endMs": 712265
+    },
+    {
+      "index": 168,
+      "text": "Whack! Ooh.",
+      "kind": "dialogue",
+      "startMs": 712376,
+      "endMs": 714844
+    },
+    {
+      "index": 169,
+      "text": "Excuse me. Whack, whack, whack!",
+      "kind": "dialogue",
+      "startMs": 714946,
+      "endMs": 717779
+    },
+    {
+      "index": 170,
+      "text": "Whoa, whoa, whoa!",
+      "kind": "dialogue",
+      "startMs": 717882,
+      "endMs": 719850
+    },
+    {
+      "index": 171,
+      "text": "Bart, I'd like you to read this copy of Johnny Tremain.",
+      "kind": "dialogue",
+      "startMs": 719951,
+      "endMs": 723717
+    },
+    {
+      "index": 172,
+      "text": "It's a book I read as a girl. A book? [ Blows Raspberry] I think you might like this. It's about a boy who goes to war.",
+      "kind": "dialogue",
+      "startMs": 723821,
+      "endMs": 730751
+    },
+    {
+      "index": 173,
+      "text": "His hand is deformed in an accident. Deformed?",
+      "kind": "dialogue",
+      "startMs": 730861,
+      "endMs": 733523
+    },
+    {
+      "index": 174,
+      "text": "Why didn't you say so? They should call this book \"Johnny Deformed.\"",
+      "kind": "dialogue",
+      "startMs": 733631,
+      "endMs": 738466
+    },
+    {
+      "index": 175,
+      "text": "####[Cartoon Theme] [Announcer]Guest director, Oliver Stone.",
+      "kind": "dialogue",
+      "startMs": 738569,
+      "endMs": 746539
+    },
+    {
+      "index": 176,
+      "text": "[ Gunshot ] [ Man ] Oh, God! Get his gun!",
+      "kind": "dialogue",
+      "startMs": 750715,
+      "endMs": 753775
+    },
+    {
+      "index": 177,
+      "text": "####[Cartoon Theme] \"Hundreds would die, but not the thing they died for.",
+      "kind": "dialogue",
+      "startMs": 753884,
+      "endMs": 760148
+    },
+    {
+      "index": 178,
+      "text": "A man can stand up.\" Wow!",
+      "kind": "dialogue",
+      "startMs": 760257,
+      "endMs": 764694
+    },
+    {
+      "index": 179,
+      "text": "Mm-hmm. If you'd like to learn more about colonial times... we could take a field trip to Olde Springfield Towne.",
+      "kind": "dialogue",
+      "startMs": 764795,
+      "endMs": 771193
+    },
+    {
+      "index": 180,
+      "text": "[ Both Scream ] [ Screams ] D'oh!",
+      "kind": "dialogue",
+      "startMs": 772303,
+      "endMs": 777234
+    },
+    {
+      "index": 181,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 778876,
+      "endMs": 781174
+    },
+    {
+      "index": 182,
+      "text": "Hi-yah! [ Yells ]",
+      "kind": "dialogue",
+      "startMs": 788085,
+      "endMs": 790781
+    },
+    {
+      "index": 183,
+      "text": "Dad! Everyone likes Whacking Day, but I hate it.",
+      "kind": "dialogue",
+      "startMs": 795159,
+      "endMs": 799459
+    },
+    {
+      "index": 184,
+      "text": "Is there something wrong with me? Yes, honey.",
+      "kind": "dialogue",
+      "startMs": 799563,
+      "endMs": 802361
+    },
+    {
+      "index": 185,
+      "text": "Then what should I do? -Just squeeze your rage into a bitter little ball... and release it at an appropriate time.",
+      "kind": "dialogue",
+      "startMs": 802466,
+      "endMs": 809832
+    },
+    {
+      "index": 186,
+      "text": "Like that day I hit the referee with a whiskey bottle.",
+      "kind": "dialogue",
+      "startMs": 809940,
+      "endMs": 812408
+    },
+    {
+      "index": 187,
+      "text": "Remember that? Yeah.",
+      "kind": "dialogue",
+      "startMs": 812510,
+      "endMs": 814171
+    },
+    {
+      "index": 188,
+      "text": "When Daddy hit the referee? Yeah. Yeah.",
+      "kind": "dialogue",
+      "startMs": 814278,
+      "endMs": 816542
+    },
+    {
+      "index": 189,
+      "text": "Any experience? Yes.",
+      "kind": "dialogue",
+      "startMs": 822586,
+      "endMs": 824315
+    },
+    {
+      "index": 190,
+      "text": "I played Panicky Idiot Number Two in The Poseidon Adventure.",
+      "kind": "dialogue",
+      "startMs": 824422,
+      "endMs": 827653
+    },
+    {
+      "index": 191,
+      "text": "Sorry, we're looking for more of a \"duh, duh\" idiot.",
+      "kind": "dialogue",
+      "startMs": 827758,
+      "endMs": 831717
+    },
+    {
+      "index": 192,
+      "text": "But-- I see.",
+      "kind": "dialogue",
+      "startMs": 831829,
+      "endMs": 834798
+    },
+    {
+      "index": 193,
+      "text": "[ Groans ] Hello, Barney. Are you playing the town drunk?",
+      "kind": "dialogue",
+      "startMs": 834899,
+      "endMs": 839063
+    },
+    {
+      "index": 194,
+      "text": "Actually, I'm supposed to be a governor. [ Burps ] The enemy surrounded the fort and said that if the captain was sent out...",
+      "kind": "dialogue",
+      "startMs": 839170,
+      "endMs": 846968
+    },
+    {
+      "index": 195,
+      "text": "the rest would be spared. What did they do?",
+      "kind": "dialogue",
+      "startMs": 847078,
+      "endMs": 849740
+    },
+    {
+      "index": 196,
+      "text": "They sent him out. Was he killed?",
+      "kind": "dialogue",
+      "startMs": 849847,
+      "endMs": 851838
+    },
+    {
+      "index": 197,
+      "text": "And how. That's why they call it Fort Sensible.",
+      "kind": "dialogue",
+      "startMs": 851949,
+      "endMs": 856283
+    },
+    {
+      "index": 198,
+      "text": "[Projector Clicks] - This is Jebediah Springfield at the Battle of Ticonderoga.",
+      "kind": "dialogue",
+      "startMs": 856387,
+      "endMs": 861586
+    },
+    {
+      "index": 199,
+      "text": "Next. And here he is killing a snake... on the very first Whacking Day in 1775.",
+      "kind": "dialogue",
+      "startMs": 861692,
+      "endMs": 868854
+    },
+    {
+      "index": 200,
+      "text": "Hey, wait a minute.",
+      "kind": "dialogue",
+      "startMs": 868966,
+      "endMs": 870900
+    },
+    {
+      "index": 201,
+      "text": "That was the same day he was at Ticonderoga.",
+      "kind": "dialogue",
+      "startMs": 871001,
+      "endMs": 873663
+    },
+    {
+      "index": 202,
+      "text": "How could he be in two places at once?",
+      "kind": "dialogue",
+      "startMs": 873771,
+      "endMs": 876001
+    },
+    {
+      "index": 203,
+      "text": "Uh, um-- You see--",
+      "kind": "dialogue",
+      "startMs": 876107,
+      "endMs": 879508
+    },
+    {
+      "index": 204,
+      "text": "He'll blow the whole deal. Get him out of here.",
+      "kind": "dialogue",
+      "startMs": 882446,
+      "endMs": 884914
+    },
+    {
+      "index": 205,
+      "text": "Roger.",
+      "kind": "dialogue",
+      "startMs": 885015,
+      "endMs": 886983
+    },
+    {
+      "index": 206,
+      "text": "[ Both Gasp ] If you wanna learn more about Whacking Day... there are many fine books in our gift shop.",
+      "kind": "dialogue",
+      "startMs": 887084,
+      "endMs": 892154
+    },
+    {
+      "index": 207,
+      "text": "Welcome to your official Whacking Day headquarters.",
+      "kind": "dialogue",
+      "startMs": 892256,
+      "endMs": 895657
+    },
+    {
+      "index": 208,
+      "text": "I've hidden a snake somewhere in the store.",
+      "kind": "dialogue",
+      "startMs": 895760,
+      "endMs": 898490
+    },
+    {
+      "index": 209,
+      "text": "The first one to whack it, gets a free Squishy.",
+      "kind": "dialogue",
+      "startMs": 898596,
+      "endMs": 901588
+    },
+    {
+      "index": 210,
+      "text": "[People Yelling]",
+      "kind": "sdh",
+      "startMs": 901699,
+      "endMs": 904065
+    },
+    {
+      "index": 211,
+      "text": "Hey! Hey! [ Yelling ] I should've put more thought into my promotion.",
+      "kind": "dialogue",
+      "startMs": 906637,
+      "endMs": 911770
+    },
+    {
+      "index": 212,
+      "text": "Aim for the body, men. Right, Chief.",
+      "kind": "dialogue",
+      "startMs": 911876,
+      "endMs": 915368
+    },
+    {
+      "index": 213,
+      "text": "\"And the Lord said, \"Whackye all the serpents which crawl on their bellies... and thy town shall be a beacon unto others.\"",
+      "kind": "dialogue",
+      "startMs": 917481,
+      "endMs": 926889
+    },
+    {
+      "index": 214,
+      "text": "So you see, Lisa, even God himself endorses Whacking Day.",
+      "kind": "dialogue",
+      "startMs": 928259,
+      "endMs": 932286
+    },
+    {
+      "index": 215,
+      "text": "Let me see that. Mmm, no.",
+      "kind": "dialogue",
+      "startMs": 932396,
+      "endMs": 935388
+    },
+    {
+      "index": 216,
+      "text": "####[Children Singing]",
+      "kind": "dialogue",
+      "startMs": 939703,
+      "endMs": 944163
+    },
+    {
+      "index": 217,
+      "text": "Here you go. Official Whacking Day parking. Ten dollars per axle.",
+      "kind": "dialogue",
+      "startMs": 966764,
+      "endMs": 972100
+    },
+    {
+      "index": 218,
+      "text": "Whoo-hoo! [ Exclaiming ]",
+      "kind": "dialogue",
+      "startMs": 976273,
+      "endMs": 978741
+    },
+    {
+      "index": 219,
+      "text": "Take that snake! [ Grunts ] And you too!",
+      "kind": "dialogue",
+      "startMs": 980511,
+      "endMs": 983810
+    },
+    {
+      "index": 220,
+      "text": "Snakes, snakes everywhere.",
+      "kind": "dialogue",
+      "startMs": 983914,
+      "endMs": 986212
+    },
+    {
+      "index": 221,
+      "text": "Getting ready for Whacking Day? What's Whacking Day?",
+      "kind": "dialogue",
+      "startMs": 986317,
+      "endMs": 989514
+    },
+    {
+      "index": 222,
+      "text": "Did you bring the pre-whacked snakes?",
+      "kind": "dialogue",
+      "startMs": 995626,
+      "endMs": 998254
+    },
+    {
+      "index": 223,
+      "text": "Beautiful.",
+      "kind": "dialogue",
+      "startMs": 999563,
+      "endMs": 1001292
+    },
+    {
+      "index": 224,
+      "text": "Well, Marge, should I whack slow or fast?",
+      "kind": "dialogue",
+      "startMs": 1005035,
+      "endMs": 1008471
+    },
+    {
+      "index": 225,
+      "text": "Slow, then fast.",
+      "kind": "dialogue",
+      "startMs": 1008572,
+      "endMs": 1012030
+    },
+    {
+      "index": 226,
+      "text": "[ Both Laugh ]",
+      "kind": "sdh",
+      "startMs": 1012142,
+      "endMs": 1014042
+    },
+    {
+      "index": 227,
+      "text": "Uh-oh. Dad, please.",
+      "kind": "dialogue",
+      "startMs": 1014144,
+      "endMs": 1016237
+    },
+    {
+      "index": 228,
+      "text": "For the last time, I beg you. Don't lower yourself to the level of the mob.",
+      "kind": "dialogue",
+      "startMs": 1016347,
+      "endMs": 1021250
+    },
+    {
+      "index": 229,
+      "text": "Lisa, maybe if I'm part of that mob, I can help steer it in wise directions.",
+      "kind": "dialogue",
+      "startMs": 1021352,
+      "endMs": 1026984
+    },
+    {
+      "index": 230,
+      "text": "Now, where's my giant foam cowboy hat and air horn?",
+      "kind": "dialogue",
+      "startMs": 1027091,
+      "endMs": 1029651
+    },
+    {
+      "index": 231,
+      "text": "[ Loud Beep ]",
+      "kind": "sdh",
+      "startMs": 1030895,
+      "endMs": 1033664
+    },
+    {
+      "index": 232,
+      "text": "[ Loud Beep ]",
+      "kind": "sdh",
+      "startMs": 1033664,
+      "endMs": 1034528
+    },
+    {
+      "index": 233,
+      "text": "And now to open This year's festivities... here's our grand marshal, the Prophet of Love, Larry White.",
+      "kind": "dialogue",
+      "startMs": 1034632,
+      "endMs": 1042362
+    },
+    {
+      "index": 234,
+      "text": "Barry White. No. It says here Larry White.",
+      "kind": "dialogue",
+      "startMs": 1042473,
+      "endMs": 1045271
+    },
+    {
+      "index": 235,
+      "text": "I know my own name. Yeah? Well, we'll see.",
+      "kind": "dialogue",
+      "startMs": 1045376,
+      "endMs": 1048937
+    },
+    {
+      "index": 236,
+      "text": "[Crowd Cheering]",
+      "kind": "sdh",
+      "startMs": 1049046,
+      "endMs": 1051173
+    },
+    {
+      "index": 237,
+      "text": "Ladies and gentlemen, my unlimited love to y'all.",
+      "kind": "dialogue",
+      "startMs": 1051282,
+      "endMs": 1054911
+    },
+    {
+      "index": 238,
+      "text": "It's truly an honor to be here at this-- Hey, what is this all about anyway?",
+      "kind": "dialogue",
+      "startMs": 1055019,
+      "endMs": 1060389
+    },
+    {
+      "index": 239,
+      "text": "[ Whispering, Indistinct ]",
+      "kind": "sdh",
+      "startMs": 1060491,
+      "endMs": 1062459
+    },
+    {
+      "index": 240,
+      "text": "Oh, God, no. You people make me sick.",
+      "kind": "dialogue",
+      "startMs": 1062559,
+      "endMs": 1065585
+    },
+    {
+      "index": 241,
+      "text": "[ Cheering ] Were they even listening to me?",
+      "kind": "dialogue",
+      "startMs": 1065696,
+      "endMs": 1069655
+    },
+    {
+      "index": 242,
+      "text": "I, uh, don't think so.",
+      "kind": "dialogue",
+      "startMs": 1069767,
+      "endMs": 1071894
+    },
+    {
+      "index": 243,
+      "text": "And now, let's hear it for our own Miss Springfield.",
+      "kind": "dialogue",
+      "startMs": 1072002,
+      "endMs": 1075836
+    },
+    {
+      "index": 244,
+      "text": "Gentlemen, start your whacking.",
+      "kind": "dialogue",
+      "startMs": 1075940,
+      "endMs": 1078738
+    },
+    {
+      "index": 245,
+      "text": "[ Clamoring ]",
+      "kind": "sdh",
+      "startMs": 1079343,
+      "endMs": 1082278
+    },
+    {
+      "index": 246,
+      "text": "D'oh!",
+      "kind": "dialogue",
+      "startMs": 1091889,
+      "endMs": 1093914
+    },
+    {
+      "index": 247,
+      "text": "[Buzzing]",
+      "kind": "sdh",
+      "startMs": 1095592,
+      "endMs": 1098618
+    },
+    {
+      "index": 248,
+      "text": "Ew, a bug. [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 1098729,
+      "endMs": 1101698
+    },
+    {
+      "index": 249,
+      "text": "If the snakes were in here, we could protect them.",
+      "kind": "dialogue",
+      "startMs": 1106637,
+      "endMs": 1108935
+    },
+    {
+      "index": 250,
+      "text": "Well, according to this, snakes hear by sensing vibrations in the ground.",
+      "kind": "dialogue",
+      "startMs": 1109039,
+      "endMs": 1114136
+    },
+    {
+      "index": 251,
+      "text": "So, if we put our stereo speakers on the ground... and play something with a lot of bass... those snakes will be in here like Oprah on a baked ham.",
+      "kind": "dialogue",
+      "startMs": 1114244,
+      "endMs": 1121878
+    },
+    {
+      "index": 252,
+      "text": "Oh, good idea. Let's see-- bass, bass.",
+      "kind": "dialogue",
+      "startMs": 1121986,
+      "endMs": 1126286
+    },
+    {
+      "index": 253,
+      "text": "Tiny Tim, The Chipmunks' Greatest Hits, A Castrato Christmas.",
+      "kind": "dialogue",
+      "startMs": 1126390,
+      "endMs": 1130349
+    },
+    {
+      "index": 254,
+      "text": "[ Frustrated Sigh ] ## [ Singing R & B ]",
+      "kind": "dialogue",
+      "startMs": 1130461,
+      "endMs": 1133760
+    },
+    {
+      "index": 255,
+      "text": "Mr. White! Can we borrow you for a minute?",
+      "kind": "dialogue",
+      "startMs": 1136100,
+      "endMs": 1138500
+    },
+    {
+      "index": 256,
+      "text": "Anything... for a lady.",
+      "kind": "dialogue",
+      "startMs": 1138602,
+      "endMs": 1141070
+    },
+    {
+      "index": 257,
+      "text": "## [ R & B ] Don't bother the snakes.",
+      "kind": "dialogue",
+      "startMs": 1141171,
+      "endMs": 1145740
+    },
+    {
+      "index": 258,
+      "text": "Leave all the snakes... alone.",
+      "kind": "dialogue",
+      "startMs": 1145843,
+      "endMs": 1150507
+    },
+    {
+      "index": 259,
+      "text": "Ah, yeah.",
+      "kind": "dialogue",
+      "startMs": 1150614,
+      "endMs": 1153082
+    },
+    {
+      "index": 260,
+      "text": "My baby.",
+      "kind": "dialogue",
+      "startMs": 1158622,
+      "endMs": 1160647
+    },
+    {
+      "index": 261,
+      "text": "## [ R & B ]",
+      "kind": "dialogue",
+      "startMs": 1160758,
+      "endMs": 1164159
+    },
+    {
+      "index": 262,
+      "text": "####[Continues]",
+      "kind": "dialogue",
+      "startMs": 1178842,
+      "endMs": 1182369
+    },
+    {
+      "index": 263,
+      "text": "[Rumbling]",
+      "kind": "sdh",
+      "startMs": 1183714,
+      "endMs": 1186342
+    },
+    {
+      "index": 264,
+      "text": "In here. -####[Continues]",
+      "kind": "dialogue",
+      "startMs": 1197895,
+      "endMs": 1201353
+    },
+    {
+      "index": 265,
+      "text": "[ Clamoring ]",
+      "kind": "sdh",
+      "startMs": 1203233,
+      "endMs": 1205201
+    },
+    {
+      "index": 266,
+      "text": "Hey, where'd all the snakes go?",
+      "kind": "dialogue",
+      "startMs": 1207504,
+      "endMs": 1209734
+    },
+    {
+      "index": 267,
+      "text": "[ Hisses ]",
+      "kind": "sdh",
+      "startMs": 1211275,
+      "endMs": 1213175
+    },
+    {
+      "index": 268,
+      "text": "People of Springfield, Whacking Day is a sham.",
+      "kind": "dialogue",
+      "startMs": 1215245,
+      "endMs": 1220148
+    },
+    {
+      "index": 269,
+      "text": "It was started in 1 924, as an excuse to beat up the Irish.",
+      "kind": "dialogue",
+      "startMs": 1220250,
+      "endMs": 1223708
+    },
+    {
+      "index": 270,
+      "text": "'Tis true. I took many a lump. But 'twas all in good fun.",
+      "kind": "dialogue",
+      "startMs": 1223821,
+      "endMs": 1228520
+    },
+    {
+      "index": 271,
+      "text": "Now, wait a minute!",
+      "kind": "dialogue",
+      "startMs": 1228625,
+      "endMs": 1230525
+    },
+    {
+      "index": 272,
+      "text": "How can you people turn on snakes after all they've done for you?",
+      "kind": "dialogue",
+      "startMs": 1230627,
+      "endMs": 1233721
+    },
+    {
+      "index": 273,
+      "text": "I'm an old man. I hate everything but Matlock. Ooh, it's on now.",
+      "kind": "dialogue",
+      "startMs": 1233831,
+      "endMs": 1238359
+    },
+    {
+      "index": 274,
+      "text": "Mrs. Glick, who killed all those rats in your basement?",
+      "kind": "dialogue",
+      "startMs": 1238469,
+      "endMs": 1241768
+    },
+    {
+      "index": 275,
+      "text": "A snake did. And you like snakes, don't you, Barry White?",
+      "kind": "dialogue",
+      "startMs": 1241872,
+      "endMs": 1245501
+    },
+    {
+      "index": 276,
+      "text": "I love the sexy slither ofa lady snake. Oh, baby.",
+      "kind": "dialogue",
+      "startMs": 1245609,
+      "endMs": 1250410
+    },
+    {
+      "index": 277,
+      "text": "[ All ] Hooray for snakes! Hooray for snakes!",
+      "kind": "dialogue",
+      "startMs": 1250514,
+      "endMs": 1253881
+    },
+    {
+      "index": 278,
+      "text": "Look at this everyone. Twelve dead snakes.",
+      "kind": "dialogue",
+      "startMs": 1253984,
+      "endMs": 1256646
+    },
+    {
+      "index": 279,
+      "text": "[ All Booing ] I'm sick of you people.",
+      "kind": "dialogue",
+      "startMs": 1256753,
+      "endMs": 1260712
+    },
+    {
+      "index": 280,
+      "text": "You're nothing but a pack of fickle mush-heads.",
+      "kind": "dialogue",
+      "startMs": 1260824,
+      "endMs": 1262724
+    },
+    {
+      "index": 281,
+      "text": "He's right. Give us hell, Quimby.",
+      "kind": "dialogue",
+      "startMs": 1262826,
+      "endMs": 1265727
+    },
+    {
+      "index": 282,
+      "text": "[Crowd Cheering] ####[Man Singing]",
+      "kind": "dialogue",
+      "startMs": 1265829,
+      "endMs": 1269390
+    },
+    {
+      "index": 283,
+      "text": "Bart, I'm very impressed at the independent learning you've displayed here.",
+      "kind": "dialogue",
+      "startMs": 1279176,
+      "endMs": 1283044
+    },
+    {
+      "index": 284,
+      "text": "Thanks, Seymour. Ye-- [ Sighs ] Yes.",
+      "kind": "dialogue",
+      "startMs": 1283147,
+      "endMs": 1285479
+    },
+    {
+      "index": 285,
+      "text": "Um, anyway, as a reward for your studying...",
+      "kind": "dialogue",
+      "startMs": 1285582,
+      "endMs": 1287675
+    },
+    {
+      "index": 286,
+      "text": "I've decided to welcome you back to our school.",
+      "kind": "dialogue",
+      "startMs": 1287784,
+      "endMs": 1290480
+    },
+    {
+      "index": 287,
+      "text": "You'll be reunited with your chums, Nelson, Jimbo, D-- Oh, dear God!",
+      "kind": "dialogue",
+      "startMs": 1290587,
+      "endMs": 1295422
+    },
+    {
+      "index": 288,
+      "text": "I guess I've always used violence as a way of getting attention.",
+      "kind": "dialogue",
+      "startMs": 1295526,
+      "endMs": 1299826
+    },
+    {
+      "index": 289,
+      "text": "Yes. Yes. Me too.",
+      "kind": "dialogue",
+      "startMs": 1299930,
+      "endMs": 1302990
+    },
+    {
+      "index": 290,
+      "text": "Oh. Aw.",
+      "kind": "dialogue",
+      "startMs": 1303100,
+      "endMs": 1305000
+    },
+    {
+      "index": 291,
+      "text": "Faster, Willie, faster. Now, we give 'em the bikes, no one sues.",
+      "kind": "dialogue",
+      "startMs": 1306603,
+      "endMs": 1310437
+    },
+    {
+      "index": 292,
+      "text": "[ Nervous Chuckle ] [ Chuckles ] What if they're dead, sir?",
+      "kind": "dialogue",
+      "startMs": 1310541,
+      "endMs": 1314204
+    },
+    {
+      "index": 293,
+      "text": "Then we ride these bikes to Mexico and freedom, Willie! Freedom!",
+      "kind": "dialogue",
+      "startMs": 1314311,
+      "endMs": 1318372
+    },
+    {
+      "index": 294,
+      "text": "Freedom. [ Chuckles ] I'll turn you in at the first tollbooth.",
+      "kind": "dialogue",
+      "startMs": 1318482,
+      "endMs": 1322612
+    },
+    {
+      "index": 295,
+      "text": "[ People Chattering ] Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1376106,
+      "endMs": 2000
+    }
+  ]
+}

@@ -1,0 +1,4862 @@
+{
+  "title": "The Simpsons - 4x22 - Krusty Gets Kancelled.en",
+  "sourceFilename": "The Simpsons - 4x22 - Krusty Gets Kancelled.en.srt",
+  "cues": [
+    {
+      "index": 1,
+      "startMs": 3900,
+      "endMs": 7199,
+      "rawText": "[Chorus]\n## The Simpsons ##"
+    },
+    {
+      "index": 2,
+      "startMs": 17981,
+      "endMs": 19881,
+      "rawText": "[Bell Ringing]"
+    },
+    {
+      "index": 3,
+      "startMs": 24754,
+      "endMs": 27917,
+      "rawText": "[Whistle Blowing]"
+    },
+    {
+      "index": 4,
+      "startMs": 30293,
+      "endMs": 32193,
+      "rawText": "[ Beeping ]"
+    },
+    {
+      "index": 5,
+      "startMs": 37934,
+      "endMs": 39925,
+      "rawText": "## [Jazzy Solo ]"
+    },
+    {
+      "index": 6,
+      "startMs": 59923,
+      "endMs": 61823,
+      "rawText": "[ Beeping ]"
+    },
+    {
+      "index": 7,
+      "startMs": 61925,
+      "endMs": 63825,
+      "rawText": "[ Tires Screeching ]"
+    },
+    {
+      "index": 8,
+      "startMs": 65195,
+      "endMs": 67220,
+      "rawText": "D'oh!\n[ Screams ]"
+    },
+    {
+      "index": 9,
+      "startMs": 82078,
+      "endMs": 85070,
+      "rawText": "- ####[Theme]\n- [Announcer]Live from Springfield Harbor..."
+    },
+    {
+      "index": 10,
+      "startMs": 85181,
+      "endMs": 87615,
+      "rawText": "where the sewage meets the sand--"
+    },
+    {
+      "index": 11,
+      "startMs": 87717,
+      "endMs": 90515,
+      "rawText": "[ Coughs, Spits ]"
+    },
+    {
+      "index": 12,
+      "startMs": 90620,
+      "endMs": 94716,
+      "rawText": "- it's The Springfield Squares!\n- [Applause]"
+    },
+    {
+      "index": 13,
+      "startMs": 96126,
+      "endMs": 98253,
+      "rawText": "Now, Jacqueline,\nI believe it's your turn."
+    },
+    {
+      "index": 14,
+      "startMs": 98361,
+      "endMs": 101956,
+      "rawText": "- I'll take Rainier Wolfcastle to block.\n- Ah, Rainier Wolfcastle..."
+    },
+    {
+      "index": 15,
+      "startMs": 102065,
+      "endMs": 103999,
+      "rawText": "star of McBain\nand the upcoming film..."
+    },
+    {
+      "index": 16,
+      "startMs": 104100,
+      "endMs": 106227,
+      "rawText": "Help, My Son is a Nerd!"
+    },
+    {
+      "index": 17,
+      "startMs": 106336,
+      "endMs": 109305,
+      "rawText": "My son returns from\na fancy East Coast college..."
+    },
+    {
+      "index": 18,
+      "startMs": 109405,
+      "endMs": 112533,
+      "rawText": "and I'm horrified to find he's a nerd."
+    },
+    {
+      "index": 19,
+      "startMs": 112642,
+      "endMs": 114701,
+      "rawText": "[ Laughing ]\nI'm laughing already."
+    },
+    {
+      "index": 20,
+      "startMs": 114811,
+      "endMs": 117245,
+      "rawText": "- It's not a comedy.\n- Oh."
+    },
+    {
+      "index": 21,
+      "startMs": 117347,
+      "endMs": 119008,
+      "rawText": "Attention! This is the Coast Guard."
+    },
+    {
+      "index": 22,
+      "startMs": 119115,
+      "endMs": 122141,
+      "rawText": "A 50-foot tidal wave\nis heading this way."
+    },
+    {
+      "index": 23,
+      "startMs": 122252,
+      "endMs": 124743,
+      "rawText": "All game shows off the beach!"
+    },
+    {
+      "index": 24,
+      "startMs": 124854,
+      "endMs": 127084,
+      "rawText": "- [ Gasping ]\n- [ All Screaming ]"
+    },
+    {
+      "index": 25,
+      "startMs": 127190,
+      "endMs": 128953,
+      "rawText": "Everybody up here to my square."
+    },
+    {
+      "index": 26,
+      "startMs": 129058,
+      "endMs": 131754,
+      "rawText": "It's safe and it's sexy.\nOh, baby."
+    },
+    {
+      "index": 27,
+      "startMs": 133196,
+      "endMs": 136222,
+      "rawText": "Hurry, Charlie.\nThere is not much time."
+    },
+    {
+      "index": 28,
+      "startMs": 136332,
+      "endMs": 138232,
+      "rawText": "I ain't goin' nowhere."
+    },
+    {
+      "index": 29,
+      "startMs": 138334,
+      "endMs": 142600,
+      "rawText": "I been in this square pert' near 30 seasons,\nand I ain't a-leavin' now."
+    },
+    {
+      "index": 30,
+      "startMs": 142705,
+      "endMs": 145196,
+      "rawText": "- [ Yelling ]\n- He's dead now."
+    },
+    {
+      "index": 31,
+      "startMs": 145308,
+      "endMs": 147936,
+      "rawText": "[ Both Laughing ]"
+    },
+    {
+      "index": 32,
+      "startMs": 148044,
+      "endMs": 150171,
+      "rawText": "[ Man ] Gabbo! Gabbo! Gabbo!"
+    },
+    {
+      "index": 33,
+      "startMs": 151581,
+      "endMs": 153845,
+      "rawText": "- Did you see that?\n- Yeah."
+    },
+    {
+      "index": 34,
+      "startMs": 153950,
+      "endMs": 156885,
+      "rawText": "- What's Gabbo?\n- I figure it's some guy's name."
+    },
+    {
+      "index": 35,
+      "startMs": 156986,
+      "endMs": 158886,
+      "rawText": "Some guy named Gabbo."
+    },
+    {
+      "index": 36,
+      "startMs": 158988,
+      "endMs": 160455,
+      "rawText": "[Homer]\nHmm."
+    },
+    {
+      "index": 37,
+      "startMs": 163259,
+      "endMs": 165887,
+      "rawText": "I don't think they're giving\nenough information, Dad."
+    },
+    {
+      "index": 38,
+      "startMs": 165995,
+      "endMs": 170932,
+      "rawText": "I'll figure it out. I'm gonna use\nall the power of my brain."
+    },
+    {
+      "index": 39,
+      "startMs": 171968,
+      "endMs": 174698,
+      "rawText": "[ Buzzing ]"
+    },
+    {
+      "index": 40,
+      "startMs": 176472,
+      "endMs": 179930,
+      "rawText": "- Look, Smithers! Garbo is coming!\n- Uh, yes, sir."
+    },
+    {
+      "index": 41,
+      "startMs": 181945,
+      "endMs": 185813,
+      "rawText": "Everyone is saying\n\"Gabbo this\" and \"Gabbo that,\""
+    },
+    {
+      "index": 42,
+      "startMs": 185915,
+      "endMs": 189851,
+      "rawText": "but no one is saying\n\"worship this\" and \"Jericho that.\""
+    },
+    {
+      "index": 43,
+      "startMs": 189953,
+      "endMs": 191750,
+      "rawText": "What's this about Gabbo?"
+    },
+    {
+      "index": 44,
+      "startMs": 194057,
+      "endMs": 197549,
+      "rawText": "I can't believe it.\nOur first glimpse of Gabbo!"
+    },
+    {
+      "index": 45,
+      "startMs": 197660,
+      "endMs": 199560,
+      "rawText": "He'll tell us what to do."
+    },
+    {
+      "index": 46,
+      "startMs": 199662,
+      "endMs": 201562,
+      "rawText": "####[Drum roll]"
+    },
+    {
+      "index": 47,
+      "startMs": 201664,
+      "endMs": 204758,
+      "rawText": "- [Cymbals Crash]\n- Hello. I'm Gabbo."
+    },
+    {
+      "index": 48,
+      "startMs": 204868,
+      "endMs": 208133,
+      "rawText": "- And I'm Arthur Crandall.\n- That's easy for you to say."
+    },
+    {
+      "index": 49,
+      "startMs": 208238,
+      "endMs": 210229,
+      "rawText": "You don't have a hand\nup your tuchas."
+    },
+    {
+      "index": 50,
+      "startMs": 210340,
+      "endMs": 213639,
+      "rawText": "- Oy! Hey!\n- [ Chuckles ] Oh, Gabbo."
+    },
+    {
+      "index": 51,
+      "startMs": 213743,
+      "endMs": 217235,
+      "rawText": "You'll say anything. And you can\nwatch us every afternoon at 4:00."
+    },
+    {
+      "index": 52,
+      "startMs": 217347,
+      "endMs": 220214,
+      "rawText": "[ Gasps ] That's the same time\nas Krusty the Clown!"
+    },
+    {
+      "index": 53,
+      "startMs": 220316,
+      "endMs": 224116,
+      "rawText": "Uh-oh. That cute little character\ncould take America by storm."
+    },
+    {
+      "index": 54,
+      "startMs": 224220,
+      "endMs": 226188,
+      "rawText": "All he needs is a hook."
+    },
+    {
+      "index": 55,
+      "startMs": 226289,
+      "endMs": 229850,
+      "rawText": "- I'm a bad widdle boy.\n- �Aycarumba!"
+    },
+    {
+      "index": 56,
+      "startMs": 229959,
+      "endMs": 232519,
+      "rawText": "####[Orchestra]"
+    },
+    {
+      "index": 57,
+      "startMs": 232629,
+      "endMs": 235723,
+      "rawText": "## [ Singing ]"
+    },
+    {
+      "index": 58,
+      "startMs": 243873,
+      "endMs": 246000,
+      "rawText": "[ Imitating Vin Scully]\nLet's take time out from this triple play..."
+    },
+    {
+      "index": 59,
+      "startMs": 246109,
+      "endMs": 248441,
+      "rawText": "to talk about\nFarmer Dan's pure pork sausage."
+    },
+    {
+      "index": 60,
+      "startMs": 248544,
+      "endMs": 249772,
+      "rawText": "Mm-mmm!"
+    },
+    {
+      "index": 61,
+      "startMs": 249879,
+      "endMs": 252848,
+      "rawText": "## [ Singing Continues ]"
+    },
+    {
+      "index": 62,
+      "startMs": 271034,
+      "endMs": 274026,
+      "rawText": "[ All ]\nGabbo!"
+    },
+    {
+      "index": 63,
+      "startMs": 274137,
+      "endMs": 277868,
+      "rawText": "Ahh, that dummy\ndoesn't scare me."
+    },
+    {
+      "index": 64,
+      "startMs": 277974,
+      "endMs": 281239,
+      "rawText": "I've had plenty of guys come after me,\nand I've buried 'em all."
+    },
+    {
+      "index": 65,
+      "startMs": 281344,
+      "endMs": 283972,
+      "rawText": "Hobos, sea captains, Joey Bishop--"
+    },
+    {
+      "index": 66,
+      "startMs": 284080,
+      "endMs": 287106,
+      "rawText": "- Don't forget the Special Olympics.\n- Oh, yeah."
+    },
+    {
+      "index": 67,
+      "startMs": 287216,
+      "endMs": 290617,
+      "rawText": "- I slaughtered the Special Olympics.\n- [Door Opens]"
+    },
+    {
+      "index": 68,
+      "startMs": 290720,
+      "endMs": 293518,
+      "rawText": "Are those our ratings?\nLet me see."
+    },
+    {
+      "index": 69,
+      "startMs": 293623,
+      "endMs": 297354,
+      "rawText": "I lost to Channel Ocho?\nWhat the hell is that?"
+    },
+    {
+      "index": 70,
+      "startMs": 297460,
+      "endMs": 299928,
+      "rawText": "Dos huevos, por favor."
+    },
+    {
+      "index": 71,
+      "startMs": 300029,
+      "endMs": 303089,
+      "rawText": "�Ay! Oh, quel�stima."
+    },
+    {
+      "index": 72,
+      "startMs": 303199,
+      "endMs": 306430,
+      "rawText": "[ Chuckles ]\nI gotta steal that bit."
+    },
+    {
+      "index": 73,
+      "startMs": 309472,
+      "endMs": 313602,
+      "rawText": "- This is boring.\n- I wonder what would happen\nif you put your train on there."
+    },
+    {
+      "index": 74,
+      "startMs": 314711,
+      "endMs": 317271,
+      "rawText": "[ Crackling ]"
+    },
+    {
+      "index": 75,
+      "startMs": 317380,
+      "endMs": 319280,
+      "rawText": "[ Together]\nCool."
+    },
+    {
+      "index": 76,
+      "startMs": 319382,
+      "endMs": 324285,
+      "rawText": "- Now let's throw some crud on it.\n- Hey, it's 4:00."
+    },
+    {
+      "index": 77,
+      "startMs": 324387,
+      "endMs": 326287,
+      "rawText": "####[Trumpet, Snare Drum]"
+    },
+    {
+      "index": 78,
+      "startMs": 326389,
+      "endMs": 329153,
+      "rawText": "So, you want ventriloquism, do ya?"
+    },
+    {
+      "index": 79,
+      "startMs": 329258,
+      "endMs": 333524,
+      "rawText": "All right, watch this.\nHello, Alphonse. I've got a riddle for you."
+    },
+    {
+      "index": 80,
+      "startMs": 333629,
+      "endMs": 335927,
+      "rawText": "Why is a raven like a writing desk?"
+    },
+    {
+      "index": 81,
+      "startMs": 336032,
+      "endMs": 338125,
+      "rawText": "I don't know. Why is a--"
+    },
+    {
+      "index": 82,
+      "startMs": 338234,
+      "endMs": 340395,
+      "rawText": "[ All Screaming ]"
+    },
+    {
+      "index": 83,
+      "startMs": 340503,
+      "endMs": 343802,
+      "rawText": "Hey, the dummy can't hurt you.\nHe's not even alive."
+    },
+    {
+      "index": 84,
+      "startMs": 343906,
+      "endMs": 346374,
+      "rawText": "He's dead!"
+    },
+    {
+      "index": 85,
+      "startMs": 346476,
+      "endMs": 348034,
+      "rawText": "[ Screaming ]"
+    },
+    {
+      "index": 86,
+      "startMs": 349479,
+      "endMs": 352710,
+      "rawText": "- [ Grunts ]\n- [ Screaming ]"
+    },
+    {
+      "index": 87,
+      "startMs": 352815,
+      "endMs": 354544,
+      "rawText": "[ Groans ]"
+    },
+    {
+      "index": 88,
+      "startMs": 357620,
+      "endMs": 359679,
+      "rawText": "All right, here's the deal."
+    },
+    {
+      "index": 89,
+      "startMs": 359789,
+      "endMs": 361689,
+      "rawText": "Every time you watch my show..."
+    },
+    {
+      "index": 90,
+      "startMs": 361791,
+      "endMs": 365454,
+      "rawText": "- I will send you $40!\n- [Announcer]Checks will not be honored."
+    },
+    {
+      "index": 91,
+      "startMs": 365561,
+      "endMs": 369361,
+      "rawText": "I admit I used the city treasury\nto fund the murder of my enemies."
+    },
+    {
+      "index": 92,
+      "startMs": 369465,
+      "endMs": 373424,
+      "rawText": "But as Gabbo would say,\n\"I'm a bad widdle boy.\""
+    },
+    {
+      "index": 93,
+      "startMs": 373536,
+      "endMs": 376505,
+      "rawText": "[Applause]"
+    },
+    {
+      "index": 94,
+      "startMs": 379342,
+      "endMs": 383005,
+      "rawText": "Well, kids, this is where you would\nwatch Itchy and Scratchy..."
+    },
+    {
+      "index": 95,
+      "startMs": 383112,
+      "endMs": 385774,
+      "rawText": "except they're on\nthe Gabbo Show now."
+    },
+    {
+      "index": 96,
+      "startMs": 385882,
+      "endMs": 389409,
+      "rawText": "So, here's Eastern Europe's\nfavorite cat and mouse team..."
+    },
+    {
+      "index": 97,
+      "startMs": 389519,
+      "endMs": 393011,
+      "rawText": "Worker and Parasite!"
+    },
+    {
+      "index": 98,
+      "startMs": 393122,
+      "endMs": 395215,
+      "rawText": "####[Drums]"
+    },
+    {
+      "index": 99,
+      "startMs": 395324,
+      "endMs": 398691,
+      "rawText": "[ Both Muttering, Indistinct ]"
+    },
+    {
+      "index": 100,
+      "startMs": 407737,
+      "endMs": 410729,
+      "rawText": "####[Piano]"
+    },
+    {
+      "index": 101,
+      "startMs": 412075,
+      "endMs": 414043,
+      "rawText": "What the hell is that?"
+    },
+    {
+      "index": 102,
+      "startMs": 419649,
+      "endMs": 421617,
+      "rawText": "[ Groans ]"
+    },
+    {
+      "index": 103,
+      "startMs": 423986,
+      "endMs": 425886,
+      "rawText": "Well, that's it."
+    },
+    {
+      "index": 104,
+      "startMs": 425988,
+      "endMs": 428354,
+      "rawText": "We've been canceled.\nI think we can be proud..."
+    },
+    {
+      "index": 105,
+      "startMs": 428458,
+      "endMs": 430426,
+      "rawText": "that we never did a bad show..."
+    },
+    {
+      "index": 106,
+      "startMs": 430526,
+      "endMs": 433552,
+      "rawText": "except for that week\nRay Jay Johnson was my co-host."
+    },
+    {
+      "index": 107,
+      "startMs": 433663,
+      "endMs": 437258,
+      "rawText": "\"You can call me Ray,\nand you can call me Jay.\""
+    },
+    {
+      "index": 108,
+      "startMs": 437366,
+      "endMs": 441063,
+      "rawText": "Ooh! That thing was funny\nfor about three seconds."
+    },
+    {
+      "index": 109,
+      "startMs": 441170,
+      "endMs": 444298,
+      "rawText": "The important thing is,\nwe're like a family."
+    },
+    {
+      "index": 110,
+      "startMs": 444407,
+      "endMs": 446568,
+      "rawText": "- Krusty, I--\n- Shut your hole!"
+    },
+    {
+      "index": 111,
+      "startMs": 448377,
+      "endMs": 452211,
+      "rawText": "[ Melodic Door Chime ]"
+    },
+    {
+      "index": 112,
+      "startMs": 452315,
+      "endMs": 455978,
+      "rawText": "- Krusty, how ya holding up?\n- Well, I'm kinda worried about the future."
+    },
+    {
+      "index": 113,
+      "startMs": 456085,
+      "endMs": 457985,
+      "rawText": "How do you deal with it?"
+    },
+    {
+      "index": 114,
+      "startMs": 458087,
+      "endMs": 461955,
+      "rawText": "Well, you've been on TV longer than I have.\nI'm sure you've saved up quite a nest egg."
+    },
+    {
+      "index": 115,
+      "startMs": 462058,
+      "endMs": 463958,
+      "rawText": "Uh, yeah."
+    },
+    {
+      "index": 116,
+      "startMs": 464060,
+      "endMs": 467223,
+      "rawText": "Do they still buy human hair\ndown at the wig shop?"
+    },
+    {
+      "index": 117,
+      "startMs": 468331,
+      "endMs": 470891,
+      "rawText": "[ Grunts, Groans ]"
+    },
+    {
+      "index": 118,
+      "startMs": 471000,
+      "endMs": 473468,
+      "rawText": "- Krusty, you wanna stay for dinner?\n- Nah, sorry."
+    },
+    {
+      "index": 119,
+      "startMs": 473569,
+      "endMs": 477232,
+      "rawText": "Ah, that's too bad, 'cause tonight\nmy guests will be Dr. Carl Sagan..."
+    },
+    {
+      "index": 120,
+      "startMs": 477340,
+      "endMs": 480741,
+      "rawText": "- and from the San Diego Zoo, Joan Embry.\n- ####[Drum roll]"
+    },
+    {
+      "index": 121,
+      "startMs": 482211,
+      "endMs": 484645,
+      "rawText": "\"Oh, Kyle, I just don't think..."
+    },
+    {
+      "index": 122,
+      "startMs": 484747,
+      "endMs": 486647,
+      "rawText": "I fit in here at Melrose Place.\""
+    },
+    {
+      "index": 123,
+      "startMs": 486749,
+      "endMs": 490207,
+      "rawText": "From now on, I'll be doing\nthe thinking for both of us."
+    },
+    {
+      "index": 124,
+      "startMs": 491487,
+      "endMs": 493387,
+      "rawText": "- [ Nose Honks ]\n- [Man]Next."
+    },
+    {
+      "index": 125,
+      "startMs": 493489,
+      "endMs": 497323,
+      "rawText": "####[Trumpet]"
+    },
+    {
+      "index": 126,
+      "startMs": 497426,
+      "endMs": 501556,
+      "rawText": "Come on, you stupid horse!\nI got my last ten bucks on you!"
+    },
+    {
+      "index": 127,
+      "startMs": 501664,
+      "endMs": 503894,
+      "rawText": "No, don't look at me!"
+    },
+    {
+      "index": 128,
+      "startMs": 504000,
+      "endMs": 505900,
+      "rawText": "Run! No!"
+    },
+    {
+      "index": 129,
+      "startMs": 506002,
+      "endMs": 508835,
+      "rawText": "Don't come over here!\n[ Groans ]"
+    },
+    {
+      "index": 130,
+      "startMs": 508938,
+      "endMs": 511566,
+      "rawText": "Oh, boy."
+    },
+    {
+      "index": 131,
+      "startMs": 511674,
+      "endMs": 516737,
+      "rawText": "And now, it's time for another\npatented Gabbo Crank Call!"
+    },
+    {
+      "index": 132,
+      "startMs": 516846,
+      "endMs": 519371,
+      "rawText": "- Oh, I love these.\n- I can't believe it."
+    },
+    {
+      "index": 133,
+      "startMs": 519482,
+      "endMs": 521382,
+      "rawText": "He stole this bit from Krusty!"
+    },
+    {
+      "index": 134,
+      "startMs": 521484,
+      "endMs": 523748,
+      "rawText": "Yeah, well, Krusty stole it\nfrom Steve Allen."
+    },
+    {
+      "index": 135,
+      "startMs": 523853,
+      "endMs": 526287,
+      "rawText": "Oh, everything's stolen nowadays."
+    },
+    {
+      "index": 136,
+      "startMs": 526389,
+      "endMs": 530723,
+      "rawText": "Why, the fax machine is nothing but\na waffle iron with a phone attached."
+    },
+    {
+      "index": 137,
+      "startMs": 530826,
+      "endMs": 532157,
+      "rawText": "- [ Line Ringing ]\n- It's ringing."
+    },
+    {
+      "index": 138,
+      "startMs": 532261,
+      "endMs": 534456,
+      "rawText": "[ Deep Voice ]\nHello. Is this Krusty the Clown?"
+    },
+    {
+      "index": 139,
+      "startMs": 534564,
+      "endMs": 536555,
+      "rawText": "[ Krusty]\nIs this the callback for that porno film?"
+    },
+    {
+      "index": 140,
+      "startMs": 536666,
+      "endMs": 539157,
+      "rawText": "Look, I was a little nervous that day..."
+    },
+    {
+      "index": 141,
+      "startMs": 539268,
+      "endMs": 541429,
+      "rawText": "but I'm all man, I can assure you."
+    },
+    {
+      "index": 142,
+      "startMs": 541537,
+      "endMs": 545132,
+      "rawText": "[ Chuckles ]\nNo, I represent a Japanese camera company."
+    },
+    {
+      "index": 143,
+      "startMs": 545241,
+      "endMs": 548768,
+      "rawText": "We'd like to pay you two million dollars\nto do a camera commercial."
+    },
+    {
+      "index": 144,
+      "startMs": 548878,
+      "endMs": 551779,
+      "rawText": "Whoa! Me rikey velly much!"
+    },
+    {
+      "index": 145,
+      "startMs": 551881,
+      "endMs": 555647,
+      "rawText": "Oh, I hope I didn't offend you.\nI need this bad."
+    },
+    {
+      "index": 146,
+      "startMs": 555751,
+      "endMs": 558447,
+      "rawText": "Bad enough to hit yourself\nover the head with the phone?"
+    },
+    {
+      "index": 147,
+      "startMs": 558554,
+      "endMs": 560852,
+      "rawText": "- Oh! You got it! Ow!\n- [ Thumping ]"
+    },
+    {
+      "index": 148,
+      "startMs": 560957,
+      "endMs": 562982,
+      "rawText": "Ow! Ooh, blood."
+    },
+    {
+      "index": 149,
+      "startMs": 563092,
+      "endMs": 564992,
+      "rawText": "- [ Both Laughing ]\n- [Audience Laughing]"
+    },
+    {
+      "index": 150,
+      "startMs": 566329,
+      "endMs": 568229,
+      "rawText": "What the--\n[ Groans ]"
+    },
+    {
+      "index": 151,
+      "startMs": 568331,
+      "endMs": 571767,
+      "rawText": "If this is anyone but Steve Allen,\nyou're stealing my bit."
+    },
+    {
+      "index": 152,
+      "startMs": 571867,
+      "endMs": 574836,
+      "rawText": "Somebody ought to ruin Gabbo's career\nthe way he ruined Krusty's."
+    },
+    {
+      "index": 153,
+      "startMs": 574937,
+      "endMs": 577167,
+      "rawText": "- Two wrongs don't make a right, Bart.\n- Yes, they do."
+    },
+    {
+      "index": 154,
+      "startMs": 577273,
+      "endMs": 578604,
+      "rawText": "- No, they don't.\n- Yes, they do."
+    },
+    {
+      "index": 155,
+      "startMs": 578708,
+      "endMs": 580835,
+      "rawText": "- No, they don't. Dad!\n- Yes, they do."
+    },
+    {
+      "index": 156,
+      "startMs": 580943,
+      "endMs": 583207,
+      "rawText": "Two wrongs make a right, Lisa."
+    },
+    {
+      "index": 157,
+      "startMs": 583312,
+      "endMs": 588045,
+      "rawText": "Ah, Rex Morgan, M.D. You have\nthe prescription for the daily blues."
+    },
+    {
+      "index": 158,
+      "startMs": 589785,
+      "endMs": 592777,
+      "rawText": "We'll be back after this commercial\nfor Gabbo Airlines."
+    },
+    {
+      "index": 159,
+      "startMs": 592888,
+      "endMs": 594788,
+      "rawText": "[Man]\nAnd cut."
+    },
+    {
+      "index": 160,
+      "startMs": 594890,
+      "endMs": 598053,
+      "rawText": "- That oughta hold the little S.O.B.s.\n- Gabbo, quiet."
+    },
+    {
+      "index": 161,
+      "startMs": 598160,
+      "endMs": 602153,
+      "rawText": "- Oh, I wouldn't wanna offend the little S.O.B.s.\n- I wish you'd stop saying that."
+    },
+    {
+      "index": 162,
+      "startMs": 602265,
+      "endMs": 603994,
+      "rawText": "Hmm."
+    },
+    {
+      "index": 163,
+      "startMs": 604100,
+      "endMs": 608366,
+      "rawText": "- [ Laughing ]\n- Hey, boyo, what's so funny?"
+    },
+    {
+      "index": 164,
+      "startMs": 608471,
+      "endMs": 611201,
+      "rawText": "Well, it's-- Ah, you wouldn't\nbe interested. It's too lowbrow."
+    },
+    {
+      "index": 165,
+      "startMs": 611307,
+      "endMs": 613639,
+      "rawText": "No, I'm quite lowbrow."
+    },
+    {
+      "index": 166,
+      "startMs": 613743,
+      "endMs": 616211,
+      "rawText": "Well, somebody just wrote\na bawdy limerick on the men's room wall."
+    },
+    {
+      "index": 167,
+      "startMs": 616312,
+      "endMs": 619008,
+      "rawText": "This I gotta see!"
+    },
+    {
+      "index": 168,
+      "startMs": 620349,
+      "endMs": 623944,
+      "rawText": "All the kids in Springfield\nare S.O.B.s."
+    },
+    {
+      "index": 169,
+      "startMs": 624053,
+      "endMs": 627682,
+      "rawText": "Gabbo's kind of language\nhas no place on or off TV."
+    },
+    {
+      "index": 170,
+      "startMs": 627790,
+      "endMs": 631021,
+      "rawText": "And that's my two cents."
+    },
+    {
+      "index": 171,
+      "startMs": 631127,
+      "endMs": 633391,
+      "rawText": "[ Chuckles ]\nThat oughta hold those S.O.B.s."
+    },
+    {
+      "index": 172,
+      "startMs": 633496,
+      "endMs": 635396,
+      "rawText": "[ Chuckles ]\nWhat the--"
+    },
+    {
+      "index": 173,
+      "startMs": 638334,
+      "endMs": 639665,
+      "rawText": "[ Both Gasp ]"
+    },
+    {
+      "index": 174,
+      "startMs": 639769,
+      "endMs": 641634,
+      "rawText": "Oh, no!"
+    },
+    {
+      "index": 175,
+      "startMs": 643572,
+      "endMs": 646063,
+      "rawText": "- Krusty, are you making any money?\n- Nah."
+    },
+    {
+      "index": 176,
+      "startMs": 646175,
+      "endMs": 648336,
+      "rawText": "That guy's giving it away for free."
+    },
+    {
+      "index": 177,
+      "startMs": 648444,
+      "endMs": 651504,
+      "rawText": "## [ Singing ]"
+    },
+    {
+      "index": 178,
+      "startMs": 656719,
+      "endMs": 658914,
+      "rawText": "[ Groans ]\nThirty-five years in show business..."
+    },
+    {
+      "index": 179,
+      "startMs": 659021,
+      "endMs": 661285,
+      "rawText": "and already no one remembers me."
+    },
+    {
+      "index": 180,
+      "startMs": 661390,
+      "endMs": 665156,
+      "rawText": "just like what's-his-name\nand who sits..."
+    },
+    {
+      "index": 181,
+      "startMs": 665261,
+      "endMs": 668287,
+      "rawText": "and, you know, that guy,\nalways wore a shirt--"
+    },
+    {
+      "index": 182,
+      "startMs": 668397,
+      "endMs": 670126,
+      "rawText": "- Ed Sullivan?\n- Yeah."
+    },
+    {
+      "index": 183,
+      "startMs": 670232,
+      "endMs": 672792,
+      "rawText": "I didn't know\nyou knew Luke Perry!"
+    },
+    {
+      "index": 184,
+      "startMs": 672902,
+      "endMs": 676235,
+      "rawText": "[ Scoffs ] Know him?\nHe's my worthless half-brother."
+    },
+    {
+      "index": 185,
+      "startMs": 676339,
+      "endMs": 681140,
+      "rawText": "- He's a big TV star.\n- Yeah, on Fox."
+    },
+    {
+      "index": 186,
+      "startMs": 681243,
+      "endMs": 685441,
+      "rawText": "Elizabeth Taylor.\nBette Midler."
+    },
+    {
+      "index": 187,
+      "startMs": 685548,
+      "endMs": 688779,
+      "rawText": "Bette and I owned a racehorse together:\nKrudler."
+    },
+    {
+      "index": 188,
+      "startMs": 688884,
+      "endMs": 692684,
+      "rawText": "Hey, Bart, if we get all these big stars\nto appear on a special with Krusty..."
+    },
+    {
+      "index": 189,
+      "startMs": 692788,
+      "endMs": 694688,
+      "rawText": "it might get\nhis career going again."
+    },
+    {
+      "index": 190,
+      "startMs": 700096,
+      "endMs": 702929,
+      "rawText": "Here's my address book.\nGo get those stars!"
+    },
+    {
+      "index": 191,
+      "startMs": 704200,
+      "endMs": 706293,
+      "rawText": "It won't be easy,\nbut I'm gonna..."
+    },
+    {
+      "index": 192,
+      "startMs": 706402,
+      "endMs": 710498,
+      "rawText": "claw my way back on to TV."
+    },
+    {
+      "index": 193,
+      "startMs": 710606,
+      "endMs": 713734,
+      "rawText": "## [ Singing ]"
+    },
+    {
+      "index": 194,
+      "startMs": 716545,
+      "endMs": 720276,
+      "rawText": "[Male Announcer]\nAnd now, the Crazy Old Man Singers."
+    },
+    {
+      "index": 195,
+      "startMs": 720383,
+      "endMs": 722783,
+      "rawText": "####[Male Chorus Singing]"
+    },
+    {
+      "index": 196,
+      "startMs": 730993,
+      "endMs": 734121,
+      "rawText": "Miss Midler, I can't believe\nyou do this all by yourself."
+    },
+    {
+      "index": 197,
+      "startMs": 734230,
+      "endMs": 736425,
+      "rawText": "We're Americans.\nWe deserve clean highways."
+    },
+    {
+      "index": 198,
+      "startMs": 739268,
+      "endMs": 742169,
+      "rawText": "You pigs!\n[ Panting ]"
+    },
+    {
+      "index": 199,
+      "startMs": 742271,
+      "endMs": 745502,
+      "rawText": "Oh, no!\nBette Midler!"
+    },
+    {
+      "index": 200,
+      "startMs": 745608,
+      "endMs": 747667,
+      "rawText": "[ Grunting ]"
+    },
+    {
+      "index": 201,
+      "startMs": 747777,
+      "endMs": 749677,
+      "rawText": "[ Yelling ]"
+    },
+    {
+      "index": 202,
+      "startMs": 749779,
+      "endMs": 752270,
+      "rawText": "[Crash]"
+    },
+    {
+      "index": 203,
+      "startMs": 752381,
+      "endMs": 754281,
+      "rawText": "Now, where were we?"
+    },
+    {
+      "index": 204,
+      "startMs": 754383,
+      "endMs": 756851,
+      "rawText": "We were asking you to appear\non Krusty's Komeback Special."
+    },
+    {
+      "index": 205,
+      "startMs": 756952,
+      "endMs": 760012,
+      "rawText": "Okay. Tell Krusty\nhe can count me in."
+    },
+    {
+      "index": 206,
+      "startMs": 764560,
+      "endMs": 768052,
+      "rawText": "It's time to take out the trash."
+    },
+    {
+      "index": 207,
+      "startMs": 770132,
+      "endMs": 773465,
+      "rawText": "[ Man Shouting ]\nI'll get you for this, Midler!"
+    },
+    {
+      "index": 208,
+      "startMs": 775604,
+      "endMs": 779506,
+      "rawText": "[ Man Over P.A. ] And off to your left\nis Hugh Hefner's Shelbyville pad."
+    },
+    {
+      "index": 209,
+      "startMs": 779608,
+      "endMs": 783738,
+      "rawText": "- A lot of people know about\nthe grotto and the game room.\n- Of course."
+    },
+    {
+      "index": 210,
+      "startMs": 783846,
+      "endMs": 786406,
+      "rawText": "But few know about\nthe laboratory, the biosphere..."
+    },
+    {
+      "index": 211,
+      "startMs": 786515,
+      "endMs": 788847,
+      "rawText": "the alternative\nenergy research center."
+    },
+    {
+      "index": 212,
+      "startMs": 792121,
+      "endMs": 794089,
+      "rawText": "Fascinating."
+    },
+    {
+      "index": 213,
+      "startMs": 798360,
+      "endMs": 800555,
+      "rawText": "- Desalinization plant?\n- Yes."
+    },
+    {
+      "index": 214,
+      "startMs": 800663,
+      "endMs": 804099,
+      "rawText": "The grotto uses so much water,\nthe Bunnies felt we should go this way."
+    },
+    {
+      "index": 215,
+      "startMs": 804200,
+      "endMs": 807601,
+      "rawText": "- Smart Bunnies, Hef. I can call you Hef, can't I?\n- No."
+    },
+    {
+      "index": 216,
+      "startMs": 810372,
+      "endMs": 813102,
+      "rawText": "You told our agent\nthis place holds 30,000 people."
+    },
+    {
+      "index": 217,
+      "startMs": 813209,
+      "endMs": 815609,
+      "rawText": "It does.\nWe had 30,000 here last night."
+    },
+    {
+      "index": 218,
+      "startMs": 815711,
+      "endMs": 817679,
+      "rawText": "Now play. The audience\nis gettin' restless."
+    },
+    {
+      "index": 219,
+      "startMs": 817780,
+      "endMs": 821511,
+      "rawText": "We want Chilly Willy!\nWe want Chilly Willy!"
+    },
+    {
+      "index": 220,
+      "startMs": 822918,
+      "endMs": 824818,
+      "rawText": "Hey, Red Hot Chili Peppers..."
+    },
+    {
+      "index": 221,
+      "startMs": 824920,
+      "endMs": 827445,
+      "rawText": "would you guys like to appear\non a Krusty the Clown special?"
+    },
+    {
+      "index": 222,
+      "startMs": 827556,
+      "endMs": 830320,
+      "rawText": "- Sure, if you can get us out of this gig.\n- No problemo."
+    },
+    {
+      "index": 223,
+      "startMs": 830426,
+      "endMs": 833293,
+      "rawText": "- Hey, Moe, look over there.\n- What? What am I lookin' at?"
+    },
+    {
+      "index": 224,
+      "startMs": 833395,
+      "endMs": 837297,
+      "rawText": "I don't see nothin'.\nI'm gonna stop looking soon."
+    },
+    {
+      "index": 225,
+      "startMs": 837399,
+      "endMs": 840664,
+      "rawText": "- What? What, is that it?\n- Hey, Moe, can I look too?"
+    },
+    {
+      "index": 226,
+      "startMs": 840769,
+      "endMs": 843897,
+      "rawText": "- Sure, but it'll cost ya.\n- My wallet's in the car."
+    },
+    {
+      "index": 227,
+      "startMs": 844006,
+      "endMs": 846497,
+      "rawText": "He is so stupid."
+    },
+    {
+      "index": 228,
+      "startMs": 846609,
+      "endMs": 849305,
+      "rawText": "And now, back to the wall."
+    },
+    {
+      "index": 229,
+      "startMs": 852648,
+      "endMs": 854616,
+      "rawText": "## [ Humming ]"
+    },
+    {
+      "index": 230,
+      "startMs": 854717,
+      "endMs": 858483,
+      "rawText": "Miss Taylor, a couple of grade-school kids\nWanted you to be on a Krusty special."
+    },
+    {
+      "index": 231,
+      "startMs": 858587,
+      "endMs": 861317,
+      "rawText": "- I told them to buzz off.\n- Good."
+    },
+    {
+      "index": 232,
+      "startMs": 861423,
+      "endMs": 863857,
+      "rawText": "## [ Humming ]"
+    },
+    {
+      "index": 233,
+      "startMs": 863959,
+      "endMs": 866427,
+      "rawText": "- [Pounding On Door]\n- Krusty, we've got great news!"
+    },
+    {
+      "index": 234,
+      "startMs": 866529,
+      "endMs": 868429,
+      "rawText": "[ Both Screaming ]"
+    },
+    {
+      "index": 235,
+      "startMs": 869598,
+      "endMs": 872032,
+      "rawText": "[ Groaning ]"
+    },
+    {
+      "index": 236,
+      "startMs": 872134,
+      "endMs": 874796,
+      "rawText": "Krusty, what have you done to yourself?"
+    },
+    {
+      "index": 237,
+      "startMs": 874904,
+      "endMs": 878465,
+      "rawText": "I thought I'd get into shape, so I've been\ndrinking nothing but milk shakes."
+    },
+    {
+      "index": 238,
+      "startMs": 878574,
+      "endMs": 881099,
+      "rawText": "- You mean those diet milk shakes?\n- Uh-oh."
+    },
+    {
+      "index": 239,
+      "startMs": 881210,
+      "endMs": 883804,
+      "rawText": "Now, you can stay with us until\nyou lose that weight."
+    },
+    {
+      "index": 240,
+      "startMs": 883913,
+      "endMs": 886541,
+      "rawText": "You can sleep on the sofa.\nIt folds right out."
+    },
+    {
+      "index": 241,
+      "startMs": 886649,
+      "endMs": 889812,
+      "rawText": "[ Grunting, Yelling ]"
+    },
+    {
+      "index": 242,
+      "startMs": 891153,
+      "endMs": 893053,
+      "rawText": "Oh, wait.\nThat was the old sofa."
+    },
+    {
+      "index": 243,
+      "startMs": 893155,
+      "endMs": 897888,
+      "rawText": "[ Screeching ]"
+    },
+    {
+      "index": 244,
+      "startMs": 901196,
+      "endMs": 903562,
+      "rawText": "Oh, I'll never get my aim back."
+    },
+    {
+      "index": 245,
+      "startMs": 903666,
+      "endMs": 906601,
+      "rawText": "- You gotta keep working on it.\n- Oh! Aah!"
+    },
+    {
+      "index": 246,
+      "startMs": 906702,
+      "endMs": 910035,
+      "rawText": "Aah! Water!\n[ Yelling ]"
+    },
+    {
+      "index": 247,
+      "startMs": 910139,
+      "endMs": 912300,
+      "rawText": "Mmm, delicious."
+    },
+    {
+      "index": 248,
+      "startMs": 915611,
+      "endMs": 918876,
+      "rawText": "- Oh, why am I bothering? It's hopeless.\n- [ Gabbo On TV] Hi, kids."
+    },
+    {
+      "index": 249,
+      "startMs": 918981,
+      "endMs": 921108,
+      "rawText": "It's me, Gabbo!"
+    },
+    {
+      "index": 250,
+      "startMs": 921216,
+      "endMs": 923116,
+      "rawText": "[ Laughing ]"
+    },
+    {
+      "index": 251,
+      "startMs": 927656,
+      "endMs": 930523,
+      "rawText": "Pork prices rose\nin early trading today."
+    },
+    {
+      "index": 252,
+      "startMs": 939068,
+      "endMs": 941662,
+      "rawText": "But you've gotta\ncomeback, Mel!"
+    },
+    {
+      "index": 253,
+      "startMs": 941770,
+      "endMs": 943761,
+      "rawText": "- We're a team.\n- No, Krusty."
+    },
+    {
+      "index": 254,
+      "startMs": 943872,
+      "endMs": 945840,
+      "rawText": "You always treated me rather shabbily."
+    },
+    {
+      "index": 255,
+      "startMs": 945941,
+      "endMs": 948774,
+      "rawText": "On our last show, you poured\nliquid nitrogen down my pants..."
+    },
+    {
+      "index": 256,
+      "startMs": 948877,
+      "endMs": 950674,
+      "rawText": "and cracked my buttocks\nwith a hammer."
+    },
+    {
+      "index": 257,
+      "startMs": 950779,
+      "endMs": 952644,
+      "rawText": "Ah, come on.\nYou wanna waste your life..."
+    },
+    {
+      "index": 258,
+      "startMs": 952748,
+      "endMs": 955239,
+      "rawText": "hanging out with a bunch\nof dorky teenagers?"
+    },
+    {
+      "index": 259,
+      "startMs": 955351,
+      "endMs": 957683,
+      "rawText": "Here's your taco, mister.\nOops."
+    },
+    {
+      "index": 260,
+      "startMs": 957786,
+      "endMs": 961347,
+      "rawText": "It fell in the fryer. I'll get it out.\nOw! Ow!"
+    },
+    {
+      "index": 261,
+      "startMs": 961457,
+      "endMs": 963948,
+      "rawText": "Ow!Ow!"
+    },
+    {
+      "index": 262,
+      "startMs": 964059,
+      "endMs": 965959,
+      "rawText": "Sorry, Krusty.\nI like it here."
+    },
+    {
+      "index": 263,
+      "startMs": 966061,
+      "endMs": 967961,
+      "rawText": "Mr. Johannson\ntreats me with dignity."
+    },
+    {
+      "index": 264,
+      "startMs": 968063,
+      "endMs": 969963,
+      "rawText": "Is this clown bothering you, Mel?"
+    },
+    {
+      "index": 265,
+      "startMs": 970065,
+      "endMs": 972659,
+      "rawText": "That's all right, Mr. Johannson.\nI'll handle it."
+    },
+    {
+      "index": 266,
+      "startMs": 972768,
+      "endMs": 975066,
+      "rawText": "- Here's your taco, sir.\n- I don't want it."
+    },
+    {
+      "index": 267,
+      "startMs": 975170,
+      "endMs": 978571,
+      "rawText": "But this comes out of my salary.\nIf I had a girlfriend, she'd kill me."
+    },
+    {
+      "index": 268,
+      "startMs": 978674,
+      "endMs": 981575,
+      "rawText": "[Man]Okay, Krusty,\nlet's rehearse the balloon bit."
+    },
+    {
+      "index": 269,
+      "startMs": 982745,
+      "endMs": 986613,
+      "rawText": "Look, kids!\nA horsie!"
+    },
+    {
+      "index": 270,
+      "startMs": 986715,
+      "endMs": 989809,
+      "rawText": "And what are you making,\nSideshow Luke Perry?"
+    },
+    {
+      "index": 271,
+      "startMs": 991387,
+      "endMs": 993821,
+      "rawText": "A 1 9th-century carousel."
+    },
+    {
+      "index": 272,
+      "startMs": 996525,
+      "endMs": 998720,
+      "rawText": "[Yells]\nUpstage me, will ya?"
+    },
+    {
+      "index": 273,
+      "startMs": 998827,
+      "endMs": 1002627,
+      "rawText": "- Get the hell out!\n- Look, there must be something\nI can do on the show."
+    },
+    {
+      "index": 274,
+      "startMs": 1002731,
+      "endMs": 1004756,
+      "rawText": "Please.\nFor Mom's sake?"
+    },
+    {
+      "index": 275,
+      "startMs": 1004867,
+      "endMs": 1008735,
+      "rawText": "Well, maybe we can find something."
+    },
+    {
+      "index": 276,
+      "startMs": 1010439,
+      "endMs": 1012430,
+      "rawText": "[ Yelling ]"
+    },
+    {
+      "index": 277,
+      "startMs": 1014610,
+      "endMs": 1016475,
+      "rawText": "[ Sinister Chuckling ]"
+    },
+    {
+      "index": 278,
+      "startMs": 1023452,
+      "endMs": 1027718,
+      "rawText": "I don't like it. He's got Johnny Carson,\nBette Midler and Hugh Hefner."
+    },
+    {
+      "index": 279,
+      "startMs": 1027823,
+      "endMs": 1030656,
+      "rawText": "- What've we got?\n- Ray Jay Johnson."
+    },
+    {
+      "index": 280,
+      "startMs": 1030759,
+      "endMs": 1034388,
+      "rawText": "Oy. Yi-yi-yi-yi-yi-yi-yi!"
+    },
+    {
+      "index": 281,
+      "startMs": 1034496,
+      "endMs": 1036555,
+      "rawText": "Now, boys..."
+    },
+    {
+      "index": 282,
+      "startMs": 1036665,
+      "endMs": 1039133,
+      "rawText": "the network has a problem\nwith some of your lyrics."
+    },
+    {
+      "index": 283,
+      "startMs": 1039234,
+      "endMs": 1042362,
+      "rawText": "- Would you mind changing 'em for the show?\n- For get you, clown."
+    },
+    {
+      "index": 284,
+      "startMs": 1042471,
+      "endMs": 1045372,
+      "rawText": "Hey, our lyrics are like\nour children, man. No way."
+    },
+    {
+      "index": 285,
+      "startMs": 1045474,
+      "endMs": 1047465,
+      "rawText": "Well, okay.\nBut here, where you say..."
+    },
+    {
+      "index": 286,
+      "startMs": 1047576,
+      "endMs": 1049703,
+      "rawText": "\"What I got, you gotta get\nand put it in you,\""
+    },
+    {
+      "index": 287,
+      "startMs": 1049812,
+      "endMs": 1053145,
+      "rawText": "how about just,\n\"What I'd like is I'd like to hug and kiss you\"?"
+    },
+    {
+      "index": 288,
+      "startMs": 1053248,
+      "endMs": 1057810,
+      "rawText": "- Wow! That's much better.\n- Everyone can enjoy that."
+    },
+    {
+      "index": 289,
+      "startMs": 1057920,
+      "endMs": 1059444,
+      "rawText": "-####[Drum roll]\n- Live from Springfield..."
+    },
+    {
+      "index": 290,
+      "startMs": 1059555,
+      "endMs": 1061546,
+      "rawText": "the entertainment capital\nof the state..."
+    },
+    {
+      "index": 291,
+      "startMs": 1061657,
+      "endMs": 1063557,
+      "rawText": "the Krusty Komeback Special!"
+    },
+    {
+      "index": 292,
+      "startMs": 1063659,
+      "endMs": 1065786,
+      "rawText": "####[Piano]"
+    },
+    {
+      "index": 293,
+      "startMs": 1067296,
+      "endMs": 1070094,
+      "rawText": "## [ Singing Ballad ]"
+    },
+    {
+      "index": 294,
+      "startMs": 1095390,
+      "endMs": 1098018,
+      "rawText": "[ Sobbing ]"
+    },
+    {
+      "index": 295,
+      "startMs": 1098127,
+      "endMs": 1102860,
+      "rawText": "## [ Singing Ballad ]"
+    },
+    {
+      "index": 296,
+      "startMs": 1107903,
+      "endMs": 1110531,
+      "rawText": "[ Applause ]"
+    },
+    {
+      "index": 297,
+      "startMs": 1113675,
+      "endMs": 1116701,
+      "rawText": "- I love you, Krusty.\n- Quiet!"
+    },
+    {
+      "index": 298,
+      "startMs": 1118313,
+      "endMs": 1121305,
+      "rawText": "####[Drum roll]"
+    },
+    {
+      "index": 299,
+      "startMs": 1121416,
+      "endMs": 1125716,
+      "rawText": "- Are you comfortable in there, Luke Perry?\n- Fire away, Krusty."
+    },
+    {
+      "index": 300,
+      "startMs": 1126755,
+      "endMs": 1129246,
+      "rawText": "[Yelling]"
+    },
+    {
+      "index": 301,
+      "startMs": 1133929,
+      "endMs": 1138389,
+      "rawText": "- Aah! My face! My valuable face!\n- Hmph!"
+    },
+    {
+      "index": 302,
+      "startMs": 1140536,
+      "endMs": 1142766,
+      "rawText": "[ Sighs ]"
+    },
+    {
+      "index": 303,
+      "startMs": 1144439,
+      "endMs": 1146703,
+      "rawText": "[Yelling]"
+    },
+    {
+      "index": 304,
+      "startMs": 1146809,
+      "endMs": 1150074,
+      "rawText": "[ Nervous Chuckle ]\nOy!"
+    },
+    {
+      "index": 305,
+      "startMs": 1152014,
+      "endMs": 1154312,
+      "rawText": "## [ Singing Rock]"
+    },
+    {
+      "index": 306,
+      "startMs": 1159755,
+      "endMs": 1163589,
+      "rawText": "Dancin' around in their underwear.\nThat is so degrading."
+    },
+    {
+      "index": 307,
+      "startMs": 1163692,
+      "endMs": 1167150,
+      "rawText": "- 30 seconds till your Little Stinker sketch.\n- Get me a bigger lolly."
+    },
+    {
+      "index": 308,
+      "startMs": 1167262,
+      "endMs": 1169924,
+      "rawText": "Now, Johnny, whatcha got for us?"
+    },
+    {
+      "index": 309,
+      "startMs": 1170032,
+      "endMs": 1171932,
+      "rawText": "Some jokes?\nA little magic?"
+    },
+    {
+      "index": 310,
+      "startMs": 1172034,
+      "endMs": 1175936,
+      "rawText": "Actually, I thought I'd lift\nthis 1 987 Buick Skylark over my head."
+    },
+    {
+      "index": 311,
+      "startMs": 1178140,
+      "endMs": 1180267,
+      "rawText": "Hi-yo!\nJohnny, that's amazing."
+    },
+    {
+      "index": 312,
+      "startMs": 1180375,
+      "endMs": 1182275,
+      "rawText": "Oh, yeah?\nGet a load of this."
+    },
+    {
+      "index": 313,
+      "startMs": 1182377,
+      "endMs": 1185107,
+      "rawText": "## [ Singing Opera In Foreign Language ]"
+    },
+    {
+      "index": 314,
+      "startMs": 1193555,
+      "endMs": 1196490,
+      "rawText": "## [ Tones Chiming ]"
+    },
+    {
+      "index": 315,
+      "startMs": 1199695,
+      "endMs": 1203187,
+      "rawText": "I've got to fire that agent."
+    },
+    {
+      "index": 316,
+      "startMs": 1203298,
+      "endMs": 1206290,
+      "rawText": "####[Piano]"
+    },
+    {
+      "index": 317,
+      "startMs": 1206401,
+      "endMs": 1209427,
+      "rawText": "## [ Singing Ballad ]"
+    },
+    {
+      "index": 318,
+      "startMs": 1234763,
+      "endMs": 1237391,
+      "rawText": "[ Both Sobbing ]"
+    },
+    {
+      "index": 319,
+      "startMs": 1243672,
+      "endMs": 1247369,
+      "rawText": "This was a great show, Krusty.\nYou deserve an Emmy for this."
+    },
+    {
+      "index": 320,
+      "startMs": 1247476,
+      "endMs": 1250912,
+      "rawText": "Forget it. The Academy hates me.\nI don't know why."
+    },
+    {
+      "index": 321,
+      "startMs": 1251013,
+      "endMs": 1252913,
+      "rawText": "Bunch of old,\nknow-nothing dinosaurs..."
+    },
+    {
+      "index": 322,
+      "startMs": 1253015,
+      "endMs": 1254915,
+      "rawText": "wouldn't know entertainment\nif it bit 'em in the--"
+    },
+    {
+      "index": 323,
+      "startMs": 1255017,
+      "endMs": 1257451,
+      "rawText": "Hey, hey!\n[ Laughs ]"
+    },
+    {
+      "index": 324,
+      "startMs": 1257552,
+      "endMs": 1260112,
+      "rawText": "####[Jazz]"
+    },
+    {
+      "index": 325,
+      "startMs": 1260222,
+      "endMs": 1262349,
+      "rawText": "[ Dinging ]"
+    },
+    {
+      "index": 326,
+      "startMs": 1262457,
+      "endMs": 1265551,
+      "rawText": "- [ Buzzing ]\n- [ Grunting ]"
+    },
+    {
+      "index": 327,
+      "startMs": 1265661,
+      "endMs": 1269256,
+      "rawText": "Now, Krusty, I just hope you remember\nto save your money this time."
+    },
+    {
+      "index": 328,
+      "startMs": 1269364,
+      "endMs": 1271958,
+      "rawText": "Here's that ruby-studded clown nose\nyou ordered, Krusty."
+    },
+    {
+      "index": 329,
+      "startMs": 1272067,
+      "endMs": 1275969,
+      "rawText": "[ Sobbing ]\nOy!"
+    },
+    {
+      "index": 330,
+      "startMs": 1276071,
+      "endMs": 1277971,
+      "rawText": "- What's up, Moe?\n- Hey, Moe!"
+    },
+    {
+      "index": 331,
+      "startMs": 1278073,
+      "endMs": 1280598,
+      "rawText": "Hey, you can't come in here\ndressed like that!"
+    },
+    {
+      "index": 332,
+      "startMs": 1280709,
+      "endMs": 1283405,
+      "rawText": "- Get with the times, Moe.\n- Yeah."
+    },
+    {
+      "index": 333,
+      "startMs": 1283512,
+      "endMs": 1285571,
+      "rawText": "I say if it feels good, do it."
+    },
+    {
+      "index": 334,
+      "startMs": 1285681,
+      "endMs": 1287615,
+      "rawText": "All right."
+    },
+    {
+      "index": 335,
+      "startMs": 1287716,
+      "endMs": 1291152,
+      "rawText": "- [ Chuckling ]\n- Don't snap my undies."
+    },
+    {
+      "index": 336,
+      "startMs": 1291253,
+      "endMs": 1293949,
+      "rawText": "I'm a star again."
+    },
+    {
+      "index": 337,
+      "startMs": 1294056,
+      "endMs": 1296149,
+      "rawText": "I don't know how to thank you, kids."
+    },
+    {
+      "index": 338,
+      "startMs": 1296258,
+      "endMs": 1299921,
+      "rawText": "- That's all right, Krusty.\n- We're getting 50%% of the T-shirt sales."
+    },
+    {
+      "index": 339,
+      "startMs": 1300028,
+      "endMs": 1302656,
+      "rawText": "What? That's the sweetest plum!"
+    },
+    {
+      "index": 340,
+      "startMs": 1302764,
+      "endMs": 1304425,
+      "rawText": "You little--"
+    },
+    {
+      "index": 341,
+      "startMs": 1304533,
+      "endMs": 1306558,
+      "rawText": "Aw, what the hell."
+    },
+    {
+      "index": 342,
+      "startMs": 1306668,
+      "endMs": 1309228,
+      "rawText": "You deserve it.\nThanks, kids."
+    },
+    {
+      "index": 343,
+      "startMs": 1309338,
+      "endMs": 1314241,
+      "rawText": "To Krusty,\nthe greatest entertainer in the world--"
+    },
+    {
+      "index": 344,
+      "startMs": 1314343,
+      "endMs": 1316504,
+      "rawText": "Except maybe that guy."
+    },
+    {
+      "index": 345,
+      "startMs": 1318246,
+      "endMs": 1320476,
+      "rawText": "Is this the bus to the civic center?"
+    },
+    {
+      "index": 346,
+      "startMs": 1375470,
+      "endMs": 1377438,
+      "rawText": "- [ People Chattering ]\n- Shh!"
+    },
+    {
+      "index": 347,
+      "startMs": 500,
+      "endMs": 2000,
+      "rawText": "<font color=\"#ffff00\" size=14>www.tvsubtitles.net</font>"
+    }
+  ],
+  "transcript": {
+    "generatedAt": 1788149480907,
+    "options": {
+      "mergeContinuations": true,
+      "stripTags": true,
+      "includeSdh": true,
+      "gapMsForParagraph": 1500
+    },
+    "blocks": [
+      {
+        "startMs": 3900,
+        "endMs": 7199,
+        "cueIndices": [
+          1
+        ],
+        "text": "[Chorus] ## The Simpsons ##",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 17981,
+        "endMs": 19881,
+        "cueIndices": [
+          2
+        ],
+        "text": "[Bell Ringing]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 24754,
+        "endMs": 27917,
+        "cueIndices": [
+          3
+        ],
+        "text": "[Whistle Blowing]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 30293,
+        "endMs": 32193,
+        "cueIndices": [
+          4
+        ],
+        "text": "[ Beeping ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 37934,
+        "endMs": 39925,
+        "cueIndices": [
+          5
+        ],
+        "text": "## [Jazzy Solo ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 59923,
+        "endMs": 61823,
+        "cueIndices": [
+          6
+        ],
+        "text": "[ Beeping ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 61925,
+        "endMs": 63825,
+        "cueIndices": [
+          7
+        ],
+        "text": "[ Tires Screeching ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 65195,
+        "endMs": 67220,
+        "cueIndices": [
+          8
+        ],
+        "text": "D'oh! [ Screams ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 82078,
+        "endMs": 87615,
+        "cueIndices": [
+          9,
+          10
+        ],
+        "text": "- ####[Theme]\n- [Announcer]Live from Springfield Harbor...\nwhere the sewage meets the sand--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 87717,
+        "endMs": 90515,
+        "cueIndices": [
+          11
+        ],
+        "text": "[ Coughs, Spits ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 90620,
+        "endMs": 98253,
+        "cueIndices": [
+          12,
+          13
+        ],
+        "text": "- it's The Springfield Squares!\n- [Applause]\nNow, Jacqueline, I believe it's your turn.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 98361,
+        "endMs": 103999,
+        "cueIndices": [
+          14,
+          15
+        ],
+        "text": "- I'll take Rainier Wolfcastle to block.\n- Ah, Rainier Wolfcastle...\nstar of McBain and the upcoming film...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 104100,
+        "endMs": 106227,
+        "cueIndices": [
+          16
+        ],
+        "text": "Help, My Son is a Nerd!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 106336,
+        "endMs": 112533,
+        "cueIndices": [
+          17,
+          18
+        ],
+        "text": "My son returns from a fancy East Coast college... and I'm horrified to find he's a nerd.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 112642,
+        "endMs": 114701,
+        "cueIndices": [
+          19
+        ],
+        "text": "[ Laughing ] I'm laughing already.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 114811,
+        "endMs": 117245,
+        "cueIndices": [
+          20
+        ],
+        "text": "- It's not a comedy.\n- Oh.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 117347,
+        "endMs": 119008,
+        "cueIndices": [
+          21
+        ],
+        "text": "Attention! This is the Coast Guard.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 119115,
+        "endMs": 122141,
+        "cueIndices": [
+          22
+        ],
+        "text": "A 50-foot tidal wave is heading this way.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 122252,
+        "endMs": 124743,
+        "cueIndices": [
+          23
+        ],
+        "text": "All game shows off the beach!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 124854,
+        "endMs": 128953,
+        "cueIndices": [
+          24,
+          25
+        ],
+        "text": "- [ Gasping ]\n- [ All Screaming ]\nEverybody up here to my square.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 129058,
+        "endMs": 131754,
+        "cueIndices": [
+          26
+        ],
+        "text": "It's safe and it's sexy. Oh, baby.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 133196,
+        "endMs": 136222,
+        "cueIndices": [
+          27
+        ],
+        "text": "Hurry, Charlie. There is not much time.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 136332,
+        "endMs": 138232,
+        "cueIndices": [
+          28
+        ],
+        "text": "I ain't goin' nowhere.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 138334,
+        "endMs": 142600,
+        "cueIndices": [
+          29
+        ],
+        "text": "I been in this square pert' near 30 seasons, and I ain't a-leavin' now.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 142705,
+        "endMs": 145196,
+        "cueIndices": [
+          30
+        ],
+        "text": "- [ Yelling ]\n- He's dead now.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 145308,
+        "endMs": 147936,
+        "cueIndices": [
+          31
+        ],
+        "text": "[ Both Laughing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 148044,
+        "endMs": 150171,
+        "cueIndices": [
+          32
+        ],
+        "text": "[ Man ] Gabbo! Gabbo! Gabbo!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 151581,
+        "endMs": 153845,
+        "cueIndices": [
+          33
+        ],
+        "text": "- Did you see that?\n- Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 153950,
+        "endMs": 156885,
+        "cueIndices": [
+          34
+        ],
+        "text": "- What's Gabbo?\n- I figure it's some guy's name.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 156986,
+        "endMs": 158886,
+        "cueIndices": [
+          35
+        ],
+        "text": "Some guy named Gabbo.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 158988,
+        "endMs": 160455,
+        "cueIndices": [
+          36
+        ],
+        "text": "[Homer] Hmm.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 163259,
+        "endMs": 165887,
+        "cueIndices": [
+          37
+        ],
+        "text": "I don't think they're giving enough information, Dad.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 165995,
+        "endMs": 170932,
+        "cueIndices": [
+          38
+        ],
+        "text": "I'll figure it out. I'm gonna use all the power of my brain.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 171968,
+        "endMs": 174698,
+        "cueIndices": [
+          39
+        ],
+        "text": "[ Buzzing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 176472,
+        "endMs": 179930,
+        "cueIndices": [
+          40
+        ],
+        "text": "- Look, Smithers! Garbo is coming!\n- Uh, yes, sir.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 181945,
+        "endMs": 189851,
+        "cueIndices": [
+          41,
+          42
+        ],
+        "text": "Everyone is saying \"Gabbo this\" and \"Gabbo that,\" but no one is saying \"worship this\" and \"Jericho that.\"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 189953,
+        "endMs": 191750,
+        "cueIndices": [
+          43
+        ],
+        "text": "What's this about Gabbo?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 194057,
+        "endMs": 197549,
+        "cueIndices": [
+          44
+        ],
+        "text": "I can't believe it. Our first glimpse of Gabbo!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 197660,
+        "endMs": 199560,
+        "cueIndices": [
+          45
+        ],
+        "text": "He'll tell us what to do.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 199662,
+        "endMs": 201562,
+        "cueIndices": [
+          46
+        ],
+        "text": "####[Drum roll]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 201664,
+        "endMs": 204758,
+        "cueIndices": [
+          47
+        ],
+        "text": "- [Cymbals Crash]\n- Hello. I'm Gabbo.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 204868,
+        "endMs": 208133,
+        "cueIndices": [
+          48
+        ],
+        "text": "- And I'm Arthur Crandall.\n- That's easy for you to say.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 208238,
+        "endMs": 210229,
+        "cueIndices": [
+          49
+        ],
+        "text": "You don't have a hand up your tuchas.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 210340,
+        "endMs": 213639,
+        "cueIndices": [
+          50
+        ],
+        "text": "- Oy! Hey!\n- [ Chuckles ] Oh, Gabbo.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 213743,
+        "endMs": 217235,
+        "cueIndices": [
+          51
+        ],
+        "text": "You'll say anything. And you can watch us every afternoon at 4:00.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 217347,
+        "endMs": 220214,
+        "cueIndices": [
+          52
+        ],
+        "text": "[ Gasps ] That's the same time as Krusty the Clown!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 220316,
+        "endMs": 224116,
+        "cueIndices": [
+          53
+        ],
+        "text": "Uh-oh. That cute little character could take America by storm.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 224220,
+        "endMs": 226188,
+        "cueIndices": [
+          54
+        ],
+        "text": "All he needs is a hook.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 226289,
+        "endMs": 229850,
+        "cueIndices": [
+          55
+        ],
+        "text": "- I'm a bad widdle boy.\n- �Aycarumba!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 229959,
+        "endMs": 235723,
+        "cueIndices": [
+          56,
+          57
+        ],
+        "text": "####[Orchestra] ## [ Singing ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 243873,
+        "endMs": 248441,
+        "cueIndices": [
+          58,
+          59
+        ],
+        "text": "[ Imitating Vin Scully] Let's take time out from this triple play... to talk about Farmer Dan's pure pork sausage.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 248544,
+        "endMs": 249772,
+        "cueIndices": [
+          60
+        ],
+        "text": "Mm-mmm!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 249879,
+        "endMs": 252848,
+        "cueIndices": [
+          61
+        ],
+        "text": "## [ Singing Continues ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 271034,
+        "endMs": 274026,
+        "cueIndices": [
+          62
+        ],
+        "text": "[ All ] Gabbo!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 274137,
+        "endMs": 277868,
+        "cueIndices": [
+          63
+        ],
+        "text": "Ahh, that dummy doesn't scare me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 277974,
+        "endMs": 281239,
+        "cueIndices": [
+          64
+        ],
+        "text": "I've had plenty of guys come after me, and I've buried 'em all.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 281344,
+        "endMs": 283972,
+        "cueIndices": [
+          65
+        ],
+        "text": "Hobos, sea captains, Joey Bishop--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 284080,
+        "endMs": 287106,
+        "cueIndices": [
+          66
+        ],
+        "text": "- Don't forget the Special Olympics.\n- Oh, yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 287216,
+        "endMs": 293518,
+        "cueIndices": [
+          67,
+          68
+        ],
+        "text": "- I slaughtered the Special Olympics.\n- [Door Opens]\nAre those our ratings? Let me see.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 293623,
+        "endMs": 297354,
+        "cueIndices": [
+          69
+        ],
+        "text": "I lost to Channel Ocho? What the hell is that?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 297460,
+        "endMs": 299928,
+        "cueIndices": [
+          70
+        ],
+        "text": "Dos huevos, por favor.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 300029,
+        "endMs": 303089,
+        "cueIndices": [
+          71
+        ],
+        "text": "�Ay! Oh, quel�stima.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 303199,
+        "endMs": 306430,
+        "cueIndices": [
+          72
+        ],
+        "text": "[ Chuckles ] I gotta steal that bit.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 309472,
+        "endMs": 313602,
+        "cueIndices": [
+          73
+        ],
+        "text": "- This is boring. - I wonder what would happen if you put your train on there.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 314711,
+        "endMs": 317271,
+        "cueIndices": [
+          74
+        ],
+        "text": "[ Crackling ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 317380,
+        "endMs": 319280,
+        "cueIndices": [
+          75
+        ],
+        "text": "[ Together] Cool.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 319382,
+        "endMs": 324285,
+        "cueIndices": [
+          76
+        ],
+        "text": "- Now let's throw some crud on it.\n- Hey, it's 4:00.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 324387,
+        "endMs": 329153,
+        "cueIndices": [
+          77,
+          78
+        ],
+        "text": "####[Trumpet, Snare Drum] So, you want ventriloquism, do ya?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 329258,
+        "endMs": 333524,
+        "cueIndices": [
+          79
+        ],
+        "text": "All right, watch this. Hello, Alphonse. I've got a riddle for you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 333629,
+        "endMs": 335927,
+        "cueIndices": [
+          80
+        ],
+        "text": "Why is a raven like a writing desk?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 336032,
+        "endMs": 338125,
+        "cueIndices": [
+          81
+        ],
+        "text": "I don't know. Why is a--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 338234,
+        "endMs": 340395,
+        "cueIndices": [
+          82
+        ],
+        "text": "[ All Screaming ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 340503,
+        "endMs": 343802,
+        "cueIndices": [
+          83
+        ],
+        "text": "Hey, the dummy can't hurt you. He's not even alive.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 343906,
+        "endMs": 346374,
+        "cueIndices": [
+          84
+        ],
+        "text": "He's dead!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 346476,
+        "endMs": 348034,
+        "cueIndices": [
+          85
+        ],
+        "text": "[ Screaming ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 349479,
+        "endMs": 352710,
+        "cueIndices": [
+          86
+        ],
+        "text": "- [ Grunts ]\n- [ Screaming ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 352815,
+        "endMs": 354544,
+        "cueIndices": [
+          87
+        ],
+        "text": "[ Groans ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 357620,
+        "endMs": 359679,
+        "cueIndices": [
+          88
+        ],
+        "text": "All right, here's the deal.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 359789,
+        "endMs": 361689,
+        "cueIndices": [
+          89
+        ],
+        "text": "Every time you watch my show...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 361791,
+        "endMs": 365454,
+        "cueIndices": [
+          90
+        ],
+        "text": "- I will send you $40!\n- [Announcer]Checks will not be honored.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 365561,
+        "endMs": 369361,
+        "cueIndices": [
+          91
+        ],
+        "text": "I admit I used the city treasury to fund the murder of my enemies.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 369465,
+        "endMs": 373424,
+        "cueIndices": [
+          92
+        ],
+        "text": "But as Gabbo would say, \"I'm a bad widdle boy.\"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 373536,
+        "endMs": 376505,
+        "cueIndices": [
+          93
+        ],
+        "text": "[Applause]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 379342,
+        "endMs": 385774,
+        "cueIndices": [
+          94,
+          95
+        ],
+        "text": "Well, kids, this is where you would watch Itchy and Scratchy... except they're on the Gabbo Show now.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 385882,
+        "endMs": 389409,
+        "cueIndices": [
+          96
+        ],
+        "text": "So, here's Eastern Europe's favorite cat and mouse team...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 389519,
+        "endMs": 393011,
+        "cueIndices": [
+          97
+        ],
+        "text": "Worker and Parasite!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 393122,
+        "endMs": 395215,
+        "cueIndices": [
+          98
+        ],
+        "text": "####[Drums]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 395324,
+        "endMs": 398691,
+        "cueIndices": [
+          99
+        ],
+        "text": "[ Both Muttering, Indistinct ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 407737,
+        "endMs": 414043,
+        "cueIndices": [
+          100,
+          101
+        ],
+        "text": "####[Piano] What the hell is that?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 419649,
+        "endMs": 421617,
+        "cueIndices": [
+          102
+        ],
+        "text": "[ Groans ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 423986,
+        "endMs": 425886,
+        "cueIndices": [
+          103
+        ],
+        "text": "Well, that's it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 425988,
+        "endMs": 433552,
+        "cueIndices": [
+          104,
+          105,
+          106
+        ],
+        "text": "We've been canceled. I think we can be proud... that we never did a bad show... except for that week Ray Jay Johnson was my co-host.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 433663,
+        "endMs": 437258,
+        "cueIndices": [
+          107
+        ],
+        "text": "\"You can call me Ray, and you can call me Jay.\"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 437366,
+        "endMs": 441063,
+        "cueIndices": [
+          108
+        ],
+        "text": "Ooh! That thing was funny for about three seconds.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 441170,
+        "endMs": 444298,
+        "cueIndices": [
+          109
+        ],
+        "text": "The important thing is, we're like a family.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 444407,
+        "endMs": 446568,
+        "cueIndices": [
+          110
+        ],
+        "text": "- Krusty, I--\n- Shut your hole!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 448377,
+        "endMs": 452211,
+        "cueIndices": [
+          111
+        ],
+        "text": "[ Melodic Door Chime ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 452315,
+        "endMs": 455978,
+        "cueIndices": [
+          112
+        ],
+        "text": "- Krusty, how ya holding up?\n- Well, I'm kinda worried about the future.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 456085,
+        "endMs": 457985,
+        "cueIndices": [
+          113
+        ],
+        "text": "How do you deal with it?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 458087,
+        "endMs": 461955,
+        "cueIndices": [
+          114
+        ],
+        "text": "Well, you've been on TV longer than I have. I'm sure you've saved up quite a nest egg.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 462058,
+        "endMs": 463958,
+        "cueIndices": [
+          115
+        ],
+        "text": "Uh, yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 464060,
+        "endMs": 467223,
+        "cueIndices": [
+          116
+        ],
+        "text": "Do they still buy human hair down at the wig shop?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 468331,
+        "endMs": 470891,
+        "cueIndices": [
+          117
+        ],
+        "text": "[ Grunts, Groans ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 471000,
+        "endMs": 473468,
+        "cueIndices": [
+          118
+        ],
+        "text": "- Krusty, you wanna stay for dinner?\n- Nah, sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 473569,
+        "endMs": 477232,
+        "cueIndices": [
+          119
+        ],
+        "text": "Ah, that's too bad, 'cause tonight my guests will be Dr. Carl Sagan...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 477340,
+        "endMs": 484645,
+        "cueIndices": [
+          120,
+          121
+        ],
+        "text": "- and from the San Diego Zoo, Joan Embry.\n- ####[Drum roll]\n\"Oh, Kyle, I just don't think...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 484747,
+        "endMs": 486647,
+        "cueIndices": [
+          122
+        ],
+        "text": "I fit in here at Melrose Place.\"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 486749,
+        "endMs": 490207,
+        "cueIndices": [
+          123
+        ],
+        "text": "From now on, I'll be doing the thinking for both of us.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 491487,
+        "endMs": 493387,
+        "cueIndices": [
+          124
+        ],
+        "text": "- [ Nose Honks ]\n- [Man]Next.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 493489,
+        "endMs": 501556,
+        "cueIndices": [
+          125,
+          126
+        ],
+        "text": "####[Trumpet] Come on, you stupid horse! I got my last ten bucks on you!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 501664,
+        "endMs": 503894,
+        "cueIndices": [
+          127
+        ],
+        "text": "No, don't look at me!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 504000,
+        "endMs": 505900,
+        "cueIndices": [
+          128
+        ],
+        "text": "Run! No!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 506002,
+        "endMs": 511566,
+        "cueIndices": [
+          129,
+          130
+        ],
+        "text": "Don't come over here! [ Groans ] Oh, boy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 511674,
+        "endMs": 516737,
+        "cueIndices": [
+          131
+        ],
+        "text": "And now, it's time for another patented Gabbo Crank Call!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 516846,
+        "endMs": 519371,
+        "cueIndices": [
+          132
+        ],
+        "text": "- Oh, I love these.\n- I can't believe it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 519482,
+        "endMs": 521382,
+        "cueIndices": [
+          133
+        ],
+        "text": "He stole this bit from Krusty!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 521484,
+        "endMs": 523748,
+        "cueIndices": [
+          134
+        ],
+        "text": "Yeah, well, Krusty stole it from Steve Allen.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 523853,
+        "endMs": 526287,
+        "cueIndices": [
+          135
+        ],
+        "text": "Oh, everything's stolen nowadays.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 526389,
+        "endMs": 530723,
+        "cueIndices": [
+          136
+        ],
+        "text": "Why, the fax machine is nothing but a waffle iron with a phone attached.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 530826,
+        "endMs": 532157,
+        "cueIndices": [
+          137
+        ],
+        "text": "- [ Line Ringing ]\n- It's ringing.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 532261,
+        "endMs": 534456,
+        "cueIndices": [
+          138
+        ],
+        "text": "[ Deep Voice ] Hello. Is this Krusty the Clown?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 534564,
+        "endMs": 536555,
+        "cueIndices": [
+          139
+        ],
+        "text": "[ Krusty] Is this the callback for that porno film?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 536666,
+        "endMs": 541429,
+        "cueIndices": [
+          140,
+          141
+        ],
+        "text": "Look, I was a little nervous that day... but I'm all man, I can assure you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 541537,
+        "endMs": 545132,
+        "cueIndices": [
+          142
+        ],
+        "text": "[ Chuckles ] No, I represent a Japanese camera company.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 545241,
+        "endMs": 548768,
+        "cueIndices": [
+          143
+        ],
+        "text": "We'd like to pay you two million dollars to do a camera commercial.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 548878,
+        "endMs": 551779,
+        "cueIndices": [
+          144
+        ],
+        "text": "Whoa! Me rikey velly much!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 551881,
+        "endMs": 555647,
+        "cueIndices": [
+          145
+        ],
+        "text": "Oh, I hope I didn't offend you. I need this bad.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 555751,
+        "endMs": 558447,
+        "cueIndices": [
+          146
+        ],
+        "text": "Bad enough to hit yourself over the head with the phone?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 558554,
+        "endMs": 562982,
+        "cueIndices": [
+          147,
+          148
+        ],
+        "text": "- Oh! You got it! Ow!\n- [ Thumping ]\nOw! Ooh, blood.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 563092,
+        "endMs": 571767,
+        "cueIndices": [
+          149,
+          150,
+          151
+        ],
+        "text": "- [ Both Laughing ]\n- [Audience Laughing]\nWhat the-- [ Groans ]\nIf this is anyone but Steve Allen, you're stealing my bit.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 571867,
+        "endMs": 574836,
+        "cueIndices": [
+          152
+        ],
+        "text": "Somebody ought to ruin Gabbo's career the way he ruined Krusty's.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 574937,
+        "endMs": 577167,
+        "cueIndices": [
+          153
+        ],
+        "text": "- Two wrongs don't make a right, Bart.\n- Yes, they do.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 577273,
+        "endMs": 578604,
+        "cueIndices": [
+          154
+        ],
+        "text": "- No, they don't.\n- Yes, they do.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 578708,
+        "endMs": 580835,
+        "cueIndices": [
+          155
+        ],
+        "text": "- No, they don't. Dad!\n- Yes, they do.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 580943,
+        "endMs": 583207,
+        "cueIndices": [
+          156
+        ],
+        "text": "Two wrongs make a right, Lisa.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 583312,
+        "endMs": 588045,
+        "cueIndices": [
+          157
+        ],
+        "text": "Ah, Rex Morgan, M.D. You have the prescription for the daily blues.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 589785,
+        "endMs": 592777,
+        "cueIndices": [
+          158
+        ],
+        "text": "We'll be back after this commercial for Gabbo Airlines.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 592888,
+        "endMs": 594788,
+        "cueIndices": [
+          159
+        ],
+        "text": "[Man] And cut.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 594890,
+        "endMs": 598053,
+        "cueIndices": [
+          160
+        ],
+        "text": "- That oughta hold the little S.O.B.s.\n- Gabbo, quiet.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 598160,
+        "endMs": 602153,
+        "cueIndices": [
+          161
+        ],
+        "text": "- Oh, I wouldn't wanna offend the little S.O.B.s.\n- I wish you'd stop saying that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 602265,
+        "endMs": 603994,
+        "cueIndices": [
+          162
+        ],
+        "text": "Hmm.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 604100,
+        "endMs": 608366,
+        "cueIndices": [
+          163
+        ],
+        "text": "- [ Laughing ]\n- Hey, boyo, what's so funny?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 608471,
+        "endMs": 611201,
+        "cueIndices": [
+          164
+        ],
+        "text": "Well, it's-- Ah, you wouldn't be interested. It's too lowbrow.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 611307,
+        "endMs": 613639,
+        "cueIndices": [
+          165
+        ],
+        "text": "No, I'm quite lowbrow.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 613743,
+        "endMs": 616211,
+        "cueIndices": [
+          166
+        ],
+        "text": "Well, somebody just wrote a bawdy limerick on the men's room wall.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 616312,
+        "endMs": 619008,
+        "cueIndices": [
+          167
+        ],
+        "text": "This I gotta see!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 620349,
+        "endMs": 623944,
+        "cueIndices": [
+          168
+        ],
+        "text": "All the kids in Springfield are S.O.B.s.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 624053,
+        "endMs": 627682,
+        "cueIndices": [
+          169
+        ],
+        "text": "Gabbo's kind of language has no place on or off TV.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 627790,
+        "endMs": 631021,
+        "cueIndices": [
+          170
+        ],
+        "text": "And that's my two cents.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 631127,
+        "endMs": 633391,
+        "cueIndices": [
+          171
+        ],
+        "text": "[ Chuckles ] That oughta hold those S.O.B.s.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 633496,
+        "endMs": 635396,
+        "cueIndices": [
+          172
+        ],
+        "text": "[ Chuckles ] What the--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 638334,
+        "endMs": 639665,
+        "cueIndices": [
+          173
+        ],
+        "text": "[ Both Gasp ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 639769,
+        "endMs": 641634,
+        "cueIndices": [
+          174
+        ],
+        "text": "Oh, no!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 643572,
+        "endMs": 646063,
+        "cueIndices": [
+          175
+        ],
+        "text": "- Krusty, are you making any money?\n- Nah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 646175,
+        "endMs": 648336,
+        "cueIndices": [
+          176
+        ],
+        "text": "That guy's giving it away for free.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 648444,
+        "endMs": 651504,
+        "cueIndices": [
+          177
+        ],
+        "text": "## [ Singing ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 656719,
+        "endMs": 668287,
+        "cueIndices": [
+          178,
+          179,
+          180,
+          181
+        ],
+        "text": "[ Groans ] Thirty-five years in show business... and already no one remembers me. just like what's-his-name and who sits... and, you know, that guy, always wore a shirt--",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 668397,
+        "endMs": 670126,
+        "cueIndices": [
+          182
+        ],
+        "text": "- Ed Sullivan?\n- Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 670232,
+        "endMs": 672792,
+        "cueIndices": [
+          183
+        ],
+        "text": "I didn't know you knew Luke Perry!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 672902,
+        "endMs": 676235,
+        "cueIndices": [
+          184
+        ],
+        "text": "[ Scoffs ] Know him? He's my worthless half-brother.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 676339,
+        "endMs": 681140,
+        "cueIndices": [
+          185
+        ],
+        "text": "- He's a big TV star.\n- Yeah, on Fox.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 681243,
+        "endMs": 685441,
+        "cueIndices": [
+          186
+        ],
+        "text": "Elizabeth Taylor. Bette Midler.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 685548,
+        "endMs": 688779,
+        "cueIndices": [
+          187
+        ],
+        "text": "Bette and I owned a racehorse together: Krudler.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 688884,
+        "endMs": 694688,
+        "cueIndices": [
+          188,
+          189
+        ],
+        "text": "Hey, Bart, if we get all these big stars to appear on a special with Krusty... it might get his career going again.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 700096,
+        "endMs": 702929,
+        "cueIndices": [
+          190
+        ],
+        "text": "Here's my address book. Go get those stars!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 704200,
+        "endMs": 710498,
+        "cueIndices": [
+          191,
+          192
+        ],
+        "text": "It won't be easy, but I'm gonna... claw my way back on to TV.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 710606,
+        "endMs": 713734,
+        "cueIndices": [
+          193
+        ],
+        "text": "## [ Singing ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 716545,
+        "endMs": 720276,
+        "cueIndices": [
+          194
+        ],
+        "text": "[Male Announcer] And now, the Crazy Old Man Singers.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 720383,
+        "endMs": 722783,
+        "cueIndices": [
+          195
+        ],
+        "text": "####[Male Chorus Singing]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 730993,
+        "endMs": 734121,
+        "cueIndices": [
+          196
+        ],
+        "text": "Miss Midler, I can't believe you do this all by yourself.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 734230,
+        "endMs": 736425,
+        "cueIndices": [
+          197
+        ],
+        "text": "We're Americans. We deserve clean highways.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 739268,
+        "endMs": 745502,
+        "cueIndices": [
+          198,
+          199
+        ],
+        "text": "You pigs! [ Panting ] Oh, no! Bette Midler!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 745608,
+        "endMs": 747667,
+        "cueIndices": [
+          200
+        ],
+        "text": "[ Grunting ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 747777,
+        "endMs": 749677,
+        "cueIndices": [
+          201
+        ],
+        "text": "[ Yelling ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 749779,
+        "endMs": 752270,
+        "cueIndices": [
+          202
+        ],
+        "text": "[Crash]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 752381,
+        "endMs": 754281,
+        "cueIndices": [
+          203
+        ],
+        "text": "Now, where were we?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 754383,
+        "endMs": 756851,
+        "cueIndices": [
+          204
+        ],
+        "text": "We were asking you to appear on Krusty's Komeback Special.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 756952,
+        "endMs": 760012,
+        "cueIndices": [
+          205
+        ],
+        "text": "Okay. Tell Krusty he can count me in.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 764560,
+        "endMs": 768052,
+        "cueIndices": [
+          206
+        ],
+        "text": "It's time to take out the trash.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 770132,
+        "endMs": 773465,
+        "cueIndices": [
+          207
+        ],
+        "text": "[ Man Shouting ] I'll get you for this, Midler!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 775604,
+        "endMs": 779506,
+        "cueIndices": [
+          208
+        ],
+        "text": "[ Man Over P.A. ] And off to your left is Hugh Hefner's Shelbyville pad.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 779608,
+        "endMs": 783738,
+        "cueIndices": [
+          209
+        ],
+        "text": "- A lot of people know about the grotto and the game room. - Of course.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 783846,
+        "endMs": 788847,
+        "cueIndices": [
+          210,
+          211
+        ],
+        "text": "But few know about the laboratory, the biosphere... the alternative energy research center.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 792121,
+        "endMs": 794089,
+        "cueIndices": [
+          212
+        ],
+        "text": "Fascinating.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 798360,
+        "endMs": 800555,
+        "cueIndices": [
+          213
+        ],
+        "text": "- Desalinization plant?\n- Yes.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 800663,
+        "endMs": 804099,
+        "cueIndices": [
+          214
+        ],
+        "text": "The grotto uses so much water, the Bunnies felt we should go this way.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 804200,
+        "endMs": 807601,
+        "cueIndices": [
+          215
+        ],
+        "text": "- Smart Bunnies, Hef. I can call you Hef, can't I?\n- No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 810372,
+        "endMs": 813102,
+        "cueIndices": [
+          216
+        ],
+        "text": "You told our agent this place holds 30,000 people.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 813209,
+        "endMs": 815609,
+        "cueIndices": [
+          217
+        ],
+        "text": "It does. We had 30,000 here last night.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 815711,
+        "endMs": 817679,
+        "cueIndices": [
+          218
+        ],
+        "text": "Now play. The audience is gettin' restless.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 817780,
+        "endMs": 821511,
+        "cueIndices": [
+          219
+        ],
+        "text": "We want Chilly Willy! We want Chilly Willy!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 822918,
+        "endMs": 827445,
+        "cueIndices": [
+          220,
+          221
+        ],
+        "text": "Hey, Red Hot Chili Peppers... would you guys like to appear on a Krusty the Clown special?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 827556,
+        "endMs": 830320,
+        "cueIndices": [
+          222
+        ],
+        "text": "- Sure, if you can get us out of this gig.\n- No problemo.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 830426,
+        "endMs": 833293,
+        "cueIndices": [
+          223
+        ],
+        "text": "- Hey, Moe, look over there.\n- What? What am I lookin' at?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 833395,
+        "endMs": 837297,
+        "cueIndices": [
+          224
+        ],
+        "text": "I don't see nothin'. I'm gonna stop looking soon.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 837399,
+        "endMs": 840664,
+        "cueIndices": [
+          225
+        ],
+        "text": "- What? What, is that it?\n- Hey, Moe, can I look too?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 840769,
+        "endMs": 843897,
+        "cueIndices": [
+          226
+        ],
+        "text": "- Sure, but it'll cost ya.\n- My wallet's in the car.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 844006,
+        "endMs": 846497,
+        "cueIndices": [
+          227
+        ],
+        "text": "He is so stupid.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 846609,
+        "endMs": 849305,
+        "cueIndices": [
+          228
+        ],
+        "text": "And now, back to the wall.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 852648,
+        "endMs": 858483,
+        "cueIndices": [
+          229,
+          230
+        ],
+        "text": "## [ Humming ] Miss Taylor, a couple of grade-school kids Wanted you to be on a Krusty special.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 858587,
+        "endMs": 861317,
+        "cueIndices": [
+          231
+        ],
+        "text": "- I told them to buzz off.\n- Good.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 861423,
+        "endMs": 863857,
+        "cueIndices": [
+          232
+        ],
+        "text": "## [ Humming ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 863959,
+        "endMs": 866427,
+        "cueIndices": [
+          233
+        ],
+        "text": "- [Pounding On Door]\n- Krusty, we've got great news!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 866529,
+        "endMs": 868429,
+        "cueIndices": [
+          234
+        ],
+        "text": "[ Both Screaming ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 869598,
+        "endMs": 872032,
+        "cueIndices": [
+          235
+        ],
+        "text": "[ Groaning ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 872134,
+        "endMs": 874796,
+        "cueIndices": [
+          236
+        ],
+        "text": "Krusty, what have you done to yourself?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 874904,
+        "endMs": 878465,
+        "cueIndices": [
+          237
+        ],
+        "text": "I thought I'd get into shape, so I've been drinking nothing but milk shakes.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 878574,
+        "endMs": 881099,
+        "cueIndices": [
+          238
+        ],
+        "text": "- You mean those diet milk shakes?\n- Uh-oh.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 881210,
+        "endMs": 883804,
+        "cueIndices": [
+          239
+        ],
+        "text": "Now, you can stay with us until you lose that weight.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 883913,
+        "endMs": 886541,
+        "cueIndices": [
+          240
+        ],
+        "text": "You can sleep on the sofa. It folds right out.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 886649,
+        "endMs": 889812,
+        "cueIndices": [
+          241
+        ],
+        "text": "[ Grunting, Yelling ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 891153,
+        "endMs": 893053,
+        "cueIndices": [
+          242
+        ],
+        "text": "Oh, wait. That was the old sofa.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 893155,
+        "endMs": 897888,
+        "cueIndices": [
+          243
+        ],
+        "text": "[ Screeching ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 901196,
+        "endMs": 903562,
+        "cueIndices": [
+          244
+        ],
+        "text": "Oh, I'll never get my aim back.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 903666,
+        "endMs": 906601,
+        "cueIndices": [
+          245
+        ],
+        "text": "- You gotta keep working on it.\n- Oh! Aah!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 906702,
+        "endMs": 912300,
+        "cueIndices": [
+          246,
+          247
+        ],
+        "text": "Aah! Water! [ Yelling ] Mmm, delicious.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 915611,
+        "endMs": 918876,
+        "cueIndices": [
+          248
+        ],
+        "text": "- Oh, why am I bothering? It's hopeless.\n- [ Gabbo On TV] Hi, kids.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 918981,
+        "endMs": 921108,
+        "cueIndices": [
+          249
+        ],
+        "text": "It's me, Gabbo!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 921216,
+        "endMs": 923116,
+        "cueIndices": [
+          250
+        ],
+        "text": "[ Laughing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 927656,
+        "endMs": 930523,
+        "cueIndices": [
+          251
+        ],
+        "text": "Pork prices rose in early trading today.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 939068,
+        "endMs": 941662,
+        "cueIndices": [
+          252
+        ],
+        "text": "But you've gotta comeback, Mel!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 941770,
+        "endMs": 943761,
+        "cueIndices": [
+          253
+        ],
+        "text": "- We're a team.\n- No, Krusty.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 943872,
+        "endMs": 945840,
+        "cueIndices": [
+          254
+        ],
+        "text": "You always treated me rather shabbily.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 945941,
+        "endMs": 950674,
+        "cueIndices": [
+          255,
+          256
+        ],
+        "text": "On our last show, you poured liquid nitrogen down my pants... and cracked my buttocks with a hammer.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 950779,
+        "endMs": 955239,
+        "cueIndices": [
+          257,
+          258
+        ],
+        "text": "Ah, come on. You wanna waste your life... hanging out with a bunch of dorky teenagers?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 955351,
+        "endMs": 957683,
+        "cueIndices": [
+          259
+        ],
+        "text": "Here's your taco, mister. Oops.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 957786,
+        "endMs": 961347,
+        "cueIndices": [
+          260
+        ],
+        "text": "It fell in the fryer. I'll get it out. Ow! Ow!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 961457,
+        "endMs": 963948,
+        "cueIndices": [
+          261
+        ],
+        "text": "Ow!Ow!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 964059,
+        "endMs": 965959,
+        "cueIndices": [
+          262
+        ],
+        "text": "Sorry, Krusty. I like it here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 966061,
+        "endMs": 967961,
+        "cueIndices": [
+          263
+        ],
+        "text": "Mr. Johannson treats me with dignity.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 968063,
+        "endMs": 969963,
+        "cueIndices": [
+          264
+        ],
+        "text": "Is this clown bothering you, Mel?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 970065,
+        "endMs": 972659,
+        "cueIndices": [
+          265
+        ],
+        "text": "That's all right, Mr. Johannson. I'll handle it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 972768,
+        "endMs": 975066,
+        "cueIndices": [
+          266
+        ],
+        "text": "- Here's your taco, sir.\n- I don't want it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 975170,
+        "endMs": 978571,
+        "cueIndices": [
+          267
+        ],
+        "text": "But this comes out of my salary. If I had a girlfriend, she'd kill me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 978674,
+        "endMs": 981575,
+        "cueIndices": [
+          268
+        ],
+        "text": "[Man]Okay, Krusty, let's rehearse the balloon bit.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 982745,
+        "endMs": 986613,
+        "cueIndices": [
+          269
+        ],
+        "text": "Look, kids! A horsie!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 986715,
+        "endMs": 989809,
+        "cueIndices": [
+          270
+        ],
+        "text": "And what are you making, Sideshow Luke Perry?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 991387,
+        "endMs": 993821,
+        "cueIndices": [
+          271
+        ],
+        "text": "A 1 9th-century carousel.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 996525,
+        "endMs": 998720,
+        "cueIndices": [
+          272
+        ],
+        "text": "[Yells] Upstage me, will ya?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 998827,
+        "endMs": 1002627,
+        "cueIndices": [
+          273
+        ],
+        "text": "- Get the hell out! - Look, there must be something I can do on the show.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1002731,
+        "endMs": 1004756,
+        "cueIndices": [
+          274
+        ],
+        "text": "Please. For Mom's sake?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1004867,
+        "endMs": 1008735,
+        "cueIndices": [
+          275
+        ],
+        "text": "Well, maybe we can find something.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1010439,
+        "endMs": 1012430,
+        "cueIndices": [
+          276
+        ],
+        "text": "[ Yelling ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1014610,
+        "endMs": 1016475,
+        "cueIndices": [
+          277
+        ],
+        "text": "[ Sinister Chuckling ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1023452,
+        "endMs": 1027718,
+        "cueIndices": [
+          278
+        ],
+        "text": "I don't like it. He's got Johnny Carson, Bette Midler and Hugh Hefner.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1027823,
+        "endMs": 1030656,
+        "cueIndices": [
+          279
+        ],
+        "text": "- What've we got?\n- Ray Jay Johnson.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1030759,
+        "endMs": 1034388,
+        "cueIndices": [
+          280
+        ],
+        "text": "Oy. Yi-yi-yi-yi-yi-yi-yi!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1034496,
+        "endMs": 1039133,
+        "cueIndices": [
+          281,
+          282
+        ],
+        "text": "Now, boys... the network has a problem with some of your lyrics.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1039234,
+        "endMs": 1042362,
+        "cueIndices": [
+          283
+        ],
+        "text": "- Would you mind changing 'em for the show?\n- For get you, clown.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1042471,
+        "endMs": 1045372,
+        "cueIndices": [
+          284
+        ],
+        "text": "Hey, our lyrics are like our children, man. No way.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1045474,
+        "endMs": 1047465,
+        "cueIndices": [
+          285
+        ],
+        "text": "Well, okay. But here, where you say...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1047576,
+        "endMs": 1053145,
+        "cueIndices": [
+          286,
+          287
+        ],
+        "text": "\"What I got, you gotta get and put it in you,\" how about just, \"What I'd like is I'd like to hug and kiss you\"?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1053248,
+        "endMs": 1057810,
+        "cueIndices": [
+          288
+        ],
+        "text": "- Wow! That's much better.\n- Everyone can enjoy that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1057920,
+        "endMs": 1063557,
+        "cueIndices": [
+          289,
+          290,
+          291
+        ],
+        "text": "-####[Drum roll]\n- Live from Springfield...\nthe entertainment capital of the state...\nthe Krusty Komeback Special!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1063659,
+        "endMs": 1065786,
+        "cueIndices": [
+          292
+        ],
+        "text": "####[Piano]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1067296,
+        "endMs": 1070094,
+        "cueIndices": [
+          293
+        ],
+        "text": "## [ Singing Ballad ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1095390,
+        "endMs": 1098018,
+        "cueIndices": [
+          294
+        ],
+        "text": "[ Sobbing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1098127,
+        "endMs": 1102860,
+        "cueIndices": [
+          295
+        ],
+        "text": "## [ Singing Ballad ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1107903,
+        "endMs": 1110531,
+        "cueIndices": [
+          296
+        ],
+        "text": "[ Applause ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1113675,
+        "endMs": 1116701,
+        "cueIndices": [
+          297
+        ],
+        "text": "- I love you, Krusty.\n- Quiet!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1118313,
+        "endMs": 1121305,
+        "cueIndices": [
+          298
+        ],
+        "text": "####[Drum roll]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1121416,
+        "endMs": 1125716,
+        "cueIndices": [
+          299
+        ],
+        "text": "- Are you comfortable in there, Luke Perry?\n- Fire away, Krusty.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1126755,
+        "endMs": 1129246,
+        "cueIndices": [
+          300
+        ],
+        "text": "[Yelling]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1133929,
+        "endMs": 1138389,
+        "cueIndices": [
+          301
+        ],
+        "text": "- Aah! My face! My valuable face!\n- Hmph!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1140536,
+        "endMs": 1142766,
+        "cueIndices": [
+          302
+        ],
+        "text": "[ Sighs ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1144439,
+        "endMs": 1146703,
+        "cueIndices": [
+          303
+        ],
+        "text": "[Yelling]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1146809,
+        "endMs": 1150074,
+        "cueIndices": [
+          304
+        ],
+        "text": "[ Nervous Chuckle ] Oy!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1152014,
+        "endMs": 1154312,
+        "cueIndices": [
+          305
+        ],
+        "text": "## [ Singing Rock]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1159755,
+        "endMs": 1163589,
+        "cueIndices": [
+          306
+        ],
+        "text": "Dancin' around in their underwear. That is so degrading.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1163692,
+        "endMs": 1167150,
+        "cueIndices": [
+          307
+        ],
+        "text": "- 30 seconds till your Little Stinker sketch.\n- Get me a bigger lolly.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1167262,
+        "endMs": 1169924,
+        "cueIndices": [
+          308
+        ],
+        "text": "Now, Johnny, whatcha got for us?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1170032,
+        "endMs": 1171932,
+        "cueIndices": [
+          309
+        ],
+        "text": "Some jokes? A little magic?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1172034,
+        "endMs": 1175936,
+        "cueIndices": [
+          310
+        ],
+        "text": "Actually, I thought I'd lift this 1 987 Buick Skylark over my head.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1178140,
+        "endMs": 1180267,
+        "cueIndices": [
+          311
+        ],
+        "text": "Hi-yo! Johnny, that's amazing.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1180375,
+        "endMs": 1182275,
+        "cueIndices": [
+          312
+        ],
+        "text": "Oh, yeah? Get a load of this.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1182377,
+        "endMs": 1185107,
+        "cueIndices": [
+          313
+        ],
+        "text": "## [ Singing Opera In Foreign Language ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1193555,
+        "endMs": 1196490,
+        "cueIndices": [
+          314
+        ],
+        "text": "## [ Tones Chiming ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1199695,
+        "endMs": 1203187,
+        "cueIndices": [
+          315
+        ],
+        "text": "I've got to fire that agent.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1203298,
+        "endMs": 1209427,
+        "cueIndices": [
+          316,
+          317
+        ],
+        "text": "####[Piano] ## [ Singing Ballad ]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1234763,
+        "endMs": 1237391,
+        "cueIndices": [
+          318
+        ],
+        "text": "[ Both Sobbing ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1243672,
+        "endMs": 1247369,
+        "cueIndices": [
+          319
+        ],
+        "text": "This was a great show, Krusty. You deserve an Emmy for this.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1247476,
+        "endMs": 1250912,
+        "cueIndices": [
+          320
+        ],
+        "text": "Forget it. The Academy hates me. I don't know why.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1251013,
+        "endMs": 1260112,
+        "cueIndices": [
+          321,
+          322,
+          323,
+          324
+        ],
+        "text": "Bunch of old, know-nothing dinosaurs... wouldn't know entertainment if it bit 'em in the-- Hey, hey! [ Laughs ] ####[Jazz]",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1260222,
+        "endMs": 1262349,
+        "cueIndices": [
+          325
+        ],
+        "text": "[ Dinging ]",
+        "kind": "sdh"
+      },
+      {
+        "startMs": 1262457,
+        "endMs": 1269256,
+        "cueIndices": [
+          326,
+          327
+        ],
+        "text": "- [ Buzzing ]\n- [ Grunting ]\nNow, Krusty, I just hope you remember to save your money this time.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1269364,
+        "endMs": 1271958,
+        "cueIndices": [
+          328
+        ],
+        "text": "Here's that ruby-studded clown nose you ordered, Krusty.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1272067,
+        "endMs": 1275969,
+        "cueIndices": [
+          329
+        ],
+        "text": "[ Sobbing ] Oy!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1276071,
+        "endMs": 1277971,
+        "cueIndices": [
+          330
+        ],
+        "text": "- What's up, Moe?\n- Hey, Moe!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1278073,
+        "endMs": 1280598,
+        "cueIndices": [
+          331
+        ],
+        "text": "Hey, you can't come in here dressed like that!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1280709,
+        "endMs": 1283405,
+        "cueIndices": [
+          332
+        ],
+        "text": "- Get with the times, Moe.\n- Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1283512,
+        "endMs": 1285571,
+        "cueIndices": [
+          333
+        ],
+        "text": "I say if it feels good, do it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1285681,
+        "endMs": 1287615,
+        "cueIndices": [
+          334
+        ],
+        "text": "All right.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1287716,
+        "endMs": 1291152,
+        "cueIndices": [
+          335
+        ],
+        "text": "- [ Chuckling ]\n- Don't snap my undies.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1291253,
+        "endMs": 1293949,
+        "cueIndices": [
+          336
+        ],
+        "text": "I'm a star again.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1294056,
+        "endMs": 1296149,
+        "cueIndices": [
+          337
+        ],
+        "text": "I don't know how to thank you, kids.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1296258,
+        "endMs": 1299921,
+        "cueIndices": [
+          338
+        ],
+        "text": "- That's all right, Krusty.\n- We're getting 50%% of the T-shirt sales.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1300028,
+        "endMs": 1302656,
+        "cueIndices": [
+          339
+        ],
+        "text": "What? That's the sweetest plum!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1302764,
+        "endMs": 1306558,
+        "cueIndices": [
+          340,
+          341
+        ],
+        "text": "You little-- Aw, what the hell.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1306668,
+        "endMs": 1309228,
+        "cueIndices": [
+          342
+        ],
+        "text": "You deserve it. Thanks, kids.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1309338,
+        "endMs": 1316504,
+        "cueIndices": [
+          343,
+          344
+        ],
+        "text": "To Krusty, the greatest entertainer in the world-- Except maybe that guy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1318246,
+        "endMs": 1320476,
+        "cueIndices": [
+          345
+        ],
+        "text": "Is this the bus to the civic center?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1375470,
+        "endMs": 2000,
+        "cueIndices": [
+          346,
+          347
+        ],
+        "text": "- [ People Chattering ]\n- Shh!\nwww.tvsubtitles.net",
+        "kind": "dialogue"
+      }
+    ]
+  }
+}

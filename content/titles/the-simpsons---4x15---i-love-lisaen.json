@@ -1,0 +1,2116 @@
+{
+  "id": "the-simpsons---4x15---i-love-lisaen",
+  "title": "The Simpsons - 4x15 - I Love Lisa.en",
+  "sourceFilename": "The Simpsons - 4x15 - I Love Lisa.en.srt",
+  "importedAt": "2026-08-31T04:14:29.510Z",
+  "lineCount": 301,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[Chorus] ## The Simpsons ##",
+      "kind": "dialogue",
+      "startMs": 3229,
+      "endMs": 6198
+    },
+    {
+      "index": 1,
+      "text": "[Bell Ringing]",
+      "kind": "sdh",
+      "startMs": 16976,
+      "endMs": 18876
+    },
+    {
+      "index": 2,
+      "text": "[Whistle Blowing]",
+      "kind": "sdh",
+      "startMs": 23749,
+      "endMs": 26877
+    },
+    {
+      "index": 3,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 29088,
+      "endMs": 31056
+    },
+    {
+      "index": 4,
+      "text": "## [Jazzy Solo ]",
+      "kind": "dialogue",
+      "startMs": 36929,
+      "endMs": 38897
+    },
+    {
+      "index": 5,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 58918,
+      "endMs": 60818
+    },
+    {
+      "index": 6,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 60920,
+      "endMs": 62820
+    },
+    {
+      "index": 7,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 64190,
+      "endMs": 66181
+    },
+    {
+      "index": 8,
+      "text": "[ Trumpeting ]",
+      "kind": "sdh",
+      "startMs": 81674,
+      "endMs": 84302
+    },
+    {
+      "index": 9,
+      "text": "####[Radio: '60s Pop Song] [Male Announcer] Doin' a monster song with ya... on this beautiful Valentine's Day.",
+      "kind": "dialogue",
+      "startMs": 98324,
+      "endMs": 106925
+    },
+    {
+      "index": 10,
+      "text": "[MaleAnnouncer#2] Marty, why did you play that song today?",
+      "kind": "dialogue",
+      "startMs": 107032,
+      "endMs": 109159
+    },
+    {
+      "index": 11,
+      "text": "There must be thousands of love songs.",
+      "kind": "dialogue",
+      "startMs": 109268,
+      "endMs": 111429
+    },
+    {
+      "index": 12,
+      "text": "[Marty] Well, it's kind of a love song--all the monsters enjoying each other's company-- dancing, holding their evil in check.",
+      "kind": "dialogue",
+      "startMs": 111537,
+      "endMs": 118672
+    },
+    {
+      "index": 13,
+      "text": "[Announcer#2] You played the wrong record, didn't you? - Why are you doing this to me?",
+      "kind": "dialogue",
+      "startMs": 118778,
+      "endMs": 123112
+    },
+    {
+      "index": 14,
+      "text": "Bah! This is just another Hallmark holiday cooked up to sell cards.",
+      "kind": "dialogue",
+      "startMs": 125317,
+      "endMs": 131187
+    },
+    {
+      "index": 15,
+      "text": "Ohh. A valentine from my granddaughter.",
+      "kind": "dialogue",
+      "startMs": 131290,
+      "endMs": 135420
+    },
+    {
+      "index": 16,
+      "text": "[ Meek Voice ] Could I have the envelope?",
+      "kind": "dialogue",
+      "startMs": 135528,
+      "endMs": 137496
+    },
+    {
+      "index": 17,
+      "text": "\"To Moe-- from your secret admirer.\"",
+      "kind": "dialogue",
+      "startMs": 137596,
+      "endMs": 141896
+    },
+    {
+      "index": 18,
+      "text": "Yoo-hoo! Oh, God, no.",
+      "kind": "dialogue",
+      "startMs": 142001,
+      "endMs": 144196
+    },
+    {
+      "index": 19,
+      "text": "[ Smooches, Belches ]",
+      "kind": "sdh",
+      "startMs": 144303,
+      "endMs": 146430
+    },
+    {
+      "index": 20,
+      "text": "And this is for my Huggy Bug, in honor of this special day.",
+      "kind": "dialogue",
+      "startMs": 146539,
+      "endMs": 151841
+    },
+    {
+      "index": 21,
+      "text": "[ Thinking ] Special day? Oh, what have I forgotten now?",
+      "kind": "dialogue",
+      "startMs": 151944,
+      "endMs": 154606
+    },
+    {
+      "index": 22,
+      "text": "Now, don't panic. Is it bacon day? No. That's crazy talk.",
+      "kind": "dialogue",
+      "startMs": 154713,
+      "endMs": 158342
+    },
+    {
+      "index": 23,
+      "text": "She's getting impatient. Take a stab at it.",
+      "kind": "dialogue",
+      "startMs": 158450,
+      "endMs": 161283
+    },
+    {
+      "index": 24,
+      "text": "Happy... Valentine's Day.",
+      "kind": "dialogue",
+      "startMs": 161387,
+      "endMs": 164356
+    },
+    {
+      "index": 25,
+      "text": "Oh, thank you, dear. Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 164456,
+      "endMs": 167619
+    },
+    {
+      "index": 26,
+      "text": "I'll bet you have a lot Of things planned, eh, Dad?",
+      "kind": "dialogue",
+      "startMs": 167726,
+      "endMs": 169956
+    },
+    {
+      "index": 27,
+      "text": "Uh, kind of. Nobody makes a big deal out of Valentine's Day.",
+      "kind": "dialogue",
+      "startMs": 170062,
+      "endMs": 175932
+    },
+    {
+      "index": 28,
+      "text": "## [ Singing Pop ]",
+      "kind": "dialogue",
+      "startMs": 176035,
+      "endMs": 178435
+    },
+    {
+      "index": 29,
+      "text": "[ Howling ]",
+      "kind": "sdh",
+      "startMs": 183676,
+      "endMs": 186804
+    },
+    {
+      "index": 30,
+      "text": "Hey, Dad, why don't you give Mom her present?",
+      "kind": "dialogue",
+      "startMs": 186912,
+      "endMs": 189540
+    },
+    {
+      "index": 31,
+      "text": "What a nice idea, son.",
+      "kind": "dialogue",
+      "startMs": 189648,
+      "endMs": 192276
+    },
+    {
+      "index": 32,
+      "text": "It's, uh, upstairs, on the second floor of our house.",
+      "kind": "dialogue",
+      "startMs": 192384,
+      "endMs": 197447
+    },
+    {
+      "index": 33,
+      "text": "I'll just go get it. [Running Footsteps]",
+      "kind": "dialogue",
+      "startMs": 197556,
+      "endMs": 201617
+    },
+    {
+      "index": 34,
+      "text": "[Door Slams] [Running Footsteps]",
+      "kind": "dialogue",
+      "startMs": 201727,
+      "endMs": 204287
+    },
+    {
+      "index": 35,
+      "text": "[Homer Grunting, Screaming]",
+      "kind": "sdh",
+      "startMs": 204396,
+      "endMs": 208730
+    },
+    {
+      "index": 36,
+      "text": "Apu, you gotta help me. I need a Valentine's gift for my wife.",
+      "kind": "dialogue",
+      "startMs": 208834,
+      "endMs": 213669
+    },
+    {
+      "index": 37,
+      "text": "Perhaps this might be appropriate? Yes!",
+      "kind": "dialogue",
+      "startMs": 213772,
+      "endMs": 216969
+    },
+    {
+      "index": 38,
+      "text": "You saved my life. How much? One hundred dollars.",
+      "kind": "dialogue",
+      "startMs": 217076,
+      "endMs": 219840
+    },
+    {
+      "index": 39,
+      "text": "What? That's highway robbery. I won't pay it.",
+      "kind": "dialogue",
+      "startMs": 219945,
+      "endMs": 222470
+    },
+    {
+      "index": 40,
+      "text": "Oh, I think you will. Forget it, pal.",
+      "kind": "dialogue",
+      "startMs": 222581,
+      "endMs": 225812
+    },
+    {
+      "index": 41,
+      "text": "## [ Humming ]",
+      "kind": "dialogue",
+      "startMs": 225918,
+      "endMs": 227886
+    },
+    {
+      "index": 42,
+      "text": "All right! But I'll never shop here again.",
+      "kind": "dialogue",
+      "startMs": 231523,
+      "endMs": 234321
+    },
+    {
+      "index": 43,
+      "text": "[ Thinking ] If he discovers the discount supermarket next door, all is lost.",
+      "kind": "dialogue",
+      "startMs": 234426,
+      "endMs": 238692
+    },
+    {
+      "index": 44,
+      "text": "Nickel off on expired baby food. Sold!",
+      "kind": "dialogue",
+      "startMs": 238797,
+      "endMs": 241698
+    },
+    {
+      "index": 45,
+      "text": "Miss Hoover, can we exchange our valentines?",
+      "kind": "dialogue",
+      "startMs": 241800,
+      "endMs": 244633
+    },
+    {
+      "index": 46,
+      "text": "Not just yet, Janey. First... we're going to construct paper mailboxes to store the valentines.",
+      "kind": "dialogue",
+      "startMs": 244737,
+      "endMs": 250299
+    },
+    {
+      "index": 47,
+      "text": "Isn't that just pointless busywork? Bull's-eye. Get cracking.",
+      "kind": "dialogue",
+      "startMs": 250409,
+      "endMs": 254345
+    },
+    {
+      "index": 48,
+      "text": "Yes, Ralph? My parents won't let me use scissors.",
+      "kind": "dialogue",
+      "startMs": 254446,
+      "endMs": 258473
+    },
+    {
+      "index": 49,
+      "text": "[Kids Snickering] The children are right to laugh at you, Ralph.",
+      "kind": "dialogue",
+      "startMs": 258584,
+      "endMs": 262577
+    },
+    {
+      "index": 50,
+      "text": "These things couldn't cut butter. Now, take out your red crayons.",
+      "kind": "dialogue",
+      "startMs": 262688,
+      "endMs": 266351
+    },
+    {
+      "index": 51,
+      "text": "Miss Hoover? Yes, Ralph?",
+      "kind": "dialogue",
+      "startMs": 266458,
+      "endMs": 268688
+    },
+    {
+      "index": 52,
+      "text": "I don't have a red crayon. Why not?",
+      "kind": "dialogue",
+      "startMs": 268794,
+      "endMs": 271695
+    },
+    {
+      "index": 53,
+      "text": "I ate it. [ Kids Laughing ] [ Over P.A. ] Attention, everyone. This is Principal Skinner.",
+      "kind": "dialogue",
+      "startMs": 271797,
+      "endMs": 278035
+    },
+    {
+      "index": 54,
+      "text": "Some student, possibly Bart Simpson, has been circulating candy hearts... featuring crude, off-color sentiments.",
+      "kind": "dialogue",
+      "startMs": 278137,
+      "endMs": 284367
+    },
+    {
+      "index": 55,
+      "text": "Well, let me tell you something. Valentine's Day is no joke.",
+      "kind": "dialogue",
+      "startMs": 284476,
+      "endMs": 288378
+    },
+    {
+      "index": 56,
+      "text": "Sending your chick a valentine, huh? Yep.",
+      "kind": "dialogue",
+      "startMs": 296956,
+      "endMs": 299925
+    },
+    {
+      "index": 57,
+      "text": "[Gunfire] [ Screaming ] Johnny?",
+      "kind": "dialogue",
+      "startMs": 300025,
+      "endMs": 305529
+    },
+    {
+      "index": 58,
+      "text": "Johnny? Johnny!",
+      "kind": "dialogue",
+      "startMs": 305631,
+      "endMs": 309192
+    },
+    {
+      "index": 59,
+      "text": "Cool! I broke his brain.",
+      "kind": "dialogue",
+      "startMs": 309301,
+      "endMs": 312168
+    },
+    {
+      "index": 60,
+      "text": "All right, children. You may now exchange valentines. - Miss Hoover?",
+      "kind": "dialogue",
+      "startMs": 312271,
+      "endMs": 317402
+    },
+    {
+      "index": 61,
+      "text": "I glued my head to my shoulder. [ Chuckles Weakly]",
+      "kind": "dialogue",
+      "startMs": 317509,
+      "endMs": 321070
+    },
+    {
+      "index": 62,
+      "text": "[ All Chattering, Laughing ]",
+      "kind": "sdh",
+      "startMs": 322247,
+      "endMs": 325478
+    },
+    {
+      "index": 63,
+      "text": "[ Whimpering ]",
+      "kind": "sdh",
+      "startMs": 331123,
+      "endMs": 334388
+    },
+    {
+      "index": 64,
+      "text": "[ Crying ] Poor Ralph.",
+      "kind": "dialogue",
+      "startMs": 334493,
+      "endMs": 337860
+    },
+    {
+      "index": 65,
+      "text": "Here you go, Ralph. [ Gasps ] You choo-choo-choose me?",
+      "kind": "dialogue",
+      "startMs": 338931,
+      "endMs": 346538
+    },
+    {
+      "index": 66,
+      "text": "Happy Valentine's.",
+      "kind": "dialogue",
+      "startMs": 346638,
+      "endMs": 349072
+    },
+    {
+      "index": 67,
+      "text": "[ Sighs ]",
+      "kind": "sdh",
+      "startMs": 350109,
+      "endMs": 352168
+    },
+    {
+      "index": 68,
+      "text": "All right! Special holiday meal.",
+      "kind": "dialogue",
+      "startMs": 353512,
+      "endMs": 356174
+    },
+    {
+      "index": 69,
+      "text": "Where do you want these beef hearts? On the floor.",
+      "kind": "dialogue",
+      "startMs": 358951,
+      "endMs": 362216
+    },
+    {
+      "index": 70,
+      "text": "It doesn't look very clean. -Just do your job, heart boy.",
+      "kind": "dialogue",
+      "startMs": 362321,
+      "endMs": 365347
+    },
+    {
+      "index": 71,
+      "text": "[ Single Heartbeat ]",
+      "kind": "sdh",
+      "startMs": 370562,
+      "endMs": 372530
+    },
+    {
+      "index": 72,
+      "text": "[ Grunts, Groans ]",
+      "kind": "sdh",
+      "startMs": 374600,
+      "endMs": 377831
+    },
+    {
+      "index": 73,
+      "text": "Bart, what's wrong? My baboon heart. Body... rejecting it. [ Gags ]",
+      "kind": "dialogue",
+      "startMs": 379138,
+      "endMs": 385799
+    },
+    {
+      "index": 74,
+      "text": "[ All Screaming ] Mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 385911,
+      "endMs": 388812
+    },
+    {
+      "index": 75,
+      "text": "[Bell Ringing] [ Kids Chattering, Yelling ]",
+      "kind": "dialogue",
+      "startMs": 388914,
+      "endMs": 391815
+    },
+    {
+      "index": 76,
+      "text": "Can I walk you home, valentine?",
+      "kind": "dialogue",
+      "startMs": 394186,
+      "endMs": 398282
+    },
+    {
+      "index": 77,
+      "text": "Sure, I guess. That valentine sure was funny.",
+      "kind": "dialogue",
+      "startMs": 398390,
+      "endMs": 403157
+    },
+    {
+      "index": 78,
+      "text": "[ Chuckles Weakly] Glad you liked it.",
+      "kind": "dialogue",
+      "startMs": 403262,
+      "endMs": 405594
+    },
+    {
+      "index": 79,
+      "text": "It says, \"Choo-choo-choose me...\" and there's a picture of a train.",
+      "kind": "dialogue",
+      "startMs": 405697,
+      "endMs": 411668
+    },
+    {
+      "index": 80,
+      "text": "Yeah. Nice gag.",
+      "kind": "dialogue",
+      "startMs": 411770,
+      "endMs": 414466
+    },
+    {
+      "index": 81,
+      "text": "Uh, so... do you like... stuff?",
+      "kind": "dialogue",
+      "startMs": 414573,
+      "endMs": 421474
+    },
+    {
+      "index": 82,
+      "text": "The doctor said I wouldn't have so many nosebleeds...",
+      "kind": "dialogue",
+      "startMs": 424249,
+      "endMs": 426843
+    },
+    {
+      "index": 83,
+      "text": "if I kept my finger out of there. [ Chuckles Weakly] Well, here's my house.",
+      "kind": "dialogue",
+      "startMs": 426952,
+      "endMs": 434152
+    },
+    {
+      "index": 84,
+      "text": "## [ Theme ]",
+      "kind": "dialogue",
+      "startMs": 434259,
+      "endMs": 437660
+    },
+    {
+      "index": 85,
+      "text": "[ Sighs ]",
+      "kind": "sdh",
+      "startMs": 443235,
+      "endMs": 445703
+    },
+    {
+      "index": 86,
+      "text": "[ Yelps ] Ahh.",
+      "kind": "dialogue",
+      "startMs": 447573,
+      "endMs": 450474
+    },
+    {
+      "index": 87,
+      "text": "[ Cooing ]",
+      "kind": "sdh",
+      "startMs": 451577,
+      "endMs": 453704
+    },
+    {
+      "index": 88,
+      "text": "Ah. Hmm.",
+      "kind": "dialogue",
+      "startMs": 453812,
+      "endMs": 456303
+    },
+    {
+      "index": 89,
+      "text": "Huh? [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 458484,
+      "endMs": 460645
+    },
+    {
+      "index": 90,
+      "text": "[ Yelping, Screaming ]",
+      "kind": "sdh",
+      "startMs": 460752,
+      "endMs": 464051
+    },
+    {
+      "index": 91,
+      "text": "Hey, kids, don't forget to watch my 29th anniversary show... featuring clips like this one of Sideshow Mel whacked out on wowee sauce.",
+      "kind": "dialogue",
+      "startMs": 467092,
+      "endMs": 476330
+    },
+    {
+      "index": 92,
+      "text": "[ Drunken Voice ] Everyone's always kissing your ass.",
+      "kind": "dialogue",
+      "startMs": 476435,
+      "endMs": 480496
+    },
+    {
+      "index": 93,
+      "text": "Well, I'm not afraid to tell you you're a-- [ Bleep ]",
+      "kind": "dialogue",
+      "startMs": 480606,
+      "endMs": 484702
+    },
+    {
+      "index": 94,
+      "text": "Oh, I'd give anything to go to that show. I'd sell my firstborn son.",
+      "kind": "dialogue",
+      "startMs": 484810,
+      "endMs": 490009
+    },
+    {
+      "index": 95,
+      "text": "Hey! You'll do as you're told.",
+      "kind": "dialogue",
+      "startMs": 490115,
+      "endMs": 492310
+    },
+    {
+      "index": 96,
+      "text": "Ralph thinks I like him, but I only gave him a valentine 'cause I felt sorry for him.",
+      "kind": "dialogue",
+      "startMs": 492417,
+      "endMs": 497184
+    },
+    {
+      "index": 97,
+      "text": "Ah, sweet pity. Where would my love life have been without it?",
+      "kind": "dialogue",
+      "startMs": 497289,
+      "endMs": 501225
+    },
+    {
+      "index": 98,
+      "text": "What do you say to a boy to let him know you're not interested?",
+      "kind": "dialogue",
+      "startMs": 501326,
+      "endMs": 504056
+    },
+    {
+      "index": 99,
+      "text": "Well, honey-- Let me handle this, Marge.",
+      "kind": "dialogue",
+      "startMs": 504163,
+      "endMs": 506825
+    },
+    {
+      "index": 100,
+      "text": "I've heard 'em all. \"I like you as a friend.\" \"I think we should see other people.\"",
+      "kind": "dialogue",
+      "startMs": 506932,
+      "endMs": 511460
+    },
+    {
+      "index": 101,
+      "text": "\"I no speak English.\" I get the idea.",
+      "kind": "dialogue",
+      "startMs": 511570,
+      "endMs": 513834
+    },
+    {
+      "index": 102,
+      "text": "\"I'm married to the sea.\" \"I don't wanna kill you, but I will.\"",
+      "kind": "dialogue",
+      "startMs": 513939,
+      "endMs": 516669
+    },
+    {
+      "index": 103,
+      "text": "Honey! Honey, I'd tell this boy that you're very flattered... but you're just not ready for this kind of thing.",
+      "kind": "dialogue",
+      "startMs": 516775,
+      "endMs": 523547
+    },
+    {
+      "index": 104,
+      "text": "Thanks, Mom. And if that doesn't work, six simple words: \"I'm not gay, but I'll learn.\"",
+      "kind": "dialogue",
+      "startMs": 523649,
+      "endMs": 529486
+    },
+    {
+      "index": 105,
+      "text": "Ralph, I think you're nice, but I'm just not ready for this kind of thing.",
+      "kind": "dialogue",
+      "startMs": 529588,
+      "endMs": 534218
+    },
+    {
+      "index": 106,
+      "text": "Do you understand? I guess so.",
+      "kind": "dialogue",
+      "startMs": 534326,
+      "endMs": 536317
+    },
+    {
+      "index": 107,
+      "text": "Good.",
+      "kind": "dialogue",
+      "startMs": 536428,
+      "endMs": 539261
+    },
+    {
+      "index": 108,
+      "text": "Dad, how do you get a girl to like you?",
+      "kind": "dialogue",
+      "startMs": 542067,
+      "endMs": 544365
+    },
+    {
+      "index": 109,
+      "text": "Son, whether you want to win a girl or crack a nut, the key is persistence.",
+      "kind": "dialogue",
+      "startMs": 544469,
+      "endMs": 549964
+    },
+    {
+      "index": 110,
+      "text": "Keep at it and never lose your cool.",
+      "kind": "dialogue",
+      "startMs": 550075,
+      "endMs": 553135
+    },
+    {
+      "index": 111,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 553245,
+      "endMs": 555577
+    },
+    {
+      "index": 112,
+      "text": "Aw, come on, ya stupid-- [ Gunfire ] Let that be a lesson to the rest of you... nuts.",
+      "kind": "dialogue",
+      "startMs": 555681,
+      "endMs": 561446
+    },
+    {
+      "index": 113,
+      "text": "Okay, Dad. I'll be persistent. Is that how you got Mom?",
+      "kind": "dialogue",
+      "startMs": 561553,
+      "endMs": 565284
+    },
+    {
+      "index": 114,
+      "text": "Well, son, never underestimate the appeal of a man in uniform.",
+      "kind": "dialogue",
+      "startMs": 565390,
+      "endMs": 570851
+    },
+    {
+      "index": 115,
+      "text": "Ohh, yeah.",
+      "kind": "dialogue",
+      "startMs": 570963,
+      "endMs": 573557
+    },
+    {
+      "index": 116,
+      "text": "[Chomping] Ahh. Mmm. Oh, yeah.",
+      "kind": "dialogue",
+      "startMs": 573665,
+      "endMs": 578370
+    },
+    {
+      "index": 117,
+      "text": "[Chomping] Ahh. Mmm. Oh, yeah.",
+      "kind": "dialogue",
+      "startMs": 578370,
+      "endMs": 578699
+    },
+    {
+      "index": 118,
+      "text": "[ Drumroll ]",
+      "kind": "sdh",
+      "startMs": 578804,
+      "endMs": 581238
+    },
+    {
+      "index": 119,
+      "text": "[ Cymbals Crash ] - Hey, boys and girls. Only four days till my anniversary show.",
+      "kind": "dialogue",
+      "startMs": 581340,
+      "endMs": 585504
+    },
+    {
+      "index": 120,
+      "text": "Twenty-nine years. And when I came on, they said I wouldn't last a week.",
+      "kind": "dialogue",
+      "startMs": 585611,
+      "endMs": 589445
+    },
+    {
+      "index": 121,
+      "text": "And you know where those reviewers are? All dead.",
+      "kind": "dialogue",
+      "startMs": 589548,
+      "endMs": 593109
+    },
+    {
+      "index": 122,
+      "text": "How you doin' down there, fellas? Huh? Huh?",
+      "kind": "dialogue",
+      "startMs": 593218,
+      "endMs": 596381
+    },
+    {
+      "index": 123,
+      "text": "Anyway, here's a clip. Now... why do they call this a urine monkey?",
+      "kind": "dialogue",
+      "startMs": 596488,
+      "endMs": 602888
+    },
+    {
+      "index": 124,
+      "text": "Uh-- Ohh. I just found out.",
+      "kind": "dialogue",
+      "startMs": 602995,
+      "endMs": 605793
+    },
+    {
+      "index": 125,
+      "text": "That's funny for so many reasons. We have to go to that show.",
+      "kind": "dialogue",
+      "startMs": 605897,
+      "endMs": 610095
+    },
+    {
+      "index": 126,
+      "text": "Forget it. To get those tickets, our parents would have to be part... of Springfield's cultural elite.",
+      "kind": "dialogue",
+      "startMs": 610202,
+      "endMs": 615872
+    },
+    {
+      "index": 127,
+      "text": "Can you believe Flanders threw out a perfectly good toothbrush?",
+      "kind": "dialogue",
+      "startMs": 615974,
+      "endMs": 619375
+    },
+    {
+      "index": 128,
+      "text": "Eww. [Doorbell Rings] [ Gasps ] Oh, no! It's Ralph! just make up some excuse.",
+      "kind": "dialogue",
+      "startMs": 622114,
+      "endMs": 630386
+    },
+    {
+      "index": 129,
+      "text": "She's in the can. Go away. Yes, sir.",
+      "kind": "dialogue",
+      "startMs": 630489,
+      "endMs": 633617
+    },
+    {
+      "index": 130,
+      "text": "I'd do anything for Lisa. Really?",
+      "kind": "dialogue",
+      "startMs": 633725,
+      "endMs": 637786
+    },
+    {
+      "index": 131,
+      "text": "Mr. Simpson, the tar fumes are making me dizzy!",
+      "kind": "dialogue",
+      "startMs": 640265,
+      "endMs": 644133
+    },
+    {
+      "index": 132,
+      "text": "Yeah, they'll do that.",
+      "kind": "dialogue",
+      "startMs": 644236,
+      "endMs": 646796
+    },
+    {
+      "index": 133,
+      "text": "\"Dearest Martha, Since boyhood...",
+      "kind": "dialogue",
+      "startMs": 649007,
+      "endMs": 651032
+    },
+    {
+      "index": 134,
+      "text": "\"I have yearned to be on the one-dollar bill, and with your help...",
+      "kind": "dialogue",
+      "startMs": 651143,
+      "endMs": 654112
+    },
+    {
+      "index": 135,
+      "text": "\"this I shall achieve.",
+      "kind": "dialogue",
+      "startMs": 654212,
+      "endMs": 656373
+    },
+    {
+      "index": 136,
+      "text": "Sincerely, George Washington.\"",
+      "kind": "dialogue",
+      "startMs": 656481,
+      "endMs": 659314
+    },
+    {
+      "index": 137,
+      "text": "[Applause] Thank you, Rex.",
+      "kind": "dialogue",
+      "startMs": 659418,
+      "endMs": 661318
+    },
+    {
+      "index": 138,
+      "text": "I've selected the cast for our Presidents' Day Pageant.",
+      "kind": "dialogue",
+      "startMs": 663689,
+      "endMs": 666487
+    },
+    {
+      "index": 139,
+      "text": "Martha Washington will be played by Lisa Simpson. - [ Giggles ] George Washington will be played by... [Clears Throat]Ralph Wiggum.",
+      "kind": "dialogue",
+      "startMs": 666591,
+      "endMs": 675762
+    },
+    {
+      "index": 140,
+      "text": "Hmm. What? This is a travesty!",
+      "kind": "dialogue",
+      "startMs": 675867,
+      "endMs": 679132
+    },
+    {
+      "index": 141,
+      "text": "Everyone knows I'm the best actor in this ridiculous school!",
+      "kind": "dialogue",
+      "startMs": 679237,
+      "endMs": 682536
+    },
+    {
+      "index": 142,
+      "text": "Sit down, Rex. I will not sit down.",
+      "kind": "dialogue",
+      "startMs": 682641,
+      "endMs": 684871
+    },
+    {
+      "index": 143,
+      "text": "Someone's gotten to you, you deceitful cow! That's absurd, Rex.",
+      "kind": "dialogue",
+      "startMs": 684976,
+      "endMs": 688776
+    },
+    {
+      "index": 144,
+      "text": "Ralph won the part fair and square.",
+      "kind": "dialogue",
+      "startMs": 688880,
+      "endMs": 692316
+    },
+    {
+      "index": 145,
+      "text": "That's the signal. Take the boot off the car, boys.",
+      "kind": "dialogue",
+      "startMs": 692417,
+      "endMs": 695284
+    },
+    {
+      "index": 146,
+      "text": "[ Both Chuckling ]",
+      "kind": "sdh",
+      "startMs": 695387,
+      "endMs": 697321
+    },
+    {
+      "index": 147,
+      "text": "Now Ralph is in the play with me.",
+      "kind": "dialogue",
+      "startMs": 697422,
+      "endMs": 699583
+    },
+    {
+      "index": 148,
+      "text": "I just know he's gonna embarrass me in front of the whole school.",
+      "kind": "dialogue",
+      "startMs": 699691,
+      "endMs": 703388
+    },
+    {
+      "index": 149,
+      "text": "[Knocking] Huh?",
+      "kind": "dialogue",
+      "startMs": 703495,
+      "endMs": 705656
+    },
+    {
+      "index": 150,
+      "text": "[Running Footsteps]",
+      "kind": "sdh",
+      "startMs": 705764,
+      "endMs": 707959
+    },
+    {
+      "index": 151,
+      "text": "Ohh, no. It's a package from Ralph.",
+      "kind": "dialogue",
+      "startMs": 708066,
+      "endMs": 710830
+    },
+    {
+      "index": 152,
+      "text": "Ohh. A Malibu Stacy convertible!",
+      "kind": "dialogue",
+      "startMs": 712704,
+      "endMs": 716140
+    },
+    {
+      "index": 153,
+      "text": "\"Look in the tunk.\"",
+      "kind": "dialogue",
+      "startMs": 716241,
+      "endMs": 718368
+    },
+    {
+      "index": 154,
+      "text": "He must mean \"trunk.\"",
+      "kind": "dialogue",
+      "startMs": 718477,
+      "endMs": 721913
+    },
+    {
+      "index": 155,
+      "text": "[ Gasps ] Tickets to the Krusty anniversary show!",
+      "kind": "dialogue",
+      "startMs": 722013,
+      "endMs": 725710
+    },
+    {
+      "index": 156,
+      "text": "Oh, he must want me to go with him.",
+      "kind": "dialogue",
+      "startMs": 725817,
+      "endMs": 728217
+    },
+    {
+      "index": 157,
+      "text": "Oh, it isn't fair. I'm 1 0 times the Krusty fan you are.",
+      "kind": "dialogue",
+      "startMs": 728320,
+      "endMs": 732017
+    },
+    {
+      "index": 158,
+      "text": "I even have the Krusty Home Pregnancy Test.",
+      "kind": "dialogue",
+      "startMs": 732124,
+      "endMs": 735423
+    },
+    {
+      "index": 159,
+      "text": "I'm not sure I should go. I don't even like him.",
+      "kind": "dialogue",
+      "startMs": 735527,
+      "endMs": 738223
+    },
+    {
+      "index": 160,
+      "text": "You're right, Lise. You shouldn't go. It wouldn't be honest.",
+      "kind": "dialogue",
+      "startMs": 738330,
+      "endMs": 741026
+    },
+    {
+      "index": 161,
+      "text": "I'll go, disguised as you.",
+      "kind": "dialogue",
+      "startMs": 741133,
+      "endMs": 743101
+    },
+    {
+      "index": 162,
+      "text": "-What if he wants to hold hands? -I'm prepared to make that sacrifice.",
+      "kind": "dialogue",
+      "startMs": 743201,
+      "endMs": 746637
+    },
+    {
+      "index": 163,
+      "text": "What if he wants a kiss? I'm prepared to make that sacrifice.",
+      "kind": "dialogue",
+      "startMs": 746738,
+      "endMs": 749730
+    },
+    {
+      "index": 164,
+      "text": "What if he-- You don't wanna know how far I'll go.",
+      "kind": "dialogue",
+      "startMs": 749841,
+      "endMs": 752105
+    },
+    {
+      "index": 165,
+      "text": "Dad, is it right to take things from people you don't like?",
+      "kind": "dialogue",
+      "startMs": 752210,
+      "endMs": 756840
+    },
+    {
+      "index": 166,
+      "text": "Sure, it is, honey. You do mean stealing, don't you?",
+      "kind": "dialogue",
+      "startMs": 756948,
+      "endMs": 760884
+    },
+    {
+      "index": 167,
+      "text": "Well, actually, it's not as bad as stealing, But my conscience is bothering me.",
+      "kind": "dialogue",
+      "startMs": 760986,
+      "endMs": 765116
+    },
+    {
+      "index": 168,
+      "text": "Your conscience? Lisa, don't let that pushy little weenie tell you what to do.",
+      "kind": "dialogue",
+      "startMs": 765223,
+      "endMs": 770820
+    },
+    {
+      "index": 169,
+      "text": "Homer, that's a terrible thing to say.",
+      "kind": "dialogue",
+      "startMs": 770929,
+      "endMs": 773329
+    },
+    {
+      "index": 170,
+      "text": "Oh, shut up. Yes, sir.",
+      "kind": "dialogue",
+      "startMs": 773432,
+      "endMs": 776128
+    },
+    {
+      "index": 171,
+      "text": "I am so glad you cho-cho-chose to come.",
+      "kind": "dialogue",
+      "startMs": 777803,
+      "endMs": 781705
+    },
+    {
+      "index": 172,
+      "text": "[ Chuckles Weakly] I think you should give that a rest, Ralph.",
+      "kind": "dialogue",
+      "startMs": 781807,
+      "endMs": 784469
+    },
+    {
+      "index": 173,
+      "text": "Chief Wiggum, how'd you ever get these tickets? Krusty knows how to play ball.",
+      "kind": "dialogue",
+      "startMs": 784576,
+      "endMs": 788740
+    },
+    {
+      "index": 174,
+      "text": "[ Neon Buzzing ]",
+      "kind": "sdh",
+      "startMs": 788847,
+      "endMs": 790838
+    },
+    {
+      "index": 175,
+      "text": "Ahh. Nothin' beats a good porno movie.",
+      "kind": "dialogue",
+      "startMs": 793118,
+      "endMs": 795951
+    },
+    {
+      "index": 176,
+      "text": "Chief Wiggum, is this a bust? Uh, yeah... that's just what it is-- a bust.",
+      "kind": "dialogue",
+      "startMs": 796054,
+      "endMs": 802255
+    },
+    {
+      "index": 177,
+      "text": "That story isn't suitable for children. Really?",
+      "kind": "dialogue",
+      "startMs": 802360,
+      "endMs": 805329
+    },
+    {
+      "index": 178,
+      "text": "I keep my pants on in this version. Eww.",
+      "kind": "dialogue",
+      "startMs": 805430,
+      "endMs": 808399
+    },
+    {
+      "index": 179,
+      "text": "[Drumroll] [Announcer]It's the Krusty the Clown...",
+      "kind": "dialogue",
+      "startMs": 808500,
+      "endMs": 810468
+    },
+    {
+      "index": 180,
+      "text": "29th Anniversary Show! [Applause]",
+      "kind": "dialogue",
+      "startMs": 810569,
+      "endMs": 812696
+    },
+    {
+      "index": 181,
+      "text": "Hey! ####[Fanfare]",
+      "kind": "dialogue",
+      "startMs": 812804,
+      "endMs": 814897
+    },
+    {
+      "index": 182,
+      "text": "Thank you. Thank you. Hey, Mr. President!",
+      "kind": "dialogue",
+      "startMs": 816608,
+      "endMs": 819270
+    },
+    {
+      "index": 183,
+      "text": "I campaigned for the other guy, but I voted for you!",
+      "kind": "dialogue",
+      "startMs": 819377,
+      "endMs": 823040
+    },
+    {
+      "index": 184,
+      "text": "[ Guffaws ]",
+      "kind": "sdh",
+      "startMs": 823148,
+      "endMs": 825139
+    },
+    {
+      "index": 185,
+      "text": "You know, I started this show so long ago, the ayatollah only had a goatee.",
+      "kind": "dialogue",
+      "startMs": 825250,
+      "endMs": 830745
+    },
+    {
+      "index": 186,
+      "text": "Ha-ha! [ Buzzes ]",
+      "kind": "dialogue",
+      "startMs": 830856,
+      "endMs": 833256
+    },
+    {
+      "index": 187,
+      "text": "What's the matter? Don't you people read the papers?",
+      "kind": "dialogue",
+      "startMs": 835360,
+      "endMs": 838796
+    },
+    {
+      "index": 188,
+      "text": "Uh, let's look at some clips.",
+      "kind": "dialogue",
+      "startMs": 838897,
+      "endMs": 841866
+    },
+    {
+      "index": 189,
+      "text": "\"He will not see me stopping here... to watch his woods fill up with snow.\"",
+      "kind": "dialogue",
+      "startMs": 841967,
+      "endMs": 847370
+    },
+    {
+      "index": 190,
+      "text": "Hey, Frosty, you want some snow, man?",
+      "kind": "dialogue",
+      "startMs": 847472,
+      "endMs": 850873
+    },
+    {
+      "index": 191,
+      "text": "[ Laughs Dementedly] We discussed this, and I said no.",
+      "kind": "dialogue",
+      "startMs": 850976,
+      "endMs": 855310
+    },
+    {
+      "index": 192,
+      "text": "[Laughing]",
+      "kind": "sdh",
+      "startMs": 855413,
+      "endMs": 857643
+    },
+    {
+      "index": 193,
+      "text": "Now, here's a clip from 1 973.",
+      "kind": "dialogue",
+      "startMs": 857749,
+      "endMs": 859979
+    },
+    {
+      "index": 194,
+      "text": "## [ Rock Beat ] ## [ Singing ]",
+      "kind": "dialogue",
+      "startMs": 860085,
+      "endMs": 863714
+    },
+    {
+      "index": 195,
+      "text": "Yeah! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 866391,
+      "endMs": 870794
+    },
+    {
+      "index": 196,
+      "text": "What was I on? Lisa, do you want a bite of my ice cream?",
+      "kind": "dialogue",
+      "startMs": 870896,
+      "endMs": 875492
+    },
+    {
+      "index": 197,
+      "text": "No, thanks. Send it this way, boy.",
+      "kind": "dialogue",
+      "startMs": 875600,
+      "endMs": 877932
+    },
+    {
+      "index": 198,
+      "text": "Whoops. Ohh.",
+      "kind": "dialogue",
+      "startMs": 878036,
+      "endMs": 880334
+    },
+    {
+      "index": 199,
+      "text": "Aww. Nothing gets chocolate out. See?",
+      "kind": "dialogue",
+      "startMs": 880438,
+      "endMs": 883965
+    },
+    {
+      "index": 200,
+      "text": "I've worked with some marvelous second bananas over the years... but none more memorable than Sideshow Raheem.",
+      "kind": "dialogue",
+      "startMs": 884075,
+      "endMs": 890811
+    },
+    {
+      "index": 201,
+      "text": "Uh, the script says I'm supposed to bonk you with this.",
+      "kind": "dialogue",
+      "startMs": 890916,
+      "endMs": 895410
+    },
+    {
+      "index": 202,
+      "text": "I wouldn't. Right on.",
+      "kind": "dialogue",
+      "startMs": 895520,
+      "endMs": 898182
+    },
+    {
+      "index": 203,
+      "text": "[ Growls Softly]",
+      "kind": "sdh",
+      "startMs": 898290,
+      "endMs": 900781
+    },
+    {
+      "index": 204,
+      "text": "Angry. Angry young man.",
+      "kind": "dialogue",
+      "startMs": 903728,
+      "endMs": 906219
+    },
+    {
+      "index": 205,
+      "text": "Now, for my favorite part of the show.",
+      "kind": "dialogue",
+      "startMs": 906331,
+      "endMs": 909232
+    },
+    {
+      "index": 206,
+      "text": "Whuzzat say? \"Talk to the audience\"?",
+      "kind": "dialogue",
+      "startMs": 909334,
+      "endMs": 912531
+    },
+    {
+      "index": 207,
+      "text": "Oh, God. This is always death.",
+      "kind": "dialogue",
+      "startMs": 912637,
+      "endMs": 915037
+    },
+    {
+      "index": 208,
+      "text": "All right. Oh, no. Please don't show me with Ralph.",
+      "kind": "dialogue",
+      "startMs": 915140,
+      "endMs": 918667
+    },
+    {
+      "index": 209,
+      "text": "What's your name, son? Ralph.",
+      "kind": "dialogue",
+      "startMs": 920045,
+      "endMs": 922104
+    },
+    {
+      "index": 210,
+      "text": "[ Whimpers ] And is this your girlfriend, Ralph?",
+      "kind": "dialogue",
+      "startMs": 922213,
+      "endMs": 925239
+    },
+    {
+      "index": 211,
+      "text": "Yes. I love Lisa Simpson, and when I grow up, I'm going to marry her!",
+      "kind": "dialogue",
+      "startMs": 925350,
+      "endMs": 930219
+    },
+    {
+      "index": 212,
+      "text": "No-o-o-o!",
+      "kind": "dialogue",
+      "startMs": 930322,
+      "endMs": 932586
+    },
+    {
+      "index": 213,
+      "text": "Now, you listen to me! I don't like you! I never liked you!",
+      "kind": "dialogue",
+      "startMs": 932691,
+      "endMs": 936286
+    },
+    {
+      "index": 214,
+      "text": "And the only reason I gaveyou that stupid valentine is 'cause nobody else would!",
+      "kind": "dialogue",
+      "startMs": 936394,
+      "endMs": 940558
+    },
+    {
+      "index": 215,
+      "text": "Watch this, Lise. You can actually pinpoint the second when his heart rips in half.",
+      "kind": "dialogue",
+      "startMs": 940665,
+      "endMs": 944931
+    },
+    {
+      "index": 216,
+      "text": "[V. C.R. Clicking] [ Whimpering ] And... now.",
+      "kind": "dialogue",
+      "startMs": 945036,
+      "endMs": 949598
+    },
+    {
+      "index": 217,
+      "text": "Ohh.",
+      "kind": "dialogue",
+      "startMs": 949708,
+      "endMs": 952040
+    },
+    {
+      "index": 218,
+      "text": "[ Ducks Quacking ]",
+      "kind": "sdh",
+      "startMs": 958750,
+      "endMs": 960684
+    },
+    {
+      "index": 219,
+      "text": "At least you guys are my friends.",
+      "kind": "dialogue",
+      "startMs": 960785,
+      "endMs": 962685
+    },
+    {
+      "index": 220,
+      "text": "[Quacking] [ Sighs Sadly] Son, I know just how you feel~- You got a great little girl, and the world's your oyster.",
+      "kind": "dialogue",
+      "startMs": 965056,
+      "endMs": 971961
+    },
+    {
+      "index": 221,
+      "text": "No, Dad. She made a fool out of me.",
+      "kind": "dialogue",
+      "startMs": 972063,
+      "endMs": 974395
+    },
+    {
+      "index": 222,
+      "text": "Hey, come to think of it, she did.",
+      "kind": "dialogue",
+      "startMs": 974499,
+      "endMs": 978435
+    },
+    {
+      "index": 223,
+      "text": "Well, she didn't reckon with the awesome power of the chief of police.",
+      "kind": "dialogue",
+      "startMs": 978536,
+      "endMs": 983235
+    },
+    {
+      "index": 224,
+      "text": "Now, where did I put my badge? Hey, that duck's got it!",
+      "kind": "dialogue",
+      "startMs": 983341,
+      "endMs": 987801
+    },
+    {
+      "index": 225,
+      "text": "[ Quacking ] Oh, come on. Come on. Give it back. I need it.",
+      "kind": "dialogue",
+      "startMs": 987912,
+      "endMs": 991439
+    },
+    {
+      "index": 226,
+      "text": "[ Duck Squawks, Wings Flutter] Aww, keep it.",
+      "kind": "dialogue",
+      "startMs": 991549,
+      "endMs": 993744
+    },
+    {
+      "index": 227,
+      "text": "[Siren Wailing]",
+      "kind": "sdh",
+      "startMs": 993852,
+      "endMs": 996685
+    },
+    {
+      "index": 228,
+      "text": "Something wrong, Officer? Yep. Gota tail light out.",
+      "kind": "dialogue",
+      "startMs": 998857,
+      "endMs": 1002054
+    },
+    {
+      "index": 229,
+      "text": "Where? Right there.",
+      "kind": "dialogue",
+      "startMs": 1002160,
+      "endMs": 1005254
+    },
+    {
+      "index": 230,
+      "text": "You know, one day, honest citizens are gonna stand up to you crooked cops.",
+      "kind": "dialogue",
+      "startMs": 1005363,
+      "endMs": 1009959
+    },
+    {
+      "index": 231,
+      "text": "They are? Oh, no! Have they set a date?",
+      "kind": "dialogue",
+      "startMs": 1010068,
+      "endMs": 1013469
+    },
+    {
+      "index": 232,
+      "text": "This orange drink is the only way... to recoup our terrible losses from Fire Drill Follies.",
+      "kind": "dialogue",
+      "startMs": 1019844,
+      "endMs": 1024679
+    },
+    {
+      "index": 233,
+      "text": "I just don't know what went wrong.",
+      "kind": "dialogue",
+      "startMs": 1024783,
+      "endMs": 1026774
+    },
+    {
+      "index": 234,
+      "text": "You opened the show with a fire drill, and everyone cleared out.",
+      "kind": "dialogue",
+      "startMs": 1026885,
+      "endMs": 1030685
+    },
+    {
+      "index": 235,
+      "text": "Mm. So Mother was right. It was my fault.",
+      "kind": "dialogue",
+      "startMs": 1030789,
+      "endMs": 1034623
+    },
+    {
+      "index": 236,
+      "text": "Go ahead. Water it down some more.",
+      "kind": "dialogue",
+      "startMs": 1034726,
+      "endMs": 1037251
+    },
+    {
+      "index": 237,
+      "text": "My God, man. I've watered her down as far as she'll go.",
+      "kind": "dialogue",
+      "startMs": 1037362,
+      "endMs": 1041298
+    },
+    {
+      "index": 238,
+      "text": "I cannot water no more.",
+      "kind": "dialogue",
+      "startMs": 1041399,
+      "endMs": 1043333
+    },
+    {
+      "index": 239,
+      "text": "[ Gulping ] Good evening, everyone, and welcome... to a wonderful evening of theater and picking up after yourselves.",
+      "kind": "dialogue",
+      "startMs": 1043435,
+      "endMs": 1050304
+    },
+    {
+      "index": 240,
+      "text": "[ Person Coughs ] - We begin with a tribute to our lesser-known presidents.",
+      "kind": "dialogue",
+      "startMs": 1050408,
+      "endMs": 1055505
+    },
+    {
+      "index": 241,
+      "text": "[Drumroll] ####[Presidential Fanfare] ## [ All Singing ]",
+      "kind": "dialogue",
+      "startMs": 1055613,
+      "endMs": 1062216
+    },
+    {
+      "index": 242,
+      "text": "I died in 30 days!",
+      "kind": "dialogue",
+      "startMs": 1071396,
+      "endMs": 1074092
+    },
+    {
+      "index": 243,
+      "text": "## [ All Continue Singing ]",
+      "kind": "dialogue",
+      "startMs": 1074199,
+      "endMs": 1077191
+    },
+    {
+      "index": 244,
+      "text": "## [ Vaudeville-style Finale ]",
+      "kind": "dialogue",
+      "startMs": 1089647,
+      "endMs": 1092616
+    },
+    {
+      "index": 245,
+      "text": "[ Audience Applauds ]",
+      "kind": "sdh",
+      "startMs": 1092717,
+      "endMs": 1094947
+    },
+    {
+      "index": 246,
+      "text": "Hey, girls. Check out this president.",
+      "kind": "dialogue",
+      "startMs": 1095053,
+      "endMs": 1097521
+    },
+    {
+      "index": 247,
+      "text": "I am not a butt!",
+      "kind": "dialogue",
+      "startMs": 1097622,
+      "endMs": 1099783
+    },
+    {
+      "index": 248,
+      "text": "[ All Screaming ]",
+      "kind": "sdh",
+      "startMs": 1099891,
+      "endMs": 1101916
+    },
+    {
+      "index": 249,
+      "text": "Bart, do you wanna play John Wilkes Booth or do you wanna act like a maniac?",
+      "kind": "dialogue",
+      "startMs": 1102026,
+      "endMs": 1105291
+    },
+    {
+      "index": 250,
+      "text": "I'll be good.",
+      "kind": "dialogue",
+      "startMs": 1105396,
+      "endMs": 1106454
+    },
+    {
+      "index": 251,
+      "text": "Ralph, I'm sorry I-- Leave me alone. I'm here to play George Washington.",
+      "kind": "dialogue",
+      "startMs": 1109601,
+      "endMs": 1115835
+    },
+    {
+      "index": 252,
+      "text": "Uh, Ralph?",
+      "kind": "dialogue",
+      "startMs": 1115940,
+      "endMs": 1117840
+    },
+    {
+      "index": 253,
+      "text": "Miss Hoover, this beard's giving me a rash.",
+      "kind": "dialogue",
+      "startMs": 1117942,
+      "endMs": 1123346
+    },
+    {
+      "index": 254,
+      "text": "Milhouse, you have one line, and then you're shot.",
+      "kind": "dialogue",
+      "startMs": 1123448,
+      "endMs": 1126008
+    },
+    {
+      "index": 255,
+      "text": "Now, get out there. [ Gulps ] I thought that civil war would never end.",
+      "kind": "dialogue",
+      "startMs": 1126117,
+      "endMs": 1131582
+    },
+    {
+      "index": 256,
+      "text": "Now, to soothe my head with an evening at Ford's Theatre.",
+      "kind": "dialogue",
+      "startMs": 1131689,
+      "endMs": 1136422
+    },
+    {
+      "index": 257,
+      "text": "Oh, no! john Wilkes Booth!",
+      "kind": "dialogue",
+      "startMs": 1136528,
+      "endMs": 1139258
+    },
+    {
+      "index": 258,
+      "text": "Hasta la vista, Abie. [ Milhouse Grunts ]",
+      "kind": "dialogue",
+      "startMs": 1139364,
+      "endMs": 1143926
+    },
+    {
+      "index": 259,
+      "text": "[ Both Grunting ] Come on, boy! Finish him off!.",
+      "kind": "dialogue",
+      "startMs": 1144035,
+      "endMs": 1147163
+    },
+    {
+      "index": 260,
+      "text": "[ All Screaming ] You're next, Chester A. Arthur!",
+      "kind": "dialogue",
+      "startMs": 1147272,
+      "endMs": 1151208
+    },
+    {
+      "index": 261,
+      "text": "[ Balls Popping ] Unhand me, Yankee.",
+      "kind": "dialogue",
+      "startMs": 1151309,
+      "endMs": 1154972
+    },
+    {
+      "index": 262,
+      "text": "And now, our evening comes to an end-- Whoo-hoo! with a thorough retelling of the life of George Washington.",
+      "kind": "dialogue",
+      "startMs": 1155079,
+      "endMs": 1162284
+    },
+    {
+      "index": 263,
+      "text": "[Homer]D'oh! [ Audience Applauds ]",
+      "kind": "dialogue",
+      "startMs": 1162387,
+      "endMs": 1165481
+    },
+    {
+      "index": 264,
+      "text": "Dear, dear George Washington, can this liberty you dream of... be worth all this bloodshed?",
+      "kind": "dialogue",
+      "startMs": 1167325,
+      "endMs": 1174826
+    },
+    {
+      "index": 265,
+      "text": "Well, can it?",
+      "kind": "dialogue",
+      "startMs": 1174933,
+      "endMs": 1178164
+    },
+    {
+      "index": 266,
+      "text": "Dear madam, would you put a price... on the air we breathe or the providence that sustains us?",
+      "kind": "dialogue",
+      "startMs": 1180605,
+      "endMs": 1187575
+    },
+    {
+      "index": 267,
+      "text": "But couldn't we just give in to the British? Never!",
+      "kind": "dialogue",
+      "startMs": 1187679,
+      "endMs": 1191911
+    },
+    {
+      "index": 268,
+      "text": "[ Audience Whooping, Cheering ] That boy is magnificent.",
+      "kind": "dialogue",
+      "startMs": 1192016,
+      "endMs": 1196919
+    },
+    {
+      "index": 269,
+      "text": "He makes me wanna learn more about our founding fathers.",
+      "kind": "dialogue",
+      "startMs": 1197021,
+      "endMs": 1200889
+    },
+    {
+      "index": 270,
+      "text": "To the library! Yeah!",
+      "kind": "dialogue",
+      "startMs": 1200992,
+      "endMs": 1203483
+    },
+    {
+      "index": 271,
+      "text": "Dear Martha, I fear my time is at hand.",
+      "kind": "dialogue",
+      "startMs": 1203595,
+      "endMs": 1207156
+    },
+    {
+      "index": 272,
+      "text": "[ Sobbing ] Oh, George.",
+      "kind": "dialogue",
+      "startMs": 1207265,
+      "endMs": 1210132
+    },
+    {
+      "index": 273,
+      "text": "Your broth, Mr. President.",
+      "kind": "dialogue",
+      "startMs": 1210235,
+      "endMs": 1212965
+    },
+    {
+      "index": 274,
+      "text": "I asked for no broth. Away with you, lest my cane find your backside!",
+      "kind": "dialogue",
+      "startMs": 1213071,
+      "endMs": 1218373
+    },
+    {
+      "index": 275,
+      "text": "Mm. Yes.",
+      "kind": "dialogue",
+      "startMs": 1218476,
+      "endMs": 1220376
+    },
+    {
+      "index": 276,
+      "text": "[ Sobbing ] Please don't leave me, George.",
+      "kind": "dialogue",
+      "startMs": 1220478,
+      "endMs": 1224938
+    },
+    {
+      "index": 277,
+      "text": "Dear wife, if I could take but one treasure with me to the next life... it would be your tender kiss.",
+      "kind": "dialogue",
+      "startMs": 1225049,
+      "endMs": 1235186
+    },
+    {
+      "index": 278,
+      "text": "[ Sighs ]",
+      "kind": "sdh",
+      "startMs": 1235293,
+      "endMs": 1237488
+    },
+    {
+      "index": 279,
+      "text": "Now, that's a man.",
+      "kind": "dialogue",
+      "startMs": 1237595,
+      "endMs": 1239586
+    },
+    {
+      "index": 280,
+      "text": "[ Gasps ] [ Continues Sobbing ]",
+      "kind": "dialogue",
+      "startMs": 1241699,
+      "endMs": 1245066
+    },
+    {
+      "index": 281,
+      "text": "[ Whimpering ] I didna cry when me own father was hung for stealin' a pig... but I'll cry now. [ Sobbing ]",
+      "kind": "dialogue",
+      "startMs": 1247405,
+      "endMs": 1255277
+    },
+    {
+      "index": 282,
+      "text": "[Hydraulics Whirring]",
+      "kind": "sdh",
+      "startMs": 1255380,
+      "endMs": 1258372
+    },
+    {
+      "index": 283,
+      "text": "####[Patriotic Song]",
+      "kind": "dialogue",
+      "startMs": 1259884,
+      "endMs": 1261977
+    },
+    {
+      "index": 284,
+      "text": "Thanks for coming, and don't forget to purchase some orange drink... for the long ride home.",
+      "kind": "dialogue",
+      "startMs": 1267492,
+      "endMs": 1274364
+    },
+    {
+      "index": 285,
+      "text": "Ralph! Ralph! You were so good.",
+      "kind": "dialogue",
+      "startMs": 1274532,
+      "endMs": 1277126
+    },
+    {
+      "index": 286,
+      "text": "Ralph!",
+      "kind": "dialogue",
+      "startMs": 1277235,
+      "endMs": 1279169
+    },
+    {
+      "index": 287,
+      "text": "Lisa! Hi, Ralph.",
+      "kind": "dialogue",
+      "startMs": 1279270,
+      "endMs": 1282171
+    },
+    {
+      "index": 288,
+      "text": "You were great tonight. Ah, thanks.",
+      "kind": "dialogue",
+      "startMs": 1282273,
+      "endMs": 1285401
+    },
+    {
+      "index": 289,
+      "text": "I've got something for you. \"Let's be friends.\"",
+      "kind": "dialogue",
+      "startMs": 1285510,
+      "endMs": 1289879
+    },
+    {
+      "index": 290,
+      "text": "It says \"bee,\" and there's a picture of a bee on it!",
+      "kind": "dialogue",
+      "startMs": 1289981,
+      "endMs": 1293712
+    },
+    {
+      "index": 291,
+      "text": "[ Both Chuckle ] I thought you'd like it.",
+      "kind": "dialogue",
+      "startMs": 1293818,
+      "endMs": 1297254
+    },
+    {
+      "index": 292,
+      "text": "Ohh, look at that.",
+      "kind": "dialogue",
+      "startMs": 1298323,
+      "endMs": 1301121
+    },
+    {
+      "index": 293,
+      "text": "[ Dispatcher] Attention, all units. Riot in progress at--",
+      "kind": "dialogue",
+      "startMs": 1301225,
+      "endMs": 1303955
+    },
+    {
+      "index": 294,
+      "text": "Not tonight. - [Radio Announcer] Hey, hey! Bill and Marty here... wrapping up a beautiful Presidents' Day.",
+      "kind": "dialogue",
+      "startMs": 1304062,
+      "endMs": 1309126
+    },
+    {
+      "index": 295,
+      "text": "[ Marty] To George and Abe and all the rest, here's a special song just for you.",
+      "kind": "dialogue",
+      "startMs": 1309233,
+      "endMs": 1313636
+    },
+    {
+      "index": 296,
+      "text": "## [ Radio: '60s Pop Song ]",
+      "kind": "dialogue",
+      "startMs": 1313738,
+      "endMs": 1316434
+    },
+    {
+      "index": 297,
+      "text": "[ Marty] Doggone it! ####[Singing Continues]",
+      "kind": "dialogue",
+      "startMs": 1317475,
+      "endMs": 1318576
+    },
+    {
+      "index": 298,
+      "text": "[ Marty] Doggone it! ####[Singing Continues]",
+      "kind": "dialogue",
+      "startMs": 1318576,
+      "endMs": 1320669
+    },
+    {
+      "index": 299,
+      "text": "####[Singing Continues]",
+      "kind": "dialogue",
+      "startMs": 1330855,
+      "endMs": 1333551
+    },
+    {
+      "index": 300,
+      "text": "[ People Chattering ] Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1375833,
+      "endMs": 2000
+    }
+  ]
+}

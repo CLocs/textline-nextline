@@ -1,0 +1,2200 @@
+{
+  "id": "the-simpsons---4x12---marge-vs-the-monorailen",
+  "title": "The Simpsons - 4x12 - Marge vs. the Monorail.en",
+  "sourceFilename": "The Simpsons - 4x12 - Marge vs. the Monorail.en.srt",
+  "importedAt": "2026-08-31T04:14:29.506Z",
+  "lineCount": 313,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[Chorus] ## The Simpsons ##",
+      "kind": "dialogue",
+      "startMs": 4098,
+      "endMs": 7397
+    },
+    {
+      "index": 1,
+      "text": "[Bell Ringing]",
+      "kind": "sdh",
+      "startMs": 18179,
+      "endMs": 20079
+    },
+    {
+      "index": 2,
+      "text": "[Whistle Blowing]",
+      "kind": "sdh",
+      "startMs": 24952,
+      "endMs": 28046
+    },
+    {
+      "index": 3,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 30491,
+      "endMs": 32391
+    },
+    {
+      "index": 4,
+      "text": "## [Jazzy Solo ]",
+      "kind": "dialogue",
+      "startMs": 38132,
+      "endMs": 40066
+    },
+    {
+      "index": 5,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 60121,
+      "endMs": 62021
+    },
+    {
+      "index": 6,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 62123,
+      "endMs": 64023
+    },
+    {
+      "index": 7,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 65393,
+      "endMs": 67361
+    },
+    {
+      "index": 8,
+      "text": "####[Classic Cartoon Theme]",
+      "kind": "dialogue",
+      "startMs": 83377,
+      "endMs": 85845
+    },
+    {
+      "index": 9,
+      "text": "[ Whistle Blowing ] Yabba dabba do!",
+      "kind": "dialogue",
+      "startMs": 87682,
+      "endMs": 91709
+    },
+    {
+      "index": 10,
+      "text": "## [ Singing Classic Cartoon Theme ]",
+      "kind": "dialogue",
+      "startMs": 96123,
+      "endMs": 99092
+    },
+    {
+      "index": 11,
+      "text": "[ Screams ]",
+      "kind": "sdh",
+      "startMs": 108569,
+      "endMs": 110469
+    },
+    {
+      "index": 12,
+      "text": "What do they do with these things After we seal 'em?",
+      "kind": "dialogue",
+      "startMs": 112640,
+      "endMs": 115370
+    },
+    {
+      "index": 13,
+      "text": "I hear they dump 'em in an abandoned chalk mine and cover 'em with cement.",
+      "kind": "dialogue",
+      "startMs": 115476,
+      "endMs": 119537
+    },
+    {
+      "index": 14,
+      "text": "I hear they're sending 'em to one of those southern states where the governor's a crook.",
+      "kind": "dialogue",
+      "startMs": 119647,
+      "endMs": 122980
+    },
+    {
+      "index": 15,
+      "text": "Either way, I'm sleeping good tonight.",
+      "kind": "dialogue",
+      "startMs": 123084,
+      "endMs": 125211
+    },
+    {
+      "index": 16,
+      "text": "Well, sir, where shall we dump this batch? The playground? - No.",
+      "kind": "dialogue",
+      "startMs": 136197,
+      "endMs": 139826
+    },
+    {
+      "index": 17,
+      "text": "All those bald children are arousing suspicion. To the park!",
+      "kind": "dialogue",
+      "startMs": 139934,
+      "endMs": 144530
+    },
+    {
+      "index": 18,
+      "text": "[Grunting, Straining]",
+      "kind": "sdh",
+      "startMs": 144639,
+      "endMs": 148837
+    },
+    {
+      "index": 19,
+      "text": "I think it's full, sir. That's ridiculous!",
+      "kind": "dialogue",
+      "startMs": 148943,
+      "endMs": 151207
+    },
+    {
+      "index": 20,
+      "text": "The last tree held nine drums.",
+      "kind": "dialogue",
+      "startMs": 151312,
+      "endMs": 153644
+    },
+    {
+      "index": 21,
+      "text": "[ Chittering ]",
+      "kind": "sdh",
+      "startMs": 156083,
+      "endMs": 158051
+    },
+    {
+      "index": 22,
+      "text": "[Tires Screeching]",
+      "kind": "sdh",
+      "startMs": 162023,
+      "endMs": 164856
+    },
+    {
+      "index": 23,
+      "text": "Agent Malone, Environmental Protection Agency.",
+      "kind": "dialogue",
+      "startMs": 164959,
+      "endMs": 167621
+    },
+    {
+      "index": 24,
+      "text": "Some Boy Scouts stumbled on your little game of \"hide the ooze.\"",
+      "kind": "dialogue",
+      "startMs": 167728,
+      "endMs": 171664
+    },
+    {
+      "index": 25,
+      "text": "Mr. Burns, in light of your unbelievable contempt for human life... this court fines you three million dollars.",
+      "kind": "dialogue",
+      "startMs": 176270,
+      "endMs": 183601
+    },
+    {
+      "index": 26,
+      "text": "Smithers, my wallet's in my right front pocket.",
+      "kind": "dialogue",
+      "startMs": 183711,
+      "endMs": 187340
+    },
+    {
+      "index": 27,
+      "text": "Oh, and, uh, I'll take that statue of Justice too.",
+      "kind": "dialogue",
+      "startMs": 188816,
+      "endMs": 193014
+    },
+    {
+      "index": 28,
+      "text": "Sold!",
+      "kind": "dialogue",
+      "startMs": 193120,
+      "endMs": 195850
+    },
+    {
+      "index": 29,
+      "text": "[ Chuckling ] Oh, Andy Capp.",
+      "kind": "dialogue",
+      "startMs": 195957,
+      "endMs": 198482
+    },
+    {
+      "index": 30,
+      "text": "You wife-beating drunk. [ Chuckles ] Ooh! There's going to be a town meeting to decide... how to spend Mr. Burns's money.",
+      "kind": "dialogue",
+      "startMs": 198593,
+      "endMs": 206457
+    },
+    {
+      "index": 31,
+      "text": "Oh, what a boon it could be for our under funded public schools.",
+      "kind": "dialogue",
+      "startMs": 206567,
+      "endMs": 210264
+    },
+    {
+      "index": 32,
+      "text": "Children, it's time For your history lesson.",
+      "kind": "dialogue",
+      "startMs": 212673,
+      "endMs": 215005
+    },
+    {
+      "index": 33,
+      "text": "Put on your virtual reality helmets.",
+      "kind": "dialogue",
+      "startMs": 215109,
+      "endMs": 217009
+    },
+    {
+      "index": 34,
+      "text": "Mmm, excellent. Hello, Lisa.",
+      "kind": "dialogue",
+      "startMs": 220848,
+      "endMs": 223976
+    },
+    {
+      "index": 35,
+      "text": "I'm Genghis Khan. You'll go where I go... [ Woman Screaming ] defile what I defile, eat who I eat.",
+      "kind": "dialogue",
+      "startMs": 224085,
+      "endMs": 231121
+    },
+    {
+      "index": 36,
+      "text": "Hmm?",
+      "kind": "dialogue",
+      "startMs": 231225,
+      "endMs": 233125
+    },
+    {
+      "index": 37,
+      "text": "Come on, Lise. We both know how this money should... nay, must be spent.",
+      "kind": "dialogue",
+      "startMs": 233227,
+      "endMs": 238424
+    },
+    {
+      "index": 38,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 240301,
+      "endMs": 242132
+    },
+    {
+      "index": 39,
+      "text": "Aah! Oh!",
+      "kind": "dialogue",
+      "startMs": 245806,
+      "endMs": 248502
+    },
+    {
+      "index": 40,
+      "text": "Bart, we'll do anything you want. just call off your giant mechanical ants!",
+      "kind": "dialogue",
+      "startMs": 248609,
+      "endMs": 254314
+    },
+    {
+      "index": 41,
+      "text": "Aah! Whoa!",
+      "kind": "dialogue",
+      "startMs": 254415,
+      "endMs": 257213
+    },
+    {
+      "index": 42,
+      "text": "[ Laughing Evilly]",
+      "kind": "sdh",
+      "startMs": 257318,
+      "endMs": 259218
+    },
+    {
+      "index": 43,
+      "text": "Well, I think we should spend the money on something... the whole town can be proud of.",
+      "kind": "dialogue",
+      "startMs": 259320,
+      "endMs": 263783
+    },
+    {
+      "index": 44,
+      "text": "Like a giant billboard that says, \"No fat chicks\"? - No!",
+      "kind": "dialogue",
+      "startMs": 263891,
+      "endMs": 267759
+    },
+    {
+      "index": 45,
+      "text": "[ Chattering ]",
+      "kind": "sdh",
+      "startMs": 269864,
+      "endMs": 271593
+    },
+    {
+      "index": 46,
+      "text": "It looks like everyone in Springfield showed up for this.",
+      "kind": "dialogue",
+      "startMs": 271699,
+      "endMs": 274600
+    },
+    {
+      "index": 47,
+      "text": "[Glass Shattering] [Man]Ha-ha!",
+      "kind": "dialogue",
+      "startMs": 274702,
+      "endMs": 276932
+    },
+    {
+      "index": 48,
+      "text": "Could this town be any stupider?",
+      "kind": "dialogue",
+      "startMs": 278072,
+      "endMs": 280939
+    },
+    {
+      "index": 49,
+      "text": "Order! Please rise for the, uh, Pledge of Allegiance.",
+      "kind": "dialogue",
+      "startMs": 281042,
+      "endMs": 284273
+    },
+    {
+      "index": 50,
+      "text": "Get to the money! In a moment.",
+      "kind": "dialogue",
+      "startMs": 284378,
+      "endMs": 286676
+    },
+    {
+      "index": 51,
+      "text": "First, let's review the minutes from our last meeting.",
+      "kind": "dialogue",
+      "startMs": 286781,
+      "endMs": 288942
+    },
+    {
+      "index": 52,
+      "text": "Get to the money! Get to the money!",
+      "kind": "dialogue",
+      "startMs": 289050,
+      "endMs": 290950
+    },
+    {
+      "index": 53,
+      "text": "Get to the money! Very well.",
+      "kind": "dialogue",
+      "startMs": 291052,
+      "endMs": 294215
+    },
+    {
+      "index": 54,
+      "text": "We will now hear suggestions for the, uh, disbursement... of the, uh, two million dollars.",
+      "kind": "dialogue",
+      "startMs": 294321,
+      "endMs": 298290
+    },
+    {
+      "index": 55,
+      "text": "Don't you mean three million dollars?",
+      "kind": "dialogue",
+      "startMs": 298392,
+      "endMs": 301225
+    },
+    {
+      "index": 56,
+      "text": "Of course. How silly of me.",
+      "kind": "dialogue",
+      "startMs": 301328,
+      "endMs": 303353
+    },
+    {
+      "index": 57,
+      "text": "Excuse me. We could use the money to hire firemen...",
+      "kind": "dialogue",
+      "startMs": 303464,
+      "endMs": 306228
+    },
+    {
+      "index": 58,
+      "text": "to finally put out that blaze on the east side of town. - Boring!",
+      "kind": "dialogue",
+      "startMs": 306333,
+      "endMs": 310463
+    },
+    {
+      "index": 59,
+      "text": "Hello. My name is Mr. Snrub... and I come from, uh, someplace far away.",
+      "kind": "dialogue",
+      "startMs": 310571,
+      "endMs": 317607
+    },
+    {
+      "index": 60,
+      "text": "Yes, that will do. Anyway...",
+      "kind": "dialogue",
+      "startMs": 317712,
+      "endMs": 319680
+    },
+    {
+      "index": 61,
+      "text": "I-I say we invest that money back in the nuclear plant.",
+      "kind": "dialogue",
+      "startMs": 319780,
+      "endMs": 323546
+    },
+    {
+      "index": 62,
+      "text": "I like the way Snrub thinks.",
+      "kind": "dialogue",
+      "startMs": 323651,
+      "endMs": 325812
+    },
+    {
+      "index": 63,
+      "text": "[ Angry Muttering ]",
+      "kind": "sdh",
+      "startMs": 325920,
+      "endMs": 329822
+    },
+    {
+      "index": 64,
+      "text": "Pardon me, but I would like to see this money... spent on more police officers.",
+      "kind": "dialogue",
+      "startMs": 335529,
+      "endMs": 340324
+    },
+    {
+      "index": 65,
+      "text": "I have been shot eight times this year... and as a result, I almost missed work.",
+      "kind": "dialogue",
+      "startMs": 340434,
+      "endMs": 345364
+    },
+    {
+      "index": 66,
+      "text": "Crybaby. - My name is Marge Simpson, and I have an idea.",
+      "kind": "dialogue",
+      "startMs": 345473,
+      "endMs": 350308
+    },
+    {
+      "index": 67,
+      "text": "It may sound a little boring at first. [Quimby] Chat a way.",
+      "kind": "dialogue",
+      "startMs": 350411,
+      "endMs": 353505
+    },
+    {
+      "index": 68,
+      "text": "I'll just amuse myself with some pornographic playing cards.",
+      "kind": "dialogue",
+      "startMs": 353614,
+      "endMs": 357141
+    },
+    {
+      "index": 69,
+      "text": "Oh. Well, Surely you've all noticed... the terrible condition Main Street is in.",
+      "kind": "dialogue",
+      "startMs": 357251,
+      "endMs": 363352
+    },
+    {
+      "index": 70,
+      "text": "Many of us have destroyed it By leaving winter chains on our tires... and carrying too much weight.",
+      "kind": "dialogue",
+      "startMs": 366393,
+      "endMs": 371823
+    },
+    {
+      "index": 71,
+      "text": "[ Dissonant Chords ] Whoo-hoo! Look at that pavement fly!",
+      "kind": "dialogue",
+      "startMs": 373567,
+      "endMs": 376092
+    },
+    {
+      "index": 72,
+      "text": "[Marge]And those potholes are becoming a real nuisance.",
+      "kind": "dialogue",
+      "startMs": 376203,
+      "endMs": 380196
+    },
+    {
+      "index": 73,
+      "text": "Ho!",
+      "kind": "dialogue",
+      "startMs": 380307,
+      "endMs": 382275
+    },
+    {
+      "index": 74,
+      "text": "Now hold on just one minute.",
+      "kind": "dialogue",
+      "startMs": 385312,
+      "endMs": 387507
+    },
+    {
+      "index": 75,
+      "text": "Sure, we could fix up Main Street.",
+      "kind": "dialogue",
+      "startMs": 387615,
+      "endMs": 391415
+    },
+    {
+      "index": 76,
+      "text": "We could put all our eggs in one basket.",
+      "kind": "dialogue",
+      "startMs": 391519,
+      "endMs": 393953
+    },
+    {
+      "index": 77,
+      "text": "[ Cheering ]",
+      "kind": "sdh",
+      "startMs": 394054,
+      "endMs": 395783
+    },
+    {
+      "index": 78,
+      "text": "Shut up! I wasn't done yet.",
+      "kind": "dialogue",
+      "startMs": 395890,
+      "endMs": 398586
+    },
+    {
+      "index": 79,
+      "text": "I'm just saying we could blow all our money... on a stupid little street, but--",
+      "kind": "dialogue",
+      "startMs": 398692,
+      "endMs": 405028
+    },
+    {
+      "index": 80,
+      "text": "[ Cheering, Shouting ] [ Groaning ] Oh! I ain't fer it. I'm agin it!",
+      "kind": "dialogue",
+      "startMs": 405132,
+      "endMs": 410729
+    },
+    {
+      "index": 81,
+      "text": "[ All Chanting ] Main Street! Main Street! Main Street!",
+      "kind": "dialogue",
+      "startMs": 410838,
+      "endMs": 413705
+    },
+    {
+      "index": 82,
+      "text": "All those in favor Of Grampa Simpson's plan...",
+      "kind": "dialogue",
+      "startMs": 413808,
+      "endMs": 416333
+    },
+    {
+      "index": 83,
+      "text": "for rebuilding Main Street, please-- [Whistles] You know, a town with money's a little like the mule with a spinning wheel.",
+      "kind": "dialogue",
+      "startMs": 416443,
+      "endMs": 423973
+    },
+    {
+      "index": 84,
+      "text": "No one knows how he got it, and danged if he knows how to use it.",
+      "kind": "dialogue",
+      "startMs": 424084,
+      "endMs": 427485
+    },
+    {
+      "index": 85,
+      "text": "[ Laughter] [ Chuckles ] Mule.",
+      "kind": "dialogue",
+      "startMs": 427588,
+      "endMs": 431319
+    },
+    {
+      "index": 86,
+      "text": "The name's Lanley, Lyle Lanley... and I come before you good people tonight with an idea.",
+      "kind": "dialogue",
+      "startMs": 431425,
+      "endMs": 437622
+    },
+    {
+      "index": 87,
+      "text": "Probably the greatest-- Ah, it's not for you.",
+      "kind": "dialogue",
+      "startMs": 437731,
+      "endMs": 441223
+    },
+    {
+      "index": 88,
+      "text": "It's more of a Shelbyville idea.",
+      "kind": "dialogue",
+      "startMs": 441335,
+      "endMs": 443997
+    },
+    {
+      "index": 89,
+      "text": "Now wait just a minute.",
+      "kind": "dialogue",
+      "startMs": 444104,
+      "endMs": 446004
+    },
+    {
+      "index": 90,
+      "text": "We're twice as smart as the people of Shelbyville. just tell us your idea, and we'll vote for it.",
+      "kind": "dialogue",
+      "startMs": 446106,
+      "endMs": 450739
+    },
+    {
+      "index": 91,
+      "text": "All right. I tell you what I'll do.",
+      "kind": "dialogue",
+      "startMs": 450845,
+      "endMs": 453609
+    },
+    {
+      "index": 92,
+      "text": "I'll show you my idea.",
+      "kind": "dialogue",
+      "startMs": 453714,
+      "endMs": 455841
+    },
+    {
+      "index": 93,
+      "text": "I give you the Springfield Monorail! [All Gasping] I've sold monorails to Brockway, Ogdenville and North Haverbrook... and by gum, it put them on the map!",
+      "kind": "dialogue",
+      "startMs": 455950,
+      "endMs": 468426
+    },
+    {
+      "index": 94,
+      "text": "Well, sir, there's nothing on earth like a genuine, bona fide... electrified, six-car monorail.",
+      "kind": "dialogue",
+      "startMs": 468529,
+      "endMs": 472598
+    },
+    {
+      "index": 95,
+      "text": "What'd I say? Monorail!",
+      "kind": "dialogue",
+      "startMs": 472700,
+      "endMs": 474600
+    },
+    {
+      "index": 96,
+      "text": "What's it called? [ Together] Monorail!",
+      "kind": "dialogue",
+      "startMs": 474702,
+      "endMs": 476602
+    },
+    {
+      "index": 97,
+      "text": "That's right, monorail! [ All ] Monorail. Monorail. Monorail.",
+      "kind": "dialogue",
+      "startMs": 476704,
+      "endMs": 480868
+    },
+    {
+      "index": 98,
+      "text": "I hear those things are awfully loud.",
+      "kind": "dialogue",
+      "startMs": 480975,
+      "endMs": 483000
+    },
+    {
+      "index": 99,
+      "text": "It glides as softly as a cloud.",
+      "kind": "dialogue",
+      "startMs": 483110,
+      "endMs": 485010
+    },
+    {
+      "index": 100,
+      "text": "Is there a chance the track could bend?",
+      "kind": "dialogue",
+      "startMs": 485112,
+      "endMs": 487171
+    },
+    {
+      "index": 101,
+      "text": "Not on your life, my Hindu friend.",
+      "kind": "dialogue",
+      "startMs": 487281,
+      "endMs": 489181
+    },
+    {
+      "index": 102,
+      "text": "What about us brain-dead slobs?",
+      "kind": "dialogue",
+      "startMs": 489283,
+      "endMs": 491217
+    },
+    {
+      "index": 103,
+      "text": "You'll be given cushy jobs.",
+      "kind": "dialogue",
+      "startMs": 491318,
+      "endMs": 493218
+    },
+    {
+      "index": 104,
+      "text": "Were you sent here by the devil?",
+      "kind": "dialogue",
+      "startMs": 493320,
+      "endMs": 495220
+    },
+    {
+      "index": 105,
+      "text": "No, good sir. I'm on the level.",
+      "kind": "dialogue",
+      "startMs": 495322,
+      "endMs": 497153
+    },
+    {
+      "index": 106,
+      "text": "The ring came off my pudding can!",
+      "kind": "dialogue",
+      "startMs": 497258,
+      "endMs": 499158
+    },
+    {
+      "index": 107,
+      "text": "Take my pen knife, my good man.",
+      "kind": "dialogue",
+      "startMs": 499260,
+      "endMs": 500989
+    },
+    {
+      "index": 108,
+      "text": "I swear it's Springfield's only choice.",
+      "kind": "dialogue",
+      "startMs": 501095,
+      "endMs": 503154
+    },
+    {
+      "index": 109,
+      "text": "Throw up your hands and raise your voice.",
+      "kind": "dialogue",
+      "startMs": 503264,
+      "endMs": 505255
+    },
+    {
+      "index": 110,
+      "text": "## [ All Singing ] What's it called?",
+      "kind": "dialogue",
+      "startMs": 505366,
+      "endMs": 507266
+    },
+    {
+      "index": 111,
+      "text": "## [ All Singing ] Once again!",
+      "kind": "dialogue",
+      "startMs": 507368,
+      "endMs": 509268
+    },
+    {
+      "index": 112,
+      "text": "## [ All Singing ] But Main Street's still all cracked and broken.",
+      "kind": "dialogue",
+      "startMs": 509370,
+      "endMs": 515473
+    },
+    {
+      "index": 113,
+      "text": "Sorry, Mom, the mob has spoken.",
+      "kind": "dialogue",
+      "startMs": 515576,
+      "endMs": 517339
+    },
+    {
+      "index": 114,
+      "text": "## [ All Singing ]",
+      "kind": "dialogue",
+      "startMs": 517444,
+      "endMs": 519412
+    },
+    {
+      "index": 115,
+      "text": "Monorail!",
+      "kind": "dialogue",
+      "startMs": 524385,
+      "endMs": 525909
+    },
+    {
+      "index": 116,
+      "text": "Mono-- D'oh!",
+      "kind": "dialogue",
+      "startMs": 526020,
+      "endMs": 527920
+    },
+    {
+      "index": 117,
+      "text": "[ Bart, Homer] Monorail! Monorail! Monorail!",
+      "kind": "dialogue",
+      "startMs": 531892,
+      "endMs": 533792
+    },
+    {
+      "index": 118,
+      "text": "I still think we should have spent the money to fix Main Street.",
+      "kind": "dialogue",
+      "startMs": 533894,
+      "endMs": 536829
+    },
+    {
+      "index": 119,
+      "text": "Well, you should have written a song like that guy. - [ Groans ] Thank you for coming, Mr. Lanley. I'm Miss Hoover.",
+      "kind": "dialogue",
+      "startMs": 536931,
+      "endMs": 543762
+    },
+    {
+      "index": 120,
+      "text": "Miss Hoover? That is hard to believe.",
+      "kind": "dialogue",
+      "startMs": 543871,
+      "endMs": 546305
+    },
+    {
+      "index": 121,
+      "text": "Oh, you. [ Chuckles ] I'm here to answer any questions you children have about the monorail.",
+      "kind": "dialogue",
+      "startMs": 546407,
+      "endMs": 551037
+    },
+    {
+      "index": 122,
+      "text": "Me! Me!",
+      "kind": "dialogue",
+      "startMs": 551145,
+      "endMs": 552703
+    },
+    {
+      "index": 123,
+      "text": "Can it outrun The Flash? You bet.",
+      "kind": "dialogue",
+      "startMs": 552813,
+      "endMs": 555145
+    },
+    {
+      "index": 124,
+      "text": "Can Superman outrun The Flash?",
+      "kind": "dialogue",
+      "startMs": 555249,
+      "endMs": 557308
+    },
+    {
+      "index": 125,
+      "text": "Uh, sure. Why not? Hello, little girl.",
+      "kind": "dialogue",
+      "startMs": 557418,
+      "endMs": 560444
+    },
+    {
+      "index": 126,
+      "text": "Wondering if your dolly can ride the monorail for free?",
+      "kind": "dialogue",
+      "startMs": 560554,
+      "endMs": 563318
+    },
+    {
+      "index": 127,
+      "text": "Hardly. I'd like you to explain... why we should build a mass transit system... in a small town with a centralized population.",
+      "kind": "dialogue",
+      "startMs": 563424,
+      "endMs": 570328
+    },
+    {
+      "index": 128,
+      "text": "[ Chuckles ] Young lady... that's the most intelligent question I've ever been asked.",
+      "kind": "dialogue",
+      "startMs": 570431,
+      "endMs": 575231
+    },
+    {
+      "index": 129,
+      "text": "Really? Oh, I could give you an answer.",
+      "kind": "dialogue",
+      "startMs": 575336,
+      "endMs": 577395
+    },
+    {
+      "index": 130,
+      "text": "But the only ones who'd understand it would be you and me... and that includes your teacher.",
+      "kind": "dialogue",
+      "startMs": 577504,
+      "endMs": 582407
+    },
+    {
+      "index": 131,
+      "text": "[ Giggling ]",
+      "kind": "sdh",
+      "startMs": 582509,
+      "endMs": 584409
+    },
+    {
+      "index": 132,
+      "text": "Next question. You there, eating the paste.",
+      "kind": "dialogue",
+      "startMs": 584511,
+      "endMs": 587571
+    },
+    {
+      "index": 133,
+      "text": "[ Male Announcer] Coming soon, it's Truckasaurus: The Movie... starring Marlon Brando as the voice of John Truckasaurus.",
+      "kind": "dialogue",
+      "startMs": 587681,
+      "endMs": 593519
+    },
+    {
+      "index": 134,
+      "text": "You crazy car. I don't know whether...",
+      "kind": "dialogue",
+      "startMs": 593620,
+      "endMs": 596748
+    },
+    {
+      "index": 135,
+      "text": "to eat you or kiss you. [ Announcer] Celebrity voice impersonated.",
+      "kind": "dialogue",
+      "startMs": 596857,
+      "endMs": 601191
+    },
+    {
+      "index": 136,
+      "text": "[ Lanley ] Are you stuck in a dead-end job? Maybe.",
+      "kind": "dialogue",
+      "startMs": 602529,
+      "endMs": 604759
+    },
+    {
+      "index": 137,
+      "text": "Are you squandering the precious gift Of life in front of the idiot box?",
+      "kind": "dialogue",
+      "startMs": 604865,
+      "endMs": 607834
+    },
+    {
+      "index": 138,
+      "text": "What's it to you? Are you on your third beer of the evening?",
+      "kind": "dialogue",
+      "startMs": 607935,
+      "endMs": 611063
+    },
+    {
+      "index": 139,
+      "text": "Does whiskey count as beer?",
+      "kind": "dialogue",
+      "startMs": 611171,
+      "endMs": 613401
+    },
+    {
+      "index": 140,
+      "text": "Well, maybe it's time you joined the exciting field of monorail conducting... by enrolling at the Lanley Institute.",
+      "kind": "dialogue",
+      "startMs": 613507,
+      "endMs": 619910
+    },
+    {
+      "index": 141,
+      "text": "[ Man ] Actual institute may not match photo.",
+      "kind": "dialogue",
+      "startMs": 620014,
+      "endMs": 622448
+    },
+    {
+      "index": 142,
+      "text": "Marge, I wanna be a monorail conductor.",
+      "kind": "dialogue",
+      "startMs": 622549,
+      "endMs": 624517
+    },
+    {
+      "index": 143,
+      "text": "Homer, no. It's my lifelong dream.",
+      "kind": "dialogue",
+      "startMs": 624618,
+      "endMs": 627678
+    },
+    {
+      "index": 144,
+      "text": "Your lifelong dream was to run out on the field during a baseball game... and you did it last year, remember?",
+      "kind": "dialogue",
+      "startMs": 627788,
+      "endMs": 632958
+    },
+    {
+      "index": 145,
+      "text": "Oh, yeah.",
+      "kind": "dialogue",
+      "startMs": 636196,
+      "endMs": 638061
+    },
+    {
+      "index": 146,
+      "text": "Good evening.",
+      "kind": "dialogue",
+      "startMs": 639166,
+      "endMs": 640758
+    },
+    {
+      "index": 147,
+      "text": "Before we begin, is anyone here an investigative reporter?",
+      "kind": "dialogue",
+      "startMs": 640868,
+      "endMs": 644360
+    },
+    {
+      "index": 148,
+      "text": "I am, and she is. Well, I'd like you to please leave.",
+      "kind": "dialogue",
+      "startMs": 644471,
+      "endMs": 647872
+    },
+    {
+      "index": 149,
+      "text": "Should we take our hidden camera? Would you?",
+      "kind": "dialogue",
+      "startMs": 647975,
+      "endMs": 650034
+    },
+    {
+      "index": 150,
+      "text": "Let's go, Phil.",
+      "kind": "dialogue",
+      "startMs": 650144,
+      "endMs": 652112
+    },
+    {
+      "index": 151,
+      "text": "True or false: You can get mono from riding the monorail.",
+      "kind": "dialogue",
+      "startMs": 653981,
+      "endMs": 658418
+    },
+    {
+      "index": 152,
+      "text": "Mmm, false. No, wait. Maybe it's true.",
+      "kind": "dialogue",
+      "startMs": 658519,
+      "endMs": 661420
+    },
+    {
+      "index": 153,
+      "text": "No, you were right. It's false.",
+      "kind": "dialogue",
+      "startMs": 661522,
+      "endMs": 663149
+    },
+    {
+      "index": 154,
+      "text": "Wow. You really are gonna be a monorail conductor. - That's right, boy.",
+      "kind": "dialogue",
+      "startMs": 663257,
+      "endMs": 667921
+    },
+    {
+      "index": 155,
+      "text": "You know, I used to think you were stuck... in an emasculating, go-nowhere job.",
+      "kind": "dialogue",
+      "startMs": 668028,
+      "endMs": 671990
+    },
+    {
+      "index": 156,
+      "text": "[ Chuckles ] Kids. But now, I wanna follow in your footsteps.",
+      "kind": "dialogue",
+      "startMs": 672099,
+      "endMs": 676331
+    },
+    {
+      "index": 157,
+      "text": "Do you want to change your name to Homer Junior?",
+      "kind": "dialogue",
+      "startMs": 676437,
+      "endMs": 678632
+    },
+    {
+      "index": 158,
+      "text": "The kids can call you Hoju.",
+      "kind": "dialogue",
+      "startMs": 678739,
+      "endMs": 680832
+    },
+    {
+      "index": 159,
+      "text": "I'll get back to you.",
+      "kind": "dialogue",
+      "startMs": 680941,
+      "endMs": 682772
+    },
+    {
+      "index": 160,
+      "text": "Come on! Keep it comin'!",
+      "kind": "dialogue",
+      "startMs": 682876,
+      "endMs": 685174
+    },
+    {
+      "index": 161,
+      "text": "Over. Over.",
+      "kind": "dialogue",
+      "startMs": 685279,
+      "endMs": 687611
+    },
+    {
+      "index": 162,
+      "text": "Mm-hmm. Mm-hmm. Hi, Homer!",
+      "kind": "dialogue",
+      "startMs": 687714,
+      "endMs": 691115
+    },
+    {
+      "index": 163,
+      "text": "Oh, I hate that sound.",
+      "kind": "dialogue",
+      "startMs": 693587,
+      "endMs": 696351
+    },
+    {
+      "index": 164,
+      "text": "According to this book, the monorail goes over 1 50 miles an hour.",
+      "kind": "dialogue",
+      "startMs": 696457,
+      "endMs": 700518
+    },
+    {
+      "index": 165,
+      "text": "What if something goes wrong? What if?",
+      "kind": "dialogue",
+      "startMs": 700627,
+      "endMs": 702686
+    },
+    {
+      "index": 166,
+      "text": "What if I'm taking a shower and I slip on a bar of soap?",
+      "kind": "dialogue",
+      "startMs": 702796,
+      "endMs": 706493
+    },
+    {
+      "index": 167,
+      "text": "Oh, my God, I'd be killed!",
+      "kind": "dialogue",
+      "startMs": 706600,
+      "endMs": 708500
+    },
+    {
+      "index": 168,
+      "text": "It frightens me that you want to work on something that's so unsafe.",
+      "kind": "dialogue",
+      "startMs": 708602,
+      "endMs": 711503
+    },
+    {
+      "index": 169,
+      "text": "We monorail conductors are a crazy breed... half in love with death, gobbling up danger like ordinary men eat peanuts.",
+      "kind": "dialogue",
+      "startMs": 711605,
+      "endMs": 719609
+    },
+    {
+      "index": 170,
+      "text": "Am I turning you on? No.",
+      "kind": "dialogue",
+      "startMs": 719713,
+      "endMs": 722113
+    },
+    {
+      "index": 171,
+      "text": "What if I undo this button? Good night, Homer.",
+      "kind": "dialogue",
+      "startMs": 722216,
+      "endMs": 724582
+    },
+    {
+      "index": 172,
+      "text": "[ Deep Voice ] What if I talk like this?",
+      "kind": "dialogue",
+      "startMs": 724685,
+      "endMs": 726585
+    },
+    {
+      "index": 173,
+      "text": "What if I sing to you?",
+      "kind": "dialogue",
+      "startMs": 726687,
+      "endMs": 729656
+    },
+    {
+      "index": 174,
+      "text": "####[Homer Singing]",
+      "kind": "dialogue",
+      "startMs": 729756,
+      "endMs": 732054
+    },
+    {
+      "index": 175,
+      "text": "Mmm, chicken. [Smacking Lips] So then, \"mono\" means \"one,\" and \"rail\" means \"rail.\"",
+      "kind": "dialogue",
+      "startMs": 735863,
+      "endMs": 744327
+    },
+    {
+      "index": 176,
+      "text": "And that concludes our intensive three-week course.",
+      "kind": "dialogue",
+      "startMs": 744438,
+      "endMs": 747202
+    },
+    {
+      "index": 177,
+      "text": "Hey, wait, man. Who gets to be conductor?",
+      "kind": "dialogue",
+      "startMs": 747307,
+      "endMs": 750105
+    },
+    {
+      "index": 178,
+      "text": "Oh, right, that. Well, I've been monitoring your progress closely.",
+      "kind": "dialogue",
+      "startMs": 750210,
+      "endMs": 754544
+    },
+    {
+      "index": 179,
+      "text": "But this gentleman here clearly stands out above the rest. - Who, me?",
+      "kind": "dialogue",
+      "startMs": 754648,
+      "endMs": 758379
+    },
+    {
+      "index": 180,
+      "text": "Yeah, sure. Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 758485,
+      "endMs": 760350
+    },
+    {
+      "index": 181,
+      "text": "After an exhaustive search, Springfield has found its monorail conductor-- Homer Simpson.",
+      "kind": "dialogue",
+      "startMs": 760454,
+      "endMs": 767387
+    },
+    {
+      "index": 182,
+      "text": "And this is the snack holder where I can put my beverage or, if you will, cupcake.",
+      "kind": "dialogue",
+      "startMs": 769329,
+      "endMs": 774494
+    },
+    {
+      "index": 183,
+      "text": "Wow, Dad. You really know your monorails.",
+      "kind": "dialogue",
+      "startMs": 774601,
+      "endMs": 777399
+    },
+    {
+      "index": 184,
+      "text": "[ Squeaking, Hissing ]",
+      "kind": "sdh",
+      "startMs": 777504,
+      "endMs": 780735
+    },
+    {
+      "index": 185,
+      "text": "Homer, there's a family Of possums in here.",
+      "kind": "dialogue",
+      "startMs": 780841,
+      "endMs": 783810
+    },
+    {
+      "index": 186,
+      "text": "I call the big one Bitey. [ Groans ] I'm going to see Mr. Lanley.",
+      "kind": "dialogue",
+      "startMs": 783911,
+      "endMs": 788737
+    },
+    {
+      "index": 187,
+      "text": "Mr. Lanley? Mr. Lanley?",
+      "kind": "dialogue",
+      "startMs": 790684,
+      "endMs": 794916
+    },
+    {
+      "index": 188,
+      "text": "[ Gasps ] Oh!",
+      "kind": "dialogue",
+      "startMs": 805966,
+      "endMs": 807729
+    },
+    {
+      "index": 189,
+      "text": "How much did you see? Uh, nothing incriminating.",
+      "kind": "dialogue",
+      "startMs": 807834,
+      "endMs": 810997
+    },
+    {
+      "index": 190,
+      "text": "Good. Well, bye.",
+      "kind": "dialogue",
+      "startMs": 811104,
+      "endMs": 814369
+    },
+    {
+      "index": 191,
+      "text": "[Door Closes] I don't know why I leave this lying around.",
+      "kind": "dialogue",
+      "startMs": 814474,
+      "endMs": 816999
+    },
+    {
+      "index": 192,
+      "text": "I've sold monorails to Brockway, Ogdenville and North Haverbrook.",
+      "kind": "dialogue",
+      "startMs": 817110,
+      "endMs": 821877
+    },
+    {
+      "index": 193,
+      "text": "Is there a chance the track could bend?",
+      "kind": "dialogue",
+      "startMs": 821982,
+      "endMs": 824542
+    },
+    {
+      "index": 194,
+      "text": "I call the big one Bitey.",
+      "kind": "dialogue",
+      "startMs": 824651,
+      "endMs": 826812
+    },
+    {
+      "index": 195,
+      "text": "I've sold monorails to Brockway, Ogdenville and North Haverbrook.",
+      "kind": "dialogue",
+      "startMs": 826920,
+      "endMs": 831016
+    },
+    {
+      "index": 196,
+      "text": "Is there a chance the track could bend?",
+      "kind": "dialogue",
+      "startMs": 831124,
+      "endMs": 833592
+    },
+    {
+      "index": 197,
+      "text": "I call the big one Bitey.",
+      "kind": "dialogue",
+      "startMs": 833694,
+      "endMs": 835958
+    },
+    {
+      "index": 198,
+      "text": "[ Cackling ]",
+      "kind": "sdh",
+      "startMs": 848308,
+      "endMs": 850276
+    },
+    {
+      "index": 199,
+      "text": "Go away! There ain't no monorail, and there never was!",
+      "kind": "dialogue",
+      "startMs": 851945,
+      "endMs": 856575
+    },
+    {
+      "index": 200,
+      "text": "[ Screams ] - Excuse me, miss. You asked about the monorail?",
+      "kind": "dialogue",
+      "startMs": 861088,
+      "endMs": 865320
+    },
+    {
+      "index": 201,
+      "text": "Who are you? My name is Sebastian Kobb.",
+      "kind": "dialogue",
+      "startMs": 865425,
+      "endMs": 868656
+    },
+    {
+      "index": 202,
+      "text": "Lanley hired me to build his monorail.",
+      "kind": "dialogue",
+      "startMs": 868762,
+      "endMs": 871731
+    },
+    {
+      "index": 203,
+      "text": "He cut corners everywhere-- bad wiring, faulty brakes.",
+      "kind": "dialogue",
+      "startMs": 871832,
+      "endMs": 875268
+    },
+    {
+      "index": 204,
+      "text": "And the celebrity on the maiden voyage was Gallagher.",
+      "kind": "dialogue",
+      "startMs": 875369,
+      "endMs": 878395
+    },
+    {
+      "index": 205,
+      "text": "This is all that's left... of one of the crappiest trains ever built.",
+      "kind": "dialogue",
+      "startMs": 879806,
+      "endMs": 885073
+    },
+    {
+      "index": 206,
+      "text": "Mr. Kobb, what can we do?",
+      "kind": "dialogue",
+      "startMs": 885178,
+      "endMs": 887544
+    },
+    {
+      "index": 207,
+      "text": "You just better have a damn good conductor.",
+      "kind": "dialogue",
+      "startMs": 887648,
+      "endMs": 890344
+    },
+    {
+      "index": 208,
+      "text": "I locked my keys in there. Get a rock.",
+      "kind": "dialogue",
+      "startMs": 891818,
+      "endMs": 894343
+    },
+    {
+      "index": 209,
+      "text": "####[Orchestra]",
+      "kind": "dialogue",
+      "startMs": 896490,
+      "endMs": 899584
+    },
+    {
+      "index": 210,
+      "text": "Ladies and gentlemen, nothing brings out the stars... - ####[Ends] like the maiden voyage of a monorail.",
+      "kind": "dialogue",
+      "startMs": 899693,
+      "endMs": 905090
+    },
+    {
+      "index": 211,
+      "text": "Everyone's here, from recently outed leading man Dash Calhoun...",
+      "kind": "dialogue",
+      "startMs": 905198,
+      "endMs": 909601
+    },
+    {
+      "index": 212,
+      "text": "to Krusty the Clown. Hey, hey!",
+      "kind": "dialogue",
+      "startMs": 909703,
+      "endMs": 912695
+    },
+    {
+      "index": 213,
+      "text": "Krusty, why won't you answer my calls? You've never even seen our son!",
+      "kind": "dialogue",
+      "startMs": 912806,
+      "endMs": 916264
+    },
+    {
+      "index": 214,
+      "text": "[ Babbling ]",
+      "kind": "sdh",
+      "startMs": 916376,
+      "endMs": 919004
+    },
+    {
+      "index": 215,
+      "text": "Here's one of those loveable high-schoolers... from TV's Springfield Heights, 90210.",
+      "kind": "dialogue",
+      "startMs": 919112,
+      "endMs": 924216
+    },
+    {
+      "index": 216,
+      "text": "He's cool, he's sexy, he's 34 years old.",
+      "kind": "dialogue",
+      "startMs": 924318,
+      "endMs": 928118
+    },
+    {
+      "index": 217,
+      "text": "Let's hear it for Kyle Darren! [ Women Screaming ] And here's country singing sensation Lurleen Lumpkin... fresh from her latest stay at the Betty Ford Clinic!",
+      "kind": "dialogue",
+      "startMs": 928221,
+      "endMs": 937828
+    },
+    {
+      "index": 218,
+      "text": "[ Chuckles ] [ Scattered Applause ]",
+      "kind": "dialogue",
+      "startMs": 937931,
+      "endMs": 940399
+    },
+    {
+      "index": 219,
+      "text": "What ya been up to, Lurleen? I spent last night in a ditch.",
+      "kind": "dialogue",
+      "startMs": 940500,
+      "endMs": 944436
+    },
+    {
+      "index": 220,
+      "text": "How about that, folks?",
+      "kind": "dialogue",
+      "startMs": 944538,
+      "endMs": 946438
+    },
+    {
+      "index": 221,
+      "text": "Now I'd like to turn things over to our grand marshal...",
+      "kind": "dialogue",
+      "startMs": 946540,
+      "endMs": 949771
+    },
+    {
+      "index": 222,
+      "text": "Mr. Leonard Nimoy.",
+      "kind": "dialogue",
+      "startMs": 949876,
+      "endMs": 951776
+    },
+    {
+      "index": 223,
+      "text": "[ Chuckles ] I'd say this vessel could do at least warp five.",
+      "kind": "dialogue",
+      "startMs": 951878,
+      "endMs": 955279
+    },
+    {
+      "index": 224,
+      "text": "[ Laughter, Applause ]",
+      "kind": "sdh",
+      "startMs": 955382,
+      "endMs": 956940
+    },
+    {
+      "index": 225,
+      "text": "And let me say...",
+      "kind": "dialogue",
+      "startMs": 957050,
+      "endMs": 958950
+    },
+    {
+      "index": 226,
+      "text": "\"May the force be with you.\"",
+      "kind": "dialogue",
+      "startMs": 959052,
+      "endMs": 961816
+    },
+    {
+      "index": 227,
+      "text": "Do you even know who I am? I think I do.",
+      "kind": "dialogue",
+      "startMs": 961922,
+      "endMs": 964755
+    },
+    {
+      "index": 228,
+      "text": "Weren't you one Of the Little Rascals?",
+      "kind": "dialogue",
+      "startMs": 964858,
+      "endMs": 966758
+    },
+    {
+      "index": 229,
+      "text": "Mr. Lanley! Aren't you gonna ride the monorail?",
+      "kind": "dialogue",
+      "startMs": 969796,
+      "endMs": 972924
+    },
+    {
+      "index": 230,
+      "text": "Little lady, I'd love to, but I have to catch a plane.",
+      "kind": "dialogue",
+      "startMs": 973033,
+      "endMs": 975763
+    },
+    {
+      "index": 231,
+      "text": "The ride only takes a minute. - Yeah, well, my plane leaves in less than one minute.",
+      "kind": "dialogue",
+      "startMs": 975869,
+      "endMs": 979669
+    },
+    {
+      "index": 232,
+      "text": "[ Applause ]",
+      "kind": "sdh",
+      "startMs": 981608,
+      "endMs": 983337
+    },
+    {
+      "index": 233,
+      "text": "[Engine Powering Up] All aboard!",
+      "kind": "dialogue",
+      "startMs": 983443,
+      "endMs": 988176
+    },
+    {
+      "index": 234,
+      "text": "We're too late!",
+      "kind": "dialogue",
+      "startMs": 1002362,
+      "endMs": 1004353
+    },
+    {
+      "index": 235,
+      "text": "I shouldn't have stopped for that haircut. Sorry.",
+      "kind": "dialogue",
+      "startMs": 1004464,
+      "endMs": 1007160
+    },
+    {
+      "index": 236,
+      "text": "####[Jazz] [Chattering]",
+      "kind": "dialogue",
+      "startMs": 1009269,
+      "endMs": 1011499
+    },
+    {
+      "index": 237,
+      "text": "Actually, you see, the doors on Star Trek were not mechanical.",
+      "kind": "dialogue",
+      "startMs": 1015876,
+      "endMs": 1018538
+    },
+    {
+      "index": 238,
+      "text": "We had a stagehand on either side...",
+      "kind": "dialogue",
+      "startMs": 1018645,
+      "endMs": 1020704
+    },
+    {
+      "index": 239,
+      "text": "who would pull the door open when he saw you approach. - Uh-huh.",
+      "kind": "dialogue",
+      "startMs": 1020814,
+      "endMs": 1024580
+    },
+    {
+      "index": 240,
+      "text": "Stick your head out the window, boy. It's the greatest!",
+      "kind": "dialogue",
+      "startMs": 1024684,
+      "endMs": 1028381
+    },
+    {
+      "index": 241,
+      "text": "Yee-haw!",
+      "kind": "dialogue",
+      "startMs": 1028488,
+      "endMs": 1030718
+    },
+    {
+      "index": 242,
+      "text": "[ Both Gasp ] [ All Gasp ]",
+      "kind": "dialogue",
+      "startMs": 1035228,
+      "endMs": 1037458
+    },
+    {
+      "index": 243,
+      "text": "[ Alarm Blaring ]",
+      "kind": "sdh",
+      "startMs": 1037564,
+      "endMs": 1039361
+    },
+    {
+      "index": 244,
+      "text": "[ All Screaming ]",
+      "kind": "sdh",
+      "startMs": 1039466,
+      "endMs": 1042629
+    },
+    {
+      "index": 245,
+      "text": "[ Whimpering ]",
+      "kind": "sdh",
+      "startMs": 1047974,
+      "endMs": 1050602
+    },
+    {
+      "index": 246,
+      "text": "Can't you stop it, Dad? I'm trying my best.",
+      "kind": "dialogue",
+      "startMs": 1050710,
+      "endMs": 1054271
+    },
+    {
+      "index": 247,
+      "text": "[Female Computerized Voice] The lever you have pulled--brakes-- Is not in service.",
+      "kind": "dialogue",
+      "startMs": 1054381,
+      "endMs": 1057817
+    },
+    {
+      "index": 248,
+      "text": "Please make a note of it.",
+      "kind": "dialogue",
+      "startMs": 1057918,
+      "endMs": 1059545
+    },
+    {
+      "index": 249,
+      "text": "How fast are they going? [ Homer] Yikes!",
+      "kind": "dialogue",
+      "startMs": 1059653,
+      "endMs": 1062884
+    },
+    {
+      "index": 250,
+      "text": "Well, judging by your husband's cowardly scream...",
+      "kind": "dialogue",
+      "startMs": 1062989,
+      "endMs": 1065549
+    },
+    {
+      "index": 251,
+      "text": "180 miles an hour. [ Homer] Yikes!",
+      "kind": "dialogue",
+      "startMs": 1065659,
+      "endMs": 1067889
+    },
+    {
+      "index": 252,
+      "text": "[ Riders Screaming, Groaning ]",
+      "kind": "sdh",
+      "startMs": 1067994,
+      "endMs": 1071225
+    },
+    {
+      "index": 253,
+      "text": "Ah. It's making me dizzy. I'm gonna take a nap.",
+      "kind": "dialogue",
+      "startMs": 1071331,
+      "endMs": 1074994
+    },
+    {
+      "index": 254,
+      "text": "All right, I'm in charge here. Oh, run along, Quimby.",
+      "kind": "dialogue",
+      "startMs": 1075101,
+      "endMs": 1077934
+    },
+    {
+      "index": 255,
+      "text": "I think they're dedicating a phone booth somewhere.",
+      "kind": "dialogue",
+      "startMs": 1078038,
+      "endMs": 1080370
+    },
+    {
+      "index": 256,
+      "text": "Watch it, you talking tub of donut batter.",
+      "kind": "dialogue",
+      "startMs": 1080474,
+      "endMs": 1082305
+    },
+    {
+      "index": 257,
+      "text": "Hey, I got pictures of you, Quimby.",
+      "kind": "dialogue",
+      "startMs": 1082409,
+      "endMs": 1084309
+    },
+    {
+      "index": 258,
+      "text": "You don't scare me. That could be anyone's ass.",
+      "kind": "dialogue",
+      "startMs": 1084411,
+      "endMs": 1086470
+    },
+    {
+      "index": 259,
+      "text": "Now beat it! I'm calling the shots.",
+      "kind": "dialogue",
+      "startMs": 1086580,
+      "endMs": 1088878
+    },
+    {
+      "index": 260,
+      "text": "I think that sash is cutting off the air to your brain.",
+      "kind": "dialogue",
+      "startMs": 1088982,
+      "endMs": 1092315
+    },
+    {
+      "index": 261,
+      "text": "The town charter says that in an emergency, I run the show.",
+      "kind": "dialogue",
+      "startMs": 1092419,
+      "endMs": 1095820
+    },
+    {
+      "index": 262,
+      "text": "Well, we'll just see about that. Let's go to town hall.",
+      "kind": "dialogue",
+      "startMs": 1095922,
+      "endMs": 1098550
+    },
+    {
+      "index": 263,
+      "text": "Fine! Should we take one car, or should I follow you?",
+      "kind": "dialogue",
+      "startMs": 1098658,
+      "endMs": 1102560
+    },
+    {
+      "index": 264,
+      "text": "[ All Screaming ] Hey, according to the charter... as chief constable I'm supposed to get a pig every month...",
+      "kind": "dialogue",
+      "startMs": 1102662,
+      "endMs": 1108257
+    },
+    {
+      "index": 265,
+      "text": "\"and two comely lasses of virtue true.\" Keep the pig.",
+      "kind": "dialogue",
+      "startMs": 1108368,
+      "endMs": 1112862
+    },
+    {
+      "index": 266,
+      "text": "How many broads do I get? Hey, hey, let go! You're rippin' it!",
+      "kind": "dialogue",
+      "startMs": 1112973,
+      "endMs": 1116374
+    },
+    {
+      "index": 267,
+      "text": "No, you are! No, you are!",
+      "kind": "dialogue",
+      "startMs": 1116476,
+      "endMs": 1118376
+    },
+    {
+      "index": 268,
+      "text": "Let go. That's the charter. [ All Screaming ] Wait a minute. We can just shut off the power!",
+      "kind": "dialogue",
+      "startMs": 1118478,
+      "endMs": 1123911
+    },
+    {
+      "index": 269,
+      "text": "No such luck. It's solar-powered.",
+      "kind": "dialogue",
+      "startMs": 1124017,
+      "endMs": 1126247
+    },
+    {
+      "index": 270,
+      "text": "Solar power. When will people learn?",
+      "kind": "dialogue",
+      "startMs": 1126353,
+      "endMs": 1129288
+    },
+    {
+      "index": 271,
+      "text": "A solar eclipse.",
+      "kind": "dialogue",
+      "startMs": 1131725,
+      "endMs": 1133625
+    },
+    {
+      "index": 272,
+      "text": "The cosmic ballet goes on. Does anyone want to switch seats?",
+      "kind": "dialogue",
+      "startMs": 1133727,
+      "endMs": 1138061
+    },
+    {
+      "index": 273,
+      "text": "[ Cheering ]",
+      "kind": "sdh",
+      "startMs": 1142068,
+      "endMs": 1144730
+    },
+    {
+      "index": 274,
+      "text": "I did it.",
+      "kind": "dialogue",
+      "startMs": 1146172,
+      "endMs": 1148732
+    },
+    {
+      "index": 275,
+      "text": "D'oh!",
+      "kind": "dialogue",
+      "startMs": 1150343,
+      "endMs": 1152436
+    },
+    {
+      "index": 276,
+      "text": "[Man Over P.A.] Folks, this is your captain speaking.",
+      "kind": "dialogue",
+      "startMs": 1152546,
+      "endMs": 1155344
+    },
+    {
+      "index": 277,
+      "text": "Our nonstop flight to Tahiti will be making a brief layover in North Haverbrook.",
+      "kind": "dialogue",
+      "startMs": 1155448,
+      "endMs": 1160283
+    },
+    {
+      "index": 278,
+      "text": "North Haverbrook. Where have I heard that name before?",
+      "kind": "dialogue",
+      "startMs": 1160387,
+      "endMs": 1163083
+    },
+    {
+      "index": 279,
+      "text": "Oh, no. Oh, no!",
+      "kind": "dialogue",
+      "startMs": 1163189,
+      "endMs": 1165089
+    },
+    {
+      "index": 280,
+      "text": "There he is-- seat 3-F! [ Yelling, Shouting ]",
+      "kind": "dialogue",
+      "startMs": 1165191,
+      "endMs": 1168888
+    },
+    {
+      "index": 281,
+      "text": "[Lanley Groaning, Yelling]",
+      "kind": "sdh",
+      "startMs": 1168995,
+      "endMs": 1172158
+    },
+    {
+      "index": 282,
+      "text": "Krusty wants out!",
+      "kind": "dialogue",
+      "startMs": 1175669,
+      "endMs": 1178035
+    },
+    {
+      "index": 283,
+      "text": "No. The world needs laughter.",
+      "kind": "dialogue",
+      "startMs": 1180373,
+      "endMs": 1183069
+    },
+    {
+      "index": 284,
+      "text": "Are we gonna die, son? Yeah.",
+      "kind": "dialogue",
+      "startMs": 1183176,
+      "endMs": 1185940
+    },
+    {
+      "index": 285,
+      "text": "But at least we'll take a lot of innocent people with us.",
+      "kind": "dialogue",
+      "startMs": 1186046,
+      "endMs": 1188640
+    },
+    {
+      "index": 286,
+      "text": "[ Marge Over Radio ] Homer? Homer? Y'ello?",
+      "kind": "dialogue",
+      "startMs": 1188748,
+      "endMs": 1191148
+    },
+    {
+      "index": 287,
+      "text": "Homer, there's a man here who thinks he can help you.",
+      "kind": "dialogue",
+      "startMs": 1191251,
+      "endMs": 1193913
+    },
+    {
+      "index": 288,
+      "text": "Batman? No, he's a scientist.",
+      "kind": "dialogue",
+      "startMs": 1194020,
+      "endMs": 1195988
+    },
+    {
+      "index": 289,
+      "text": "Batman's a scientist. It's not Batman!",
+      "kind": "dialogue",
+      "startMs": 1196089,
+      "endMs": 1198956
+    },
+    {
+      "index": 290,
+      "text": "I think I have a way to stop the train.",
+      "kind": "dialogue",
+      "startMs": 1199059,
+      "endMs": 1201357
+    },
+    {
+      "index": 291,
+      "text": "You need to find an anchor of some sort.",
+      "kind": "dialogue",
+      "startMs": 1201461,
+      "endMs": 1203429
+    },
+    {
+      "index": 292,
+      "text": "Think harder, Homer.",
+      "kind": "dialogue",
+      "startMs": 1207901,
+      "endMs": 1209801
+    },
+    {
+      "index": 293,
+      "text": "[ Gasps ]",
+      "kind": "sdh",
+      "startMs": 1210904,
+      "endMs": 1212804
+    },
+    {
+      "index": 294,
+      "text": "I'll take that.",
+      "kind": "dialogue",
+      "startMs": 1217510,
+      "endMs": 1219410
+    },
+    {
+      "index": 295,
+      "text": "Uh, Dad? [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 1229222,
+      "endMs": 1232453
+    },
+    {
+      "index": 296,
+      "text": "Now, separating Siamese twins is a long and costly procedure.",
+      "kind": "dialogue",
+      "startMs": 1247607,
+      "endMs": 1252670
+    },
+    {
+      "index": 297,
+      "text": "[ Together] Huh?",
+      "kind": "dialogue",
+      "startMs": 1252779,
+      "endMs": 1255839
+    },
+    {
+      "index": 298,
+      "text": "Arr! Ya call that an anchor?",
+      "kind": "dialogue",
+      "startMs": 1259152,
+      "endMs": 1261916
+    },
+    {
+      "index": 299,
+      "text": "Huh?",
+      "kind": "dialogue",
+      "startMs": 1274934,
+      "endMs": 1276834
+    },
+    {
+      "index": 300,
+      "text": "Donuts. Is there anything they can't do?",
+      "kind": "dialogue",
+      "startMs": 1278505,
+      "endMs": 1281872
+    },
+    {
+      "index": 301,
+      "text": "Dad, you're a hero. Yes, son.",
+      "kind": "dialogue",
+      "startMs": 1281975,
+      "endMs": 1285206
+    },
+    {
+      "index": 302,
+      "text": "I'm the best mono-thingy guy there ever was.",
+      "kind": "dialogue",
+      "startMs": 1285311,
+      "endMs": 1288769
+    },
+    {
+      "index": 303,
+      "text": "[Cheering]",
+      "kind": "sdh",
+      "startMs": 1288882,
+      "endMs": 1291214
+    },
+    {
+      "index": 304,
+      "text": "Well, my work is done here.",
+      "kind": "dialogue",
+      "startMs": 1291317,
+      "endMs": 1293376
+    },
+    {
+      "index": 305,
+      "text": "What do you mean, Your work is done?",
+      "kind": "dialogue",
+      "startMs": 1293486,
+      "endMs": 1295386
+    },
+    {
+      "index": 306,
+      "text": "You didn't do anything. [ Chuckles ] Didn't I?",
+      "kind": "dialogue",
+      "startMs": 1295488,
+      "endMs": 1300354
+    },
+    {
+      "index": 307,
+      "text": "[Marge] And that was the only folly... the people of Springfield ever embarked upon... except for the Popsicle stick skyscraper... and the 50-foot magnifying glass... and that escalator to nowhere.",
+      "kind": "dialogue",
+      "startMs": 1304030,
+      "endMs": 1321480
+    },
+    {
+      "index": 308,
+      "text": "Whoa!",
+      "kind": "dialogue",
+      "startMs": 1321581,
+      "endMs": 1323173
+    },
+    {
+      "index": 309,
+      "text": "Aah!",
+      "kind": "dialogue",
+      "startMs": 1323283,
+      "endMs": 1325478
+    },
+    {
+      "index": 310,
+      "text": "Aah!",
+      "kind": "dialogue",
+      "startMs": 1325585,
+      "endMs": 1327485
+    },
+    {
+      "index": 311,
+      "text": "Whoa! Aah!",
+      "kind": "dialogue",
+      "startMs": 1327587,
+      "endMs": 1330590
+    },
+    {
+      "index": 312,
+      "text": "[ People Chattering ] Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1375635,
+      "endMs": 2000
+    }
+  ]
+}
