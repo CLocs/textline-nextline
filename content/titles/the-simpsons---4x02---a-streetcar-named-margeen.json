@@ -1,0 +1,1864 @@
+{
+  "id": "the-simpsons---4x02---a-streetcar-named-margeen",
+  "title": "The Simpsons - 4x02 - A Streetcar Named Marge.en",
+  "sourceFilename": "The Simpsons - 4x02 - A Streetcar Named Marge.en.srt",
+  "importedAt": "2026-08-31T04:14:29.490Z",
+  "lineCount": 265,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[Chorus] ## The Simpsons ##",
+      "kind": "dialogue",
+      "startMs": 4000,
+      "endMs": 7299
+    },
+    {
+      "index": 1,
+      "text": "[Bell Ringing]",
+      "kind": "sdh",
+      "startMs": 18081,
+      "endMs": 19981
+    },
+    {
+      "index": 2,
+      "text": "[Whistle Blowing]",
+      "kind": "sdh",
+      "startMs": 24854,
+      "endMs": 27914
+    },
+    {
+      "index": 3,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 30393,
+      "endMs": 32293
+    },
+    {
+      "index": 4,
+      "text": "## [Jazzy Solo ]",
+      "kind": "dialogue",
+      "startMs": 38034,
+      "endMs": 39934
+    },
+    {
+      "index": 5,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 60023,
+      "endMs": 61923
+    },
+    {
+      "index": 6,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 62025,
+      "endMs": 63925
+    },
+    {
+      "index": 7,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 65295,
+      "endMs": 67229
+    },
+    {
+      "index": 8,
+      "text": "[Troy McClure] Live from beautiful Laughlin, Nevada... it's the Miss American Girl Pageant.",
+      "kind": "dialogue",
+      "startMs": 83313,
+      "endMs": 88050
+    },
+    {
+      "index": 9,
+      "text": "Brought to you by: Smell like Streep For cheap!",
+      "kind": "dialogue",
+      "startMs": 88151,
+      "endMs": 92646
+    },
+    {
+      "index": 10,
+      "text": "I'm your host, Troy McClure. And now, here come the ladies!",
+      "kind": "dialogue",
+      "startMs": 92755,
+      "endMs": 96851
+    },
+    {
+      "index": 11,
+      "text": "[ Applause ] ## [ Singing ]",
+      "kind": "dialogue",
+      "startMs": 96960,
+      "endMs": 99554
+    },
+    {
+      "index": 12,
+      "text": "[ Troy] Like Miss South Dakota.",
+      "kind": "dialogue",
+      "startMs": 105401,
+      "endMs": 107995
+    },
+    {
+      "index": 13,
+      "text": "Miss North Carolina.",
+      "kind": "dialogue",
+      "startMs": 108104,
+      "endMs": 110368
+    },
+    {
+      "index": 14,
+      "text": "Miss Indiana. Miss Alaska.",
+      "kind": "dialogue",
+      "startMs": 110473,
+      "endMs": 113203
+    },
+    {
+      "index": 15,
+      "text": "Kids, I won't be home tonight, so I'm leaving you some low-cal microwavable TV dinners.",
+      "kind": "dialogue",
+      "startMs": 113309,
+      "endMs": 117473
+    },
+    {
+      "index": 16,
+      "text": "Uh-- Okay.",
+      "kind": "dialogue",
+      "startMs": 117580,
+      "endMs": 118604
+    },
+    {
+      "index": 17,
+      "text": "I'm auditioning for a play.",
+      "kind": "dialogue",
+      "startMs": 118715,
+      "endMs": 120774
+    },
+    {
+      "index": 18,
+      "text": "It's a musical version Of A Street car Named Desire.",
+      "kind": "dialogue",
+      "startMs": 120884,
+      "endMs": 123819
+    },
+    {
+      "index": 19,
+      "text": "Isn't that exciting?",
+      "kind": "dialogue",
+      "startMs": 123920,
+      "endMs": 125888
+    },
+    {
+      "index": 20,
+      "text": "[ Troy] If you ask me, they're all winners!",
+      "kind": "dialogue",
+      "startMs": 127323,
+      "endMs": 129791
+    },
+    {
+      "index": 21,
+      "text": "We'll be cutting our first 40 contestants right after this.",
+      "kind": "dialogue",
+      "startMs": 129893,
+      "endMs": 132691
+    },
+    {
+      "index": 22,
+      "text": "Let's take a minute to meet our distinguished panel of judges.",
+      "kind": "dialogue",
+      "startMs": 134197,
+      "endMs": 137132
+    },
+    {
+      "index": 23,
+      "text": "Skin-care consultant, Roweena.",
+      "kind": "dialogue",
+      "startMs": 137233,
+      "endMs": 139997
+    },
+    {
+      "index": 24,
+      "text": "Syndicated columnist, William F. George.",
+      "kind": "dialogue",
+      "startMs": 140103,
+      "endMs": 142799
+    },
+    {
+      "index": 25,
+      "text": "Token black panelist, Drederick Tatum.",
+      "kind": "dialogue",
+      "startMs": 142906,
+      "endMs": 145670
+    },
+    {
+      "index": 26,
+      "text": "And Mr. Boswell, the man behind those infamous worst-dressed lists.",
+      "kind": "dialogue",
+      "startMs": 145775,
+      "endMs": 150178
+    },
+    {
+      "index": 27,
+      "text": "Mr. Boswell, can you give us a sneak peek at this year's list?",
+      "kind": "dialogue",
+      "startMs": 150280,
+      "endMs": 153443
+    },
+    {
+      "index": 28,
+      "text": "Memo to Goldie Hawn: cheerleading tryouts were 30 years ago.",
+      "kind": "dialogue",
+      "startMs": 153549,
+      "endMs": 156450
+    },
+    {
+      "index": 29,
+      "text": "Let's grow up, shall we?",
+      "kind": "dialogue",
+      "startMs": 156552,
+      "endMs": 158452
+    },
+    {
+      "index": 30,
+      "text": "[ All Laughing ] He's such a bitch.",
+      "kind": "dialogue",
+      "startMs": 158554,
+      "endMs": 162456
+    },
+    {
+      "index": 31,
+      "text": "I haven't been in a play since high school... and I thought it would be a good chance to meet some other adults.",
+      "kind": "dialogue",
+      "startMs": 162558,
+      "endMs": 168119
+    },
+    {
+      "index": 32,
+      "text": "Sounds interesting. You know, I spend all day alone with Maggie... and sometimes it's like I don't even exist.",
+      "kind": "dialogue",
+      "startMs": 168231,
+      "endMs": 174359
+    },
+    {
+      "index": 33,
+      "text": "Sounds interesting. [ Groans ] It's time to name our five finalists... starting with... Miss Montana.",
+      "kind": "dialogue",
+      "startMs": 174470,
+      "endMs": 182275
+    },
+    {
+      "index": 34,
+      "text": "[Applause] A beaut from Butte.",
+      "kind": "dialogue",
+      "startMs": 182378,
+      "endMs": 184278
+    },
+    {
+      "index": 35,
+      "text": "Miss South Carolina. Nothin' could be finer.",
+      "kind": "dialogue",
+      "startMs": 184380,
+      "endMs": 187178
+    },
+    {
+      "index": 36,
+      "text": "Miss Delaware. She, uh--",
+      "kind": "dialogue",
+      "startMs": 187283,
+      "endMs": 190684
+    },
+    {
+      "index": 37,
+      "text": "Good for her. ## [ Singing Scales ] Marge, keep it down in there!",
+      "kind": "dialogue",
+      "startMs": 192488,
+      "endMs": 198692
+    },
+    {
+      "index": 38,
+      "text": "Homer, my audition is in half-- Hey, look, it's last year's winner, Debra Jo Smallwood!",
+      "kind": "dialogue",
+      "startMs": 198795,
+      "endMs": 204255
+    },
+    {
+      "index": 39,
+      "text": "Tonight, my reign as Miss American Girl comes to an end.",
+      "kind": "dialogue",
+      "startMs": 204367,
+      "endMs": 208997
+    },
+    {
+      "index": 40,
+      "text": "And I'd like to apologize one last time... for my unfortunate remarks at the United Nations.",
+      "kind": "dialogue",
+      "startMs": 209105,
+      "endMs": 214633
+    },
+    {
+      "index": 41,
+      "text": "## [ Classical ] Maggie, cut that racket!",
+      "kind": "dialogue",
+      "startMs": 214744,
+      "endMs": 220815
+    },
+    {
+      "index": 42,
+      "text": "And where exactly Are you going?",
+      "kind": "dialogue",
+      "startMs": 222385,
+      "endMs": 224580
+    },
+    {
+      "index": 43,
+      "text": "I'm auditioning for a play.",
+      "kind": "dialogue",
+      "startMs": 224687,
+      "endMs": 227349
+    },
+    {
+      "index": 44,
+      "text": "Well, this is the first I've heard about it. I told you several times.",
+      "kind": "dialogue",
+      "startMs": 227457,
+      "endMs": 230722
+    },
+    {
+      "index": 45,
+      "text": "It's a musical version Of A Streetcar Na-- Excuse me, Marge! I think that if you told me, I would remember.",
+      "kind": "dialogue",
+      "startMs": 230827,
+      "endMs": 236263
+    },
+    {
+      "index": 46,
+      "text": "I mean, I'm not an idiot!",
+      "kind": "dialogue",
+      "startMs": 236366,
+      "endMs": 238334
+    },
+    {
+      "index": 47,
+      "text": "Hm. Well, I-I thought I told you. Kids, back me up.",
+      "kind": "dialogue",
+      "startMs": 238434,
+      "endMs": 241665
+    },
+    {
+      "index": 48,
+      "text": "He's right, Mom. Sorry.",
+      "kind": "dialogue",
+      "startMs": 241771,
+      "endMs": 243170
+    },
+    {
+      "index": 49,
+      "text": "Match point-- Homer.",
+      "kind": "dialogue",
+      "startMs": 243272,
+      "endMs": 245672
+    },
+    {
+      "index": 50,
+      "text": "I'm sorry, honey. It's okay. We're none of us perfect.",
+      "kind": "dialogue",
+      "startMs": 245775,
+      "endMs": 248676
+    },
+    {
+      "index": 51,
+      "text": "####[Piano] ####[Singers Warming Up] ## [ Vocalizing ]",
+      "kind": "dialogue",
+      "startMs": 248778,
+      "endMs": 254441
+    },
+    {
+      "index": 52,
+      "text": "Well, howdy-do, neighbor. Hi, Ned.",
+      "kind": "dialogue",
+      "startMs": 256185,
+      "endMs": 258415
+    },
+    {
+      "index": 53,
+      "text": "I didn't know you were an actor. Oh, indeedily-doodily.",
+      "kind": "dialogue",
+      "startMs": 258521,
+      "endMs": 261183
+    },
+    {
+      "index": 54,
+      "text": "Uh, I've even been in Streetcar once before.",
+      "kind": "dialogue",
+      "startMs": 261290,
+      "endMs": 263884
+    },
+    {
+      "index": 55,
+      "text": "I played Blanche DuBois.",
+      "kind": "dialogue",
+      "startMs": 263993,
+      "endMs": 265927
+    },
+    {
+      "index": 56,
+      "text": "Mm-hmm. Just part of the fun Of going to an all-male school.",
+      "kind": "dialogue",
+      "startMs": 266029,
+      "endMs": 269021
+    },
+    {
+      "index": 57,
+      "text": "Hello! I am Llewellyn Sinclair.",
+      "kind": "dialogue",
+      "startMs": 269132,
+      "endMs": 273000
+    },
+    {
+      "index": 58,
+      "text": "I have directed three plays in my career... and I have had three heart attacks.",
+      "kind": "dialogue",
+      "startMs": 273102,
+      "endMs": 277832
+    },
+    {
+      "index": 59,
+      "text": "That's how much I care.",
+      "kind": "dialogue",
+      "startMs": 277940,
+      "endMs": 279840
+    },
+    {
+      "index": 60,
+      "text": "I'm planning for a fourth.",
+      "kind": "dialogue",
+      "startMs": 279942,
+      "endMs": 282001
+    },
+    {
+      "index": 61,
+      "text": "Maybe I should have taken a nice calligraphy class.",
+      "kind": "dialogue",
+      "startMs": 282111,
+      "endMs": 284443
+    },
+    {
+      "index": 62,
+      "text": "Oh, forget about it. That Mr. Takahashi's a lunatic.",
+      "kind": "dialogue",
+      "startMs": 284547,
+      "endMs": 287414
+    },
+    {
+      "index": 63,
+      "text": "Quiet! Sorry.",
+      "kind": "dialogue",
+      "startMs": 287517,
+      "endMs": 288848
+    },
+    {
+      "index": 64,
+      "text": "I am not an easy man to work for.",
+      "kind": "dialogue",
+      "startMs": 288951,
+      "endMs": 292011
+    },
+    {
+      "index": 65,
+      "text": "While directing Hats Off to Hanukkah...",
+      "kind": "dialogue",
+      "startMs": 292121,
+      "endMs": 295113
+    },
+    {
+      "index": 66,
+      "text": "I reduced more than one cast member to tears.",
+      "kind": "dialogue",
+      "startMs": 295224,
+      "endMs": 298625
+    },
+    {
+      "index": 67,
+      "text": "Did I expect too much from fourth graders?",
+      "kind": "dialogue",
+      "startMs": 298728,
+      "endMs": 302255
+    },
+    {
+      "index": 68,
+      "text": "The review, \"Play Enjoyed By All, '\" speaks for itself.",
+      "kind": "dialogue",
+      "startMs": 302365,
+      "endMs": 306426
+    },
+    {
+      "index": 69,
+      "text": "Hm.",
+      "kind": "dialogue",
+      "startMs": 306536,
+      "endMs": 307901
+    },
+    {
+      "index": 70,
+      "text": "Those auditioning for the role of Stanley... take off your shirts.",
+      "kind": "dialogue",
+      "startMs": 308004,
+      "endMs": 312300
+    },
+    {
+      "index": 71,
+      "text": "Take off your shirts!",
+      "kind": "dialogue",
+      "startMs": 312408,
+      "endMs": 314467
+    },
+    {
+      "index": 72,
+      "text": "[ Repeating In French ]",
+      "kind": "sdh",
+      "startMs": 314577,
+      "endMs": 316477
+    },
+    {
+      "index": 73,
+      "text": "Schnell! Schnell! Schnell!",
+      "kind": "dialogue",
+      "startMs": 316579,
+      "endMs": 319571
+    },
+    {
+      "index": 74,
+      "text": "Uh-uh. Nope. Try joining a gym.",
+      "kind": "dialogue",
+      "startMs": 319682,
+      "endMs": 323778
+    },
+    {
+      "index": 75,
+      "text": "Oh, ye gods!",
+      "kind": "dialogue",
+      "startMs": 323886,
+      "endMs": 327083
+    },
+    {
+      "index": 76,
+      "text": "Hey, man, if you like that, you should see my butt.",
+      "kind": "dialogue",
+      "startMs": 327190,
+      "endMs": 329886
+    },
+    {
+      "index": 77,
+      "text": "You. You're my Stanley.",
+      "kind": "dialogue",
+      "startMs": 329992,
+      "endMs": 332290
+    },
+    {
+      "index": 78,
+      "text": "Hot diggity! How 'bout that, Marge?",
+      "kind": "dialogue",
+      "startMs": 332395,
+      "endMs": 334920
+    },
+    {
+      "index": 79,
+      "text": "Little ol' Stanley me. [ Chuckles ] [ Weakly] \"Stella. Stella!\" [ Laughs ]",
+      "kind": "dialogue",
+      "startMs": 335031,
+      "endMs": 340033
+    },
+    {
+      "index": 80,
+      "text": "## [ Singing ] Next!",
+      "kind": "dialogue",
+      "startMs": 340136,
+      "endMs": 342366
+    },
+    {
+      "index": 81,
+      "text": "## [ Singing ] Next!",
+      "kind": "dialogue",
+      "startMs": 342472,
+      "endMs": 344804
+    },
+    {
+      "index": 82,
+      "text": "## [ Singing ] Next!",
+      "kind": "dialogue",
+      "startMs": 344907,
+      "endMs": 347205
+    },
+    {
+      "index": 83,
+      "text": "## [ Singing ] Thank you for nothing.",
+      "kind": "dialogue",
+      "startMs": 347310,
+      "endMs": 350473
+    },
+    {
+      "index": 84,
+      "text": "You're all terrible!",
+      "kind": "dialogue",
+      "startMs": 350580,
+      "endMs": 352207
+    },
+    {
+      "index": 85,
+      "text": "What you ladies don't understand is that Blanche... is a delicate flower being trampled by an uncouth lout-- [ Sighs ] Forget it! just strike the sets.",
+      "kind": "dialogue",
+      "startMs": 352315,
+      "endMs": 363192
+    },
+    {
+      "index": 86,
+      "text": "Clear the stage. This production is-- Homie, I didn't get the part.",
+      "kind": "dialogue",
+      "startMs": 363292,
+      "endMs": 367693
+    },
+    {
+      "index": 87,
+      "text": "You were right. Outside interests are stupid.",
+      "kind": "dialogue",
+      "startMs": 367797,
+      "endMs": 370493
+    },
+    {
+      "index": 88,
+      "text": "Wait a minute.",
+      "kind": "dialogue",
+      "startMs": 370600,
+      "endMs": 372534
+    },
+    {
+      "index": 89,
+      "text": "[ Groans ] I'll come home right away.",
+      "kind": "dialogue",
+      "startMs": 372635,
+      "endMs": 375160
+    },
+    {
+      "index": 90,
+      "text": "All right. I'll pick up a bucket Of fried chicken, extra skin... rolls, chocolate cream parfait--",
+      "kind": "dialogue",
+      "startMs": 375271,
+      "endMs": 383468
+    },
+    {
+      "index": 91,
+      "text": "[ Gasps ] Stop bothering my Blanche!",
+      "kind": "dialogue",
+      "startMs": 383579,
+      "endMs": 387709
+    },
+    {
+      "index": 92,
+      "text": "Oh!",
+      "kind": "dialogue",
+      "startMs": 387817,
+      "endMs": 389717
+    },
+    {
+      "index": 93,
+      "text": "I play an aging Southern beauty who's driven to insanity... by her brutish brother-in-law, Stanley.",
+      "kind": "dialogue",
+      "startMs": 393656,
+      "endMs": 399691
+    },
+    {
+      "index": 94,
+      "text": "Wow! My mother the actress.",
+      "kind": "dialogue",
+      "startMs": 399795,
+      "endMs": 401820
+    },
+    {
+      "index": 95,
+      "text": "I feel like Lucie Arnaz Luckinbill.",
+      "kind": "dialogue",
+      "startMs": 401931,
+      "endMs": 404297
+    },
+    {
+      "index": 96,
+      "text": "Are there any jive-talking robots in this play?",
+      "kind": "dialogue",
+      "startMs": 404400,
+      "endMs": 406391
+    },
+    {
+      "index": 97,
+      "text": "I don't think so.",
+      "kind": "dialogue",
+      "startMs": 406502,
+      "endMs": 407901
+    },
+    {
+      "index": 98,
+      "text": "Bart, don't ask stupid questions.",
+      "kind": "dialogue",
+      "startMs": 408004,
+      "endMs": 409972
+    },
+    {
+      "index": 99,
+      "text": "Is there any frontal nudity? No, Homer.",
+      "kind": "dialogue",
+      "startMs": 410072,
+      "endMs": 412472
+    },
+    {
+      "index": 100,
+      "text": "My name is Helen Lovejoy, and I'll be playing Stella.",
+      "kind": "dialogue",
+      "startMs": 412575,
+      "endMs": 416204
+    },
+    {
+      "index": 101,
+      "text": "I am Apu Nahasapeemapetilon. I play Steve.",
+      "kind": "dialogue",
+      "startMs": 416312,
+      "endMs": 419645
+    },
+    {
+      "index": 102,
+      "text": "My name is \"Ot-to!\" I'm playing \"Pab-lo!\"",
+      "kind": "dialogue",
+      "startMs": 419749,
+      "endMs": 424777
+    },
+    {
+      "index": 103,
+      "text": "Lionel Hutz, attorney-at-law.",
+      "kind": "dialogue",
+      "startMs": 424887,
+      "endMs": 426787
+    },
+    {
+      "index": 104,
+      "text": "I'm filing a class-action suit against the director... on behalf of everyone who was cut from the play.",
+      "kind": "dialogue",
+      "startMs": 426889,
+      "endMs": 431825
+    },
+    {
+      "index": 105,
+      "text": "I also play Mitch. I'm Marge Simpson.",
+      "kind": "dialogue",
+      "startMs": 431928,
+      "endMs": 434226
+    },
+    {
+      "index": 106,
+      "text": "I'll be playing Blanche. I made some peanut butter brownies for everyone.",
+      "kind": "dialogue",
+      "startMs": 434330,
+      "endMs": 437788
+    },
+    {
+      "index": 107,
+      "text": "Well, would anyone else like a bite of banality? I would.",
+      "kind": "dialogue",
+      "startMs": 439802,
+      "endMs": 444671
+    },
+    {
+      "index": 108,
+      "text": "Stanley-- Yeah?",
+      "kind": "dialogue",
+      "startMs": 444774,
+      "endMs": 446105
+    },
+    {
+      "index": 109,
+      "text": "You're pulsing with animal lust!",
+      "kind": "dialogue",
+      "startMs": 446209,
+      "endMs": 447836
+    },
+    {
+      "index": 110,
+      "text": "You take Blanche and you fling her roughly to the bed.",
+      "kind": "dialogue",
+      "startMs": 447944,
+      "endMs": 450412
+    },
+    {
+      "index": 111,
+      "text": "Roger-dodger.",
+      "kind": "dialogue",
+      "startMs": 450513,
+      "endMs": 452743
+    },
+    {
+      "index": 112,
+      "text": "Grr.",
+      "kind": "dialogue",
+      "startMs": 454083,
+      "endMs": 455983
+    },
+    {
+      "index": 113,
+      "text": "Aww, isn't that cute!",
+      "kind": "dialogue",
+      "startMs": 457320,
+      "endMs": 459311
+    },
+    {
+      "index": 114,
+      "text": "And me without a camera.",
+      "kind": "dialogue",
+      "startMs": 459422,
+      "endMs": 461686
+    },
+    {
+      "index": 115,
+      "text": "Here. My sister runs a day care center.",
+      "kind": "dialogue",
+      "startMs": 461791,
+      "endMs": 464919
+    },
+    {
+      "index": 116,
+      "text": "Hmm. I guess a few weeks wouldn't hurt her.",
+      "kind": "dialogue",
+      "startMs": 465027,
+      "endMs": 467518
+    },
+    {
+      "index": 117,
+      "text": "Maggie is allergic To strained pears... and she likes a bottle of warm milk before nap time.",
+      "kind": "dialogue",
+      "startMs": 469065,
+      "endMs": 474402
+    },
+    {
+      "index": 118,
+      "text": "A bottle? [ Laughs ] Mrs. Simpson, do you know what a baby's saying when she reaches for a bottle?",
+      "kind": "dialogue",
+      "startMs": 474503,
+      "endMs": 480437
+    },
+    {
+      "index": 119,
+      "text": "\"Ba-ba?\" She's saying, \"I am a leech.\"",
+      "kind": "dialogue",
+      "startMs": 480543,
+      "endMs": 484980
+    },
+    {
+      "index": 120,
+      "text": "Our aim here is to develop the bottle within.",
+      "kind": "dialogue",
+      "startMs": 485081,
+      "endMs": 487709
+    },
+    {
+      "index": 121,
+      "text": "That sounds awfully harsh.",
+      "kind": "dialogue",
+      "startMs": 487817,
+      "endMs": 489785
+    },
+    {
+      "index": 122,
+      "text": "Mrs. Simpson, I don't like to toot my own horn... but we're the only day care center in town... that's not currently under investigation by the state.",
+      "kind": "dialogue",
+      "startMs": 489885,
+      "endMs": 500085
+    },
+    {
+      "index": 123,
+      "text": "Oh. Well, be a good girl, Maggie.",
+      "kind": "dialogue",
+      "startMs": 500196,
+      "endMs": 502892
+    },
+    {
+      "index": 124,
+      "text": "I'm sorry, Maggie. We don't allow these here.",
+      "kind": "dialogue",
+      "startMs": 508771,
+      "endMs": 511934
+    },
+    {
+      "index": 125,
+      "text": "#You're a dame and I'm a fella # # Stanley, stop or I'll tell Stella # Passion, Mrs. Simpson. Anger.",
+      "kind": "dialogue",
+      "startMs": 516712,
+      "endMs": 524947
+    },
+    {
+      "index": 126,
+      "text": "This man disgusts you! #All I want is one embrace # # I'll twist this bottle in your face # Mm. Mm. Mm!",
+      "kind": "dialogue",
+      "startMs": 525054,
+      "endMs": 533387
+    },
+    {
+      "index": 127,
+      "text": "[ Chuckles ] Here, Marge, let me. Hate to be an armchair Blanche... but I always gave it one of these--",
+      "kind": "dialogue",
+      "startMs": 533496,
+      "endMs": 538826
+    },
+    {
+      "index": 128,
+      "text": "There. There's the ol' face-shredder. Oh.",
+      "kind": "dialogue",
+      "startMs": 540169,
+      "endMs": 542262
+    },
+    {
+      "index": 129,
+      "text": "Mrs. Simpson, if you set out to push the bile to the tip of my throat... mission accomplished!",
+      "kind": "dialogue",
+      "startMs": 542371,
+      "endMs": 548706
+    },
+    {
+      "index": 130,
+      "text": "I'm, uh-- I'm gonna crawl into bed with a bottle of amaretto.",
+      "kind": "dialogue",
+      "startMs": 548811,
+      "endMs": 551746
+    },
+    {
+      "index": 131,
+      "text": "Good day.",
+      "kind": "dialogue",
+      "startMs": 551847,
+      "endMs": 553838
+    },
+    {
+      "index": 132,
+      "text": "[ Homer] Easy, easy. Yes, yes. Yes, yes, yes-- D'oh!",
+      "kind": "dialogue",
+      "startMs": 553949,
+      "endMs": 556679
+    },
+    {
+      "index": 133,
+      "text": "[ Electronic Voice ] 7-1 0 split.",
+      "kind": "dialogue",
+      "startMs": 556786,
+      "endMs": 558686
+    },
+    {
+      "index": 134,
+      "text": "Homer, can you run some lines with me?",
+      "kind": "dialogue",
+      "startMs": 558788,
+      "endMs": 561052
+    },
+    {
+      "index": 135,
+      "text": "Make Bart do it. It'll just take a sec.",
+      "kind": "dialogue",
+      "startMs": 561157,
+      "endMs": 563625
+    },
+    {
+      "index": 136,
+      "text": "Gutter ball! D'oh!",
+      "kind": "dialogue",
+      "startMs": 563726,
+      "endMs": 565284
+    },
+    {
+      "index": 137,
+      "text": "You see, Marge, while you're Off in your own little world... you forgot that other people have problems too.",
+      "kind": "dialogue",
+      "startMs": 565394,
+      "endMs": 570488
+    },
+    {
+      "index": 138,
+      "text": "[ Sighs ]",
+      "kind": "sdh",
+      "startMs": 584513,
+      "endMs": 586413
+    },
+    {
+      "index": 139,
+      "text": "####[Action Movie Theme]",
+      "kind": "dialogue",
+      "startMs": 589985,
+      "endMs": 592453
+    },
+    {
+      "index": 140,
+      "text": "[ Objects Crashing ]",
+      "kind": "sdh",
+      "startMs": 615578,
+      "endMs": 617478
+    },
+    {
+      "index": 141,
+      "text": "Don't like to nap, eh? We have a place for babies like you-- the box!",
+      "kind": "dialogue",
+      "startMs": 625121,
+      "endMs": 629558
+    },
+    {
+      "index": 142,
+      "text": "All right, let \"ham-ateur\" night in Dixie commence.",
+      "kind": "dialogue",
+      "startMs": 639802,
+      "endMs": 643670
+    },
+    {
+      "index": 143,
+      "text": "I'm sorry, Llewellyn, I just-- I just don't see why Blanche should shove a broken bottle in Stanley's face.",
+      "kind": "dialogue",
+      "startMs": 646242,
+      "endMs": 653108
+    },
+    {
+      "index": 144,
+      "text": "Couldn't she just take his abuse with gentle good humor?",
+      "kind": "dialogue",
+      "startMs": 653215,
+      "endMs": 656946
+    },
+    {
+      "index": 145,
+      "text": "Marge, your ride's here.",
+      "kind": "dialogue",
+      "startMs": 657052,
+      "endMs": 659077
+    },
+    {
+      "index": 146,
+      "text": "Homer, it'll just be a few minutes more!",
+      "kind": "dialogue",
+      "startMs": 659188,
+      "endMs": 661748
+    },
+    {
+      "index": 147,
+      "text": "#You're a dame and I'm a fella # # Stanley, stop or I'll tell Stella # Marge. Marge! I'm asking For white-hot rage... and you're giving me a hissy fit.",
+      "kind": "dialogue",
+      "startMs": 661857,
+      "endMs": 673531
+    },
+    {
+      "index": 148,
+      "text": "Marge, can I get some change for the candy machine?",
+      "kind": "dialogue",
+      "startMs": 673636,
+      "endMs": 676196
+    },
+    {
+      "index": 149,
+      "text": "Oh, here! [ Clattering ] Hey, there's some quarters in here.",
+      "kind": "dialogue",
+      "startMs": 676305,
+      "endMs": 681909
+    },
+    {
+      "index": 150,
+      "text": "I just don't see what's so bad about Stanley.",
+      "kind": "dialogue",
+      "startMs": 682011,
+      "endMs": 684605
+    },
+    {
+      "index": 151,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 684713,
+      "endMs": 686613
+    },
+    {
+      "index": 152,
+      "text": "Stanley is thoughtless, violent and loud.",
+      "kind": "dialogue",
+      "startMs": 686715,
+      "endMs": 689912
+    },
+    {
+      "index": 153,
+      "text": "Marge, every second you spend with this man... he is crushing your fragile spirit.",
+      "kind": "dialogue",
+      "startMs": 690019,
+      "endMs": 694952
+    },
+    {
+      "index": 154,
+      "text": "You can't let that happen.",
+      "kind": "dialogue",
+      "startMs": 695057,
+      "endMs": 696957
+    },
+    {
+      "index": 155,
+      "text": "[Yelling]",
+      "kind": "sdh",
+      "startMs": 697059,
+      "endMs": 699220
+    },
+    {
+      "index": 156,
+      "text": "Whoo-hoo! Come to papa.",
+      "kind": "dialogue",
+      "startMs": 700329,
+      "endMs": 702229
+    },
+    {
+      "index": 157,
+      "text": "Marge, I'll be out in the car.",
+      "kind": "dialogue",
+      "startMs": 702331,
+      "endMs": 704231
+    },
+    {
+      "index": 158,
+      "text": "#All I want is one embrace #",
+      "kind": "dialogue",
+      "startMs": 704333,
+      "endMs": 707097
+    },
+    {
+      "index": 159,
+      "text": "[Car Horn Honking] Marge, move it or lose it.",
+      "kind": "dialogue",
+      "startMs": 707203,
+      "endMs": 710263
+    },
+    {
+      "index": 160,
+      "text": "# I'll twist this bottle in your face # Aaah!",
+      "kind": "dialogue",
+      "startMs": 714677,
+      "endMs": 719781
+    },
+    {
+      "index": 161,
+      "text": "Hallelujah! I've done it again!",
+      "kind": "dialogue",
+      "startMs": 719882,
+      "endMs": 722646
+    },
+    {
+      "index": 162,
+      "text": "Ned, you're supposed to overpower her.",
+      "kind": "dialogue",
+      "startMs": 722751,
+      "endMs": 724810
+    },
+    {
+      "index": 163,
+      "text": "I'm trying. I'm trying. [ Straining ]",
+      "kind": "dialogue",
+      "startMs": 724920,
+      "endMs": 727218
+    },
+    {
+      "index": 164,
+      "text": "Salt me. [ Southern Accent ] Here you are, Homer.",
+      "kind": "dialogue",
+      "startMs": 733662,
+      "endMs": 737063
+    },
+    {
+      "index": 165,
+      "text": "What the-- Why are you talking like that?",
+      "kind": "dialogue",
+      "startMs": 737166,
+      "endMs": 739396
+    },
+    {
+      "index": 166,
+      "text": "The play's tomorrow night. [ With Accent ] I've got to stay in character.",
+      "kind": "dialogue",
+      "startMs": 739502,
+      "endMs": 742960
+    },
+    {
+      "index": 167,
+      "text": "[ With Accent ] Would it help if I talked like this too? - It might.",
+      "kind": "dialogue",
+      "startMs": 743072,
+      "endMs": 746098
+    },
+    {
+      "index": 168,
+      "text": "[ Cockney Accent ] An' I'll talk like 'is. Bob's yer uncle, mate.",
+      "kind": "dialogue",
+      "startMs": 746208,
+      "endMs": 748836
+    },
+    {
+      "index": 169,
+      "text": "That really doesn't help, Bart.",
+      "kind": "dialogue",
+      "startMs": 748944,
+      "endMs": 750411
+    },
+    {
+      "index": 170,
+      "text": "Big Daddy, would y'all mind passin' a lil' ol' biscuit?",
+      "kind": "dialogue",
+      "startMs": 750513,
+      "endMs": 752879
+    },
+    {
+      "index": 171,
+      "text": "Can I slog off school tomorrow? Got a pain in me gulliver.",
+      "kind": "dialogue",
+      "startMs": 752982,
+      "endMs": 755576
+    },
+    {
+      "index": 172,
+      "text": "I'm livin' in a cuckoo clock!",
+      "kind": "dialogue",
+      "startMs": 755684,
+      "endMs": 757345
+    },
+    {
+      "index": 173,
+      "text": "Oh, see you later, kids. I've got to go rehearse with Ned.",
+      "kind": "dialogue",
+      "startMs": 757453,
+      "endMs": 761014
+    },
+    {
+      "index": 174,
+      "text": "But, Marge, what about dessert?",
+      "kind": "dialogue",
+      "startMs": 761123,
+      "endMs": 763023
+    },
+    {
+      "index": 175,
+      "text": "For God's sakes, you can pull the lid off your own can of pudding!",
+      "kind": "dialogue",
+      "startMs": 763125,
+      "endMs": 765753
+    },
+    {
+      "index": 176,
+      "text": "Fine. I will!",
+      "kind": "dialogue",
+      "startMs": 765861,
+      "endMs": 767419
+    },
+    {
+      "index": 177,
+      "text": "[ Screeches ] Oh, no.",
+      "kind": "dialogue",
+      "startMs": 770165,
+      "endMs": 772065
+    },
+    {
+      "index": 178,
+      "text": "My pudding is trapped forever!",
+      "kind": "dialogue",
+      "startMs": 772167,
+      "endMs": 774067
+    },
+    {
+      "index": 179,
+      "text": "So I can open my own can Of pudding, can I?",
+      "kind": "dialogue",
+      "startMs": 774169,
+      "endMs": 776535
+    },
+    {
+      "index": 180,
+      "text": "Shows what you know, Marge.",
+      "kind": "dialogue",
+      "startMs": 776639,
+      "endMs": 778766
+    },
+    {
+      "index": 181,
+      "text": "Marge!",
+      "kind": "dialogue",
+      "startMs": 778874,
+      "endMs": 781172
+    },
+    {
+      "index": 182,
+      "text": "Hey, Marge!",
+      "kind": "dialogue",
+      "startMs": 782278,
+      "endMs": 784542
+    },
+    {
+      "index": 183,
+      "text": "Keep yelling, you big ape.",
+      "kind": "dialogue",
+      "startMs": 784647,
+      "endMs": 786615
+    },
+    {
+      "index": 184,
+      "text": "Aren't you being a little hard on old Homie?",
+      "kind": "dialogue",
+      "startMs": 786715,
+      "endMs": 788979
+    },
+    {
+      "index": 185,
+      "text": "Oh, forget about him. Let's rehearse the bottle scene.",
+      "kind": "dialogue",
+      "startMs": 789084,
+      "endMs": 792611
+    },
+    {
+      "index": 186,
+      "text": "Oh! Let's not and say we did. Hmm?",
+      "kind": "dialogue",
+      "startMs": 793656,
+      "endMs": 796056
+    },
+    {
+      "index": 187,
+      "text": "[ Muttering Lines ] So, what time does this play start?",
+      "kind": "dialogue",
+      "startMs": 796158,
+      "endMs": 800322
+    },
+    {
+      "index": 188,
+      "text": "Why? Are you going? Well, I gotta go, don't I?",
+      "kind": "dialogue",
+      "startMs": 800429,
+      "endMs": 803262
+    },
+    {
+      "index": 189,
+      "text": "I'm sure you won't enjoy it. There's nothing about bowling in the play.",
+      "kind": "dialogue",
+      "startMs": 803365,
+      "endMs": 807392
+    },
+    {
+      "index": 190,
+      "text": "Oh, wait, there is. Probably not much of it.",
+      "kind": "dialogue",
+      "startMs": 807503,
+      "endMs": 810472
+    },
+    {
+      "index": 191,
+      "text": "Why can't you be a little more supportive?",
+      "kind": "dialogue",
+      "startMs": 810573,
+      "endMs": 812473
+    },
+    {
+      "index": 192,
+      "text": "'Cause I don't care, okay? I can't fake an interest in this... and I'm an expert at faking an interest in your kooky projects.",
+      "kind": "dialogue",
+      "startMs": 812575,
+      "endMs": 819409
+    },
+    {
+      "index": 193,
+      "text": "What \"kooky projects\"? You know, the painting class... the first aid course, the whole Lamaze thing.",
+      "kind": "dialogue",
+      "startMs": 819515,
+      "endMs": 824245
+    },
+    {
+      "index": 194,
+      "text": "Why didn't you tell me you felt this way?",
+      "kind": "dialogue",
+      "startMs": 824353,
+      "endMs": 826150
+    },
+    {
+      "index": 195,
+      "text": "You know I would never do anything to hurt your feelings.",
+      "kind": "dialogue",
+      "startMs": 826255,
+      "endMs": 829315
+    },
+    {
+      "index": 196,
+      "text": "Good night. [ Snores ]",
+      "kind": "dialogue",
+      "startMs": 829425,
+      "endMs": 831450
+    },
+    {
+      "index": 197,
+      "text": "[ Groans ]",
+      "kind": "sdh",
+      "startMs": 832995,
+      "endMs": 835930
+    },
+    {
+      "index": 198,
+      "text": "Playing nicely, little humans? Good, good.",
+      "kind": "dialogue",
+      "startMs": 836031,
+      "endMs": 839364
+    },
+    {
+      "index": 199,
+      "text": "Hello, Maggie. Poor little \"dummard.\"",
+      "kind": "dialogue",
+      "startMs": 839468,
+      "endMs": 842130
+    },
+    {
+      "index": 200,
+      "text": "####[Action Movie Theme]",
+      "kind": "dialogue",
+      "startMs": 846742,
+      "endMs": 848767
+    },
+    {
+      "index": 201,
+      "text": "Hey, kids! I'm flame-retardant.",
+      "kind": "dialogue",
+      "startMs": 870532,
+      "endMs": 872830
+    },
+    {
+      "index": 202,
+      "text": "[ Laughs ]",
+      "kind": "sdh",
+      "startMs": 872935,
+      "endMs": 875096
+    },
+    {
+      "index": 203,
+      "text": "[Footsteps Approaching]",
+      "kind": "sdh",
+      "startMs": 878140,
+      "endMs": 881371
+    },
+    {
+      "index": 204,
+      "text": "[ Gasps ]",
+      "kind": "sdh",
+      "startMs": 889985,
+      "endMs": 892112
+    },
+    {
+      "index": 205,
+      "text": "If I break, buy a new one. [Laughs]",
+      "kind": "dialogue",
+      "startMs": 893255,
+      "endMs": 897214
+    },
+    {
+      "index": 206,
+      "text": "[Shatters] [ Gasps ]",
+      "kind": "dialogue",
+      "startMs": 900029,
+      "endMs": 901826
+    },
+    {
+      "index": 207,
+      "text": "[ Squealing ]",
+      "kind": "sdh",
+      "startMs": 918180,
+      "endMs": 920080
+    },
+    {
+      "index": 208,
+      "text": "Maggie, time to go to the-- [Screeches]",
+      "kind": "dialogue",
+      "startMs": 925921,
+      "endMs": 928583
+    },
+    {
+      "index": 209,
+      "text": "[ Loud Sucking ]",
+      "kind": "sdh",
+      "startMs": 928691,
+      "endMs": 930659
+    },
+    {
+      "index": 210,
+      "text": "[ Shudders ] Babies.",
+      "kind": "dialogue",
+      "startMs": 957886,
+      "endMs": 960150
+    },
+    {
+      "index": 211,
+      "text": "Perhaps we are all A little mad... we who don the cap and bells and tread beneath the proscenium arch.",
+      "kind": "dialogue",
+      "startMs": 964193,
+      "endMs": 969961
+    },
+    {
+      "index": 212,
+      "text": "But tonight, you will all be transformed from dead-eyed suburbanites... into white-hot grease fires of pure entertainment!",
+      "kind": "dialogue",
+      "startMs": 970065,
+      "endMs": 978237
+    },
+    {
+      "index": 213,
+      "text": "Except you. You're not working out.",
+      "kind": "dialogue",
+      "startMs": 978340,
+      "endMs": 980240
+    },
+    {
+      "index": 214,
+      "text": "I'll be playing your part. Drag.",
+      "kind": "dialogue",
+      "startMs": 980342,
+      "endMs": 982242
+    },
+    {
+      "index": 215,
+      "text": "[Murmuring] ####[Piano: Intro] # Long before the Superdome # #Where the Saints of football play# # Lived a city that the damned call home # # Hear their hellish # # Rondelet #",
+      "kind": "dialogue",
+      "startMs": 982344,
+      "endMs": 1002724
+    },
+    {
+      "index": 216,
+      "text": "[ Creaking ]",
+      "kind": "sdh",
+      "startMs": 1002831,
+      "endMs": 1005163
+    },
+    {
+      "index": 217,
+      "text": "####[Orchestra] # New Orleans # # Home of pirates drunks and whores # # New Orleans # # Tacky, overpriced souvenir stores # # If you wanna go to hell you should take that trip # #To the Sodom and Gomorrah on the \"Mississip\" # # New Orleans # # Stinking, rotten \"vomity\" vile # # New Orleans # # Putrid, brackish maggoty, foul # # New Orleans## # Crummy, lousy rancid and rank# # New Orleans # [Woman] What's the matter, honey? Are you lost?",
+      "kind": "dialogue",
+      "startMs": 1006869,
+      "endMs": 1039996
+    },
+    {
+      "index": 218,
+      "text": "[Marge] I'm lookin' for my sister, Stella.",
+      "kind": "dialogue",
+      "startMs": 1040102,
+      "endMs": 1042468
+    },
+    {
+      "index": 219,
+      "text": "[Lisa] It's Mom! Huh?",
+      "kind": "dialogue",
+      "startMs": 1042571,
+      "endMs": 1044471
+    },
+    {
+      "index": 220,
+      "text": "My name is Blanche DuBois.",
+      "kind": "dialogue",
+      "startMs": 1044573,
+      "endMs": 1046564
+    },
+    {
+      "index": 221,
+      "text": "####[Jazz]",
+      "kind": "dialogue",
+      "startMs": 1046675,
+      "endMs": 1048870
+    },
+    {
+      "index": 222,
+      "text": "# I thought my life would be a Mardi Gras # #A never-ending party# Ha!",
+      "kind": "dialogue",
+      "startMs": 1052748,
+      "endMs": 1062183
+    },
+    {
+      "index": 223,
+      "text": "# I'm a faded Southern dame # #Without a dime ##",
+      "kind": "dialogue",
+      "startMs": 1062291,
+      "endMs": 1069788
+    },
+    {
+      "index": 224,
+      "text": "I'm collecting for the Evening Star.",
+      "kind": "dialogue",
+      "startMs": 1071733,
+      "endMs": 1074258
+    },
+    {
+      "index": 225,
+      "text": "Come here. I want to kiss you... just once, softly and sweetly on your mouth.",
+      "kind": "dialogue",
+      "startMs": 1074369,
+      "endMs": 1082468
+    },
+    {
+      "index": 226,
+      "text": "####[Orchestra] # I am just a simple paperboy# # No romance do I seek# # I just wanted 40 cents # # For my deliveries last week# #Will this bewitching floozy# # Seduce this humble newsie # # Oh, what's a paperboy to #",
+      "kind": "dialogue",
+      "startMs": 1082578,
+      "endMs": 1116406
+    },
+    {
+      "index": 227,
+      "text": "# Do # ####[Ends]",
+      "kind": "dialogue",
+      "startMs": 1118347,
+      "endMs": 1123580
+    },
+    {
+      "index": 228,
+      "text": "Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 1126755,
+      "endMs": 1129280
+    },
+    {
+      "index": 229,
+      "text": "####[Orchestra] Stella!",
+      "kind": "dialogue",
+      "startMs": 1129391,
+      "endMs": 1132622
+    },
+    {
+      "index": 230,
+      "text": "Stella!",
+      "kind": "dialogue",
+      "startMs": 1132728,
+      "endMs": 1136027
+    },
+    {
+      "index": 231,
+      "text": "# Can't you hear me yell-a # #You're puttin' me through hell-a # # Stella ## Stella!",
+      "kind": "dialogue",
+      "startMs": 1136131,
+      "endMs": 1146934
+    },
+    {
+      "index": 232,
+      "text": "Oh! Oh!",
+      "kind": "dialogue",
+      "startMs": 1147042,
+      "endMs": 1150375
+    },
+    {
+      "index": 233,
+      "text": "Cool. She can fly.",
+      "kind": "dialogue",
+      "startMs": 1153615,
+      "endMs": 1155515
+    },
+    {
+      "index": 234,
+      "text": "I think it's supposed to symbolize her descent into madness.",
+      "kind": "dialogue",
+      "startMs": 1155617,
+      "endMs": 1158711
+    },
+    {
+      "index": 235,
+      "text": "Oh! Oh! Oh! ####[Fades]",
+      "kind": "dialogue",
+      "startMs": 1158820,
+      "endMs": 1161846
+    },
+    {
+      "index": 236,
+      "text": "Whoever you are, I have always depended... on the kindness of strangers.",
+      "kind": "dialogue",
+      "startMs": 1165928,
+      "endMs": 1172530
+    },
+    {
+      "index": 237,
+      "text": "####[Orchestra] - #You can always depend on the kindness of strangers # #To buck up your spirits and shield you from dangers # # Now here's a tip from Blanche you won't regret # #A stranger's just a friend you haven't met # #You haven't met ##",
+      "kind": "dialogue",
+      "startMs": 1172634,
+      "endMs": 1193787
+    },
+    {
+      "index": 238,
+      "text": "Streetcar! ####[Ends] Yea!",
+      "kind": "dialogue",
+      "startMs": 1193889,
+      "endMs": 1199051
+    },
+    {
+      "index": 239,
+      "text": "Ah! [ Chuckles ] [ Together] Yea!",
+      "kind": "dialogue",
+      "startMs": 1201330,
+      "endMs": 1205466
+    },
+    {
+      "index": 240,
+      "text": "You people out there, you're the stars.",
+      "kind": "dialogue",
+      "startMs": 1221316,
+      "endMs": 1224877
+    },
+    {
+      "index": 241,
+      "text": "Cool!",
+      "kind": "dialogue",
+      "startMs": 1224987,
+      "endMs": 1226750
+    },
+    {
+      "index": 242,
+      "text": "Hey, look at me. I'm Blanche DuBois.",
+      "kind": "dialogue",
+      "startMs": 1231727,
+      "endMs": 1234093
+    },
+    {
+      "index": 243,
+      "text": "Mom! [ Grunts ]",
+      "kind": "dialogue",
+      "startMs": 1234196,
+      "endMs": 1236096
+    },
+    {
+      "index": 244,
+      "text": "Way to go, Mom! Everybody was cheering for you!",
+      "kind": "dialogue",
+      "startMs": 1236198,
+      "endMs": 1240498
+    },
+    {
+      "index": 245,
+      "text": "Almost everybody. Kids, wait in the car.",
+      "kind": "dialogue",
+      "startMs": 1240602,
+      "endMs": 1243435
+    },
+    {
+      "index": 246,
+      "text": "I want to talk to your mother about this play thing.",
+      "kind": "dialogue",
+      "startMs": 1243538,
+      "endMs": 1246132
+    },
+    {
+      "index": 247,
+      "text": "[ With Accent ] Lookin' for a spot off un with the missus, hey, guv'nor?",
+      "kind": "dialogue",
+      "startMs": 1246241,
+      "endMs": 1249472
+    },
+    {
+      "index": 248,
+      "text": "Shut up, boy. Marge, you were terrific.",
+      "kind": "dialogue",
+      "startMs": 1249578,
+      "endMs": 1252308
+    },
+    {
+      "index": 249,
+      "text": "Oh, come on, Homer. By the end, you were so bored... you could barely keep your selfish head up.",
+      "kind": "dialogue",
+      "startMs": 1252414,
+      "endMs": 1258141
+    },
+    {
+      "index": 250,
+      "text": "I wasn't bored. I was sad.",
+      "kind": "dialogue",
+      "startMs": 1258253,
+      "endMs": 1260153
+    },
+    {
+      "index": 251,
+      "text": "It really got to me how that lady, uh, um--",
+      "kind": "dialogue",
+      "startMs": 1260255,
+      "endMs": 1264487
+    },
+    {
+      "index": 252,
+      "text": "You know which one I mean. You played her. Blanche.",
+      "kind": "dialogue",
+      "startMs": 1264593,
+      "endMs": 1267653
+    },
+    {
+      "index": 253,
+      "text": "Yeah. How Blanche was sad.",
+      "kind": "dialogue",
+      "startMs": 1267763,
+      "endMs": 1270163
+    },
+    {
+      "index": 254,
+      "text": "And how that guy Stanley should have been nice to her.",
+      "kind": "dialogue",
+      "startMs": 1270265,
+      "endMs": 1273098
+    },
+    {
+      "index": 255,
+      "text": "Yeah? Go on.",
+      "kind": "dialogue",
+      "startMs": 1273201,
+      "endMs": 1274862
+    },
+    {
+      "index": 256,
+      "text": "I mean, it made me feel bad.",
+      "kind": "dialogue",
+      "startMs": 1274970,
+      "endMs": 1276870
+    },
+    {
+      "index": 257,
+      "text": "The poor thing ends up being hauled to the nuthouse... when all she needed was for that big slob to show her some respect.",
+      "kind": "dialogue",
+      "startMs": 1276972,
+      "endMs": 1283974
+    },
+    {
+      "index": 258,
+      "text": "Well, at least that's what I thought.",
+      "kind": "dialogue",
+      "startMs": 1284079,
+      "endMs": 1285979
+    },
+    {
+      "index": 259,
+      "text": "I have a history of missing the point of stuff like this.",
+      "kind": "dialogue",
+      "startMs": 1286081,
+      "endMs": 1288845
+    },
+    {
+      "index": 260,
+      "text": "No, Homer, you got it just right.",
+      "kind": "dialogue",
+      "startMs": 1288950,
+      "endMs": 1291316
+    },
+    {
+      "index": 261,
+      "text": "Hey, you know, I'm a lot like that guy.",
+      "kind": "dialogue",
+      "startMs": 1293121,
+      "endMs": 1295487
+    },
+    {
+      "index": 262,
+      "text": "Really? - Yeah, like when I pick my teeth with the mail and stuff.",
+      "kind": "dialogue",
+      "startMs": 1295590,
+      "endMs": 1299424
+    },
+    {
+      "index": 263,
+      "text": "Well, maybe just a little.",
+      "kind": "dialogue",
+      "startMs": 1299528,
+      "endMs": 1302053
+    },
+    {
+      "index": 264,
+      "text": "[ People Chattering ] Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1372501,
+      "endMs": 2000
+    }
+  ]
+}

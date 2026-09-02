@@ -1,0 +1,40 @@
+{
+  "id": "sample-episode",
+  "title": "Sample Episode",
+  "sourceFilename": "sample-episode.srt",
+  "importedAt": "2026-08-30T21:31:24.762Z",
+  "lineCount": 4,
+  "lines": [
+    {
+      "index": 0,
+      "text": "D'oh!",
+      "kind": "dialogue",
+      "startMs": 0,
+      "endMs": 2000
+    },
+    {
+      "index": 1,
+      "text": "Why you little—",
+      "kind": "dialogue",
+      "startMs": 2000,
+      "endMs": 4500
+    },
+    {
+      "index": 2,
+      "text": "[Bart giggles]",
+      "kind": "sdh",
+      "startMs": 4500,
+      "endMs": 7000
+    },
+    {
+      "index": 3,
+      "text": "Don't have a cow, man.",
+      "kind": "dialogue",
+      "startMs": 7000,
+      "endMs": 10000
+    }
+  ],
+  "meta": {
+    "year": 1990
+  }
+}

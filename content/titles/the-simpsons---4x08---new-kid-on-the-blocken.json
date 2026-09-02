@@ -1,0 +1,2326 @@
+{
+  "id": "the-simpsons---4x08---new-kid-on-the-blocken",
+  "title": "The Simpsons - 4x08 - New Kid on the Block.en",
+  "sourceFilename": "The Simpsons - 4x08 - New Kid on the Block.en.srt",
+  "importedAt": "2026-08-31T04:14:29.500Z",
+  "lineCount": 331,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[Chorus] ## The Simpsons ##",
+      "kind": "dialogue",
+      "startMs": 4567,
+      "endMs": 7502
+    },
+    {
+      "index": 1,
+      "text": "[Bell Ringing]",
+      "kind": "sdh",
+      "startMs": 10273,
+      "endMs": 12537
+    },
+    {
+      "index": 2,
+      "text": "[Whistle Blowing]",
+      "kind": "sdh",
+      "startMs": 14143,
+      "endMs": 16168
+    },
+    {
+      "index": 3,
+      "text": "[ Beeping ]",
+      "kind": "sdh",
+      "startMs": 20817,
+      "endMs": 22785
+    },
+    {
+      "index": 4,
+      "text": "## [Jazzy Solo ]",
+      "kind": "dialogue",
+      "startMs": 27423,
+      "endMs": 29323
+    },
+    {
+      "index": 5,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 33930,
+      "endMs": 35898
+    },
+    {
+      "index": 6,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 37200,
+      "endMs": 39168
+    },
+    {
+      "index": 7,
+      "text": "####[Theme] Okay, Ron, which one of our girls said the following about you-- \"He looked so sexy, I hoped we would have sex\"?",
+      "kind": "dialogue",
+      "startMs": 55451,
+      "endMs": 65358
+    },
+    {
+      "index": 8,
+      "text": "Well, that's a tough one, 'cause I did the deed with Uta, Candy and Shasta.",
+      "kind": "dialogue",
+      "startMs": 65461,
+      "endMs": 70694
+    },
+    {
+      "index": 9,
+      "text": "[ All Giggling ] It's true, all right!",
+      "kind": "dialogue",
+      "startMs": 70800,
+      "endMs": 72597
+    },
+    {
+      "index": 10,
+      "text": "[ Chuckles ] But I'm gonna have to go with Shasta...",
+      "kind": "dialogue",
+      "startMs": 72702,
+      "endMs": 75102
+    },
+    {
+      "index": 11,
+      "text": "'cause she liked makin' bacon on the beach.",
+      "kind": "dialogue",
+      "startMs": 75204,
+      "endMs": 79140
+    },
+    {
+      "index": 12,
+      "text": "Ooh. Me too.",
+      "kind": "dialogue",
+      "startMs": 79242,
+      "endMs": 81506
+    },
+    {
+      "index": 13,
+      "text": "Ahhh, bacon. [Knocking On Door] Mr. Simpson, my husband and I have decided to move.",
+      "kind": "dialogue",
+      "startMs": 83212,
+      "endMs": 89880
+    },
+    {
+      "index": 14,
+      "text": "Gonna run out the clock in Florida, eh?",
+      "kind": "dialogue",
+      "startMs": 89986,
+      "endMs": 91920
+    },
+    {
+      "index": 15,
+      "text": "Yes. Well, there's a few things you could do to help us sell our home.",
+      "kind": "dialogue",
+      "startMs": 92021,
+      "endMs": 96321
+    },
+    {
+      "index": 16,
+      "text": "First, whenever you walk in front of your window...",
+      "kind": "dialogue",
+      "startMs": 96426,
+      "endMs": 99224
+    },
+    {
+      "index": 17,
+      "text": "could you please wear pants? Mmm, no.",
+      "kind": "dialogue",
+      "startMs": 99328,
+      "endMs": 102729
+    },
+    {
+      "index": 18,
+      "text": "Second, could you please take in your jack-o'-lanterns...",
+      "kind": "dialogue",
+      "startMs": 102832,
+      "endMs": 105995
+    },
+    {
+      "index": 19,
+      "text": "from past Halloweens? [ Buzzing ]",
+      "kind": "dialogue",
+      "startMs": 106102,
+      "endMs": 109003
+    },
+    {
+      "index": 20,
+      "text": "Mmm, no. - And please cover your garbage. It's attracting wildlife.",
+      "kind": "dialogue",
+      "startMs": 109105,
+      "endMs": 114008
+    },
+    {
+      "index": 21,
+      "text": "Wha-- Hey, moose! Shoo!",
+      "kind": "dialogue",
+      "startMs": 114110,
+      "endMs": 116408
+    },
+    {
+      "index": 22,
+      "text": "Yeah, I'm talkin' to you! Get off my lawn, now!",
+      "kind": "dialogue",
+      "startMs": 116512,
+      "endMs": 120278
+    },
+    {
+      "index": 23,
+      "text": "[ Yells ]",
+      "kind": "sdh",
+      "startMs": 120383,
+      "endMs": 122351
+    },
+    {
+      "index": 24,
+      "text": "Hello. What's this?",
+      "kind": "dialogue",
+      "startMs": 126155,
+      "endMs": 128055
+    },
+    {
+      "index": 25,
+      "text": "Wire hangers. Expired medicine. Old newspapers!",
+      "kind": "dialogue",
+      "startMs": 128157,
+      "endMs": 131991
+    },
+    {
+      "index": 26,
+      "text": "[ Panting ]",
+      "kind": "sdh",
+      "startMs": 132095,
+      "endMs": 134359
+    },
+    {
+      "index": 27,
+      "text": "Okay, Homer, stay calm. just quietly get this stuff inside your house.",
+      "kind": "dialogue",
+      "startMs": 134464,
+      "endMs": 138992
+    },
+    {
+      "index": 28,
+      "text": "Homer, you're not listening!",
+      "kind": "dialogue",
+      "startMs": 141170,
+      "endMs": 143070
+    },
+    {
+      "index": 29,
+      "text": "That medicine's not for you. Come on, Marge.",
+      "kind": "dialogue",
+      "startMs": 145308,
+      "endMs": 148038
+    },
+    {
+      "index": 30,
+      "text": "Maybe I'm not getting enough... estrogen.",
+      "kind": "dialogue",
+      "startMs": 148144,
+      "endMs": 151011
+    },
+    {
+      "index": 31,
+      "text": "Give me that. [Man On TV]Ahoy, mateys.",
+      "kind": "dialogue",
+      "startMs": 151114,
+      "endMs": 153412
+    },
+    {
+      "index": 32,
+      "text": "Had your fill of tacos?",
+      "kind": "dialogue",
+      "startMs": 153516,
+      "endMs": 155416
+    },
+    {
+      "index": 33,
+      "text": "Would ye sooner eat a bilge rat than another burger?",
+      "kind": "dialogue",
+      "startMs": 155518,
+      "endMs": 159477
+    },
+    {
+      "index": 34,
+      "text": "Then come for all-you-can-eat seafood at The Frying Dutchman.",
+      "kind": "dialogue",
+      "startMs": 159589,
+      "endMs": 162717
+    },
+    {
+      "index": 35,
+      "text": "[ Drooling Loudly]",
+      "kind": "sdh",
+      "startMs": 162825,
+      "endMs": 165020
+    },
+    {
+      "index": 36,
+      "text": "Is it more iced tea ye be needing? Okay.",
+      "kind": "dialogue",
+      "startMs": 165128,
+      "endMs": 168427
+    },
+    {
+      "index": 37,
+      "text": "[ Laughing Heartily]",
+      "kind": "sdh",
+      "startMs": 168531,
+      "endMs": 170761
+    },
+    {
+      "index": 38,
+      "text": "Set sail for The Frying Dutchman.",
+      "kind": "dialogue",
+      "startMs": 170867,
+      "endMs": 173495
+    },
+    {
+      "index": 39,
+      "text": "Aye, aye, Captain. Marge, we're going to that restaurant.",
+      "kind": "dialogue",
+      "startMs": 173603,
+      "endMs": 177095
+    },
+    {
+      "index": 40,
+      "text": "But I think I'm allergic to seafood.",
+      "kind": "dialogue",
+      "startMs": 177206,
+      "endMs": 179174
+    },
+    {
+      "index": 41,
+      "text": "The last time I ate shrimp, my throat closed up, and I went into convulsions.",
+      "kind": "dialogue",
+      "startMs": 179275,
+      "endMs": 183905
+    },
+    {
+      "index": 42,
+      "text": "Mmm, shrimp.",
+      "kind": "dialogue",
+      "startMs": 184013,
+      "endMs": 185913
+    },
+    {
+      "index": 43,
+      "text": "Now, I don't know much about haggling or bargaining... so why don't we just agree to pay whatever the Winfields want?",
+      "kind": "dialogue",
+      "startMs": 187316,
+      "endMs": 192611
+    },
+    {
+      "index": 44,
+      "text": "That could work. [Homer Belches]",
+      "kind": "dialogue",
+      "startMs": 192722,
+      "endMs": 194781
+    },
+    {
+      "index": 45,
+      "text": "What was that? Sigh.",
+      "kind": "dialogue",
+      "startMs": 194891,
+      "endMs": 197724
+    },
+    {
+      "index": 46,
+      "text": "Hmm? There you are!",
+      "kind": "dialogue",
+      "startMs": 197827,
+      "endMs": 200921
+    },
+    {
+      "index": 47,
+      "text": "Thought you could get away, huh?",
+      "kind": "dialogue",
+      "startMs": 201030,
+      "endMs": 203362
+    },
+    {
+      "index": 48,
+      "text": "Good-bye. [ Groans ]",
+      "kind": "dialogue",
+      "startMs": 203466,
+      "endMs": 207061
+    },
+    {
+      "index": 49,
+      "text": "I don't think we should be down here.",
+      "kind": "dialogue",
+      "startMs": 214443,
+      "endMs": 216502
+    },
+    {
+      "index": 50,
+      "text": "Nervous, Lise? I don't blame you.",
+      "kind": "dialogue",
+      "startMs": 216612,
+      "endMs": 218671
+    },
+    {
+      "index": 51,
+      "text": "This is where the Winfields hid their mutated son.",
+      "kind": "dialogue",
+      "startMs": 218781,
+      "endMs": 221477
+    },
+    {
+      "index": 52,
+      "text": "Bart, the Winfields didn't have a son.",
+      "kind": "dialogue",
+      "startMs": 221584,
+      "endMs": 223848
+    },
+    {
+      "index": 53,
+      "text": "See that sock over there? It was his only friend.",
+      "kind": "dialogue",
+      "startMs": 223953,
+      "endMs": 227616
+    },
+    {
+      "index": 54,
+      "text": "[ Eerie Voice ] Hello, Lisa. Here in the dark, you won't need those eyes.",
+      "kind": "dialogue",
+      "startMs": 227723,
+      "endMs": 231591
+    },
+    {
+      "index": 55,
+      "text": "Let me have them. Bart, that's not funny!",
+      "kind": "dialogue",
+      "startMs": 231694,
+      "endMs": 234492
+    },
+    {
+      "index": 56,
+      "text": "There are some who say the monster...",
+      "kind": "dialogue",
+      "startMs": 234597,
+      "endMs": 236963
+    },
+    {
+      "index": 57,
+      "text": "is still... here! [ Screaming ]",
+      "kind": "dialogue",
+      "startMs": 237066,
+      "endMs": 240160
+    },
+    {
+      "index": 58,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 240269,
+      "endMs": 243534
+    },
+    {
+      "index": 59,
+      "text": "[ Erie Voice ] Friend. Friend!",
+      "kind": "dialogue",
+      "startMs": 243639,
+      "endMs": 247302
+    },
+    {
+      "index": 60,
+      "text": "[ Screaming ]",
+      "kind": "sdh",
+      "startMs": 247410,
+      "endMs": 249310
+    },
+    {
+      "index": 61,
+      "text": "[Girl] Hey, kid, wake up.",
+      "kind": "dialogue",
+      "startMs": 250413,
+      "endMs": 252313
+    },
+    {
+      "index": 62,
+      "text": "[Bart] Who are you? I'm Laura, your new neighbor.",
+      "kind": "dialogue",
+      "startMs": 252415,
+      "endMs": 255077
+    },
+    {
+      "index": 63,
+      "text": "You all right?",
+      "kind": "dialogue",
+      "startMs": 255184,
+      "endMs": 257084
+    },
+    {
+      "index": 64,
+      "text": "[ Thinking ] She's beautiful. Say something clever.",
+      "kind": "dialogue",
+      "startMs": 257186,
+      "endMs": 259677
+    },
+    {
+      "index": 65,
+      "text": "I fell on my bottom.",
+      "kind": "dialogue",
+      "startMs": 259789,
+      "endMs": 261882
+    },
+    {
+      "index": 66,
+      "text": "[ Thinking ] D'oh!",
+      "kind": "dialogue",
+      "startMs": 261991,
+      "endMs": 263959
+    },
+    {
+      "index": 67,
+      "text": "Oh, not again!",
+      "kind": "dialogue",
+      "startMs": 267970,
+      "endMs": 269870
+    },
+    {
+      "index": 68,
+      "text": "My mother's inside, Mrs. Simpson. Please go right on in.",
+      "kind": "dialogue",
+      "startMs": 269972,
+      "endMs": 272805
+    },
+    {
+      "index": 69,
+      "text": "Oh, you speak so politely to adults.",
+      "kind": "dialogue",
+      "startMs": 272908,
+      "endMs": 275775
+    },
+    {
+      "index": 70,
+      "text": "My upbringing was painfully strict, ma'am.",
+      "kind": "dialogue",
+      "startMs": 275878,
+      "endMs": 277869
+    },
+    {
+      "index": 71,
+      "text": "That's sweet.",
+      "kind": "dialogue",
+      "startMs": 277980,
+      "endMs": 280210
+    },
+    {
+      "index": 72,
+      "text": "[Marge]And, finally, Moe's Tavern has contributed a coupon... as their way of saying \"Welcome to Springfield. '\" Thank you. This is all so nice.",
+      "kind": "dialogue",
+      "startMs": 280316,
+      "endMs": 289055
+    },
+    {
+      "index": 73,
+      "text": "I actually had some doubts about moving to Springfield... especially after that Time cover story, \"America's Worst City.\"",
+      "kind": "dialogue",
+      "startMs": 289158,
+      "endMs": 296059
+    },
+    {
+      "index": 74,
+      "text": "You could see our house in that photo. Oh.",
+      "kind": "dialogue",
+      "startMs": 296165,
+      "endMs": 298599
+    },
+    {
+      "index": 75,
+      "text": "And this is, uh, for the man of the house... which I guess... is you. [ Nervous Groan ] I guess I should explain. Laura's father and I divorced two years ago.",
+      "kind": "dialogue",
+      "startMs": 298701,
+      "endMs": 312479
+    },
+    {
+      "index": 76,
+      "text": "[ Chuckles ] They're so sweet when you marry them.",
+      "kind": "dialogue",
+      "startMs": 312581,
+      "endMs": 314674
+    },
+    {
+      "index": 77,
+      "text": "But soon, it's just career, career, career. [Homer]My hammock!",
+      "kind": "dialogue",
+      "startMs": 314784,
+      "endMs": 318447
+    },
+    {
+      "index": 78,
+      "text": "Do you understand? Mine! Don't look that way!",
+      "kind": "dialogue",
+      "startMs": 318554,
+      "endMs": 322183
+    },
+    {
+      "index": 79,
+      "text": "[ Groans ]",
+      "kind": "sdh",
+      "startMs": 322291,
+      "endMs": 324054
+    },
+    {
+      "index": 80,
+      "text": "I bet you don't know this one. How'd you like a Hertz donut?",
+      "kind": "dialogue",
+      "startMs": 324160,
+      "endMs": 327391
+    },
+    {
+      "index": 81,
+      "text": "[ Groans ] Hurts, don't it? [ Chuckles ] Right. Do you know what a wet willie is?",
+      "kind": "dialogue",
+      "startMs": 327496,
+      "endMs": 332396
+    },
+    {
+      "index": 82,
+      "text": "Is it this? [Kearney]Hey, baby!",
+      "kind": "dialogue",
+      "startMs": 332501,
+      "endMs": 335061
+    },
+    {
+      "index": 83,
+      "text": "How about puttin' your finger in my ear?",
+      "kind": "dialogue",
+      "startMs": 335171,
+      "endMs": 337469
+    },
+    {
+      "index": 84,
+      "text": "Well, I don't know. Your boyfriend looks like the jealous type.",
+      "kind": "dialogue",
+      "startMs": 337573,
+      "endMs": 340337
+    },
+    {
+      "index": 85,
+      "text": "Hey, what the-- That chick's messin' with our minds.",
+      "kind": "dialogue",
+      "startMs": 340443,
+      "endMs": 343708
+    },
+    {
+      "index": 86,
+      "text": "Let's get out of here. Now, where were we?",
+      "kind": "dialogue",
+      "startMs": 343813,
+      "endMs": 347305
+    },
+    {
+      "index": 87,
+      "text": "Oh, yeah. I was gonna tell your fortune. Huh?",
+      "kind": "dialogue",
+      "startMs": 347416,
+      "endMs": 350317
+    },
+    {
+      "index": 88,
+      "text": "Oh, man. You're gonna be rich! Whoa!",
+      "kind": "dialogue",
+      "startMs": 350419,
+      "endMs": 353718
+    },
+    {
+      "index": 89,
+      "text": "There's your mansion. There's the tennis court.",
+      "kind": "dialogue",
+      "startMs": 353823,
+      "endMs": 356656
+    },
+    {
+      "index": 90,
+      "text": "[ Spits ] And there's the swimming pool.",
+      "kind": "dialogue",
+      "startMs": 356759,
+      "endMs": 359057
+    },
+    {
+      "index": 91,
+      "text": "See you later, Bart. [ Chuckles ] I'll never wash this hand again.",
+      "kind": "dialogue",
+      "startMs": 359161,
+      "endMs": 365598
+    },
+    {
+      "index": 92,
+      "text": "[Lisa] Dad, make Bart wash his hand.",
+      "kind": "dialogue",
+      "startMs": 366702,
+      "endMs": 369034
+    },
+    {
+      "index": 93,
+      "text": "Sorry, Lise. I no longer control the hand.",
+      "kind": "dialogue",
+      "startMs": 369138,
+      "endMs": 371834
+    },
+    {
+      "index": 94,
+      "text": "The hand controls me! Dad!",
+      "kind": "dialogue",
+      "startMs": 371941,
+      "endMs": 375502
+    },
+    {
+      "index": 95,
+      "text": "Shut up, you little monsters!",
+      "kind": "dialogue",
+      "startMs": 375611,
+      "endMs": 377511
+    },
+    {
+      "index": 96,
+      "text": "Hello, I was wondering if you'd like to babysit my little angels.",
+      "kind": "dialogue",
+      "startMs": 377613,
+      "endMs": 381014
+    },
+    {
+      "index": 97,
+      "text": "Sorry, this isn't Abbie. This is her sister.",
+      "kind": "dialogue",
+      "startMs": 381117,
+      "endMs": 383984
+    },
+    {
+      "index": 98,
+      "text": "I look after her now.",
+      "kind": "dialogue",
+      "startMs": 384086,
+      "endMs": 385986
+    },
+    {
+      "index": 99,
+      "text": "No, Bart, put it down. Put it down, Bart.",
+      "kind": "dialogue",
+      "startMs": 386088,
+      "endMs": 390718
+    },
+    {
+      "index": 100,
+      "text": "Bart, put it down.",
+      "kind": "dialogue",
+      "startMs": 390826,
+      "endMs": 392851
+    },
+    {
+      "index": 101,
+      "text": "Oh! No all-you-can-eat seafood.",
+      "kind": "dialogue",
+      "startMs": 392962,
+      "endMs": 395863
+    },
+    {
+      "index": 102,
+      "text": "I wore my extra-loose pants for nothing.",
+      "kind": "dialogue",
+      "startMs": 395965,
+      "endMs": 398763
+    },
+    {
+      "index": 103,
+      "text": "Nothing! Maybe Laura could watch us.",
+      "kind": "dialogue",
+      "startMs": 398868,
+      "endMs": 402167
+    },
+    {
+      "index": 104,
+      "text": "Oh, I get it. \"Bart, the babysitter's here.\"",
+      "kind": "dialogue",
+      "startMs": 402271,
+      "endMs": 406367
+    },
+    {
+      "index": 105,
+      "text": "\"Let me tuck you in.\"",
+      "kind": "dialogue",
+      "startMs": 406475,
+      "endMs": 408943
+    },
+    {
+      "index": 106,
+      "text": "Silence! [ Yells ] Huh? [ Yelling ] Maybe it's time I wash my hand.",
+      "kind": "dialogue",
+      "startMs": 409044,
+      "endMs": 417985
+    },
+    {
+      "index": 107,
+      "text": "I'll send Laura over to babysit as soon as she gets home.",
+      "kind": "dialogue",
+      "startMs": 418087,
+      "endMs": 421079
+    },
+    {
+      "index": 108,
+      "text": "Great. Oh, uh, and there was something else.",
+      "kind": "dialogue",
+      "startMs": 421190,
+      "endMs": 424557
+    },
+    {
+      "index": 109,
+      "text": "Something I was supposed to tiptoe around-- My divorce.",
+      "kind": "dialogue",
+      "startMs": 424660,
+      "endMs": 429063
+    },
+    {
+      "index": 110,
+      "text": "That's it! Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 429165,
+      "endMs": 430894
+    },
+    {
+      "index": 111,
+      "text": "I'm glad one of us remembered. That could have been embarrassing.",
+      "kind": "dialogue",
+      "startMs": 431000,
+      "endMs": 433798
+    },
+    {
+      "index": 112,
+      "text": "Well, I know what you're thinking, and the answer is yes.",
+      "kind": "dialogue",
+      "startMs": 433903,
+      "endMs": 436463
+    },
+    {
+      "index": 113,
+      "text": "I want to be fixed up with one of your friends as soon as you can arrange it.",
+      "kind": "dialogue",
+      "startMs": 436572,
+      "endMs": 439973
+    },
+    {
+      "index": 114,
+      "text": "After all, Homer, I do have the normal appetites. [ Chuckles ] I know what you mean. just let me make sure we're not talking about food.",
+      "kind": "dialogue",
+      "startMs": 440075,
+      "endMs": 449050
+    },
+    {
+      "index": 115,
+      "text": "I'm not. Right. Me neither.",
+      "kind": "dialogue",
+      "startMs": 449151,
+      "endMs": 452245
+    },
+    {
+      "index": 116,
+      "text": "We're talking about sex, right? Right.",
+      "kind": "dialogue",
+      "startMs": 452354,
+      "endMs": 454254
+    },
+    {
+      "index": 117,
+      "text": "I hear you loud and clear. [ Purrs ]",
+      "kind": "dialogue",
+      "startMs": 454356,
+      "endMs": 457553
+    },
+    {
+      "index": 118,
+      "text": "Bart, are you taking a bath? Yes, I am.",
+      "kind": "dialogue",
+      "startMs": 457660,
+      "endMs": 461289
+    },
+    {
+      "index": 119,
+      "text": "And it would be nice to have a little privacy around here for a change.",
+      "kind": "dialogue",
+      "startMs": 461397,
+      "endMs": 464230
+    },
+    {
+      "index": 120,
+      "text": "This wouldn't have anything to do with Laura coming over, would it?",
+      "kind": "dialogue",
+      "startMs": 464333,
+      "endMs": 467632
+    },
+    {
+      "index": 121,
+      "text": "Hey, sometimes a guy just likes his skin to look its yellowest.",
+      "kind": "dialogue",
+      "startMs": 467736,
+      "endMs": 471069
+    },
+    {
+      "index": 122,
+      "text": "Why, Laura. What a pleasant surprise.",
+      "kind": "dialogue",
+      "startMs": 471173,
+      "endMs": 474404
+    },
+    {
+      "index": 123,
+      "text": "Cute. What do you guys want for dinner?",
+      "kind": "dialogue",
+      "startMs": 475911,
+      "endMs": 478277
+    },
+    {
+      "index": 124,
+      "text": "I don't care. Ask Hef over there.",
+      "kind": "dialogue",
+      "startMs": 478380,
+      "endMs": 480905
+    },
+    {
+      "index": 125,
+      "text": "Lady's choice.",
+      "kind": "dialogue",
+      "startMs": 481016,
+      "endMs": 483883
+    },
+    {
+      "index": 126,
+      "text": "Sometimes I think you want to fail!",
+      "kind": "dialogue",
+      "startMs": 488624,
+      "endMs": 491092
+    },
+    {
+      "index": 127,
+      "text": "Shut up. just shut up!",
+      "kind": "dialogue",
+      "startMs": 491193,
+      "endMs": 493093
+    },
+    {
+      "index": 128,
+      "text": "[ Ringing ] [ Both Grunting ] We used to eat this when my dad was stationed in \"Vandihar.\"",
+      "kind": "dialogue",
+      "startMs": 493195,
+      "endMs": 499592
+    },
+    {
+      "index": 129,
+      "text": "Take your kaftab'Sounieh and dip it in the labneh.",
+      "kind": "dialogue",
+      "startMs": 499702,
+      "endMs": 503604
+    },
+    {
+      "index": 130,
+      "text": "Now, that is good labneh.",
+      "kind": "dialogue",
+      "startMs": 503706,
+      "endMs": 505606
+    },
+    {
+      "index": 131,
+      "text": "I'm sorry, ma'am, but everything on the menu has fish in it.",
+      "kind": "dialogue",
+      "startMs": 512014,
+      "endMs": 515177
+    },
+    {
+      "index": 132,
+      "text": "What about the bread? Does that have much fish in it?",
+      "kind": "dialogue",
+      "startMs": 515284,
+      "endMs": 517411
+    },
+    {
+      "index": 133,
+      "text": "Yes. Well, I have some Tic Tacs in my purse-- Excellent choice. And for the gentleman?",
+      "kind": "dialogue",
+      "startMs": 517519,
+      "endMs": 523423
+    },
+    {
+      "index": 134,
+      "text": "All you can eat! All you can eat! All right.",
+      "kind": "dialogue",
+      "startMs": 523525,
+      "endMs": 526085
+    },
+    {
+      "index": 135,
+      "text": "When you're ready, take this plate over-- Please, don't take the steam tray! Sir!",
+      "kind": "dialogue",
+      "startMs": 526195,
+      "endMs": 531029
+    },
+    {
+      "index": 136,
+      "text": "Come on, Bart. If I can teach Maggie to waltz, I can teach you.",
+      "kind": "dialogue",
+      "startMs": 531133,
+      "endMs": 534296
+    },
+    {
+      "index": 137,
+      "text": "####[Waltz] just follow me. Put your hand on my hip.",
+      "kind": "dialogue",
+      "startMs": 534403,
+      "endMs": 540001
+    },
+    {
+      "index": 138,
+      "text": "[ Voice Cracking ] Okay.",
+      "kind": "dialogue",
+      "startMs": 540109,
+      "endMs": 542202
+    },
+    {
+      "index": 139,
+      "text": "Wedgie! Whoa!",
+      "kind": "dialogue",
+      "startMs": 555591,
+      "endMs": 557559
+    },
+    {
+      "index": 140,
+      "text": "[Homer Eating Loudly]",
+      "kind": "sdh",
+      "startMs": 559628,
+      "endMs": 561960
+    },
+    {
+      "index": 141,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 564667,
+      "endMs": 566931
+    },
+    {
+      "index": 142,
+      "text": "That man ate all our shrimp and two plastic lobsters!",
+      "kind": "dialogue",
+      "startMs": 568704,
+      "endMs": 571730
+    },
+    {
+      "index": 143,
+      "text": "'Tis no man. 'Tis a remorseless eating machine. Arr!",
+      "kind": "dialogue",
+      "startMs": 571840,
+      "endMs": 576470
+    },
+    {
+      "index": 144,
+      "text": "Six bells. Time for closin'. Can't talk. Eating.",
+      "kind": "dialogue",
+      "startMs": 576578,
+      "endMs": 580309
+    },
+    {
+      "index": 145,
+      "text": "Fairly warned be thee, says I.",
+      "kind": "dialogue",
+      "startMs": 580416,
+      "endMs": 583317
+    },
+    {
+      "index": 146,
+      "text": "Huh? Hey!",
+      "kind": "dialogue",
+      "startMs": 583419,
+      "endMs": 585444
+    },
+    {
+      "index": 147,
+      "text": "Hey!",
+      "kind": "dialogue",
+      "startMs": 585554,
+      "endMs": 587545
+    },
+    {
+      "index": 148,
+      "text": "Hey!",
+      "kind": "dialogue",
+      "startMs": 587656,
+      "endMs": 589988
+    },
+    {
+      "index": 149,
+      "text": "But the sign said, \"All you can eat.\"",
+      "kind": "dialogue",
+      "startMs": 592127,
+      "endMs": 594994
+    },
+    {
+      "index": 150,
+      "text": "[ Groaning ]",
+      "kind": "sdh",
+      "startMs": 595097,
+      "endMs": 597088
+    },
+    {
+      "index": 151,
+      "text": "I'm gonna fight this thing.",
+      "kind": "dialogue",
+      "startMs": 597199,
+      "endMs": 599099
+    },
+    {
+      "index": 152,
+      "text": "Oh, please don't. For me?",
+      "kind": "dialogue",
+      "startMs": 599201,
+      "endMs": 601761
+    },
+    {
+      "index": 153,
+      "text": "Sorry, Marge. This is my quest.",
+      "kind": "dialogue",
+      "startMs": 601870,
+      "endMs": 604270
+    },
+    {
+      "index": 154,
+      "text": "I'm like that guy, that Spanish guy.",
+      "kind": "dialogue",
+      "startMs": 604373,
+      "endMs": 607570
+    },
+    {
+      "index": 155,
+      "text": "You know, he fought the windmills. Don Quixote?",
+      "kind": "dialogue",
+      "startMs": 607676,
+      "endMs": 609974
+    },
+    {
+      "index": 156,
+      "text": "No, that's not it. What's his name? \"The Man of La Mancha.\"",
+      "kind": "dialogue",
+      "startMs": 610079,
+      "endMs": 612513
+    },
+    {
+      "index": 157,
+      "text": "Don Quixote. No!",
+      "kind": "dialogue",
+      "startMs": 612614,
+      "endMs": 614172
+    },
+    {
+      "index": 158,
+      "text": "I really think that was the character's name-- Don Quixote.",
+      "kind": "dialogue",
+      "startMs": 614283,
+      "endMs": 617081
+    },
+    {
+      "index": 159,
+      "text": "Fine. I'll look it up.",
+      "kind": "dialogue",
+      "startMs": 617186,
+      "endMs": 619051
+    },
+    {
+      "index": 160,
+      "text": "Well, who was it?",
+      "kind": "dialogue",
+      "startMs": 620789,
+      "endMs": 622120
+    },
+    {
+      "index": 161,
+      "text": "Never mind. Mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 622224,
+      "endMs": 624021
+    },
+    {
+      "index": 162,
+      "text": "[ Alarm Ringing ]",
+      "kind": "sdh",
+      "startMs": 624126,
+      "endMs": 626321
+    },
+    {
+      "index": 163,
+      "text": "Oh, no! Here comes the conservative judge!",
+      "kind": "dialogue",
+      "startMs": 631500,
+      "endMs": 633730
+    },
+    {
+      "index": 164,
+      "text": "[Growling]",
+      "kind": "sdh",
+      "startMs": 633836,
+      "endMs": 635736
+    },
+    {
+      "index": 165,
+      "text": "Plead insanity! Plead insanity!",
+      "kind": "dialogue",
+      "startMs": 635838,
+      "endMs": 637738
+    },
+    {
+      "index": 166,
+      "text": "It's not working! All right. Hit the \"change of venue\" button. Now!",
+      "kind": "dialogue",
+      "startMs": 637840,
+      "endMs": 642140
+    },
+    {
+      "index": 167,
+      "text": "[Bart] Oh, no. You're in Texas!",
+      "kind": "dialogue",
+      "startMs": 642244,
+      "endMs": 645145
+    },
+    {
+      "index": 168,
+      "text": "[ Yelling ] Yee-haw!",
+      "kind": "dialogue",
+      "startMs": 645247,
+      "endMs": 649115
+    },
+    {
+      "index": 169,
+      "text": "If I'd hit the \"remorse\" button one more time, I would have made it.",
+      "kind": "dialogue",
+      "startMs": 649218,
+      "endMs": 652381
+    },
+    {
+      "index": 170,
+      "text": "Ah, Bart, I gotta go. See you around.",
+      "kind": "dialogue",
+      "startMs": 652488,
+      "endMs": 654922
+    },
+    {
+      "index": 171,
+      "text": "I am thinking you like this girl, yes? How did you know?",
+      "kind": "dialogue",
+      "startMs": 655023,
+      "endMs": 658754
+    },
+    {
+      "index": 172,
+      "text": "My ceiling mirrors and video cameras... sometimes see more than who is about to shoot me.",
+      "kind": "dialogue",
+      "startMs": 658861,
+      "endMs": 664295
+    },
+    {
+      "index": 173,
+      "text": "\"All you can eat. '\" Ha!",
+      "kind": "dialogue",
+      "startMs": 664400,
+      "endMs": 666732
+    },
+    {
+      "index": 174,
+      "text": "Mr. Simpson, this is the most blatant case of fraudulent advertising... since my suit against the film The Neverending Story.",
+      "kind": "dialogue",
+      "startMs": 666835,
+      "endMs": 673971
+    },
+    {
+      "index": 175,
+      "text": "So, do you think I have a case?",
+      "kind": "dialogue",
+      "startMs": 674076,
+      "endMs": 676306
+    },
+    {
+      "index": 176,
+      "text": "Homer, I don't use the word \"hero\" very often.",
+      "kind": "dialogue",
+      "startMs": 676412,
+      "endMs": 678505
+    },
+    {
+      "index": 177,
+      "text": "But you are the greatest hero in American history.",
+      "kind": "dialogue",
+      "startMs": 678614,
+      "endMs": 683051
+    },
+    {
+      "index": 178,
+      "text": "Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 683152,
+      "endMs": 685848
+    },
+    {
+      "index": 179,
+      "text": "I'm here to see my Grampa. Here I am, sonny.",
+      "kind": "dialogue",
+      "startMs": 685954,
+      "endMs": 688218
+    },
+    {
+      "index": 180,
+      "text": "You're not my grandpa. Ah, come on. Give me a chance.",
+      "kind": "dialogue",
+      "startMs": 688323,
+      "endMs": 691656
+    },
+    {
+      "index": 181,
+      "text": "Hey, can your grandfather do this?",
+      "kind": "dialogue",
+      "startMs": 691760,
+      "endMs": 694661
+    },
+    {
+      "index": 182,
+      "text": "[ Karate Yells ]",
+      "kind": "sdh",
+      "startMs": 694763,
+      "endMs": 698130
+    },
+    {
+      "index": 183,
+      "text": "Oh! Bart!",
+      "kind": "dialogue",
+      "startMs": 698233,
+      "endMs": 700133
+    },
+    {
+      "index": 184,
+      "text": "Aw, you remembered my birthday.",
+      "kind": "dialogue",
+      "startMs": 700235,
+      "endMs": 703033
+    },
+    {
+      "index": 185,
+      "text": "Huh?",
+      "kind": "dialogue",
+      "startMs": 703138,
+      "endMs": 705538
+    },
+    {
+      "index": 186,
+      "text": "Oh. I sure did.",
+      "kind": "dialogue",
+      "startMs": 705641,
+      "endMs": 707370
+    },
+    {
+      "index": 187,
+      "text": "Here's a bus schedule. Wow!",
+      "kind": "dialogue",
+      "startMs": 707476,
+      "endMs": 709637
+    },
+    {
+      "index": 188,
+      "text": "Fits right in my pocket.",
+      "kind": "dialogue",
+      "startMs": 709745,
+      "endMs": 711474
+    },
+    {
+      "index": 189,
+      "text": "Grampa, I need some advice.",
+      "kind": "dialogue",
+      "startMs": 711580,
+      "endMs": 714276
+    },
+    {
+      "index": 190,
+      "text": "Did you ever have a crush on an older woman?",
+      "kind": "dialogue",
+      "startMs": 714383,
+      "endMs": 716374
+    },
+    {
+      "index": 191,
+      "text": "I had a crush on the oldest woman.",
+      "kind": "dialogue",
+      "startMs": 716485,
+      "endMs": 719386
+    },
+    {
+      "index": 192,
+      "text": "1 20 years old, she was.",
+      "kind": "dialogue",
+      "startMs": 719488,
+      "endMs": 722048
+    },
+    {
+      "index": 193,
+      "text": "Here's a picture of her delivering Eubie Blake. What happened?",
+      "kind": "dialogue",
+      "startMs": 722157,
+      "endMs": 726321
+    },
+    {
+      "index": 194,
+      "text": "She fell in with that Guinness Book of Records crowd.",
+      "kind": "dialogue",
+      "startMs": 726428,
+      "endMs": 729886
+    },
+    {
+      "index": 195,
+      "text": "Suddenly, she didn't have any time for me. Oh!",
+      "kind": "dialogue",
+      "startMs": 729998,
+      "endMs": 734492
+    },
+    {
+      "index": 196,
+      "text": "I wore a 1 5-pound beard of bees for that woman, but it just wasn't enough.",
+      "kind": "dialogue",
+      "startMs": 734603,
+      "endMs": 739336
+    },
+    {
+      "index": 197,
+      "text": "Dad, I have some questions about women.",
+      "kind": "dialogue",
+      "startMs": 739441,
+      "endMs": 742239
+    },
+    {
+      "index": 198,
+      "text": "Uh, can't you see I'm readin' the, uh, cultural calendar?",
+      "kind": "dialogue",
+      "startMs": 742344,
+      "endMs": 747213
+    },
+    {
+      "index": 199,
+      "text": "Ooh! \"Mostly Mozart\" is in town.",
+      "kind": "dialogue",
+      "startMs": 747316,
+      "endMs": 749216
+    },
+    {
+      "index": 200,
+      "text": "Homer, Bart's at a very curious age.",
+      "kind": "dialogue",
+      "startMs": 749318,
+      "endMs": 752219
+    },
+    {
+      "index": 201,
+      "text": "As his father, I think you should have a frank and earthy discussion about... you know.",
+      "kind": "dialogue",
+      "startMs": 752321,
+      "endMs": 758658
+    },
+    {
+      "index": 202,
+      "text": "But, Marge, I think he should learn about it the same way I did.",
+      "kind": "dialogue",
+      "startMs": 758760,
+      "endMs": 761627
+    },
+    {
+      "index": 203,
+      "text": "Are you sure?",
+      "kind": "dialogue",
+      "startMs": 761730,
+      "endMs": 763561
+    },
+    {
+      "index": 204,
+      "text": "[ Thinking ] Hmm.",
+      "kind": "dialogue",
+      "startMs": 763665,
+      "endMs": 765565
+    },
+    {
+      "index": 205,
+      "text": "[Monkeys Chittering] Zookeeper! Zookeeper!",
+      "kind": "dialogue",
+      "startMs": 765667,
+      "endMs": 768431
+    },
+    {
+      "index": 206,
+      "text": "Those two monkeys are killing each other!",
+      "kind": "dialogue",
+      "startMs": 768537,
+      "endMs": 770528
+    },
+    {
+      "index": 207,
+      "text": "[ Whispering ] They're having sex. Oh?",
+      "kind": "dialogue",
+      "startMs": 770639,
+      "endMs": 773233
+    },
+    {
+      "index": 208,
+      "text": "Maybe you're right. Now, if you'll excuse us... this is a sacred moment between a boy and his father.",
+      "kind": "dialogue",
+      "startMs": 773342,
+      "endMs": 780339
+    },
+    {
+      "index": 209,
+      "text": "Son, a woman is a lot like, um... a refrigerator.",
+      "kind": "dialogue",
+      "startMs": 780449,
+      "endMs": 786878
+    },
+    {
+      "index": 210,
+      "text": "They're about six feet tall, 300 pounds.",
+      "kind": "dialogue",
+      "startMs": 786989,
+      "endMs": 789856
+    },
+    {
+      "index": 211,
+      "text": "They make ice and-- Oh, wait a minute. Actually, a woman is more like a beer.",
+      "kind": "dialogue",
+      "startMs": 789958,
+      "endMs": 796655
+    },
+    {
+      "index": 212,
+      "text": "They smell good. They look good.",
+      "kind": "dialogue",
+      "startMs": 796765,
+      "endMs": 799165
+    },
+    {
+      "index": 213,
+      "text": "You'd step over your own mother just to get one!",
+      "kind": "dialogue",
+      "startMs": 799268,
+      "endMs": 802101
+    },
+    {
+      "index": 214,
+      "text": "But you can't stop at one. You wanna drink another woman.",
+      "kind": "dialogue",
+      "startMs": 803639,
+      "endMs": 807200
+    },
+    {
+      "index": 215,
+      "text": "So I says, \"Yeah, if you want that money, come and find it...",
+      "kind": "dialogue",
+      "startMs": 809678,
+      "endMs": 813774
+    },
+    {
+      "index": 216,
+      "text": "\"'cause I don't know where it is, you bologna.",
+      "kind": "dialogue",
+      "startMs": 813882,
+      "endMs": 816544
+    },
+    {
+      "index": 217,
+      "text": "You make me wanna retch.\"",
+      "kind": "dialogue",
+      "startMs": 816652,
+      "endMs": 820816
+    },
+    {
+      "index": 218,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 820923,
+      "endMs": 823050
+    },
+    {
+      "index": 219,
+      "text": "[ Sighs ] How can I get her to notice me?",
+      "kind": "dialogue",
+      "startMs": 826328,
+      "endMs": 830196
+    },
+    {
+      "index": 220,
+      "text": "Meet me at the tree house, Bart. And come alone.",
+      "kind": "dialogue",
+      "startMs": 831500,
+      "endMs": 835163
+    },
+    {
+      "index": 221,
+      "text": "[ Gulps ]",
+      "kind": "sdh",
+      "startMs": 835270,
+      "endMs": 836760
+    },
+    {
+      "index": 222,
+      "text": "Thanks for coming. I please to aim.",
+      "kind": "dialogue",
+      "startMs": 845480,
+      "endMs": 847778
+    },
+    {
+      "index": 223,
+      "text": "I'm so happy. I just had to tell someone.",
+      "kind": "dialogue",
+      "startMs": 847883,
+      "endMs": 851114
+    },
+    {
+      "index": 224,
+      "text": "I have a boyfriend.",
+      "kind": "dialogue",
+      "startMs": 851219,
+      "endMs": 852982
+    },
+    {
+      "index": 225,
+      "text": "You won't be needing this.",
+      "kind": "dialogue",
+      "startMs": 856391,
+      "endMs": 858586
+    },
+    {
+      "index": 226,
+      "text": "[ Groans ]",
+      "kind": "sdh",
+      "startMs": 865801,
+      "endMs": 868167
+    },
+    {
+      "index": 227,
+      "text": "A boyfriend?",
+      "kind": "dialogue",
+      "startMs": 871106,
+      "endMs": 873006
+    },
+    {
+      "index": 228,
+      "text": "I really think you'd like him, Bart. His name's Jimbo.",
+      "kind": "dialogue",
+      "startMs": 873108,
+      "endMs": 876441
+    },
+    {
+      "index": 229,
+      "text": "Jimbo Jones?",
+      "kind": "dialogue",
+      "startMs": 876545,
+      "endMs": 878979
+    },
+    {
+      "index": 230,
+      "text": "[ Grunting ] [Knocking] Uh, you've been flushing for 20 minutes.",
+      "kind": "dialogue",
+      "startMs": 881783,
+      "endMs": 887413
+    },
+    {
+      "index": 231,
+      "text": "Is there a problem? [Jimbo] Uh, no, Principal Skinner.",
+      "kind": "dialogue",
+      "startMs": 887522,
+      "endMs": 891049
+    },
+    {
+      "index": 232,
+      "text": "[Chuckling] Very well. I'll continue to wait.",
+      "kind": "dialogue",
+      "startMs": 891159,
+      "endMs": 894253
+    },
+    {
+      "index": 233,
+      "text": "## [ Humming ] [Toilet Flushing]",
+      "kind": "dialogue",
+      "startMs": 894363,
+      "endMs": 896923
+    },
+    {
+      "index": 234,
+      "text": "## [ Whistling ] [Flushing Continues]",
+      "kind": "dialogue",
+      "startMs": 897032,
+      "endMs": 899762
+    },
+    {
+      "index": 235,
+      "text": "How can you like that guy?",
+      "kind": "dialogue",
+      "startMs": 902337,
+      "endMs": 904271
+    },
+    {
+      "index": 236,
+      "text": "I don't know. Maybe 'cause he's an outlaw.",
+      "kind": "dialogue",
+      "startMs": 904373,
+      "endMs": 906898
+    },
+    {
+      "index": 237,
+      "text": "You know that dead body they found behind the mayor's house? -Jimbo killed him?",
+      "kind": "dialogue",
+      "startMs": 907009,
+      "endMs": 910911
+    },
+    {
+      "index": 238,
+      "text": "No, but he poked him with a stick. [Moped Engine Running] Hey, Laura, Dr. Tongue has arrived.",
+      "kind": "dialogue",
+      "startMs": 911013,
+      "endMs": 918681
+    },
+    {
+      "index": 239,
+      "text": "That's him, Bart!",
+      "kind": "dialogue",
+      "startMs": 918787,
+      "endMs": 920584
+    },
+    {
+      "index": 240,
+      "text": "Who's the dork? Leave him alone. He's just a kid.",
+      "kind": "dialogue",
+      "startMs": 920689,
+      "endMs": 924420
+    },
+    {
+      "index": 241,
+      "text": "[Echoing] Just a kid. Just a kid.",
+      "kind": "dialogue",
+      "startMs": 924526,
+      "endMs": 926153
+    },
+    {
+      "index": 242,
+      "text": "I'll show them who's just a kid.",
+      "kind": "dialogue",
+      "startMs": 926261,
+      "endMs": 928991
+    },
+    {
+      "index": 243,
+      "text": "[Marge] Bart, it's your bedtime.",
+      "kind": "dialogue",
+      "startMs": 929097,
+      "endMs": 930997
+    },
+    {
+      "index": 244,
+      "text": "I laid out your jammy-jams. [ Groans ]",
+      "kind": "dialogue",
+      "startMs": 931099,
+      "endMs": 933260
+    },
+    {
+      "index": 245,
+      "text": "[Eating Loudly]",
+      "kind": "sdh",
+      "startMs": 933368,
+      "endMs": 936394
+    },
+    {
+      "index": 246,
+      "text": "Dad, if there's a really special girl... and she likes some clod who's beneath her, what should you do?",
+      "kind": "dialogue",
+      "startMs": 938306,
+      "endMs": 942776
+    },
+    {
+      "index": 247,
+      "text": "I married her! [ Laughing ] [ Snickering ] Homer, please. [ Hiccups ] I just had eggs.",
+      "kind": "dialogue",
+      "startMs": 942878,
+      "endMs": 949342
+    },
+    {
+      "index": 248,
+      "text": "Good luck in your trumped-up lawsuit, Dad.",
+      "kind": "dialogue",
+      "startMs": 949451,
+      "endMs": 952352
+    },
+    {
+      "index": 249,
+      "text": "Thanks. That means a lot to me.",
+      "kind": "dialogue",
+      "startMs": 952454,
+      "endMs": 955582
+    },
+    {
+      "index": 250,
+      "text": "All right, you guys. I want you in bed before Jimbo gets here.",
+      "kind": "dialogue",
+      "startMs": 955691,
+      "endMs": 958353
+    },
+    {
+      "index": 251,
+      "text": "What do you like about him? He's just a good-lookin' rebel who plays by his own rules.",
+      "kind": "dialogue",
+      "startMs": 958460,
+      "endMs": 962692
+    },
+    {
+      "index": 252,
+      "text": "[ Both Sigh ]",
+      "kind": "sdh",
+      "startMs": 962798,
+      "endMs": 964356
+    },
+    {
+      "index": 253,
+      "text": "'Twas a moonless night, dark as pitch... when out of the mist came a beast more stomach than man.",
+      "kind": "dialogue",
+      "startMs": 966034,
+      "endMs": 972306
+    },
+    {
+      "index": 254,
+      "text": "Hey! - So I says to me bosuns, \"Batten down the mizzenmast.\"",
+      "kind": "dialogue",
+      "startMs": 972407,
+      "endMs": 976309
+    },
+    {
+      "index": 255,
+      "text": "Captain McCallister, isn't it a fact... that you're not a real captain?",
+      "kind": "dialogue",
+      "startMs": 976411,
+      "endMs": 981642
+    },
+    {
+      "index": 256,
+      "text": "Aye. [ All Gasping ] Your Honor, I would like to show the court... just how much shrimp Mr. Simpson ate.",
+      "kind": "dialogue",
+      "startMs": 981750,
+      "endMs": 988814
+    },
+    {
+      "index": 257,
+      "text": "Bring it in, boys!",
+      "kind": "dialogue",
+      "startMs": 988924,
+      "endMs": 990551
+    },
+    {
+      "index": 258,
+      "text": "1 8,000 letters all addressed to \"Santa Claus.\"",
+      "kind": "dialogue",
+      "startMs": 998433,
+      "endMs": 1002529
+    },
+    {
+      "index": 259,
+      "text": "You want \"The People of Springfield versus Kris Kringle.\"",
+      "kind": "dialogue",
+      "startMs": 1002637,
+      "endMs": 1004696
+    },
+    {
+      "index": 260,
+      "text": "That's next door. Oh.",
+      "kind": "dialogue",
+      "startMs": 1004806,
+      "endMs": 1006774
+    },
+    {
+      "index": 261,
+      "text": "Mrs. Simpson, isn't it true... your husband once consumed a 1 0-pound bag of flour... when no other food was available?",
+      "kind": "dialogue",
+      "startMs": 1008210,
+      "endMs": 1016449
+    },
+    {
+      "index": 262,
+      "text": "Yes, but it was-- Your witness.",
+      "kind": "dialogue",
+      "startMs": 1016551,
+      "endMs": 1019247
+    },
+    {
+      "index": 263,
+      "text": "Uh, there's a pizza here for-- Right here.",
+      "kind": "dialogue",
+      "startMs": 1019354,
+      "endMs": 1022721
+    },
+    {
+      "index": 264,
+      "text": "Mrs. Simpson, what did you and your husband do... after you were ejected from the restaurant?",
+      "kind": "dialogue",
+      "startMs": 1022824,
+      "endMs": 1029029
+    },
+    {
+      "index": 265,
+      "text": "We pretty much went straight home.",
+      "kind": "dialogue",
+      "startMs": 1029131,
+      "endMs": 1031622
+    },
+    {
+      "index": 266,
+      "text": "Mrs. Simpson, you're under oath.",
+      "kind": "dialogue",
+      "startMs": 1031733,
+      "endMs": 1034361
+    },
+    {
+      "index": 267,
+      "text": "We drove around until 3:00 a.m.... looking for another all-you-can-eat fish restaurant.",
+      "kind": "dialogue",
+      "startMs": 1034469,
+      "endMs": 1040302
+    },
+    {
+      "index": 268,
+      "text": "[Spectators Murmuring] And when you couldn't find one?",
+      "kind": "dialogue",
+      "startMs": 1040408,
+      "endMs": 1043809
+    },
+    {
+      "index": 269,
+      "text": "We went fishing. [ Sobbing ] [Spectators Gasping] Do these sound like the actions of a man... who had \"all he could eat\"?",
+      "kind": "dialogue",
+      "startMs": 1043912,
+      "endMs": 1053443
+    },
+    {
+      "index": 270,
+      "text": "No! That could've been me!",
+      "kind": "dialogue",
+      "startMs": 1053555,
+      "endMs": 1055955
+    },
+    {
+      "index": 271,
+      "text": "Homer, I've a proposition forye, fair and true.",
+      "kind": "dialogue",
+      "startMs": 1056057,
+      "endMs": 1060517
+    },
+    {
+      "index": 272,
+      "text": "Come on, Marge. Let the people see your pretty face.",
+      "kind": "dialogue",
+      "startMs": 1060629,
+      "endMs": 1063792
+    },
+    {
+      "index": 273,
+      "text": "Come see \"Bottomless Pete,\" nature's cruelest mistake.",
+      "kind": "dialogue",
+      "startMs": 1063899,
+      "endMs": 1068768
+    },
+    {
+      "index": 274,
+      "text": "Come for the freak, stay for the food.",
+      "kind": "dialogue",
+      "startMs": 1068870,
+      "endMs": 1071703
+    },
+    {
+      "index": 275,
+      "text": "Oh, he's hideous! I heard they shaved a gorilla.",
+      "kind": "dialogue",
+      "startMs": 1071807,
+      "endMs": 1075538
+    },
+    {
+      "index": 276,
+      "text": "Hey, baby, my shirt's chafin' me.",
+      "kind": "dialogue",
+      "startMs": 1075644,
+      "endMs": 1080013
+    },
+    {
+      "index": 277,
+      "text": "Mind if I take it off? Well, okay.",
+      "kind": "dialogue",
+      "startMs": 1080115,
+      "endMs": 1084245
+    },
+    {
+      "index": 278,
+      "text": "I gotta do something! Hmm.",
+      "kind": "dialogue",
+      "startMs": 1088690,
+      "endMs": 1092683
+    },
+    {
+      "index": 279,
+      "text": "But it says, \"Good for one free beer at Moe's.\"",
+      "kind": "dialogue",
+      "startMs": 1092794,
+      "endMs": 1095319
+    },
+    {
+      "index": 280,
+      "text": "This is Moe's Tavern, isn't it?",
+      "kind": "dialogue",
+      "startMs": 1095430,
+      "endMs": 1097364
+    },
+    {
+      "index": 281,
+      "text": "No, this is... Bo's Cavern.",
+      "kind": "dialogue",
+      "startMs": 1097465,
+      "endMs": 1100025
+    },
+    {
+      "index": 282,
+      "text": "Give me my beer.",
+      "kind": "dialogue",
+      "startMs": 1100135,
+      "endMs": 1102069
+    },
+    {
+      "index": 283,
+      "text": "Stupid Welcome Mobile. I knew it would ruin me!",
+      "kind": "dialogue",
+      "startMs": 1102170,
+      "endMs": 1105401
+    },
+    {
+      "index": 284,
+      "text": "[ Ringing ] Yeah, just a sec. I'll check.",
+      "kind": "dialogue",
+      "startMs": 1105507,
+      "endMs": 1108374
+    },
+    {
+      "index": 285,
+      "text": "Uh, Amanda Huggenkiss!",
+      "kind": "dialogue",
+      "startMs": 1108476,
+      "endMs": 1110740
+    },
+    {
+      "index": 286,
+      "text": "Hey, I'm looking for Amanda Huggenkiss!",
+      "kind": "dialogue",
+      "startMs": 1110846,
+      "endMs": 1113713
+    },
+    {
+      "index": 287,
+      "text": "Why can't I find Amanda Huggenkiss?",
+      "kind": "dialogue",
+      "startMs": 1113815,
+      "endMs": 1116807
+    },
+    {
+      "index": 288,
+      "text": "[ All Laughing ]",
+      "kind": "sdh",
+      "startMs": 1116918,
+      "endMs": 1118818
+    },
+    {
+      "index": 289,
+      "text": "Maybe your standards are too high.",
+      "kind": "dialogue",
+      "startMs": 1118920,
+      "endMs": 1120888
+    },
+    {
+      "index": 290,
+      "text": "You little S.O.B!",
+      "kind": "dialogue",
+      "startMs": 1120989,
+      "endMs": 1123150
+    },
+    {
+      "index": 291,
+      "text": "If I ever find out who you are, I'm gonna shove a sausage down your throat... and stick starving dogs in your butt!",
+      "kind": "dialogue",
+      "startMs": 1123258,
+      "endMs": 1128595
+    },
+    {
+      "index": 292,
+      "text": "My name is Jimbo Jones, and I live at 1 094 Evergreen Terrace.",
+      "kind": "dialogue",
+      "startMs": 1128697,
+      "endMs": 1132690
+    },
+    {
+      "index": 293,
+      "text": "Aha! Big mistake, pal!",
+      "kind": "dialogue",
+      "startMs": 1132801,
+      "endMs": 1136259
+    },
+    {
+      "index": 294,
+      "text": "Ho-ho! I knew he'd slip up sooner or later.",
+      "kind": "dialogue",
+      "startMs": 1136371,
+      "endMs": 1139238
+    },
+    {
+      "index": 295,
+      "text": "Ah, yes. Rusty and dull.",
+      "kind": "dialogue",
+      "startMs": 1139341,
+      "endMs": 1142538
+    },
+    {
+      "index": 296,
+      "text": "Barney, don't steal any beer while I'm gone.",
+      "kind": "dialogue",
+      "startMs": 1142644,
+      "endMs": 1146171
+    },
+    {
+      "index": 297,
+      "text": "What kind of pathetic drunk Do you take me for?",
+      "kind": "dialogue",
+      "startMs": 1146281,
+      "endMs": 1149876
+    },
+    {
+      "index": 298,
+      "text": "[ Gasps ] Somebody spilled beer in this ashtray.",
+      "kind": "dialogue",
+      "startMs": 1149985,
+      "endMs": 1153113
+    },
+    {
+      "index": 299,
+      "text": "[ Slurps Loudly] Ahh.",
+      "kind": "dialogue",
+      "startMs": 1153221,
+      "endMs": 1155121
+    },
+    {
+      "index": 300,
+      "text": "[ Grunting, Laughing Sinisterly]",
+      "kind": "sdh",
+      "startMs": 1155223,
+      "endMs": 1159853
+    },
+    {
+      "index": 301,
+      "text": "Let's see. Where is that map? Evergreen Terrace.",
+      "kind": "dialogue",
+      "startMs": 1159961,
+      "endMs": 1163192
+    },
+    {
+      "index": 302,
+      "text": "There it is-- F-5. [Laughing Continues]",
+      "kind": "dialogue",
+      "startMs": 1163298,
+      "endMs": 1166495
+    },
+    {
+      "index": 303,
+      "text": "I don't believe it. Now my pants are chafin' me.",
+      "kind": "dialogue",
+      "startMs": 1170605,
+      "endMs": 1174166
+    },
+    {
+      "index": 304,
+      "text": "[ Panting ] All right, who's Jimbo Jones?",
+      "kind": "dialogue",
+      "startMs": 1175377,
+      "endMs": 1178574
+    },
+    {
+      "index": 305,
+      "text": "I am. You just made your second mistake, buddy boy!",
+      "kind": "dialogue",
+      "startMs": 1178680,
+      "endMs": 1182707
+    },
+    {
+      "index": 306,
+      "text": "Please, dude, don't hurt me. Oh, man.",
+      "kind": "dialogue",
+      "startMs": 1182817,
+      "endMs": 1185650
+    },
+    {
+      "index": 307,
+      "text": "[ Sobbing ]",
+      "kind": "sdh",
+      "startMs": 1185754,
+      "endMs": 1188222
+    },
+    {
+      "index": 308,
+      "text": "That's your outlaw? - I wasn't really gonna kill ya. I was just gonna cut ya.",
+      "kind": "dialogue",
+      "startMs": 1188323,
+      "endMs": 1192384
+    },
+    {
+      "index": 309,
+      "text": "[ Sobbing Continues ]",
+      "kind": "sdh",
+      "startMs": 1192494,
+      "endMs": 1194928
+    },
+    {
+      "index": 310,
+      "text": "Ah, forget it. Ouch! I better go check on Barney.",
+      "kind": "dialogue",
+      "startMs": 1195030,
+      "endMs": 1198659
+    },
+    {
+      "index": 311,
+      "text": "Uh-oh. My heart just stopped.",
+      "kind": "dialogue",
+      "startMs": 1202070,
+      "endMs": 1204834
+    },
+    {
+      "index": 312,
+      "text": "Ah, there it goes.",
+      "kind": "dialogue",
+      "startMs": 1207175,
+      "endMs": 1209075
+    },
+    {
+      "index": 313,
+      "text": "[ Grunting, Laughing Sinisterly]",
+      "kind": "sdh",
+      "startMs": 1209177,
+      "endMs": 1213614
+    },
+    {
+      "index": 314,
+      "text": "[Thump] Ow! Stupid wishing well!",
+      "kind": "dialogue",
+      "startMs": 1213715,
+      "endMs": 1216616
+    },
+    {
+      "index": 315,
+      "text": "Jimbo, I don't think we should see each other anymore.",
+      "kind": "dialogue",
+      "startMs": 1216718,
+      "endMs": 1220051
+    },
+    {
+      "index": 316,
+      "text": "You're just not the guy I thought you were.",
+      "kind": "dialogue",
+      "startMs": 1220155,
+      "endMs": 1222055
+    },
+    {
+      "index": 317,
+      "text": "[ Sniffles ] Can I have my shirt back?",
+      "kind": "dialogue",
+      "startMs": 1222157,
+      "endMs": 1226059
+    },
+    {
+      "index": 318,
+      "text": "[ Blowing Nose ]",
+      "kind": "sdh",
+      "startMs": 1226161,
+      "endMs": 1229096
+    },
+    {
+      "index": 319,
+      "text": "Well, Bart, you were right about him.",
+      "kind": "dialogue",
+      "startMs": 1229197,
+      "endMs": 1231290
+    },
+    {
+      "index": 320,
+      "text": "As usual, a knife-wielding maniac has shown us the way.",
+      "kind": "dialogue",
+      "startMs": 1231399,
+      "endMs": 1234630
+    },
+    {
+      "index": 321,
+      "text": "You know, if you were only old enough to grow a bad teenage mustache...",
+      "kind": "dialogue",
+      "startMs": 1234736,
+      "endMs": 1238968
+    },
+    {
+      "index": 322,
+      "text": "I'd go out with you in a second. Wow.",
+      "kind": "dialogue",
+      "startMs": 1239074,
+      "endMs": 1243306
+    },
+    {
+      "index": 323,
+      "text": "Hello, I'd like to speak to Miss Tinkle, first name...",
+      "kind": "dialogue",
+      "startMs": 1243411,
+      "endMs": 1247313
+    },
+    {
+      "index": 324,
+      "text": "[ Whispering ] Ivana.",
+      "kind": "dialogue",
+      "startMs": 1247415,
+      "endMs": 1249645
+    },
+    {
+      "index": 325,
+      "text": "Ivana Tinkle. just a sec.",
+      "kind": "dialogue",
+      "startMs": 1249751,
+      "endMs": 1251912
+    },
+    {
+      "index": 326,
+      "text": "Ivana Tinkle. Ivana Tinkle!",
+      "kind": "dialogue",
+      "startMs": 1252020,
+      "endMs": 1255421
+    },
+    {
+      "index": 327,
+      "text": "All right, everybody, put down your glasses.",
+      "kind": "dialogue",
+      "startMs": 1255523,
+      "endMs": 1257491
+    },
+    {
+      "index": 328,
+      "text": "Ivana Tinkle. [ All Laughing ]",
+      "kind": "dialogue",
+      "startMs": 1257592,
+      "endMs": 1260322
+    },
+    {
+      "index": 329,
+      "text": "[ Laughing ] Har, har, har.",
+      "kind": "dialogue",
+      "startMs": 1260428,
+      "endMs": 1263920
+    },
+    {
+      "index": 330,
+      "text": "[ People Chattering ] Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1314649,
+      "endMs": 2000
+    }
+  ]
+}
