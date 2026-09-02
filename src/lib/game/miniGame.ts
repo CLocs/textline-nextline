@@ -3,6 +3,13 @@ import { MINI_GAME_SIZE } from "../../types/game.js";
 
 export type Rng = () => number;
 
+export type MiniGameQueueOptions = {
+  personalStarred: number[];
+  crowdPopular?: number[];
+  size?: number;
+  rng?: Rng;
+};
+
 function defaultRng(): number {
   return Math.random();
 }
@@ -25,24 +32,43 @@ export function getValidPromptIndices(source: LineSource): number[] {
 
 export function buildMiniGameQueue(
   source: LineSource,
-  starredLineIndices: number[],
-  size = MINI_GAME_SIZE,
-  rng: Rng = defaultRng,
+  options: MiniGameQueueOptions,
 ): number[] {
+  const {
+    personalStarred,
+    crowdPopular = [],
+    size = MINI_GAME_SIZE,
+    rng = defaultRng,
+  } = options;
+
   const valid = getValidPromptIndices(source);
   const validSet = new Set(valid);
 
-  const starred = shuffle(
-    starredLineIndices.filter((index) => validSet.has(index)),
+  const personal = shuffle(
+    personalStarred.filter((index) => validSet.has(index)),
     rng,
   );
+  const personalSet = new Set(personal);
+
+  const crowd = shuffle(
+    crowdPopular.filter(
+      (index) => validSet.has(index) && !personalSet.has(index),
+    ),
+    rng,
+  );
+  const used = new Set([...personal, ...crowd]);
+
   const fillerPool = shuffle(
-    valid.filter((index) => !starred.includes(index)),
+    valid.filter((index) => !used.has(index)),
     rng,
   );
 
   const queue: number[] = [];
-  for (const index of starred) {
+  for (const index of personal) {
+    if (queue.length >= size) break;
+    queue.push(index);
+  }
+  for (const index of crowd) {
     if (queue.length >= size) break;
     queue.push(index);
   }

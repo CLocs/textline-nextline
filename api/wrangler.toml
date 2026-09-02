@@ -1,0 +1,12 @@
+name = "textline-nextline-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "textline-stars"
+database_id = "b795014e-6ead-4056-a452-d6442324604a"
+
+[vars]
+# Comma-separated origins; override per environment if needed
+ALLOWED_ORIGINS = "http://localhost:5173,https://textline-nextline.pages.dev"
