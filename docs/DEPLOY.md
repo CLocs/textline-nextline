@@ -64,6 +64,8 @@ npm run preview  # smoke-test the production build
 | Issue | Fix |
 | --- | --- |
 | Workflow fails: missing secrets | Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` |
+| `Authentication error` / exit code 1 | Token needs **Account → Cloudflare Pages → Edit**; verify account ID |
 | `Project not found` | Run `wrangler pages project create textline-nextline` |
+| Wrangler version mismatch in CI | Workflow uses `npx wrangler` from `package.json` (v4), not wrangler-action |
 | Old episodes after deploy | Hard refresh; confirm `content/` was committed before push |
 | Friend's stars missing | Expected — stars are local until we add sync |
