@@ -504,6 +504,142 @@ code {
   margin: 0 0 1rem;
 }
 
+.curate-link {
+  margin-top: 0.75rem;
+}
+
+.curate-panel {
+  max-width: 720px;
+}
+
+.curate-header h2 {
+  margin: 0.5rem 0 0.25rem;
+}
+
+.curate-meta {
+  margin: 0 0 0.5rem;
+}
+
+.curate-hint {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.curate-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.curate-search {
+  flex: 1 1 12rem;
+}
+
+.curate-search input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: inherit;
+  background: white;
+}
+
+.curate-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.curate-empty {
+  margin: 0;
+}
+
+.curate-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  max-height: calc(100vh - 16rem);
+  overflow: auto;
+}
+
+.curate-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+}
+
+.curate-item.starred {
+  border-color: #e8d48a;
+  background: #fffef8;
+}
+
+.curate-star {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: white;
+  font-size: 1.1rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.curate-star.starred {
+  border-color: #c4a035;
+  color: #9a7b0a;
+  background: #fffbeb;
+}
+
+.curate-line-index {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.curate-text {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.history-star {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.history-star.starred {
+  color: #9a7b0a;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 860px) {
   .play-layout {
     grid-template-columns: 1fr;

@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Title } from "../types/content";
 import type { HistoryEntry, HistoryVia } from "../lib/game/session";
 import { getLine } from "../lib/content/lines";
-import { isStarred } from "../lib/stars/sync";
+import { getValidPromptIndices } from "../lib/game/miniGame";
+import { isStarred, toggleStar } from "../lib/stars/sync";
 
 type Props = {
   title: Title;
@@ -23,16 +24,23 @@ function viaLabel(via: HistoryVia): string | null {
 
 export function HistorySidebar({ title, history, currentLineIndex }: Props) {
   const listRef = useRef<HTMLOListElement>(null);
+  const [revision, setRevision] = useState(0);
+  const validPrompts = new Set(getValidPromptIndices(title));
 
   useEffect(() => {
     listRef.current?.lastElementChild?.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }, [history.length, currentLineIndex]);
 
+  async function handleToggleStar(lineIndex: number, text: string) {
+    await toggleStar(title.id, lineIndex, text);
+    setRevision((value) => value + 1);
+  }
+
   return (
-    <aside className="history-sidebar" aria-label="Transcript so far (read-only)">
+    <aside className="history-sidebar" aria-label="Transcript so far">
       <div className="history-header">
         <h3>Transcript</h3>
-        <p className="history-note">Read-only</p>
+        <p className="history-note">Tap ☆ to star a line</p>
       </div>
 
       {history.length === 0 ? (
@@ -46,14 +54,26 @@ export function HistorySidebar({ title, history, currentLineIndex }: Props) {
             const isCurrent = entry.lineIndex === currentLineIndex && entry.via !== "incorrect";
             const tag = viaLabel(entry.via);
             const starred = isStarred(title.id, entry.lineIndex);
+            const canStar = validPrompts.has(entry.lineIndex);
 
             return (
               <li
-                key={`${entry.lineIndex}-${entry.via}-${index}`}
+                key={`${entry.lineIndex}-${entry.via}-${index}-${revision}`}
                 className={`history-item${isCurrent ? " current" : ""}${starred ? " starred" : ""}`}
               >
                 <div className="history-item-meta">
                   <span className="history-line-num">{index + 1}</span>
+                  {canStar && (
+                    <button
+                      type="button"
+                      className={`history-star${starred ? " starred" : ""}`}
+                      aria-pressed={starred}
+                      aria-label={starred ? "Unstar line" : "Star line"}
+                      onClick={() => void handleToggleStar(entry.lineIndex, line.text)}
+                    >
+                      {starred ? "★" : "☆"}
+                    </button>
+                  )}
                   {starred && <span className="history-tag starred-tag">★ Starred</span>}
                   {tag && <span className="history-tag">{tag}</span>}
                   {isCurrent && <span className="history-tag current-tag">Now</span>}

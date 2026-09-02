@@ -18,8 +18,9 @@ import { LibraryScreen } from "../components/LibraryScreen";
 import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
 import { CompleteScreen } from "../components/CompleteScreen";
+import { CurateScreen } from "../components/CurateScreen";
 
-type Screen = "library" | "setup" | "play" | "complete";
+type Screen = "library" | "setup" | "curate" | "play" | "complete";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -135,7 +136,7 @@ export function App() {
   }
 
   return (
-    <div className={`app-shell${screen === "play" ? " play-active" : ""}`}>
+    <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}`}>
       <header className="app-header">
         <h1>Textline → Nextline</h1>
         <p className="lede">Here's a line — guess what comes next.</p>
@@ -147,8 +148,13 @@ export function App() {
         <SetupScreen
           entry={pendingEntry}
           onStart={(setup) => beginGame(pendingEntry, setup)}
+          onCurate={() => setScreen("curate")}
           onBack={handleBackToLibrary}
         />
+      )}
+
+      {screen === "curate" && pendingEntry && (
+        <CurateScreen entry={pendingEntry} onBack={() => setScreen("setup")} />
       )}
 
       {screen === "play" && title && run && question && (
