@@ -1,7 +1,4 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { isStarApiEnabled } from "../src/lib/stars/api.js";
-import { toggleStar } from "../src/lib/stars/sync.js";
-import { getStarredLineIndices, isStarred, listStars } from "../src/lib/stars/store.js";
 
 const storage = new Map<string, string>();
 
@@ -9,6 +6,7 @@ describe("star sync offline fallback", () => {
   afterEach(() => {
     storage.clear();
     vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
     vi.resetModules();
   });
 
@@ -22,6 +20,14 @@ describe("star sync offline fallback", () => {
         storage.delete(key);
       },
     });
+    vi.stubEnv("VITE_API_URL", "");
+    vi.resetModules();
+
+    const { isStarApiEnabled } = await import("../src/lib/stars/api.js");
+    const { toggleStar } = await import("../src/lib/stars/sync.js");
+    const { getStarredLineIndices, isStarred, listStars } = await import(
+      "../src/lib/stars/store.js"
+    );
 
     expect(isStarApiEnabled()).toBe(false);
 
