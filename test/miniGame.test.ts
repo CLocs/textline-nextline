@@ -23,14 +23,46 @@ function fixedRng(values: number[]): () => number {
 }
 
 describe("buildMiniGameQueue", () => {
-  it("prioritizes starred prompts", () => {
-    const queue = buildMiniGameQueue(title, [3], 2, fixedRng([0.1, 0.2]));
+  it("prioritizes personal starred prompts", () => {
+    const queue = buildMiniGameQueue(title, {
+      personalStarred: [3],
+      size: 2,
+      rng: fixedRng([0.1, 0.2]),
+    });
     expect(queue).toHaveLength(2);
     expect(queue[0]).toBe(3);
   });
 
+  it("fills with crowd popular before random prompts", () => {
+    const queue = buildMiniGameQueue(title, {
+      personalStarred: [],
+      crowdPopular: [2],
+      size: 2,
+      rng: fixedRng([0.1, 0.2, 0.3]),
+    });
+    expect(queue).toHaveLength(2);
+    expect(queue[0]).toBe(2);
+    expect(getValidPromptIndices(title)).toContain(queue[1]);
+  });
+
+  it("skips crowd lines already in personal stars", () => {
+    const queue = buildMiniGameQueue(title, {
+      personalStarred: [3],
+      crowdPopular: [3, 2],
+      size: 3,
+      rng: fixedRng([0.1, 0.2, 0.3, 0.4]),
+    });
+    expect(queue[0]).toBe(3);
+    expect(queue).toContain(2);
+    expect(queue.filter((index) => index === 3)).toHaveLength(1);
+  });
+
   it("fills with other valid prompts", () => {
-    const queue = buildMiniGameQueue(title, [], 3, fixedRng([0.9, 0.8, 0.7, 0.6]));
+    const queue = buildMiniGameQueue(title, {
+      personalStarred: [],
+      size: 3,
+      rng: fixedRng([0.9, 0.8, 0.7, 0.6]),
+    });
     expect(queue).toHaveLength(3);
     expect(getValidPromptIndices(title)).toEqual([1, 2, 3]);
     for (const index of queue) {

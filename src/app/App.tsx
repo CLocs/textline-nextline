@@ -13,7 +13,7 @@ import {
   submitAnswer,
   type GameRun,
 } from "../lib/game/session";
-import { getStarredLineIndices } from "../lib/stars/store";
+import { getStarredLineIndices } from "../lib/stars/sync";
 import { LibraryScreen } from "../components/LibraryScreen";
 import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
@@ -45,7 +45,10 @@ export function App() {
     let questionQueue: number[] | undefined;
 
     if (setup.length === "mini") {
-      questionQueue = buildMiniGameQueue(loaded, getStarredLineIndices(entry.id));
+      questionQueue = buildMiniGameQueue(loaded, {
+        personalStarred: getStarredLineIndices(entry.id),
+        crowdPopular: setup.crowdPopular ?? [],
+      });
       firstPromptLineIndex = questionQueue[0];
     } else {
       firstPromptLineIndex = getFirstPlayableLine(loaded)?.index;

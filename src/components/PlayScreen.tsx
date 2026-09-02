@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Title } from "../types/content";
 import type { McqQuestion } from "../lib/game/mcq";
 import { canGoBack, type GameRun } from "../lib/game/session";
-import { isStarred, toggleStar } from "../lib/stars/store";
+import { isStarred, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
 
 type Props = {
@@ -51,8 +51,7 @@ export function PlayScreen({
   const lengthLabel = run.length === "mini" ? "Mini" : "Full";
 
   function handleToggleStar() {
-    const nowStarred = toggleStar(title.id, question.promptLineIndex, question.promptText);
-    setStarred(nowStarred);
+    void toggleStar(title.id, question.promptLineIndex, question.promptText).then(setStarred);
   }
 
   return (

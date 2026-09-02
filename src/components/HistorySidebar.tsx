@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import type { Title } from "../types/content";
 import type { HistoryEntry, HistoryVia } from "../lib/game/session";
 import { getLine } from "../lib/content/lines";
-import { isStarred } from "../lib/stars/store";
+import { isStarred } from "../lib/stars/sync";
 
 type Props = {
   title: Title;

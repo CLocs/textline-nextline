@@ -50,19 +50,10 @@ export function isStarred(titleId: string, lineIndex: number): boolean {
   );
 }
 
-/** Toggle star; returns true if now starred. */
-export function toggleStar(titleId: string, lineIndex: number, text: string): boolean {
+export function setStarLocal(titleId: string, lineIndex: number, text: string): void {
   const store = readStore();
   const key = starKey(titleId, lineIndex);
-  const existing = store.stars.findIndex(
-    (star) => starKey(star.titleId, star.lineIndex) === key,
-  );
-
-  if (existing !== -1) {
-    store.stars.splice(existing, 1);
-    writeStore(store);
-    return false;
-  }
+  if (store.stars.some((star) => starKey(star.titleId, star.lineIndex) === key)) return;
 
   store.stars.push({
     titleId,
@@ -71,5 +62,38 @@ export function toggleStar(titleId: string, lineIndex: number, text: string): bo
     starredAt: new Date().toISOString(),
   });
   writeStore(store);
-  return true;
+}
+
+export function removeStarLocal(titleId: string, lineIndex: number): void {
+  const store = readStore();
+  const key = starKey(titleId, lineIndex);
+  const existing = store.stars.findIndex(
+    (star) => starKey(star.titleId, star.lineIndex) === key,
+  );
+  if (existing === -1) return;
+  store.stars.splice(existing, 1);
+  writeStore(store);
+}
+
+/** Merge server indices into local cache without removing local-only stars. */
+export function mergeRemoteStarIndices(titleId: string, lineIndices: number[]): void {
+  const store = readStore();
+  const existing = new Set(
+    store.stars
+      .filter((star) => star.titleId === titleId)
+      .map((star) => star.lineIndex),
+  );
+
+  for (const lineIndex of lineIndices) {
+    if (existing.has(lineIndex)) continue;
+    store.stars.push({
+      titleId,
+      lineIndex,
+      text: "",
+      starredAt: new Date().toISOString(),
+    });
+    existing.add(lineIndex);
+  }
+
+  writeStore(store);
 }

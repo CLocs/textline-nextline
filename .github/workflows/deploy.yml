@@ -28,6 +28,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
 
       # Use project wrangler (v4) — wrangler-action@v3 installs wrangler 3.x by default
       - name: Deploy to Cloudflare Pages

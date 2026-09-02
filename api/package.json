@@ -1,0 +1,17 @@
+{
+  "name": "textline-nextline-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "db:migrate:local": "wrangler d1 execute textline-stars --local --file=schema.sql",
+    "db:migrate:remote": "wrangler d1 execute textline-stars --remote --file=schema.sql"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260831.1",
+    "typescript": "~5.9.2",
+    "wrangler": "^4.128.0"
+  }
+}

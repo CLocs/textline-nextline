@@ -192,6 +192,7 @@ Distractors for multiple choice come from **other lines in the same transcript**
 | **0.5 — Content seed** | Export 3–5 episodes via transcript_maker; validate + check in | Enough variety to dogfood the game |
 | **1 — Single-player MVP** | Title picker, MCQ game loop, score | ✅ Playable solo run on curated episodes |
 | **1.5 — Content & UX** | Stars, mini-games, deploy | ✅ Stars + mini-game; static deploy on Cloudflare Pages |
+| **1.6 — Star sync** | Worker + D1, star/unstar API, client sync | ✅ Stars persist across devices; crowd-popular feeds mini-games |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
