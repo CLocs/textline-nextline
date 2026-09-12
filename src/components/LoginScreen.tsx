@@ -5,11 +5,19 @@ import { getStoredUser, type AuthUser } from "../lib/auth/session";
 type Props = {
   initialToken?: string;
   message?: string;
+  /** When true, this is the app gate — no back to library. */
+  required?: boolean;
   onAuthenticated: (user: AuthUser) => void;
-  onBack: () => void;
+  onBack?: () => void;
 };
 
-export function LoginScreen({ initialToken, message, onAuthenticated, onBack }: Props) {
+export function LoginScreen({
+  initialToken,
+  message,
+  required = false,
+  onAuthenticated,
+  onBack,
+}: Props) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "verifying" | "error">(
     initialToken ? "verifying" : "idle",
@@ -57,22 +65,29 @@ export function LoginScreen({ initialToken, message, onAuthenticated, onBack }: 
 
   return (
     <section className="panel login-panel">
-      <button type="button" className="button ghost back-link" onClick={onBack}>
-        ← Back
-      </button>
+      {!required && onBack && (
+        <button type="button" className="button ghost back-link" onClick={onBack}>
+          ← Back
+        </button>
+      )}
 
       <h2>Sign in</h2>
       <p className="muted">
-        Magic link via email — no password. Stars and shared mini-games attach to your account.
+        Enter your email for a magic link — no password. Your stars and shared mini-games attach to
+        this account.
       </p>
       {message && <p className="login-banner" role="status">{message}</p>}
 
       {status === "verifying" && <p className="muted">Signing you in…</p>}
 
       {status === "sent" ? (
-        <p className="feedback correct" role="status">
-          Check your email for a sign-in link. You can close this tab after clicking it.
-        </p>
+        <div role="status">
+          <p className="feedback correct">Check your email for a sign-in link.</p>
+          <p className="muted login-hint">
+            If you don’t see it, check spam/junk — links from new senders often land there until the
+            domain is warmed up.
+          </p>
+        </div>
       ) : status !== "verifying" ? (
         <form className="login-form" onSubmit={(event) => void handleSubmit(event)}>
           <label className="login-field">

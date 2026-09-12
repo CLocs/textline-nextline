@@ -36,7 +36,8 @@ type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
-  const [screen, setScreen] = useState<Screen>("library");
+  const [user, setUser] = useState<AuthUser | null>(() => getStoredUser());
+  const [screen, setScreen] = useState<Screen>(() => (getStoredUser() ? "library" : "login"));
   const [pendingEntry, setPendingEntry] = useState<CatalogEntry | null>(null);
   const [activeEntry, setActiveEntry] = useState<CatalogEntry | null>(null);
   const [lastSetup, setLastSetup] = useState<GameSetup | null>(null);
@@ -44,9 +45,10 @@ export function App() {
   const [run, setRun] = useState<GameRun | null>(null);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | "skipped" | null>(null);
   const [skipReveal, setSkipReveal] = useState<string | null>(null);
-  const [user, setUser] = useState<AuthUser | null>(() => getStoredUser());
   const [authToken, setAuthToken] = useState<string | undefined>();
-  const [loginMessage, setLoginMessage] = useState<string | undefined>();
+  const [loginMessage, setLoginMessage] = useState<string | undefined>(() =>
+    getStoredUser() ? undefined : "Sign in to browse episodes and play.",
+  );
   const [loginReturn, setLoginReturn] = useState<string | undefined>();
   const [activeShareId, setActiveShareId] = useState<string | null>(null);
   const [shareMeta, setShareMeta] = useState<ShareMeta | null>(null);
@@ -156,6 +158,8 @@ export function App() {
       else {
         clearSession();
         setUser(null);
+        setScreen("login");
+        setLoginMessage("Sign in to browse episodes and play.");
       }
     }
 
@@ -302,6 +306,12 @@ export function App() {
   }
 
   function handleBackToLibrary() {
+    if (!user) {
+      setScreen("login");
+      setLoginMessage("Sign in to browse episodes and play.");
+      clearHash();
+      return;
+    }
     setScreen("library");
     setPendingEntry(null);
     setActiveEntry(null);
@@ -347,7 +357,26 @@ export function App() {
   async function handleLogout() {
     await logout();
     setUser(null);
+    setPendingEntry(null);
+    setActiveEntry(null);
+    setLastSetup(null);
+    setTitle(null);
+    setRun(null);
+    setFeedback(null);
+    setSkipReveal(null);
+    setActiveShareId(null);
+    setShareMeta(null);
+    setShareMessage(null);
+    setRouteError(null);
+    setAuthToken(undefined);
+    setLoginReturn(undefined);
+    setLoginMessage("Sign in to browse episodes and play.");
+    setScreen("login");
+    clearHash();
   }
+
+  // Signed-out users only see the sign-in gate (plus auth deep links).
+  const showApp = Boolean(user);
 
   return (
     <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}`}>
@@ -357,31 +386,16 @@ export function App() {
             <h1>Textline → Nextline</h1>
             <p className="lede">Here's a line — guess what comes next.</p>
           </div>
-          <div className="auth-bar">
-            {user ? (
-              <>
-                <span className="auth-user" title={user.email}>
-                  {user.displayName ?? user.email}
-                </span>
-                <button type="button" className="button ghost" onClick={() => void handleLogout()}>
-                  Log out
-                </button>
-              </>
-            ) : (
-              <button
-                type="button"
-                className="button ghost"
-                onClick={() => {
-                  setLoginMessage(undefined);
-                  setAuthToken(undefined);
-                  setScreen("login");
-                  setHash("login");
-                }}
-              >
-                Sign in
+          {user && (
+            <div className="auth-bar">
+              <span className="auth-user" title={user.email}>
+                {user.displayName ?? user.email}
+              </span>
+              <button type="button" className="button ghost" onClick={() => void handleLogout()}>
+                Log out
               </button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </header>
 
@@ -391,18 +405,20 @@ export function App() {
         </p>
       )}
 
-      {screen === "login" && (
+      {(!showApp || screen === "login") && (
         <LoginScreen
           initialToken={authToken}
           message={loginMessage}
+          required={!showApp}
           onAuthenticated={handleAuthenticated}
-          onBack={handleBackToLibrary}
         />
       )}
 
-      {screen === "library" && <LibraryScreen entries={entries} onSelect={handlePickEpisode} />}
+      {showApp && screen === "library" && (
+        <LibraryScreen entries={entries} onSelect={handlePickEpisode} />
+      )}
 
-      {screen === "setup" && pendingEntry && (
+      {showApp && screen === "setup" && pendingEntry && (
         <SetupScreen
           entry={pendingEntry}
           onStart={(setup) => beginGame(pendingEntry, setup)}
@@ -414,11 +430,11 @@ export function App() {
         />
       )}
 
-      {screen === "curate" && pendingEntry && (
+      {showApp && screen === "curate" && pendingEntry && (
         <CurateScreen entry={pendingEntry} onBack={() => setScreen("setup")} />
       )}
 
-      {screen === "play" && title && run && question && (
+      {showApp && screen === "play" && title && run && question && (
         <PlayScreen
           title={title}
           run={run}
@@ -437,7 +453,7 @@ export function App() {
         />
       )}
 
-      {screen === "complete" && title && run && (
+      {showApp && screen === "complete" && title && run && (
         <CompleteScreen
           title={title}
           run={run}
