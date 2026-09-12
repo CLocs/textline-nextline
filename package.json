@@ -16,7 +16,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "import": "tsx scripts/import.ts",
-    "import:all": "tsx scripts/import.ts --all"
+    "import:all": "tsx scripts/import.ts --all",
+    "content:queue": "tsx scripts/letterboxd-queue.ts",
+    "content:stars-push": "tsx scripts/stars-push.ts"
   },
   "dependencies": {
     "react": "^19.1.1",

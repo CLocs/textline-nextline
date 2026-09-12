@@ -15,6 +15,12 @@ import {
   workToTitle,
   ImportError,
 } from "../src/lib/import/transcriptMaker.js";
+import {
+  formatQueueMarkdown,
+  markFilmsImported,
+  parseQueueFile,
+} from "../src/lib/content/letterboxdQueue.js";
+import { parseTitleYear } from "../src/lib/content/titleMatch.js";
 import { catalogPath, contentDir, titlePath, titlesDir } from "../src/lib/content/load.js";
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -41,13 +47,31 @@ function loadExistingCatalogEntries(): CatalogEntry[] {
   return catalog.titles;
 }
 
-function importFile(filePath: string): ReturnType<typeof titleToCatalogEntry> {
+function markQueue(imported: ReturnType<typeof workToTitle>[]): void {
+  const queuePath = join(contentDir(), "queue.json");
+  if (!existsSync(queuePath)) return;
+  const queue = parseQueueFile(JSON.parse(readFileSync(queuePath, "utf8")));
+  const n = markFilmsImported(
+    queue.films,
+    imported.map((title) => ({
+      title: title.title,
+      year: title.meta?.year ?? parseTitleYear(title.title).year,
+    })),
+  );
+  if (n === 0) return;
+  queue.updatedAt = new Date().toISOString();
+  writeFileSync(queuePath, `${JSON.stringify(queue, null, 2)}\n`, "utf8");
+  writeFileSync(join(contentDir(), "queue.md"), formatQueueMarkdown(queue.films), "utf8");
+  console.log(`Marked ${n} queue film(s) as imported.`);
+}
+
+function importFile(filePath: string): ReturnType<typeof workToTitle> {
   const raw = JSON.parse(readFileSync(filePath, "utf8"));
   const work = parseTranscriptMakerWork(raw);
   const title = workToTitle(work);
   writeTitle(title);
   console.log(`Imported "${title.title}" → content/titles/${title.id}.json (${title.lineCount} lines)`);
-  return titleToCatalogEntry(title);
+  return title;
 }
 
 function usage(): never {
@@ -71,10 +95,12 @@ function main(): void {
     }
 
     const byId = new Map(loadExistingCatalogEntries().map((entry) => [entry.id, entry]));
+    const imported = [];
     for (const file of files) {
       try {
-        const entry = importFile(join(importsDir, file));
-        byId.set(entry.id, entry);
+        const title = importFile(join(importsDir, file));
+        imported.push(title);
+        byId.set(title.id, titleToCatalogEntry(title));
       } catch (error) {
         if (error instanceof ImportError) {
           console.error(`${file}: ${error.message}`);
@@ -85,6 +111,7 @@ function main(): void {
     }
     rebuildCatalog([...byId.values()]);
     console.log(`Catalog updated (${byId.size} title(s)).`);
+    markQueue(imported);
     return;
   }
 
@@ -92,12 +119,13 @@ function main(): void {
   if (!fileArg) usage();
 
   const filePath = resolve(fileArg);
-  const entry = importFile(filePath);
+  const title = importFile(filePath);
 
   const byId = new Map(loadExistingCatalogEntries().map((e) => [e.id, e]));
-  byId.set(entry.id, entry);
+  byId.set(title.id, titleToCatalogEntry(title));
   rebuildCatalog([...byId.values()]);
   console.log("Catalog updated.");
+  markQueue([title]);
 }
 
 main();

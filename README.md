@@ -204,9 +204,9 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 **Build slices (doable in order):**
 
-1. **Vault scrape (local CLI)** — Walk MD files; extract quotes, highlights, optional `watchedWith` / person tags. Output a seed JSON (`titleId` + candidates).
-2. **Match to transcript** — Exact / fuzzy map quote text → `(titleId, lineIndex)`. Manual review UI for ambiguous matches (reuse Curate / Admin).
-3. **Weighted seed into stars** — Import as your stars (or a `tl_weight` column) so mini-games prefer vault TLs over random.
+1. **Vault scrape (local CLI)** — ✅ Readwise Obsidian folder (`--vault` on `content:queue`): extract `## Highlights`, match notes to the Letterboxd queue by title+year, write `content/readwise-highlights.json`.
+2. **Match to transcript** — Partial: fuzzy map highlight text → `(titleId, lineIndex)` into `content/stars-seed.json` when that title is already in `content/titles/`. Manual review still needed for misses.
+3. **Weighted seed into stars** — Not yet: applying `stars-seed.json` to D1 / the Curate UI.
 4. **Watch parties (metadata)** — Store “session: title + people present” from Obsidian; associate TLs with that group.
 5. **Login + group popularity** — Real accounts (or stable invite tokens); stars scoped to a pair / triple / group. “Most popular TLs among us” = intersection or ranked aggregation over that set — same D1 pattern as today’s crowd `popular`, with a `group_id` filter.
 
@@ -335,6 +335,28 @@ npm run import -- path/to/export.json
 
 This writes normalized titles to `content/titles/<id>.json` and updates `content/catalog.json`.
 
+### Content queue (Letterboxd)
+
+Drop an official [Letterboxd export](https://letterboxd.com/user/exportdata/) ZIP into `inbox/letterboxd/` (gitignored), then:
+
+```bash
+npm run content:queue -- --from inbox/letterboxd/letterboxd-export.zip
+```
+
+Writes `content/queue.json` (likes ∪ 4.5★+, merge-safe) and `content/queue.md` (priority, then **diary play count**, then Readwise highlights). Optional vault cross-check:
+
+```bash
+npm run content:queue -- --from inbox/letterboxd --vault "C:\Users\dasco\Documents\clocs\Readwise"
+```
+
+That also writes `content/readwise-highlights.json` (quotes matched to queue titles) and `content/stars-seed.json` (highlights that already fuzzy-match a line in `content/titles/`). To attach those as **your** cloud stars (D1):
+
+```bash
+npm run content:stars-push -- --email you@example.com --remote
+```
+
+You must already have signed in on the live app once (so a `users` row exists). See [docs/DEPLOY.md](docs/DEPLOY.md) for how star sync works.
+
 ### Test
 
 ```bash
@@ -362,6 +384,8 @@ Or connect GitHub Actions (push to `main`) with `CLOUDFLARE_API_TOKEN` and `CLOU
 
 ```
 content/           normalized library (catalog + per-title JSON)
+inbox/letterboxd/  gitignored Letterboxd ZIP
+inbox/srt/         gitignored raw subtitles
 imports/           raw transcript_maker exports
 src/
   app/             React UI (library, play, complete)
@@ -371,6 +395,7 @@ src/
     import/        transcript_maker → Title
     content/       load (Node) + browser (Vite bundle)
 scripts/import.ts  CLI to ingest exports
+scripts/letterboxd-queue.ts  Letterboxd ZIP → content/queue.json
 test/
 ```
 

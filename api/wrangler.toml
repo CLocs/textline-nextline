@@ -9,9 +9,8 @@ database_id = "b795014e-6ead-4056-a452-d6442324604a"
 
 [vars]
 # Comma-separated origins; override per environment if needed
-ALLOWED_ORIGINS = "http://localhost:5173,https://textline-nextline.pages.dev"
-# APP_ORIGIN = "http://localhost:5173"
-APP_ORIGIN = "https://textline-nextline.pages.dev"
+ALLOWED_ORIGINS = "http://localhost:5173,https://textline-nextline.pages.dev,https://textlinenextline.com,https://www.textlinenextline.com"
+APP_ORIGIN = "https://textlinenextline.com"
+RESEND_FROM = "Textline <auth@textlinenextline.com>"
 
 # Set secrets via: wrangler secret put RESEND_API_KEY / AUTH_SECRET
-# RESEND_FROM optional, e.g. "Textline <onboarding@resend.dev>"

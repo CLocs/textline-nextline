@@ -107,6 +107,14 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 
 Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share routes require auth.
 
+Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
+
+```bash
+npm run content:stars-push -- --email you@example.com --remote
+```
+
+That inserts seed lines as the `users.id` for that email (you must have magic-link signed in once). Re-opening the game signed in hydrates them via `GET /api/stars/mine`.
+
 ### Share links
 
 Format: `https://textline-nextline.pages.dev/#/play/<shareId>`

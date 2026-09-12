@@ -41,7 +41,7 @@ Not the full watched list. Letterboxd has no public API we will use; the officia
 - **Handoff:** transcript_maker timed JSON → [`imports/`](../imports/) → `npm run import:all` ([`scripts/import.ts`](../scripts/import.ts)).
 - **Converter:** parse / clean / `workToTimedJson` stay in **transcript_maker** (`../transcript_maker`). Do not migrate that logic here. Batch CLI is specified in [PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-maker-batch-export.md).
 - **Find film:** TMDB + OpenSubtitles already work in transcript_maker’s browser UI (local Cloudflare proxy, ~20 OpenSubtitles downloads/day). Scraping other subtitle sites is out of scope.
-- **Letterboxd queue:** not built yet. Implementation prompt: [PROMPT-letterboxd-queue.md](PROMPT-letterboxd-queue.md).
+- **Letterboxd queue:** `npm run content:queue -- --from <zip-or-dir> [--vault <readwise-dir>]` writes `content/queue.json` + `content/queue.md` (sort: priority → diary plays → highlights). Implementation notes: [PROMPT-letterboxd-queue.md](PROMPT-letterboxd-queue.md).
 
 ---
 
@@ -60,12 +60,22 @@ Run these beside app work. Nothing here blocks rooms, stars, or auth.
 
 ### C0 — Seed queue *(this repo)*
 
-Drop the Letterboxd export ZIP into a gitignored inbox. Script (not written yet):
+Drop the Letterboxd export ZIP into `inbox/letterboxd/` (gitignored). Then:
 
-1. Parse `likes/films.csv` ∪ `ratings.csv` (`Rating >= 4.5`).
-2. Dedupe by Letterboxd URI.
-3. Write a tracked queue (`title`, `year`, `letterboxdUri`, `tmdbId?`, `srt`, `converted`, `imported`).
-4. Resolve TMDB id via existing movie search (`Name` + `Year`).
+```bash
+npm run content:queue -- --from inbox/letterboxd/<export>.zip
+```
+
+The script:
+
+1. Parses `likes/films.csv` ∪ `ratings.csv` (`Rating >= 4.5`).
+2. Dedupes by Letterboxd URI.
+3. Counts **plays** from `diary.csv` (each log, including rewatches).
+4. Optional `--vault`: scan Readwise/Obsidian notes, match titles to the queue, count highlights.
+5. Writes the queue sorted in `queue.md` by priority, then play count, then highlight count.
+6. Writes `content/readwise-highlights.json` and, for titles already in `content/titles/`, `content/stars-seed.json` (fuzzy-matched line indices). Applying that seed to D1/local stars is a follow-up.
+
+TMDB ids stay `null` until a later resolve step.
 
 **Done when:** a queue JSON lists the seed set and can be re-run against a newer export without wiping status on titles already converted.
 
@@ -83,7 +93,7 @@ Copy-paste prompt: [PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-m
 
 ### C2 — SRT acquisition *(hybrid)*
 
-Manual drop is first-class: put `.srt` / `.vtt` in an inbox folder and run C1.
+Manual drop is first-class: put `.srt` / `.vtt` in `inbox/srt/` and convert with C1.
 
 Optional: paced OpenSubtitles download through transcript_maker’s existing proxy (respect the daily cap; skip failures; match by `tmdb_id` from C0). Do not scrape tvsubtitles.net or similar.
 
@@ -119,7 +129,7 @@ Re-drop a fresh Letterboxd export, diff the queue, convert only the delta. Spot-
 
 1. Document (this file) — **now**.
 2. C1 in transcript_maker (batch export) — unblocks any SRT you already have, including more TV.
-3. C0 Letterboxd queue in this repo — turns likes ∪ 4.5★ into a checklist.
+3. C0 Letterboxd queue in this repo — **CLI exists**; drop a ZIP to fill `content/queue.json`.
 4. C2 as needed (manual first; OpenSubtitles when the queue is large).
 5. C3 hygiene when the first movies land in `content/`.
 6. C4 whenever you export Letterboxd again.
