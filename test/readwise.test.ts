@@ -95,6 +95,15 @@ describe("titlesLikelyMatch", () => {
       ),
     ).toBe(true);
   });
+
+  it("treats Ocean's 11 Script as Ocean's Eleven", () => {
+    expect(
+      titlesLikelyMatch(
+        { title: "Ocean's 11 Script", year: null },
+        { title: "Oceans Eleven (2001)", year: 2001 },
+      ),
+    ).toBe(true);
+  });
 });
 
 describe("matchHighlightsToTitles", () => {
@@ -126,5 +135,48 @@ describe("matchHighlightsToTitles", () => {
     expect(seeds).toHaveLength(1);
     expect(seeds[0]?.lineIndex).toBe(1);
     expect(seeds[0]?.score).toBe("exact");
+    expect(seeds[0]?.prevText).toBe("Cooler. Name? Ives.");
+    expect(seeds[0]?.nextText).toBeNull();
+  });
+
+  it("matches a censored Readwise span across consecutive subtitle cues", () => {
+    const title: Title = {
+      id: "the-gentlemen-2019",
+      title: "The Gentlemen (2019)",
+      sourceFilename: "gentlemen.srt",
+      importedAt: "2026-01-01T00:00:00.000Z",
+      lineCount: 4,
+      lines: [
+        { index: 0, text: "Enter our protagonist.", kind: "dialogue", startMs: 0, endMs: 1 },
+        { index: 1, text: "He's good-looking, he's gorgeous,", kind: "dialogue", startMs: 2, endMs: 3 },
+        { index: 2, text: "he's golden age, he's a proper handsome cunt.", kind: "dialogue", startMs: 4, endMs: 5 },
+        { index: 3, text: "I said, play a fucking game with me, Ray.", kind: "dialogue", startMs: 6, endMs: 7 },
+      ],
+      meta: { year: 2019 },
+    };
+    const seeds = matchHighlightsToTitles(
+      [
+        {
+          letterboxdUri: "https://boxd.it/gents",
+          title: "The Gentlemen",
+          year: 2019,
+          sourcePath: "gents.md",
+          highlights: [
+            {
+              text: "Enter our protagonist. He's good-looking, he's gorgeous, he's golden age, he's a proper handsome c**t.",
+              note: "A proper handsome cunt.",
+            },
+            {
+              text: "I said play a f*cking game with me, Ray.",
+              note: null,
+            },
+          ],
+        },
+      ],
+      [title],
+    );
+    expect(seeds.map((s) => s.lineIndex)).toEqual([0, 3]);
+    expect(seeds[0]?.score).toBe("window");
+    expect(seeds[1]?.score).toBe("contains");
   });
 });

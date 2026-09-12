@@ -31,6 +31,7 @@ import { PlayScreen } from "../components/PlayScreen";
 import { CompleteScreen } from "../components/CompleteScreen";
 import { CurateScreen } from "../components/CurateScreen";
 import { LoginScreen } from "../components/LoginScreen";
+import { AuthBar } from "../components/AuthBar";
 
 type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login";
 
@@ -387,14 +388,11 @@ export function App() {
             <p className="lede">Here's a line — guess what comes next.</p>
           </div>
           {user && (
-            <div className="auth-bar">
-              <span className="auth-user" title={user.email}>
-                {user.displayName ?? user.email}
-              </span>
-              <button type="button" className="button ghost" onClick={() => void handleLogout()}>
-                Log out
-              </button>
-            </div>
+            <AuthBar
+              user={user}
+              onUpdated={setUser}
+              onLogout={() => void handleLogout()}
+            />
           )}
         </div>
       </header>

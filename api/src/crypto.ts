@@ -44,3 +44,9 @@ export function displayNameFromEmail(email: string): string {
   const local = email.split("@")[0] ?? "player";
   return local.slice(0, 32);
 }
+
+export function normalizeDisplayName(raw: string): string | null {
+  const trimmed = raw.trim().replace(/\s+/g, " ");
+  if (trimmed.length < 1 || trimmed.length > 40) return null;
+  return trimmed;
+}

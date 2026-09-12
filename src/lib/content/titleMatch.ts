@@ -63,10 +63,18 @@ export function titlesLikelyMatch(
   b: { title: string; year: number | null },
 ): boolean {
   if (a.year !== null && b.year !== null && a.year !== b.year) return false;
-  const na = normalizeTitle(a.title);
-  const nb = normalizeTitle(b.title);
+  const na = foldNumberWords(normalizeTitle(a.title));
+  const nb = foldNumberWords(normalizeTitle(b.title));
   if (!na || !nb) return false;
   if (na === nb) return true;
   if (na.length >= 5 && nb.length >= 5 && (na.includes(nb) || nb.includes(na))) return true;
   return false;
+}
+
+/** Ocean's 11 ↔ Ocean's Eleven (and 8/13) after punctuation is stripped. */
+export function foldNumberWords(title: string): string {
+  return title
+    .replace(/\bthirteen\b/g, "13")
+    .replace(/\beleven\b/g, "11")
+    .replace(/\beight\b/g, "8");
 }

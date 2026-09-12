@@ -6,14 +6,14 @@ Seed: **likes ∪ ratings>=4.5**. Sorted by priority, then diary play count, the
 |-----|-------|-----|-------|------|--------|-------|-----|
 | 1 | 5 | 165 | [The Lord of the Rings: The Fellowship of the Ring](https://boxd.it/2b5O) | 2001 | 5 | yes | manual |
 | 1 | 5 | 32 | [Tenet](https://boxd.it/leq4) | 2020 | 5 | yes | missing |
+| 1 | 4 | 85 | [Ocean's Thirteen](https://boxd.it/2aEy) | 2007 | 5 | yes | missing |
 | 1 | 4 | 72 | [The Gentlemen](https://boxd.it/iYBQ) | 2019 | 5 | yes | manual |
-| 1 | 4 | 0 | [Ocean's Thirteen](https://boxd.it/2aEy) | 2007 | 5 | yes | missing |
 | 1 | 3 | 197 | [The Lord of the Rings: The Return of the King](https://boxd.it/2b5u) | 2003 | 5 | yes | manual |
+| 1 | 3 | 154 | [Ocean's Eleven](https://boxd.it/2aZm) | 2001 | 5 | yes | manual |
 | 1 | 3 | 90 | [Furiosa: A Mad Max Saga](https://boxd.it/tABk) | 2024 | 5 | yes | missing |
 | 1 | 3 | 81 | [The Matrix](https://boxd.it/2a1m) | 1999 | 5 | yes | manual |
 | 1 | 3 | 25 | [Saving Private Ryan](https://boxd.it/29ro) | 1998 | 5 | yes | missing |
 | 1 | 3 | 0 | [Dunkirk](https://boxd.it/d0Y6) | 2017 | 5 | yes | missing |
-| 1 | 3 | 0 | [Ocean's Eleven](https://boxd.it/2aZm) | 2001 | 5 | yes | manual |
 | 1 | 3 | 0 | [Payback](https://boxd.it/27pq) | 1999 | 5 | yes | manual |
 | 1 | 2 | 124 | [One Battle After Another](https://boxd.it/DUHM) | 2025 | 5 | yes | missing |
 | 1 | 2 | 90 | [RocknRolla](https://boxd.it/1PmI) | 2008 | 5 | yes | manual |
@@ -122,6 +122,7 @@ Seed: **likes ∪ ratings>=4.5**. Sorted by priority, then diary play count, the
 | 2 | 1 | 15 | [The Founder](https://boxd.it/9XwM) | 2016 | 5 |  | missing |
 | 2 | 1 | 14 | [Drive](https://boxd.it/IG) | 2011 | 5 |  | missing |
 | 2 | 1 | 14 | [The Running Man](https://boxd.it/u36A) | 2025 | 5 |  | missing |
+| 2 | 1 | 12 | [Ocean's Eight](https://boxd.it/eaai) | 2018 | 5 |  | missing |
 | 2 | 1 | 12 | [The Intern](https://boxd.it/7AOE) | 2015 | 5 |  | missing |
 | 2 | 1 | 11 | [Roofman](https://boxd.it/LcIW) | 2025 | 5 |  | missing |
 | 2 | 1 | 10 | [Joy](https://boxd.it/IUU2) | 2024 | 5 |  | missing |
@@ -171,7 +172,6 @@ Seed: **likes ∪ ratings>=4.5**. Sorted by priority, then diary play count, the
 | 2 | 1 | 0 | [Mission: Impossible – The Final Reckoning](https://boxd.it/l7A2) | 2025 | 5 |  | missing |
 | 2 | 1 | 0 | [My Octopus Teacher](https://boxd.it/prk2) | 2020 | 5 |  | missing |
 | 2 | 1 | 0 | [National Lampoon's Christmas Vacation](https://boxd.it/22wQ) | 1989 | 5 |  | missing |
-| 2 | 1 | 0 | [Ocean's Eight](https://boxd.it/eaai) | 2018 | 5 |  | missing |
 | 2 | 1 | 0 | [On the Basis of Sex](https://boxd.it/bhDq) | 2018 | 5 |  | missing |
 | 2 | 1 | 0 | [Passengers](https://boxd.it/8lFu) | 2016 | 5 |  | missing |
 | 2 | 1 | 0 | [Robot Chicken: Star Wars](https://boxd.it/VBs) | 2007 | 5 |  | missing |

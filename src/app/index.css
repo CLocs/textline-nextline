@@ -517,6 +517,7 @@ code {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
+  justify-content: flex-end;
 }
 
 .auth-user {
@@ -526,6 +527,43 @@ code {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.auth-user-button {
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: white;
+  cursor: pointer;
+}
+
+.auth-user-button:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.auth-name-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.auth-name-form input {
+  min-width: 8rem;
+  max-width: 12rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: inherit;
+  background: white;
+}
+
+.auth-name-error {
+  margin: 0;
+  width: 100%;
+  text-align: right;
+  font-size: 0.85rem;
 }
 
 .login-panel h2 {

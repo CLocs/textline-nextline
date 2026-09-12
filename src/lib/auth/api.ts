@@ -67,7 +67,27 @@ export async function fetchMe(): Promise<AuthUser | null> {
   const response = await authFetch("/api/auth/me");
   if (!response?.ok) return null;
   const data = (await response.json()) as { user: AuthUser };
+  const session = getSessionToken();
+  if (session) setSession(session, data.user);
   return data.user;
+}
+
+export async function updateMyDisplayName(
+  displayName: string,
+): Promise<{ user: AuthUser } | { error: string }> {
+  const response = await authFetch("/api/auth/me", {
+    method: "PATCH",
+    body: JSON.stringify({ displayName }),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as { error?: string } | null;
+    return { error: data?.error ?? "Could not update display name" };
+  }
+  const data = (await response.json()) as { user: AuthUser };
+  const session = getSessionToken();
+  if (session) setSession(session, data.user);
+  return { user: data.user };
 }
 
 export async function logout(): Promise<void> {

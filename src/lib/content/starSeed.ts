@@ -8,10 +8,15 @@ export type StarSeed = {
   title: string;
   lineIndex: number;
   text: string;
+  prevText: string | null;
+  nextText: string | null;
   highlight: string;
   note: string | null;
-  score: "exact" | "contains";
+  score: "exact" | "contains" | "window";
 };
+
+const MAX_WINDOW = 8;
+const MIN_SPACED_NEEDLE = 16;
 
 export function matchHighlightsToTitles(matches: ReadwiseMatch[], titles: Title[]): StarSeed[] {
   const seeds: StarSeed[] = [];
@@ -32,11 +37,14 @@ export function matchHighlightsToTitles(matches: ReadwiseMatch[], titles: Title[
       const key = `${title.id}:${hit.lineIndex}`;
       if (used.has(key)) continue;
       used.add(key);
+      const line = title.lines[hit.lineIndex];
       seeds.push({
         titleId: title.id,
         title: title.title,
         lineIndex: hit.lineIndex,
-        text: title.lines[hit.lineIndex]?.text ?? "",
+        text: line?.text ?? "",
+        prevText: title.lines[hit.lineIndex - 1]?.text ?? null,
+        nextText: title.lines[hit.lineIndex + 1]?.text ?? null,
         highlight: highlight.text,
         note: highlight.note,
         score: hit.score,
@@ -47,25 +55,73 @@ export function matchHighlightsToTitles(matches: ReadwiseMatch[], titles: Title[
   return seeds;
 }
 
+function compactQuote(text: string): string {
+  return text
+    .replace(/\[view highlight\]\([^)]*\)/gi, "")
+    .replace(/https?:\/\/\S+/gi, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9*]/g, "");
+}
+
+function compactContains(hay: string, needle: string): boolean {
+  if (!needle) return false;
+  if (!needle.includes("*")) return hay.includes(needle);
+  const escaped = needle.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".");
+  return new RegExp(escaped).test(hay);
+}
+
 function findLine(
   title: Title,
   highlight: string,
-): { lineIndex: number; score: "exact" | "contains" } | null {
-  const needle = normalizeQuote(highlight);
-  if (needle.length < 16) return null;
+): { lineIndex: number; score: "exact" | "contains" | "window" } | null {
+  const spacedNeedle = normalizeQuote(highlight);
+  const compactNeedle = compactQuote(highlight);
+  if (spacedNeedle.length < MIN_SPACED_NEEDLE && compactNeedle.replace(/\*/g, "").length < 12) {
+    return null;
+  }
 
-  let contains: { lineIndex: number; extra: number } | null = null;
+  const compactLines = title.lines.map((line) => compactQuote(line.text));
+
   for (const line of title.lines) {
-    const hay = normalizeQuote(line.text);
-    if (hay.length < 8) continue;
-    if (hay === needle) return { lineIndex: line.index, score: "exact" };
-    if (hay.includes(needle) || needle.includes(hay)) {
-      const extra = Math.abs(hay.length - needle.length);
-      if (!contains || extra < contains.extra) contains = { lineIndex: line.index, extra };
+    if (normalizeQuote(line.text) === spacedNeedle) {
+      return { lineIndex: line.index, score: "exact" };
     }
   }
-  if (contains && contains.extra < needle.length) {
-    return { lineIndex: contains.lineIndex, score: "contains" };
+
+  const needleLen = compactNeedle.replace(/\*/g, "").length;
+  let best: { lineIndex: number; extra: number; window: number } | null = null;
+  for (let i = 0; i < compactLines.length; i++) {
+    let concat = "";
+    for (let w = 0; w < MAX_WINDOW && i + w < compactLines.length; w++) {
+      concat += compactLines[i + w];
+      if (concat.length < 8) continue;
+      if (!compactContains(concat, compactNeedle)) continue;
+      const extra = Math.abs(concat.length - needleLen);
+      if (!best || extra < best.extra || (extra === best.extra && w < best.window)) {
+        best = { lineIndex: title.lines[i]!.index, extra, window: w + 1 };
+      }
+      break;
+    }
   }
-  return null;
+
+  if (!best) {
+    let contains: { lineIndex: number; extra: number } | null = null;
+    for (const line of title.lines) {
+      const hay = normalizeQuote(line.text);
+      if (hay.length < 8) continue;
+      if (hay.includes(spacedNeedle) || spacedNeedle.includes(hay)) {
+        const extra = Math.abs(hay.length - spacedNeedle.length);
+        if (!contains || extra < contains.extra) contains = { lineIndex: line.index, extra };
+      }
+    }
+    if (contains && contains.extra < spacedNeedle.length) {
+      return { lineIndex: contains.lineIndex, score: "contains" };
+    }
+    return null;
+  }
+
+  return {
+    lineIndex: best.lineIndex,
+    score: best.window === 1 ? "contains" : "window",
+  };
 }

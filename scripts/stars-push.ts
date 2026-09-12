@@ -51,8 +51,9 @@ function parseArgs(argv: string[]): {
 }
 
 function d1Json(command: string, remote: boolean): unknown {
+  const wranglerJs = join(packageRoot, "node_modules", "wrangler", "bin", "wrangler.js");
   const args = [
-    "wrangler",
+    wranglerJs,
     "d1",
     "execute",
     "textline-stars",
@@ -61,7 +62,7 @@ function d1Json(command: string, remote: boolean): unknown {
     "--command",
     command,
   ];
-  const raw = execFileSync("npx", args, {
+  const raw = execFileSync(process.execPath, args, {
     cwd: apiDir,
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],

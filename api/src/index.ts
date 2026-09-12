@@ -4,6 +4,7 @@ import {
   getSessionUser,
   logoutSession,
   requestMagicLink,
+  updateDisplayName,
   verifyMagicToken,
   type AuthEnv,
   type User,
@@ -127,6 +128,18 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const user = await requireUser(request, env, origin, allowed);
       if (user instanceof Response) return user;
       return jsonResponse({ user }, 200, origin, allowed);
+    }
+
+    if (request.method === "PATCH" && pathname === "/api/auth/me") {
+      const user = await requireUser(request, env, origin, allowed);
+      if (user instanceof Response) return user;
+      const body = (await readJson(request)) as { displayName?: string } | null;
+      if (typeof body?.displayName !== "string") {
+        return errorResponse("Missing displayName", 400, origin, allowed);
+      }
+      const result = await updateDisplayName(env.DB, user.id, body.displayName);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ user: result }, 200, origin, allowed);
     }
 
     if (request.method === "POST" && pathname === "/api/auth/logout") {

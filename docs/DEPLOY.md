@@ -97,6 +97,7 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/auth/request-link` | Body `{ email }` → magic link email |
 | `POST` | `/api/auth/verify` | Body `{ token }` → `{ user, sessionToken }` |
 | `GET` | `/api/auth/me` | Current user (Bearer session) |
+| `PATCH` | `/api/auth/me` | Body `{ displayName }` — update display name |
 | `POST` | `/api/auth/logout` | Invalidate session |
 | `POST` | `/api/auth/claim` | Body `{ anonymousPlayerId }` → merge anonymous stars |
 | `POST` | `/api/shares` | Create mini-game share (auth). Body `{ titleId }` |

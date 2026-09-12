@@ -6,6 +6,7 @@ import {
   isExpired,
   minutesFromNow,
   normalizeEmail,
+  normalizeDisplayName,
   sha256Hex,
 } from "./crypto.js";
 
@@ -210,6 +211,36 @@ export async function verifyMagicToken(
 export async function logoutSession(db: D1Database, sessionId: string | null): Promise<void> {
   if (!sessionId) return;
   await db.prepare(`DELETE FROM sessions WHERE id = ?`).bind(sessionId).run();
+}
+
+export async function updateDisplayName(
+  db: D1Database,
+  userId: string,
+  displayNameRaw: string,
+): Promise<User | { error: string; status: number }> {
+  const displayName = normalizeDisplayName(displayNameRaw);
+  if (!displayName) {
+    return { error: "Display name must be 1–40 characters", status: 400 };
+  }
+
+  await db
+    .prepare(`UPDATE users SET display_name = ? WHERE id = ?`)
+    .bind(displayName, userId)
+    .run();
+
+  const row = await db
+    .prepare(`SELECT id, email, display_name, created_at FROM users WHERE id = ?`)
+    .bind(userId)
+    .first<{ id: string; email: string; display_name: string | null; created_at: string }>();
+
+  if (!row) return { error: "User not found", status: 404 };
+
+  return {
+    id: row.id,
+    email: row.email,
+    displayName: row.display_name,
+    createdAt: row.created_at,
+  };
 }
 
 export async function claimAnonymousStars(

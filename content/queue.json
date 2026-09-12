@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-12T18:47:18.262Z",
+  "updatedAt": "2026-09-12T23:44:34.040Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -921,7 +921,7 @@
       "rating": 5,
       "priority": 1,
       "playCount": 3,
-      "highlightCount": 0,
+      "highlightCount": 154,
       "tmdbId": null,
       "srt": "manual",
       "converted": true,
@@ -1425,7 +1425,7 @@
       "rating": 5,
       "priority": 1,
       "playCount": 4,
-      "highlightCount": 0,
+      "highlightCount": 85,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,
@@ -2391,7 +2391,7 @@
       "rating": 5,
       "priority": 2,
       "playCount": 1,
-      "highlightCount": 0,
+      "highlightCount": 12,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,
