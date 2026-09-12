@@ -181,6 +181,49 @@ Distractors for multiple choice come from **other lines in the same transcript**
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
 - [ ] **Daily challenge** — same title + start line for everyone
+- [ ] **Obsidian → TL pipeline** — see [Concept 3](#concept-3-obsidian--tls-textlines-backlog) below
+- [ ] **Online quote sources spike** — see [Spike: online quotes](#spike-online-quotes-eg-imdb-research) below
+
+### Concept 3: Obsidian → TLs (Textlines) *(backlog)*
+
+**Idea:** Treat Obsidian as a personal quote mine for **TLs** (memorable lines / setups from TLNL). Import and rank them into the game, then layer social context (who watched with whom, who likes which TL).
+
+| Source in Obsidian | Signal | Suggested star weight |
+|--------------------|--------|------------------------|
+| Manually copied quotes | Strong curation | Highest (seed personal + crowd boost) |
+| Highlighted spans in a transcript note | Intentional “this mattered” | High |
+| Fuzzy match of quote text → `content/` line index | Linking vault → game | Required for playable TLs |
+| Frontmatter / tags / “watched with …” | Co-watchers | Social graph input |
+
+**Build slices (doable in order):**
+
+1. **Vault scrape (local CLI)** — Walk MD files; extract quotes, highlights, optional `watchedWith` / person tags. Output a seed JSON (`titleId` + candidates).
+2. **Match to transcript** — Exact / fuzzy map quote text → `(titleId, lineIndex)`. Manual review UI for ambiguous matches (reuse Curate / Admin).
+3. **Weighted seed into stars** — Import as your stars (or a `tl_weight` column) so mini-games prefer vault TLs over random.
+4. **Watch parties (metadata)** — Store “session: title + people present” from Obsidian; associate TLs with that group.
+5. **Login + group popularity** — Real accounts (or stable invite tokens); stars scoped to a pair / triple / group. “Most popular TLs among us” = intersection or ranked aggregation over that set — same D1 pattern as today’s crowd `popular`, with a `group_id` filter.
+
+**Wildness rating:** ~6/10 on product ambition, ~4/10 on technical risk. Scrape + fuzzy match is ordinary NLP plumbing; co-watcher inference is messy data (inconsistent notes), not hard code. Login + group popularity is the real phase gate — but we’ve already proven anonymous `playerId` + D1 aggregation; accounts just make identity durable across devices.
+
+**Open questions:** Obsidian highlight format (core vs plugins); how titles are named in the vault vs `content/catalog.json`; privacy (vault stays local — only matched TLs leave the machine); whether “likes” are stars or a separate reaction.
+
+### Spike: online quotes (e.g. IMDb) *(research)*
+
+**Idea:** Seed TLs from public quote pages (IMDb Quotes, Wikiquote, fan wikis, etc.) for titles we already have in `content/`, then fuzzy-match into `(titleId, lineIndex)` — same match step as Obsidian imports.
+
+**Why it might be hard:**
+
+| Risk | Notes |
+|------|--------|
+| **ToS / scraping** | IMDb and similar sites generally disallow automated scraping; no friendly public quotes API for bulk use |
+| **Fragile HTML** | Selectors break; rate limits / bot detection |
+| **Quote ≠ transcript** | Online quotes are often cleaned, paraphrased, or misattributed — match rate to SRT lines may be low |
+| **Episode grain** | Movie quotes map cleaner than TV (which episode?) |
+| **Licensing** | Re-shipping scraped quote corpora in the product may be riskier than personal Obsidian notes |
+
+**Spike goal (time-box):** For 1–2 titles already in the library, manually or semi-automatically pull a small quote list → match against our lines → report hit rate and effort. Decide go / no-go before building a pipeline. Prefer sources with clearer reuse terms if any exist; treat IMDb as “interesting target,” not a committed dependency.
+
+**Fits with:** Obsidian → TL match pipeline (reuse fuzzy match + Curate review). Online sources are an alternate *input*, not a separate game feature.
 
 ---
 
@@ -193,9 +236,13 @@ Distractors for multiple choice come from **other lines in the same transcript**
 | **1 — Single-player MVP** | Title picker, MCQ game loop, score | ✅ Playable solo run on curated episodes |
 | **1.5 — Content & UX** | Stars, mini-games, deploy | ✅ Stars + mini-game; static deploy on Cloudflare Pages |
 | **1.6 — Star sync** | Worker + D1, star/unstar API, client sync | ✅ Stars persist across devices; crowd-popular feeds mini-games |
+| **1.7 — Admin / Curate** | Bulk star from transcript UI | Faster personal TL curation without playing through |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
+| **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
+| **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
+| **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
 
 ### Suggested build order (Phase 0 → 1)
 

@@ -19,10 +19,11 @@ export type GameSetup = {
 type Props = {
   entry: CatalogEntry;
   onStart: (setup: GameSetup) => void;
+  onCurate: () => void;
   onBack: () => void;
 };
 
-export function SetupScreen({ entry, onStart, onBack }: Props) {
+export function SetupScreen({ entry, onStart, onCurate, onBack }: Props) {
   const [mode, setMode] = useState<GameMode>("fun");
   const [length, setLength] = useState<GameLength>("full");
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
@@ -125,6 +126,10 @@ export function SetupScreen({ entry, onStart, onBack }: Props) {
         onClick={() => onStart({ mode, length, crowdPopular })}
       >
         Start game
+      </button>
+
+      <button type="button" className="button ghost curate-link" onClick={onCurate}>
+        Curate stars →
       </button>
     </section>
   );
