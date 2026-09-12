@@ -1,14 +1,4 @@
-CREATE TABLE IF NOT EXISTS stars (
-  title_id   TEXT NOT NULL,
-  line_index INTEGER NOT NULL,
-  player_id  TEXT NOT NULL,
-  starred_at TEXT NOT NULL,
-  PRIMARY KEY (title_id, line_index, player_id)
-);
-
-CREATE INDEX IF NOT EXISTS idx_stars_title ON stars (title_id);
-
--- Phase 2a: auth + share mini-games (also in migrations/002_auth_shares.sql)
+-- Phase 2a: auth + share mini-games
 CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE,

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { CatalogEntry, Title } from "../types/content";
 import type { GameSetup } from "../components/SetupScreen";
 import { getTitle, listCatalogEntries } from "../lib/content/browser";
@@ -14,13 +14,25 @@ import {
   type GameRun,
 } from "../lib/game/session";
 import { getStarredLineIndices } from "../lib/stars/sync";
+import {
+  createMiniShare,
+  fetchMe,
+  fetchShareMeta,
+  fetchShareQueue,
+  logout,
+  submitSharedRun,
+  type ShareMeta,
+} from "../lib/auth/api";
+import { clearSession, getStoredUser, type AuthUser } from "../lib/auth/session";
+import { clearHash, parseHash, setHash } from "../lib/routing/hash";
 import { LibraryScreen } from "../components/LibraryScreen";
 import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
 import { CompleteScreen } from "../components/CompleteScreen";
 import { CurateScreen } from "../components/CurateScreen";
+import { LoginScreen } from "../components/LoginScreen";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -32,11 +44,158 @@ export function App() {
   const [run, setRun] = useState<GameRun | null>(null);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | "skipped" | null>(null);
   const [skipReveal, setSkipReveal] = useState<string | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(() => getStoredUser());
+  const [authToken, setAuthToken] = useState<string | undefined>();
+  const [loginMessage, setLoginMessage] = useState<string | undefined>();
+  const [loginReturn, setLoginReturn] = useState<string | undefined>();
+  const [activeShareId, setActiveShareId] = useState<string | null>(null);
+  const [shareMeta, setShareMeta] = useState<ShareMeta | null>(null);
+  const [shareBusy, setShareBusy] = useState(false);
+  const [shareMessage, setShareMessage] = useState<string | null>(null);
+  const [routeError, setRouteError] = useState<string | null>(null);
 
   const question = useMemo(() => {
     if (!title || !run || run.phase !== "playing") return null;
     return buildMcq(title, run.promptLineIndex);
   }, [title, run]);
+
+  const handleAuthenticated = useCallback((nextUser: AuthUser) => {
+    setUser(nextUser);
+    clearHash();
+    const returnTo = loginReturn;
+    setLoginReturn(undefined);
+    setAuthToken(undefined);
+    setLoginMessage(undefined);
+    if (returnTo?.startsWith("play/")) {
+      setHash(returnTo);
+      return;
+    }
+    setScreen("library");
+  }, [loginReturn]);
+
+  async function beginSharedPlay(shareId: string) {
+    setRouteError(null);
+    const metaResult = await fetchShareMeta(shareId);
+    if ("error" in metaResult) {
+      if (metaResult.status === 401) {
+        setLoginMessage("Sign in to play this shared mini-game.");
+        setLoginReturn(`play/${shareId}`);
+        setScreen("login");
+        setHash(`login?return=${encodeURIComponent(`play/${shareId}`)}`);
+        return;
+      }
+      setRouteError(metaResult.error);
+      setScreen("library");
+      clearHash();
+      return;
+    }
+
+    const queueResult = await fetchShareQueue(shareId);
+    if ("error" in queueResult) {
+      if (queueResult.status === 401) {
+        setLoginMessage("Sign in to play this shared mini-game.");
+        setLoginReturn(`play/${shareId}`);
+        setScreen("login");
+        return;
+      }
+      setRouteError(queueResult.error);
+      setScreen("library");
+      clearHash();
+      return;
+    }
+
+    const loaded = getTitle(queueResult.titleId);
+    const entry = entries.find((item) => item.id === queueResult.titleId) ?? null;
+    if (!loaded || !entry) {
+      setRouteError("Episode for this share is not in the library.");
+      setScreen("library");
+      clearHash();
+      return;
+    }
+
+    const questionQueue = buildMiniGameQueue(loaded, {
+      personalStarred: queueResult.lineIndices,
+      crowdPopular: [],
+    });
+    const firstPromptLineIndex = questionQueue[0];
+    if (firstPromptLineIndex === undefined) {
+      setRouteError("This share has no playable starred lines yet.");
+      setScreen("library");
+      clearHash();
+      return;
+    }
+
+    setActiveShareId(shareId);
+    setShareMeta(metaResult);
+    setPendingEntry(entry);
+    setActiveEntry(entry);
+    setLastSetup({ mode: "fun", length: "mini", crowdPopular: [] });
+    setTitle(loaded);
+    setRun(
+      startRun(entry.id, {
+        mode: "fun",
+        length: "mini",
+        firstPromptLineIndex,
+        questionQueue,
+      }),
+    );
+    setFeedback(null);
+    setSkipReveal(null);
+    setScreen("play");
+    clearHash();
+  }
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function syncUser() {
+      if (!getStoredUser()) return;
+      const me = await fetchMe();
+      if (cancelled) return;
+      if (me) setUser(me);
+      else {
+        clearSession();
+        setUser(null);
+      }
+    }
+
+    void syncUser();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    function applyRoute() {
+      const route = parseHash();
+      if (route.kind === "auth") {
+        setAuthToken(route.token);
+        setScreen("login");
+        return;
+      }
+      if (route.kind === "login") {
+        setLoginReturn(route.returnTo);
+        setScreen("login");
+        return;
+      }
+      if (route.kind === "play") {
+        if (!user) {
+          setLoginMessage("Sign in to play this shared mini-game.");
+          setLoginReturn(`play/${route.shareId}`);
+          setScreen("login");
+          setHash(`login?return=${encodeURIComponent(`play/${route.shareId}`)}`);
+          return;
+        }
+        void beginSharedPlay(route.shareId);
+      }
+    }
+
+    applyRoute();
+    window.addEventListener("hashchange", applyRoute);
+    return () => window.removeEventListener("hashchange", applyRoute);
+    // intentionally depend on user so share links retry after login
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, entries]);
 
   function beginGame(entry: CatalogEntry, setup: GameSetup) {
     const loaded = getTitle(entry.id);
@@ -57,6 +216,8 @@ export function App() {
 
     if (firstPromptLineIndex === undefined) return;
 
+    setActiveShareId(null);
+    setShareMeta(null);
     setActiveEntry(entry);
     setLastSetup(setup);
     setTitle(loaded);
@@ -75,6 +236,7 @@ export function App() {
 
   function handlePickEpisode(entry: CatalogEntry) {
     setPendingEntry(entry);
+    setShareMessage(null);
     setScreen("setup");
   }
 
@@ -87,7 +249,7 @@ export function App() {
     if (result.correct) {
       setFeedback("correct");
       if (result.run.phase === "complete") {
-        setScreen("complete");
+        void finishRun(result.run);
       }
       return;
     }
@@ -106,8 +268,19 @@ export function App() {
     setFeedback("skipped");
 
     if (result.run.phase === "complete") {
-      setScreen("complete");
+      void finishRun(result.run);
     }
+  }
+
+  async function finishRun(completed: GameRun) {
+    if (activeShareId) {
+      await submitSharedRun(activeShareId, {
+        correctCount: completed.correctCount,
+        wrongCount: completed.wrongCount,
+        skipCount: completed.skipCount,
+      });
+    }
+    setScreen("complete");
   }
 
   function handleGoBack() {
@@ -120,6 +293,10 @@ export function App() {
   }
 
   function handleRestart() {
+    if (activeShareId) {
+      void beginSharedPlay(activeShareId);
+      return;
+    }
     if (!activeEntry || !lastSetup) return;
     beginGame(activeEntry, lastSetup);
   }
@@ -133,14 +310,95 @@ export function App() {
     setRun(null);
     setFeedback(null);
     setSkipReveal(null);
+    setActiveShareId(null);
+    setShareMeta(null);
+    setShareMessage(null);
+    setRouteError(null);
+    clearHash();
+  }
+
+  async function handleShareMiniGame() {
+    if (!pendingEntry) return;
+    if (!user) {
+      setLoginMessage("Sign in to create a shareable mini-game link.");
+      setLoginReturn(undefined);
+      setScreen("login");
+      setHash("login");
+      return;
+    }
+
+    setShareBusy(true);
+    setShareMessage(null);
+    const result = await createMiniShare(pendingEntry.id);
+    setShareBusy(false);
+    if ("error" in result) {
+      setShareMessage(result.error);
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(result.url);
+      setShareMessage(`Link copied: ${result.url}`);
+    } catch {
+      setShareMessage(result.url);
+    }
+  }
+
+  async function handleLogout() {
+    await logout();
+    setUser(null);
   }
 
   return (
     <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}`}>
       <header className="app-header">
-        <h1>Textline → Nextline</h1>
-        <p className="lede">Here's a line — guess what comes next.</p>
+        <div className="app-header-row">
+          <div>
+            <h1>Textline → Nextline</h1>
+            <p className="lede">Here's a line — guess what comes next.</p>
+          </div>
+          <div className="auth-bar">
+            {user ? (
+              <>
+                <span className="auth-user" title={user.email}>
+                  {user.displayName ?? user.email}
+                </span>
+                <button type="button" className="button ghost" onClick={() => void handleLogout()}>
+                  Log out
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                className="button ghost"
+                onClick={() => {
+                  setLoginMessage(undefined);
+                  setAuthToken(undefined);
+                  setScreen("login");
+                  setHash("login");
+                }}
+              >
+                Sign in
+              </button>
+            )}
+          </div>
+        </div>
       </header>
+
+      {routeError && (
+        <p className="feedback wrong" role="alert">
+          {routeError}
+        </p>
+      )}
+
+      {screen === "login" && (
+        <LoginScreen
+          initialToken={authToken}
+          message={loginMessage}
+          onAuthenticated={handleAuthenticated}
+          onBack={handleBackToLibrary}
+        />
+      )}
 
       {screen === "library" && <LibraryScreen entries={entries} onSelect={handlePickEpisode} />}
 
@@ -149,6 +407,9 @@ export function App() {
           entry={pendingEntry}
           onStart={(setup) => beginGame(pendingEntry, setup)}
           onCurate={() => setScreen("curate")}
+          onShareMiniGame={() => void handleShareMiniGame()}
+          shareBusy={shareBusy}
+          shareMessage={shareMessage}
           onBack={handleBackToLibrary}
         />
       )}
@@ -180,6 +441,8 @@ export function App() {
         <CompleteScreen
           title={title}
           run={run}
+          shareId={activeShareId}
+          shareOwnerName={shareMeta?.ownerDisplayName}
           onPlayAgain={handleRestart}
           onBack={handleBackToLibrary}
         />

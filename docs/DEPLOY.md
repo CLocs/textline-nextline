@@ -37,6 +37,12 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
 
    If you're already in `api/`, run `npm run db:migrate:remote` instead (no `--prefix`).
 
+   For an **existing** D1 that already has the stars table, apply the Phase 2a migration only:
+
+   ```bash
+   npm run db:migrate:auth:remote --prefix api
+   ```
+
 3. **Deploy the Worker** (from **repo root**):
 
    ```bash
@@ -47,11 +53,24 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
 
    Note the Worker URL (e.g. `https://textline-nextline-api.<account>.workers.dev`).
 
-4. **Wire the client** — set `VITE_API_URL` when building Pages:
+4. **Auth secrets (Phase 2a — magic link)** — from `api/`:
+
+   ```bash
+   npx wrangler secret put RESEND_API_KEY
+   npx wrangler secret put AUTH_SECRET
+   ```
+
+   Optional vars in [`api/wrangler.toml`](api/wrangler.toml):
+   - `APP_ORIGIN` — production: `https://textline-nextline.pages.dev` (used in email links + share URLs)
+   - `RESEND_FROM` — verified sender, e.g. `Textline <onboarding@resend.dev>` (or your domain after Resend DNS)
+
+   Without `RESEND_API_KEY`, the Worker **logs** the magic link to wrangler logs (fine for local `wrangler dev`).
+
+5. **Wire the client** — set `VITE_API_URL` when building Pages:
    - **Local:** create `.env.local` with `VITE_API_URL=https://textline-nextline-api.<account>.workers.dev`
    - **CI:** add a repository variable `VITE_API_URL` (Settings → Secrets and variables → Actions → Variables)
 
-5. **Redeploy Pages** so the bundle picks up the API URL.
+6. **Redeploy Pages** so the bundle picks up the API URL. Update Worker `APP_ORIGIN` to production before sharing magic links / mini-game URLs from prod.
 
 ### Local API development
 
@@ -59,6 +78,7 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
 cd api
 npm install
 npm run db:migrate:local
+npm run db:migrate:auth:local   # if D1 was created before Phase 2a
 npm run dev
 ```
 
@@ -74,8 +94,24 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `DELETE` | `/api/stars` | Unstar. Body: `{ titleId, lineIndex }` |
 | `GET` | `/api/stars/mine?titleId=` | Current player's starred indices |
 | `GET` | `/api/stars/popular?titleId=&limit=50` | Crowd ranking by star count |
+| `POST` | `/api/auth/request-link` | Body `{ email }` → magic link email |
+| `POST` | `/api/auth/verify` | Body `{ token }` → `{ user, sessionToken }` |
+| `GET` | `/api/auth/me` | Current user (Bearer session) |
+| `POST` | `/api/auth/logout` | Invalidate session |
+| `POST` | `/api/auth/claim` | Body `{ anonymousPlayerId }` → merge anonymous stars |
+| `POST` | `/api/shares` | Create mini-game share (auth). Body `{ titleId }` |
+| `GET` | `/api/shares/:id` | Share metadata (auth) |
+| `GET` | `/api/shares/:id/queue` | Owner star line indices (auth) |
+| `POST` | `/api/shares/:id/runs` | Submit scores (auth) |
+| `GET` | `/api/shares/:id/runs` | Share leaderboard (auth) |
 
-All mutating requests require header `X-Player-Id` (anonymous UUID, stored in browser `localStorage`).
+Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share routes require auth.
+
+### Share links
+
+Format: `https://textline-nextline.pages.dev/#/play/<shareId>`
+
+Recipient must **sign in**; then they play a mini-game built from the sharer's stars. Scores land on the share leaderboard.
 
 ## GitHub Actions (recommended)
 
@@ -129,9 +165,11 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | --- | --- |
 | Full episode / mini-game | Yes |
 | Fun mode, skip, stars | Synced when `VITE_API_URL` is set; otherwise per-browser |
+| Sign in (magic link) | Needs Resend secrets on Worker; claim merges anonymous stars |
+| Share mini-game | Setup → Share link; friend must sign in; scores on share |
 | Mini-game queue | Your stars → crowd popular → random |
 | Medium / Hard | Not enabled yet |
-| Multiplayer | Not yet — needs Phase 2 backend |
+| Live multiplayer rooms | Not yet — Phase 2 |
 
 ## Troubleshooting
 
@@ -143,5 +181,7 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | Wrangler version mismatch in CI | Workflow uses `npx wrangler` from `package.json` (v4), not wrangler-action |
 | Old episodes after deploy | Hard refresh; confirm `content/` was committed before push |
 | Stars not syncing | Confirm `VITE_API_URL` in build; Worker deployed; D1 schema applied |
+| Magic link not arriving | Set `RESEND_API_KEY`; check Resend domain; without key, read wrangler logs |
+| Share play asks to sign in | Expected — Phase 2a requires login for attribution |
 | CORS errors | Check Worker `ALLOWED_ORIGINS` in `api/wrangler.toml` |
 | Friend's stars missing | Expected without Worker — deploy API and set `VITE_API_URL` |

@@ -20,10 +20,21 @@ type Props = {
   entry: CatalogEntry;
   onStart: (setup: GameSetup) => void;
   onCurate: () => void;
+  onShareMiniGame: () => void;
+  shareBusy?: boolean;
+  shareMessage?: string | null;
   onBack: () => void;
 };
 
-export function SetupScreen({ entry, onStart, onCurate, onBack }: Props) {
+export function SetupScreen({
+  entry,
+  onStart,
+  onCurate,
+  onShareMiniGame,
+  shareBusy,
+  shareMessage,
+  onBack,
+}: Props) {
   const [mode, setMode] = useState<GameMode>("fun");
   const [length, setLength] = useState<GameLength>("full");
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
@@ -131,6 +142,23 @@ export function SetupScreen({ entry, onStart, onCurate, onBack }: Props) {
       <button type="button" className="button ghost curate-link" onClick={onCurate}>
         Curate stars →
       </button>
+
+      <button
+        type="button"
+        className="button ghost curate-link"
+        onClick={onShareMiniGame}
+        disabled={shareBusy || starredCount === 0}
+      >
+        {shareBusy ? "Creating link…" : "Share mini-game link"}
+      </button>
+      {starredCount === 0 && (
+        <p className="muted share-hint">Star some lines first (or Curate) to share a mini-game.</p>
+      )}
+      {shareMessage && (
+        <p className="share-message" role="status">
+          {shareMessage}
+        </p>
+      )}
     </section>
   );
 }

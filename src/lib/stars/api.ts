@@ -1,4 +1,5 @@
 import { getOrCreatePlayerId } from "./playerId.js";
+import { getSessionToken } from "../auth/session.js";
 
 export type PopularStar = {
   lineIndex: number;
@@ -20,6 +21,8 @@ async function apiFetch(path: string, init: RequestInit = {}): Promise<Response 
 
   const headers = new Headers(init.headers);
   headers.set("X-Player-Id", getOrCreatePlayerId());
+  const session = getSessionToken();
+  if (session) headers.set("Authorization", `Bearer ${session}`);
   if (init.body && !headers.has("Content-Type")) {
     headers.set("Content-Type", "application/json");
   }

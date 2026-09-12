@@ -52,7 +52,7 @@ Useful for async play and social sharing; builds on the same transcript + questi
 
 ## Transcript library
 
-The game does **not** fetch subtitles at play time. It runs on a **curated library of transcripts** that we build up over time — starting with a handful of episodes, then adding more as they're ready.
+The game does **not** fetch subtitles at play time. It runs on a **curated library of transcripts** that we build up over time. The catalog today is Simpsons Season 4 plus a sample; the next seed is movies from a Letterboxd likes ∪ 4.5★ export — see the [content workstream](docs/ROADMAP-content.md).
 
 ### Authoring: transcript_maker
 
@@ -80,7 +80,7 @@ transcript_maker → export JSON → content store → game API / static bundle
 
 **MVP:** Check in a few episode JSON files (or seed a DB from them). No runtime subtitle search.
 
-**Later:** Admin ingest script (drop JSON in a folder → validate → publish), optional metadata (show, season, episode), and a growing catalog as new episodes are transcribed.
+**Later:** Admin ingest script (drop JSON in a folder → validate → publish), optional metadata (show, season, episode, year), and a growing catalog as new titles are transcribed ([content workstream](docs/ROADMAP-content.md)).
 
 ### Line model for the game
 
@@ -140,14 +140,21 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 ## Phase 2 — Multiplayer
 
-**Goal:** 2–4 players take turns guessing the next line in the same transcript run, with no accounts — join via link or room code + display name.
+**Goal:** 2–4 players take turns guessing the next line in the same transcript run. Prefer **logged-in** players once Phase 2a ships (display name from account).
 
-### Features
+### Phase 2a — Auth + share mini-game *(before rooms)*
+
+- [x] **Magic-link login** — email link via Resend; session on Worker + D1
+- [x] **Claim anonymous stars** — map browser `playerId` → user on first sign-in
+- [x] **Share mini-game link** — `#/play/:shareId`; recipient must sign in
+- [x] **Attribution / scores** — `shared_runs` leaderboard per share
+
+### Features (rooms — later)
 
 - [ ] **Room / session**
   - Host creates a game (pick title, player count 2–4)
   - Share join link or short room code
-  - Players enter a display name only (no login)
+  - Players use account display name (or enter a display name if guest policy allows)
 
 - [ ] **Turn rotation**
   - On each question, one player is "on the clock"
@@ -169,7 +176,7 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 ### Open design questions (Phase 2)
 
-- **Reconnect:** Anonymous name + session token in local storage?
+- **Reconnect:** Session token from Phase 2a auth?
 
 ---
 
@@ -236,13 +243,24 @@ Distractors for multiple choice come from **other lines in the same transcript**
 | **1 — Single-player MVP** | Title picker, MCQ game loop, score | ✅ Playable solo run on curated episodes |
 | **1.5 — Content & UX** | Stars, mini-games, deploy | ✅ Stars + mini-game; static deploy on Cloudflare Pages |
 | **1.6 — Star sync** | Worker + D1, star/unstar API, client sync | ✅ Stars persist across devices; crowd-popular feeds mini-games |
-| **1.7 — Admin / Curate** | Bulk star from transcript UI | Faster personal TL curation without playing through |
+| **1.7 — Admin / Curate** | Bulk star from transcript UI | ✅ Faster personal TL curation without playing through |
+| **2a — Auth + share mini-game** | Magic-link login, claim stars, share link | Durable accounts; friends play your starred mini-game (must be signed in) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
+
+App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
+
+| Phase | Focus | Target outcome |
+|-------|--------|----------------|
+| **C0 — Seed queue** | Letterboxd ZIP → likes ∪ 4.5★ queue | Tracked movie list (not the full watched log) |
+| **C1 — Batch convert** | SRT/VTT folder → timed JSON in transcript_maker | Drop-in files for `imports/` |
+| **C2 — SRT acquisition** | Manual drop + optional paced OpenSubtitles | SRTs for queue titles without scraping other sites |
+| **C3 — Import + hygiene** | `import:all` + year/tmdbId + clean titles | Movies playable in the library picker |
+| **C4 — Ongoing** | Re-export Letterboxd, convert the delta | New likes / 4.5★ films without a full rebuild |
 
 ### Suggested build order (Phase 0 → 1)
 
@@ -255,12 +273,16 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 ### Growing the library over time
 
+Simpsons Season 4 is already in `content/`. Next titles come from **movies you liked most** (Letterboxd likes ∪ 4.5–5★), not every film. Details and phases: [docs/ROADMAP-content.md](docs/ROADMAP-content.md).
+
 | When | How |
 |------|-----|
-| **Now (MVP)** | Pick a few favorite episodes → transcript_maker → export JSON → import into repo |
-| **Ongoing** | Same flow whenever you finish a new episode; bump a version or changelog if needed |
-| **Later** | Simple admin page or CLI: upload JSON, preview lines, publish to content store |
-| **Optional** | Shared types package or JSON schema between transcript_maker and textline-nextline |
+| **Now** | Catalog is Simpsons S4 + sample. Convert any SRT you already have via transcript_maker → `imports/` → `npm run import:all` |
+| **C0** | Official Letterboxd export ZIP → seed queue ([prompt](docs/PROMPT-letterboxd-queue.md)) |
+| **C1** | Batch SRT/VTT → timed JSON in transcript_maker ([prompt](docs/PROMPT-transcript-maker-batch-export.md)) |
+| **C2** | Drop SRTs by hand, or pull via OpenSubtitles (existing transcript_maker proxy, daily cap) |
+| **Ongoing** | Re-export Letterboxd, convert the delta, spot-check, import |
+| **Later** | Admin page or CLI: upload JSON, preview lines, publish; persist year / TMDB id on titles |
 
 ### Suggested build order (Phase 2)
 
@@ -277,7 +299,7 @@ Distractors for multiple choice come from **other lines in the same transcript**
 - **Stack:** TypeScript + Vitest for content/import (Phase 0); Next.js (or similar) for the game UI in Phase 1.
 - **Transcript source:** Curated exports from **transcript_maker** — not runtime subtitle APIs for MVP.
 - **Content storage:** Git-tracked JSON for early episodes is fine; move to DB or object storage when the catalog grows.
-- **Legal:** Subtitles/transcripts may be subject to copyright; library is personal/curated content you already prepared in transcript_maker.
+- **Legal:** Subtitles/transcripts may be subject to copyright; library is personal/curated (Letterboxd likes ∪ 4.5★, plus titles you already prepared in transcript_maker). See [docs/ROADMAP-content.md](docs/ROADMAP-content.md).
 
 ---
 
