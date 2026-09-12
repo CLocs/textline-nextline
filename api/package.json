@@ -7,7 +7,9 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "db:migrate:local": "wrangler d1 execute textline-stars --local --file=schema.sql",
-    "db:migrate:remote": "wrangler d1 execute textline-stars --remote --file=schema.sql"
+    "db:migrate:remote": "wrangler d1 execute textline-stars --remote --file=schema.sql",
+    "db:migrate:auth:local": "wrangler d1 execute textline-stars --local --file=migrations/002_auth_shares.sql",
+    "db:migrate:auth:remote": "wrangler d1 execute textline-stars --remote --file=migrations/002_auth_shares.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",

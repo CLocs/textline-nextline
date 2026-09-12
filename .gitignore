@@ -1,3 +1,13 @@
 node_modules/
 dist/
 .env.local
+
+# Letterboxd ZIP + raw SRTs (content workstream C0/C2)
+inbox/letterboxd/*
+!inbox/letterboxd/.gitkeep
+inbox/srt/*
+!inbox/srt/.gitkeep
+
+# Personal Readwise quotes / notes (regenerate with --vault)
+content/readwise-highlights.json
+content/stars-seed.json
