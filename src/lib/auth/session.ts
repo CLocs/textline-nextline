@@ -30,6 +30,17 @@ export function setSession(sessionToken: string, user: AuthUser): void {
   localStorage.setItem(USER_KEY, JSON.stringify(user));
 }
 
+/** Local-only session for Vite dev — skips remote /api/auth/me validation. */
+export const LOCAL_DEV_SESSION = "local-dev";
+
+export function isLocalDevSession(): boolean {
+  return getSessionToken() === LOCAL_DEV_SESSION;
+}
+
+export function setLocalDevUser(user: AuthUser): void {
+  setSession(LOCAL_DEV_SESSION, user);
+}
+
 export function clearSession(): void {
   if (typeof localStorage === "undefined") return;
   localStorage.removeItem(SESSION_KEY);

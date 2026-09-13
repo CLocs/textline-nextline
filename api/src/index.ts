@@ -26,6 +26,17 @@ import {
   putStar,
 } from "./stars.js";
 
+function resolveShareOrigin(
+  appOrigin: string | undefined,
+  requestOrigin: string | null,
+  allowed: string[],
+): string {
+  const fallback = (appOrigin ?? "http://localhost:5173").replace(/\/$/, "");
+  if (requestOrigin && isAllowedOrigin(requestOrigin, allowed)) {
+    return requestOrigin.replace(/\/$/, "");
+  }
+  return fallback;
+}
 export interface Env extends AuthEnv {
   DB: D1Database;
   ALLOWED_ORIGINS?: string;
@@ -106,7 +117,10 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (request.method === "POST" && pathname === "/api/auth/request-link") {
       const body = (await readJson(request)) as { email?: string } | null;
       if (!body?.email) return errorResponse("Missing email", 400, origin, allowed);
-      const result = await requestMagicLink(env, body.email);
+      const result = await requestMagicLink(env, body.email, {
+        linkOrigin: origin,
+        allowedOrigins: allowed,
+      });
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse({ ok: true }, 200, origin, allowed);
     }
@@ -173,7 +187,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const titleId = body?.titleId?.trim();
       if (!titleId) return errorResponse("Missing titleId", 400, origin, allowed);
       const share = await createShare(env.DB, user, titleId);
-      const appOrigin = (env.APP_ORIGIN ?? "http://localhost:5173").replace(/\/$/, "");
+      const appOrigin = resolveShareOrigin(env.APP_ORIGIN, origin, allowed);
       return jsonResponse(
         {
           shareId: share.id,

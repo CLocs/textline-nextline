@@ -1,15 +1,30 @@
 :root {
   color-scheme: light;
-  --bg: #f3eee4;
-  --bg-raised: #faf7f1;
-  --ink: #1c1915;
-  --muted: #6b645b;
-  --line: #ddd4c6;
-  --accent: #8c3b1a;
-  --accent-hover: #6e2d13;
-  --success: #2f6b3a;
-  --danger: #9b2c2c;
-  --shadow: 0 1px 2px rgb(28 25 21 / 6%);
+  /* Palette: design/tlnl_color_palatte1.png — softened for UI */
+  --sage: #c1d37f;
+  --forest: #243119;
+  --burgundy: #3d0814;
+  --terracotta: #c06e52;
+  --coral: #f96f5d;
+
+  --bg: #eef2e0;
+  --bg-raised: #f7f8f1;
+  --ink: var(--forest);
+  --muted: #5f6e52;
+  --line: #cdd6b6;
+  /* Primary CTA: terracotta (coral reserved for focus / danger energy) */
+  --accent: var(--terracotta);
+  --accent-hover: #a85a42;
+  --brand: var(--burgundy);
+  --secondary: color-mix(in srgb, var(--coral) 55%, var(--terracotta));
+  --success: #3d5c28;
+  --danger: #9b2c3a;
+  --surface: var(--bg-raised);
+  --star-bg: color-mix(in srgb, var(--terracotta) 12%, white);
+  --star-border: color-mix(in srgb, var(--terracotta) 45%, white);
+  --star-ink: #8a4a36;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, white);
+  --shadow: 0 1px 2px rgb(36 49 25 / 7%);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   line-height: 1.5;
   color: var(--ink);
@@ -27,9 +42,17 @@ body,
   min-height: 100%;
 }
 
+body {
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, color-mix(in srgb, var(--sage) 55%, white), transparent 55%),
+    linear-gradient(165deg, #f0f4e2 0%, var(--bg) 42%, color-mix(in srgb, var(--terracotta) 8%, var(--bg)) 100%);
+  background-attachment: fixed;
+}
+
 button {
   font: inherit;
   cursor: pointer;
+  color: inherit;
 }
 
 .app-shell {
@@ -100,23 +123,23 @@ button {
 .history-item {
   padding: 0.65rem 0.75rem;
   border-radius: 8px;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--line);
 }
 
 .history-item.current {
   border-color: var(--accent);
-  background: #fffaf7;
+  background: var(--accent-soft);
 }
 
 .history-item.starred:not(.current) {
-  border-color: #e8d48a;
-  background: #fffef8;
+  border-color: var(--star-border);
+  background: var(--star-bg);
 }
 
 .history-tag.starred-tag {
-  color: #9a7b0a;
-  background: #fffbeb;
+  color: var(--star-ink);
+  background: var(--star-bg);
 }
 
 .history-text {
@@ -162,21 +185,44 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--muted);
-  background: var(--bg);
+  background: color-mix(in srgb, var(--sage) 25%, white);
   border-radius: 999px;
   padding: 0.1rem 0.45rem;
 }
 
 .history-tag.current-tag {
-  color: var(--accent);
-  background: rgb(140 59 26 / 8%);
+  color: var(--accent-hover);
+  background: var(--accent-soft);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.brand-mark {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0.15rem;
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, var(--terracotta) 0%, color-mix(in srgb, var(--burgundy) 70%, var(--terracotta)) 100%);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--burgundy) 20%, transparent);
+}
+
+.brand-copy {
+  min-width: 0;
 }
 
 .app-header h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   margin: 0 0 0.25rem;
+  color: var(--brand);
+  line-height: 1.15;
 }
 
 .lede,
@@ -191,7 +237,7 @@ button {
 }
 
 .panel {
-  background: var(--bg-raised);
+  background: color-mix(in srgb, var(--bg-raised) 92%, white);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 1.25rem;
@@ -239,11 +285,12 @@ button {
   padding: 0.9rem 1rem;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: white;
+  background: var(--surface);
 }
 
 .title-card:hover {
   border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .title-card-name {
@@ -304,17 +351,17 @@ button {
 
 .star-button {
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 10px;
   padding: 0.25rem 0.65rem;
-  background: white;
+  background: var(--surface);
   font-size: 0.85rem;
   color: var(--muted);
 }
 
 .star-button.starred {
-  border-color: #c4a035;
-  color: #9a7b0a;
-  background: #fffbeb;
+  border-color: var(--star-border);
+  color: var(--star-ink);
+  background: var(--star-bg);
 }
 
 .length-badge {
@@ -325,7 +372,7 @@ button {
   margin: 0;
   padding: 1rem 1.1rem;
   border-left: 4px solid var(--accent);
-  background: white;
+  background: var(--surface);
   border-radius: 0 10px 10px 0;
   font-size: 1.15rem;
 }
@@ -361,11 +408,12 @@ button {
   padding: 0.85rem 1rem;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: white;
+  background: var(--surface);
 }
 
 .choice-button:hover:not(:disabled) {
   border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .choice-button:disabled {
@@ -418,15 +466,16 @@ button {
 
 .button {
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 10px;
   padding: 0.55rem 1rem;
-  background: white;
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .button.primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: white;
+  color: #fffaf7;
 }
 
 .button.primary:hover {
@@ -436,6 +485,15 @@ button {
 
 .button.ghost {
   background: transparent;
+}
+
+.button.ghost:hover {
+  border-color: var(--secondary);
+}
+
+.local-dev-continue {
+  margin-top: 0.85rem;
+  width: 100%;
 }
 
 code {
@@ -481,8 +539,12 @@ code {
   padding: 0.85rem 1rem;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: white;
+  background: var(--surface);
   cursor: pointer;
+}
+
+.mode-option:hover:not(.disabled) {
+  border-color: var(--secondary);
 }
 
 .mode-option.disabled {
@@ -515,7 +577,7 @@ code {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--accent);
+  color: var(--accent-hover);
   font-weight: 600;
 }
 
@@ -541,6 +603,7 @@ code {
   justify-content: space-between;
   gap: 1rem;
   align-items: flex-start;
+  margin-bottom: 0.5rem;
 }
 
 .auth-bar {
@@ -562,9 +625,9 @@ code {
 
 .auth-user-button {
   border: 1px dashed var(--line);
-  border-radius: 999px;
+  border-radius: 10px;
   padding: 0.25rem 0.65rem;
-  background: white;
+  background: var(--surface);
   cursor: pointer;
 }
 
@@ -585,9 +648,10 @@ code {
   max-width: 12rem;
   padding: 0.35rem 0.65rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 10px;
   font: inherit;
-  background: white;
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .auth-name-error {
@@ -605,8 +669,9 @@ code {
   margin: 0 0 1rem;
   padding: 0.75rem 1rem;
   border-radius: 10px;
-  background: #fffbeb;
-  border: 1px solid #e8d48a;
+  background: color-mix(in srgb, var(--sage) 22%, white);
+  border: 1px solid var(--line);
+  color: var(--ink);
 }
 
 .login-form {
@@ -623,9 +688,10 @@ code {
 .login-field input {
   padding: 0.55rem 0.75rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 10px;
   font: inherit;
-  background: white;
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .login-hint {
@@ -702,9 +768,10 @@ code {
   width: 100%;
   padding: 0.55rem 0.75rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 10px;
   font: inherit;
-  background: white;
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .curate-filter {
@@ -738,12 +805,12 @@ code {
   padding: 0.75rem;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: white;
+  background: var(--surface);
 }
 
 .curate-item.starred {
-  border-color: #e8d48a;
-  background: #fffef8;
+  border-color: var(--star-border);
+  background: var(--star-bg);
 }
 
 .curate-star {
@@ -751,16 +818,16 @@ code {
   border-radius: 8px;
   width: 2.25rem;
   height: 2.25rem;
-  background: white;
+  background: var(--surface);
   font-size: 1.1rem;
   color: var(--muted);
   flex-shrink: 0;
 }
 
 .curate-star.starred {
-  border-color: #c4a035;
-  color: #9a7b0a;
-  background: #fffbeb;
+  border-color: var(--star-border);
+  color: var(--star-ink);
+  background: var(--star-bg);
 }
 
 .curate-line-index {
@@ -791,7 +858,7 @@ code {
 }
 
 .history-star.starred {
-  color: #9a7b0a;
+  color: var(--star-ink);
 }
 
 .sr-only {
@@ -824,5 +891,10 @@ code {
 @media (max-width: 560px) {
   .score-grid {
     grid-template-columns: 1fr;
+  }
+
+  .brand-mark {
+    width: 2.1rem;
+    height: 2.1rem;
   }
 }

@@ -23,7 +23,7 @@ import {
   submitSharedRun,
   type ShareMeta,
 } from "../lib/auth/api";
-import { clearSession, getStoredUser, type AuthUser } from "../lib/auth/session";
+import { clearSession, getStoredUser, isLocalDevSession, type AuthUser } from "../lib/auth/session";
 import { clearHash, parseHash, setHash } from "../lib/routing/hash";
 import { LibraryScreen } from "../components/LibraryScreen";
 import { SetupScreen } from "../components/SetupScreen";
@@ -153,6 +153,7 @@ export function App() {
 
     async function syncUser() {
       if (!getStoredUser()) return;
+      if (isLocalDevSession()) return;
       const me = await fetchMe();
       if (cancelled) return;
       if (me) setUser(me);
@@ -383,9 +384,12 @@ export function App() {
     <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}`}>
       <header className="app-header">
         <div className="app-header-row">
-          <div>
-            <h1>Textline → Nextline</h1>
-            <p className="lede">Here's a line — guess what comes next.</p>
+          <div className="brand-lockup">
+            <div className="brand-mark" aria-hidden="true" />
+            <div className="brand-copy">
+              <h1>Textline → Nextline</h1>
+              <p className="lede">Here's a line — guess what comes next.</p>
+            </div>
           </div>
           {user && (
             <AuthBar

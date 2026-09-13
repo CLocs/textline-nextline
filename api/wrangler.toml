@@ -9,7 +9,7 @@ database_id = "b795014e-6ead-4056-a452-d6442324604a"
 
 [vars]
 # Comma-separated origins; override per environment if needed
-ALLOWED_ORIGINS = "http://localhost:5173,https://textline-nextline.pages.dev,https://textlinenextline.com,https://www.textlinenextline.com"
+ALLOWED_ORIGINS = "http://localhost:5173,http://127.0.0.1:5173,https://textline-nextline.pages.dev,https://textlinenextline.com,https://www.textlinenextline.com"
 APP_ORIGIN = "https://textlinenextline.com"
 RESEND_FROM = "Textline <auth@textlinenextline.com>"
 
