@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { getLine } from "../lib/content/lines";
+import { leadInForPrompt } from "../lib/game/promptContext";
 import { getValidPromptIndices } from "../lib/game/miniGame";
 import {
   getStarsForTitle,
@@ -49,7 +50,10 @@ export function CurateScreen({ entry, onBack }: Props) {
       if (starredOnly && !isStarred(entry.id, lineIndex)) return false;
       if (!normalizedQuery) return true;
       const line = getLine(title, lineIndex);
-      return line?.text.toLowerCase().includes(normalizedQuery) ?? false;
+      if (line?.text.toLowerCase().includes(normalizedQuery)) return true;
+      return leadInForPrompt(title, lineIndex).some((lead) =>
+        lead.text.toLowerCase().includes(normalizedQuery),
+      );
     });
   }, [title, entry.id, promptIndices, starredOnly, query, revision]);
 
@@ -132,6 +136,11 @@ export function CurateScreen({ entry, onBack }: Props) {
                 </button>
                 <div className="curate-copy">
                   <span className="curate-line-index">Line {lineIndex + 1}</span>
+                  {leadInForPrompt(title, lineIndex).map((lead) => (
+                    <p key={lead.lineIndex} className="curate-lead-in">
+                      {lead.text}
+                    </p>
+                  ))}
                   <p className="curate-text">{line.text}</p>
                 </div>
               </li>

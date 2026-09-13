@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { chunk, insertStarsSql, sqlString } from "../src/lib/content/starsPush.js";
+import {
+  chunk,
+  excludeTitleIds,
+  filterStarsByTitle,
+  insertStarsSql,
+  sqlString,
+} from "../src/lib/content/starsPush.js";
+import type { StarSeed } from "../src/lib/content/starSeed.js";
 
 describe("insertStarsSql", () => {
   it("builds a conflict-safe insert", () => {
@@ -26,5 +33,24 @@ describe("sqlString", () => {
 describe("chunk", () => {
   it("splits into sized groups", () => {
     expect(chunk([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]]);
+  });
+});
+
+const seed: Pick<StarSeed, "titleId" | "title" | "lineIndex">[] = [
+  { titleId: "payback-1999", title: "Payback (1999)", lineIndex: 1 },
+  { titleId: "inglourious-basterds-2009", title: "Inglourious Basterds (2009)", lineIndex: 740 },
+];
+
+describe("filterStarsByTitle", () => {
+  it("keeps Payback by id or name", () => {
+    expect(filterStarsByTitle(seed as StarSeed[], "payback-1999")).toHaveLength(1);
+    expect(filterStarsByTitle(seed as StarSeed[], "Payback")[0]?.titleId).toBe("payback-1999");
+  });
+});
+
+describe("excludeTitleIds", () => {
+  it("drops titles the player already starred", () => {
+    const kept = excludeTitleIds(seed as StarSeed[], ["inglourious-basterds-2009"]);
+    expect(kept.map((star) => star.titleId)).toEqual(["payback-1999"]);
   });
 });

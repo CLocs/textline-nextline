@@ -64,6 +64,17 @@ export function getNextPlayableLine(source: LineSource, afterLineIndex: number):
   return undefined;
 }
 
+export function getPreviousPlayableLine(source: LineSource, beforeLineIndex: number): Line | undefined {
+  const position = source.lines.findIndex((line) => line.index === beforeLineIndex);
+  if (position === -1) return undefined;
+
+  for (let i = position - 1; i >= 0; i -= 1) {
+    const line = source.lines[i]!;
+    if (isPlayableLine(line)) return line;
+  }
+  return undefined;
+}
+
 export function getFirstPlayableLine(source: LineSource): Line | undefined {
   return source.lines.find(isPlayableLine);
 }

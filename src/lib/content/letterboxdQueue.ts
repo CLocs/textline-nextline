@@ -112,20 +112,25 @@ export function attachHighlightCounts(films: QueueFilm[], counts: Map<string, nu
   }
 }
 
+/** Feature-length files under this cue count are likely the wrong SRT. */
+export const SHORT_SRT_LINES = 500;
+
 export function markFilmsImported(
   films: QueueFilm[],
-  imported: { title: string; year: number | null }[],
+  imported: { title: string; year: number | null; lineCount?: number }[],
 ): number {
   let n = 0;
   for (const film of films) {
-    const hit = imported.some((title) =>
+    const hit = imported.find((title) =>
       titlesLikelyMatch(
         { title: film.title, year: film.year },
         { title: title.title, year: title.year },
       ),
     );
     if (!hit) continue;
-    if (film.srt === "missing") film.srt = "manual";
+    const short = hit.lineCount !== undefined && hit.lineCount < SHORT_SRT_LINES;
+    if (short) film.srt = "short";
+    else if (film.srt === "missing" || film.srt === "short") film.srt = "manual";
     film.converted = true;
     film.imported = true;
     n += 1;
@@ -272,11 +277,19 @@ export function loadQueueFromDir(dir: string): { incoming: QueueFilm[]; stats: O
   };
 }
 
+export function formatSrtCell(srt: QueueFilm["srt"]): string {
+  if (srt === "missing") return "[ ] missing";
+  if (srt === "short") return "[x] short";
+  return "[x]";
+}
+
 export function formatQueueMarkdown(films: QueueFilm[]): string {
   const lines = [
     "# Content queue",
     "",
-    `Seed: **${SEED_LABEL}**. Sorted by priority, then diary play count, then Readwise highlights. Check off as SRTs land in \`inbox/srt/\`.`,
+    `Seed: **${SEED_LABEL}**. Sorted by priority, then diary play count, then Readwise highlights.`,
+    "",
+    `SRT: \`[x]\` downloaded into \`inbox/srt/\`, \`[ ] missing\`, \`[x] short\` if the file has fewer than ${SHORT_SRT_LINES} cues.`,
     "",
     "| Pri | Plays | HLs | Title | Year | Rating | Liked | SRT |",
     "|-----|-------|-----|-------|------|--------|-------|-----|",
@@ -287,7 +300,7 @@ export function formatQueueMarkdown(films: QueueFilm[]): string {
     const rating = film.rating ?? "—";
     const liked = film.liked ? "yes" : "";
     lines.push(
-      `| ${film.priority} | ${film.playCount} | ${film.highlightCount} | [${escapeMd(film.title)}](${film.letterboxdUri}) | ${year} | ${rating} | ${liked} | ${film.srt} |`,
+      `| ${film.priority} | ${film.playCount} | ${film.highlightCount} | [${escapeMd(film.title)}](${film.letterboxdUri}) | ${year} | ${rating} | ${liked} | ${formatSrtCell(film.srt)} |`,
     );
   }
 

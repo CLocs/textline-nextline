@@ -13,6 +13,7 @@ export type ReadwiseDoc = {
   fullTitle: string;
   title: string;
   year: number | null;
+  titleHints: { title: string; year: number | null }[];
   highlights: ReadwiseHighlight[];
 };
 
@@ -25,8 +26,30 @@ export type ReadwiseMatch = {
 };
 
 const SKIP_DIR_NAMES = new Set(["full document contents", ".obsidian", ".git"]);
+const GENERIC_NOTE_TITLES = new Set(["movie", "article", "untitled", "document"]);
+const GENERIC_URL_SLUGS = new Set(["index", "script", "scripts", "moviescript", "transcript", "www"]);
 
 export function parseReadwiseMarkdown(text: string, sourcePath = ""): ReadwiseDoc | null {
+  const docs = parseReadwiseArticles(text, sourcePath);
+  return docs[0] ?? null;
+}
+
+/** One Readwise export file can concatenate several articles under repeated `#` titles. */
+export function parseReadwiseArticles(text: string, sourcePath = ""): ReadwiseDoc[] {
+  const docs: ReadwiseDoc[] = [];
+  for (const chunk of splitConcatenatedArticles(text)) {
+    const doc = parseOneArticle(chunk, sourcePath);
+    if (doc) docs.push(doc);
+  }
+  return docs;
+}
+
+function splitConcatenatedArticles(text: string): string[] {
+  const parts = text.split(/^(?=#[^#])/m).map((part) => part.trim()).filter(Boolean);
+  return parts.length > 0 ? parts : [text];
+}
+
+function parseOneArticle(text: string, sourcePath: string): ReadwiseDoc | null {
   const fullTitle = extractFullTitle(text) ?? headingTitle(text);
   if (!fullTitle) return null;
 
@@ -39,6 +62,7 @@ export function parseReadwiseMarkdown(text: string, sourcePath = ""): ReadwiseDo
     fullTitle,
     title: parsed.title,
     year: parsed.year,
+    titleHints: collectTitleHints(text),
     highlights,
   };
 }
@@ -51,6 +75,56 @@ function extractFullTitle(text: string): string | null {
 function headingTitle(text: string): string | null {
   const h1 = text.match(/^#\s+(.+)$/m);
   return h1?.[1]?.trim() ?? null;
+}
+
+function extractUrl(text: string): string | null {
+  const match = text.match(/^- URL:\s*(\S+)/m);
+  return match?.[1]?.trim() ?? null;
+}
+
+function collectTitleHints(text: string): { title: string; year: number | null }[] {
+  const hints: { title: string; year: number | null }[] = [];
+  const url = extractUrl(text);
+  if (url) {
+    const fromUrl = titleFromSourceUrl(url);
+    if (fromUrl) hints.push(fromUrl);
+  }
+  for (const heading of text.matchAll(/^#{2,3}\s+(.+)$/gm)) {
+    const raw = heading[1]?.trim() ?? "";
+    if (!raw || /^metadata$/i.test(raw) || /highlights/i.test(raw)) continue;
+    const parsed = parseTitleYear(raw);
+    if (parsed.title.length >= 4) hints.push(parsed);
+  }
+  return hints;
+}
+
+/** stockq.org/moviescript/P/payback.php → Payback */
+export function titleFromSourceUrl(url: string): { title: string; year: number | null } | null {
+  let pathname: string;
+  try {
+    pathname = new URL(url).pathname;
+  } catch {
+    return null;
+  }
+  const base = pathname.split("/").filter(Boolean).pop() ?? "";
+  const stem = base.replace(/\.(php|html?|aspx?)$/i, "");
+  const cleaned = stem.replace(/[-_]+/g, " ").trim();
+  if (cleaned.length < 4) return null;
+  if (GENERIC_URL_SLUGS.has(cleaned.toLowerCase())) return null;
+  return parseTitleYear(cleaned);
+}
+
+function isGenericNoteTitle(title: string): boolean {
+  const normalized = title
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[:\-–—_,.]/g, " ")
+    .replace(/\bthe\b/g, " ")
+    .replace(/\b(full )?transcripts?\b/g, " ")
+    .replace(/\bscripts?\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return normalized.length < 4 || GENERIC_NOTE_TITLES.has(normalized);
 }
 
 export function extractHighlights(text: string): ReadwiseHighlight[] {
@@ -119,8 +193,8 @@ export function scanReadwiseVault(root: string): ReadwiseDoc[] {
       return;
     }
     if (!/^## /m.test(text) || !/highlights/i.test(text)) return;
-    const doc = parseReadwiseMarkdown(text, filePath);
-    if (doc) docs.push(doc);
+    const parsed = parseReadwiseArticles(text, filePath);
+    for (const doc of parsed) docs.push(doc);
   });
   return docs;
 }
@@ -158,11 +232,8 @@ function walkMarkdown(
 export function matchDocsToQueue(docs: ReadwiseDoc[], films: QueueFilm[]): ReadwiseMatch[] {
   const matches: ReadwiseMatch[] = [];
   for (const doc of docs) {
-    const hits = films.filter((film) =>
-      titlesLikelyMatch({ title: doc.title, year: doc.year }, { title: film.title, year: film.year }),
-    );
-    if (hits.length !== 1) continue;
-    const film = hits[0]!;
+    const film = uniqueFilmForDoc(doc, films);
+    if (!film) continue;
     matches.push({
       letterboxdUri: film.letterboxdUri,
       title: film.title,
@@ -172,6 +243,30 @@ export function matchDocsToQueue(docs: ReadwiseDoc[], films: QueueFilm[]): Readw
     });
   }
   return mergeMatchesByUri(matches);
+}
+
+function uniqueFilmForDoc(doc: ReadwiseDoc, films: QueueFilm[]): QueueFilm | null {
+  if (!isGenericNoteTitle(doc.title)) {
+    const named = filmsMatching(films, { title: doc.title, year: doc.year });
+    if (named.length === 1) return named[0]!;
+  }
+  const hintHits = new Map<string, QueueFilm>();
+  for (const hint of doc.titleHints) {
+    for (const film of filmsMatching(films, hint)) {
+      hintHits.set(film.letterboxdUri, film);
+    }
+  }
+  if (hintHits.size === 1) return [...hintHits.values()][0]!;
+  return null;
+}
+
+function filmsMatching(
+  films: QueueFilm[],
+  candidate: { title: string; year: number | null },
+): QueueFilm[] {
+  return films.filter((film) =>
+    titlesLikelyMatch(candidate, { title: film.title, year: film.year }),
+  );
 }
 
 function mergeMatchesByUri(matches: ReadwiseMatch[]): ReadwiseMatch[] {

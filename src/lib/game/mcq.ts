@@ -1,6 +1,7 @@
 import type { Line, Title } from "../../types/content.js";
 import { getLine } from "../content/lines.js";
 import { getNextPlayableLine, getPlayableLines, isPlayableLine } from "../content/playable.js";
+import { leadInForPrompt, type PromptLeadIn } from "./promptContext.js";
 
 export type McqChoice = {
   lineIndex: number;
@@ -10,6 +11,8 @@ export type McqChoice = {
 export type McqQuestion = {
   promptLineIndex: number;
   promptText: string;
+  /** Earlier cues shown with a short prompt. Not part of the starred index. */
+  leadIn: PromptLeadIn[];
   correctLineIndex: number;
   choices: McqChoice[];
 };
@@ -85,6 +88,7 @@ export function buildMcq(
   return {
     promptLineIndex: prompt.index,
     promptText: prompt.text,
+    leadIn: leadInForPrompt(title, prompt.index),
     correctLineIndex: correct.index,
     choices,
   };

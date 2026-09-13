@@ -155,9 +155,26 @@ describe("markFilmsImported", () => {
         priority: 1,
       }),
     ];
-    const n = markFilmsImported(films, [{ title: "Matrix (1999)", year: 1999 }]);
+    const n = markFilmsImported(films, [{ title: "Matrix (1999)", year: 1999, lineCount: 1400 }]);
     expect(n).toBe(1);
     expect(films[0]?.imported).toBe(true);
+    expect(films[0]?.srt).toBe("manual");
+  });
+
+  it("flags a thin subtitle file as short", () => {
+    const films = [
+      film({
+        title: "Django Unchained",
+        year: 2012,
+        letterboxdUri: "https://boxd.it/django",
+        liked: true,
+        rating: 5,
+        priority: 1,
+      }),
+    ];
+    markFilmsImported(films, [{ title: "Django Unchained", year: 2012, lineCount: 366 }]);
+    expect(films[0]?.srt).toBe("short");
+    markFilmsImported(films, [{ title: "Django Unchained", year: 2012, lineCount: 1859 }]);
     expect(films[0]?.srt).toBe("manual");
   });
 });
@@ -170,5 +187,31 @@ describe("formatQueueMarkdown", () => {
     expect(md).toContain("The Great Escape");
     expect(md).toContain("https://boxd.it/escape");
     expect(md).toContain("| Pri | Plays | HLs |");
+    expect(md).toContain("[ ] missing");
+  });
+
+  it("checks off downloaded SRTs and labels short files", () => {
+    const md = formatQueueMarkdown([
+      film({
+        title: "The Gentlemen",
+        year: 2019,
+        letterboxdUri: "https://boxd.it/gents",
+        liked: true,
+        rating: 5,
+        priority: 1,
+        srt: "manual",
+      }),
+      film({
+        title: "Django Unchained",
+        year: 2012,
+        letterboxdUri: "https://boxd.it/django",
+        liked: true,
+        rating: 5,
+        priority: 1,
+        srt: "short",
+      }),
+    ]);
+    expect(md).toContain("| [x] |");
+    expect(md).toContain("| [x] short |");
   });
 });

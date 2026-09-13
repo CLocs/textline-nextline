@@ -316,6 +316,23 @@ button {
   font-size: 1.15rem;
 }
 
+.prompt-lead-in-flag {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.prompt-lead-in {
+  margin: 0 0 0.45rem;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.prompt-current {
+  margin: 0;
+}
+
 .choice-list {
   list-style: none;
   margin: 0;
@@ -737,6 +754,12 @@ code {
   font-size: 0.78rem;
   color: var(--muted);
   margin-bottom: 0.2rem;
+}
+
+.curate-lead-in {
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .curate-text {
