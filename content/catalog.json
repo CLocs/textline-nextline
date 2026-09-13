@@ -1,15 +1,35 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-12T23:37:33.673Z",
+  "updatedAt": "2026-09-13T03:48:44.016Z",
   "titles": [
     {
       "id": "baby-driver-2017",
       "title": "Baby Driver (2017)",
       "lineCount": 2087,
       "sourceFilename": "Baby.Driver.2017.1080p.BluRay.x264-.YTS.AG.srt",
-      "importedAt": "2026-09-12T18:42:48.529Z",
+      "importedAt": "2026-09-13T03:32:08.004Z",
       "meta": {
         "year": 2017
+      }
+    },
+    {
+      "id": "barbie-2023",
+      "title": "Barbie (2023)",
+      "lineCount": 1990,
+      "sourceFilename": "Barbie.2023.eng.srt",
+      "importedAt": "2026-09-13T03:48:37.213Z",
+      "meta": {
+        "year": 2023
+      }
+    },
+    {
+      "id": "batman-begins-2005",
+      "title": "Batman Begins (2005)",
+      "lineCount": 1389,
+      "sourceFilename": "Batman.Begins.2005.eng.srt",
+      "importedAt": "2026-09-13T03:48:37.724Z",
+      "meta": {
+        "year": 2005
       }
     },
     {
@@ -17,7 +37,7 @@
       "title": "Django Unchained (2012)",
       "lineCount": 1859,
       "sourceFilename": "Django.Unchained.2012.1080p.BDRip.AVC.DDP5.srt",
-      "importedAt": "2026-09-12T18:47:18.248Z",
+      "importedAt": "2026-09-13T03:32:08.012Z",
       "meta": {
         "year": 2012
       }
@@ -27,7 +47,7 @@
       "title": "Friday (1995)",
       "lineCount": 1480,
       "sourceFilename": "Friday.1995.Directors.Cut.720p.BluRay.srt",
-      "importedAt": "2026-09-12T18:42:48.537Z",
+      "importedAt": "2026-09-13T03:32:08.017Z",
       "meta": {
         "year": 1995
       }
@@ -37,9 +57,19 @@
       "title": "Inglourious Basterds (2009)",
       "lineCount": 1988,
       "sourceFilename": "Inglourious Basterds.2009.UHDRip.2160u.HDR10+DV.Eng-SDH.srt",
-      "importedAt": "2026-09-12T18:42:48.542Z",
+      "importedAt": "2026-09-13T03:32:08.022Z",
       "meta": {
         "year": 2009
+      }
+    },
+    {
+      "id": "lock-stock-and-two-smoking-barrels-1998",
+      "title": "Lock Stock and Two Smoking Barrels (1998)",
+      "lineCount": 1393,
+      "sourceFilename": "Lock.Stock.and.Two.Smoking.Barrels.1998.eng.srt",
+      "importedAt": "2026-09-13T03:48:38.242Z",
+      "meta": {
+        "year": 1998
       }
     },
     {
@@ -47,7 +77,7 @@
       "title": "Lord of the Rings The Return of the King (2003)",
       "lineCount": 1789,
       "sourceFilename": "Lord of the Rings The Return of the King (2003) Extended.Edition.DVD.US.Retail Disc1.srt + Lord of the Rings The Return of the King (2003) Extended.Edition.DVD.US.Retail Disc2.srt",
-      "importedAt": "2026-09-12T18:42:48.547Z",
+      "importedAt": "2026-09-13T03:32:08.029Z",
       "meta": {
         "year": 2003
       }
@@ -57,7 +87,7 @@
       "title": "Lord Of The Rings The Two Towers (2002)",
       "lineCount": 1955,
       "sourceFilename": "Lord Of The Rings The Two Towers (2002) Extended.Edition.DVD.US.Retail Disc1.srt + Lord Of The Rings The Two Towers (2002) Extended.Edition.DVD.US.Retail Disc2.srt",
-      "importedAt": "2026-09-12T18:42:48.551Z",
+      "importedAt": "2026-09-13T03:32:08.035Z",
       "meta": {
         "year": 2002
       }
@@ -67,7 +97,7 @@
       "title": "Matrix (1999)",
       "lineCount": 1355,
       "sourceFilename": "Matrix (1999) DVD.US.srt",
-      "importedAt": "2026-09-12T18:42:48.555Z",
+      "importedAt": "2026-09-13T03:32:08.041Z",
       "meta": {
         "year": 1999
       }
@@ -77,9 +107,19 @@
       "title": "Oceans Eleven (2001)",
       "lineCount": 1126,
       "sourceFilename": "Oceans Eleven (2001).5.eng.srt",
-      "importedAt": "2026-09-12T18:42:48.558Z",
+      "importedAt": "2026-09-13T03:32:08.045Z",
       "meta": {
         "year": 2001
+      }
+    },
+    {
+      "id": "oceans-thirteen-2007",
+      "title": "Oceans Thirteen (2007)",
+      "lineCount": 1341,
+      "sourceFilename": "Oceans.Thirteen.2007.eng.srt",
+      "importedAt": "2026-09-13T03:48:38.752Z",
+      "meta": {
+        "year": 2007
       }
     },
     {
@@ -87,9 +127,19 @@
       "title": "Payback (1999)",
       "lineCount": 906,
       "sourceFilename": "Payback (1999) DC (1080p BluRay x265 10bit Tigole).eng.srt",
-      "importedAt": "2026-09-12T18:42:48.561Z",
+      "importedAt": "2026-09-13T03:32:08.048Z",
       "meta": {
         "year": 1999
+      }
+    },
+    {
+      "id": "pulp-fiction-1994",
+      "title": "Pulp Fiction (1994)",
+      "lineCount": 2073,
+      "sourceFilename": "Pulp.Fiction.1994.eng.srt",
+      "importedAt": "2026-09-13T03:48:39.304Z",
+      "meta": {
+        "year": 1994
       }
     },
     {
@@ -97,7 +147,7 @@
       "title": "RocknRolla (2008)",
       "lineCount": 1498,
       "sourceFilename": "RocknRolla.2008.1080p.BluRay.x265-RARBG.en.srt",
-      "importedAt": "2026-09-12T18:42:48.564Z",
+      "importedAt": "2026-09-13T03:32:08.052Z",
       "meta": {
         "year": 2008
       }
@@ -117,9 +167,49 @@
       "title": "Snatch (2000)",
       "lineCount": 1272,
       "sourceFilename": "Snatch (2000) {imdb-tt0208092} [MA][WEBDL-1080p][EAC3 5.1][x264]-HHWEB.en.srt",
-      "importedAt": "2026-09-12T18:42:48.567Z",
+      "importedAt": "2026-09-13T03:32:08.056Z",
       "meta": {
         "year": 2000
+      }
+    },
+    {
+      "id": "star-wars-1977",
+      "title": "Star Wars (1977)",
+      "lineCount": 1155,
+      "sourceFilename": "Star.Wars.1977.eng.srt",
+      "importedAt": "2026-09-13T03:48:39.838Z",
+      "meta": {
+        "year": 1977
+      }
+    },
+    {
+      "id": "star-wars-episode-vi-return-of-the-jedi-1983",
+      "title": "Star Wars Episode VI Return of the Jedi (1983)",
+      "lineCount": 1598,
+      "sourceFilename": "Star.Wars.Episode.VI.Return.of.the.Jedi.1983.eng.srt",
+      "importedAt": "2026-09-13T03:48:40.367Z",
+      "meta": {
+        "year": 1983
+      }
+    },
+    {
+      "id": "terminator-2-judgment-day-1991",
+      "title": "Terminator 2 Judgment Day (1991)",
+      "lineCount": 987,
+      "sourceFilename": "Terminator.2.Judgment.Day.1991.eng.srt",
+      "importedAt": "2026-09-13T03:48:40.879Z",
+      "meta": {
+        "year": 1991
+      }
+    },
+    {
+      "id": "the-empire-strikes-back-1980",
+      "title": "The Empire Strikes Back (1980)",
+      "lineCount": 1323,
+      "sourceFilename": "The.Empire.Strikes.Back.1980.eng.srt",
+      "importedAt": "2026-09-13T03:48:41.402Z",
+      "meta": {
+        "year": 1980
       }
     },
     {
@@ -127,9 +217,19 @@
       "title": "The Gentlemen (2019)",
       "lineCount": 1678,
       "sourceFilename": "The.Gentlemen.2019.1080p.BluRay.REMUX.AVC.DTS-HD-MA.5.1-UnKn0wn.eng.srt",
-      "importedAt": "2026-09-12T23:37:33.667Z",
+      "importedAt": "2026-09-13T03:32:08.062Z",
       "meta": {
         "year": 2019
+      }
+    },
+    {
+      "id": "the-grand-budapest-hotel-2014",
+      "title": "The Grand Budapest Hotel (2014)",
+      "lineCount": 1104,
+      "sourceFilename": "The.Grand.Budapest.Hotel.2014.eng.srt",
+      "importedAt": "2026-09-13T03:48:41.921Z",
+      "meta": {
+        "year": 2014
       }
     },
     {
@@ -137,9 +237,29 @@
       "title": "The Lord of the Rings - The Fellowship of the Ring (2001)",
       "lineCount": 1769,
       "sourceFilename": "The Lord of the Rings - The Fellowship of the Ring 2001 Extended Edition 2160p 35mm SDR v1.2.srt",
-      "importedAt": "2026-09-12T18:42:48.575Z",
+      "importedAt": "2026-09-13T03:32:08.068Z",
       "meta": {
         "year": 2001
+      }
+    },
+    {
+      "id": "the-man-from-uncle-2015",
+      "title": "The Man from UNCLE (2015)",
+      "lineCount": 1100,
+      "sourceFilename": "The.Man.from.UNCLE.2015.eng.srt",
+      "importedAt": "2026-09-13T03:48:42.443Z",
+      "meta": {
+        "year": 2015
+      }
+    },
+    {
+      "id": "the-ministry-of-ungentlemanly-warfare-2024",
+      "title": "The Ministry of Ungentlemanly Warfare (2024)",
+      "lineCount": 1200,
+      "sourceFilename": "The.Ministry.of.Ungentlemanly.Warfare.2024.eng.srt",
+      "importedAt": "2026-09-13T03:48:42.954Z",
+      "meta": {
+        "year": 2024
       }
     },
     {
@@ -147,154 +267,548 @@
       "title": "The Simpsons - 4x01 - Kamp Krusty.en",
       "lineCount": 304,
       "sourceFilename": "The Simpsons - 4x01 - Kamp Krusty.en.srt",
-      "importedAt": "2026-09-12T18:42:48.578Z"
+      "importedAt": "2026-09-13T03:32:08.071Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 1
+      }
     },
     {
       "id": "the-simpsons---4x02---a-streetcar-named-margeen",
       "title": "The Simpsons - 4x02 - A Streetcar Named Marge.en",
       "lineCount": 265,
       "sourceFilename": "The Simpsons - 4x02 - A Streetcar Named Marge.en.srt",
-      "importedAt": "2026-09-12T18:42:48.580Z"
+      "importedAt": "2026-09-13T03:32:08.074Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 2
+      }
     },
     {
       "id": "the-simpsons---4x03---homer-the-hereticen",
       "title": "The Simpsons - 4x03 - Homer the Heretic.en",
       "lineCount": 296,
       "sourceFilename": "The Simpsons - 4x03 - Homer the Heretic.en.srt",
-      "importedAt": "2026-09-12T18:42:48.581Z"
+      "importedAt": "2026-09-13T03:32:08.076Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 3
+      }
     },
     {
       "id": "the-simpsons---4x04---lisa-the-beauty-queenen",
       "title": "The Simpsons - 4x04 - Lisa the Beauty Queen.en",
       "lineCount": 324,
       "sourceFilename": "The Simpsons - 4x04 - Lisa the Beauty Queen.en.srt",
-      "importedAt": "2026-09-12T18:42:48.583Z"
+      "importedAt": "2026-09-13T03:32:08.077Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 4
+      }
     },
     {
       "id": "the-simpsons---4x05---treehouse-of-horror-iiien",
       "title": "The Simpsons - 4x05 - Treehouse of Horror III.en",
       "lineCount": 344,
       "sourceFilename": "The Simpsons - 4x05 - Treehouse of Horror III.en.srt",
-      "importedAt": "2026-09-12T18:42:48.584Z"
+      "importedAt": "2026-09-13T03:32:08.079Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 5
+      }
     },
     {
       "id": "the-simpsons---4x06---itchy-scratchy-the-movieen",
       "title": "The Simpsons - 4x06 - Itchy & Scratchy  The Movie.en",
       "lineCount": 275,
       "sourceFilename": "The Simpsons - 4x06 - Itchy & Scratchy  The Movie.en.srt",
-      "importedAt": "2026-09-12T18:42:48.585Z"
+      "importedAt": "2026-09-13T03:32:08.080Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 6
+      }
     },
     {
       "id": "the-simpsons---4x07---marge-gets-a-joben",
       "title": "The Simpsons - 4x07 - Marge Gets a Job.en",
       "lineCount": 317,
       "sourceFilename": "The Simpsons - 4x07 - Marge Gets a Job.en.srt",
-      "importedAt": "2026-09-12T18:42:48.586Z"
+      "importedAt": "2026-09-13T03:32:08.082Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 7
+      }
     },
     {
       "id": "the-simpsons---4x08---new-kid-on-the-blocken",
       "title": "The Simpsons - 4x08 - New Kid on the Block.en",
       "lineCount": 331,
       "sourceFilename": "The Simpsons - 4x08 - New Kid on the Block.en.srt",
-      "importedAt": "2026-09-12T18:42:48.588Z"
+      "importedAt": "2026-09-13T03:32:08.084Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 8
+      }
     },
     {
       "id": "the-simpsons---4x09---mr-plowen",
       "title": "The Simpsons - 4x09 - Mr. Plow.en",
       "lineCount": 320,
       "sourceFilename": "The Simpsons - 4x09 - Mr. Plow.en.srt",
-      "importedAt": "2026-09-12T18:42:48.589Z"
+      "importedAt": "2026-09-13T03:32:08.086Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 9
+      }
     },
     {
       "id": "the-simpsons---4x10---lisas-first-worden",
       "title": "The Simpsons - 4x10 - Lisa's First Word.en",
       "lineCount": 305,
       "sourceFilename": "The Simpsons - 4x10 - Lisa's First Word.en.srt",
-      "importedAt": "2026-09-12T18:42:48.590Z"
+      "importedAt": "2026-09-13T03:32:08.088Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 10
+      }
     },
     {
       "id": "the-simpsons---4x11---homers-triple-bypassen",
       "title": "The Simpsons - 4x11 - Homer's Triple Bypass.en",
       "lineCount": 310,
       "sourceFilename": "The Simpsons - 4x11 - Homer's Triple Bypass.en.srt",
-      "importedAt": "2026-09-12T18:42:48.591Z"
+      "importedAt": "2026-09-13T03:32:08.090Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 11
+      }
     },
     {
       "id": "the-simpsons---4x12---marge-vs-the-monorailen",
       "title": "The Simpsons - 4x12 - Marge vs. the Monorail.en",
       "lineCount": 313,
       "sourceFilename": "The Simpsons - 4x12 - Marge vs. the Monorail.en.srt",
-      "importedAt": "2026-09-12T18:42:48.593Z"
+      "importedAt": "2026-09-13T03:32:08.091Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 12
+      }
     },
     {
       "id": "the-simpsons---4x13---selmas-choiceen",
       "title": "The Simpsons - 4x13 - Selma's Choice.en",
       "lineCount": 343,
       "sourceFilename": "The Simpsons - 4x13 - Selma's Choice.en.srt",
-      "importedAt": "2026-09-12T18:42:48.594Z"
+      "importedAt": "2026-09-13T03:32:08.093Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 13
+      }
     },
     {
       "id": "the-simpsons---4x14---brother-from-the-same-planeten",
       "title": "The Simpsons - 4x14 - Brother From the Same Planet.en",
       "lineCount": 337,
       "sourceFilename": "The Simpsons - 4x14 - Brother From the Same Planet.en.srt",
-      "importedAt": "2026-09-12T18:42:48.595Z"
+      "importedAt": "2026-09-13T03:32:08.095Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 14
+      }
     },
     {
       "id": "the-simpsons---4x15---i-love-lisaen",
       "title": "The Simpsons - 4x15 - I Love Lisa.en",
       "lineCount": 301,
       "sourceFilename": "The Simpsons - 4x15 - I Love Lisa.en.srt",
-      "importedAt": "2026-09-12T18:42:48.596Z"
+      "importedAt": "2026-09-13T03:32:08.097Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 15
+      }
     },
     {
       "id": "the-simpsons---4x16---dufflessen",
       "title": "The Simpsons - 4x16 - Duffless.en",
       "lineCount": 333,
       "sourceFilename": "The Simpsons - 4x16 - Duffless.en.srt",
-      "importedAt": "2026-09-12T18:42:48.597Z"
+      "importedAt": "2026-09-13T03:32:08.098Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 16
+      }
     },
     {
       "id": "the-simpsons---4x17---last-exit-to-springfielden",
       "title": "The Simpsons - 4x17 - Last Exit to Springfield.en",
       "lineCount": 285,
       "sourceFilename": "The Simpsons - 4x17 - Last Exit to Springfield.en.srt",
-      "importedAt": "2026-09-12T18:42:48.599Z"
+      "importedAt": "2026-09-13T03:32:08.100Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 17
+      }
     },
     {
       "id": "the-simpsons---4x18---so-its-come-to-this-a-simpsons-clip-showen",
       "title": "The Simpsons - 4x18 - So It's Come to This  A Simpsons Clip Show.en",
       "lineCount": 265,
       "sourceFilename": "The Simpsons - 4x18 - So It's Come to This  A Simpsons Clip Show.en.srt",
-      "importedAt": "2026-09-12T18:42:48.600Z"
+      "importedAt": "2026-09-13T03:32:08.102Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 18
+      }
     },
     {
       "id": "the-simpsons---4x19---the-fronten",
       "title": "The Simpsons - 4x19 - The Front.en",
       "lineCount": 349,
       "sourceFilename": "The Simpsons - 4x19 - The Front.en.srt",
-      "importedAt": "2026-09-12T18:42:48.601Z"
+      "importedAt": "2026-09-13T03:32:08.104Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 19
+      }
     },
     {
       "id": "the-simpsons---4x20---whacking-dayen",
       "title": "The Simpsons - 4x20 - Whacking Day.en",
       "lineCount": 296,
       "sourceFilename": "The Simpsons - 4x20 - Whacking Day.en.srt",
-      "importedAt": "2026-09-12T18:42:48.602Z"
+      "importedAt": "2026-09-13T03:32:08.105Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 20
+      }
     },
     {
       "id": "the-simpsons---4x21---marge-in-chainsen",
       "title": "The Simpsons - 4x21 - Marge in Chains.en",
       "lineCount": 307,
       "sourceFilename": "The Simpsons - 4x21 - Marge in Chains.en.srt",
-      "importedAt": "2026-09-12T18:42:48.604Z"
+      "importedAt": "2026-09-13T03:32:08.107Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 21
+      }
     },
     {
       "id": "the-simpsons---4x22---krusty-gets-kancelleden",
       "title": "The Simpsons - 4x22 - Krusty Gets Kancelled.en",
       "lineCount": 302,
       "sourceFilename": "The Simpsons - 4x22 - Krusty Gets Kancelled.en.srt",
-      "importedAt": "2026-09-12T18:42:48.605Z"
+      "importedAt": "2026-09-13T03:32:08.109Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 4,
+        "episode": 22
+      }
+    },
+    {
+      "id": "the-simpsons---5x01---homers-barbershop-quartet",
+      "title": "The Simpsons - 5x01 - Homer's Barbershop Quartet",
+      "lineCount": 271,
+      "sourceFilename": "The Simpsons - 5x01 - Homer's Barbershop Quartet.en.sub",
+      "importedAt": "2026-09-13T03:32:08.110Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 1
+      }
+    },
+    {
+      "id": "the-simpsons---5x02---cape-feare",
+      "title": "The Simpsons - 5x02 - Cape Feare",
+      "lineCount": 260,
+      "sourceFilename": "The Simpsons - 5x02 - Cape Feare.en.srt",
+      "importedAt": "2026-09-13T03:32:08.111Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 2
+      }
+    },
+    {
+      "id": "the-simpsons---5x03---homer-goes-to-college",
+      "title": "The Simpsons - 5x03 - Homer Goes to College",
+      "lineCount": 333,
+      "sourceFilename": "The Simpsons - 5x03 - Homer Goes to College.en.sub",
+      "importedAt": "2026-09-13T03:32:08.112Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 3
+      }
+    },
+    {
+      "id": "the-simpsons---5x04---rosebud",
+      "title": "The Simpsons - 5x04 - Rosebud",
+      "lineCount": 271,
+      "sourceFilename": "The Simpsons - 5x04 - Rosebud.en.sub",
+      "importedAt": "2026-09-13T03:32:08.113Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 4
+      }
+    },
+    {
+      "id": "the-simpsons---5x05---treehouse-of-horror-iv",
+      "title": "The Simpsons - 5x05 - Treehouse of Horror IV",
+      "lineCount": 283,
+      "sourceFilename": "The Simpsons - 5x05 - Treehouse of Horror IV.en.sub",
+      "importedAt": "2026-09-13T03:32:08.114Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 5
+      }
+    },
+    {
+      "id": "the-simpsons---5x06---marge-on-the-lam",
+      "title": "The Simpsons - 5x06 - Marge on the Lam",
+      "lineCount": 304,
+      "sourceFilename": "The Simpsons - 5x06 - Marge on the Lam.en.sub",
+      "importedAt": "2026-09-13T03:32:08.116Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 6
+      }
+    },
+    {
+      "id": "the-simpsons---5x07---barts-inner-child",
+      "title": "The Simpsons - 5x07 - Bart's Inner Child",
+      "lineCount": 298,
+      "sourceFilename": "The Simpsons - 5x07 - Bart's Inner Child.en.sub",
+      "importedAt": "2026-09-13T03:32:08.117Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 7
+      }
+    },
+    {
+      "id": "the-simpsons---5x08---boy-scoutz-n-the-hood",
+      "title": "The Simpsons - 5x08 - Boy-Scoutz 'n the Hood",
+      "lineCount": 320,
+      "sourceFilename": "The Simpsons - 5x08 - Boy-Scoutz 'n the Hood.en.sub",
+      "importedAt": "2026-09-13T03:32:08.118Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 8
+      }
+    },
+    {
+      "id": "the-simpsons---5x09---the-last-temptation-of-homer",
+      "title": "The Simpsons - 5x09 - The Last Temptation of Homer",
+      "lineCount": 320,
+      "sourceFilename": "The Simpsons - 5x09 - The Last Temptation of Homer.en.sub",
+      "importedAt": "2026-09-13T03:32:08.120Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 9
+      }
+    },
+    {
+      "id": "the-simpsons---5x10---pringfield",
+      "title": "The Simpsons - 5x10 - $pringfield",
+      "lineCount": 345,
+      "sourceFilename": "The Simpsons - 5x10 - $pringfield (Or  How I Learned to Stop Worrying and Love Legalized Gambling).en.sub",
+      "importedAt": "2026-09-13T03:32:08.121Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 10
+      }
+    },
+    {
+      "id": "the-simpsons---5x11---homer-the-vigilante",
+      "title": "The Simpsons - 5x11 - Homer the Vigilante",
+      "lineCount": 304,
+      "sourceFilename": "The Simpsons - 5x11 - Homer the Vigilante.en.sub",
+      "importedAt": "2026-09-13T03:32:08.122Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 11
+      }
+    },
+    {
+      "id": "the-simpsons---5x12---bart-gets-famous",
+      "title": "The Simpsons - 5x12 - Bart Gets Famous",
+      "lineCount": 316,
+      "sourceFilename": "The Simpsons - 5x12 - Bart Gets Famous.en.sub",
+      "importedAt": "2026-09-13T03:32:08.123Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 12
+      }
+    },
+    {
+      "id": "the-simpsons---5x13---homer-and-apu",
+      "title": "The Simpsons - 5x13 - Homer and Apu",
+      "lineCount": 290,
+      "sourceFilename": "The Simpsons - 5x13 - Homer and Apu.en.sub",
+      "importedAt": "2026-09-13T03:32:08.124Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 13
+      }
+    },
+    {
+      "id": "the-simpsons---5x14---lisa-vs-malibu-stacy",
+      "title": "The Simpsons - 5x14 - Lisa vs Malibu Stacy",
+      "lineCount": 311,
+      "sourceFilename": "The Simpsons - 5x14 - Lisa vs. Malibu Stacy.en.sub",
+      "importedAt": "2026-09-13T03:32:08.125Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 14
+      }
+    },
+    {
+      "id": "the-simpsons---5x15---deep-space-homer",
+      "title": "The Simpsons - 5x15 - Deep Space Homer",
+      "lineCount": 305,
+      "sourceFilename": "The Simpsons - 5x15 - Deep Space Homer.en.sub",
+      "importedAt": "2026-09-13T03:32:08.126Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 15
+      }
+    },
+    {
+      "id": "the-simpsons---5x16---homer-loves-flanders",
+      "title": "The Simpsons - 5x16 - Homer Loves Flanders",
+      "lineCount": 311,
+      "sourceFilename": "The Simpsons - 5x16 - Homer Loves Flanders.en.sub",
+      "importedAt": "2026-09-13T03:32:08.127Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 16
+      }
+    },
+    {
+      "id": "the-simpsons---5x17---bart-gets-an-elephant",
+      "title": "The Simpsons - 5x17 - Bart Gets an Elephant",
+      "lineCount": 373,
+      "sourceFilename": "The Simpsons - 5x17 - Bart Gets an Elephant.en.srt",
+      "importedAt": "2026-09-13T03:32:08.129Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 17
+      }
+    },
+    {
+      "id": "the-simpsons---5x18---burns-heir",
+      "title": "The Simpsons - 5x18 - Burns' Heir",
+      "lineCount": 318,
+      "sourceFilename": "The Simpsons - 5x18 - Burns' Heir.en.sub",
+      "importedAt": "2026-09-13T03:32:08.130Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 18
+      }
+    },
+    {
+      "id": "the-simpsons---5x19---sweet-seymour-skinners-baadasssss-song",
+      "title": "The Simpsons - 5x19 - Sweet Seymour Skinner's Baadasssss Song",
+      "lineCount": 296,
+      "sourceFilename": "The Simpsons - 5x19 - Sweet Seymour Skinner's Baadasssss Song.en.sub",
+      "importedAt": "2026-09-13T03:32:08.131Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 19
+      }
+    },
+    {
+      "id": "the-simpsons---5x20---the-boy-who-knew-too-much",
+      "title": "The Simpsons - 5x20 - The Boy Who Knew Too Much",
+      "lineCount": 293,
+      "sourceFilename": "The Simpsons - 5x20 - The Boy Who Knew Too Much.en.sub",
+      "importedAt": "2026-09-13T03:32:08.133Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 20
+      }
+    },
+    {
+      "id": "the-simpsons---5x21---lady-bouviers-lover",
+      "title": "The Simpsons - 5x21 - Lady Bouvier's Lover",
+      "lineCount": 270,
+      "sourceFilename": "The Simpsons - 5x21 - Lady Bouvier's Lover.en.sub",
+      "importedAt": "2026-09-13T03:32:08.134Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 21
+      }
+    },
+    {
+      "id": "the-simpsons---5x22---secrets-of-a-successful-marriage",
+      "title": "The Simpsons - 5x22 - Secrets of a Successful Marriage",
+      "lineCount": 287,
+      "sourceFilename": "The Simpsons - 5x22 - Secrets of a Successful Marriage.en.sub",
+      "importedAt": "2026-09-13T03:32:08.135Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 5,
+        "episode": 22
+      }
+    },
+    {
+      "id": "the-wolf-of-wall-street-2013",
+      "title": "The Wolf of Wall Street (2013)",
+      "lineCount": 3268,
+      "sourceFilename": "The.Wolf.of.Wall.Street.2013.eng.srt",
+      "importedAt": "2026-09-13T03:48:43.497Z",
+      "meta": {
+        "year": 2013
+      }
+    },
+    {
+      "id": "you-got-served-2004",
+      "title": "You Got Served (2004)",
+      "lineCount": 1101,
+      "sourceFilename": "You.Got.Served.2004.eng.srt",
+      "importedAt": "2026-09-13T03:48:44.012Z",
+      "meta": {
+        "year": 2004
+      }
     }
   ]
 }

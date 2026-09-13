@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x21---marge-in-chainsen",
   "title": "The Simpsons - 4x21 - Marge in Chains.en",
   "sourceFilename": "The Simpsons - 4x21 - Marge in Chains.en.srt",
-  "importedAt": "2026-09-12T18:42:48.604Z",
+  "importedAt": "2026-09-13T03:32:08.107Z",
   "lineCount": 307,
   "lines": [
     {
@@ -2154,5 +2154,10 @@
       "startMs": 1377872,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 21
+  }
 }

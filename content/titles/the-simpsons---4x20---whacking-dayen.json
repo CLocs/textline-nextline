@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x20---whacking-dayen",
   "title": "The Simpsons - 4x20 - Whacking Day.en",
   "sourceFilename": "The Simpsons - 4x20 - Whacking Day.en.srt",
-  "importedAt": "2026-09-12T18:42:48.602Z",
+  "importedAt": "2026-09-13T03:32:08.105Z",
   "lineCount": 296,
   "lines": [
     {
@@ -2077,5 +2077,10 @@
       "startMs": 1376106,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 20
+  }
 }

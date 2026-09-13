@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import type { StarSeed } from "./starSeed.js";
 
 export type StarSeedFile = {
@@ -6,7 +6,25 @@ export type StarSeedFile = {
   stars: StarSeed[];
 };
 
+export type ProtectedStarsFile = {
+  updatedAt?: string;
+  titleIds: string[];
+};
+
 const TITLE_ID_RE = /^[a-z0-9-]+$/i;
+
+/** Fallback if content/stars-protected.json is missing. */
+export const DEFAULT_PROTECTED_TITLE_IDS = ["payback-1999", "inglourious-basterds-2009"];
+
+export function loadProtectedTitleIds(path: string): string[] {
+  if (!existsSync(path)) return [...DEFAULT_PROTECTED_TITLE_IDS];
+  const raw = JSON.parse(readFileSync(path, "utf8")) as ProtectedStarsFile;
+  if (!Array.isArray(raw.titleIds)) {
+    throw new Error("stars-protected.json must have a titleIds array.");
+  }
+  return raw.titleIds.filter((id) => typeof id === "string" && TITLE_ID_RE.test(id.trim()));
+}
+
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 

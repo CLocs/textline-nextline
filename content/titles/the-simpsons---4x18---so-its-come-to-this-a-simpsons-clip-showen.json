@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x18---so-its-come-to-this-a-simpsons-clip-showen",
   "title": "The Simpsons - 4x18 - So It's Come to This  A Simpsons Clip Show.en",
   "sourceFilename": "The Simpsons - 4x18 - So It's Come to This  A Simpsons Clip Show.en.srt",
-  "importedAt": "2026-09-12T18:42:48.600Z",
+  "importedAt": "2026-09-13T03:32:08.102Z",
   "lineCount": 265,
   "lines": [
     {
@@ -1860,5 +1860,10 @@
       "startMs": 1372797,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 18
+  }
 }

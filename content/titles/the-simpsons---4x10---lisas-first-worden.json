@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x10---lisas-first-worden",
   "title": "The Simpsons - 4x10 - Lisa's First Word.en",
   "sourceFilename": "The Simpsons - 4x10 - Lisa's First Word.en.srt",
-  "importedAt": "2026-09-12T18:42:48.590Z",
+  "importedAt": "2026-09-13T03:32:08.088Z",
   "lineCount": 305,
   "lines": [
     {
@@ -2140,5 +2140,10 @@
       "startMs": 1373535,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 10
+  }
 }

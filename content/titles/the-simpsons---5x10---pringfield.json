@@ -1,0 +1,2429 @@
+{
+  "id": "the-simpsons---5x10---pringfield",
+  "title": "The Simpsons - 5x10 - $pringfield",
+  "sourceFilename": "The Simpsons - 5x10 - $pringfield (Or  How I Learned to Stop Worrying and Love Legalized Gambling).en.sub",
+  "importedAt": "2026-09-13T03:32:08.121Z",
+  "lineCount": 345,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[ Chorus ] \" The Simpsons \"",
+      "kind": "dialogue",
+      "startMs": 2470,
+      "endMs": 5180
+    },
+    {
+      "index": 1,
+      "text": "[ Bell Ringing ]",
+      "kind": "sdh",
+      "startMs": 8070,
+      "endMs": 9530
+    },
+    {
+      "index": 2,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 10750,
+      "endMs": 12020
+    },
+    {
+      "index": 3,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 13560,
+      "endMs": 15940
+    },
+    {
+      "index": 4,
+      "text": "[ Glass Shattering ]",
+      "kind": "sdh",
+      "startMs": 18000,
+      "endMs": 19620
+    },
+    {
+      "index": 5,
+      "text": "[ Announcer ] The News On Parade Corporation presents...",
+      "kind": "dialogue",
+      "startMs": 29640,
+      "endMs": 31730
+    },
+    {
+      "index": 6,
+      "text": "News On Parade...",
+      "kind": "dialogue",
+      "startMs": 32190,
+      "endMs": 34060
+    },
+    {
+      "index": 7,
+      "text": "Corporation News.",
+      "kind": "dialogue",
+      "startMs": 34460,
+      "endMs": 36770
+    },
+    {
+      "index": 8,
+      "text": "Bringing you the world of current events.!",
+      "kind": "dialogue",
+      "startMs": 37180,
+      "endMs": 39590
+    },
+    {
+      "index": 9,
+      "text": "New gadgets.!",
+      "kind": "dialogue",
+      "startMs": 46420,
+      "endMs": 48150
+    },
+    {
+      "index": 10,
+      "text": "[ Whistle Blowing ] [ Screaming ] And Hollywood.!",
+      "kind": "dialogue",
+      "startMs": 49130,
+      "endMs": 53470
+    },
+    {
+      "index": 11,
+      "text": "Look.! It's Amos from radio's Amos and Andy.",
+      "kind": "dialogue",
+      "startMs": 54270,
+      "endMs": 57190
+    },
+    {
+      "index": 12,
+      "text": "Hello, everybody!",
+      "kind": "dialogue",
+      "startMs": 57520,
+      "endMs": 59070
+    },
+    {
+      "index": 13,
+      "text": "Springfield.: City on the grow.!",
+      "kind": "dialogue",
+      "startMs": 59350,
+      "endMs": 61750
+    },
+    {
+      "index": 14,
+      "text": "It's a proud day as Springfield is declared... one of America's 400 fastest growing cities.!",
+      "kind": "dialogue",
+      "startMs": 62380,
+      "endMs": 67570
+    },
+    {
+      "index": 15,
+      "text": "And why not? Business is booming.!",
+      "kind": "dialogue",
+      "startMs": 67890,
+      "endMs": 69430
+    },
+    {
+      "index": 16,
+      "text": "Half the country wears Springfield galoshes.",
+      "kind": "dialogue",
+      "startMs": 69740,
+      "endMs": 72680
+    },
+    {
+      "index": 17,
+      "text": "And say hello to the state's first aqua-car factory.",
+      "kind": "dialogue",
+      "startMs": 73020,
+      "endMs": 75960
+    },
+    {
+      "index": 18,
+      "text": "Keep 'em coming, boys.!",
+      "kind": "dialogue",
+      "startMs": 76330,
+      "endMs": 78080
+    },
+    {
+      "index": 19,
+      "text": "The city's even in the celebrity business. Everyone knows...",
+      "kind": "dialogue",
+      "startMs": 78410,
+      "endMs": 80690
+    },
+    {
+      "index": 20,
+      "text": "Professor ''Rubber Mouth'' hails from Springfield. - [ Man ] Bravo.!",
+      "kind": "dialogue",
+      "startMs": 80990,
+      "endMs": 83680
+    },
+    {
+      "index": 21,
+      "text": "Everybody's chipping in.",
+      "kind": "dialogue",
+      "startMs": 84030,
+      "endMs": 85560
+    },
+    {
+      "index": 22,
+      "text": "Even this fella has Springfield's can-do spirit!",
+      "kind": "dialogue",
+      "startMs": 85880,
+      "endMs": 88880
+    },
+    {
+      "index": 23,
+      "text": "[ Barks ]",
+      "kind": "sdh",
+      "startMs": 90150,
+      "endMs": 91290
+    },
+    {
+      "index": 24,
+      "text": "So, watch out, Utica.",
+      "kind": "dialogue",
+      "startMs": 91630,
+      "endMs": 93050
+    },
+    {
+      "index": 25,
+      "text": "Springfield is a city on the... grow.",
+      "kind": "dialogue",
+      "startMs": 93340,
+      "endMs": 96940
+    },
+    {
+      "index": 26,
+      "text": "[ Crowd Murmuring ]",
+      "kind": "sdh",
+      "startMs": 97520,
+      "endMs": 99070
+    },
+    {
+      "index": 27,
+      "text": "[ Scoffs ] The way people act around here...",
+      "kind": "dialogue",
+      "startMs": 100770,
+      "endMs": 102860
+    },
+    {
+      "index": 28,
+      "text": "-you'd think the streets were paved with gold. They are.",
+      "kind": "dialogue",
+      "startMs": 103150,
+      "endMs": 105860
+    },
+    {
+      "index": 29,
+      "text": "[ Tires Screeching, Car Crashing ]",
+      "kind": "sdh",
+      "startMs": 106480,
+      "endMs": 108570
+    },
+    {
+      "index": 30,
+      "text": "[ Siren Wailing, Gunshots ]",
+      "kind": "sdh",
+      "startMs": 111250,
+      "endMs": 113560
+    },
+    {
+      "index": 31,
+      "text": "Got any spare change, man?",
+      "kind": "dialogue",
+      "startMs": 115040,
+      "endMs": 117170
+    },
+    {
+      "index": 32,
+      "text": "Yes! And you ain't gettin' it!",
+      "kind": "dialogue",
+      "startMs": 117470,
+      "endMs": 119280
+    },
+    {
+      "index": 33,
+      "text": "Everybody wants somethin' for nothin'.",
+      "kind": "dialogue",
+      "startMs": 119590,
+      "endMs": 121560
+    },
+    {
+      "index": 34,
+      "text": "[ Door Slams ] I'm old.! Gimme, gimme, gimme.!",
+      "kind": "dialogue",
+      "startMs": 122940,
+      "endMs": 125170
+    },
+    {
+      "index": 35,
+      "text": "[ Humming ] Huh? Hey!",
+      "kind": "dialogue",
+      "startMs": 126990,
+      "endMs": 129350
+    },
+    {
+      "index": 36,
+      "text": "There's something you don't see in a toilet every day.",
+      "kind": "dialogue",
+      "startMs": 129640,
+      "endMs": 131660
+    },
+    {
+      "index": 37,
+      "text": "[ Shouting ] Anybody lose their glasses?",
+      "kind": "dialogue",
+      "startMs": 132430,
+      "endMs": 134420
+    },
+    {
+      "index": 38,
+      "text": "Last chance. Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 134960,
+      "endMs": 137330
+    },
+    {
+      "index": 39,
+      "text": "The sum of the square roots of any two sides of an isosceles triangle... is equal to the square root of the remaining side.",
+      "kind": "dialogue",
+      "startMs": 140070,
+      "endMs": 145010
+    },
+    {
+      "index": 40,
+      "text": "That's a right triangle, ya idiot! D'oh!",
+      "kind": "dialogue",
+      "startMs": 145360,
+      "endMs": 147430
+    },
+    {
+      "index": 41,
+      "text": "Thank you so much for visiting our plant, Dr. Kissinger.",
+      "kind": "dialogue",
+      "startMs": 148270,
+      "endMs": 151070
+    },
+    {
+      "index": 42,
+      "text": "It was fun. We'll let you know if your glasses turn up.",
+      "kind": "dialogue",
+      "startMs": 151350,
+      "endMs": 153970
+    },
+    {
+      "index": 43,
+      "text": "Uh, yes. Well, I'm sure I left them in the car.",
+      "kind": "dialogue",
+      "startMs": 154310,
+      "endMs": 157420
+    },
+    {
+      "index": 44,
+      "text": "[ Thinking ] No one must know I dropped them in the toilet.",
+      "kind": "dialogue",
+      "startMs": 157930,
+      "endMs": 160490
+    },
+    {
+      "index": 45,
+      "text": "Not I, the man who drafted the Paris Peace Accords.",
+      "kind": "dialogue",
+      "startMs": 160820,
+      "endMs": 163840
+    },
+    {
+      "index": 46,
+      "text": "Mm-hmm. Mmm. Mm. Huh.",
+      "kind": "dialogue",
+      "startMs": 164770,
+      "endMs": 166950
+    },
+    {
+      "index": 47,
+      "text": "[ Scoffs, Sighs ] Mmm. Hmm.",
+      "kind": "dialogue",
+      "startMs": 167700,
+      "endMs": 169150
+    },
+    {
+      "index": 48,
+      "text": "Sir, bad news from Accounting. The economy's hit us pretty hard.",
+      "kind": "dialogue",
+      "startMs": 170850,
+      "endMs": 173650
+    },
+    {
+      "index": 49,
+      "text": "[ Scoffs ] Tough times, huh? I've lived through 1 2 recessions... eight panics and five years of McKinleynomics.",
+      "kind": "dialogue",
+      "startMs": 174010,
+      "endMs": 179650
+    },
+    {
+      "index": 50,
+      "text": "I'll survive this. - Even so, sir. We could stand to lay off a few employees.",
+      "kind": "dialogue",
+      "startMs": 179970,
+      "endMs": 183330
+    },
+    {
+      "index": 51,
+      "text": "Oh! Very well. Lay off... him, him, him, him-- Hmm.",
+      "kind": "dialogue",
+      "startMs": 183650,
+      "endMs": 187660
+    },
+    {
+      "index": 52,
+      "text": "Better keep the egghead. He just might come in handy.",
+      "kind": "dialogue",
+      "startMs": 188320,
+      "endMs": 191090
+    },
+    {
+      "index": 53,
+      "text": "Dad, you shouldn't wear glasses that weren't prescribed for you.",
+      "kind": "dialogue",
+      "startMs": 191440,
+      "endMs": 194270
+    },
+    {
+      "index": 54,
+      "text": "Lisa,just because you're 10 feet tall doesn't mean you can tell me what to do.",
+      "kind": "dialogue",
+      "startMs": 194630,
+      "endMs": 198590
+    },
+    {
+      "index": 55,
+      "text": "I'm Bart. Give me those.",
+      "kind": "dialogue",
+      "startMs": 198590,
+      "endMs": 200610
+    },
+    {
+      "index": 56,
+      "text": "And finally, Henry Kissinger was hospitalized today after walking into a wall.",
+      "kind": "dialogue",
+      "startMs": 200930,
+      "endMs": 205010
+    },
+    {
+      "index": 57,
+      "text": "Now over to Kent Brockman with some grim economic news.",
+      "kind": "dialogue",
+      "startMs": 205390,
+      "endMs": 208310
+    },
+    {
+      "index": 58,
+      "text": "Scott, things aren't as happy as they used to be down here at the unemployment office.",
+      "kind": "dialogue",
+      "startMs": 208650,
+      "endMs": 212790
+    },
+    {
+      "index": 59,
+      "text": "Joblessness is no longer just for philosophy majors.",
+      "kind": "dialogue",
+      "startMs": 213090,
+      "endMs": 215870
+    },
+    {
+      "index": 60,
+      "text": "Useful people are starting to feel the pinch.",
+      "kind": "dialogue",
+      "startMs": 216210,
+      "endMs": 218030
+    },
+    {
+      "index": 61,
+      "text": "I haven't been able to find a job in six years.",
+      "kind": "dialogue",
+      "startMs": 218410,
+      "endMs": 221650
+    },
+    {
+      "index": 62,
+      "text": "Huh. And what training do you have?",
+      "kind": "dialogue",
+      "startMs": 221970,
+      "endMs": 223580
+    },
+    {
+      "index": 63,
+      "text": "Five years of modern dance. Six years of tap.",
+      "kind": "dialogue",
+      "startMs": 224010,
+      "endMs": 226860
+    },
+    {
+      "index": 64,
+      "text": "[ Brockman ] The economic slump began last spring... when the government closed Fort Springfield... devastating the city's liquor and prostitution industries.",
+      "kind": "dialogue",
+      "startMs": 227290,
+      "endMs": 233520
+    },
+    {
+      "index": 65,
+      "text": "Now, at the risk of being unpopular... this reporter places the blame for all this squarely on you, the viewers.",
+      "kind": "dialogue",
+      "startMs": 234140,
+      "endMs": 239940
+    },
+    {
+      "index": 66,
+      "text": "I propose that I use what's left of the town treasury... to move to a more prosperous town and run for mayor.",
+      "kind": "dialogue",
+      "startMs": 242080,
+      "endMs": 247560
+    },
+    {
+      "index": 67,
+      "text": "And once elected, I will send for the rest of you. Boo!",
+      "kind": "dialogue",
+      "startMs": 247950,
+      "endMs": 252590
+    },
+    {
+      "index": 68,
+      "text": "Excuse me, Mr. Mayor?",
+      "kind": "dialogue",
+      "startMs": 253150,
+      "endMs": 254780
+    },
+    {
+      "index": 69,
+      "text": "The chair recognizes the little chick with the gleam of hope in her eyes.",
+      "kind": "dialogue",
+      "startMs": 255120,
+      "endMs": 258400
+    },
+    {
+      "index": 70,
+      "text": "This piggy bank contains $15 I saved from my allowance.",
+      "kind": "dialogue",
+      "startMs": 258760,
+      "endMs": 261940
+    },
+    {
+      "index": 71,
+      "text": "It isn't much, but I would like to help.",
+      "kind": "dialogue",
+      "startMs": 261940,
+      "endMs": 265210
+    },
+    {
+      "index": 72,
+      "text": "Aw,just what I need to tip the skycaps.",
+      "kind": "dialogue",
+      "startMs": 265830,
+      "endMs": 268460
+    },
+    {
+      "index": 73,
+      "text": "I'll tell you what made this town great!",
+      "kind": "dialogue",
+      "startMs": 268460,
+      "endMs": 270840
+    },
+    {
+      "index": 74,
+      "text": "Good, old-fashioned gumption!",
+      "kind": "dialogue",
+      "startMs": 271190,
+      "endMs": 273310
+    },
+    {
+      "index": 75,
+      "text": "There's nothing here a little elbow grease won't fix!",
+      "kind": "dialogue",
+      "startMs": 273630,
+      "endMs": 276440
+    },
+    {
+      "index": 76,
+      "text": "So let's roll up our sleeves... and-- [ Snoring ]",
+      "kind": "dialogue",
+      "startMs": 276740,
+      "endMs": 281140
+    },
+    {
+      "index": 77,
+      "text": "People! People! Let's be a little more realistic. [ Snoring Continues ] Now, I, uh, hesitate to bring this up... but a number of cities have rejuvenated their economies... with, uh, legalized gambling.",
+      "kind": "dialogue",
+      "startMs": 281390,
+      "endMs": 291730
+    },
+    {
+      "index": 78,
+      "text": "[ Crowd Murmuring ]",
+      "kind": "sdh",
+      "startMs": 292110,
+      "endMs": 293880
+    },
+    {
+      "index": 79,
+      "text": "There is an added bonus. Some of the revenue... can go to help our underfunded public schools.",
+      "kind": "dialogue",
+      "startMs": 294210,
+      "endMs": 299070
+    },
+    {
+      "index": 80,
+      "text": "What do you think, Reverend?",
+      "kind": "dialogue",
+      "startMs": 301810,
+      "endMs": 303340
+    },
+    {
+      "index": 81,
+      "text": "Once something has been approved by the government, it's no longer immoral.",
+      "kind": "dialogue",
+      "startMs": 303340,
+      "endMs": 306270
+    },
+    {
+      "index": 82,
+      "text": "Yea! By building a casino...",
+      "kind": "dialogue",
+      "startMs": 306270,
+      "endMs": 308580
+    },
+    {
+      "index": 83,
+      "text": "I could tighten my stranglehold on this dismal town!",
+      "kind": "dialogue",
+      "startMs": 308910,
+      "endMs": 311710
+    },
+    {
+      "index": 84,
+      "text": "Yea!",
+      "kind": "dialogue",
+      "startMs": 312030,
+      "endMs": 313370
+    },
+    {
+      "index": 85,
+      "text": "Well, now. Are there any objections?",
+      "kind": "dialogue",
+      "startMs": 314480,
+      "endMs": 316950
+    },
+    {
+      "index": 86,
+      "text": "[ Man ] Probably Marge is gonna have some.",
+      "kind": "dialogue",
+      "startMs": 317430,
+      "endMs": 319440
+    },
+    {
+      "index": 87,
+      "text": "[ Crowd Murmuring Marge's Name ]",
+      "kind": "sdh",
+      "startMs": 319850,
+      "endMs": 321210
+    },
+    {
+      "index": 88,
+      "text": "Actually, I think it might really help our economy.",
+      "kind": "dialogue",
+      "startMs": 321520,
+      "endMs": 323820
+    },
+    {
+      "index": 89,
+      "text": "[ Murmuring Excitedly ]",
+      "kind": "sdh",
+      "startMs": 324170,
+      "endMs": 326190
+    },
+    {
+      "index": 90,
+      "text": "Very well then. Instead of fleeing this town...",
+      "kind": "dialogue",
+      "startMs": 326530,
+      "endMs": 328680
+    },
+    {
+      "index": 91,
+      "text": "I'll stay here and grow fat off kickbacks and slush funds.",
+      "kind": "dialogue",
+      "startMs": 329000,
+      "endMs": 331850
+    },
+    {
+      "index": 92,
+      "text": "Yea!",
+      "kind": "dialogue",
+      "startMs": 332100,
+      "endMs": 333850
+    },
+    {
+      "index": 93,
+      "text": "[ Shouting, Cheering ]",
+      "kind": "sdh",
+      "startMs": 334300,
+      "endMs": 336690
+    },
+    {
+      "index": 94,
+      "text": "This could be a whole new beginning for Springfield.",
+      "kind": "dialogue",
+      "startMs": 337960,
+      "endMs": 339720
+    },
+    {
+      "index": 95,
+      "text": "And you know what the best part is?",
+      "kind": "dialogue",
+      "startMs": 340060,
+      "endMs": 341970
+    },
+    {
+      "index": 96,
+      "text": "We've really done something for the children.",
+      "kind": "dialogue",
+      "startMs": 342270,
+      "endMs": 345370
+    },
+    {
+      "index": 97,
+      "text": "[ Man Shouting ]",
+      "kind": "sdh",
+      "startMs": 346020,
+      "endMs": 347710
+    },
+    {
+      "index": 98,
+      "text": "[ Mayor Quimby ] We're thrilled you've decided to build your casino on our waterfront.",
+      "kind": "dialogue",
+      "startMs": 357780,
+      "endMs": 360850
+    },
+    {
+      "index": 99,
+      "text": "Oh, I'll never forget my carefree boyhood days on this old boardwalk.",
+      "kind": "dialogue",
+      "startMs": 361170,
+      "endMs": 364900
+    },
+    {
+      "index": 100,
+      "text": "[ Children Chattering ] [ Electricity Buzzing ]",
+      "kind": "dialogue",
+      "startMs": 365630,
+      "endMs": 367400
+    },
+    {
+      "index": 101,
+      "text": "[ Chattering Continues ] \"[ Calliope ] [ Screams ] Why, you-- [ Gasps ] Master Burns! I mean, carry on.",
+      "kind": "dialogue",
+      "startMs": 368080,
+      "endMs": 375340
+    },
+    {
+      "index": 102,
+      "text": "[ Yelping ] [ Giggling ] [ Screams ] Me leg's gone gimpy! Who'll provide for me little ones?",
+      "kind": "dialogue",
+      "startMs": 375790,
+      "endMs": 380640
+    },
+    {
+      "index": 103,
+      "text": "[ Screaming Continues ] [ Laughing ]",
+      "kind": "dialogue",
+      "startMs": 381180,
+      "endMs": 383130
+    },
+    {
+      "index": 104,
+      "text": "[ Laughing Continues ]",
+      "kind": "sdh",
+      "startMs": 388440,
+      "endMs": 390740
+    },
+    {
+      "index": 105,
+      "text": "[ Laughing Continues ]",
+      "kind": "sdh",
+      "startMs": 395660,
+      "endMs": 398810
+    },
+    {
+      "index": 106,
+      "text": "Oh-- What was I laughing at now?",
+      "kind": "dialogue",
+      "startMs": 401390,
+      "endMs": 404580
+    },
+    {
+      "index": 107,
+      "text": "[ Panting ]",
+      "kind": "sdh",
+      "startMs": 405210,
+      "endMs": 406330
+    },
+    {
+      "index": 108,
+      "text": "Oh, yes. That crippled Irishman.",
+      "kind": "dialogue",
+      "startMs": 406670,
+      "endMs": 409360
+    },
+    {
+      "index": 109,
+      "text": "Sir, the designers are here with some prototypes for your casino.",
+      "kind": "dialogue",
+      "startMs": 411810,
+      "endMs": 414310
+    },
+    {
+      "index": 110,
+      "text": "Gentlemen, I give you Britannia!",
+      "kind": "dialogue",
+      "startMs": 414640,
+      "endMs": 416540
+    },
+    {
+      "index": 111,
+      "text": "Gambling with all the glitz and glamour of the British Isles.",
+      "kind": "dialogue",
+      "startMs": 416880,
+      "endMs": 418860
+    },
+    {
+      "index": 112,
+      "text": "Best of all, the waitresses and showgirls are all real Brits.",
+      "kind": "dialogue",
+      "startMs": 419130,
+      "endMs": 421790
+    },
+    {
+      "index": 113,
+      "text": "Fresh from the streets of Sussex they are! [ Clicks Tongue ] Freshen your drink, governor?",
+      "kind": "dialogue",
+      "startMs": 422120,
+      "endMs": 426500
+    },
+    {
+      "index": 114,
+      "text": "Get out. Okay. All right. Wait--",
+      "kind": "dialogue",
+      "startMs": 426790,
+      "endMs": 429720
+    },
+    {
+      "index": 115,
+      "text": "Now-- Now, dig this, man-- Get out!",
+      "kind": "dialogue",
+      "startMs": 430110,
+      "endMs": 432170
+    },
+    {
+      "index": 116,
+      "text": "[ Chuckles ] Wow. Oh, let me just get my head together. - Now!",
+      "kind": "dialogue",
+      "startMs": 432480,
+      "endMs": 435680
+    },
+    {
+      "index": 117,
+      "text": "I'll need three ships and 50 stout men.",
+      "kind": "dialogue",
+      "startMs": 436090,
+      "endMs": 438900
+    },
+    {
+      "index": 118,
+      "text": "We'll sail round the horn and return with spices and silk... the likes of which ye have never seen.",
+      "kind": "dialogue",
+      "startMs": 439240,
+      "endMs": 444810
+    },
+    {
+      "index": 119,
+      "text": "We're building a casino! Arr.",
+      "kind": "dialogue",
+      "startMs": 445200,
+      "endMs": 447940
+    },
+    {
+      "index": 120,
+      "text": "Can you give me five minutes?",
+      "kind": "dialogue",
+      "startMs": 448290,
+      "endMs": 450020
+    },
+    {
+      "index": 121,
+      "text": "[ Scoffs ] Idiots. I'll design it myself!. I know what people like.",
+      "kind": "dialogue",
+      "startMs": 450340,
+      "endMs": 453660
+    },
+    {
+      "index": 122,
+      "text": "It's got to have sex appeal... and a catchy name.",
+      "kind": "dialogue",
+      "startMs": 453940,
+      "endMs": 456730
+    },
+    {
+      "index": 123,
+      "text": "Mom, we're having a geography pageant at school... and I don't know which state to go as.",
+      "kind": "dialogue",
+      "startMs": 460890,
+      "endMs": 465310
+    },
+    {
+      "index": 124,
+      "text": "In honor of legalized gambling, why not go as the state of Nevada?",
+      "kind": "dialogue",
+      "startMs": 465600,
+      "endMs": 468810
+    },
+    {
+      "index": 125,
+      "text": "No. Nevada makes my butt look big.",
+      "kind": "dialogue",
+      "startMs": 469100,
+      "endMs": 470980
+    },
+    {
+      "index": 126,
+      "text": "Then how 'bout going as Florida?",
+      "kind": "dialogue",
+      "startMs": 471300,
+      "endMs": 473220
+    },
+    {
+      "index": 127,
+      "text": "You enjoy orange juice. Old people like you.",
+      "kind": "dialogue",
+      "startMs": 473500,
+      "endMs": 476330
+    },
+    {
+      "index": 128,
+      "text": "Dad, what do you think? Shh! I'm trying to teach the baby to gamble.",
+      "kind": "dialogue",
+      "startMs": 476600,
+      "endMs": 480810
+    },
+    {
+      "index": 129,
+      "text": "Why? I got a job at Burns's casino.",
+      "kind": "dialogue",
+      "startMs": 481110,
+      "endMs": 483760
+    },
+    {
+      "index": 130,
+      "text": "As you know, it's been my lifelong dream to become a blackjack dealer.",
+      "kind": "dialogue",
+      "startMs": 484080,
+      "endMs": 487260
+    },
+    {
+      "index": 131,
+      "text": "Your lifelong dream was to be a contestant on The Gong Show.",
+      "kind": "dialogue",
+      "startMs": 487510,
+      "endMs": 490070
+    },
+    {
+      "index": 132,
+      "text": "And you did it in 1977. Remember?",
+      "kind": "dialogue",
+      "startMs": 490360,
+      "endMs": 492950
+    },
+    {
+      "index": 133,
+      "text": "\" [ ''Oh! Susanna'' ] [ AudienceJeering ]",
+      "kind": "dialogue",
+      "startMs": 494530,
+      "endMs": 496740
+    },
+    {
+      "index": 134,
+      "text": "[ Gonging Continues ]",
+      "kind": "sdh",
+      "startMs": 498200,
+      "endMs": 500160
+    },
+    {
+      "index": 135,
+      "text": "We got more gongs than the break-dancing robot that caught on fire.",
+      "kind": "dialogue",
+      "startMs": 501840,
+      "endMs": 505480
+    },
+    {
+      "index": 136,
+      "text": "Hello. I'm retired heavyweight boxer Gerry Cooney.",
+      "kind": "dialogue",
+      "startMs": 511480,
+      "endMs": 513850
+    },
+    {
+      "index": 137,
+      "text": "Welcome to Mr. Burns Casino.",
+      "kind": "dialogue",
+      "startMs": 514210,
+      "endMs": 515770
+    },
+    {
+      "index": 138,
+      "text": "If there's anything I can do to make your visit more enjoyable, please let me know.",
+      "kind": "dialogue",
+      "startMs": 516060,
+      "endMs": 519490
+    },
+    {
+      "index": 139,
+      "text": "Yeah, great. See ya! Uh, don't forget to apply for... our V.I.P. Platinum Club for special discounts on--",
+      "kind": "dialogue",
+      "startMs": 519800,
+      "endMs": 524890
+    },
+    {
+      "index": 140,
+      "text": "Hey! I said bug off!. [ Whimpers ]",
+      "kind": "dialogue",
+      "startMs": 525300,
+      "endMs": 527770
+    },
+    {
+      "index": 141,
+      "text": "Uh, let's see. Eighteen, 27, 35-- Dealer bust! Looks like you all win again.",
+      "kind": "dialogue",
+      "startMs": 530720,
+      "endMs": 536660
+    },
+    {
+      "index": 142,
+      "text": "Yee-haw! Homer...",
+      "kind": "dialogue",
+      "startMs": 537010,
+      "endMs": 538780
+    },
+    {
+      "index": 143,
+      "text": "I want you to have my lucky hat.",
+      "kind": "dialogue",
+      "startMs": 539110,
+      "endMs": 541180
+    },
+    {
+      "index": 144,
+      "text": "I wore it the day Kennedy was shot... and it always brings me good luck.",
+      "kind": "dialogue",
+      "startMs": 541480,
+      "endMs": 545940
+    },
+    {
+      "index": 145,
+      "text": "Why, thanks, Senator. Oop! Looks like my shift is over.",
+      "kind": "dialogue",
+      "startMs": 546270,
+      "endMs": 549610
+    },
+    {
+      "index": 146,
+      "text": "[ All ] Uh-oh!",
+      "kind": "dialogue",
+      "startMs": 550220,
+      "endMs": 551630
+    },
+    {
+      "index": 147,
+      "text": "A round of applause please for Anastasia!",
+      "kind": "dialogue",
+      "startMs": 554850,
+      "endMs": 557590
+    },
+    {
+      "index": 148,
+      "text": "She loves show business.",
+      "kind": "dialogue",
+      "startMs": 557960,
+      "endMs": 559350
+    },
+    {
+      "index": 149,
+      "text": "So much nicer than the savagery of the jungle, ja?",
+      "kind": "dialogue",
+      "startMs": 559620,
+      "endMs": 562470
+    },
+    {
+      "index": 150,
+      "text": "[ Honking ] [ Low Growl ] Hey, tiger! Wake up!",
+      "kind": "dialogue",
+      "startMs": 567590,
+      "endMs": 571610
+    },
+    {
+      "index": 151,
+      "text": "[ Growling ]",
+      "kind": "sdh",
+      "startMs": 572410,
+      "endMs": 573390
+    },
+    {
+      "index": 152,
+      "text": "[ Roaring ]",
+      "kind": "sdh",
+      "startMs": 575380,
+      "endMs": 577620
+    },
+    {
+      "index": 153,
+      "text": "[ Roaring ] [ Screaming ]",
+      "kind": "dialogue",
+      "startMs": 580210,
+      "endMs": 581240
+    },
+    {
+      "index": 154,
+      "text": "[ Shouting In German ]",
+      "kind": "sdh",
+      "startMs": 581540,
+      "endMs": 584240
+    },
+    {
+      "index": 155,
+      "text": "Whoo-hoo!Jackpot.",
+      "kind": "dialogue",
+      "startMs": 587740,
+      "endMs": 589920
+    },
+    {
+      "index": 156,
+      "text": "Wait a minute! Are you over 21 ?",
+      "kind": "dialogue",
+      "startMs": 590610,
+      "endMs": 592740
+    },
+    {
+      "index": 157,
+      "text": "Are you? I'm not authorized to answer that.",
+      "kind": "dialogue",
+      "startMs": 593060,
+      "endMs": 595310
+    },
+    {
+      "index": 158,
+      "text": "[ Grunts ] By the way, your martinis suck!",
+      "kind": "dialogue",
+      "startMs": 596310,
+      "endMs": 599480
+    },
+    {
+      "index": 159,
+      "text": "Oh, yeah? What are you gonna do? Start your own casino... in your tree house and get your little friends to come?",
+      "kind": "dialogue",
+      "startMs": 599920,
+      "endMs": 605190
+    },
+    {
+      "index": 160,
+      "text": "I'd like to see that!",
+      "kind": "dialogue",
+      "startMs": 605550,
+      "endMs": 606790
+    },
+    {
+      "index": 161,
+      "text": "Hi. Yeah, welcome. Have a lucky day.! Mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 607820,
+      "endMs": 611050
+    },
+    {
+      "index": 162,
+      "text": "Well, he certainly showed me.",
+      "kind": "dialogue",
+      "startMs": 611690,
+      "endMs": 613840
+    },
+    {
+      "index": 163,
+      "text": "[ Marge ] Hi, Homie.!",
+      "kind": "dialogue",
+      "startMs": 614750,
+      "endMs": 615920
+    },
+    {
+      "index": 164,
+      "text": "Hey, Marge, after your big tantrum against legalized gambling...",
+      "kind": "dialogue",
+      "startMs": 617780,
+      "endMs": 620810
+    },
+    {
+      "index": 165,
+      "text": "I bet it feels pretty weird to be in a casino.",
+      "kind": "dialogue",
+      "startMs": 621100,
+      "endMs": 623340
+    },
+    {
+      "index": 166,
+      "text": "I was for the casino! Strike three, Marge!",
+      "kind": "dialogue",
+      "startMs": 623660,
+      "endMs": 626650
+    },
+    {
+      "index": 167,
+      "text": "I remember that meeting, and I have a photographic memory.",
+      "kind": "dialogue",
+      "startMs": 627020,
+      "endMs": 630820
+    },
+    {
+      "index": 168,
+      "text": "Legalized gambling is a bad idea.",
+      "kind": "dialogue",
+      "startMs": 631540,
+      "endMs": 633730
+    },
+    {
+      "index": 169,
+      "text": "You can build a casino over my dead body.",
+      "kind": "dialogue",
+      "startMs": 634070,
+      "endMs": 636320
+    },
+    {
+      "index": 170,
+      "text": "Blah, blah, blah, blah, blah. Blah, blah, blah, blah, blah, blah, blah, blah.",
+      "kind": "dialogue",
+      "startMs": 636690,
+      "endMs": 639450
+    },
+    {
+      "index": 171,
+      "text": "For you. It's the president. Y'ello?",
+      "kind": "dialogue",
+      "startMs": 640100,
+      "endMs": 641940
+    },
+    {
+      "index": 172,
+      "text": "And then I said to the president-- Get this-- Marge? Marge?",
+      "kind": "dialogue",
+      "startMs": 642340,
+      "endMs": 647640
+    },
+    {
+      "index": 173,
+      "text": "Hmm.",
+      "kind": "dialogue",
+      "startMs": 648290,
+      "endMs": 649620
+    },
+    {
+      "index": 174,
+      "text": "Hmm, I wonder if they have a lost and found.",
+      "kind": "dialogue",
+      "startMs": 651230,
+      "endMs": 653750
+    },
+    {
+      "index": 175,
+      "text": "Oh, what the hey!",
+      "kind": "dialogue",
+      "startMs": 655090,
+      "endMs": 657170
+    },
+    {
+      "index": 176,
+      "text": "[ Coins Jingling ]",
+      "kind": "sdh",
+      "startMs": 659810,
+      "endMs": 661460
+    },
+    {
+      "index": 177,
+      "text": "Mmm!",
+      "kind": "dialogue",
+      "startMs": 662360,
+      "endMs": 663970
+    },
+    {
+      "index": 178,
+      "text": "Hmm.",
+      "kind": "dialogue",
+      "startMs": 666780,
+      "endMs": 668660
+    },
+    {
+      "index": 179,
+      "text": "Hey, how's it goin'? Hey! Good to see you. Tell your friends.",
+      "kind": "dialogue",
+      "startMs": 676320,
+      "endMs": 678640
+    },
+    {
+      "index": 180,
+      "text": "Lookin' lucky! Hey, what's happenin'? Love the jacket.",
+      "kind": "dialogue",
+      "startMs": 678930,
+      "endMs": 681410
+    },
+    {
+      "index": 181,
+      "text": "[ Meows ] Behold the box of mystery!",
+      "kind": "dialogue",
+      "startMs": 682860,
+      "endMs": 685030
+    },
+    {
+      "index": 182,
+      "text": "The cat goes in-- [ Straining ] right here--",
+      "kind": "dialogue",
+      "startMs": 685340,
+      "endMs": 688730
+    },
+    {
+      "index": 183,
+      "text": "[ Screeching ]",
+      "kind": "sdh",
+      "startMs": 689420,
+      "endMs": 690680
+    },
+    {
+      "index": 184,
+      "text": "Sir, you haven't slept since the casino opened five days ago.",
+      "kind": "dialogue",
+      "startMs": 699120,
+      "endMs": 702040
+    },
+    {
+      "index": 185,
+      "text": "I've discovered the perfect business.",
+      "kind": "dialogue",
+      "startMs": 702360,
+      "endMs": 704520
+    },
+    {
+      "index": 186,
+      "text": "People swarm in, empty their pockets and scuttle off!.",
+      "kind": "dialogue",
+      "startMs": 704820,
+      "endMs": 707560
+    },
+    {
+      "index": 187,
+      "text": "Nothing can stop me now!",
+      "kind": "dialogue",
+      "startMs": 707830,
+      "endMs": 709470
+    },
+    {
+      "index": 188,
+      "text": "Except microscopic germs.",
+      "kind": "dialogue",
+      "startMs": 709990,
+      "endMs": 712180
+    },
+    {
+      "index": 189,
+      "text": "But we won't let that happen, will we, Smithers? Uh-- No, sir.",
+      "kind": "dialogue",
+      "startMs": 712530,
+      "endMs": 715630
+    },
+    {
+      "index": 190,
+      "text": "[Jingling ] [ Whimpering ]",
+      "kind": "dialogue",
+      "startMs": 716650,
+      "endMs": 719900
+    },
+    {
+      "index": 191,
+      "text": "[ Whimpering ]",
+      "kind": "sdh",
+      "startMs": 721270,
+      "endMs": 723880
+    },
+    {
+      "index": 192,
+      "text": "Whoa! A baby on the table! That's good luck! [ All ] Yea!",
+      "kind": "dialogue",
+      "startMs": 731670,
+      "endMs": 735620
+    },
+    {
+      "index": 193,
+      "text": "Snake eyes. Sorry. Boo!",
+      "kind": "dialogue",
+      "startMs": 736050,
+      "endMs": 738440
+    },
+    {
+      "index": 194,
+      "text": "Garsh, it must be excitin' to live in the casino.",
+      "kind": "dialogue",
+      "startMs": 739650,
+      "endMs": 743370
+    },
+    {
+      "index": 195,
+      "text": "Ja. You know, we are having a party tonight.",
+      "kind": "dialogue",
+      "startMs": 743750,
+      "endMs": 747350
+    },
+    {
+      "index": 196,
+      "text": "[ Roaring ] [ Grunts ]",
+      "kind": "dialogue",
+      "startMs": 748820,
+      "endMs": 751100
+    },
+    {
+      "index": 197,
+      "text": "Whoa, Marge! You gotta watch out.",
+      "kind": "dialogue",
+      "startMs": 753240,
+      "endMs": 755570
+    },
+    {
+      "index": 198,
+      "text": "Your little boy Bart could have been eaten by that pony!",
+      "kind": "dialogue",
+      "startMs": 755910,
+      "endMs": 759070
+    },
+    {
+      "index": 199,
+      "text": "[ Gasps ] Oh, my God! Barney, thank you.",
+      "kind": "dialogue",
+      "startMs": 759450,
+      "endMs": 761310
+    },
+    {
+      "index": 200,
+      "text": "I would never have forgiven myself.",
+      "kind": "dialogue",
+      "startMs": 761570,
+      "endMs": 763310
+    },
+    {
+      "index": 201,
+      "text": "Now, you stay put, young lady.",
+      "kind": "dialogue",
+      "startMs": 763620,
+      "endMs": 765570
+    },
+    {
+      "index": 202,
+      "text": "[ Grunting ] Oh!",
+      "kind": "dialogue",
+      "startMs": 766860,
+      "endMs": 768120
+    },
+    {
+      "index": 203,
+      "text": "Man, that's classic compulsive behavior.",
+      "kind": "dialogue",
+      "startMs": 768430,
+      "endMs": 770200
+    },
+    {
+      "index": 204,
+      "text": "Wow! Free beer!",
+      "kind": "dialogue",
+      "startMs": 770580,
+      "endMs": 772670
+    },
+    {
+      "index": 205,
+      "text": "Buddy, those are my quarters!",
+      "kind": "dialogue",
+      "startMs": 773630,
+      "endMs": 775090
+    },
+    {
+      "index": 206,
+      "text": "[ Belches ] Hey, this guy's paying off!.",
+      "kind": "dialogue",
+      "startMs": 775680,
+      "endMs": 777610
+    },
+    {
+      "index": 207,
+      "text": "[ Belching ] [ Chattering ]",
+      "kind": "dialogue",
+      "startMs": 778200,
+      "endMs": 780630
+    },
+    {
+      "index": 208,
+      "text": "They're all covered with filthy germs! Aren't they, Smithers?",
+      "kind": "dialogue",
+      "startMs": 784050,
+      "endMs": 786590
+    },
+    {
+      "index": 209,
+      "text": "Why, what do you mean, sir?",
+      "kind": "dialogue",
+      "startMs": 786930,
+      "endMs": 789020
+    },
+    {
+      "index": 210,
+      "text": "[ Germs ] Freemasons run the country! Ew!",
+      "kind": "dialogue",
+      "startMs": 790350,
+      "endMs": 792750
+    },
+    {
+      "index": 211,
+      "text": "[ Marge Grunting ]",
+      "kind": "sdh",
+      "startMs": 793750,
+      "endMs": 795790
+    },
+    {
+      "index": 212,
+      "text": "Marge, you waited for me!",
+      "kind": "dialogue",
+      "startMs": 798000,
+      "endMs": 799890
+    },
+    {
+      "index": 213,
+      "text": "[ Grunts ]",
+      "kind": "sdh",
+      "startMs": 800360,
+      "endMs": 801830
+    },
+    {
+      "index": 214,
+      "text": "Okay, Marge. Let's go. I'll catch up to you.",
+      "kind": "dialogue",
+      "startMs": 802150,
+      "endMs": 804100
+    },
+    {
+      "index": 215,
+      "text": "Marge, I'm taking the car. I'll walk.",
+      "kind": "dialogue",
+      "startMs": 804100,
+      "endMs": 806020
+    },
+    {
+      "index": 216,
+      "text": "This late? Through the bad neighborhood? Yeah.",
+      "kind": "dialogue",
+      "startMs": 806910,
+      "endMs": 809080
+    },
+    {
+      "index": 217,
+      "text": "Marge-- Go home! You're bad luck!",
+      "kind": "dialogue",
+      "startMs": 809820,
+      "endMs": 812520
+    },
+    {
+      "index": 218,
+      "text": "Wait! I see what's happening here.",
+      "kind": "dialogue",
+      "startMs": 813380,
+      "endMs": 816380
+    },
+    {
+      "index": 219,
+      "text": "You're just mad because everyone in this town loves gambling except for you!",
+      "kind": "dialogue",
+      "startMs": 816780,
+      "endMs": 820850
+    },
+    {
+      "index": 220,
+      "text": "Well, that's just sad. [ Grunting Continues ]",
+      "kind": "dialogue",
+      "startMs": 821280,
+      "endMs": 824680
+    },
+    {
+      "index": 221,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 827680,
+      "endMs": 829720
+    },
+    {
+      "index": 222,
+      "text": "Um-- What?",
+      "kind": "dialogue",
+      "startMs": 831190,
+      "endMs": 832670
+    },
+    {
+      "index": 223,
+      "text": "Excuse me, ma'am. Don't you think you've gambled enough? - No!",
+      "kind": "dialogue",
+      "startMs": 833000,
+      "endMs": 835580
+    },
+    {
+      "index": 224,
+      "text": "Okay. We're required by law to ask every 75 hours. Get her another free drink.",
+      "kind": "dialogue",
+      "startMs": 836020,
+      "endMs": 840210
+    },
+    {
+      "index": 225,
+      "text": "[ Meows ] - Do you get the feeling this family is disintegrating?",
+      "kind": "dialogue",
+      "startMs": 840800,
+      "endMs": 843730
+    },
+    {
+      "index": 226,
+      "text": "I mean, we haven't had a meal with Mom all week.",
+      "kind": "dialogue",
+      "startMs": 843730,
+      "endMs": 845710
+    },
+    {
+      "index": 227,
+      "text": "And she hasn't even started my costume for the geography pageant.",
+      "kind": "dialogue",
+      "startMs": 845710,
+      "endMs": 848740
+    },
+    {
+      "index": 228,
+      "text": "Pipe down, Sister! I gotta book a new act for tonight.",
+      "kind": "dialogue",
+      "startMs": 848740,
+      "endMs": 851100
+    },
+    {
+      "index": 229,
+      "text": "Turns out that Liza Minnelli impersonator was really Liza Minnelli.",
+      "kind": "dialogue",
+      "startMs": 851420,
+      "endMs": 854540
+    },
+    {
+      "index": 230,
+      "text": "[ Shivers, Grunts ]",
+      "kind": "sdh",
+      "startMs": 854970,
+      "endMs": 856580
+    },
+    {
+      "index": 231,
+      "text": "There's nothing to eat for breakfast! You gotta improvise, Lisa.",
+      "kind": "dialogue",
+      "startMs": 856870,
+      "endMs": 859860
+    },
+    {
+      "index": 232,
+      "text": "Cloves, Tom Collins mix, frozen pie crust--",
+      "kind": "dialogue",
+      "startMs": 860220,
+      "endMs": 864130
+    },
+    {
+      "index": 233,
+      "text": "Mmm! Maybe Mom just doesn't realize we miss her.",
+      "kind": "dialogue",
+      "startMs": 864550,
+      "endMs": 866920
+    },
+    {
+      "index": 234,
+      "text": "We could go down to the casino and let her know.",
+      "kind": "dialogue",
+      "startMs": 867210,
+      "endMs": 869070
+    },
+    {
+      "index": 235,
+      "text": "Aw, come on, Lisa. There's no reason to--",
+      "kind": "dialogue",
+      "startMs": 869340,
+      "endMs": 871440
+    },
+    {
+      "index": 236,
+      "text": "Let's go see Mom.",
+      "kind": "dialogue",
+      "startMs": 873740,
+      "endMs": 875830
+    },
+    {
+      "index": 237,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 876410,
+      "endMs": 877810
+    },
+    {
+      "index": 238,
+      "text": "Marge, we need to talk.",
+      "kind": "dialogue",
+      "startMs": 878250,
+      "endMs": 879770
+    },
+    {
+      "index": 239,
+      "text": "You're spending too much time at the casino, and I think you may have a problem.",
+      "kind": "dialogue",
+      "startMs": 880080,
+      "endMs": 882980
+    },
+    {
+      "index": 240,
+      "text": "I won $60 last night.",
+      "kind": "dialogue",
+      "startMs": 883290,
+      "endMs": 884850
+    },
+    {
+      "index": 241,
+      "text": "Whoo-hoo! Problem solved!",
+      "kind": "dialogue",
+      "startMs": 884850,
+      "endMs": 886700
+    },
+    {
+      "index": 242,
+      "text": "Smithers, I've designed a new plane.",
+      "kind": "dialogue",
+      "startMs": 887950,
+      "endMs": 890120
+    },
+    {
+      "index": 243,
+      "text": "I call it the Spruce Moose, and it will carry 200 passengers... from New York's Idlewild Airport to the Belgian Congo in 17 minutes!",
+      "kind": "dialogue",
+      "startMs": 890400,
+      "endMs": 898370
+    },
+    {
+      "index": 244,
+      "text": "That's quite a nice model, sir. Model?",
+      "kind": "dialogue",
+      "startMs": 898370,
+      "endMs": 901140
+    },
+    {
+      "index": 245,
+      "text": "Mom.! Huh? What? Lisa, what's up?",
+      "kind": "dialogue",
+      "startMs": 901620,
+      "endMs": 904750
+    },
+    {
+      "index": 246,
+      "text": "I just had a bad dream. Oh, sure.",
+      "kind": "dialogue",
+      "startMs": 905160,
+      "endMs": 907790
+    },
+    {
+      "index": 247,
+      "text": "You just lie down and tell me all about it.",
+      "kind": "dialogue",
+      "startMs": 908090,
+      "endMs": 910250
+    },
+    {
+      "index": 248,
+      "text": "Well, I know it's absurd, but I dreamed the bogeyman was after me, and he's hiding-- [ Screams ] Bogeyman!",
+      "kind": "dialogue",
+      "startMs": 910600,
+      "endMs": 916720
+    },
+    {
+      "index": 249,
+      "text": "You nail the windows shut. I'll get the gun.",
+      "kind": "dialogue",
+      "startMs": 917010,
+      "endMs": 918860
+    },
+    {
+      "index": 250,
+      "text": "[ Grunts ] Bart, I don't want to alarm you... but there may be a bogeyman or bogeymen in the house.",
+      "kind": "dialogue",
+      "startMs": 919280,
+      "endMs": 924610
+    },
+    {
+      "index": 251,
+      "text": "[ Screams ]",
+      "kind": "sdh",
+      "startMs": 924960,
+      "endMs": 926190
+    },
+    {
+      "index": 252,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 926190,
+      "endMs": 927470
+    },
+    {
+      "index": 253,
+      "text": "[ Trembling Audibly ]",
+      "kind": "sdh",
+      "startMs": 932270,
+      "endMs": 933800
+    },
+    {
+      "index": 254,
+      "text": "[ Bart And Lisa Sighing ] Hmm.",
+      "kind": "dialogue",
+      "startMs": 933800,
+      "endMs": 935450
+    },
+    {
+      "index": 255,
+      "text": "What happened here? Oh, nothing, Marge.",
+      "kind": "dialogue",
+      "startMs": 935450,
+      "endMs": 937980
+    },
+    {
+      "index": 256,
+      "text": "-Just a little incident involving the bogeyman! [ Gunshot ] None of this would have happened if you had been here to keep me from acting stupid!",
+      "kind": "dialogue",
+      "startMs": 938290,
+      "endMs": 944570
+    },
+    {
+      "index": 257,
+      "text": "Oh, I'm sorry. I have been spending too much time at the casino.",
+      "kind": "dialogue",
+      "startMs": 945370,
+      "endMs": 948740
+    },
+    {
+      "index": 258,
+      "text": "I'll be around more from now on.",
+      "kind": "dialogue",
+      "startMs": 948740,
+      "endMs": 951010
+    },
+    {
+      "index": 259,
+      "text": "Does this mean you'll help me with my costume?",
+      "kind": "dialogue",
+      "startMs": 951350,
+      "endMs": 953510
+    },
+    {
+      "index": 260,
+      "text": "Oh, sure, honey. I promise.",
+      "kind": "dialogue",
+      "startMs": 953860,
+      "endMs": 956580
+    },
+    {
+      "index": 261,
+      "text": "Thanks, Mom. Mmm.",
+      "kind": "dialogue",
+      "startMs": 956890,
+      "endMs": 959200
+    },
+    {
+      "index": 262,
+      "text": "Aw,just like on TV.",
+      "kind": "dialogue",
+      "startMs": 959510,
+      "endMs": 961720
+    },
+    {
+      "index": 263,
+      "text": "[ Grunts ] [ Canned Laughter, Applause ]",
+      "kind": "dialogue",
+      "startMs": 962210,
+      "endMs": 966140
+    },
+    {
+      "index": 264,
+      "text": "Hi. You from the casino?",
+      "kind": "dialogue",
+      "startMs": 967880,
+      "endMs": 969530
+    },
+    {
+      "index": 265,
+      "text": "I'm from a casino. Good enough. Let's go.",
+      "kind": "dialogue",
+      "startMs": 969820,
+      "endMs": 972560
+    },
+    {
+      "index": 266,
+      "text": "[ Lights Buzzing ]",
+      "kind": "sdh",
+      "startMs": 973400,
+      "endMs": 974640
+    },
+    {
+      "index": 267,
+      "text": "I'm afraid Robert Goulet hasn't arrived yet, sir.",
+      "kind": "dialogue",
+      "startMs": 976150,
+      "endMs": 978360
+    },
+    {
+      "index": 268,
+      "text": "Hmm. Very well. Begin the thawing of Jim Nabors.",
+      "kind": "dialogue",
+      "startMs": 978780,
+      "endMs": 981820
+    },
+    {
+      "index": 269,
+      "text": "[ Panting ]",
+      "kind": "sdh",
+      "startMs": 982180,
+      "endMs": 984110
+    },
+    {
+      "index": 270,
+      "text": "Are you sure this is the casino?",
+      "kind": "dialogue",
+      "startMs": 985380,
+      "endMs": 987880
+    },
+    {
+      "index": 271,
+      "text": "I think I should call my manager.",
+      "kind": "dialogue",
+      "startMs": 988310,
+      "endMs": 990190
+    },
+    {
+      "index": 272,
+      "text": "Your manager says for you to shut up!",
+      "kind": "dialogue",
+      "startMs": 990640,
+      "endMs": 993160
+    },
+    {
+      "index": 273,
+      "text": "Vera said that? Huh.",
+      "kind": "dialogue",
+      "startMs": 993530,
+      "endMs": 995470
+    },
+    {
+      "index": 274,
+      "text": "Dad! Mom said she'd be home to help me with my costume.",
+      "kind": "dialogue",
+      "startMs": 995600,
+      "endMs": 998020
+    },
+    {
+      "index": 275,
+      "text": "And she's not! And the geography pageant is tonight!",
+      "kind": "dialogue",
+      "startMs": 998280,
+      "endMs": 1000990
+    },
+    {
+      "index": 276,
+      "text": "Lisa, your mom still loves you.",
+      "kind": "dialogue",
+      "startMs": 1001310,
+      "endMs": 1003610
+    },
+    {
+      "index": 277,
+      "text": "It's just that she has a career now.",
+      "kind": "dialogue",
+      "startMs": 1003870,
+      "endMs": 1005840
+    },
+    {
+      "index": 278,
+      "text": "She's a slot jockey.",
+      "kind": "dialogue",
+      "startMs": 1006140,
+      "endMs": 1007600
+    },
+    {
+      "index": 279,
+      "text": "But if I don't show up in a rubber suit shaped like the state of Florida...",
+      "kind": "dialogue",
+      "startMs": 1007980,
+      "endMs": 1010950
+    },
+    {
+      "index": 280,
+      "text": "I'll be the laughingstock of the whole school.",
+      "kind": "dialogue",
+      "startMs": 1011220,
+      "endMs": 1013520
+    },
+    {
+      "index": 281,
+      "text": "Oh, it's always something, isn't it?",
+      "kind": "dialogue",
+      "startMs": 1013880,
+      "endMs": 1016020
+    },
+    {
+      "index": 282,
+      "text": "First I have to drive your pregnant mother to the hospital... so she can give birth to you, and now this!",
+      "kind": "dialogue",
+      "startMs": 1016320,
+      "endMs": 1020940
+    },
+    {
+      "index": 283,
+      "text": "Ow, ow, ow, ow.",
+      "kind": "dialogue",
+      "startMs": 1021830,
+      "endMs": 1024160
+    },
+    {
+      "index": 284,
+      "text": "Ow, ow, ow, ow, ow, ow, ow, ow!",
+      "kind": "dialogue",
+      "startMs": 1024640,
+      "endMs": 1026630
+    },
+    {
+      "index": 285,
+      "text": "Dad! [ Chuckling ] Oh, yeah. The costume.",
+      "kind": "dialogue",
+      "startMs": 1028840,
+      "endMs": 1032220
+    },
+    {
+      "index": 286,
+      "text": "Hello, ''Floreda''!",
+      "kind": "dialogue",
+      "startMs": 1032940,
+      "endMs": 1035200
+    },
+    {
+      "index": 287,
+      "text": "[ Gasps ] I'm not a state!",
+      "kind": "dialogue",
+      "startMs": 1035900,
+      "endMs": 1037900
+    },
+    {
+      "index": 288,
+      "text": "I'm a monster! [ Sobbing ] No, Lisa. The only monster here is the gambling monster... that has enslaved your mother!",
+      "kind": "dialogue",
+      "startMs": 1038420,
+      "endMs": 1047390
+    },
+    {
+      "index": 289,
+      "text": "I call him Gamblor!",
+      "kind": "dialogue",
+      "startMs": 1047720,
+      "endMs": 1049280
+    },
+    {
+      "index": 290,
+      "text": "And it's time to snatch your mother from his neon claws!",
+      "kind": "dialogue",
+      "startMs": 1049660,
+      "endMs": 1052610
+    },
+    {
+      "index": 291,
+      "text": "[ Groaning ] Marge! Where are you?",
+      "kind": "dialogue",
+      "startMs": 1053630,
+      "endMs": 1057010
+    },
+    {
+      "index": 292,
+      "text": "Damn this casino!",
+      "kind": "dialogue",
+      "startMs": 1057340,
+      "endMs": 1059220
+    },
+    {
+      "index": 293,
+      "text": "[ Grunts ]",
+      "kind": "sdh",
+      "startMs": 1060490,
+      "endMs": 1062210
+    },
+    {
+      "index": 294,
+      "text": "[ Yells ] Double stars! Everybody wins!",
+      "kind": "dialogue",
+      "startMs": 1062550,
+      "endMs": 1065630
+    },
+    {
+      "index": 295,
+      "text": "Yea!",
+      "kind": "dialogue",
+      "startMs": 1065970,
+      "endMs": 1067870
+    },
+    {
+      "index": 296,
+      "text": "[ Grunting ] Hey!",
+      "kind": "dialogue",
+      "startMs": 1068720,
+      "endMs": 1070280
+    },
+    {
+      "index": 297,
+      "text": "Seven. Lucky seven! Yea!",
+      "kind": "dialogue",
+      "startMs": 1070720,
+      "endMs": 1073440
+    },
+    {
+      "index": 298,
+      "text": "Yeah-- Ooh! He can't talk now.",
+      "kind": "dialogue",
+      "startMs": 1075010,
+      "endMs": 1076480
+    },
+    {
+      "index": 299,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 1077060,
+      "endMs": 1078400
+    },
+    {
+      "index": 300,
+      "text": "Marge?",
+      "kind": "dialogue",
+      "startMs": 1078880,
+      "endMs": 1080190
+    },
+    {
+      "index": 301,
+      "text": "Hey! Smithers...",
+      "kind": "dialogue",
+      "startMs": 1080670,
+      "endMs": 1081620
+    },
+    {
+      "index": 302,
+      "text": "I don't want that unpredictable lunatic working in my casino.",
+      "kind": "dialogue",
+      "startMs": 1081620,
+      "endMs": 1084450
+    },
+    {
+      "index": 303,
+      "text": "Fine. We'll transfer him to the nuclear plant, sir.",
+      "kind": "dialogue",
+      "startMs": 1084770,
+      "endMs": 1087020
+    },
+    {
+      "index": 304,
+      "text": "Oh, my beloved plant. How I miss her.",
+      "kind": "dialogue",
+      "startMs": 1087350,
+      "endMs": 1089970
+    },
+    {
+      "index": 305,
+      "text": "Bah! To hell with this!",
+      "kind": "dialogue",
+      "startMs": 1090340,
+      "endMs": 1092130
+    },
+    {
+      "index": 306,
+      "text": "Get my razor! Draw a bath!",
+      "kind": "dialogue",
+      "startMs": 1092410,
+      "endMs": 1094020
+    },
+    {
+      "index": 307,
+      "text": "And get these Kleenex boxes off my feet! Certainly, sir.",
+      "kind": "dialogue",
+      "startMs": 1094360,
+      "endMs": 1097810
+    },
+    {
+      "index": 308,
+      "text": "And, uh, the jars of urine? Oh, we'll hang on to those.",
+      "kind": "dialogue",
+      "startMs": 1098160,
+      "endMs": 1101440
+    },
+    {
+      "index": 309,
+      "text": "Now, to the plant! We'll take the Spruce Moose!",
+      "kind": "dialogue",
+      "startMs": 1101720,
+      "endMs": 1104470
+    },
+    {
+      "index": 310,
+      "text": "Hop in! But, sir-- [ Gasps ] I said hop in.",
+      "kind": "dialogue",
+      "startMs": 1104790,
+      "endMs": 1109580
+    },
+    {
+      "index": 311,
+      "text": "[ Panting, Gasps ]",
+      "kind": "sdh",
+      "startMs": 1110380,
+      "endMs": 1111660
+    },
+    {
+      "index": 312,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 1112470,
+      "endMs": 1113890
+    },
+    {
+      "index": 313,
+      "text": "[ Shouting Incoherently ]",
+      "kind": "sdh",
+      "startMs": 1114700,
+      "endMs": 1116720
+    },
+    {
+      "index": 314,
+      "text": "Homer, what is it? Slow down.",
+      "kind": "dialogue",
+      "startMs": 1117090,
+      "endMs": 1118860
+    },
+    {
+      "index": 315,
+      "text": "Yer getta ferda redda oura.",
+      "kind": "dialogue",
+      "startMs": 1119310,
+      "endMs": 1121930
+    },
+    {
+      "index": 316,
+      "text": "Think before you say each word.",
+      "kind": "dialogue",
+      "startMs": 1122260,
+      "endMs": 1124120
+    },
+    {
+      "index": 317,
+      "text": "You broke a promise to your child. What?",
+      "kind": "dialogue",
+      "startMs": 1124470,
+      "endMs": 1127520
+    },
+    {
+      "index": 318,
+      "text": "You promised Lisa to help her with her costume.",
+      "kind": "dialogue",
+      "startMs": 1127860,
+      "endMs": 1131100
+    },
+    {
+      "index": 319,
+      "text": "You made her cry. Then I cried.",
+      "kind": "dialogue",
+      "startMs": 1131510,
+      "endMs": 1134480
+    },
+    {
+      "index": 320,
+      "text": "Then Maggie laughed. She's such a little trouper.",
+      "kind": "dialogue",
+      "startMs": 1134810,
+      "endMs": 1139030
+    },
+    {
+      "index": 321,
+      "text": "[ Gasps ] Lisa's costume!",
+      "kind": "dialogue",
+      "startMs": 1139410,
+      "endMs": 1141680
+    },
+    {
+      "index": 322,
+      "text": "[ Gasps ] Homer, I didn't realize. I'm so sorry.",
+      "kind": "dialogue",
+      "startMs": 1142070,
+      "endMs": 1146420
+    },
+    {
+      "index": 323,
+      "text": "Marge, I want you to admit you have a gambling problem.",
+      "kind": "dialogue",
+      "startMs": 1146820,
+      "endMs": 1150900
+    },
+    {
+      "index": 324,
+      "text": "You know, you're right, Homer.",
+      "kind": "dialogue",
+      "startMs": 1151260,
+      "endMs": 1153540
+    },
+    {
+      "index": 325,
+      "text": "Maybe I should get some professional help.",
+      "kind": "dialogue",
+      "startMs": 1153890,
+      "endMs": 1155860
+    },
+    {
+      "index": 326,
+      "text": "No, no! That's too expensive. Just don't do it anymore.",
+      "kind": "dialogue",
+      "startMs": 1156180,
+      "endMs": 1158100
+    },
+    {
+      "index": 327,
+      "text": "\"[Jazz Intro ] \"Jingle bells Batman smells \" \" Robin laid an egg \" \" Batmobile lost its wheel and TheJoker got away, hey \" Thank you! Thank you very much.",
+      "kind": "dialogue",
+      "startMs": 1158100,
+      "endMs": 1169920
+    },
+    {
+      "index": 328,
+      "text": "Ow! Oh, I'm sorry, kid.",
+      "kind": "dialogue",
+      "startMs": 1170240,
+      "endMs": 1171900
+    },
+    {
+      "index": 329,
+      "text": "And special awards go to the two students... who obviously had no help from their parents: Lisa Simpson and Ralph Wiggum.",
+      "kind": "dialogue",
+      "startMs": 1172270,
+      "endMs": 1179510
+    },
+    {
+      "index": 330,
+      "text": "I'm Idaho! Yes, of course you are.",
+      "kind": "dialogue",
+      "startMs": 1180060,
+      "endMs": 1182540
+    },
+    {
+      "index": 331,
+      "text": "You know, Marge, for the first time in our marriage...",
+      "kind": "dialogue",
+      "startMs": 1182920,
+      "endMs": 1185260
+    },
+    {
+      "index": 332,
+      "text": "I can finally look down my nose at you.",
+      "kind": "dialogue",
+      "startMs": 1185570,
+      "endMs": 1188040
+    },
+    {
+      "index": 333,
+      "text": "You have a gambling problem!",
+      "kind": "dialogue",
+      "startMs": 1188570,
+      "endMs": 1190790
+    },
+    {
+      "index": 334,
+      "text": "That's true. Will you forgive me?",
+      "kind": "dialogue",
+      "startMs": 1191100,
+      "endMs": 1193170
+    },
+    {
+      "index": 335,
+      "text": "Oh, sure!",
+      "kind": "dialogue",
+      "startMs": 1193460,
+      "endMs": 1194830
+    },
+    {
+      "index": 336,
+      "text": "Remember when I got caught stealing all those watches from Sears?",
+      "kind": "dialogue",
+      "startMs": 1195110,
+      "endMs": 1198120
+    },
+    {
+      "index": 337,
+      "text": "[ Groans ] - Well, that's nothing, because you have a gambling problem!",
+      "kind": "dialogue",
+      "startMs": 1198500,
+      "endMs": 1201730
+    },
+    {
+      "index": 338,
+      "text": "And remember when I let that escaped lunatic in the house...",
+      "kind": "dialogue",
+      "startMs": 1202090,
+      "endMs": 1204300
+    },
+    {
+      "index": 339,
+      "text": "'cause he was dressed like Santa Claus?",
+      "kind": "dialogue",
+      "startMs": 1204620,
+      "endMs": 1206640
+    },
+    {
+      "index": 340,
+      "text": "[ Groans ] Well, you have a gambling problem!",
+      "kind": "dialogue",
+      "startMs": 1207000,
+      "endMs": 1209400
+    },
+    {
+      "index": 341,
+      "text": "Homer, when you forgive someone you can't throw it back at them like that.",
+      "kind": "dialogue",
+      "startMs": 1209700,
+      "endMs": 1213150
+    },
+    {
+      "index": 342,
+      "text": "Aw, what a gyp.",
+      "kind": "dialogue",
+      "startMs": 1213470,
+      "endMs": 1215360
+    },
+    {
+      "index": 343,
+      "text": "Mmm. Remember when I--",
+      "kind": "dialogue",
+      "startMs": 1216210,
+      "endMs": 1217530
+    },
+    {
+      "index": 344,
+      "text": "Homer! Oh, yeah. I forgot already.",
+      "kind": "dialogue",
+      "startMs": 1217850,
+      "endMs": 1220080
+    }
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 5,
+    "episode": 10
+  }
+}

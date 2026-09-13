@@ -8,12 +8,14 @@ import {
   excludeTitleIds,
   filterStarsByTitle,
   insertStarsSql,
+  loadProtectedTitleIds,
   loadStarSeedFile,
   sqlString,
 } from "../src/lib/content/starsPush.js";
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const defaultSeed = join(packageRoot, "content", "stars-seed.json");
+const defaultProtected = join(packageRoot, "content", "stars-protected.json");
 const apiDir = join(packageRoot, "api");
 
 function usage(): never {
@@ -21,15 +23,19 @@ function usage(): never {
   npm run content:stars-push -- --email you@example.com [--remote] [--title payback-1999]
 
 Inserts Readwise-matched lines from stars-seed.json into Cloudflare D1 as YOUR stars.
-Does not delete. Skips any title that already has stars for you (so Curate unstars stay).
-Use --title to push one film; --force to re-seed a title you already started.
+Does not delete or update existing rows (ON CONFLICT DO NOTHING).
+Skips titles in content/stars-protected.json (curated — add an id when you
+start curating a film) and any title that already has stars for you.
+--force still honors the protected file. --dry-run --remote previews prod skips.
 
   --email     Required. Must already have signed in on the live app once.
-  --remote    Write production D1 (textline-stars). Default is local wrangler D1.
+  --remote    Read/write production D1 (textline-stars). Default is local wrangler D1.
   --title     Only this title id or name (e.g. payback-1999 or Payback).
-  --force     Also insert into titles that already have stars (can restore unstars).
+  --exclude   Extra title id to skip (repeatable).
+  --force     Also insert into titles that already have stars (not protected).
   --seed      Path to stars-seed.json
-  --dry-run   Print counts only; do not write.`);
+  --dry-run   Print skip/insert counts; do not write. Pair with --remote to query prod.
+`);
   process.exit(1);
 }
 
@@ -40,6 +46,7 @@ function parseArgs(argv: string[]): {
   dryRun: boolean;
   title: string;
   force: boolean;
+  exclude: string[];
 } {
   let email = "";
   let remote = false;
@@ -47,6 +54,7 @@ function parseArgs(argv: string[]): {
   let dryRun = false;
   let title = "";
   let force = false;
+  const exclude: string[] = [];
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === "--email") email = argv[++i] ?? "";
@@ -54,11 +62,20 @@ function parseArgs(argv: string[]): {
     else if (arg === "--dry-run") dryRun = true;
     else if (arg === "--seed") seed = argv[++i] ?? seed;
     else if (arg === "--title") title = argv[++i] ?? "";
+    else if (arg === "--exclude") exclude.push((argv[++i] ?? "").trim());
     else if (arg === "--force") force = true;
     else if (arg === "--help" || arg === "-h") usage();
   }
   if (!email.trim()) usage();
-  return { email: email.trim(), remote, seed: resolve(seed), dryRun, title: title.trim(), force };
+  return {
+    email: email.trim(),
+    remote,
+    seed: resolve(seed),
+    dryRun,
+    title: title.trim(),
+    force,
+    exclude: exclude.filter(Boolean),
+  };
 }
 
 function d1Json(command: string, remote: boolean): unknown {
@@ -127,8 +144,26 @@ function printCounts(stars: ReturnType<typeof loadStarSeedFile>, label: string):
   }
 }
 
+function starCountsForTitles(
+  playerId: string,
+  titleIds: string[],
+  remote: boolean,
+): Map<string, number> {
+  const counts = new Map<string, number>();
+  if (titleIds.length === 0) return counts;
+  const list = titleIds.map(sqlString).join(", ");
+  const payload = d1Json(
+    `SELECT title_id, COUNT(*) AS n FROM stars WHERE player_id = ${sqlString(playerId)} AND title_id IN (${list}) GROUP BY title_id;`,
+    remote,
+  );
+  for (const row of firstRows(payload)) {
+    if (typeof row.title_id === "string") counts.set(row.title_id, Number(row.n) || 0);
+  }
+  return counts;
+}
+
 function main(): void {
-  const { email, remote, seed, dryRun, title, force } = parseArgs(process.argv.slice(2));
+  const { email, remote, seed, dryRun, title, force, exclude } = parseArgs(process.argv.slice(2));
   if (!existsSync(seed)) {
     console.error(`Seed not found: ${seed}`);
     process.exit(1);
@@ -144,30 +179,45 @@ function main(): void {
   }
   printCounts(stars, title ? `seed stars for --title ${title}` : "seed stars");
 
-  if (dryRun) {
-    console.log("Dry run — nothing written.");
+  if (dryRun && !remote) {
+    console.log("Dry run (seed file only). Pass --remote --dry-run to preview prod skips.");
     return;
   }
 
   const userId = lookupUserId(email, remote);
   console.log(`Attaching to user ${userId} (${remote ? "remote" : "local"} D1)`);
 
+  const protectedIds = new Set(loadProtectedTitleIds(defaultProtected));
+  const skipIds = new Set<string>(protectedIds);
+  for (const id of exclude) skipIds.add(id);
   if (!force) {
-    const already = existingTitleIds(userId, remote);
-    const skipped = [...new Set(stars.map((star) => star.titleId).filter((id) => already.has(id)))];
-    stars = excludeTitleIds(stars, already);
-    if (skipped.length) {
-      console.log(`Skipping ${skipped.length} title(s) that already have stars (use --force to override):`);
-      for (const id of skipped) console.log(`  ${id}`);
+    for (const id of existingTitleIds(userId, remote)) skipIds.add(id);
+  }
+
+  const skipped = [...new Set(stars.map((star) => star.titleId).filter((id) => skipIds.has(id)))];
+  if (skipped.length) {
+    const liveCounts = starCountsForTitles(userId, skipped, remote);
+    console.log(`Leaving ${skipped.length} title(s) untouched:`);
+    for (const id of skipped.sort()) {
+      const n = liveCounts.get(id);
+      const protectedMark = protectedIds.has(id) ? " (protected)" : "";
+      const live = n != null ? ` — ${n} live star(s)` : "";
+      console.log(`  ${id}${protectedMark}${live}`);
     }
+    stars = excludeTitleIds(stars, skipIds);
   }
 
   if (stars.length === 0) {
-    console.log("Nothing to insert.");
+    console.log(dryRun ? "Dry run — nothing would be inserted." : "Nothing to insert.");
     return;
   }
 
-  printCounts(stars, "rows to insert");
+  printCounts(stars, dryRun ? "rows that would be inserted" : "rows to insert");
+  if (dryRun) {
+    console.log("Dry run — nothing written.");
+    return;
+  }
+
   const starredAt = new Date().toISOString();
   let batches = 0;
   for (const group of chunk(stars, 40)) {

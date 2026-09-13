@@ -1,0 +1,2142 @@
+{
+  "id": "the-simpsons---5x11---homer-the-vigilante",
+  "title": "The Simpsons - 5x11 - Homer the Vigilante",
+  "sourceFilename": "The Simpsons - 5x11 - Homer the Vigilante.en.sub",
+  "importedAt": "2026-09-13T03:32:08.122Z",
+  "lineCount": 304,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[ Chorus ] # The Simpsons #",
+      "kind": "dialogue",
+      "startMs": 2320,
+      "endMs": 4760
+    },
+    {
+      "index": 1,
+      "text": "[ Tires Screeching ]",
+      "kind": "sdh",
+      "startMs": 5560,
+      "endMs": 6580
+    },
+    {
+      "index": 2,
+      "text": "D'oh! [ Screams ]",
+      "kind": "dialogue",
+      "startMs": 8720,
+      "endMs": 10520
+    },
+    {
+      "index": 3,
+      "text": "[ Mumbling ]",
+      "kind": "sdh",
+      "startMs": 56570,
+      "endMs": 58320
+    },
+    {
+      "index": 4,
+      "text": "[ Sniffs ] Ooh!",
+      "kind": "dialogue",
+      "startMs": 59600,
+      "endMs": 60770
+    },
+    {
+      "index": 5,
+      "text": "Dad, we've been robbed! Wake up, Dad! Wake up!",
+      "kind": "dialogue",
+      "startMs": 102660,
+      "endMs": 105260
+    },
+    {
+      "index": 6,
+      "text": "There was a burglar, and he took my saxophone! Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 105490,
+      "endMs": 108540
+    },
+    {
+      "index": 7,
+      "text": "And our portable TV. D'oh!",
+      "kind": "dialogue",
+      "startMs": 108910,
+      "endMs": 110700
+    },
+    {
+      "index": 8,
+      "text": "And my necklace. Ah, that's no big loss.",
+      "kind": "dialogue",
+      "startMs": 110980,
+      "endMs": 113000
+    },
+    {
+      "index": 9,
+      "text": "Homer, that necklace was a priceless Bouvier family heirloom.",
+      "kind": "dialogue",
+      "startMs": 113270,
+      "endMs": 116180
+    },
+    {
+      "index": 10,
+      "text": "You probably got a whole drawer full of'em.",
+      "kind": "dialogue",
+      "startMs": 116460,
+      "endMs": 118460
+    },
+    {
+      "index": 11,
+      "text": "Well, yes, I do, but they're all heirlooms too.",
+      "kind": "dialogue",
+      "startMs": 118750,
+      "endMs": 121690
+    },
+    {
+      "index": 12,
+      "text": "The burglar even took my stamp collection.",
+      "kind": "dialogue",
+      "startMs": 123700,
+      "endMs": 125860
+    },
+    {
+      "index": 13,
+      "text": "You had a stamp collection?",
+      "kind": "dialogue",
+      "startMs": 126240,
+      "endMs": 128770
+    },
+    {
+      "index": 14,
+      "text": "[ Rings ]",
+      "kind": "sdh",
+      "startMs": 132560,
+      "endMs": 134150
+    },
+    {
+      "index": 15,
+      "text": "[ Nelson ] Stamp collection? Ha-ha!",
+      "kind": "dialogue",
+      "startMs": 134460,
+      "endMs": 136740
+    },
+    {
+      "index": 16,
+      "text": "Ohh. Bart's pain is funny, but mine isn't.",
+      "kind": "dialogue",
+      "startMs": 137060,
+      "endMs": 140600
+    },
+    {
+      "index": 17,
+      "text": "That saxophone was my one creative outlet.",
+      "kind": "dialogue",
+      "startMs": 140990,
+      "endMs": 143450
+    },
+    {
+      "index": 18,
+      "text": "It was the only way I could truly express myself. Shh! Quiet, Lisa.",
+      "kind": "dialogue",
+      "startMs": 143780,
+      "endMs": 147490
+    },
+    {
+      "index": 19,
+      "text": "Hey, the burglar left his calling card.",
+      "kind": "dialogue",
+      "startMs": 147770,
+      "endMs": 149860
+    },
+    {
+      "index": 20,
+      "text": "''You have just been robbed by the Springfield Cat Burglar.''",
+      "kind": "dialogue",
+      "startMs": 150140,
+      "endMs": 153400
+    },
+    {
+      "index": 21,
+      "text": "Cute. Hidilly-ho, neighboreenos.",
+      "kind": "dialogue",
+      "startMs": 153740,
+      "endMs": 156740
+    },
+    {
+      "index": 22,
+      "text": "Can't talk. Robbed. Go hell.",
+      "kind": "dialogue",
+      "startMs": 157020,
+      "endMs": 158770
+    },
+    {
+      "index": 23,
+      "text": "You folks got robbed too?",
+      "kind": "dialogue",
+      "startMs": 159130,
+      "endMs": 160760
+    },
+    {
+      "index": 24,
+      "text": "The burglar took my Shroud ofTurin beach towels.",
+      "kind": "dialogue",
+      "startMs": 161130,
+      "endMs": 163730
+    },
+    {
+      "index": 25,
+      "text": "Wow! It's a crime wave.",
+      "kind": "dialogue",
+      "startMs": 164060,
+      "endMs": 166020
+    },
+    {
+      "index": 26,
+      "text": "Good Lord! My Stormin' Norman commemorative plates stolen! Again.",
+      "kind": "dialogue",
+      "startMs": 166400,
+      "endMs": 171150
+    },
+    {
+      "index": 27,
+      "text": "Hello, police? Are you sitting down? Good!",
+      "kind": "dialogue",
+      "startMs": 171540,
+      "endMs": 173470
+    },
+    {
+      "index": 28,
+      "text": "I wish to report a robbery.",
+      "kind": "dialogue",
+      "startMs": 173780,
+      "endMs": 175510
+    },
+    {
+      "index": 29,
+      "text": "A robbery, right. Thanks for the report.",
+      "kind": "dialogue",
+      "startMs": 175800,
+      "endMs": 178120
+    },
+    {
+      "index": 30,
+      "text": "That's another one, Lou. 723 Evergreen Terrace.",
+      "kind": "dialogue",
+      "startMs": 178410,
+      "endMs": 181790
+    },
+    {
+      "index": 31,
+      "text": "Well, there doesn't seem to be any pattern yet... but if I take this one and move it here... and I move these over here-- Hello! It almost looks like an arrow.",
+      "kind": "dialogue",
+      "startMs": 182290,
+      "endMs": 194930
+    },
+    {
+      "index": 32,
+      "text": "Hey, look, Chief!. It's pointing right at this police station.",
+      "kind": "dialogue",
+      "startMs": 195270,
+      "endMs": 198250
+    },
+    {
+      "index": 33,
+      "text": "Let's get out of here! [ All Screaming ]",
+      "kind": "dialogue",
+      "startMs": 198540,
+      "endMs": 201540
+    },
+    {
+      "index": 34,
+      "text": "When cat burglaries start, can mass murders be far behind?",
+      "kind": "dialogue",
+      "startMs": 204820,
+      "endMs": 207990
+    },
+    {
+      "index": 35,
+      "text": "This reporter isn't saying that the burglar is an inhuman monster like the Wolfman... but he very well could be.",
+      "kind": "dialogue",
+      "startMs": 208380,
+      "endMs": 214270
+    },
+    {
+      "index": 36,
+      "text": "So, Professor, would you say it's time for everyone to panic?",
+      "kind": "dialogue",
+      "startMs": 214600,
+      "endMs": 217520
+    },
+    {
+      "index": 37,
+      "text": "Yes, I would, Kent.",
+      "kind": "dialogue",
+      "startMs": 217870,
+      "endMs": 219220
+    },
+    {
+      "index": 38,
+      "text": "Ladies and gentlemen. Ladies and gentlemen, please. - [ Clamoring ] We have a major break in the case.",
+      "kind": "dialogue",
+      "startMs": 219220,
+      "endMs": 223740
+    },
+    {
+      "index": 39,
+      "text": "We recovered the burglar's handkerchief from one of the crime scenes.",
+      "kind": "dialogue",
+      "startMs": 224030,
+      "endMs": 227420
+    },
+    {
+      "index": 40,
+      "text": "Now, one sniff of this baby... and our tracking dog will be hot on his trail.",
+      "kind": "dialogue",
+      "startMs": 227910,
+      "endMs": 232510
+    },
+    {
+      "index": 41,
+      "text": "Gosh, look at me. I'm sweatin' like a pig here.",
+      "kind": "dialogue",
+      "startMs": 233200,
+      "endMs": 236190
+    },
+    {
+      "index": 42,
+      "text": "Ah. Ah, man. That's better.",
+      "kind": "dialogue",
+      "startMs": 236660,
+      "endMs": 239920
+    },
+    {
+      "index": 43,
+      "text": "All right. Get the scent, boy. Come on. Get the scent.",
+      "kind": "dialogue",
+      "startMs": 240300,
+      "endMs": 242510
+    },
+    {
+      "index": 44,
+      "text": "Now kill him! [ Yells ] [ Growling ]",
+      "kind": "dialogue",
+      "startMs": 242850,
+      "endMs": 245340
+    },
+    {
+      "index": 45,
+      "text": "Hey! [ Gasping ] Ah, myjugular! Ah!",
+      "kind": "dialogue",
+      "startMs": 245670,
+      "endMs": 250180
+    },
+    {
+      "index": 46,
+      "text": "Oh! Any questions?",
+      "kind": "dialogue",
+      "startMs": 250180,
+      "endMs": 252600
+    },
+    {
+      "index": 47,
+      "text": "Well, as you can see, when the burglar trips the alarm... the house raises from its foundations... and runs down the street and around the corner to safety.",
+      "kind": "dialogue",
+      "startMs": 252600,
+      "endMs": 260640
+    },
+    {
+      "index": 48,
+      "text": "[ Nerous Chuckle ] Well, the real humans won't, uh, burn quite so fast in there.",
+      "kind": "dialogue",
+      "startMs": 263730,
+      "endMs": 269460
+    },
+    {
+      "index": 49,
+      "text": "Aye!",
+      "kind": "dialogue",
+      "startMs": 269790,
+      "endMs": 270900
+    },
+    {
+      "index": 50,
+      "text": "[ Snoring ]",
+      "kind": "sdh",
+      "startMs": 271660,
+      "endMs": 272980
+    },
+    {
+      "index": 51,
+      "text": "[ Screams ] It's the cat burglar!",
+      "kind": "dialogue",
+      "startMs": 273350,
+      "endMs": 275740
+    },
+    {
+      "index": 52,
+      "text": "Please don't kill me!",
+      "kind": "dialogue",
+      "startMs": 276060,
+      "endMs": 277650
+    },
+    {
+      "index": 53,
+      "text": "Abe, can I borrow your ointment? Oh, it's you, Malloy.",
+      "kind": "dialogue",
+      "startMs": 278040,
+      "endMs": 281990
+    },
+    {
+      "index": 54,
+      "text": "All right. But this time clean off the applicator!",
+      "kind": "dialogue",
+      "startMs": 282350,
+      "endMs": 285370
+    },
+    {
+      "index": 55,
+      "text": "[ Gunshot ] [ Gasps ] Thank you for coming. I'll see you in hell.",
+      "kind": "dialogue",
+      "startMs": 289410,
+      "endMs": 294360
+    },
+    {
+      "index": 56,
+      "text": "All right. These are our new family security rules.",
+      "kind": "dialogue",
+      "startMs": 295130,
+      "endMs": 297930
+    },
+    {
+      "index": 57,
+      "text": "Be home before dark, and make sure you're not followed.",
+      "kind": "dialogue",
+      "startMs": 298310,
+      "endMs": 301050
+    },
+    {
+      "index": 58,
+      "text": "Lock all doors and windows.",
+      "kind": "dialogue",
+      "startMs": 301360,
+      "endMs": 302840
+    },
+    {
+      "index": 59,
+      "text": "And don't take candy from strangers. They're only human!",
+      "kind": "dialogue",
+      "startMs": 303130,
+      "endMs": 306360
+    },
+    {
+      "index": 60,
+      "text": "What's the point of all these precautions?",
+      "kind": "dialogue",
+      "startMs": 306650,
+      "endMs": 308720
+    },
+    {
+      "index": 61,
+      "text": "I've already lost the only thing that matters to me.",
+      "kind": "dialogue",
+      "startMs": 309030,
+      "endMs": 311790
+    },
+    {
+      "index": 62,
+      "text": "Oh, Lisa, stop pining for your saxophone. I got you another instrument.",
+      "kind": "dialogue",
+      "startMs": 312060,
+      "endMs": 315750
+    },
+    {
+      "index": 63,
+      "text": "What, this jug? ## [ Rhythmic Tones ] Hee-hee! [ Laughing ] Whee! Whoa-ho-ho!",
+      "kind": "dialogue",
+      "startMs": 316340,
+      "endMs": 322290
+    },
+    {
+      "index": 64,
+      "text": "Lisa, never, ever stop in the middle of a hoedown.",
+      "kind": "dialogue",
+      "startMs": 324950,
+      "endMs": 328620
+    },
+    {
+      "index": 65,
+      "text": "[ Crying ]",
+      "kind": "sdh",
+      "startMs": 328900,
+      "endMs": 331170
+    },
+    {
+      "index": 66,
+      "text": "Oh, honey, I didn't realize how much that horn meant to you.",
+      "kind": "dialogue",
+      "startMs": 331600,
+      "endMs": 334960
+    },
+    {
+      "index": 67,
+      "text": "Don't worry. Daddy's gonna get it back.",
+      "kind": "dialogue",
+      "startMs": 335330,
+      "endMs": 339000
+    },
+    {
+      "index": 68,
+      "text": "I don't know how, but I'll figure out something.",
+      "kind": "dialogue",
+      "startMs": 339350,
+      "endMs": 342160
+    },
+    {
+      "index": 69,
+      "text": "Thank you.",
+      "kind": "dialogue",
+      "startMs": 342500,
+      "endMs": 343860
+    },
+    {
+      "index": 70,
+      "text": "You know, Lisa, music helps Daddy think.",
+      "kind": "dialogue",
+      "startMs": 344780,
+      "endMs": 347400
+    },
+    {
+      "index": 71,
+      "text": "[ Groans ] ## [ Rhythmic Tones ]",
+      "kind": "dialogue",
+      "startMs": 348350,
+      "endMs": 351220
+    },
+    {
+      "index": 72,
+      "text": "[ Flanders ] Welcome, neighbors.",
+      "kind": "dialogue",
+      "startMs": 357270,
+      "endMs": 358540
+    },
+    {
+      "index": 73,
+      "text": "Since the police can't seem to get off their duffaroonies... to do something about this burglareeno...",
+      "kind": "dialogue",
+      "startMs": 358920,
+      "endMs": 364200
+    },
+    {
+      "index": 74,
+      "text": "I think it's time we start our own neighborhood watch... aroonie!",
+      "kind": "dialogue",
+      "startMs": 364550,
+      "endMs": 368280
+    },
+    {
+      "index": 75,
+      "text": "[ All ] Yea! Now, who should lead the group?",
+      "kind": "dialogue",
+      "startMs": 368810,
+      "endMs": 370840
+    },
+    {
+      "index": 76,
+      "text": "You! [ All ] Yea!",
+      "kind": "dialogue",
+      "startMs": 371120,
+      "endMs": 372820
+    },
+    {
+      "index": 77,
+      "text": "Flanders! Flanders! Flanders!",
+      "kind": "dialogue",
+      "startMs": 373100,
+      "endMs": 375730
+    },
+    {
+      "index": 78,
+      "text": "I don't really have very much experience, but--",
+      "kind": "dialogue",
+      "startMs": 376000,
+      "endMs": 377950
+    },
+    {
+      "index": 79,
+      "text": "Someone else! [ All ] Yea!",
+      "kind": "dialogue",
+      "startMs": 378270,
+      "endMs": 380150
+    },
+    {
+      "index": 80,
+      "text": "Someone else! Someone else! Someone else!",
+      "kind": "dialogue",
+      "startMs": 380410,
+      "endMs": 383170
+    },
+    {
+      "index": 81,
+      "text": "I'm someone else. He's right!",
+      "kind": "dialogue",
+      "startMs": 383510,
+      "endMs": 385560
+    },
+    {
+      "index": 82,
+      "text": "We don't need a thinker.",
+      "kind": "dialogue",
+      "startMs": 385560,
+      "endMs": 386840
+    },
+    {
+      "index": 83,
+      "text": "We need a doer, someone who'll act without considering the consequences.",
+      "kind": "dialogue",
+      "startMs": 386840,
+      "endMs": 390510
+    },
+    {
+      "index": 84,
+      "text": "[ All Chanting ] Homer! Homer! Homer!",
+      "kind": "dialogue",
+      "startMs": 390830,
+      "endMs": 393010
+    },
+    {
+      "index": 85,
+      "text": "I'm with you, Homer! I be with ya too, matey.",
+      "kind": "dialogue",
+      "startMs": 393320,
+      "endMs": 396220
+    },
+    {
+      "index": 86,
+      "text": "I'm with you, Homer. You're the man, Homer.",
+      "kind": "dialogue",
+      "startMs": 396510,
+      "endMs": 398370
+    },
+    {
+      "index": 87,
+      "text": "You should do it. You're the man, man.",
+      "kind": "dialogue",
+      "startMs": 398370,
+      "endMs": 399910
+    },
+    {
+      "index": 88,
+      "text": "I'll join! I'm filled with piss and vinegar.",
+      "kind": "dialogue",
+      "startMs": 399910,
+      "endMs": 402900
+    },
+    {
+      "index": 89,
+      "text": "At first I was just filled with vinegar.",
+      "kind": "dialogue",
+      "startMs": 403180,
+      "endMs": 405140
+    },
+    {
+      "index": 90,
+      "text": "Hmm, sorry, Dad. You're too old.",
+      "kind": "dialogue",
+      "startMs": 405450,
+      "endMs": 407420
+    },
+    {
+      "index": 91,
+      "text": "[ Sputtering ] Too old?",
+      "kind": "dialogue",
+      "startMs": 407670,
+      "endMs": 409620
+    },
+    {
+      "index": 92,
+      "text": "Why, that just means I have experience!",
+      "kind": "dialogue",
+      "startMs": 409990,
+      "endMs": 412960
+    },
+    {
+      "index": 93,
+      "text": "Who chased the Irish out of Springfield Village in aught-four?",
+      "kind": "dialogue",
+      "startMs": 413320,
+      "endMs": 416740
+    },
+    {
+      "index": 94,
+      "text": "Me! That's who.",
+      "kind": "dialogue",
+      "startMs": 417100,
+      "endMs": 418980
+    },
+    {
+      "index": 95,
+      "text": "And a fine job you did too.",
+      "kind": "dialogue",
+      "startMs": 419260,
+      "endMs": 420940
+    },
+    {
+      "index": 96,
+      "text": "Aw, Dad, you've done a lot of great things... but you're a very old man now... and old people are useless.",
+      "kind": "dialogue",
+      "startMs": 421290,
+      "endMs": 428930
+    },
+    {
+      "index": 97,
+      "text": "Aren't they? Aren't they? Huh? [ Giggling ] Yes, they are! Yes, they are! [ Baby Talk ] Stop it! It's a form of abuse!",
+      "kind": "dialogue",
+      "startMs": 429260,
+      "endMs": 437030
+    },
+    {
+      "index": 98,
+      "text": "Hmm. Mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 440080,
+      "endMs": 442190
+    },
+    {
+      "index": 99,
+      "text": "I don't think the guns are a good idea.",
+      "kind": "dialogue",
+      "startMs": 443900,
+      "endMs": 445510
+    },
+    {
+      "index": 100,
+      "text": "Marge! We're responsible adults.",
+      "kind": "dialogue",
+      "startMs": 445510,
+      "endMs": 448650
+    },
+    {
+      "index": 101,
+      "text": "[ Gunshot ] Whoops.",
+      "kind": "dialogue",
+      "startMs": 449010,
+      "endMs": 450190
+    },
+    {
+      "index": 102,
+      "text": "If a group of responsible adults can't handle firearms in a responsible way--",
+      "kind": "dialogue",
+      "startMs": 450460,
+      "endMs": 454020
+    },
+    {
+      "index": 103,
+      "text": "[ Gunshot ] Sorry.",
+      "kind": "dialogue",
+      "startMs": 454330,
+      "endMs": 455610
+    },
+    {
+      "index": 104,
+      "text": "[ Gunshot ] Uh-oh.",
+      "kind": "dialogue",
+      "startMs": 455890,
+      "endMs": 457040
+    },
+    {
+      "index": 105,
+      "text": "[ Gunshot ] Me again.",
+      "kind": "dialogue",
+      "startMs": 457040,
+      "endMs": 458050
+    },
+    {
+      "index": 106,
+      "text": "[ Gunshot ] Sorry.",
+      "kind": "dialogue",
+      "startMs": 458050,
+      "endMs": 459710
+    },
+    {
+      "index": 107,
+      "text": "[ Grunts ] So, wedding, huh?",
+      "kind": "dialogue",
+      "startMs": 464100,
+      "endMs": 465440
+    },
+    {
+      "index": 108,
+      "text": "No, we're forming a vigilante group.",
+      "kind": "dialogue",
+      "startMs": 465440,
+      "endMs": 467230
+    },
+    {
+      "index": 109,
+      "text": "Come with me.",
+      "kind": "dialogue",
+      "startMs": 468740,
+      "endMs": 470080
+    },
+    {
+      "index": 110,
+      "text": "See, it's a miniature version of the A-bomb.",
+      "kind": "dialogue",
+      "startMs": 470420,
+      "endMs": 472110
+    },
+    {
+      "index": 111,
+      "text": "The government built it in the '50s to drop on beatniks.",
+      "kind": "dialogue",
+      "startMs": 472370,
+      "endMs": 475010
+    },
+    {
+      "index": 112,
+      "text": "''Radiant, cool, crazy nightmares.",
+      "kind": "dialogue",
+      "startMs": 476700,
+      "endMs": 480080
+    },
+    {
+      "index": 113,
+      "text": "Zen New Jersey nowhere.''",
+      "kind": "dialogue",
+      "startMs": 480440,
+      "endMs": 483140
+    },
+    {
+      "index": 114,
+      "text": "[Jet Engine Roaring ]",
+      "kind": "sdh",
+      "startMs": 484000,
+      "endMs": 485760
+    },
+    {
+      "index": 115,
+      "text": "Put this in your pipe and smoke it!",
+      "kind": "dialogue",
+      "startMs": 486600,
+      "endMs": 488430
+    },
+    {
+      "index": 116,
+      "text": "Hmm? [ Angry Grunt ] ''How now, brown bureaucrat?''",
+      "kind": "dialogue",
+      "startMs": 490950,
+      "endMs": 495550
+    },
+    {
+      "index": 117,
+      "text": "[ Grunting ]",
+      "kind": "sdh",
+      "startMs": 496580,
+      "endMs": 497910
+    },
+    {
+      "index": 118,
+      "text": "Whoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 500430,
+      "endMs": 502070
+    },
+    {
+      "index": 119,
+      "text": "Whoo-hoo-hoo-hoo!",
+      "kind": "dialogue",
+      "startMs": 502570,
+      "endMs": 504650
+    },
+    {
+      "index": 120,
+      "text": "Whaa-ha-ha-ho!",
+      "kind": "dialogue",
+      "startMs": 504980,
+      "endMs": 507200
+    },
+    {
+      "index": 121,
+      "text": "Take that, Maynard G. Krebs!",
+      "kind": "dialogue",
+      "startMs": 507870,
+      "endMs": 509860
+    },
+    {
+      "index": 122,
+      "text": "Hey, see the sign? Sorry.",
+      "kind": "dialogue",
+      "startMs": 510110,
+      "endMs": 513340
+    },
+    {
+      "index": 123,
+      "text": "Okay, men. It's time to clean up this town!",
+      "kind": "dialogue",
+      "startMs": 517050,
+      "endMs": 520430
+    },
+    {
+      "index": 124,
+      "text": "Meaning what, exactly?",
+      "kind": "dialogue",
+      "startMs": 521880,
+      "endMs": 523250
+    },
+    {
+      "index": 125,
+      "text": "You know, push people around, make ourselves feel big.",
+      "kind": "dialogue",
+      "startMs": 523550,
+      "endMs": 525860
+    },
+    {
+      "index": 126,
+      "text": "Bart, give me that megaphone of yours.",
+      "kind": "dialogue",
+      "startMs": 526350,
+      "endMs": 528390
+    },
+    {
+      "index": 127,
+      "text": "It's not just ''a megaphone,'' Dad. It's a Rapmaster 2000.",
+      "kind": "dialogue",
+      "startMs": 528650,
+      "endMs": 531960
+    },
+    {
+      "index": 128,
+      "text": "Never mind the commercials. Just give it to me.",
+      "kind": "dialogue",
+      "startMs": 532260,
+      "endMs": 534180
+    },
+    {
+      "index": 129,
+      "text": "I've gotta whip this neighborhood into shape.",
+      "kind": "dialogue",
+      "startMs": 534500,
+      "endMs": 536250
+    },
+    {
+      "index": 130,
+      "text": "Move along there. [ Gasps ] It's Hammer!",
+      "kind": "dialogue",
+      "startMs": 539170,
+      "endMs": 542470
+    },
+    {
+      "index": 131,
+      "text": "##[ Dance ] Return to your homes and places of businesses.",
+      "kind": "dialogue",
+      "startMs": 543710,
+      "endMs": 548410
+    },
+    {
+      "index": 132,
+      "text": "[ Cheering ]",
+      "kind": "sdh",
+      "startMs": 549320,
+      "endMs": 550550
+    },
+    {
+      "index": 133,
+      "text": "[ Grunting ] Hmm? ##[ Saxophone ]",
+      "kind": "dialogue",
+      "startMs": 551350,
+      "endMs": 553090
+    },
+    {
+      "index": 134,
+      "text": "[ Gasping ]",
+      "kind": "sdh",
+      "startMs": 553090,
+      "endMs": 555450
+    },
+    {
+      "index": 135,
+      "text": "Hey, you! Where'd you get that saxophone?",
+      "kind": "dialogue",
+      "startMs": 557450,
+      "endMs": 559970
+    },
+    {
+      "index": 136,
+      "text": "Sears. Get him!",
+      "kind": "dialogue",
+      "startMs": 560800,
+      "endMs": 562600
+    },
+    {
+      "index": 137,
+      "text": "[ Angry Shouting ] I got him! I got him!",
+      "kind": "dialogue",
+      "startMs": 563340,
+      "endMs": 565210
+    },
+    {
+      "index": 138,
+      "text": "No burning leaves without a permit!",
+      "kind": "dialogue",
+      "startMs": 566600,
+      "endMs": 568640
+    },
+    {
+      "index": 139,
+      "text": "I got one. Too late!",
+      "kind": "dialogue",
+      "startMs": 568930,
+      "endMs": 570530
+    },
+    {
+      "index": 140,
+      "text": "[ Loud Footsteps ]",
+      "kind": "sdh",
+      "startMs": 576350,
+      "endMs": 577460
+    },
+    {
+      "index": 141,
+      "text": "You'd better have a good reason for doing that, boy.",
+      "kind": "dialogue",
+      "startMs": 578170,
+      "endMs": 580970
+    },
+    {
+      "index": 142,
+      "text": "It makes me feel like a big man.",
+      "kind": "dialogue",
+      "startMs": 581420,
+      "endMs": 584280
+    },
+    {
+      "index": 143,
+      "text": "Let me check my reason list. Yep, it's on here.",
+      "kind": "dialogue",
+      "startMs": 584660,
+      "endMs": 587850
+    },
+    {
+      "index": 144,
+      "text": "Hey, you're that drunken posse.",
+      "kind": "dialogue",
+      "startMs": 588150,
+      "endMs": 590820
+    },
+    {
+      "index": 145,
+      "text": "Wow! Can I join ya?",
+      "kind": "dialogue",
+      "startMs": 591120,
+      "endMs": 593550
+    },
+    {
+      "index": 146,
+      "text": "I don't know. Can you swing a sack of doorknobs?",
+      "kind": "dialogue",
+      "startMs": 593820,
+      "endMs": 596280
+    },
+    {
+      "index": 147,
+      "text": "Can I! You're in. Here's the sack.",
+      "kind": "dialogue",
+      "startMs": 596590,
+      "endMs": 599550
+    },
+    {
+      "index": 148,
+      "text": "But you gotta supply your own knobs.",
+      "kind": "dialogue",
+      "startMs": 599820,
+      "endMs": 601670
+    },
+    {
+      "index": 149,
+      "text": "So I said to him, ''Look, buddy, your car was upside down when we got here.",
+      "kind": "dialogue",
+      "startMs": 601990,
+      "endMs": 606110
+    },
+    {
+      "index": 150,
+      "text": "And as for your grandma, she shouldn't have mouthed off like that!''",
+      "kind": "dialogue",
+      "startMs": 606440,
+      "endMs": 609480
+    },
+    {
+      "index": 151,
+      "text": "Dad, don't you see you're abusing your power like all vigilantes?",
+      "kind": "dialogue",
+      "startMs": 609760,
+      "endMs": 613010
+    },
+    {
+      "index": 152,
+      "text": "I mean, if you're the police, who will police the police?",
+      "kind": "dialogue",
+      "startMs": 613300,
+      "endMs": 616650
+    },
+    {
+      "index": 153,
+      "text": "I dunno. Coast Guard?",
+      "kind": "dialogue",
+      "startMs": 617020,
+      "endMs": 618800
+    },
+    {
+      "index": 154,
+      "text": "Homer, wasn't the whole point to catch the cat burglar?",
+      "kind": "dialogue",
+      "startMs": 619110,
+      "endMs": 621820
+    },
+    {
+      "index": 155,
+      "text": "And I still don't have my saxophone.",
+      "kind": "dialogue",
+      "startMs": 621820,
+      "endMs": 624160
+    },
+    {
+      "index": 156,
+      "text": "Lisa, the mob is working on getting your saxophone back... but we've also expanded into other important areas.",
+      "kind": "dialogue",
+      "startMs": 624440,
+      "endMs": 629780
+    },
+    {
+      "index": 157,
+      "text": "Literacy programs, preserving our beloved covered bridges... world domination.",
+      "kind": "dialogue",
+      "startMs": 630090,
+      "endMs": 635500
+    },
+    {
+      "index": 158,
+      "text": "World domination? Oh, that might be a typo.",
+      "kind": "dialogue",
+      "startMs": 635800,
+      "endMs": 639030
+    },
+    {
+      "index": 159,
+      "text": "[ Thinking ] Mental note: The girl knows too much.",
+      "kind": "dialogue",
+      "startMs": 639320,
+      "endMs": 642410
+    },
+    {
+      "index": 160,
+      "text": "Mr. Simpson, how do you respond to the charge... that petty vandalism such as graffiti is down 80%... while heavy sack beatings are up a shocking 900%?",
+      "kind": "dialogue",
+      "startMs": 642780,
+      "endMs": 652170
+    },
+    {
+      "index": 161,
+      "text": "Oh, people can come up with statistics to prove anything, Kent.",
+      "kind": "dialogue",
+      "startMs": 652440,
+      "endMs": 655220
+    },
+    {
+      "index": 162,
+      "text": "Forty percent of all people know that.",
+      "kind": "dialogue",
+      "startMs": 655540,
+      "endMs": 657620
+    },
+    {
+      "index": 163,
+      "text": "I see. What do you say to the accusation... that your group has been causing more crimes than it's been preventing?",
+      "kind": "dialogue",
+      "startMs": 658010,
+      "endMs": 662610
+    },
+    {
+      "index": 164,
+      "text": "Oh, Kent, I'd be lying if I said my men weren't committing crimes.",
+      "kind": "dialogue",
+      "startMs": 662880,
+      "endMs": 667230
+    },
+    {
+      "index": 165,
+      "text": "Hmm, touch�.",
+      "kind": "dialogue",
+      "startMs": 669390,
+      "endMs": 670930
+    },
+    {
+      "index": 166,
+      "text": "[ Phone Rings ] Well, it looks like we have our first caller.",
+      "kind": "dialogue",
+      "startMs": 671300,
+      "endMs": 673320
+    },
+    {
+      "index": 167,
+      "text": "And I mean ever, because this is not a call-in show.",
+      "kind": "dialogue",
+      "startMs": 673680,
+      "endMs": 676920
+    },
+    {
+      "index": 168,
+      "text": "Hello. You're on the air. [ Man ] Hello, Kent.",
+      "kind": "dialogue",
+      "startMs": 677240,
+      "endMs": 679240
+    },
+    {
+      "index": 169,
+      "text": "Hello, Homer, my arch nemesis.",
+      "kind": "dialogue",
+      "startMs": 679600,
+      "endMs": 682130
+    },
+    {
+      "index": 170,
+      "text": "Y'ello.",
+      "kind": "dialogue",
+      "startMs": 682450,
+      "endMs": 683560
+    },
+    {
+      "index": 171,
+      "text": "Uh...you do realize who this is.",
+      "kind": "dialogue",
+      "startMs": 684010,
+      "endMs": 686510
+    },
+    {
+      "index": 172,
+      "text": "Uh... Marge?",
+      "kind": "dialogue",
+      "startMs": 686820,
+      "endMs": 688710
+    },
+    {
+      "index": 173,
+      "text": "No, Homer, I'm not your wife, although I do enjoy her pearls.",
+      "kind": "dialogue",
+      "startMs": 688980,
+      "endMs": 693690
+    },
+    {
+      "index": 174,
+      "text": "As a matter of fact, I'm holding them right now.",
+      "kind": "dialogue",
+      "startMs": 694100,
+      "endMs": 696600
+    },
+    {
+      "index": 175,
+      "text": "[ Pearls Clattering ]",
+      "kind": "sdh",
+      "startMs": 697040,
+      "endMs": 698920
+    },
+    {
+      "index": 176,
+      "text": "Why, you monster! And you have my daughter's saxophone too!",
+      "kind": "dialogue",
+      "startMs": 698920,
+      "endMs": 702400
+    },
+    {
+      "index": 177,
+      "text": "Homer! That's our stage manager!",
+      "kind": "dialogue",
+      "startMs": 705260,
+      "endMs": 707140
+    },
+    {
+      "index": 178,
+      "text": "Oh. Sorry. I'm a little nervous.",
+      "kind": "dialogue",
+      "startMs": 707770,
+      "endMs": 710090
+    },
+    {
+      "index": 179,
+      "text": "It may interest you to know that for my next crime...",
+      "kind": "dialogue",
+      "startMs": 710380,
+      "endMs": 712380
+    },
+    {
+      "index": 180,
+      "text": "I'll be pinching the pride andjoy of the Springfield Museum... the world's largest cubic zirconia.",
+      "kind": "dialogue",
+      "startMs": 712670,
+      "endMs": 718070
+    },
+    {
+      "index": 181,
+      "text": "Listen, Mr. Cat Burglar.",
+      "kind": "dialogue",
+      "startMs": 718330,
+      "endMs": 719660
+    },
+    {
+      "index": 182,
+      "text": "I vow to go without sleep and guard the Springfield Museum day and night... for as long as it takes from now on... unless you want to taunt me more by giving me an approximate time.",
+      "kind": "dialogue",
+      "startMs": 719940,
+      "endMs": 729530
+    },
+    {
+      "index": 183,
+      "text": "We'll be right back. I get to say that!",
+      "kind": "dialogue",
+      "startMs": 730780,
+      "endMs": 733490
+    },
+    {
+      "index": 184,
+      "text": "Son, we want to help you catch that plug-ugly yegg.",
+      "kind": "dialogue",
+      "startMs": 736020,
+      "endMs": 739230
+    },
+    {
+      "index": 185,
+      "text": "Dad, the best way for you to help is to set a good example.",
+      "kind": "dialogue",
+      "startMs": 739550,
+      "endMs": 743640
+    },
+    {
+      "index": 186,
+      "text": "Just stand around and don't steal anything.",
+      "kind": "dialogue",
+      "startMs": 744010,
+      "endMs": 746170
+    },
+    {
+      "index": 187,
+      "text": "Hey! We're on our break!",
+      "kind": "dialogue",
+      "startMs": 748850,
+      "endMs": 751210
+    },
+    {
+      "index": 188,
+      "text": "Any sign of the burglar yet? He'll show.",
+      "kind": "dialogue",
+      "startMs": 751740,
+      "endMs": 753550
+    },
+    {
+      "index": 189,
+      "text": "How's that? It's his job.",
+      "kind": "dialogue",
+      "startMs": 753890,
+      "endMs": 755280
+    },
+    {
+      "index": 190,
+      "text": "How's that? He's a burglar.",
+      "kind": "dialogue",
+      "startMs": 755570,
+      "endMs": 757290
+    },
+    {
+      "index": 191,
+      "text": "##[ Dramatic ]",
+      "kind": "dialogue",
+      "startMs": 758300,
+      "endMs": 759930
+    },
+    {
+      "index": 192,
+      "text": "Well, Mr. Cat Burglar.",
+      "kind": "dialogue",
+      "startMs": 765660,
+      "endMs": 767680
+    },
+    {
+      "index": 193,
+      "text": "You'd like to get in here, wouldn't you?",
+      "kind": "dialogue",
+      "startMs": 767990,
+      "endMs": 770120
+    },
+    {
+      "index": 194,
+      "text": "There's just one little problem-- thirty-six years ago, some lady gave birth to a man named HomerJ. Simp-- Oh, my God! Underage kids drinking beer without a permit!",
+      "kind": "dialogue",
+      "startMs": 770410,
+      "endMs": 779710
+    },
+    {
+      "index": 195,
+      "text": "[ Boys Chanting ] Chug.! Chug.! Chug.! Chug.! Chug.! Chug.!",
+      "kind": "dialogue",
+      "startMs": 792180,
+      "endMs": 795450
+    },
+    {
+      "index": 196,
+      "text": "''Asleep at the switch''? I wasn't asleep. I was drunk!",
+      "kind": "dialogue",
+      "startMs": 799730,
+      "endMs": 804020
+    },
+    {
+      "index": 197,
+      "text": "I believe you, Dad.",
+      "kind": "dialogue",
+      "startMs": 804350,
+      "endMs": 805970
+    },
+    {
+      "index": 198,
+      "text": "Well, no matter what the paper says, I still have a job to do.",
+      "kind": "dialogue",
+      "startMs": 806250,
+      "endMs": 809050
+    },
+    {
+      "index": 199,
+      "text": "[ Angry Shouting ] [ Grunting ] Go home, Simpson!",
+      "kind": "dialogue",
+      "startMs": 809910,
+      "endMs": 814590
+    },
+    {
+      "index": 200,
+      "text": "You let me down, man!",
+      "kind": "dialogue",
+      "startMs": 816910,
+      "endMs": 818980
+    },
+    {
+      "index": 201,
+      "text": "Now I don't believe in nothing no more.",
+      "kind": "dialogue",
+      "startMs": 819360,
+      "endMs": 821440
+    },
+    {
+      "index": 202,
+      "text": "I'm going to law school.",
+      "kind": "dialogue",
+      "startMs": 821750,
+      "endMs": 823650
+    },
+    {
+      "index": 203,
+      "text": "No!",
+      "kind": "dialogue",
+      "startMs": 823940,
+      "endMs": 826640
+    },
+    {
+      "index": 204,
+      "text": "Dad, maybe this will cheer you up.",
+      "kind": "dialogue",
+      "startMs": 827620,
+      "endMs": 829320
+    },
+    {
+      "index": 205,
+      "text": "## [ Rhythmic Tones ] Oh, this doesn't work anymore.",
+      "kind": "dialogue",
+      "startMs": 829880,
+      "endMs": 833310
+    },
+    {
+      "index": 206,
+      "text": "I didn't say stop.",
+      "kind": "dialogue",
+      "startMs": 834720,
+      "endMs": 836320
+    },
+    {
+      "index": 207,
+      "text": "Oh, my. I had no idea how much this town loved that zirconia.",
+      "kind": "dialogue",
+      "startMs": 839780,
+      "endMs": 843370
+    },
+    {
+      "index": 208,
+      "text": "Let me through! Coming through! Oh!",
+      "kind": "dialogue",
+      "startMs": 843720,
+      "endMs": 845520
+    },
+    {
+      "index": 209,
+      "text": "Oh, Grampa, they pelted you too?",
+      "kind": "dialogue",
+      "startMs": 845790,
+      "endMs": 848010
+    },
+    {
+      "index": 210,
+      "text": "No, actually I fell down at the Big Boy.",
+      "kind": "dialogue",
+      "startMs": 848310,
+      "endMs": 850570
+    },
+    {
+      "index": 211,
+      "text": "Son, I've come to help you.",
+      "kind": "dialogue",
+      "startMs": 851240,
+      "endMs": 853130
+    },
+    {
+      "index": 212,
+      "text": "I know who the cat burglar is.",
+      "kind": "dialogue",
+      "startMs": 853390,
+      "endMs": 855510
+    },
+    {
+      "index": 213,
+      "text": "What? Who? Huh?",
+      "kind": "dialogue",
+      "startMs": 855900,
+      "endMs": 857760
+    },
+    {
+      "index": 214,
+      "text": "Well, well, well.",
+      "kind": "dialogue",
+      "startMs": 858080,
+      "endMs": 860040
+    },
+    {
+      "index": 215,
+      "text": "Before, I was too old and no one wanted my help.",
+      "kind": "dialogue",
+      "startMs": 860360,
+      "endMs": 863780
+    },
+    {
+      "index": 216,
+      "text": "Suddenly, look who comes to old Grampa with-- Wait! Where are you going? Come back. I'll tell you.",
+      "kind": "dialogue",
+      "startMs": 864110,
+      "endMs": 870790
+    },
+    {
+      "index": 217,
+      "text": "He was right under my nose the whole time.",
+      "kind": "dialogue",
+      "startMs": 871160,
+      "endMs": 874510
+    },
+    {
+      "index": 218,
+      "text": "He lives in my retirement home. His name is Malloy.",
+      "kind": "dialogue",
+      "startMs": 874820,
+      "endMs": 878160
+    },
+    {
+      "index": 219,
+      "text": "Wow! How'd you track him down, Grampa?",
+      "kind": "dialogue",
+      "startMs": 878540,
+      "endMs": 880810
+    },
+    {
+      "index": 220,
+      "text": "Good question.",
+      "kind": "dialogue",
+      "startMs": 881130,
+      "endMs": 882580
+    },
+    {
+      "index": 221,
+      "text": "On one of my frequent trips to the ground... [ Yelps ] I noticed Malloy wore sneakers... for sneaking!",
+      "kind": "dialogue",
+      "startMs": 883150,
+      "endMs": 892410
+    },
+    {
+      "index": 222,
+      "text": "My next clue came just yesterday at the museum.",
+      "kind": "dialogue",
+      "startMs": 892700,
+      "endMs": 895240
+    },
+    {
+      "index": 223,
+      "text": "We felt slighted by your age bashing and started home.",
+      "kind": "dialogue",
+      "startMs": 895610,
+      "endMs": 899700
+    },
+    {
+      "index": 224,
+      "text": "Malloy said, ''I'll catch up with you. ''",
+      "kind": "dialogue",
+      "startMs": 900060,
+      "endMs": 903100
+    },
+    {
+      "index": 225,
+      "text": "I couldn't quite put my fnger on it.",
+      "kind": "dialogue",
+      "startMs": 907840,
+      "endMs": 909810
+    },
+    {
+      "index": 226,
+      "text": "There was something strange about the way he walked.",
+      "kind": "dialogue",
+      "startMs": 910150,
+      "endMs": 912870
+    },
+    {
+      "index": 227,
+      "text": "Much more vertical than usual.",
+      "kind": "dialogue",
+      "startMs": 913290,
+      "endMs": 916120
+    },
+    {
+      "index": 228,
+      "text": "And finally, Malloy, unlike most retired people... has the world's largest cubic zirconia on his coffee table.",
+      "kind": "dialogue",
+      "startMs": 916420,
+      "endMs": 924490
+    },
+    {
+      "index": 229,
+      "text": "Aw, Dad, I could kiss ya!",
+      "kind": "dialogue",
+      "startMs": 924760,
+      "endMs": 926530
+    },
+    {
+      "index": 230,
+      "text": "Kiss me right here. It's the only part that still has feeling.",
+      "kind": "dialogue",
+      "startMs": 926870,
+      "endMs": 929740
+    },
+    {
+      "index": 231,
+      "text": "Mwah! Hmm.",
+      "kind": "dialogue",
+      "startMs": 930060,
+      "endMs": 931660
+    },
+    {
+      "index": 232,
+      "text": "[ Angry Shouting ] No, wait! I know where the burglar is!",
+      "kind": "dialogue",
+      "startMs": 932260,
+      "endMs": 934870
+    },
+    {
+      "index": 233,
+      "text": "To the retirement home! [ All ] Hooray!",
+      "kind": "dialogue",
+      "startMs": 935220,
+      "endMs": 938410
+    },
+    {
+      "index": 234,
+      "text": "[ Man ] Let's go.! [ Angry Shouting ]",
+      "kind": "dialogue",
+      "startMs": 939740,
+      "endMs": 941480
+    },
+    {
+      "index": 235,
+      "text": "And there she is, the world's largest cubic zirconia.",
+      "kind": "dialogue",
+      "startMs": 943430,
+      "endMs": 947400
+    },
+    {
+      "index": 236,
+      "text": "What an eyesore!",
+      "kind": "dialogue",
+      "startMs": 947710,
+      "endMs": 949210
+    },
+    {
+      "index": 237,
+      "text": "So, Mr. Malloy, it seems that the cat has been caught... by the very person that was trying to catch him.",
+      "kind": "dialogue",
+      "startMs": 949490,
+      "endMs": 957550
+    },
+    {
+      "index": 238,
+      "text": "How ironic. Homer, old chap, well done.",
+      "kind": "dialogue",
+      "startMs": 957950,
+      "endMs": 960740
+    },
+    {
+      "index": 239,
+      "text": "If anyone was going to catch me, I'm glad it was you.",
+      "kind": "dialogue",
+      "startMs": 961070,
+      "endMs": 964080
+    },
+    {
+      "index": 240,
+      "text": "Actually, it wasn't me. It was my dad, Grampa.",
+      "kind": "dialogue",
+      "startMs": 964370,
+      "endMs": 968030
+    },
+    {
+      "index": 241,
+      "text": "Thanks, Son.",
+      "kind": "dialogue",
+      "startMs": 968340,
+      "endMs": 969840
+    },
+    {
+      "index": 242,
+      "text": "So, you see, old people aren't so useless after all.",
+      "kind": "dialogue",
+      "startMs": 970240,
+      "endMs": 973480
+    },
+    {
+      "index": 243,
+      "text": "Malloy's old, and he outsmarted the lot of you.",
+      "kind": "dialogue",
+      "startMs": 973840,
+      "endMs": 976480
+    },
+    {
+      "index": 244,
+      "text": "And I'm even older, and I outsmarted him!",
+      "kind": "dialogue",
+      "startMs": 976790,
+      "endMs": 979420
+    },
+    {
+      "index": 245,
+      "text": "[ Laughing ]",
+      "kind": "sdh",
+      "startMs": 979770,
+      "endMs": 981180
+    },
+    {
+      "index": 246,
+      "text": "Shut up. I've had my moment.",
+      "kind": "dialogue",
+      "startMs": 981770,
+      "endMs": 983660
+    },
+    {
+      "index": 247,
+      "text": "And of course, I'm happy to return all of your treasured possessions.",
+      "kind": "dialogue",
+      "startMs": 983920,
+      "endMs": 987590
+    },
+    {
+      "index": 248,
+      "text": "Oh, well, that's nice. [ Happy Murmuring ]",
+      "kind": "dialogue",
+      "startMs": 987920,
+      "endMs": 990080
+    },
+    {
+      "index": 249,
+      "text": "Selma, my dear, your lock of MacGyver's hair. Ohh.",
+      "kind": "dialogue",
+      "startMs": 990380,
+      "endMs": 994010
+    },
+    {
+      "index": 250,
+      "text": "Thank you. I'll add it to the ball.",
+      "kind": "dialogue",
+      "startMs": 994320,
+      "endMs": 996500
+    },
+    {
+      "index": 251,
+      "text": "And little Lisa, here's your saxophone.",
+      "kind": "dialogue",
+      "startMs": 998080,
+      "endMs": 1000690
+    },
+    {
+      "index": 252,
+      "text": "Thank you, and thank you, Dad.",
+      "kind": "dialogue",
+      "startMs": 1001260,
+      "endMs": 1004230
+    },
+    {
+      "index": 253,
+      "text": "You got it back, just like you said you would.",
+      "kind": "dialogue",
+      "startMs": 1004590,
+      "endMs": 1007120
+    },
+    {
+      "index": 254,
+      "text": "I sincerely regret any inconvenience I may have caused... and although I have stolen your material goods... let me assure you that your dear town has stolen my heart.",
+      "kind": "dialogue",
+      "startMs": 1007440,
+      "endMs": 1016960
+    },
+    {
+      "index": 255,
+      "text": "[ All ] Aww!",
+      "kind": "dialogue",
+      "startMs": 1017290,
+      "endMs": 1018960
+    },
+    {
+      "index": 256,
+      "text": "Oh, he's so charming. Let's let him go.",
+      "kind": "dialogue",
+      "startMs": 1019210,
+      "endMs": 1021790
+    },
+    {
+      "index": 257,
+      "text": "Yeah! Oh, sorry, folks.",
+      "kind": "dialogue",
+      "startMs": 1022100,
+      "endMs": 1024670
+    },
+    {
+      "index": 258,
+      "text": "Gee, I really hate to spoil this little love-in... but Mr. Malloy broke the law.",
+      "kind": "dialogue",
+      "startMs": 1024980,
+      "endMs": 1029200
+    },
+    {
+      "index": 259,
+      "text": "And when you break the law, you gotta go to jail.",
+      "kind": "dialogue",
+      "startMs": 1029500,
+      "endMs": 1031690
+    },
+    {
+      "index": 260,
+      "text": "That reminds me. Here's your monthly kickback.",
+      "kind": "dialogue",
+      "startMs": 1032030,
+      "endMs": 1034960
+    },
+    {
+      "index": 261,
+      "text": "You just-- You couldn't have picked a worse time.",
+      "kind": "dialogue",
+      "startMs": 1035280,
+      "endMs": 1037700
+    },
+    {
+      "index": 262,
+      "text": "I caught the cat burglar! I caught the cat burglar!",
+      "kind": "dialogue",
+      "startMs": 1038370,
+      "endMs": 1041620
+    },
+    {
+      "index": 263,
+      "text": "That means you! You are the cat burglar!",
+      "kind": "dialogue",
+      "startMs": 1041920,
+      "endMs": 1045160
+    },
+    {
+      "index": 264,
+      "text": "I suppose you're wondering where I hid the millions of dollars I stole over the years.",
+      "kind": "dialogue",
+      "startMs": 1045500,
+      "endMs": 1048560
+    },
+    {
+      "index": 265,
+      "text": "Shut up! Wait a minute. Maybe we should hear him out.",
+      "kind": "dialogue",
+      "startMs": 1048840,
+      "endMs": 1051850
+    },
+    {
+      "index": 266,
+      "text": "Where'd you hide the loot, Malloy?",
+      "kind": "dialogue",
+      "startMs": 1052240,
+      "endMs": 1053750
+    },
+    {
+      "index": 267,
+      "text": "It's buried right here in Springfield, under a big ''T.''",
+      "kind": "dialogue",
+      "startMs": 1054010,
+      "endMs": 1057400
+    },
+    {
+      "index": 268,
+      "text": "No kidding.",
+      "kind": "dialogue",
+      "startMs": 1057780,
+      "endMs": 1059740
+    },
+    {
+      "index": 269,
+      "text": "Big ''T,'' huh?",
+      "kind": "dialogue",
+      "startMs": 1060010,
+      "endMs": 1061610
+    },
+    {
+      "index": 270,
+      "text": "Well, I guess I'll be going to my home now... and sleep.",
+      "kind": "dialogue",
+      "startMs": 1061870,
+      "endMs": 1068060
+    },
+    {
+      "index": 271,
+      "text": "Yeah, me too.",
+      "kind": "dialogue",
+      "startMs": 1068370,
+      "endMs": 1069830
+    },
+    {
+      "index": 272,
+      "text": "I will also go home... for sleep. [ All Shouting ] Let me through! I gotta find a big ''T''!",
+      "kind": "dialogue",
+      "startMs": 1070660,
+      "endMs": 1077690
+    },
+    {
+      "index": 273,
+      "text": "There's millions of dollars buried under a big ''T''!",
+      "kind": "dialogue",
+      "startMs": 1078070,
+      "endMs": 1081590
+    },
+    {
+      "index": 274,
+      "text": "What? -[ People Screaming ]",
+      "kind": "dialogue",
+      "startMs": 1081890,
+      "endMs": 1083430
+    },
+    {
+      "index": 275,
+      "text": "We need more information.",
+      "kind": "dialogue",
+      "startMs": 1092960,
+      "endMs": 1094350
+    },
+    {
+      "index": 276,
+      "text": "Very well. It's buried at 4723 Maple Valley Road.",
+      "kind": "dialogue",
+      "startMs": 1094630,
+      "endMs": 1097730
+    },
+    {
+      "index": 277,
+      "text": "[ Sighs ] You take Highway 201 south for 1 5 minutes.",
+      "kind": "dialogue",
+      "startMs": 1099630,
+      "endMs": 1104490
+    },
+    {
+      "index": 278,
+      "text": "You take a left, a left--",
+      "kind": "dialogue",
+      "startMs": 1105010,
+      "endMs": 1106780
+    },
+    {
+      "index": 279,
+      "text": "[ Shouting ]",
+      "kind": "sdh",
+      "startMs": 1107110,
+      "endMs": 1109250
+    },
+    {
+      "index": 280,
+      "text": "[ Yells ] [ Whimpers ]",
+      "kind": "dialogue",
+      "startMs": 1109960,
+      "endMs": 1111710
+    },
+    {
+      "index": 281,
+      "text": "[ Siren Wailing ]",
+      "kind": "sdh",
+      "startMs": 1115370,
+      "endMs": 1116600
+    },
+    {
+      "index": 282,
+      "text": "Whoa! That was fun, ladies!",
+      "kind": "dialogue",
+      "startMs": 1121530,
+      "endMs": 1123630
+    },
+    {
+      "index": 283,
+      "text": "[ Horn Honks ]",
+      "kind": "sdh",
+      "startMs": 1123850,
+      "endMs": 1125190
+    },
+    {
+      "index": 284,
+      "text": "What's the matter with you, kid?",
+      "kind": "dialogue",
+      "startMs": 1126280,
+      "endMs": 1127880
+    },
+    {
+      "index": 285,
+      "text": "You told me the stream was shallow! Why, you-- I-- [ Chuckling ] Oh, you. Oh, kid.",
+      "kind": "dialogue",
+      "startMs": 1128190,
+      "endMs": 1134720
+    },
+    {
+      "index": 286,
+      "text": "I'll get even with you.",
+      "kind": "dialogue",
+      "startMs": 1135270,
+      "endMs": 1136670
+    },
+    {
+      "index": 287,
+      "text": "Hordes of panicky people seem to be evacuating the town... for some unknown reason.",
+      "kind": "dialogue",
+      "startMs": 1139700,
+      "endMs": 1144240
+    },
+    {
+      "index": 288,
+      "text": "Professor, without knowing precisely what the danger is... would you say it's time for our viewers to crack each other's heads open... and feast on the goo inside?",
+      "kind": "dialogue",
+      "startMs": 1144510,
+      "endMs": 1154360
+    },
+    {
+      "index": 289,
+      "text": "Yes, I would, Kent.",
+      "kind": "dialogue",
+      "startMs": 1154680,
+      "endMs": 1156030
+    },
+    {
+      "index": 290,
+      "text": "[ Siren Wailing ]",
+      "kind": "sdh",
+      "startMs": 1156790,
+      "endMs": 1158730
+    },
+    {
+      "index": 291,
+      "text": "##[ Choir Vocalizing ]",
+      "kind": "dialogue",
+      "startMs": 1164900,
+      "endMs": 1167260
+    },
+    {
+      "index": 292,
+      "text": "Whoa. I found something.",
+      "kind": "dialogue",
+      "startMs": 1182710,
+      "endMs": 1184470
+    },
+    {
+      "index": 293,
+      "text": "[ Excited Chattering ]",
+      "kind": "sdh",
+      "startMs": 1185040,
+      "endMs": 1187160
+    },
+    {
+      "index": 294,
+      "text": "[ Woman ] Come on. Pull it out.",
+      "kind": "dialogue",
+      "startMs": 1187510,
+      "endMs": 1189450
+    },
+    {
+      "index": 295,
+      "text": "It's just a piece of paper. It's mine!",
+      "kind": "dialogue",
+      "startMs": 1192240,
+      "endMs": 1194110
+    },
+    {
+      "index": 296,
+      "text": "''Frightfully sorry, but there is no hidden treasure.",
+      "kind": "dialogue",
+      "startMs": 1194470,
+      "endMs": 1198070
+    },
+    {
+      "index": 297,
+      "text": "''I have already used this time to escape from your jail.",
+      "kind": "dialogue",
+      "startMs": 1198390,
+      "endMs": 1201050
+    },
+    {
+      "index": 298,
+      "text": "Fondest wishes--'' Oh, I can't make out the signature!",
+      "kind": "dialogue",
+      "startMs": 1201340,
+      "endMs": 1204420
+    },
+    {
+      "index": 299,
+      "text": "Keep digging. We're bound to find something.",
+      "kind": "dialogue",
+      "startMs": 1204510,
+      "endMs": 1206860
+    },
+    {
+      "index": 300,
+      "text": "[ Mayor Quimby ] Mmm. I guess we're not going to find anything.",
+      "kind": "dialogue",
+      "startMs": 1209060,
+      "endMs": 1211530
+    },
+    {
+      "index": 301,
+      "text": "[ Otto ] Uh, how are we gonna get out of here?",
+      "kind": "dialogue",
+      "startMs": 1211930,
+      "endMs": 1214030
+    },
+    {
+      "index": 302,
+      "text": "[ Homer] We'll dig our way out! [ Grunting ] [ Chief Wiggum ] No, no. Dig up, stupid.",
+      "kind": "dialogue",
+      "startMs": 1214350,
+      "endMs": 1219890
+    },
+    {
+      "index": 303,
+      "text": "[ Shovels Digging ]",
+      "kind": "sdh",
+      "startMs": 1221000,
+      "endMs": 1223060
+    }
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 5,
+    "episode": 11
+  }
+}

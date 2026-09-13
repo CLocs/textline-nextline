@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x05---treehouse-of-horror-iiien",
   "title": "The Simpsons - 4x05 - Treehouse of Horror III.en",
   "sourceFilename": "The Simpsons - 4x05 - Treehouse of Horror III.en.srt",
-  "importedAt": "2026-09-12T18:42:48.584Z",
+  "importedAt": "2026-09-13T03:32:08.079Z",
   "lineCount": 344,
   "lines": [
     {
@@ -2413,5 +2413,10 @@
       "startMs": 1374469,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 5
+  }
 }

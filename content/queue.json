@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-13T00:27:21.367Z",
+  "updatedAt": "2026-09-13T03:54:37.264Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -221,7 +221,7 @@
       "rating": 5,
       "priority": 1,
       "playCount": 2,
-      "highlightCount": 73,
+      "highlightCount": 100,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,
@@ -265,9 +265,9 @@
       "playCount": 1,
       "highlightCount": 71,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Alien",
@@ -277,7 +277,7 @@
       "rating": 4.5,
       "priority": 4,
       "playCount": 1,
-      "highlightCount": 31,
+      "highlightCount": 58,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,
@@ -319,11 +319,11 @@
       "rating": 5,
       "priority": 1,
       "playCount": 2,
-      "highlightCount": 0,
+      "highlightCount": 23,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Das Boot",
@@ -503,9 +503,9 @@
       "playCount": 1,
       "highlightCount": 0,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Braindead",
@@ -615,9 +615,9 @@
       "playCount": 1,
       "highlightCount": 0,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "The Mask",
@@ -755,9 +755,9 @@
       "playCount": 1,
       "highlightCount": 26,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Saving Private Ryan",
@@ -1217,9 +1217,9 @@
       "playCount": 1,
       "highlightCount": 10,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Batman Begins",
@@ -1231,9 +1231,9 @@
       "playCount": 1,
       "highlightCount": 0,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Harry Potter and the Goblet of Fire",
@@ -1427,9 +1427,9 @@
       "playCount": 4,
       "highlightCount": 85,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Ratatouille",
@@ -1607,7 +1607,7 @@
       "rating": 5,
       "priority": 2,
       "playCount": 1,
-      "highlightCount": 14,
+      "highlightCount": 47,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,
@@ -1861,9 +1861,9 @@
       "playCount": 1,
       "highlightCount": 2,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Dawn of the Planet of the Apes",
@@ -1929,7 +1929,7 @@
       "rating": 5,
       "priority": 2,
       "playCount": 3,
-      "highlightCount": 0,
+      "highlightCount": 12,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,
@@ -1973,9 +1973,9 @@
       "playCount": 1,
       "highlightCount": 1,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "The Lego Movie",
@@ -2195,7 +2195,7 @@
       "rating": 5,
       "priority": 1,
       "playCount": 2,
-      "highlightCount": 0,
+      "highlightCount": 7,
       "tmdbId": null,
       "srt": "manual",
       "converted": true,
@@ -2265,7 +2265,7 @@
       "rating": 5,
       "priority": 2,
       "playCount": 1,
-      "highlightCount": 0,
+      "highlightCount": 13,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,
@@ -2953,9 +2953,9 @@
       "playCount": 1,
       "highlightCount": 62,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "BlackBerry",
@@ -3401,9 +3401,9 @@
       "playCount": 2,
       "highlightCount": 18,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "The Roast of Tom Brady",
@@ -3553,7 +3553,7 @@
       "rating": 5,
       "priority": 2,
       "playCount": 1,
-      "highlightCount": 50,
+      "highlightCount": 23,
       "tmdbId": null,
       "srt": "missing",
       "converted": false,

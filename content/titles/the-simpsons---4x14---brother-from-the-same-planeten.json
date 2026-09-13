@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x14---brother-from-the-same-planeten",
   "title": "The Simpsons - 4x14 - Brother From the Same Planet.en",
   "sourceFilename": "The Simpsons - 4x14 - Brother From the Same Planet.en.srt",
-  "importedAt": "2026-09-12T18:42:48.595Z",
+  "importedAt": "2026-09-13T03:32:08.095Z",
   "lineCount": 337,
   "lines": [
     {
@@ -2364,5 +2364,10 @@
       "startMs": 1371996,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 14
+  }
 }

@@ -8,7 +8,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 |-----|-------|-----|-------|------|--------|-------|-----|
 | 1 | 5 | 165 | [The Lord of the Rings: The Fellowship of the Ring](https://boxd.it/2b5O) | 2001 | 5 | yes | [x] |
 | 1 | 5 | 32 | [Tenet](https://boxd.it/leq4) | 2020 | 5 | yes | [ ] missing |
-| 1 | 4 | 85 | [Ocean's Thirteen](https://boxd.it/2aEy) | 2007 | 5 | yes | [ ] missing |
+| 1 | 4 | 85 | [Ocean's Thirteen](https://boxd.it/2aEy) | 2007 | 5 | yes | [x] |
 | 1 | 4 | 72 | [The Gentlemen](https://boxd.it/iYBQ) | 2019 | 5 | yes | [x] |
 | 1 | 3 | 197 | [The Lord of the Rings: The Return of the King](https://boxd.it/2b5u) | 2003 | 5 | yes | [x] |
 | 1 | 3 | 154 | [Ocean's Eleven](https://boxd.it/2aZm) | 2001 | 5 | yes | [x] |
@@ -18,42 +18,42 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 3 | 25 | [Saving Private Ryan](https://boxd.it/29ro) | 1998 | 5 | yes | [ ] missing |
 | 1 | 3 | 0 | [Dunkirk](https://boxd.it/d0Y6) | 2017 | 5 | yes | [ ] missing |
 | 1 | 2 | 124 | [One Battle After Another](https://boxd.it/DUHM) | 2025 | 5 | yes | [ ] missing |
+| 1 | 2 | 100 | [Young Frankenstein](https://boxd.it/25To) | 1974 | 5 | yes | [ ] missing |
 | 1 | 2 | 90 | [RocknRolla](https://boxd.it/1PmI) | 2008 | 5 | yes | [x] |
 | 1 | 2 | 78 | [Parasite](https://boxd.it/hTha) | 2019 | 5 | yes | [ ] missing |
 | 1 | 2 | 77 | [Caught Stealing](https://boxd.it/LnyS) | 2025 | 5 | yes | [ ] missing |
-| 1 | 2 | 73 | [Young Frankenstein](https://boxd.it/25To) | 1974 | 5 | yes | [ ] missing |
 | 1 | 2 | 72 | [Catch Me If You Can](https://boxd.it/29VS) | 2002 | 5 | yes | [ ] missing |
 | 1 | 2 | 65 | [Marty Supreme](https://boxd.it/Off0) | 2025 | 5 | yes | [ ] missing |
 | 1 | 2 | 53 | [Friday](https://boxd.it/1VLO) | 1995 | 5 | yes | [x] |
 | 1 | 2 | 39 | [The Fifth Element](https://boxd.it/71k) | 1997 | 5 | yes | [ ] missing |
 | 1 | 2 | 34 | [Mad Max: Fury Road](https://boxd.it/2DjO) | 2015 | 5 | yes | [ ] missing |
 | 1 | 2 | 23 | [The Bridge on the River Kwai](https://boxd.it/29wo) | 1957 | 5 | yes | [ ] missing |
-| 1 | 2 | 18 | [The Ministry of Ungentlemanly Warfare](https://boxd.it/u5zu) | 2024 | 5 | yes | [ ] missing |
+| 1 | 2 | 23 | [The Empire Strikes Back](https://boxd.it/27Vw) | 1980 | 5 | yes | [x] |
+| 1 | 2 | 18 | [The Ministry of Ungentlemanly Warfare](https://boxd.it/u5zu) | 2024 | 5 | yes | [x] |
 | 1 | 2 | 14 | [Ratatouille](https://boxd.it/27ww) | 2007 | 5 | yes | [ ] missing |
 | 1 | 2 | 8 | [Inception](https://boxd.it/1skk) | 2010 | 5 | yes | [ ] missing |
-| 1 | 2 | 0 | [Baby Driver](https://boxd.it/bhF2) | 2017 | 5 | yes | [x] |
+| 1 | 2 | 7 | [Baby Driver](https://boxd.it/bhF2) | 2017 | 5 | yes | [x] |
 | 1 | 2 | 0 | [Back to the Future](https://boxd.it/2b8e) | 1985 | 5 | yes | [ ] missing |
 | 1 | 2 | 0 | [Last Breath](https://boxd.it/AJqO) | 2025 | 5 | yes | [ ] missing |
 | 1 | 2 | 0 | [Memento](https://boxd.it/2bcK) | 2000 | 5 | yes | [ ] missing |
 | 1 | 2 | 0 | [Pacific Rim](https://boxd.it/2cB2) | 2013 | 5 | yes | [ ] missing |
-| 1 | 2 | 0 | [The Empire Strikes Back](https://boxd.it/27Vw) | 1980 | 5 | yes | [ ] missing |
 | 1 | 1 | 120 | [Inglourious Basterds](https://boxd.it/1JzG) | 2009 | 5 | yes | [x] |
 | 1 | 1 | 103 | [Gone Girl](https://boxd.it/6hQu) | 2014 | 5 | yes | [ ] missing |
 | 1 | 1 | 99 | [Snatch](https://boxd.it/2b7U) | 2000 | 5 | yes | [x] |
 | 1 | 1 | 80 | [The Odd Couple](https://boxd.it/1U32) | 1968 | 5 | yes | [ ] missing |
 | 1 | 1 | 65 | [The Pianist](https://boxd.it/2aqc) | 2002 | 5 | yes | [ ] missing |
-| 1 | 1 | 62 | [Barbie](https://boxd.it/bCLK) | 2023 | 5 | yes | [ ] missing |
+| 1 | 1 | 62 | [Barbie](https://boxd.it/bCLK) | 2023 | 5 | yes | [x] |
 | 1 | 1 | 38 | [Inside Man](https://boxd.it/2auS) | 2006 | 5 | yes | [ ] missing |
 | 1 | 1 | 34 | [Django Unchained](https://boxd.it/2cCk) | 2012 | 5 | yes | [x] |
 | 1 | 1 | 30 | [The Fugitive](https://boxd.it/230G) | 1993 | 5 | yes | [ ] missing |
 | 1 | 1 | 30 | [The Substance](https://boxd.it/zanS) | 2024 | 5 | yes | [ ] missing |
-| 1 | 1 | 26 | [Lock, Stock and Two Smoking Barrels](https://boxd.it/2b92) | 1998 | 5 | yes | [ ] missing |
+| 1 | 1 | 26 | [Lock, Stock and Two Smoking Barrels](https://boxd.it/2b92) | 1998 | 5 | yes | [x] |
 | 1 | 1 | 10 | [Waking Life](https://boxd.it/1Zdc) | 2001 | 5 | yes | [ ] missing |
-| 1 | 1 | 10 | [You Got Served](https://boxd.it/1OK0) | 2004 | 5 | yes | [ ] missing |
-| 1 | 1 | 2 | [The Wolf of Wall Street](https://boxd.it/3C1m) | 2013 | 5 | yes | [ ] missing |
-| 1 | 1 | 1 | [The Grand Budapest Hotel](https://boxd.it/3ZqO) | 2014 | 5 | yes | [ ] missing |
+| 1 | 1 | 10 | [You Got Served](https://boxd.it/1OK0) | 2004 | 5 | yes | [x] |
+| 1 | 1 | 2 | [The Wolf of Wall Street](https://boxd.it/3C1m) | 2013 | 5 | yes | [x] |
+| 1 | 1 | 1 | [The Grand Budapest Hotel](https://boxd.it/3ZqO) | 2014 | 5 | yes | [x] |
 | 1 | 1 | 0 | [American Desi](https://boxd.it/1hsW) | 2001 | 5 | yes | [ ] missing |
-| 1 | 1 | 0 | [Batman Begins](https://boxd.it/2aIg) | 2005 | 5 | yes | [ ] missing |
+| 1 | 1 | 0 | [Batman Begins](https://boxd.it/2aIg) | 2005 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Bob Marley: One Love](https://boxd.it/uckw) | 2024 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Get On Up](https://boxd.it/73bO) | 2014 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Hamilton](https://boxd.it/kmvE) | 2020 | 5 | yes | [ ] missing |
@@ -63,11 +63,11 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 1 | 0 | [Minority Report](https://boxd.it/2aWi) | 2002 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Mississippi Burning](https://boxd.it/28r8) | 1988 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Mrs. Doubtfire](https://boxd.it/29Cw) | 1993 | 5 | yes | [ ] missing |
-| 1 | 1 | 0 | [Pulp Fiction](https://boxd.it/29Pq) | 1994 | 5 | yes | [ ] missing |
+| 1 | 1 | 0 | [Pulp Fiction](https://boxd.it/29Pq) | 1994 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Raiders of the Lost Ark](https://boxd.it/2bbs) | 1981 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Reservoir Dogs](https://boxd.it/2agc) | 1992 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Silver Linings Playbook](https://boxd.it/2TTo) | 2012 | 5 | yes | [ ] missing |
-| 1 | 1 | 0 | [Terminator 2: Judgment Day](https://boxd.it/2aGY) | 1991 | 5 | yes | [ ] missing |
+| 1 | 1 | 0 | [Terminator 2: Judgment Day](https://boxd.it/2aGY) | 1991 | 5 | yes | [x] |
 | 1 | 1 | 0 | [The Departed](https://boxd.it/28MA) | 2006 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [The Housemaid](https://boxd.it/QFEO) | 2025 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [The Mask](https://boxd.it/29rS) | 1994 | 5 | yes | [ ] missing |
@@ -79,7 +79,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 0 | 0 | [Kill](https://boxd.it/HTqS) | 2023 | 5 | yes | [ ] missing |
 | 2 | 6 | 182 | [The Lord of the Rings: The Two Towers](https://boxd.it/2b5E) | 2002 | 5 |  | [x] |
 | 2 | 3 | 12 | [Black Bag](https://boxd.it/KRbM) | 2025 | 5 |  | [ ] missing |
-| 2 | 3 | 0 | [John Wick](https://boxd.it/7dEc) | 2014 | 5 |  | [ ] missing |
+| 2 | 3 | 12 | [John Wick](https://boxd.it/7dEc) | 2014 | 5 |  | [ ] missing |
 | 2 | 3 | 0 | [The Raid](https://boxd.it/3hBy) | 2011 | 5 |  | [ ] missing |
 | 2 | 2 | 72 | [Oppenheimer](https://boxd.it/wUow) | 2023 | 5 |  | [ ] missing |
 | 2 | 2 | 48 | [The Great Escape](https://boxd.it/22kA) | 1963 | 5 |  | [ ] missing |
@@ -98,15 +98,15 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 2 | 0 | [Hacksaw Ridge](https://boxd.it/azew) | 2016 | 5 |  | [ ] missing |
 | 2 | 2 | 0 | [Prey](https://boxd.it/sNBU) | 2022 | 5 |  | [ ] missing |
 | 2 | 2 | 0 | [Star Wars: Episode I – The Phantom Menace](https://boxd.it/27Vc) | 1999 | 5 |  | [ ] missing |
-| 2 | 1 | 71 | [Star Wars](https://boxd.it/72s) | 1977 | 5 |  | [ ] missing |
+| 2 | 1 | 71 | [Star Wars](https://boxd.it/72s) | 1977 | 5 |  | [x] |
 | 2 | 1 | 67 | [The Dark Knight Rises](https://boxd.it/H3m) | 2012 | 5 |  | [ ] missing |
 | 2 | 1 | 64 | [Creed III](https://boxd.it/pf68) | 2023 | 5 |  | [ ] missing |
 | 2 | 1 | 61 | [Nobody](https://boxd.it/mLqS) | 2021 | 5 |  | [ ] missing |
 | 2 | 1 | 61 | [The Ten Commandments](https://boxd.it/21mg) | 1956 | 5 |  | [ ] missing |
 | 2 | 1 | 59 | [Gung Ho](https://boxd.it/1PBo) | 1986 | 5 |  | [ ] missing |
 | 2 | 1 | 50 | [Ballerina](https://boxd.it/jKqG) | 2025 | 5 |  | [ ] missing |
-| 2 | 1 | 50 | [Frankenstein](https://boxd.it/Ecsg) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 48 | [Good Luck, Have Fun, Don't Die](https://boxd.it/Glua) | 2025 | 5 |  | [ ] missing |
+| 2 | 1 | 47 | [Drive](https://boxd.it/IG) | 2011 | 5 |  | [ ] missing |
 | 2 | 1 | 45 | [Nuremberg](https://boxd.it/K6qU) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 45 | [The Other Guys](https://boxd.it/1rtq) | 2010 | 5 |  | [ ] missing |
 | 2 | 1 | 39 | [Logan Lucky](https://boxd.it/dZrs) | 2017 | 5 |  | [ ] missing |
@@ -115,6 +115,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 26 | [Fiddler on the Roof](https://boxd.it/1Nle) | 1971 | 5 |  | [ ] missing |
 | 2 | 1 | 26 | [Gangs of New York](https://boxd.it/25FG) | 2002 | 5 |  | [ ] missing |
 | 2 | 1 | 24 | [Taken](https://boxd.it/1ZXa) | 2008 | 5 |  | [ ] missing |
+| 2 | 1 | 23 | [Frankenstein](https://boxd.it/Ecsg) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 23 | [No Other Choice](https://boxd.it/nKiA) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 23 | [The Conversation](https://boxd.it/2a38) | 1974 | 5 |  | [ ] missing |
 | 2 | 1 | 22 | [The Phoenician Scheme](https://boxd.it/H0Ca) | 2025 | 5 |  | [ ] missing |
@@ -122,8 +123,8 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 18 | [TRON: Ares](https://boxd.it/jqdM) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 17 | [Death Becomes Her](https://boxd.it/1YQi) | 1992 | 5 |  | [ ] missing |
 | 2 | 1 | 17 | [The Founder](https://boxd.it/9XwM) | 2016 | 5 |  | [ ] missing |
-| 2 | 1 | 14 | [Drive](https://boxd.it/IG) | 2011 | 5 |  | [ ] missing |
 | 2 | 1 | 14 | [The Running Man](https://boxd.it/u36A) | 2025 | 5 |  | [ ] missing |
+| 2 | 1 | 13 | [John Wick: Chapter 2](https://boxd.it/ayGu) | 2017 | 5 |  | [ ] missing |
 | 2 | 1 | 12 | [Ocean's Eight](https://boxd.it/eaai) | 2018 | 5 |  | [ ] missing |
 | 2 | 1 | 12 | [The Intern](https://boxd.it/7AOE) | 2015 | 5 |  | [ ] missing |
 | 2 | 1 | 11 | [Roofman](https://boxd.it/LcIW) | 2025 | 5 |  | [ ] missing |
@@ -164,7 +165,6 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 0 | [Fury](https://boxd.it/6JwC) | 2014 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Gladiator II](https://boxd.it/kqQQ) | 2024 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Home Alone 2: Lost in New York](https://boxd.it/29F6) | 1992 | 5 |  | [ ] missing |
-| 2 | 1 | 0 | [John Wick: Chapter 2](https://boxd.it/ayGu) | 2017 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [John Wick: Chapter 4](https://boxd.it/mh48) | 2023 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Joy](https://boxd.it/IUU2) | 2024 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Jurassic World](https://boxd.it/4n0g) | 2015 | 5 |  | [ ] missing |
@@ -213,6 +213,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 4 | 2 | 29 | [Prisoners](https://boxd.it/4E5i) | 2013 | 4.5 |  | [ ] missing |
 | 4 | 2 | 0 | [The Naked Gun: From the Files of Police Squad!](https://boxd.it/18YE) | 1988 | 4.5 |  | [ ] missing |
 | 4 | 1 | 63 | [The Aviator](https://boxd.it/26BU) | 2004 | 4.5 |  | [ ] missing |
+| 4 | 1 | 58 | [Alien](https://boxd.it/2awY) | 1979 | 4.5 |  | [ ] missing |
 | 4 | 1 | 52 | [Napoleon](https://boxd.it/shJM) | 2023 | 4.5 |  | [ ] missing |
 | 4 | 1 | 47 | [Enemy](https://boxd.it/5xtO) | 2013 | 4.5 |  | [ ] missing |
 | 4 | 1 | 44 | [Miller's Crossing](https://boxd.it/2avG) | 1990 | 4.5 |  | [ ] missing |
@@ -220,7 +221,6 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 4 | 1 | 34 | [Crime 101](https://boxd.it/IoGs) | 2026 | 4.5 |  | [ ] missing |
 | 4 | 1 | 34 | [Swingers](https://boxd.it/1WNc) | 1996 | 4.5 |  | [ ] missing |
 | 4 | 1 | 32 | [Three Billboards Outside Ebbing, Missouri](https://boxd.it/ceBS) | 2017 | 4.5 |  | [ ] missing |
-| 4 | 1 | 31 | [Alien](https://boxd.it/2awY) | 1979 | 4.5 |  | [ ] missing |
 | 4 | 1 | 29 | [Conclave](https://boxd.it/AO8q) | 2024 | 4.5 |  | [ ] missing |
 | 4 | 1 | 28 | [The Bourne Supremacy](https://boxd.it/26EE) | 2004 | 4.5 |  | [ ] missing |
 | 4 | 1 | 26 | [Lawrence of Arabia](https://boxd.it/2wRE) | 1962 | 4.5 |  | [ ] missing |
