@@ -287,13 +287,21 @@ Setup **Share mini-game** still means “play my **current** stars” (queue is 
 
 Named playlists of quotes (pick 10 lines, save, replay, share) is a different product from **stars** (personal TL seed) and from **frozen run-replays** (the accident of one play). A history Share is the cheap prototype of “a really good 10.” Use that in the wild before building an editor.
 
-Open questions (spike only — no pack UI):
+**Later: Curate mini-game builder** *(backlog — not the star Curate screen)*
+
+Build a mini-game from the title’s starred pool with filters/sorts before locking a queue:
+
+- **Starred by** — dropdown over who has stars on this title; selecting people takes the **union** of their starred lines (not intersection). Include “everyone / crowd” as an option when useful.
+- **Sort by** — most starred · most played · chronological forward · chronological reverse (then take the top *N* / shuffle within the sorted set as needed).
+
+Open questions (spike only — no pack UI yet):
 
 - Title-scoped vs mixed-title packs
 - Order: curated sequence vs shuffle-on-play
 - Edit after someone has already played the pack
 - How this relates to stars / thumbs / crowd popular
 - Curate UI: pick from transcript vs “save this run as a pack”
+- Whether “most played” is per-line (prompt appeared in runs) or title-level until line stats exist
 
 ---
 
@@ -302,6 +310,7 @@ Open questions (spike only — no pack UI):
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
+- [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
 - [ ] **Daily challenge** — same title + start line for everyone
@@ -429,6 +438,12 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 - **Localhost magic links** — Origin-aware links are coded (2a.1); **redeploy Worker** so production API emails point at localhost when you develop there.
 - **Library home / top played** — ✅ Home landing (recent + top played) + Browse full library.
 - **S4 `.en` title suffixes** — optional hygiene; don’t rewrite ids carelessly (stars key on `titleId`).
+- **Answer feedback motion** — ✅ Choice pulse (green/red) + score-chip bump on correct/miss.
+- **Perfect mini confetti** — When a mini-game finishes with all questions correct (e.g. 10/10), celebrate with a short confetti burst on the complete screen.
+- **Chronological mini-game queue** — ✅ After selection, prompt indices are sorted so the run walks the transcript forward (shared frozen queues sorted on play too).
+- **History sidebar + partial credit** — ✅ Missed cards red; re-guesses yellow (`reguess`); first-try correct green. Score: 1 / 0.5 / 0.25 by attempt (shown in play + complete). Persisted D1 `correct_count` stays whole lines cleared for now.
+- **Curate stars access** — Personal stars only; anyone may Curate their own. No email allowlist.
+- **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
 
 ---
 

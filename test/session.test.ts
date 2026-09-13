@@ -49,11 +49,34 @@ describe("submitAnswer", () => {
     ]);
   });
 
+  it("awards partial credit and reguess history after misses", () => {
+    let run = fullRun(1);
+    run = submitAnswer(run, title, 4).run;
+    expect(run.scoreCredit).toBe(0);
+
+    const secondTry = submitAnswer(run, title, 3);
+    expect(secondTry.correct).toBe(true);
+    expect(secondTry.run.scoreCredit).toBe(0.5);
+    expect(secondTry.run.history).toEqual([
+      { lineIndex: 1, via: "start" },
+      { lineIndex: 4, via: "incorrect" },
+      { lineIndex: 3, via: "reguess" },
+    ]);
+
+    let third = fullRun(1);
+    third = submitAnswer(third, title, 4).run;
+    third = submitAnswer(third, title, 4).run;
+    const cleared = submitAnswer(third, title, 3);
+    expect(cleared.run.scoreCredit).toBe(0.25);
+    expect(cleared.run.history.at(-1)?.via).toBe("reguess");
+  });
+
   it("advances to the next playable line on a correct answer", () => {
     const run = fullRun(1);
     const result = submitAnswer(run, title, 3);
     expect(result.correct).toBe(true);
     expect(result.run.correctCount).toBe(1);
+    expect(result.run.scoreCredit).toBe(1);
     expect(result.run.promptLineIndex).toBe(3);
     expect(result.run.history).toEqual([
       { lineIndex: 1, via: "start" },

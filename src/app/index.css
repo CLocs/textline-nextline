@@ -141,6 +141,13 @@ button {
 .history-item.via-correct:not(.current) {
   border-color: var(--success);
   border-width: 2px;
+  background: color-mix(in srgb, var(--success) 14%, white);
+}
+
+.history-item.via-reguess:not(.current) {
+  border-color: #c4a035;
+  border-width: 2px;
+  background: #fff8e0;
 }
 
 .history-item.via-skip:not(.current) {
@@ -151,11 +158,17 @@ button {
 .history-item.via-incorrect {
   border-color: var(--danger);
   border-width: 2px;
+  background: color-mix(in srgb, var(--danger) 14%, white);
 }
 
 .history-tag.starred-tag {
   color: var(--star-ink);
   background: var(--star-bg);
+}
+
+.history-tag.reguess-tag {
+  color: #8a6a10;
+  background: #fff3c4;
 }
 
 .history-text {
@@ -172,6 +185,10 @@ button {
 
 .history-text.via-correct {
   color: var(--success);
+}
+
+.history-text.via-reguess {
+  color: #8a6a10;
 }
 
 .history-text.via-skip {
@@ -366,6 +383,51 @@ button {
   font-size: 0.92rem;
 }
 
+.play-score {
+  color: var(--muted);
+  display: inline-block;
+}
+
+.play-score.pulse-up {
+  animation: score-bump-up 0.65s ease;
+  color: var(--success);
+}
+
+.play-score.pulse-down {
+  animation: score-bump-down 0.65s ease;
+  color: var(--danger);
+}
+
+@keyframes score-bump-up {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes score-bump-down {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.12);
+  }
+  55% {
+    transform: translateX(-2px);
+  }
+  70% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
+
 .episode-label {
   color: var(--muted);
   margin: 0 0 1rem;
@@ -469,6 +531,59 @@ button {
   cursor: default;
 }
 
+.choice-button.is-correct {
+  border-color: var(--success);
+  border-width: 2px;
+  background: color-mix(in srgb, var(--success) 14%, white);
+  animation: choice-pulse-correct 0.85s ease;
+}
+
+.choice-button.is-wrong {
+  border-color: var(--danger);
+  border-width: 2px;
+  background: color-mix(in srgb, var(--danger) 12%, white);
+  animation: choice-pulse-wrong 0.75s ease;
+}
+
+.choice-button.is-correct:disabled,
+.choice-button.is-wrong:disabled {
+  opacity: 1;
+}
+
+@keyframes choice-pulse-correct {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 45%, transparent);
+    transform: scale(1);
+  }
+  40% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--success) 0%, transparent);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    transform: scale(1);
+  }
+}
+
+@keyframes choice-pulse-wrong {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-4px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
 .feedback {
   margin: 1rem 0 0;
   font-weight: 600;
@@ -486,11 +601,20 @@ button {
   margin: 0 0 0.5rem;
 }
 
+.complete-actions {
+  margin-top: 1.25rem;
+}
+
 .score-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  margin: 1.25rem 0 1.5rem;
+  margin: 1.25rem 0 0.75rem;
+}
+
+.score-credit-note {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
 }
 
 .score-grid dt {
@@ -890,7 +1014,7 @@ code {
 .curate-lead-in {
   margin: 0 0 0.25rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   line-height: 1.35;
 }
 

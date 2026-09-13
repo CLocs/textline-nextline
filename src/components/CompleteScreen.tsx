@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Title } from "../types/content";
 import { questionTotal, type GameRun } from "../lib/game/session";
 import { fetchSharedRuns, type SharedRun } from "../lib/auth/api";
-import { rateRun, type Thumb } from "../lib/runs/api";
+import { rateRun, shareCompletedRun, type Thumb } from "../lib/runs/api";
 
 type Props = {
   title: Title;
@@ -13,6 +13,19 @@ type Props = {
   onPlayAgain: () => void;
   onBack: () => void;
 };
+
+function playShareUrl(shareId: string): string {
+  return `${window.location.origin}/#/play/${shareId}`;
+}
+
+async function copyShareUrl(url: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(url);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 export function CompleteScreen({
   title,
@@ -30,22 +43,30 @@ export function CompleteScreen({
       ? "Shared mini-game complete"
       : run.length === "mini"
         ? "Mini-game complete"
-        : "Episode complete";
+        : "Game complete";
 
   const [leaderboard, setLeaderboard] = useState<SharedRun[]>([]);
   const [thumb, setThumb] = useState<Thumb | null>(null);
   const [ratingBusy, setRatingBusy] = useState(false);
+  const [createdShareId, setCreatedShareId] = useState<string | null>(null);
+  const [shareBusy, setShareBusy] = useState(false);
+  const [shareNote, setShareNote] = useState<string | null>(null);
+
+  const effectiveShareId = createdShareId ?? shareId ?? null;
+  const canShareMini =
+    run.length === "mini" &&
+    Boolean(effectiveShareId || (persistedRunId && run.questionQueue?.length));
 
   useEffect(() => {
-    if (!shareId) return;
+    if (!effectiveShareId) return;
     let cancelled = false;
-    void fetchSharedRuns(shareId).then((runs) => {
+    void fetchSharedRuns(effectiveShareId).then((runs) => {
       if (!cancelled) setLeaderboard(runs);
     });
     return () => {
       cancelled = true;
     };
-  }, [shareId]);
+  }, [effectiveShareId]);
 
   async function handleThumb(next: Thumb) {
     if (!persistedRunId || ratingBusy) return;
@@ -55,8 +76,43 @@ export function CompleteScreen({
     if (ok) setThumb(next);
   }
 
+  async function handleShare() {
+    setShareBusy(true);
+    setShareNote(null);
+
+    if (effectiveShareId) {
+      const url = playShareUrl(effectiveShareId);
+      const copied = await copyShareUrl(url);
+      setShareNote(copied ? "Link copied to clipboard." : url);
+      setShareBusy(false);
+      return;
+    }
+
+    if (!persistedRunId) {
+      setShareNote("This game was not saved, so it cannot be shared yet.");
+      setShareBusy(false);
+      return;
+    }
+
+    const result = await shareCompletedRun(persistedRunId);
+    if ("error" in result) {
+      setShareNote(result.error);
+      setShareBusy(false);
+      return;
+    }
+
+    setCreatedShareId(result.shareId);
+    const copied = await copyShareUrl(result.url);
+    setShareNote(copied ? "Link copied to clipboard." : result.url);
+    setShareBusy(false);
+  }
+
   return (
     <section className="panel complete-panel">
+      <button type="button" className="button ghost back-link" onClick={onBack}>
+        ← Return to library
+      </button>
+
       <h2>{finished ? sessionLabel : "Run over"}</h2>
       <p className="episode-label">{title.title}</p>
       {shareOwnerName && (
@@ -110,7 +166,7 @@ export function CompleteScreen({
         </>
       )}
 
-      {shareId && leaderboard.length > 0 && (
+      {effectiveShareId && leaderboard.length > 0 && (
         <div className="share-leaderboard">
           <h3>Scores on this share</h3>
           <ol className="share-leaderboard-list">
@@ -126,14 +182,36 @@ export function CompleteScreen({
         </div>
       )}
 
-      <div className="row">
+      <div className="row complete-actions">
         <button type="button" className="button primary" onClick={onPlayAgain}>
           Play again
         </button>
         <button type="button" className="button ghost" onClick={onBack}>
-          Pick another episode
+          Return to library
         </button>
       </div>
+
+      {canShareMini && (
+        <>
+          <button
+            type="button"
+            className="button ghost curate-link"
+            disabled={shareBusy}
+            onClick={() => void handleShare()}
+          >
+            {shareBusy
+              ? effectiveShareId
+                ? "Copying link…"
+                : "Creating link…"
+              : "Share this mini-game with a friend"}
+          </button>
+          {shareNote && (
+            <p className="share-message" role="status">
+              {shareNote}
+            </p>
+          )}
+        </>
+      )}
     </section>
   );
 }

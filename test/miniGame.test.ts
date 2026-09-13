@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 import type { Title } from "../src/types/content.js";
-import { buildMiniGameQueue, getValidPromptIndices } from "../src/lib/game/miniGame.js";
+import {
+  buildMiniGameQueue,
+  chronologicalPromptQueue,
+  getValidPromptIndices,
+} from "../src/lib/game/miniGame.js";
 
 const title: Title = {
   id: "test",
@@ -23,14 +27,15 @@ function fixedRng(values: number[]): () => number {
 }
 
 describe("buildMiniGameQueue", () => {
-  it("prioritizes personal starred prompts", () => {
+  it("includes personal starred prompts and sorts chronologically", () => {
     const queue = buildMiniGameQueue(title, {
       personalStarred: [3],
       size: 2,
       rng: fixedRng([0.1, 0.2]),
     });
     expect(queue).toHaveLength(2);
-    expect(queue[0]).toBe(3);
+    expect(queue).toContain(3);
+    expect(queue).toEqual([...queue].sort((a, b) => a - b));
   });
 
   it("fills with crowd popular before random prompts", () => {
@@ -41,8 +46,9 @@ describe("buildMiniGameQueue", () => {
       rng: fixedRng([0.1, 0.2, 0.3]),
     });
     expect(queue).toHaveLength(2);
-    expect(queue[0]).toBe(2);
-    expect(getValidPromptIndices(title)).toContain(queue[1]);
+    expect(queue).toContain(2);
+    expect(queue).toEqual([...queue].sort((a, b) => a - b));
+    expect(getValidPromptIndices(title)).toContain(queue[0]!);
   });
 
   it("skips crowd lines already in personal stars", () => {
@@ -52,21 +58,26 @@ describe("buildMiniGameQueue", () => {
       size: 3,
       rng: fixedRng([0.1, 0.2, 0.3, 0.4]),
     });
-    expect(queue[0]).toBe(3);
+    expect(queue).toContain(3);
     expect(queue).toContain(2);
     expect(queue.filter((index) => index === 3)).toHaveLength(1);
+    expect(queue).toEqual([...queue].sort((a, b) => a - b));
   });
 
-  it("fills with other valid prompts", () => {
+  it("fills with other valid prompts in transcript order", () => {
     const queue = buildMiniGameQueue(title, {
       personalStarred: [],
       size: 3,
       rng: fixedRng([0.9, 0.8, 0.7, 0.6]),
     });
-    expect(queue).toHaveLength(3);
-    expect(getValidPromptIndices(title)).toEqual([1, 2, 3]);
-    for (const index of queue) {
-      expect(getValidPromptIndices(title)).toContain(index);
-    }
+    expect(queue).toEqual([1, 2, 3]);
+  });
+});
+
+describe("chronologicalPromptQueue", () => {
+  it("sorts ascending without mutating input", () => {
+    const input = [5, 1, 3];
+    expect(chronologicalPromptQueue(input)).toEqual([1, 3, 5]);
+    expect(input).toEqual([5, 1, 3]);
   });
 });

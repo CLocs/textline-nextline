@@ -4,7 +4,7 @@ import type { GameSetup } from "../components/SetupScreen";
 import { getTitle, listCatalogEntries } from "../lib/content/browser";
 import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
-import { buildMiniGameQueue } from "../lib/game/miniGame";
+import { buildMiniGameQueue, chronologicalPromptQueue } from "../lib/game/miniGame";
 import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, type GameRun } from "../lib/game/session";
 import { getStarredLineIndices } from "../lib/stars/sync";
 import {
@@ -157,13 +157,14 @@ export function App() {
       return;
     }
 
-    const questionQueue = queueResult.frozen
-      ? queueResult.lineIndices
-      : buildMiniGameQueue(loaded, {
-          personalStarred: queueResult.lineIndices,
-          crowdPopular: [],
-        });
-    const firstPromptLineIndex = questionQueue[0];
+    const questionQueue = chronologicalPromptQueue(
+      queueResult.frozen
+        ? queueResult.lineIndices
+        : buildMiniGameQueue(loaded, {
+            personalStarred: queueResult.lineIndices,
+            crowdPopular: [],
+          }),
+    );    const firstPromptLineIndex = questionQueue[0];
     if (firstPromptLineIndex === undefined) {
       setRouteError("This share has no playable starred lines yet.");
       setScreen("library");

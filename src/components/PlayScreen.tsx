@@ -5,6 +5,10 @@ import { canGoBack, type GameRun } from "../lib/game/session";
 import { isStarred, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
 
+function formatScoreCredit(value: number): string {
+  return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/0$/, "");
+}
+
 type Props = {
   title: Title;
   run: GameRun;
@@ -35,23 +39,42 @@ export function PlayScreen({
   const [starred, setStarred] = useState(() =>
     isStarred(title.id, question.promptLineIndex),
   );
+  const [pickedIndex, setPickedIndex] = useState<number | null>(null);
+  const [scorePulse, setScorePulse] = useState<"up" | "down" | null>(null);
 
   useEffect(() => {
     setStarred(isStarred(title.id, question.promptLineIndex));
+    setPickedIndex(null);
   }, [title.id, question.promptLineIndex]);
 
   useEffect(() => {
-    if (!feedback) return;
+    if (!feedback) {
+      setPickedIndex(null);
+      return;
+    }
     const delay = feedback === "wrong" ? 900 : 1200;
     const timer = window.setTimeout(onFeedbackDone, delay);
     return () => window.clearTimeout(timer);
   }, [feedback, onFeedbackDone]);
+
+  useEffect(() => {
+    if (feedback === "correct") setScorePulse("up");
+    else if (feedback === "wrong") setScorePulse("down");
+    else return;
+    const timer = window.setTimeout(() => setScorePulse(null), 700);
+    return () => window.clearTimeout(timer);
+  }, [feedback, run.correctCount, run.wrongCount]);
 
   const modeLabel = run.mode === "fun" ? "Fun" : run.mode === "medium" ? "Medium" : "Hard";
   const lengthLabel = run.length === "mini" ? "Mini" : "Full";
 
   function handleToggleStar() {
     void toggleStar(title.id, question.promptLineIndex, question.promptText).then(setStarred);
+  }
+
+  function handleChoose(lineIndex: number) {
+    setPickedIndex(lineIndex);
+    onChoose(lineIndex);
   }
 
   return (
@@ -65,9 +88,13 @@ export function PlayScreen({
             <span className="mode-badge">{modeLabel}</span>
             <span className="mode-badge length-badge">{lengthLabel}</span>
             <span>{progress}</span>
-            <span className="muted">
+            <span
+              className={`play-score${scorePulse ? ` pulse-${scorePulse}` : ""}`}
+            >
               ✓ {run.correctCount} · ✗ {run.wrongCount}
               {run.skipCount > 0 ? ` · skip ${run.skipCount}` : ""}
+              {" · "}
+              {formatScoreCredit(run.scoreCredit)} pts
             </span>
           </div>
         </div>
@@ -108,18 +135,28 @@ export function PlayScreen({
         <div className="question-block">
           <p className="prompt-label">What comes next?</p>
           <ul className="choice-list">
-            {question.choices.map((choice) => (
-              <li key={choice.lineIndex}>
-                <button
-                  type="button"
-                  className="choice-button"
-                  disabled={feedback === "correct" || feedback === "skipped"}
-                  onClick={() => onChoose(choice.lineIndex)}
-                >
-                  {choice.text}
-                </button>
-              </li>
-            ))}
+            {question.choices.map((choice) => {
+              const isPicked = pickedIndex === choice.lineIndex;
+              const choiceClass = [
+                "choice-button",
+                isPicked && feedback === "correct" ? "is-correct" : "",
+                isPicked && feedback === "wrong" ? "is-wrong" : "",
+              ]
+                .filter(Boolean)
+                .join(" ");
+              return (
+                <li key={choice.lineIndex}>
+                  <button
+                    type="button"
+                    className={choiceClass}
+                    disabled={feedback === "correct" || feedback === "skipped"}
+                    onClick={() => handleChoose(choice.lineIndex)}
+                  >
+                    {choice.text}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
