@@ -9,6 +9,8 @@ import {
 type Props = {
   initialToken?: string;
   message?: string;
+  /** Hash path to resume after sign-in, e.g. play/abc */
+  returnTo?: string;
   /** When true, this is the app gate — no back to library. */
   required?: boolean;
   onAuthenticated: (user: AuthUser) => void;
@@ -18,6 +20,7 @@ type Props = {
 export function LoginScreen({
   initialToken,
   message,
+  returnTo,
   required = false,
   onAuthenticated,
   onBack,
@@ -56,7 +59,7 @@ export function LoginScreen({
     event.preventDefault();
     setError(null);
     setStatus("sending");
-    const result = await requestMagicLink(email);
+    const result = await requestMagicLink(email, returnTo);
     if ("error" in result) {
       setError(result.error);
       setStatus("error");

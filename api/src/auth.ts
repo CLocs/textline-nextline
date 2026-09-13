@@ -83,10 +83,18 @@ export async function getSessionUser(db: D1Database, sessionId: string | null): 
   };
 }
 
+export function sanitizeLoginReturn(raw: unknown): string | undefined {
+  if (typeof raw !== "string") return undefined;
+  const value = raw.trim();
+  if (value === "profile" || value === "profile/history" || value === "profile/stats") return value;
+  if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return value;
+  return undefined;
+}
+
 export async function requestMagicLink(
   env: AuthEnv,
   emailRaw: string,
-  options?: { linkOrigin?: string | null; allowedOrigins?: string[] },
+  options?: { linkOrigin?: string | null; allowedOrigins?: string[]; returnTo?: string | null },
 ): Promise<{ ok: true } | { error: string; status: number }> {
   const email = normalizeEmail(emailRaw);
   if (!email) return { error: "Invalid email", status: 400 };
@@ -120,7 +128,9 @@ export async function requestMagicLink(
     .run();
 
   const origin = resolveLinkOrigin(env, options?.linkOrigin, options?.allowedOrigins);
-  const link = `${origin}/#/auth?token=${encodeURIComponent(token)}`;
+  const returnTo = sanitizeLoginReturn(options?.returnTo);
+  const returnQuery = returnTo ? `&return=${encodeURIComponent(returnTo)}` : "";
+  const link = `${origin}/#/auth?token=${encodeURIComponent(token)}${returnQuery}`;
 
   const sent = await sendMagicLinkEmail(env, email, link);
   if (!sent.ok) return sent;

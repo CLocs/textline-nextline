@@ -333,6 +333,32 @@ describe("auth helpers", () => {
     spy.mockRestore();
   });
 
+  it("appends a safe return path to the magic link", async () => {
+    const logs: string[] = [];
+    const spy = vi.spyOn(console, "log").mockImplementation((...args: unknown[]) => {
+      logs.push(args.map(String).join(" "));
+    });
+    const { db } = createRichMockDb();
+    const env = { DB: db, APP_ORIGIN: "https://textlinenextline.com" };
+
+    await requestMagicLink(env, "dev@example.com", {
+      linkOrigin: "http://localhost:5173",
+      allowedOrigins: ["http://localhost:5173", "https://textlinenextline.com"],
+      returnTo: "play/abc123",
+    });
+
+    expect(logs.some((line) => line.includes("&return=play%2Fabc123"))).toBe(true);
+
+    logs.length = 0;
+    await requestMagicLink(env, "other@example.com", {
+      linkOrigin: "http://localhost:5173",
+      allowedOrigins: ["http://localhost:5173"],
+      returnTo: "https://evil.example",
+    });
+    expect(logs.some((line) => line.includes("evil.example"))).toBe(false);
+    spy.mockRestore();
+  });
+
   it("claims anonymous stars onto the user", async () => {
     const { db } = createRichMockDb();
     const anon = "550e8400-e29b-41d4-a716-446655440000";

@@ -33,10 +33,13 @@ async function authFetch(path: string, init: RequestInit = {}): Promise<Response
   }
 }
 
-export async function requestMagicLink(email: string): Promise<{ ok: true } | { error: string }> {
+export async function requestMagicLink(
+  email: string,
+  returnTo?: string,
+): Promise<{ ok: true } | { error: string }> {
   const response = await authFetch("/api/auth/request-link", {
     method: "POST",
-    body: JSON.stringify({ email }),
+    body: JSON.stringify({ email, returnTo: returnTo || undefined }),
   });
   if (!response) return { error: "API unavailable" };
   if (!response.ok) {

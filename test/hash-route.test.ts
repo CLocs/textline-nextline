@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseHash } from "../src/lib/routing/hash.js";
+import { isSafeLoginReturn, parseHash } from "../src/lib/routing/hash.js";
 
 describe("parseHash", () => {
   it("parses share play routes", () => {
@@ -10,6 +10,14 @@ describe("parseHash", () => {
     expect(parseHash("#/auth?token=deadbeef")).toEqual({ kind: "auth", token: "deadbeef" });
   });
 
+  it("parses auth tokens with a post-login return path", () => {
+    expect(parseHash("#/auth?token=deadbeef&return=play%2Fabc123")).toEqual({
+      kind: "auth",
+      token: "deadbeef",
+      returnTo: "play/abc123",
+    });
+  });
+
   it("parses login return paths", () => {
     expect(parseHash("#/login?return=play%2Fabc")).toEqual({
       kind: "login",
@@ -17,9 +25,24 @@ describe("parseHash", () => {
     });
   });
 
+  it("drops unsafe login return paths", () => {
+    expect(parseHash("#/login?return=https%3A%2F%2Fevil.example")).toEqual({
+      kind: "login",
+    });
+  });
+
   it("parses profile tabs", () => {
     expect(parseHash("#/profile")).toEqual({ kind: "profile", tab: "account" });
     expect(parseHash("#/profile/history")).toEqual({ kind: "profile", tab: "history" });
     expect(parseHash("#/profile/stats")).toEqual({ kind: "profile", tab: "stats" });
+  });
+});
+
+describe("isSafeLoginReturn", () => {
+  it("allows play and profile hashes only", () => {
+    expect(isSafeLoginReturn("play/abc123")).toBe(true);
+    expect(isSafeLoginReturn("profile/history")).toBe(true);
+    expect(isSafeLoginReturn("https://evil.example")).toBe(false);
+    expect(isSafeLoginReturn("play/../library")).toBe(false);
   });
 });
