@@ -52,6 +52,27 @@ export function chunk<T>(items: T[], size: number): T[][] {
   return out;
 }
 
+export function filterStarsByTitle(
+  stars: StarSeed[],
+  query: string,
+): StarSeed[] {
+  const needle = query.trim().toLowerCase();
+  if (!needle) return stars;
+  return stars.filter((star) => {
+    if (star.titleId === needle) return true;
+    if (star.titleId.includes(needle)) return true;
+    return star.title.toLowerCase().includes(needle);
+  });
+}
+
+export function excludeTitleIds(
+  stars: StarSeed[],
+  titleIds: Iterable<string>,
+): StarSeed[] {
+  const skip = new Set(titleIds);
+  return stars.filter((star) => !skip.has(star.titleId));
+}
+
 export function countByTitle(stars: Pick<StarSeed, "titleId" | "title">[]): Map<string, number> {
   const counts = new Map<string, number>();
   for (const star of stars) {

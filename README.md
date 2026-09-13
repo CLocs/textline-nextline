@@ -352,8 +352,10 @@ npm run content:queue -- --from inbox/letterboxd --vault "C:\Users\dasco\Documen
 That also writes `content/readwise-highlights.json` (quotes matched to queue titles) and `content/stars-seed.json` (highlights that already fuzzy-match a line in `content/titles/`). To attach those as **your** cloud stars (D1):
 
 ```bash
-npm run content:stars-push -- --email you@example.com --remote
+npm run content:stars-push -- --email you@example.com --remote --title Payback
 ```
+
+Inserts only titles you don't already have stars for (Curate unstars are kept). `--title` limits to one film; `--force` re-seeds a title you already started.
 
 You must already have signed in on the live app once (so a `users` row exists). See [docs/DEPLOY.md](docs/DEPLOY.md) for how star sync works.
 

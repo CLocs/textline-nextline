@@ -76,7 +76,15 @@ export function PlayScreen({
 
         <div className="prompt-block">
           <div className="prompt-header">
-            <p className="prompt-label">Current line</p>
+            <p className="prompt-label">
+              Current line
+              {question.leadIn.length > 0 ? (
+                <span className="prompt-lead-in-flag">
+                  {" "}
+                  · with previous {question.leadIn.length === 1 ? "line" : "lines"}
+                </span>
+              ) : null}
+            </p>
             <button
               type="button"
               className={`star-button${starred ? " starred" : ""}`}
@@ -87,7 +95,14 @@ export function PlayScreen({
               {starred ? "★ Starred" : "☆ Star"}
             </button>
           </div>
-          <blockquote className="prompt-text">{question.promptText}</blockquote>
+          <blockquote className="prompt-text">
+            {question.leadIn.map((line) => (
+              <p key={line.lineIndex} className="prompt-lead-in">
+                {line.text}
+              </p>
+            ))}
+            <p className="prompt-current">{question.promptText}</p>
+          </blockquote>
         </div>
 
         <div className="question-block">

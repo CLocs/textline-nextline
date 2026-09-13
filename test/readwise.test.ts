@@ -4,8 +4,10 @@ import { join } from "node:path";
 import {
   extractHighlights,
   matchDocsToQueue,
+  parseReadwiseArticles,
   parseReadwiseMarkdown,
   scanReadwiseVault,
+  titleFromSourceUrl,
 } from "../src/lib/content/readwise.js";
 import { matchHighlightsToTitles } from "../src/lib/content/starSeed.js";
 import { parseTitleYear, titlesLikelyMatch } from "../src/lib/content/titleMatch.js";
@@ -75,6 +77,51 @@ describe("matchDocsToQueue", () => {
     expect(matches).toHaveLength(1);
     expect(matches[0]?.highlights).toHaveLength(2);
   });
+
+  it("uses a source URL when the Readwise title is a generic Movie Scripts dump", () => {
+    const docs = parseReadwiseArticles(
+      readFileSync(join(vaultDir, "Articles", "Movie Scripts.md"), "utf8"),
+      "scripts.md",
+    );
+    expect(docs).toHaveLength(2);
+    expect(docs[0]?.titleHints[0]).toEqual({ title: "payback", year: null });
+
+    const films: QueueFilm[] = [
+      {
+        title: "Payback",
+        year: 1999,
+        letterboxdUri: "https://boxd.it/payback",
+        liked: true,
+        rating: 5,
+        priority: 1,
+        playCount: 3,
+        highlightCount: 0,
+        tmdbId: null,
+        srt: "manual",
+        converted: true,
+        imported: true,
+      },
+      {
+        title: "The Great Escape",
+        year: 1963,
+        letterboxdUri: "https://boxd.it/escape",
+        liked: true,
+        rating: 5,
+        priority: 1,
+        playCount: 0,
+        highlightCount: 0,
+        tmdbId: null,
+        srt: "missing",
+        converted: false,
+        imported: false,
+      },
+    ];
+    const matches = matchDocsToQueue(docs, films);
+    expect(matches).toHaveLength(1);
+    expect(matches[0]?.title).toBe("Payback");
+    expect(matches[0]?.highlights.some((h) => h.text.includes("I cured you"))).toBe(true);
+    expect(matches[0]?.highlights.some((h) => h.text.includes("Ethyl"))).toBe(false);
+  });
 });
 
 describe("titlesLikelyMatch", () => {
@@ -103,6 +150,15 @@ describe("titlesLikelyMatch", () => {
         { title: "Oceans Eleven (2001)", year: 2001 },
       ),
     ).toBe(true);
+  });
+});
+
+describe("titleFromSourceUrl", () => {
+  it("reads a stockq payback.php slug", () => {
+    expect(titleFromSourceUrl("https://stockq.org/moviescript/P/payback.php")).toEqual({
+      title: "payback",
+      year: null,
+    });
   });
 });
 

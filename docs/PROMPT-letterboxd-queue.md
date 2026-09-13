@@ -51,7 +51,7 @@ npm run content:queue -- --from <path-to-zip-or-dir> [--out content/queue.json]
 
 - `liked` / `rating` reflect whichever sources contributed (a film can be both).
 - `tmdbId` may stay `null` in v1 if you skip TMDB; if you resolve it, match on exact year when possible and leave `null` on ambiguous results (log them).
-- `srt`: `missing` | `manual` | `opensubtitles` (status only — this script does not download SRTs).
+- `srt`: `missing` | `manual` | `opensubtitles` | `short` (status only — this script does not download SRTs). Markdown shows `[ ] missing`, `[x]`, or `[x] short`.
 - Sort the array by `year` then `title` for stable diffs.
 
 ### Implementation notes

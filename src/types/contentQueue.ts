@@ -1,5 +1,5 @@
 /** Status of SRT acquisition for a queued film. */
-export type SrtStatus = "missing" | "manual" | "opensubtitles";
+export type SrtStatus = "missing" | "manual" | "opensubtitles" | "short";
 
 /**
  * One movie in the Letterboxd seed queue (likes ∪ ratings ≥ 4.5).

@@ -56,6 +56,7 @@ function markQueue(imported: ReturnType<typeof workToTitle>[]): void {
     imported.map((title) => ({
       title: title.title,
       year: title.meta?.year ?? parseTitleYear(title.title).year,
+      lineCount: title.lineCount,
     })),
   );
   if (n === 0) return;
