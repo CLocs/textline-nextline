@@ -25,6 +25,15 @@ import {
   parseStarBody,
   putStar,
 } from "./stars.js";
+import {
+  fetchPlayedStats,
+  insertRun,
+  isRunId,
+  listMyRuns,
+  parseRunBody,
+  parseThumb,
+  rateRun,
+} from "./runs.js";
 
 function resolveShareOrigin(
   appOrigin: string | undefined,
@@ -252,6 +261,59 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     }
 
     return errorResponse("Method not allowed", 405, origin, allowed);
+  }
+
+  // --- Runs (Phase 2.5) ---
+  if (pathname.startsWith("/api/runs")) {
+    const userOrError = await requireUser(request, env, origin, allowed);
+    if (userOrError instanceof Response) return userOrError;
+    const user = userOrError;
+
+    if (request.method === "POST" && pathname === "/api/runs") {
+      const body = parseRunBody(await readJson(request));
+      if (!body) {
+        return errorResponse(
+          "Invalid body: expected { id, titleId, length, mode, correctCount, wrongCount, skipCount, questionTotal, endReason }",
+          400,
+          origin,
+          allowed,
+        );
+      }
+      await insertRun(env.DB, user, body);
+      return jsonResponse({ ok: true, id: body.id }, 200, origin, allowed);
+    }
+
+    if (request.method === "GET" && pathname === "/api/runs/mine") {
+      const runs = await listMyRuns(env.DB, user.id);
+      return jsonResponse({ runs }, 200, origin, allowed);
+    }
+
+    const ratingMatch = pathname.match(/^\/api\/runs\/([^/]+)\/rating$/);
+    if (request.method === "PATCH" && ratingMatch?.[1]) {
+      const runId = decodeURIComponent(ratingMatch[1]);
+      if (!isRunId(runId)) return errorResponse("Invalid run id", 400, origin, allowed);
+      const thumb = parseThumb(await readJson(request));
+      if (!thumb) {
+        return errorResponse('Invalid body: expected { thumb: "up" | "down" }', 400, origin, allowed);
+      }
+      const result = await rateRun(env.DB, user, runId, thumb);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
+  }
+
+  if (pathname.startsWith("/api/stats")) {
+    const userOrError = await requireUser(request, env, origin, allowed);
+    if (userOrError instanceof Response) return userOrError;
+
+    if (request.method === "GET" && pathname === "/api/stats/played") {
+      const titles = await fetchPlayedStats(env.DB);
+      return jsonResponse({ titles }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
   }
 
   // --- Stars ---

@@ -43,6 +43,12 @@ export function episodeLabel(entry: CatalogEntry): string {
   return cleaned;
 }
 
+export function catalogLabel(entry: CatalogEntry): string {
+  const show = entry.meta?.show?.trim();
+  if (show) return `${show} · ${episodeLabel(entry)}`;
+  return stripLangSuffix(entry.title);
+}
+
 export type MovieGroup = {
   kind: "movies";
   entries: CatalogEntry[];

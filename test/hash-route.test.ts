@@ -16,4 +16,10 @@ describe("parseHash", () => {
       returnTo: "play/abc",
     });
   });
+
+  it("parses profile tabs", () => {
+    expect(parseHash("#/profile")).toEqual({ kind: "profile", tab: "account" });
+    expect(parseHash("#/profile/history")).toEqual({ kind: "profile", tab: "history" });
+    expect(parseHash("#/profile/stats")).toEqual({ kind: "profile", tab: "stats" });
+  });
 });

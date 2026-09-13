@@ -52,13 +52,13 @@ Useful for async play and social sharing; builds on the same transcript + questi
 
 ## Transcript library
 
-The game does **not** fetch subtitles at play time. It runs on a **curated library of transcripts** that we build up over time. The catalog today is Simpsons Season 4 plus a sample; the next seed is movies from a Letterboxd likes ∪ 4.5★ export — see the [content workstream](docs/ROADMAP-content.md).
+The game does **not** fetch subtitles at play time. It runs on a **curated library of transcripts** that we build up over time. The catalog today includes **Tier-1 movies**, **Simpsons Seasons 4–5**, and a hidden sample. More titles come from a Letterboxd likes ∪ 4.5★ queue — see the [content workstream](docs/ROADMAP-content.md).
 
 ### Authoring: transcript_maker
 
 **transcript_maker** is a sibling companion project for creating and cleaning transcripts (local path: `../transcript_maker`).
 
-- Import SRT/VTT or find a film via TMDB + OpenSubtitles (local proxy).
+- Import SRT/VTT/SubViewer (`.sub`) or find a film via TMDB + OpenSubtitles (local proxy).
 - Generate a readable transcript (merge continuations, strip tags, optional SDH).
 - Export **timed JSON** (`workToTimedJson`) — title, cues, and `transcript.blocks` with text and timing.
 
@@ -80,7 +80,7 @@ transcript_maker → export JSON → content store → game API / static bundle
 
 **MVP:** Check in a few episode JSON files (or seed a DB from them). No runtime subtitle search.
 
-**Later:** Admin ingest script (drop JSON in a folder → validate → publish), optional metadata (show, season, episode, year), and a growing catalog as new titles are transcribed ([content workstream](docs/ROADMAP-content.md)).
+**Later:** Admin ingest script (drop JSON in a folder → validate → publish), and a growing catalog as new titles are transcribed ([content workstream](docs/ROADMAP-content.md)). Show/season/episode metadata and Movies \| TV library browse are already in use.
 
 ### Line model for the game
 
@@ -138,16 +138,38 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 ---
 
+## Phase 1.8 — Library browse UX
+
+**Goal:** Once the catalog mixes movies and multi-season TV, a flat title list is too noisy. Browse by kind, then drill into shows.
+
+### Features
+
+- [x] **Episode meta on import** — parse `Show - 5x01 - Name` into `meta.show` / `season` / `episode`
+- [x] **Grouped library** — Movies list + TV Shows → season → episode (`libraryGroups` + `LibraryScreen`)
+
+Home rails (“top played”) live on the library in [Phase 2.5](#phase-25--reputation--profile-after-2a) and reuse this grouping.
+
+---
+
 ## Phase 2 — Multiplayer
 
 **Goal:** 2–4 players take turns guessing the next line in the same transcript run. Prefer **logged-in** players once Phase 2a ships (display name from account).
 
-### Phase 2a — Auth + share mini-game *(before rooms)*
+### Phase 2a — Auth + share mini-game *(before rooms)* ✅
+
+Shipped on main (PR #5). PR #6 followed with safer per-title star push and MCQ prompt lead-in.
 
 - [x] **Magic-link login** — email link via Resend; session on Worker + D1
+- [x] **Login gate** — browse/play requires sign-in
+- [x] **Editable display name** — `PATCH /api/auth/me` from the auth bar
 - [x] **Claim anonymous stars** — map browser `playerId` → user on first sign-in
 - [x] **Share mini-game link** — `#/play/:shareId`; recipient must sign in
 - [x] **Attribution / scores** — `shared_runs` leaderboard per share
+
+### Phase 2a.1 — Local auth polish
+
+- [x] **Origin-aware magic links** — email link uses the request `Origin` when it is in `ALLOWED_ORIGINS` (so localhost gets a localhost link). **Redeploy the Worker** for this to apply against the production API.
+- [x] **Vite-only continue** — “Continue without signing in (local only)” on the login screen in `npm run dev`
 
 ### Features (rooms — later)
 
@@ -180,19 +202,19 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 ---
 
-## Phase 2.5 — Reputation & profile *(after 2a)*
+## Phase 2.5 — Reputation & profile *(after 2a)* ✅
 
-**Goal:** Gamify without waiting on rooms or global leaderboards. Every completed run is recorded. Signed-in players get a profile, match history, and a home screen of what people actually play. End-of-run thumbs collect a light quality signal for later popular-star ranking.
+**Goal:** Gamify without waiting on rooms or global leaderboards. Every completed run is recorded. Signed-in players get a tabbed profile (account, match history, game stats). The library stays the landing, with top-played rails above the full lists. End-of-run thumbs collect a light quality signal for later popular-star ranking.
 
-Auth already exists (Phase 2a). Solo `GameRun` is still **client-only** today — the only persisted scores are `shared_runs` on a share link. Library is the post-login home. Crowd popular is a raw `COUNT` of stars per line.
+Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — the only persisted scores were `shared_runs` on a share link. Crowd popular remains a raw `COUNT` of stars per line (thumbs are stored, not yet applied).
 
 ### Features
 
-- [ ] **Persist runs** — on complete (finished or miss), write a row to D1 for the signed-in user. Include full-episode and mini-game, plus shared mini-games (keep `shared_runs` for the share leaderboard; also log a personal `runs` row so history is one table).
-- [ ] **Profile** — screen from the auth bar (display name already editable). Show games played, lines guessed, titles touched, and a lightweight reputation rank from cumulative correct answers — not ELO.
-- [ ] **Match history** — table on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips). Newest first. Personal; not a public leaderboard.
-- [ ] **Home screen** — signed-in landing, *before* the full library. Two rails: **top played movies** and **top played shows** (TV grouped by show, same as the library). Mix global play counts with a short **your recent** row. Library stays the browse-everything path.
-- [ ] **Thumbs on complete** — optional 👍 / 👎 on the game-over screen (skip allowed). One rating per run, changeable until they leave. Stars stay “this line is a TL”; thumbs are “this session was a good game.”
+- [x] **Persist runs** — on complete (finished or miss), write a row to D1 for the signed-in user. Include full-episode and mini-game, plus shared mini-games (keep `shared_runs` for the share leaderboard; also log a personal `runs` row so history is one table).
+- [x] **Profile** — auth bar name opens a profile with tabs: **Account** (display name), **Match history**, **Game stats** (games played, lines guessed, titles touched, personal most-played). Reputation is those totals — not ELO.
+- [x] **Match history** — list on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips). Newest first. Personal; not a public leaderboard.
+- [x] **Top played rails** — on the library landing, above Movies / TV Shows: **top played movies** and **top played shows** (TV grouped by show). Global play counts. Hidden until at least one run exists.
+- [x] **Thumbs on complete** — optional thumbs up / down on the game-over screen (skip allowed). One rating per run, changeable until they leave. Stars stay “this line is a TL”; thumbs are “this session was a good game.”
 - [ ] **Light weight on popular *(later slice)*** — do **not** change `/api/stars/popular` in the same ship as collecting votes. When enough ratings exist, apply a small title-level nudge (clamp about ±10%) so well-liked titles’ crowd stars surface a bit sooner. Never hide or unstar a line from a thumbs-down.
 
 ### Data (D1)
@@ -241,15 +263,15 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 ### Done when
 
 - Finishing (or missing out of) a solo or shared game writes a `runs` row.
-- Profile shows stats + a match-history table (game, title, score).
-- Home lists top played movies and top played shows; library is still reachable.
+- Profile shows stats + a match-history list (game, title, score).
+- Library lists top played movies and top played shows (hidden until plays exist).
 - Complete screen has optional thumbs; ratings persist; popular ranking is **unchanged** until the later weight slice.
 
 ### Suggested build order
 
 1. `runs` migration + `POST /api/runs` from `CompleteScreen` (auth session).
 2. `GET /api/runs/mine` → profile match history + derived stats / rank.
-3. `GET /api/stats/played` → home rails (global counts + recent for me).
+3. `GET /api/stats/played` → library rails (global counts, grouped with `libraryGroups`).
 4. Optional thumbs on complete → `run_ratings`.
 5. After real vote volume: weighted popular as a follow-up PR with a feature flag.
 
@@ -319,8 +341,10 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 | **1.5 — Content & UX** | Stars, mini-games, deploy | ✅ Stars + mini-game; static deploy on Cloudflare Pages |
 | **1.6 — Star sync** | Worker + D1, star/unstar API, client sync | ✅ Stars persist across devices; crowd-popular feeds mini-games |
 | **1.7 — Admin / Curate** | Bulk star from transcript UI | ✅ Faster personal TL curation without playing through |
-| **2a — Auth + share mini-game** | Magic-link login, claim stars, share link | Durable accounts; friends play your starred mini-game (must be signed in) |
-| **2.5 — Reputation & profile** | Persist runs, profile, match history, home, thumbs | Games tracked; home shows top played titles; thumbs later nudge popular stars |
+| **1.8 — Library browse UX** | Movies \| TV → season → episode | ✅ Grouped picker via `meta` + `libraryGroups` |
+| **2a — Auth + share mini-game** | Magic-link login, claim stars, share link | ✅ Durable accounts; friends play your starred mini-game |
+| **2a.1 — Local auth polish** | Origin-aware magic links; Vite continue | ✅ Code in; Worker redeploy for email links on localhost |
+| **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs | ✅ Games tracked; library shows top played; thumbs stored |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
@@ -332,10 +356,11 @@ App phases above do **not** wait on new titles. Library growth is a [parallel co
 
 | Phase | Focus | Target outcome |
 |-------|--------|----------------|
-| **C0 — Seed queue** | Letterboxd ZIP → likes ∪ 4.5★ queue | Tracked movie list (not the full watched log) |
-| **C1 — Batch convert** | SRT/VTT folder → timed JSON in transcript_maker | Drop-in files for `imports/` |
-| **C2 — SRT acquisition** | Manual drop + optional paced OpenSubtitles | SRTs for queue titles without scraping other sites |
-| **C3 — Import + hygiene** | `import:all` + year/tmdbId + clean titles | Movies playable in the library picker |
+| **C0 — Seed queue** | Letterboxd ZIP → likes ∪ 4.5★ queue | ✅ Queue + Readwise highlights / stars-seed |
+| **C1 — Batch convert** | SRT/VTT/`.sub` folder → timed JSON in transcript_maker | ✅ Batch export; SubViewer (`.sub`) supported |
+| **C1.5 — SubViewer (.sub)** | Parse SubViewer 2.0 + `[br]` in transcript_maker | ✅ Simpsons S5 imported via `.sub` |
+| **C2 — SRT acquisition** | Manual drop + optional paced OpenSubtitles | Inbox drop works; OpenSubtitles still optional |
+| **C3 — Import + hygiene** | `import:all` + year/tmdbId + clean titles | 🔄 Movies + S4/S5 playable; `.en` tails / TMDB ids still open |
 | **C4 — Ongoing** | Re-export Letterboxd, convert the delta | New likes / 4.5★ films without a full rebuild |
 
 ### Suggested build order (Phase 0 → 1)
@@ -349,16 +374,17 @@ App phases above do **not** wait on new titles. Library growth is a [parallel co
 
 ### Growing the library over time
 
-Simpsons Season 4 is already in `content/`. Next titles come from **movies you liked most** (Letterboxd likes ∪ 4.5–5★), not every film. Details and phases: [docs/ROADMAP-content.md](docs/ROADMAP-content.md).
+Catalog already has **movies + Simpsons S4/S5**. More titles come from **movies you liked most** (Letterboxd likes ∪ 4.5–5★), not every film. Details and phases: [docs/ROADMAP-content.md](docs/ROADMAP-content.md). Agent skill: [`.cursor/skills/content-ingest/SKILL.md`](.cursor/skills/content-ingest/SKILL.md).
 
 | When | How |
 |------|-----|
-| **Now** | Catalog is Simpsons S4 + sample. Convert any SRT you already have via transcript_maker → `imports/` → `npm run import:all` |
-| **C0** | Official Letterboxd export ZIP → seed queue ([prompt](docs/PROMPT-letterboxd-queue.md)) |
-| **C1** | Batch SRT/VTT → timed JSON in transcript_maker ([prompt](docs/PROMPT-transcript-maker-batch-export.md)) |
-| **C2** | Drop SRTs by hand, or pull via OpenSubtitles (existing transcript_maker proxy, daily cap) |
+| **Now** | Movies + Simpsons S4/S5 in `content/`. Convert SRT/VTT/`.sub` via transcript_maker → `imports/` → `npm run import:all` |
+| **C0** | ✅ Official Letterboxd export ZIP → seed queue ([prompt](docs/PROMPT-letterboxd-queue.md)) |
+| **C1 / C1.5** | ✅ Batch SRT/VTT/`.sub` → timed JSON in transcript_maker ([prompt](docs/PROMPT-transcript-maker-batch-export.md)) |
+| **C2** | Drop subtitles by hand, or pull via OpenSubtitles (existing transcript_maker proxy, daily cap) |
+| **C3** | Hygiene: strip leftover `.en` from S4 titles/ids without breaking star `titleId`s; persist TMDB ids |
 | **Ongoing** | Re-export Letterboxd, convert the delta, spot-check, import |
-| **Later** | Admin page or CLI: upload JSON, preview lines, publish; persist year / TMDB id on titles |
+| **Later** | Admin page or CLI: upload JSON, preview lines, publish |
 
 ### Suggested build order (Phase 2)
 
@@ -374,8 +400,15 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 
 1. Persist completed runs to D1.
 2. Profile + match history.
-3. Home rails (top played movies / shows).
+3. Library rails (top played movies / shows) — reuse Phase 1.8 `libraryGroups`.
 4. Thumbs on complete; weight popular stars only after votes exist.
+
+### Recent feedback (parked)
+
+- **Visual palette** — Coolors palette1 → palette2 (plum/mint/lime) on the content branch; logo artwork later.
+- **Localhost magic links** — Origin-aware links are coded (2a.1); **redeploy Worker** so production API emails point at localhost when you develop there.
+- **Library home / top played** — ✅ Phase 2.5 rails on the library.
+- **S4 `.en` title suffixes** — optional hygiene; don’t rewrite ids carelessly (stars key on `titleId`).
 
 ---
 
@@ -402,7 +435,7 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (usually `http://localhost:5173`). Pick an episode, read the current line, choose what comes next. Fun mode: wrong answers let you try again until you finish the episode.
+Open the URL Vite prints (usually `http://localhost:5173`). Sign in (or use **Continue without signing in** in Vite dev), pick a title, read the current line, choose what comes next. Fun mode: wrong answers let you try again until you finish the episode.
 
 ### Import transcripts
 
@@ -475,10 +508,11 @@ inbox/letterboxd/  gitignored Letterboxd ZIP
 inbox/srt/         gitignored raw subtitles
 imports/           raw transcript_maker exports
 src/
-  app/             React UI (library, play, complete)
+  app/             React UI (library, play, complete, profile)
   components/
   lib/
     game/          MCQ generator + session state
+    runs/          persist completed games + thumbs
     import/        transcript_maker → Title
     content/       load (Node) + browser (Vite bundle)
 scripts/import.ts  CLI to ingest exports

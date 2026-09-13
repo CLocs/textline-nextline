@@ -5,14 +5,7 @@ import { getTitle, listCatalogEntries } from "../lib/content/browser";
 import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue } from "../lib/game/miniGame";
-import {
-  goBackQuestion,
-  progressLabel,
-  skipQuestion,
-  startRun,
-  submitAnswer,
-  type GameRun,
-} from "../lib/game/session";
+import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, type GameRun } from "../lib/game/session";
 import { getStarredLineIndices } from "../lib/stars/sync";
 import {
   createMiniShare,
@@ -23,8 +16,9 @@ import {
   submitSharedRun,
   type ShareMeta,
 } from "../lib/auth/api";
+import { submitRun } from "../lib/runs/api";
 import { clearSession, getStoredUser, isLocalDevSession, type AuthUser } from "../lib/auth/session";
-import { clearHash, parseHash, setHash } from "../lib/routing/hash";
+import { clearHash, parseHash, profileHash, setHash, type ProfileTab } from "../lib/routing/hash";
 import { LibraryScreen } from "../components/LibraryScreen";
 import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
@@ -32,8 +26,9 @@ import { CompleteScreen } from "../components/CompleteScreen";
 import { CurateScreen } from "../components/CurateScreen";
 import { LoginScreen } from "../components/LoginScreen";
 import { AuthBar } from "../components/AuthBar";
+import { ProfileScreen } from "../components/ProfileScreen";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -56,6 +51,8 @@ export function App() {
   const [shareBusy, setShareBusy] = useState(false);
   const [shareMessage, setShareMessage] = useState<string | null>(null);
   const [routeError, setRouteError] = useState<string | null>(null);
+  const [persistedRunId, setPersistedRunId] = useState<string | null>(null);
+  const [profileTab, setProfileTab] = useState<ProfileTab>("account");
 
   const question = useMemo(() => {
     if (!title || !run || run.phase !== "playing") return null;
@@ -70,6 +67,10 @@ export function App() {
     setAuthToken(undefined);
     setLoginMessage(undefined);
     if (returnTo?.startsWith("play/")) {
+      setHash(returnTo);
+      return;
+    }
+    if (returnTo?.startsWith("profile")) {
       setHash(returnTo);
       return;
     }
@@ -134,6 +135,7 @@ export function App() {
     setActiveEntry(entry);
     setLastSetup({ mode: "fun", length: "mini", crowdPopular: [] });
     setTitle(loaded);
+    setPersistedRunId(null);
     setRun(
       startRun(entry.id, {
         mode: "fun",
@@ -193,6 +195,17 @@ export function App() {
           return;
         }
         void beginSharedPlay(route.shareId);
+        return;
+      }
+      if (route.kind === "profile") {
+        if (!user) {
+          setLoginMessage("Sign in to view your profile.");
+          setLoginReturn(profileHash(route.tab));
+          setScreen("login");
+          return;
+        }
+        setProfileTab(route.tab);
+        setScreen("profile");
       }
     }
 
@@ -227,6 +240,7 @@ export function App() {
     setActiveEntry(entry);
     setLastSetup(setup);
     setTitle(loaded);
+    setPersistedRunId(null);
     setRun(
       startRun(entry.id, {
         mode: setup.mode,
@@ -286,6 +300,23 @@ export function App() {
         skipCount: completed.skipCount,
       });
     }
+    if (title && completed.endReason) {
+      const ok = await submitRun({
+        id: completed.id,
+        titleId: completed.titleId,
+        length: completed.length,
+        mode: completed.mode,
+        correctCount: completed.correctCount,
+        wrongCount: completed.wrongCount,
+        skipCount: completed.skipCount,
+        questionTotal: questionTotal(completed, title),
+        endReason: completed.endReason,
+        shareId: activeShareId,
+      });
+      setPersistedRunId(ok ? completed.id : null);
+    } else {
+      setPersistedRunId(null);
+    }
     setScreen("complete");
   }
 
@@ -320,6 +351,7 @@ export function App() {
     setLastSetup(null);
     setTitle(null);
     setRun(null);
+    setPersistedRunId(null);
     setFeedback(null);
     setSkipReveal(null);
     setActiveShareId(null);
@@ -364,6 +396,7 @@ export function App() {
     setLastSetup(null);
     setTitle(null);
     setRun(null);
+    setPersistedRunId(null);
     setFeedback(null);
     setSkipReveal(null);
     setActiveShareId(null);
@@ -375,6 +408,12 @@ export function App() {
     setLoginMessage("Sign in to browse episodes and play.");
     setScreen("login");
     clearHash();
+  }
+
+  function handleOpenProfile() {
+    setProfileTab("account");
+    setScreen("profile");
+    setHash(profileHash("account"));
   }
 
   // Signed-out users only see the sign-in gate (plus auth deep links).
@@ -394,7 +433,7 @@ export function App() {
           {user && (
             <AuthBar
               user={user}
-              onUpdated={setUser}
+              onProfile={handleOpenProfile}
               onLogout={() => void handleLogout()}
             />
           )}
@@ -418,6 +457,20 @@ export function App() {
 
       {showApp && screen === "library" && (
         <LibraryScreen entries={entries} onSelect={handlePickEpisode} />
+      )}
+
+      {showApp && screen === "profile" && user && (
+        <ProfileScreen
+          user={user}
+          tab={profileTab}
+          entries={entries}
+          onTab={(tab) => {
+            setProfileTab(tab);
+            setHash(profileHash(tab));
+          }}
+          onBack={handleBackToLibrary}
+          onUpdated={setUser}
+        />
       )}
 
       {showApp && screen === "setup" && pendingEntry && (
@@ -461,6 +514,7 @@ export function App() {
           run={run}
           shareId={activeShareId}
           shareOwnerName={shareMeta?.ownerDisplayName}
+          persistedRunId={persistedRunId}
           onPlayAgain={handleRestart}
           onBack={handleBackToLibrary}
         />

@@ -37,10 +37,11 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
 
    If you're already in `api/`, run `npm run db:migrate:remote` instead (no `--prefix`).
 
-   For an **existing** D1 that already has the stars table, apply the Phase 2a migration only:
+   For an **existing** D1 that already has the stars table, apply later migrations only:
 
    ```bash
    npm run db:migrate:auth:remote --prefix api
+   npm run db:migrate:runs:remote --prefix api
    ```
 
 3. **Deploy the Worker** (from **repo root**):
@@ -79,6 +80,7 @@ cd api
 npm install
 npm run db:migrate:local
 npm run db:migrate:auth:local   # if D1 was created before Phase 2a
+npm run db:migrate:runs:local   # if D1 was created before Phase 2.5
 npm run dev
 ```
 
@@ -105,8 +107,12 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `GET` | `/api/shares/:id/queue` | Owner star line indices (auth) |
 | `POST` | `/api/shares/:id/runs` | Submit scores (auth) |
 | `GET` | `/api/shares/:id/runs` | Share leaderboard (auth) |
+| `POST` | `/api/runs` | Persist a completed run (auth). Body includes client `id` (UUID) |
+| `GET` | `/api/runs/mine` | Match history for the signed-in user |
+| `PATCH` | `/api/runs/:id/rating` | Body `{ thumb: "up" \| "down" }` |
+| `GET` | `/api/stats/played` | Global play counts per `titleId` (auth) |
 
-Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share routes require auth.
+Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, and stats routes require auth.
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 

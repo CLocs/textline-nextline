@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { getPlayableLines } from "../lib/content/playable";
@@ -7,6 +7,8 @@ import {
   groupCatalogEntries,
   type ShowGroup,
 } from "../lib/content/libraryGroups";
+import { fetchPlayedStats } from "../lib/runs/api";
+import { playCountMap, topPlayedMovies, topPlayedShows } from "../lib/content/playedRails";
 
 type Props = {
   entries: CatalogEntry[];
@@ -29,7 +31,22 @@ function findShow(groups: ReturnType<typeof groupCatalogEntries>, show: string):
 
 export function LibraryScreen({ entries, onSelect }: Props) {
   const [view, setView] = useState<View>({ level: "root" });
+  const [counts, setCounts] = useState<Map<string, number>>(new Map());
   const groups = groupCatalogEntries(entries);
+
+  useEffect(() => {
+    let cancelled = false;
+    void fetchPlayedStats().then((titles) => {
+      if (!cancelled) setCounts(playCountMap(titles));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const playedMovies = useMemo(() => topPlayedMovies(entries, counts), [entries, counts]);
+  const playedShows = useMemo(() => topPlayedShows(entries, counts), [entries, counts]);
+  const showRails = playedMovies.length > 0 || playedShows.length > 0;
 
   if (view.level === "season") {
     const show = findShow(groups, view.show);
@@ -109,6 +126,46 @@ export function LibraryScreen({ entries, onSelect }: Props) {
         </p>
       ) : (
         <div className="library-groups">
+          {showRails && playedMovies.length > 0 && (
+            <div className="library-group">
+              <h3 className="library-group-heading">Top played movies</h3>
+              <ul className="title-list">
+                {playedMovies.map(({ entry, playCount }) => (
+                  <li key={entry.id}>
+                    <button type="button" className="title-card" onClick={() => onSelect(entry)}>
+                      <span className="title-card-name">{entry.title}</span>
+                      <span className="title-card-meta">
+                        {playCount} play{playCount === 1 ? "" : "s"}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {showRails && playedShows.length > 0 && (
+            <div className="library-group">
+              <h3 className="library-group-heading">Top played shows</h3>
+              <ul className="title-list">
+                {playedShows.map((show) => (
+                  <li key={show.show}>
+                    <button
+                      type="button"
+                      className="title-card"
+                      onClick={() => setView({ level: "show", show: show.show })}
+                    >
+                      <span className="title-card-name">{show.show}</span>
+                      <span className="title-card-meta">
+                        {show.playCount} play{show.playCount === 1 ? "" : "s"}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {groups.movies.length > 0 && (
             <div className="library-group">
               <h3 className="library-group-heading">Movies</h3>
