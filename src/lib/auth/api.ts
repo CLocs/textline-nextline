@@ -155,7 +155,7 @@ export async function fetchShareMeta(
 
 export async function fetchShareQueue(
   shareId: string,
-): Promise<{ titleId: string; lineIndices: number[] } | { error: string; status?: number }> {
+): Promise<{ titleId: string; lineIndices: number[]; frozen: boolean } | { error: string; status?: number }> {
   const response = await authFetch(`/api/shares/${encodeURIComponent(shareId)}/queue`);
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in to play this mini-game", status: 401 };
@@ -163,7 +163,16 @@ export async function fetchShareQueue(
     const data = (await response.json().catch(() => null)) as { error?: string } | null;
     return { error: data?.error ?? "Share not found", status: response.status };
   }
-  return (await response.json()) as { titleId: string; lineIndices: number[] };
+  const data = (await response.json()) as {
+    titleId?: string;
+    lineIndices?: number[];
+    frozen?: boolean;
+  };
+  return {
+    titleId: data.titleId ?? "",
+    lineIndices: Array.isArray(data.lineIndices) ? data.lineIndices : [],
+    frozen: Boolean(data.frozen),
+  };
 }
 
 export async function submitSharedRun(

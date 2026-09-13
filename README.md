@@ -212,7 +212,7 @@ Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — th
 
 - [x] **Persist runs** — on complete (finished or miss), write a row to D1 for the signed-in user. Include full-episode and mini-game, plus shared mini-games (keep `shared_runs` for the share leaderboard; also log a personal `runs` row so history is one table).
 - [x] **Profile** — auth bar name opens a profile with tabs: **Account** (display name), **Match history**, **Game stats** (games played, lines guessed, titles touched, personal most-played). Reputation is those totals — not ELO.
-- [x] **Match history** — list on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips). Newest first. Personal; not a public leaderboard.
+- [x] **Match history** — list on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips), and stored thumbs when present. Mini runs with a saved prompt list can **Share** an exact replay (`#/play/:shareId`); a short cohort line shows who played. Newest first. Personal; not a public leaderboard.
 - [x] **Home + library** — signed-in landing is **Home**: **your recent**, **top played movies**, **top played shows** (TV grouped by show). **Browse full library** opens Movies \| TV. Global play counts; recent from personal runs. Rails hide until plays exist.
 - [x] **Thumbs on complete** — optional thumbs up / down on the game-over screen (skip allowed). One rating per run, changeable until they leave. Stars stay “this line is a TL”; thumbs are “this session was a good game.”
 - [ ] **Light weight on popular *(later slice)*** — do **not** change `/api/stars/popular` in the same ship as collecting votes. When enough ratings exist, apply a small title-level nudge (clamp about ±10%) so well-liked titles’ crowd stars surface a bit sooner. Never hide or unstar a line from a thumbs-down.
@@ -231,7 +231,8 @@ New `runs` table, keyed by run id (many games per user + title):
 | `correct_count`, `wrong_count`, `skip_count` | Same as today’s complete screen |
 | `question_total` | Denormalize so history does not need the catalog |
 | `end_reason` | `finished` \| `miss` |
-| `share_id` | Nullable; set when the run was a shared mini-game |
+| `share_id` | Nullable; set when the run was (or became) a shared mini-game |
+| `question_queue` | JSON array of prompt line indices for mini-games; required to share an exact replay |
 | `completed_at` | ISO timestamp |
 
 New `run_ratings` (or `thumb` on `runs`): `up` \| `down`, `rated_at`. Unique on `run_id`.
@@ -263,9 +264,10 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 ### Done when
 
 - Finishing (or missing out of) a solo or shared game writes a `runs` row.
-- Profile shows stats + a match-history list (game, title, score).
+- Profile shows stats + a match-history list (game, title, score, thumbs when present).
 - Home lists your recent titles plus top played movies/shows; Browse opens the full catalog.
 - Complete screen has optional thumbs; ratings persist; popular ranking is **unchanged** until the later weight slice.
+- Mini-game history rows with a saved prompt list can share an exact replay; Setup share still uses live stars.
 
 ### Suggested build order
 
@@ -274,6 +276,24 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 3. `GET /api/stats/played` → library rails (global counts, grouped with `libraryGroups`).
 4. Optional thumbs on complete → `run_ratings`.
 5. After real vote volume: weighted popular as a follow-up PR with a feature flag.
+
+### Exact replay from match history
+
+Setup **Share mini-game** still means “play my **current** stars” (queue is rebuilt + shuffled each time). Sharing a **finished mini-game** from history freezes that run’s prompt line indices in order. Friends play the same 10 setups; MCQ distractors may still shuffle. Full-episode rows have no Share. Runs completed before queues were persisted cannot be shared exactly.
+
+---
+
+## Spike: curated / saved mini-game packs *(not building)*
+
+Named playlists of quotes (pick 10 lines, save, replay, share) is a different product from **stars** (personal TL seed) and from **frozen run-replays** (the accident of one play). A history Share is the cheap prototype of “a really good 10.” Use that in the wild before building an editor.
+
+Open questions (spike only — no pack UI):
+
+- Title-scoped vs mixed-title packs
+- Order: curated sequence vs shuffle-on-play
+- Edit after someone has already played the pack
+- How this relates to stars / thumbs / crowd popular
+- Curate UI: pick from transcript vs “save this run as a pack”
 
 ---
 
@@ -344,7 +364,7 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 | **1.8 — Library browse UX** | Movies \| TV → season → episode | ✅ Grouped picker via `meta` + `libraryGroups` |
 | **2a — Auth + share mini-game** | Magic-link login, claim stars, share link | ✅ Durable accounts; friends play your starred mini-game |
 | **2a.1 — Local auth polish** | Origin-aware magic links; Vite continue | ✅ Code in; Worker redeploy for email links on localhost |
-| **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs | ✅ Games tracked; library shows top played; thumbs stored |
+| **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |

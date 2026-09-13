@@ -42,6 +42,7 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
    ```bash
    npm run db:migrate:auth:remote --prefix api
    npm run db:migrate:runs:remote --prefix api
+   npm run db:migrate:shares:remote --prefix api
    ```
 
 3. **Deploy the Worker** (from **repo root**):
@@ -81,6 +82,7 @@ npm install
 npm run db:migrate:local
 npm run db:migrate:auth:local   # if D1 was created before Phase 2a
 npm run db:migrate:runs:local   # if D1 was created before Phase 2.5
+npm run db:migrate:shares:local # if D1 was created before frozen mini-game shares
 npm run dev
 ```
 
@@ -104,11 +106,12 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/auth/claim` | Body `{ anonymousPlayerId }` → merge anonymous stars |
 | `POST` | `/api/shares` | Create mini-game share (auth). Body `{ titleId }` |
 | `GET` | `/api/shares/:id` | Share metadata (auth) |
-| `GET` | `/api/shares/:id/queue` | Owner star line indices (auth) |
+| `GET` | `/api/shares/:id/queue` | Prompt line indices (auth). `{ titleId, lineIndices, frozen }` — `frozen: true` is an exact replay |
 | `POST` | `/api/shares/:id/runs` | Submit scores (auth) |
 | `GET` | `/api/shares/:id/runs` | Share leaderboard (auth) |
-| `POST` | `/api/runs` | Persist a completed run (auth). Body includes client `id` (UUID) |
+| `POST` | `/api/runs` | Persist a completed run (auth). Body includes client `id` (UUID) and optional `questionQueue` |
 | `GET` | `/api/runs/mine` | Match history for the signed-in user |
+| `POST` | `/api/runs/:id/share` | Freeze that mini-game’s prompt list; returns `{ shareId, url }` |
 | `PATCH` | `/api/runs/:id/rating` | Body `{ thumb: "up" \| "down" }` |
 | `GET` | `/api/stats/played` | Global play counts per `titleId` (auth) |
 
@@ -126,7 +129,7 @@ That inserts seed lines as the `users.id` for that email (you must have magic-li
 
 Format: `https://textline-nextline.pages.dev/#/play/<shareId>`
 
-Recipient must **sign in**; then they play a mini-game built from the sharer's stars. Scores land on the share leaderboard.
+Recipient must **sign in**. Setup **Share mini-game** still builds a quiz from the owner’s **current** stars (order reshuffles). Match-history **Share** freezes that run’s prompt indices so a friend plays the same 10 lines in the same order. Scores land on the share leaderboard.
 
 ## GitHub Actions (recommended)
 
@@ -181,7 +184,7 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | Full episode / mini-game | Yes |
 | Fun mode, skip, stars | Synced when `VITE_API_URL` is set; otherwise per-browser |
 | Sign in (magic link) | Needs Resend secrets on Worker; claim merges anonymous stars |
-| Share mini-game | Setup → Share link; friend must sign in; scores on share |
+| Share mini-game | Setup → live stars (shuffles); history Share → exact 10 prompts; friend must sign in |
 | Mini-game queue | Your stars → crowd popular → random |
 | Medium / Hard | Not enabled yet |
 | Live multiplayer rooms | Not yet — Phase 2 |
@@ -200,3 +203,4 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | Share play asks to sign in | Expected — Phase 2a requires login for attribution |
 | CORS errors | Check Worker `ALLOWED_ORIGINS` in `api/wrangler.toml` |
 | Friend's stars missing | Expected without Worker — deploy API and set `VITE_API_URL` |
+| `duplicate column name: question_queue` | Frozen-share migration (`004`) already applied. Deploy the Worker with `npm run deploy --prefix api` |

@@ -23,9 +23,27 @@ type GameRunRow = {
   question_total: number;
   end_reason: string;
   share_id: string | null;
+  question_queue: string | null;
   completed_at: string;
 };
 type RatingRow = { run_id: string; thumb: string; rated_at: string };
+type MiniShareRow = {
+  id: string;
+  owner_user_id: string;
+  title_id: string;
+  created_at: string;
+  revoked_at: string | null;
+  line_indices: string | null;
+};
+type SharedRunRow = {
+  id: string;
+  share_id: string;
+  player_user_id: string;
+  correct_count: number;
+  wrong_count: number;
+  skip_count: number;
+  completed_at: string;
+};
 
 function futureIso() {
   return new Date(Date.now() + 86_400_000).toISOString();
@@ -52,6 +70,8 @@ function createRunsDb() {
   ];
   const runs: GameRunRow[] = [];
   const ratings: RatingRow[] = [];
+  const shares: MiniShareRow[] = [];
+  const sharedRuns: SharedRunRow[] = [];
 
   const db = {
     prepare(sql: string) {
@@ -72,6 +92,7 @@ function createRunsDb() {
                   total,
                   endReason,
                   shareId,
+                  questionQueue,
                   completedAt,
                 ] = args as [
                   string,
@@ -84,6 +105,7 @@ function createRunsDb() {
                   number,
                   number,
                   string,
+                  string | null,
                   string | null,
                   string,
                 ];
@@ -100,14 +122,54 @@ function createRunsDb() {
                   question_total: total,
                   end_reason: endReason,
                   share_id: shareId,
+                  question_queue: questionQueue,
                   completed_at: completedAt,
                 });
+              } else if (sql.includes("UPDATE runs SET share_id")) {
+                const [shareId, runId] = args as [string, string];
+                const row = runs.find((item) => item.id === runId);
+                if (row) row.share_id = shareId;
               } else if (sql.includes("INSERT INTO run_ratings")) {
                 const [runId, thumb, ratedAt] = args as [string, string, string];
                 const existing = ratings.findIndex((row) => row.run_id === runId);
                 const next = { run_id: runId, thumb, rated_at: ratedAt };
                 if (existing === -1) ratings.push(next);
                 else ratings[existing] = next;
+              } else if (sql.includes("INSERT INTO mini_shares")) {
+                const [id, ownerUserId, titleId, createdAt, lineIndices] = args as [
+                  string,
+                  string,
+                  string,
+                  string,
+                  string | undefined,
+                ];
+                shares.push({
+                  id,
+                  owner_user_id: ownerUserId,
+                  title_id: titleId,
+                  created_at: createdAt,
+                  revoked_at: null,
+                  line_indices: lineIndices ?? null,
+                });
+              } else if (sql.includes("INSERT INTO shared_runs")) {
+                const [id, shareId, playerUserId, correct, wrong, skip, completedAt] = args as [
+                  string,
+                  string,
+                  string,
+                  number,
+                  number,
+                  number,
+                  string,
+                ];
+                sharedRuns.push({
+                  id,
+                  share_id: shareId,
+                  player_user_id: playerUserId,
+                  correct_count: correct,
+                  wrong_count: wrong,
+                  skip_count: skip,
+                  completed_at: completedAt,
+                });
               }
               return { success: true };
             },
@@ -132,6 +194,16 @@ function createRunsDb() {
                 const row = runs.find((r) => r.id === runId);
                 return (row ? { id: row.id, user_id: row.user_id } : null) as T;
               }
+              if (sql.includes("FROM runs WHERE id")) {
+                const [runId] = args as [string];
+                const row = runs.find((r) => r.id === runId);
+                return (row ?? null) as T;
+              }
+              if (sql.includes("FROM mini_shares WHERE id")) {
+                const [shareId] = args as [string];
+                const share = shares.find((s) => s.id === shareId);
+                return (share ?? null) as T;
+              }
               return null;
             },
             async all<T>() {
@@ -154,6 +226,7 @@ function createRunsDb() {
                       question_total: row.question_total,
                       end_reason: row.end_reason,
                       share_id: row.share_id,
+                      question_queue: row.question_queue,
                       completed_at: row.completed_at,
                       thumb: rating?.thumb ?? null,
                     };
@@ -180,7 +253,7 @@ function createRunsDb() {
     },
   } as unknown as D1Database;
 
-  return { db, runs, ratings };
+  return { db, runs, ratings, shares, sharedRuns };
 }
 
 const validBody = {
@@ -210,7 +283,15 @@ const envFor = (db: D1Database) => ({
 
 describe("parseRunBody", () => {
   it("accepts a complete run payload", () => {
-    expect(parseRunBody(validBody)).toEqual({ ...validBody, shareId: null });
+    expect(parseRunBody(validBody)).toEqual({ ...validBody, shareId: null, questionQueue: null });
+  });
+
+  it("stores a mini-game question queue", () => {
+    expect(parseRunBody({ ...validBody, questionQueue: [4, 1, 9] })).toEqual({
+      ...validBody,
+      shareId: null,
+      questionQueue: [4, 1, 9],
+    });
   });
 
   it("rejects a bad id", () => {
@@ -304,5 +385,67 @@ describe("runs HTTP", () => {
     expect(stats.status).toBe(200);
     const data = (await stats.json()) as { titles: { titleId: string; playCount: number }[] };
     expect(data.titles).toEqual([{ titleId: "payback-1999", playCount: 2 }]);
+  });
+
+  it("persists a question queue and shares a frozen mini-game", async () => {
+    const { db, runs, shares, sharedRuns } = createRunsDb();
+    const queued = { ...validBody, questionQueue: [12, 3, 7, 1] };
+    const created = await handleRequest(
+      authed("/api/runs", { method: "POST", body: JSON.stringify(queued) }),
+      envFor(db),
+    );
+    expect(created.status).toBe(200);
+    expect(runs[0]?.question_queue).toBe(JSON.stringify([12, 3, 7, 1]));
+
+    const mine = await handleRequest(authed("/api/runs/mine"), envFor(db));
+    const listed = (await mine.json()) as { runs: { questionQueue: number[] }[] };
+    expect(listed.runs[0]?.questionQueue).toEqual([12, 3, 7, 1]);
+
+    const shared = await handleRequest(authed(`/api/runs/${RUN_ID}/share`, { method: "POST" }), envFor(db));
+    expect(shared.status).toBe(200);
+    const payload = (await shared.json()) as { shareId: string; url: string };
+    expect(payload.shareId).toBeTruthy();
+    expect(payload.url).toContain(`#/play/${payload.shareId}`);
+    expect(runs[0]?.share_id).toBe(payload.shareId);
+    expect(shares[0]?.line_indices).toBe(JSON.stringify([12, 3, 7, 1]));
+    expect(sharedRuns).toHaveLength(1);
+    expect(sharedRuns[0]?.correct_count).toBe(8);
+
+    const again = await handleRequest(authed(`/api/runs/${RUN_ID}/share`, { method: "POST" }), envFor(db));
+    const againPayload = (await again.json()) as { shareId: string };
+    expect(againPayload.shareId).toBe(payload.shareId);
+    expect(shares).toHaveLength(1);
+  });
+
+  it("does not share a full-episode run or a mini-game without a queue", async () => {
+    const { db } = createRunsDb();
+    await handleRequest(
+      authed("/api/runs", {
+        method: "POST",
+        body: JSON.stringify({ ...validBody, length: "full" }),
+      }),
+      envFor(db),
+    );
+    const full = await handleRequest(authed(`/api/runs/${RUN_ID}/share`, { method: "POST" }), envFor(db));
+    expect(full.status).toBe(400);
+
+    await handleRequest(
+      authed("/api/runs", {
+        method: "POST",
+        body: JSON.stringify({ ...validBody, id: RUN_ID_B }),
+      }),
+      envFor(db),
+    );
+    const missing = await handleRequest(
+      authed(`/api/runs/${RUN_ID_B}/share`, { method: "POST" }),
+      envFor(db),
+    );
+    expect(missing.status).toBe(400);
+
+    const stolen = await handleRequest(
+      authed(`/api/runs/${RUN_ID_B}/share`, { method: "POST" }, OTHER_SESSION),
+      envFor(db),
+    );
+    expect(stolen.status).toBe(404);
   });
 });

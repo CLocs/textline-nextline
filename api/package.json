@@ -11,7 +11,9 @@
     "db:migrate:auth:local": "wrangler d1 execute textline-stars --local --file=migrations/002_auth_shares.sql",
     "db:migrate:auth:remote": "wrangler d1 execute textline-stars --remote --file=migrations/002_auth_shares.sql",
     "db:migrate:runs:local": "wrangler d1 execute textline-stars --local --file=migrations/003_runs.sql",
-    "db:migrate:runs:remote": "wrangler d1 execute textline-stars --remote --file=migrations/003_runs.sql"
+    "db:migrate:runs:remote": "wrangler d1 execute textline-stars --remote --file=migrations/003_runs.sql",
+    "db:migrate:shares:local": "wrangler d1 execute textline-stars --local --file=migrations/004_frozen_shares.sql",
+    "db:migrate:shares:remote": "wrangler d1 execute textline-stars --remote --file=migrations/004_frozen_shares.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",

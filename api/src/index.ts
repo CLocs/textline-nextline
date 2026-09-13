@@ -33,6 +33,7 @@ import {
   parseRunBody,
   parseThumb,
   rateRun,
+  shareCompletedRun,
 } from "./runs.js";
 
 function resolveShareOrigin(
@@ -286,6 +287,24 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (request.method === "GET" && pathname === "/api/runs/mine") {
       const runs = await listMyRuns(env.DB, user.id);
       return jsonResponse({ runs }, 200, origin, allowed);
+    }
+
+    const shareFromRun = pathname.match(/^\/api\/runs\/([^/]+)\/share$/);
+    if (request.method === "POST" && shareFromRun?.[1]) {
+      const runId = decodeURIComponent(shareFromRun[1]);
+      if (!isRunId(runId)) return errorResponse("Invalid run id", 400, origin, allowed);
+      const result = await shareCompletedRun(env.DB, user, runId);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      const appOrigin = resolveShareOrigin(env.APP_ORIGIN, origin, allowed);
+      return jsonResponse(
+        {
+          shareId: result.shareId,
+          url: `${appOrigin}/#/play/${result.shareId}`,
+        },
+        200,
+        origin,
+        allowed,
+      );
     }
 
     const ratingMatch = pathname.match(/^\/api\/runs\/([^/]+)\/rating$/);

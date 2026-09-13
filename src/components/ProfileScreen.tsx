@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import type { CatalogEntry } from "../types/content";
 import type { AuthUser } from "../lib/auth/session";
-import { updateMyDisplayName } from "../lib/auth/api";
-import { fetchMyRuns, type StoredRun } from "../lib/runs/api";
+import { fetchSharedRuns, updateMyDisplayName } from "../lib/auth/api";
+import { fetchMyRuns, shareCompletedRun, type StoredRun } from "../lib/runs/api";
+import { cohortSummary } from "../lib/runs/cohort";
 import { historyTitleLabel, summarizeRuns } from "../lib/content/playedRails";
 import { GAME_MODES, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
@@ -25,8 +26,114 @@ function gameLabel(run: StoredRun): string {
   return `${length} · ${modeLabel(run.mode)}`;
 }
 
+function thumbLabel(thumb: StoredRun["thumb"]): string | null {
+  if (thumb === "up") return "Thumbs up";
+  if (thumb === "down") return "Thumbs down";
+  return null;
+}
+
 function scoreLabel(run: StoredRun): string {
-  return `${run.correctCount} / ${run.questionTotal} · ${run.wrongCount} wrong · ${run.skipCount} skip`;
+  const score = `${run.correctCount} / ${run.questionTotal} · ${run.wrongCount} wrong · ${run.skipCount} skip`;
+  const thumb = thumbLabel(run.thumb);
+  return thumb ? `${score} · ${thumb}` : score;
+}
+
+function canShareMini(run: StoredRun): boolean {
+  return run.length === "mini" && Boolean(run.shareId || run.questionQueue?.length);
+}
+
+function playShareUrl(shareId: string): string {
+  return `${window.location.origin}/#/play/${shareId}`;
+}
+
+async function copyShareUrl(url: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(url);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function HistoryMatchRow({
+  run,
+  entries,
+}: {
+  run: StoredRun;
+  entries: CatalogEntry[];
+}) {
+  const [shareId, setShareId] = useState(run.shareId);
+  const [cohortLine, setCohortLine] = useState<string | null>(null);
+  const [shareBusy, setShareBusy] = useState(false);
+  const [shareNote, setShareNote] = useState<string | null>(null);
+
+  useEffect(() => {
+    setShareId(run.shareId);
+  }, [run.shareId]);
+
+  useEffect(() => {
+    if (!shareId) {
+      setCohortLine(null);
+      return;
+    }
+    let cancelled = false;
+    void fetchSharedRuns(shareId).then((players) => {
+      if (cancelled) return;
+      setCohortLine(cohortSummary(players, run.questionTotal));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [shareId, run.questionTotal]);
+
+  async function handleShare() {
+    setShareBusy(true);
+    setShareNote(null);
+    if (shareId) {
+      const url = playShareUrl(shareId);
+      const copied = await copyShareUrl(url);
+      setShareNote(copied ? `Link copied: ${url}` : url);
+      setShareBusy(false);
+      return;
+    }
+
+    const result = await shareCompletedRun(run.id);
+    if ("error" in result) {
+      setShareNote(result.error);
+      setShareBusy(false);
+      return;
+    }
+
+    setShareId(result.shareId);
+    const copied = await copyShareUrl(result.url);
+    setShareNote(copied ? `Link copied: ${result.url}` : result.url);
+    setShareBusy(false);
+  }
+
+  return (
+    <div className="history-match">
+      <div className="title-card">
+        <span className="title-card-name">
+          {gameLabel(run)} · {historyTitleLabel(run.titleId, entries)}
+        </span>
+        <span className="title-card-meta">{scoreLabel(run)}</span>
+      </div>
+      {canShareMini(run) && (
+        <div className="history-match-footer">
+          <button
+            type="button"
+            className="button ghost"
+            disabled={shareBusy}
+            onClick={() => void handleShare()}
+          >
+            {shareBusy ? "Sharing…" : shareId ? "Copy share link" : "Share"}
+          </button>
+          {cohortLine && <p className="history-match-cohort">{cohortLine}</p>}
+          {shareNote && <p className="share-message">{shareNote}</p>}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated }: Props) {
@@ -134,12 +241,7 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated }: 
             <ul className="title-list">
               {runs.map((run) => (
                 <li key={run.id}>
-                  <div className="title-card">
-                    <span className="title-card-name">
-                      {gameLabel(run)} · {historyTitleLabel(run.titleId, entries)}
-                    </span>
-                    <span className="title-card-meta">{scoreLabel(run)}</span>
-                  </div>
+                  <HistoryMatchRow run={run} entries={entries} />
                 </li>
               ))}
             </ul>

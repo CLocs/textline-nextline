@@ -1,4 +1,5 @@
 import type { User } from "./auth.js";
+import { createFrozenShare, upsertSharedRun } from "./shares.js";
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -24,6 +25,7 @@ export type RunBody = {
   questionTotal: number;
   endReason: EndReason;
   shareId: string | null;
+  questionQueue: number[] | null;
 };
 
 export type StoredRun = {
@@ -37,6 +39,7 @@ export type StoredRun = {
   questionTotal: number;
   endReason: EndReason;
   shareId: string | null;
+  questionQueue: number[] | null;
   completedAt: string;
   thumb: Thumb | null;
 };
@@ -52,6 +55,26 @@ function isNonNegInt(value: unknown): value is number {
 
 export function isRunId(value: string): boolean {
   return UUID_RE.test(value);
+}
+
+export function parseQuestionQueue(raw: unknown): number[] | null {
+  if (raw == null) return null;
+  if (!Array.isArray(raw) || raw.length === 0 || raw.length > 50) return null;
+  const indices: number[] = [];
+  for (const item of raw) {
+    if (!isNonNegInt(item)) return null;
+    indices.push(item);
+  }
+  return indices;
+}
+
+export function decodeQuestionQueue(raw: string | null | undefined): number[] | null {
+  if (!raw) return null;
+  try {
+    return parseQuestionQueue(JSON.parse(raw));
+  } catch {
+    return null;
+  }
 }
 
 export function parseRunBody(body: unknown): RunBody | null {
@@ -80,6 +103,16 @@ export function parseRunBody(body: unknown): RunBody | null {
     shareId = record.shareId.trim();
   }
 
+  let questionQueue: number[] | null = null;
+  if (record.questionQueue != null) {
+    if (Array.isArray(record.questionQueue) && record.questionQueue.length === 0) {
+      questionQueue = null;
+    } else {
+      questionQueue = parseQuestionQueue(record.questionQueue);
+      if (!questionQueue) return null;
+    }
+  }
+
   return {
     id,
     titleId: titleId.trim(),
@@ -91,6 +124,7 @@ export function parseRunBody(body: unknown): RunBody | null {
     questionTotal: record.questionTotal,
     endReason: endReason as EndReason,
     shareId,
+    questionQueue,
   };
 }
 
@@ -111,8 +145,8 @@ export async function insertRun(
       `INSERT INTO runs (
          id, user_id, title_id, length, mode,
          correct_count, wrong_count, skip_count, question_total,
-         end_reason, share_id, completed_at
-       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         end_reason, share_id, question_queue, completed_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
        ON CONFLICT(id) DO NOTHING`,
     )
     .bind(
@@ -127,6 +161,7 @@ export async function insertRun(
       body.questionTotal,
       body.endReason,
       body.shareId,
+      body.questionQueue ? JSON.stringify(body.questionQueue) : null,
       new Date().toISOString(),
     )
     .run();
@@ -161,6 +196,61 @@ export async function rateRun(
   return { ok: true };
 }
 
+export async function shareCompletedRun(
+  db: D1Database,
+  user: User,
+  runId: string,
+): Promise<{ shareId: string } | { error: string; status: number }> {
+  const row = await db
+    .prepare(
+      `SELECT id, user_id, title_id, length, share_id, question_queue,
+              correct_count, wrong_count, skip_count
+       FROM runs WHERE id = ?`,
+    )
+    .bind(runId)
+    .first<{
+      id: string;
+      user_id: string;
+      title_id: string;
+      length: string;
+      share_id: string | null;
+      question_queue: string | null;
+      correct_count: number;
+      wrong_count: number;
+      skip_count: number;
+    }>();
+
+  if (!row || row.user_id !== user.id) {
+    return { error: "Run not found", status: 404 };
+  }
+  if (row.length !== "mini") {
+    return { error: "Only mini-games can be shared as an exact replay", status: 400 };
+  }
+  if (row.share_id) {
+    return { shareId: row.share_id };
+  }
+
+  const queue = decodeQuestionQueue(row.question_queue);
+  if (!queue) {
+    return {
+      error: "This run has no saved question list. Play a new mini-game to share it.",
+      status: 400,
+    };
+  }
+
+  const share = await createFrozenShare(db, user, row.title_id, queue);
+  await db
+    .prepare(`UPDATE runs SET share_id = ? WHERE id = ?`)
+    .bind(share.id, runId)
+    .run();
+  await upsertSharedRun(db, share.id, user, {
+    correctCount: Number(row.correct_count) || 0,
+    wrongCount: Number(row.wrong_count) || 0,
+    skipCount: Number(row.skip_count) || 0,
+  });
+  return { shareId: share.id };
+}
+
 export async function listMyRuns(
   db: D1Database,
   userId: string,
@@ -171,7 +261,7 @@ export async function listMyRuns(
     .prepare(
       `SELECT r.id, r.title_id, r.length, r.mode,
               r.correct_count, r.wrong_count, r.skip_count, r.question_total,
-              r.end_reason, r.share_id, r.completed_at, rt.thumb
+              r.end_reason, r.share_id, r.question_queue, r.completed_at, rt.thumb
        FROM runs r
        LEFT JOIN run_ratings rt ON rt.run_id = r.id
        WHERE r.user_id = ?
@@ -190,6 +280,7 @@ export async function listMyRuns(
       question_total: number;
       end_reason: string;
       share_id: string | null;
+      question_queue: string | null;
       completed_at: string;
       thumb: string | null;
     }>();
@@ -205,6 +296,7 @@ export async function listMyRuns(
     questionTotal: Number(row.question_total) || 0,
     endReason: row.end_reason as EndReason,
     shareId: row.share_id,
+    questionQueue: decodeQuestionQueue(row.question_queue),
     completedAt: row.completed_at,
     thumb: row.thumb === "up" || row.thumb === "down" ? row.thumb : null,
   }));

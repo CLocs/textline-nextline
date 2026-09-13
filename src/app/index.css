@@ -312,6 +312,29 @@ button {
   white-space: nowrap;
 }
 
+.history-match {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.history-match-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  align-items: center;
+}
+
+.history-match .title-card-meta {
+  white-space: normal;
+  text-align: right;
+}
+
+.history-match-cohort {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
 .play-toolbar {
   display: flex;
   justify-content: space-between;

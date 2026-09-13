@@ -6,6 +6,13 @@ export type MiniShare = {
   ownerUserId: string;
   titleId: string;
   createdAt: string;
+  frozen: boolean;
+};
+
+export type ShareQueue = {
+  titleId: string;
+  lineIndices: number[];
+  frozen: boolean;
 };
 
 export type ShareMeta = {
@@ -35,13 +42,32 @@ export async function createShare(
   const createdAt = new Date().toISOString();
   await db
     .prepare(
-      `INSERT INTO mini_shares (id, owner_user_id, title_id, created_at, revoked_at)
-       VALUES (?, ?, ?, ?, NULL)`,
+      `INSERT INTO mini_shares (id, owner_user_id, title_id, created_at, revoked_at, line_indices)
+       VALUES (?, ?, ?, ?, NULL, NULL)`,
     )
     .bind(id, owner.id, titleId, createdAt)
     .run();
 
-  return { id, ownerUserId: owner.id, titleId, createdAt };
+  return { id, ownerUserId: owner.id, titleId, createdAt, frozen: false };
+}
+
+export async function createFrozenShare(
+  db: D1Database,
+  owner: User,
+  titleId: string,
+  lineIndices: number[],
+): Promise<MiniShare> {
+  const id = createShareId();
+  const createdAt = new Date().toISOString();
+  await db
+    .prepare(
+      `INSERT INTO mini_shares (id, owner_user_id, title_id, created_at, revoked_at, line_indices)
+       VALUES (?, ?, ?, ?, NULL, ?)`,
+    )
+    .bind(id, owner.id, titleId, createdAt, JSON.stringify(lineIndices))
+    .run();
+
+  return { id, ownerUserId: owner.id, titleId, createdAt, frozen: true };
 }
 
 export async function getShareMeta(
@@ -84,15 +110,35 @@ export async function getShareMeta(
 export async function getShareQueue(
   db: D1Database,
   shareId: string,
-): Promise<{ titleId: string; lineIndices: number[] } | null> {
+): Promise<ShareQueue | null> {
   const share = await db
     .prepare(
-      `SELECT title_id, owner_user_id, revoked_at FROM mini_shares WHERE id = ?`,
+      `SELECT title_id, owner_user_id, revoked_at, line_indices FROM mini_shares WHERE id = ?`,
     )
     .bind(shareId)
-    .first<{ title_id: string; owner_user_id: string; revoked_at: string | null }>();
+    .first<{
+      title_id: string;
+      owner_user_id: string;
+      revoked_at: string | null;
+      line_indices: string | null;
+    }>();
 
   if (!share || share.revoked_at) return null;
+
+  if (share.line_indices) {
+    try {
+      const parsed = JSON.parse(share.line_indices) as unknown;
+      if (Array.isArray(parsed) && parsed.every((item) => typeof item === "number" && Number.isInteger(item))) {
+        return {
+          titleId: share.title_id,
+          lineIndices: parsed,
+          frozen: true,
+        };
+      }
+    } catch {
+      return null;
+    }
+  }
 
   const stars = await db
     .prepare(
@@ -106,6 +152,7 @@ export async function getShareQueue(
   return {
     titleId: share.title_id,
     lineIndices: (stars.results ?? []).map((row) => row.line_index),
+    frozen: false,
   };
 }
 

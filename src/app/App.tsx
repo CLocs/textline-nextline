@@ -117,10 +117,12 @@ export function App() {
       return;
     }
 
-    const questionQueue = buildMiniGameQueue(loaded, {
-      personalStarred: queueResult.lineIndices,
-      crowdPopular: [],
-    });
+    const questionQueue = queueResult.frozen
+      ? queueResult.lineIndices
+      : buildMiniGameQueue(loaded, {
+          personalStarred: queueResult.lineIndices,
+          crowdPopular: [],
+        });
     const firstPromptLineIndex = questionQueue[0];
     if (firstPromptLineIndex === undefined) {
       setRouteError("This share has no playable starred lines yet.");
@@ -312,6 +314,7 @@ export function App() {
         questionTotal: questionTotal(completed, title),
         endReason: completed.endReason,
         shareId: activeShareId,
+        questionQueue: completed.questionQueue ?? null,
       });
       setPersistedRunId(ok ? completed.id : null);
     } else {
