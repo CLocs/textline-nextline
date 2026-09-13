@@ -68,11 +68,27 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
 
    Without `RESEND_API_KEY`, the Worker **logs** the magic link to wrangler logs (fine for local `wrangler dev`).
 
-5. **Wire the client** — set `VITE_API_URL` when building Pages:
+5. **Google Sign-In (Phase 2a.2 — optional)** — free; no per-login fee.
+
+   1. [Google Cloud Console](https://console.cloud.google.com/) → APIs & Services → **OAuth consent screen** (External) → add test users while in Testing, then **Publish** when ready for anyone.
+   2. **Credentials** → Create **OAuth client ID** → Application type **Web application**.
+   3. Authorized JavaScript origins: `http://localhost:5173`, `https://textlinenextline.com`, `https://www.textlinenextline.com`, `https://textline-nextline.pages.dev` (and any preview origins you care about).
+   4. From `api/`:
+
+      ```bash
+      npx wrangler secret put GOOGLE_CLIENT_ID
+      ```
+
+      Paste the Web client ID (looks like `….apps.googleusercontent.com`). Redeploy the Worker.
+   5. Optional local fallback in `.env.local`: `VITE_GOOGLE_CLIENT_ID=…` (same value). Usually unnecessary once `GET /api/auth/config` works.
+
+   Login shows **Continue with Google** when `GOOGLE_CLIENT_ID` is set; magic link remains for Yahoo/etc.
+
+6. **Wire the client** — set `VITE_API_URL` when building Pages:
    - **Local:** create `.env.local` with `VITE_API_URL=https://textline-nextline-api.<account>.workers.dev`
    - **CI:** add a repository variable `VITE_API_URL` (Settings → Secrets and variables → Actions → Variables)
 
-6. **Redeploy Pages** so the bundle picks up the API URL. Update Worker `APP_ORIGIN` to production before sharing magic links / mini-game URLs from prod.
+7. **Redeploy Pages** so the bundle picks up the API URL. Update Worker `APP_ORIGIN` to production before sharing magic links / mini-game URLs from prod.
 
 ### Local API development
 
@@ -100,6 +116,8 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `GET` | `/api/stars/popular?titleId=&limit=50` | Crowd ranking by star count |
 | `POST` | `/api/auth/request-link` | Body `{ email }` → magic link email |
 | `POST` | `/api/auth/verify` | Body `{ token }` → `{ user, sessionToken }` |
+| `POST` | `/api/auth/google` | Body `{ idToken }` → `{ user, sessionToken }` (GIS credential) |
+| `GET` | `/api/auth/config` | `{ googleClientId }` — public; null if Google Sign-In unset |
 | `GET` | `/api/auth/me` | Current user (Bearer session) |
 | `PATCH` | `/api/auth/me` | Body `{ displayName }` — update display name |
 | `POST` | `/api/auth/logout` | Invalidate session |

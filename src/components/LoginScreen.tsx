@@ -1,10 +1,17 @@
-import { useEffect, useState, type FormEvent } from "react";
-import { claimAnonymousPlayer, requestMagicLink, verifyMagicLink } from "../lib/auth/api";
+import { useCallback, useEffect, useState, type FormEvent } from "react";
+import {
+  claimAnonymousPlayer,
+  fetchAuthConfig,
+  requestMagicLink,
+  signInWithGoogleIdToken,
+  verifyMagicLink,
+} from "../lib/auth/api";
 import {
   getStoredUser,
   setLocalDevUser,
   type AuthUser,
 } from "../lib/auth/session";
+import { GoogleSignInButton } from "./GoogleSignInButton";
 
 type Props = {
   initialToken?: string;
@@ -30,6 +37,17 @@ export function LoginScreen({
     initialToken ? "verifying" : "idle",
   );
   const [error, setError] = useState<string | null>(null);
+  const [googleClientId, setGoogleClientId] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    void fetchAuthConfig().then((config) => {
+      if (!cancelled) setGoogleClientId(config.googleClientId);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (!initialToken) return;
@@ -68,6 +86,27 @@ export function LoginScreen({
     setStatus("sent");
   }
 
+  const handleGoogleCredential = useCallback(
+    async (idToken: string) => {
+      setError(null);
+      setStatus("verifying");
+      const result = await signInWithGoogleIdToken(idToken);
+      if ("error" in result) {
+        setError(result.error);
+        setStatus("error");
+        return;
+      }
+      await claimAnonymousPlayer();
+      onAuthenticated(result.user);
+    },
+    [onAuthenticated],
+  );
+
+  const handleGoogleError = useCallback((message: string) => {
+    setError(message);
+    setStatus("error");
+  }, []);
+
   function continueLocalDev() {
     const user: AuthUser = {
       id: "local-dev",
@@ -80,6 +119,7 @@ export function LoginScreen({
   }
 
   const stored = getStoredUser();
+  const showForm = status !== "verifying" && status !== "sent";
 
   return (
     <section className="panel login-panel">
@@ -91,8 +131,8 @@ export function LoginScreen({
 
       <h2>Sign in</h2>
       <p className="muted">
-        Enter your email for a magic link — no password. Your stars and shared mini-games attach to
-        this account.
+        Continue with Google, or email a magic link — no password. Your stars and shared mini-games
+        attach to this account.
       </p>
       {message && <p className="login-banner" role="status">{message}</p>}
 
@@ -107,7 +147,23 @@ export function LoginScreen({
             redeployed with origin-aware magic links.
           </p>
         </div>
-      ) : status !== "verifying" ? (
+      ) : null}
+
+      {showForm && googleClientId && (
+        <div className="login-google">
+          <GoogleSignInButton
+            clientId={googleClientId}
+            disabled={status === "sending"}
+            onCredential={(token) => void handleGoogleCredential(token)}
+            onError={handleGoogleError}
+          />
+          <p className="login-divider muted" role="separator">
+            or
+          </p>
+        </div>
+      )}
+
+      {showForm ? (
         <form className="login-form" onSubmit={(event) => void handleSubmit(event)}>
           <label className="login-field">
             <span>Email</span>

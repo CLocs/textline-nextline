@@ -33,6 +33,36 @@ async function authFetch(path: string, init: RequestInit = {}): Promise<Response
   }
 }
 
+export async function fetchAuthConfig(): Promise<{ googleClientId: string | null }> {
+  const response = await authFetch("/api/auth/config");
+  if (!response?.ok) {
+    const fromEnv = import.meta.env.VITE_GOOGLE_CLIENT_ID?.trim();
+    return { googleClientId: fromEnv || null };
+  }
+  const data = (await response.json()) as { googleClientId?: string | null };
+  const fromApi = data.googleClientId?.trim() || null;
+  if (fromApi) return { googleClientId: fromApi };
+  const fromEnv = import.meta.env.VITE_GOOGLE_CLIENT_ID?.trim();
+  return { googleClientId: fromEnv || null };
+}
+
+export async function signInWithGoogleIdToken(
+  idToken: string,
+): Promise<{ user: AuthUser } | { error: string }> {
+  const response = await authFetch("/api/auth/google", {
+    method: "POST",
+    body: JSON.stringify({ idToken }),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as { error?: string } | null;
+    return { error: data?.error ?? "Google sign-in failed" };
+  }
+  const data = (await response.json()) as { user: AuthUser; sessionToken: string };
+  setSession(data.sessionToken, data.user);
+  return { user: data.user };
+}
+
 export async function requestMagicLink(
   email: string,
   returnTo?: string,

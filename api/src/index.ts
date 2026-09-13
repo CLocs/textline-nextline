@@ -4,6 +4,7 @@ import {
   getSessionUser,
   logoutSession,
   requestMagicLink,
+  signInWithGoogle,
   updateDisplayName,
   verifyMagicToken,
   type AuthEnv,
@@ -124,6 +125,11 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
 
   // --- Auth ---
   if (pathname.startsWith("/api/auth")) {
+    if (request.method === "GET" && pathname === "/api/auth/config") {
+      const googleClientId = env.GOOGLE_CLIENT_ID?.trim() || null;
+      return jsonResponse({ googleClientId }, 200, origin, allowed);
+    }
+
     if (request.method === "POST" && pathname === "/api/auth/request-link") {
       const body = (await readJson(request)) as { email?: string; returnTo?: string } | null;
       if (!body?.email) return errorResponse("Missing email", 400, origin, allowed);
@@ -140,6 +146,22 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const body = (await readJson(request)) as { token?: string } | null;
       if (!body?.token) return errorResponse("Missing token", 400, origin, allowed);
       const result = await verifyMagicToken(env.DB, body.token);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(
+        { user: result.user, sessionToken: result.sessionToken },
+        200,
+        origin,
+        allowed,
+      );
+    }
+
+    if (request.method === "POST" && pathname === "/api/auth/google") {
+      const body = (await readJson(request)) as { idToken?: string; credential?: string } | null;
+      const idToken = body?.idToken ?? body?.credential;
+      if (!idToken || typeof idToken !== "string") {
+        return errorResponse("Missing Google credential", 400, origin, allowed);
+      }
+      const result = await signInWithGoogle(env, idToken);
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse(
         { user: result.user, sessionToken: result.sessionToken },
