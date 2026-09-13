@@ -144,4 +144,4 @@ Re-drop a fresh Letterboxd export, diff the queue, convert only the delta. Spot-
 5. C3 hygiene (`.en` tails, TMDB ids) — **next content polish**.
 6. C4 whenever you export Letterboxd again.
 
-App home / “top played” rails wait on **Phase 2.5 reputation** in the main README — don’t rebuild library browse in parallel.
+App home / “top played” rails are live on the library Home landing — see Phase 2.5 in the main README.

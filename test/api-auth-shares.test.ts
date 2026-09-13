@@ -4,7 +4,7 @@ import {
   requestMagicLink,
   verifyMagicToken,
 } from "../api/src/auth.js";
-import { createShare, getShareQueue, listSharedRuns, upsertSharedRun } from "../api/src/shares.js";
+import { createFrozenShare, createShare, getShareQueue, listSharedRuns, upsertSharedRun } from "../api/src/shares.js";
 import { putStar } from "../api/src/stars.js";
 import { handleRequest } from "../api/src/index.js";
 import { sha256Hex } from "../api/src/crypto.js";
@@ -31,6 +31,7 @@ type ShareRow = {
   title_id: string;
   created_at: string;
   revoked_at: string | null;
+  line_indices: string | null;
 };
 type RunRow = {
   id: string;
@@ -123,11 +124,12 @@ function createRichMockDb() {
                   claimed_at: claimedAt,
                 });
               } else if (sql.includes("INSERT INTO mini_shares")) {
-                const [id, ownerUserId, titleId, createdAt] = args as [
+                const [id, ownerUserId, titleId, createdAt, lineIndices] = args as [
                   string,
                   string,
                   string,
                   string,
+                  string | undefined,
                 ];
                 shares.push({
                   id,
@@ -135,6 +137,7 @@ function createRichMockDb() {
                   title_id: titleId,
                   created_at: createdAt,
                   revoked_at: null,
+                  line_indices: lineIndices ?? null,
                 });
               } else if (sql.includes("INSERT INTO shared_runs")) {
                 const [id, shareId, playerUserId, correct, wrong, skip, completedAt] = args as [
@@ -227,6 +230,7 @@ function createRichMockDb() {
                   title_id: share.title_id,
                   owner_user_id: share.owner_user_id,
                   revoked_at: share.revoked_at,
+                  line_indices: share.line_indices,
                 } as T;
               }
               return null;
@@ -329,6 +333,32 @@ describe("auth helpers", () => {
     spy.mockRestore();
   });
 
+  it("appends a safe return path to the magic link", async () => {
+    const logs: string[] = [];
+    const spy = vi.spyOn(console, "log").mockImplementation((...args: unknown[]) => {
+      logs.push(args.map(String).join(" "));
+    });
+    const { db } = createRichMockDb();
+    const env = { DB: db, APP_ORIGIN: "https://textlinenextline.com" };
+
+    await requestMagicLink(env, "dev@example.com", {
+      linkOrigin: "http://localhost:5173",
+      allowedOrigins: ["http://localhost:5173", "https://textlinenextline.com"],
+      returnTo: "play/abc123",
+    });
+
+    expect(logs.some((line) => line.includes("&return=play%2Fabc123"))).toBe(true);
+
+    logs.length = 0;
+    await requestMagicLink(env, "other@example.com", {
+      linkOrigin: "http://localhost:5173",
+      allowedOrigins: ["http://localhost:5173"],
+      returnTo: "https://evil.example",
+    });
+    expect(logs.some((line) => line.includes("evil.example"))).toBe(false);
+    spy.mockRestore();
+  });
+
   it("claims anonymous stars onto the user", async () => {
     const { db } = createRichMockDb();
     const anon = "550e8400-e29b-41d4-a716-446655440000";
@@ -367,7 +397,7 @@ describe("shares", () => {
       "ep",
     );
     const queue = await getShareQueue(db, share.id);
-    expect(queue).toEqual({ titleId: "ep", lineIndices: [5, 9] });
+    expect(queue).toEqual({ titleId: "ep", lineIndices: [5, 9], frozen: false });
 
     await upsertSharedRun(
       db,
@@ -379,6 +409,27 @@ describe("shares", () => {
     const runs = await listSharedRuns(db, share.id);
     expect(runs[0]?.displayName).toBe("Player");
     expect(runs[0]?.correctCount).toBe(8);
+  });
+
+  it("returns frozen line indices in saved order and ignores later stars", async () => {
+    const { db, users } = createRichMockDb();
+    users.push({
+      id: "owner",
+      email: "owner@example.com",
+      display_name: "Owner",
+      created_at: new Date().toISOString(),
+    });
+    await putStar(db, "owner", { titleId: "ep", lineIndex: 2 });
+    const share = await createFrozenShare(
+      db,
+      { id: "owner", email: "owner@example.com", displayName: "Owner", createdAt: "" },
+      "ep",
+      [9, 1, 4],
+    );
+    await putStar(db, "owner", { titleId: "ep", lineIndex: 8 });
+
+    const queue = await getShareQueue(db, share.id);
+    expect(queue).toEqual({ titleId: "ep", lineIndices: [9, 1, 4], frozen: true });
   });
 });
 

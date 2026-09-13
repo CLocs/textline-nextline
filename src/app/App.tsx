@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogEntry, Title } from "../types/content";
 import type { GameSetup } from "../components/SetupScreen";
 import { getTitle, listCatalogEntries } from "../lib/content/browser";
@@ -18,7 +18,18 @@ import {
 } from "../lib/auth/api";
 import { submitRun } from "../lib/runs/api";
 import { clearSession, getStoredUser, isLocalDevSession, type AuthUser } from "../lib/auth/session";
-import { clearHash, parseHash, profileHash, setHash, type ProfileTab } from "../lib/routing/hash";
+import {
+  clearHash,
+  consumeLoginReturn,
+  isSafeLoginReturn,
+  loginReturnFromRoute,
+  parseHash,
+  peekLoginReturn,
+  profileHash,
+  rememberLoginReturn,
+  setHash,
+  type ProfileTab,
+} from "../lib/routing/hash";
 import { LibraryScreen } from "../components/LibraryScreen";
 import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
@@ -45,7 +56,16 @@ export function App() {
   const [loginMessage, setLoginMessage] = useState<string | undefined>(() =>
     getStoredUser() ? undefined : "Sign in to browse episodes and play.",
   );
-  const [loginReturn, setLoginReturn] = useState<string | undefined>();
+  const [loginReturn, setLoginReturn] = useState<string | undefined>(() => {
+    const fromHash = loginReturnFromRoute(parseHash());
+    if (fromHash) {
+      rememberLoginReturn(fromHash);
+      return fromHash;
+    }
+    const route = parseHash();
+    if (route.kind === "auth" || route.kind === "login") return peekLoginReturn();
+    return undefined;
+  });
   const [activeShareId, setActiveShareId] = useState<string | null>(null);
   const [shareMeta, setShareMeta] = useState<ShareMeta | null>(null);
   const [shareBusy, setShareBusy] = useState(false);
@@ -54,28 +74,47 @@ export function App() {
   const [persistedRunId, setPersistedRunId] = useState<string | null>(null);
   const [profileTab, setProfileTab] = useState<ProfileTab>("account");
 
+  const loginReturnRef = useRef(loginReturn);
+  loginReturnRef.current = loginReturn;
+  const beginSharedPlayRef = useRef<(shareId: string) => Promise<void>>(async () => {});
+
   const question = useMemo(() => {
     if (!title || !run || run.phase !== "playing") return null;
     return buildMcq(title, run.promptLineIndex);
   }, [title, run]);
 
+  function captureLoginReturn(path: string | undefined) {
+    if (!isSafeLoginReturn(path)) return;
+    setLoginReturn(path);
+    rememberLoginReturn(path);
+  }
+
   const handleAuthenticated = useCallback((nextUser: AuthUser) => {
+    const route = parseHash();
+    const returnTo =
+      (isSafeLoginReturn(loginReturnRef.current) ? loginReturnRef.current : undefined) ??
+      loginReturnFromRoute(route) ??
+      (route.kind === "auth" || route.kind === "login" ? consumeLoginReturn() : undefined);
+
     setUser(nextUser);
-    clearHash();
-    const returnTo = loginReturn;
     setLoginReturn(undefined);
     setAuthToken(undefined);
     setLoginMessage(undefined);
+    rememberLoginReturn(undefined);
+
     if (returnTo?.startsWith("play/")) {
-      setHash(returnTo);
+      const shareId = returnTo.slice("play/".length);
+      clearHash();
+      void beginSharedPlayRef.current(shareId);
       return;
     }
     if (returnTo?.startsWith("profile")) {
       setHash(returnTo);
       return;
     }
+    clearHash();
     setScreen("library");
-  }, [loginReturn]);
+  }, []);
 
   async function beginSharedPlay(shareId: string) {
     setRouteError(null);
@@ -83,7 +122,7 @@ export function App() {
     if ("error" in metaResult) {
       if (metaResult.status === 401) {
         setLoginMessage("Sign in to play this shared mini-game.");
-        setLoginReturn(`play/${shareId}`);
+        captureLoginReturn(`play/${shareId}`);
         setScreen("login");
         setHash(`login?return=${encodeURIComponent(`play/${shareId}`)}`);
         return;
@@ -98,8 +137,9 @@ export function App() {
     if ("error" in queueResult) {
       if (queueResult.status === 401) {
         setLoginMessage("Sign in to play this shared mini-game.");
-        setLoginReturn(`play/${shareId}`);
+        captureLoginReturn(`play/${shareId}`);
         setScreen("login");
+        setHash(`login?return=${encodeURIComponent(`play/${shareId}`)}`);
         return;
       }
       setRouteError(queueResult.error);
@@ -117,10 +157,12 @@ export function App() {
       return;
     }
 
-    const questionQueue = buildMiniGameQueue(loaded, {
-      personalStarred: queueResult.lineIndices,
-      crowdPopular: [],
-    });
+    const questionQueue = queueResult.frozen
+      ? queueResult.lineIndices
+      : buildMiniGameQueue(loaded, {
+          personalStarred: queueResult.lineIndices,
+          crowdPopular: [],
+        });
     const firstPromptLineIndex = questionQueue[0];
     if (firstPromptLineIndex === undefined) {
       setRouteError("This share has no playable starred lines yet.");
@@ -150,6 +192,8 @@ export function App() {
     clearHash();
   }
 
+  beginSharedPlayRef.current = beginSharedPlay;
+
   useEffect(() => {
     let cancelled = false;
 
@@ -177,19 +221,21 @@ export function App() {
     function applyRoute() {
       const route = parseHash();
       if (route.kind === "auth") {
+        if (user || getStoredUser()) return;
+        if (route.returnTo) captureLoginReturn(route.returnTo);
         setAuthToken(route.token);
         setScreen("login");
         return;
       }
       if (route.kind === "login") {
-        setLoginReturn(route.returnTo);
+        if (route.returnTo) captureLoginReturn(route.returnTo);
         setScreen("login");
         return;
       }
       if (route.kind === "play") {
-        if (!user) {
+        if (!user && !getStoredUser()) {
           setLoginMessage("Sign in to play this shared mini-game.");
-          setLoginReturn(`play/${route.shareId}`);
+          captureLoginReturn(`play/${route.shareId}`);
           setScreen("login");
           setHash(`login?return=${encodeURIComponent(`play/${route.shareId}`)}`);
           return;
@@ -198,9 +244,9 @@ export function App() {
         return;
       }
       if (route.kind === "profile") {
-        if (!user) {
+        if (!user && !getStoredUser()) {
           setLoginMessage("Sign in to view your profile.");
-          setLoginReturn(profileHash(route.tab));
+          captureLoginReturn(profileHash(route.tab));
           setScreen("login");
           return;
         }
@@ -312,6 +358,7 @@ export function App() {
         questionTotal: questionTotal(completed, title),
         endReason: completed.endReason,
         shareId: activeShareId,
+        questionQueue: completed.questionQueue ?? null,
       });
       setPersistedRunId(ok ? completed.id : null);
     } else {
@@ -450,6 +497,7 @@ export function App() {
         <LoginScreen
           initialToken={authToken}
           message={loginMessage}
+          returnTo={loginReturn}
           required={!showApp}
           onAuthenticated={handleAuthenticated}
         />

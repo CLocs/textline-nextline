@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS mini_shares (
   owner_user_id TEXT NOT NULL,
   title_id TEXT NOT NULL,
   created_at TEXT NOT NULL,
-  revoked_at TEXT
+  revoked_at TEXT,
+  line_indices TEXT
 );
 
 CREATE TABLE IF NOT EXISTS shared_runs (
@@ -71,6 +72,7 @@ CREATE TABLE IF NOT EXISTS runs (
   question_total INTEGER NOT NULL,
   end_reason TEXT NOT NULL,
   share_id TEXT,
+  question_queue TEXT,
   completed_at TEXT NOT NULL
 );
 
