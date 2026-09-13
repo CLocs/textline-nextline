@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-13T03:48:44.016Z",
+  "updatedAt": "2026-09-13T04:37:11.568Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -60,6 +60,16 @@
       "importedAt": "2026-09-13T03:32:08.022Z",
       "meta": {
         "year": 2009
+      }
+    },
+    {
+      "id": "kill-bill-vol-1-2003",
+      "title": "Kill Bill Vol. 1 (2003)",
+      "lineCount": 800,
+      "sourceFilename": "Kill.Bill.Vol.1.2003.eng.srt",
+      "importedAt": "2026-09-13T04:37:10.968Z",
+      "meta": {
+        "year": 2003
       }
     },
     {
@@ -140,6 +150,16 @@
       "importedAt": "2026-09-13T03:48:39.304Z",
       "meta": {
         "year": 1994
+      }
+    },
+    {
+      "id": "reservoir-dogs-1992",
+      "title": "Reservoir Dogs (1992)",
+      "lineCount": 1440,
+      "sourceFilename": "Reservoir.Dogs.1992.eng.srt",
+      "importedAt": "2026-09-13T04:37:11.561Z",
+      "meta": {
+        "year": 1992
       }
     },
     {

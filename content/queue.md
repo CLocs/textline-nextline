@@ -65,7 +65,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 1 | 0 | [Mrs. Doubtfire](https://boxd.it/29Cw) | 1993 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Pulp Fiction](https://boxd.it/29Pq) | 1994 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Raiders of the Lost Ark](https://boxd.it/2bbs) | 1981 | 5 | yes | [ ] missing |
-| 1 | 1 | 0 | [Reservoir Dogs](https://boxd.it/2agc) | 1992 | 5 | yes | [ ] missing |
+| 1 | 1 | 0 | [Reservoir Dogs](https://boxd.it/2agc) | 1992 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Silver Linings Playbook](https://boxd.it/2TTo) | 2012 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Terminator 2: Judgment Day](https://boxd.it/2aGY) | 1991 | 5 | yes | [x] |
 | 1 | 1 | 0 | [The Departed](https://boxd.it/28MA) | 2006 | 5 | yes | [ ] missing |
