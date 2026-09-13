@@ -36,6 +36,22 @@ describe("workToTitle", () => {
     expect(title.meta?.year).toBe(1990);
   });
 
+  it("parses show/season/episode from title", () => {
+    const title = workToTitle({
+      title: "The Simpsons - 5x01 - Homer's Barbershop Quartet",
+      sourceFilename: "The Simpsons - 5x01 - Homer's Barbershop Quartet.en.sub",
+      transcript: {
+        generatedAt: 0,
+        options: {},
+        blocks: [
+          { startMs: 0, endMs: 1000, cueIndices: [1], text: "One.", kind: "dialogue" },
+          { startMs: 1000, endMs: 2000, cueIndices: [2], text: "Two.", kind: "dialogue" },
+        ],
+      },
+    });
+    expect(title.meta).toEqual({ show: "The Simpsons", season: 5, episode: 1 });
+  });
+
   it("rejects exports without a generated transcript", () => {
     expect(() =>
       workToTitle({

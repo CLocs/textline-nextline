@@ -1,6 +1,10 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { claimAnonymousPlayer, requestMagicLink, verifyMagicLink } from "../lib/auth/api";
-import { getStoredUser, type AuthUser } from "../lib/auth/session";
+import {
+  getStoredUser,
+  setLocalDevUser,
+  type AuthUser,
+} from "../lib/auth/session";
 
 type Props = {
   initialToken?: string;
@@ -61,6 +65,17 @@ export function LoginScreen({
     setStatus("sent");
   }
 
+  function continueLocalDev() {
+    const user: AuthUser = {
+      id: "local-dev",
+      email: "local@dev",
+      displayName: "Local",
+      createdAt: new Date().toISOString(),
+    };
+    setLocalDevUser(user);
+    onAuthenticated(user);
+  }
+
   const stored = getStoredUser();
 
   return (
@@ -85,7 +100,8 @@ export function LoginScreen({
           <p className="feedback correct">Check your email for a sign-in link.</p>
           <p className="muted login-hint">
             If you don’t see it, check spam/junk — links from new senders often land there until the
-            domain is warmed up.
+            domain is warmed up. On localhost, the link should open this same origin once the API is
+            redeployed with origin-aware magic links.
           </p>
         </div>
       ) : status !== "verifying" ? (
@@ -106,6 +122,12 @@ export function LoginScreen({
           </button>
         </form>
       ) : null}
+
+      {import.meta.env.DEV && status !== "verifying" && (
+        <button type="button" className="button ghost local-dev-continue" onClick={continueLocalDev}>
+          Continue without signing in (local only)
+        </button>
+      )}
 
       {error && (
         <p className="feedback wrong" role="alert">

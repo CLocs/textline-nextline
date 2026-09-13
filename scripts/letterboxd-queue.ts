@@ -21,6 +21,7 @@ import {
 } from "../src/lib/content/letterboxdQueue.js";
 import {
   highlightCountsByUri,
+  matchDocsToCatalog,
   matchDocsToQueue,
   scanReadwiseVault,
 } from "../src/lib/content/readwise.js";
@@ -128,7 +129,8 @@ function main(): void {
 
       try {
         const catalogTitles = listTitles();
-        const seeds = matchHighlightsToTitles(matches, catalogTitles);
+        const catalogMatches = matchDocsToCatalog(docs, catalogTitles);
+        const seeds = matchHighlightsToTitles([...matches, ...catalogMatches], catalogTitles);
         const starsOut = sidecar(out, "stars-seed.json");
         writeFileSync(
           starsOut,

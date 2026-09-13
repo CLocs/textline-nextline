@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import {
   extractHighlights,
+  matchDocsToCatalog,
   matchDocsToQueue,
   parseReadwiseArticles,
   parseReadwiseMarkdown,
@@ -10,7 +11,7 @@ import {
   titleFromSourceUrl,
 } from "../src/lib/content/readwise.js";
 import { matchHighlightsToTitles } from "../src/lib/content/starSeed.js";
-import { parseTitleYear, titlesLikelyMatch } from "../src/lib/content/titleMatch.js";
+import { parseEpisodeHint, parseTitleYear, pickBestTitleMatch, titlesLikelyMatch } from "../src/lib/content/titleMatch.js";
 import type { QueueFilm } from "../src/types/contentQueue.js";
 import type { Title } from "../src/types/content.js";
 
@@ -122,6 +123,93 @@ describe("matchDocsToQueue", () => {
     expect(matches[0]?.highlights.some((h) => h.text.includes("I cured you"))).toBe(true);
     expect(matches[0]?.highlights.some((h) => h.text.includes("Ethyl"))).toBe(false);
   });
+
+  it("picks Empire when Star Wars is also on the queue", () => {
+    const films: QueueFilm[] = [
+      {
+        title: "Star Wars",
+        year: 1977,
+        letterboxdUri: "https://boxd.it/sw",
+        liked: true,
+        rating: 5,
+        priority: 1,
+        playCount: 2,
+        highlightCount: 0,
+        tmdbId: null,
+        srt: "manual",
+        converted: true,
+        imported: true,
+      },
+      {
+        title: "The Empire Strikes Back",
+        year: 1980,
+        letterboxdUri: "https://boxd.it/esb",
+        liked: true,
+        rating: 5,
+        priority: 1,
+        playCount: 2,
+        highlightCount: 0,
+        tmdbId: null,
+        srt: "manual",
+        converted: true,
+        imported: true,
+      },
+    ];
+    const docs = parseReadwiseArticles(
+      `# Star Wars The Empire Strikes Back\n\n## Highlights\n- The Force is with you, young Skywalker. ([View Highlight](https://example.com/a))\n`,
+      "empire.md",
+    );
+    const matches = matchDocsToQueue(docs, films);
+    expect(matches).toHaveLength(1);
+    expect(matches[0]?.title).toBe("The Empire Strikes Back");
+  });
+});
+
+describe("matchDocsToCatalog", () => {
+  const college: Title = {
+    id: "the-simpsons---5x03---homer-goes-to-college",
+    title: "The Simpsons - 5x03 - Homer Goes to College",
+    sourceFilename: "college.sub",
+    importedAt: "2026-01-01T00:00:00.000Z",
+    lineCount: 2,
+    lines: [
+      { index: 0, text: "I am so smart.", kind: "dialogue", startMs: 0, endMs: 1 },
+      { index: 1, text: "S-M-R-T.", kind: "dialogue", startMs: 2, endMs: 3 },
+    ],
+    meta: { show: "The Simpsons", season: 5, episode: 3 },
+  };
+  const pringfield: Title = {
+    id: "the-simpsons---5x10---pringfield",
+    title: "The Simpsons - 5x10 - $pringfield",
+    sourceFilename: "pringfield.sub",
+    importedAt: "2026-01-01T00:00:00.000Z",
+    lineCount: 2,
+    lines: [
+      { index: 0, text: "Welcome to the casino.", kind: "dialogue", startMs: 0, endMs: 1 },
+      { index: 1, text: "Blackjack.", kind: "dialogue", startMs: 2, endMs: 3 },
+    ],
+    meta: { show: "The Simpsons", season: 5, episode: 10 },
+  };
+
+  it("matches an episode-name-only Readwise note", () => {
+    const docs = parseReadwiseArticles(
+      `# Homer Goes to College\n\n## Highlights\n- I am so smart. ([View Highlight](https://example.com/a))\n`,
+      "college.md",
+    );
+    const matches = matchDocsToCatalog(docs, [college, pringfield]);
+    expect(matches).toHaveLength(1);
+    expect(matches[0]?.title).toBe("The Simpsons - 5x03 - Homer Goes to College");
+  });
+
+  it("matches Season N, Episode M transcript notes", () => {
+    const docs = parseReadwiseArticles(
+      `# The Simpsons (1989–…): Season 5, Episode 10 - $Pringfield (Or, How I Learned to Stop Worrying and Love Legalized Gambling) - Full Transcript\n\n## Highlights\n- Welcome to the casino. ([View Highlight](https://example.com/b))\n`,
+      "pringfield.md",
+    );
+    const matches = matchDocsToCatalog(docs, [college, pringfield]);
+    expect(matches).toHaveLength(1);
+    expect(matches[0]?.title).toBe("The Simpsons - 5x10 - $pringfield");
+  });
 });
 
 describe("titlesLikelyMatch", () => {
@@ -150,6 +238,44 @@ describe("titlesLikelyMatch", () => {
         { title: "Oceans Eleven (2001)", year: 2001 },
       ),
     ).toBe(true);
+  });
+});
+
+describe("pickBestTitleMatch", () => {
+  const films = [
+    { title: "Star Wars", year: 1977 },
+    { title: "The Empire Strikes Back", year: 1980 },
+    { title: "Return of the Jedi", year: 1983 },
+  ];
+
+  it("prefers Empire over the parent Star Wars title", () => {
+    expect(pickBestTitleMatch({ title: "Star Wars The Empire Strikes Back", year: null }, films)?.title).toBe(
+      "The Empire Strikes Back",
+    );
+  });
+});
+
+describe("parseEpisodeHint", () => {
+  it("reads Show - 5x03 - Name", () => {
+    expect(parseEpisodeHint("The Simpsons - 5x03 - Homer Goes to College")).toEqual({
+      show: "The Simpsons",
+      season: 5,
+      episode: 3,
+      episodeTitle: "Homer Goes to College",
+    });
+  });
+
+  it("reads Season N, Episode M notes", () => {
+    expect(
+      parseEpisodeHint(
+        "The Simpsons (1989–…): Season 5, Episode 10 - $Pringfield (Or, How I Learned to Stop Worrying and Love Legalized Gambling) - Full Transcript",
+      ),
+    ).toEqual({
+      show: "The Simpsons",
+      season: 5,
+      episode: 10,
+      episodeTitle: "$Pringfield",
+    });
   });
 });
 

@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x12---marge-vs-the-monorailen",
   "title": "The Simpsons - 4x12 - Marge vs. the Monorail.en",
   "sourceFilename": "The Simpsons - 4x12 - Marge vs. the Monorail.en.srt",
-  "importedAt": "2026-09-12T18:42:48.593Z",
+  "importedAt": "2026-09-13T03:32:08.091Z",
   "lineCount": 313,
   "lines": [
     {
@@ -2196,5 +2196,10 @@
       "startMs": 1375635,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 12
+  }
 }

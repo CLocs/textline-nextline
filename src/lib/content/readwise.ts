@@ -1,7 +1,13 @@
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { parseTitleYear, titlesLikelyMatch } from "./titleMatch.js";
+import {
+  parseEpisodeHint,
+  parseTitleYear,
+  pickBestTitleMatch,
+  titlesLikelyMatch,
+} from "./titleMatch.js";
 import type { QueueFilm } from "../../types/contentQueue.js";
+import type { Title } from "../../types/content.js";
 
 export type ReadwiseHighlight = {
   text: string;
@@ -245,28 +251,77 @@ export function matchDocsToQueue(docs: ReadwiseDoc[], films: QueueFilm[]): Readw
   return mergeMatchesByUri(matches);
 }
 
+/** TV (and off-queue films) live in the catalog, not Letterboxd. */
+export function matchDocsToCatalog(docs: ReadwiseDoc[], titles: Title[]): ReadwiseMatch[] {
+  const matches: ReadwiseMatch[] = [];
+  for (const doc of docs) {
+    const title = uniqueTitleForDoc(doc, titles);
+    if (!title) continue;
+    matches.push({
+      letterboxdUri: `catalog:${title.id}`,
+      title: title.title,
+      year: title.meta?.year ?? null,
+      sourcePath: doc.sourcePath,
+      highlights: doc.highlights,
+    });
+  }
+  return mergeMatchesByUri(matches);
+}
+
 function uniqueFilmForDoc(doc: ReadwiseDoc, films: QueueFilm[]): QueueFilm | null {
+  const query = { title: doc.title, year: doc.year };
   if (!isGenericNoteTitle(doc.title)) {
-    const named = filmsMatching(films, { title: doc.title, year: doc.year });
-    if (named.length === 1) return named[0]!;
+    const named = pickBestTitleMatch(query, films);
+    if (named) return named;
   }
   const hintHits = new Map<string, QueueFilm>();
   for (const hint of doc.titleHints) {
-    for (const film of filmsMatching(films, hint)) {
-      hintHits.set(film.letterboxdUri, film);
-    }
+    const picked = pickBestTitleMatch(hint, films);
+    if (picked) hintHits.set(picked.letterboxdUri, picked);
   }
   if (hintHits.size === 1) return [...hintHits.values()][0]!;
   return null;
 }
 
-function filmsMatching(
-  films: QueueFilm[],
-  candidate: { title: string; year: number | null },
-): QueueFilm[] {
-  return films.filter((film) =>
-    titlesLikelyMatch(candidate, { title: film.title, year: film.year }),
-  );
+function uniqueTitleForDoc(doc: ReadwiseDoc, titles: Title[]): Title | null {
+  const byEpisode = titlesMatchingEpisode(doc, titles);
+  if (byEpisode.length === 1) return byEpisode[0]!;
+  if (byEpisode.length > 1) return null;
+
+  const candidates = titles.map((title) => ({
+    title: title.title,
+    year: title.meta?.year ?? null,
+    record: title,
+  }));
+  if (!isGenericNoteTitle(doc.title)) {
+    const named = pickBestTitleMatch({ title: doc.title, year: doc.year }, candidates);
+    if (named) return named.record;
+  }
+  return null;
+}
+
+function titlesMatchingEpisode(doc: ReadwiseDoc, titles: Title[]): Title[] {
+  const hint = parseEpisodeHint(doc.fullTitle) ?? parseEpisodeHint(doc.title);
+  if (hint) {
+    return titles.filter((title) => {
+      const meta = title.meta;
+      const catalogHint = parseEpisodeHint(title.title);
+      const season = meta?.season ?? catalogHint?.season;
+      const episode = meta?.episode ?? catalogHint?.episode;
+      if (season !== hint.season || episode !== hint.episode) return false;
+      const show = meta?.show ?? catalogHint?.show;
+      if (hint.show && show && !titlesLikelyMatch({ title: hint.show, year: null }, { title: show, year: null })) {
+        return false;
+      }
+      return true;
+    });
+  }
+
+  return titles.filter((title) => {
+    const episodeTitle = parseEpisodeHint(title.title)?.episodeTitle;
+    if (!episodeTitle || episodeTitle.length < 8) return false;
+    return titlesLikelyMatch({ title: doc.title, year: null }, { title: episodeTitle, year: null });
+  });
 }
 
 function mergeMatchesByUri(matches: ReadwiseMatch[]): ReadwiseMatch[] {

@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x11---homers-triple-bypassen",
   "title": "The Simpsons - 4x11 - Homer's Triple Bypass.en",
   "sourceFilename": "The Simpsons - 4x11 - Homer's Triple Bypass.en.srt",
-  "importedAt": "2026-09-12T18:42:48.591Z",
+  "importedAt": "2026-09-13T03:32:08.090Z",
   "lineCount": 310,
   "lines": [
     {
@@ -2175,5 +2175,10 @@
       "startMs": 1366490,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 11
+  }
 }

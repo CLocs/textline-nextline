@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x16---dufflessen",
   "title": "The Simpsons - 4x16 - Duffless.en",
   "sourceFilename": "The Simpsons - 4x16 - Duffless.en.srt",
-  "importedAt": "2026-09-12T18:42:48.597Z",
+  "importedAt": "2026-09-13T03:32:08.098Z",
   "lineCount": 333,
   "lines": [
     {
@@ -2336,5 +2336,10 @@
       "startMs": 500,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 16
+  }
 }

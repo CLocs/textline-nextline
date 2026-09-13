@@ -1,5 +1,6 @@
 import { formatBlockText } from "../text.js";
 import { slugify } from "../slug.js";
+import { parseEpisodeMeta } from "../content/libraryGroups.js";
 import type { Line, Title, TitleMeta } from "../../types/content.js";
 import type { TranscriptMakerWork } from "../../types/transcriptMaker.js";
 
@@ -33,8 +34,14 @@ export function parseTranscriptMakerWork(raw: unknown): TranscriptMakerWork {
 }
 
 function metaFromWork(work: TranscriptMakerWork): TitleMeta | undefined {
+  const episode =
+    parseEpisodeMeta(work.title) ?? parseEpisodeMeta(work.sourceFilename);
   const year = work.film?.year;
-  return year !== undefined ? { year } : undefined;
+  if (!episode && year === undefined) return undefined;
+  return {
+    ...episode,
+    ...(year !== undefined ? { year } : {}),
+  };
 }
 
 export function workToTitle(work: TranscriptMakerWork, importedAt = new Date()): Title {

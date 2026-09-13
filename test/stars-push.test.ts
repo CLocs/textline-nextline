@@ -1,9 +1,14 @@
 import { describe, expect, it } from "vitest";
+import { mkdtempSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import {
+  DEFAULT_PROTECTED_TITLE_IDS,
   chunk,
   excludeTitleIds,
   filterStarsByTitle,
   insertStarsSql,
+  loadProtectedTitleIds,
   sqlString,
 } from "../src/lib/content/starsPush.js";
 import type { StarSeed } from "../src/lib/content/starSeed.js";
@@ -52,5 +57,20 @@ describe("excludeTitleIds", () => {
   it("drops titles the player already starred", () => {
     const kept = excludeTitleIds(seed as StarSeed[], ["inglourious-basterds-2009"]);
     expect(kept.map((star) => star.titleId)).toEqual(["payback-1999"]);
+  });
+});
+
+describe("loadProtectedTitleIds", () => {
+  it("reads title ids from stars-protected.json", () => {
+    const dir = mkdtempSync(join(tmpdir(), "stars-protected-"));
+    const path = join(dir, "stars-protected.json");
+    writeFileSync(path, JSON.stringify({ titleIds: ["payback-1999", "friday-1995"] }), "utf8");
+    expect(loadProtectedTitleIds(path)).toEqual(["payback-1999", "friday-1995"]);
+  });
+
+  it("falls back to Payback and Inglourious Basterds when the file is missing", () => {
+    expect(loadProtectedTitleIds(join(tmpdir(), "no-such-stars-protected.json"))).toEqual(
+      DEFAULT_PROTECTED_TITLE_IDS,
+    );
   });
 });

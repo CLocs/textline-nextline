@@ -2,7 +2,7 @@
   "id": "the-simpsons---4x09---mr-plowen",
   "title": "The Simpsons - 4x09 - Mr. Plow.en",
   "sourceFilename": "The Simpsons - 4x09 - Mr. Plow.en.srt",
-  "importedAt": "2026-09-12T18:42:48.589Z",
+  "importedAt": "2026-09-13T03:32:08.086Z",
   "lineCount": 320,
   "lines": [
     {
@@ -2245,5 +2245,10 @@
       "startMs": 1371867,
       "endMs": 2000
     }
-  ]
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 4,
+    "episode": 9
+  }
 }

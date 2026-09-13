@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import type { Title } from "../types/content";
 import { questionTotal, type GameRun } from "../lib/game/session";
 import { fetchSharedRuns, type SharedRun } from "../lib/auth/api";
+import { rateRun, type Thumb } from "../lib/runs/api";
 
 type Props = {
   title: Title;
   run: GameRun;
   shareId?: string | null;
   shareOwnerName?: string | null;
+  persistedRunId?: string | null;
   onPlayAgain: () => void;
   onBack: () => void;
 };
@@ -17,6 +19,7 @@ export function CompleteScreen({
   run,
   shareId,
   shareOwnerName,
+  persistedRunId,
   onPlayAgain,
   onBack,
 }: Props) {
@@ -30,6 +33,8 @@ export function CompleteScreen({
         : "Episode complete";
 
   const [leaderboard, setLeaderboard] = useState<SharedRun[]>([]);
+  const [thumb, setThumb] = useState<Thumb | null>(null);
+  const [ratingBusy, setRatingBusy] = useState(false);
 
   useEffect(() => {
     if (!shareId) return;
@@ -41,6 +46,14 @@ export function CompleteScreen({
       cancelled = true;
     };
   }, [shareId]);
+
+  async function handleThumb(next: Thumb) {
+    if (!persistedRunId || ratingBusy) return;
+    setRatingBusy(true);
+    const ok = await rateRun(persistedRunId, next);
+    setRatingBusy(false);
+    if (ok) setThumb(next);
+  }
 
   return (
     <section className="panel complete-panel">
@@ -70,6 +83,32 @@ export function CompleteScreen({
           <dd>{run.skipCount}</dd>
         </div>
       </dl>
+
+      {persistedRunId && (
+        <>
+          <p className="muted">How was this game?</p>
+          <div className="row">
+            <button
+              type="button"
+              className={thumb === "up" ? "button primary" : "button ghost"}
+              disabled={ratingBusy}
+              aria-pressed={thumb === "up"}
+              onClick={() => void handleThumb("up")}
+            >
+              Thumbs up
+            </button>
+            <button
+              type="button"
+              className={thumb === "down" ? "button primary" : "button ghost"}
+              disabled={ratingBusy}
+              aria-pressed={thumb === "down"}
+              onClick={() => void handleThumb("down")}
+            >
+              Thumbs down
+            </button>
+          </div>
+        </>
+      )}
 
       {shareId && leaderboard.length > 0 && (
         <div className="share-leaderboard">

@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   claimAnonymousStars,
   requestMagicLink,
@@ -290,9 +290,12 @@ function createRichMockDb() {
 describe("auth helpers", () => {
   it("verifies magic token once and creates a session", async () => {
     const { db, tokens } = createRichMockDb();
-    const env = { DB: db, APP_ORIGIN: "http://localhost:5173" };
+    const env = { DB: db, APP_ORIGIN: "https://textlinenextline.com" };
 
-    const requested = await requestMagicLink(env, "sam@example.com");
+    const requested = await requestMagicLink(env, "sam@example.com", {
+      linkOrigin: "http://localhost:5173",
+      allowedOrigins: ["http://localhost:5173", "https://textlinenextline.com"],
+    });
     expect(requested).toEqual({ ok: true });
     expect(tokens).toHaveLength(1);
 
@@ -307,6 +310,23 @@ describe("auth helpers", () => {
 
     const second = await verifyMagicToken(db, raw);
     expect(second).toMatchObject({ error: "Link already used" });
+  });
+
+  it("builds magic links for the requesting origin when allowed", async () => {
+    const logs: string[] = [];
+    const spy = vi.spyOn(console, "log").mockImplementation((...args: unknown[]) => {
+      logs.push(args.map(String).join(" "));
+    });
+    const { db } = createRichMockDb();
+    const env = { DB: db, APP_ORIGIN: "https://textlinenextline.com" };
+
+    await requestMagicLink(env, "dev@example.com", {
+      linkOrigin: "http://localhost:5173",
+      allowedOrigins: ["http://localhost:5173", "https://textlinenextline.com"],
+    });
+
+    expect(logs.some((line) => line.includes("http://localhost:5173/#/auth?token="))).toBe(true);
+    spy.mockRestore();
   });
 
   it("claims anonymous stars onto the user", async () => {

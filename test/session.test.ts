@@ -22,6 +22,15 @@ function fullRun(firstPrompt = 1) {
 }
 
 describe("submitAnswer", () => {
+  it("assigns a stable uuid that survives answers", () => {
+    const run = fullRun(1);
+    expect(run.id).toMatch(
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
+    );
+    const next = submitAnswer(run, title, 3).run;
+    expect(next.id).toBe(run.id);
+  });
+
   it("starts history with the opening line", () => {
     const run = fullRun(1);
     expect(run.history).toEqual([{ lineIndex: 1, via: "start" }]);

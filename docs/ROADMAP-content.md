@@ -1,25 +1,27 @@
 # Content workstream
 
-Grow the playable library in parallel with app phases (1.7 admin, 2 multiplayer, 3 social, …). The game still does **not** fetch subtitles at play time. This workstream is how titles get into `content/`.
+Grow the playable library in parallel with app phases (1.8 library browse, 2a auth, 2.5 reputation, 2 rooms, …). The game still does **not** fetch subtitles at play time. This workstream is how titles get into `content/`.
 
-Today the catalog is Simpsons Season 4 (22 episodes) plus a hidden sample — **zero movies**. The next seed is movies you have seen and liked most, not every film.
+**Today:** Tier-1 movies plus Simpsons Seasons 4–5 (and a hidden sample) are already in `content/`. The Letterboxd likes ∪ 4.5★ queue tracks what to convert next — not every film.
 
-Full pipeline (C0 is implemented later; C1 lives in the sibling repo):
+Full pipeline:
 
 ```
-Letterboxd CSV → seed queue → SRT (manual drop or OpenSubtitles) → transcript_maker batch → imports/ JSON → content/catalog
+Letterboxd CSV → seed queue → SRT/VTT/.sub (manual drop or OpenSubtitles) → transcript_maker batch → imports/ JSON → content/catalog
 ```
 
 ```mermaid
 flowchart LR
   lb[Letterboxd_CSV] --> queue[Seed_queue]
-  queue --> srtManual[Manual_SRT_drop]
+  queue --> srtManual[Manual_subtitle_drop]
   queue --> os[OpenSubtitles_via_proxy]
   srtManual --> convert[transcript_maker_batch]
   os --> convert
   convert --> imports[imports_JSON]
   imports --> catalog[content_catalog]
 ```
+
+Agent skill for ingest: [`.cursor/skills/content-ingest/SKILL.md`](../.cursor/skills/content-ingest/SKILL.md).
 
 ---
 
@@ -39,9 +41,11 @@ Not the full watched list. Letterboxd has no public API we will use; the officia
 ## What already exists
 
 - **Handoff:** transcript_maker timed JSON → [`imports/`](../imports/) → `npm run import:all` ([`scripts/import.ts`](../scripts/import.ts)).
-- **Converter:** parse / clean / `workToTimedJson` stay in **transcript_maker** (`../transcript_maker`). Do not migrate that logic here. Batch CLI is specified in [PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-maker-batch-export.md).
+- **Converter:** parse / clean / `workToTimedJson` stay in **transcript_maker** (`../transcript_maker`). Do not migrate that logic here. Batch CLI accepts `.srt` / `.vtt` / `.sub` (SubViewer 2.0). Spec: [PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-maker-batch-export.md).
 - **Find film:** TMDB + OpenSubtitles already work in transcript_maker’s browser UI (local Cloudflare proxy, ~20 OpenSubtitles downloads/day). Scraping other subtitle sites is out of scope.
 - **Letterboxd queue:** `npm run content:queue -- --from <zip-or-dir> [--vault <readwise-dir>]` writes `content/queue.json` + `content/queue.md` (sort: priority → diary plays → highlights). Implementation notes: [PROMPT-letterboxd-queue.md](PROMPT-letterboxd-queue.md).
+- **Readwise / stars-seed:** queue with `--vault` writes `content/readwise-highlights.json` and fuzzy-matched `content/stars-seed.json`; push to D1 via `npm run content:stars-push` (prefer `--title` for safety).
+- **Library browse:** import fills `meta.show` / `season` / `episode`; UI groups Movies \| TV → seasons ([`libraryGroups`](../src/lib/content/libraryGroups.ts)).
 
 ---
 
@@ -50,7 +54,7 @@ Not the full watched list. Letterboxd has no public API we will use; the officia
 | Concern | Lives in |
 |---------|----------|
 | Letterboxd ZIP → queue, import JSON, catalog | **textline-nextline** |
-| Parse / clean / timed JSON, optional OpenSubtitles download by `tmdb_id` | **transcript_maker** |
+| Parse / clean / timed JSON (SRT, VTT, SubViewer `.sub`), optional OpenSubtitles download by `tmdb_id` | **transcript_maker** |
 
 ---
 
@@ -58,7 +62,7 @@ Not the full watched list. Letterboxd has no public API we will use; the officia
 
 Run these beside app work. Nothing here blocks rooms, stars, or auth.
 
-### C0 — Seed queue *(this repo)*
+### C0 — Seed queue *(this repo)* ✅
 
 Drop the Letterboxd export ZIP into `inbox/letterboxd/` (gitignored). Then:
 
@@ -73,40 +77,46 @@ The script:
 3. Counts **plays** from `diary.csv` (each log, including rewatches).
 4. Optional `--vault`: scan Readwise/Obsidian notes, match titles to the queue, count highlights.
 5. Writes the queue sorted in `queue.md` by priority, then play count, then highlight count.
-6. Writes `content/readwise-highlights.json` and, for titles already in `content/titles/`, `content/stars-seed.json` (fuzzy-matched line indices). Applying that seed to D1/local stars is a follow-up.
+6. Writes `content/readwise-highlights.json` and, for titles already in `content/titles/`, `content/stars-seed.json` (fuzzy-matched line indices). Apply seed with `content:stars-push`.
 
 TMDB ids stay `null` until a later resolve step.
 
-**Done when:** a queue JSON lists the seed set and can be re-run against a newer export without wiping status on titles already converted.
+**Done when:** a queue JSON lists the seed set and can be re-run against a newer export without wiping status on titles already converted. ✅
 
 Copy-paste prompt: [PROMPT-letterboxd-queue.md](PROMPT-letterboxd-queue.md).
 
-### C1 — Batch convert *(transcript_maker)*
+### C1 — Batch convert *(transcript_maker)* ✅
 
-Add `npm run batch:export` in transcript_maker. Process a folder of `.srt` / `.vtt`, generate transcripts with default clean options, write timed JSON to `../textline-nextline/imports/`.
+`npm run batch:export` in transcript_maker. Process a folder of `.srt` / `.vtt` / `.sub`, generate transcripts with default clean options, write timed JSON to `../textline-nextline/imports/`.
 
 Titles for movies should be **name + year** (e.g. `The Great Escape (1963)`), not TV-style `Show - 4x01 - Name`. Strip language suffixes (`.en`) from titles. Do **not** download SRTs in this step.
 
-**Done when:** a folder of movie SRTs exports JSON that `npm run import:all` ingests without errors.
+**Done when:** a folder of movie SRTs exports JSON that `npm run import:all` ingests without errors. ✅
 
 Copy-paste prompt: [PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-maker-batch-export.md). Run it in a Cursor chat whose workspace is `../transcript_maker`.
 
-### C2 — SRT acquisition *(hybrid)*
+### C1.5 — SubViewer (.sub) *(transcript_maker)* ✅
 
-Manual drop is first-class: put `.srt` / `.vtt` in `inbox/srt/` and convert with C1.
+Simpsons S5 (and similar packs) ship as SubViewer 2.0 (`.sub`), not SRT. Parser handles timestamps + `[br]` line breaks; batch-export and UI accept `.sub`. S5 is imported into `content/`.
+
+**Done when:** `.sub` files convert the same way as `.srt`. ✅
+
+### C2 — Subtitle acquisition *(hybrid)*
+
+Manual drop is first-class: put `.srt` / `.vtt` / `.sub` in `inbox/srt/` and convert with C1.
 
 Optional: paced OpenSubtitles download through transcript_maker’s existing proxy (respect the daily cap; skip failures; match by `tmdb_id` from C0). Do not scrape tvsubtitles.net or similar.
 
 **Done when:** you can fill the queue either by dropping files or by a rate-limited API path, then convert.
 
-### C3 — Import + movie catalog hygiene *(this repo)*
+### C3 — Import + movie catalog hygiene *(this repo)* 🔄
 
-Existing `npm run import:all` is enough to publish. Follow-on:
+Existing `npm run import:all` is enough to publish. Movies and S4/S5 are already playable. Follow-on:
 
 - Persist `year` and `tmdbId` on `TitleMeta` ([`src/types/content.ts`](../src/types/content.ts)) when the export or queue provides them.
-- Stop `.en` leaking into titles/ids (Simpsons imports already have this).
+- Stop `.en` leaking into titles/ids (Simpsons S4 imports still have this). Prefer cleaning without rewriting star `titleId`s carelessly.
 
-**Done when:** a converted movie shows a clean title + year in the library picker.
+**Done when:** converted titles show clean name + year in the library picker, and legacy `.en` tails are gone safely.
 
 ### C4 — Ongoing
 
@@ -127,9 +137,11 @@ Re-drop a fresh Letterboxd export, diff the queue, convert only the delta. Spot-
 
 ## Suggested order
 
-1. Document (this file) — **now**.
-2. C1 in transcript_maker (batch export) — unblocks any SRT you already have, including more TV.
-3. C0 Letterboxd queue in this repo — **CLI exists**; drop a ZIP to fill `content/queue.json`.
+1. Document (this file) — **done**; keep in sync with catalog growth.
+2. C1 / C1.5 in transcript_maker — **done** (batch + `.sub`).
+3. C0 Letterboxd queue in this repo — **done**; re-run when you export Letterboxd again.
 4. C2 as needed (manual first; OpenSubtitles when the queue is large).
-5. C3 hygiene when the first movies land in `content/`.
+5. C3 hygiene (`.en` tails, TMDB ids) — **next content polish**.
 6. C4 whenever you export Letterboxd again.
+
+App home / “top played” rails wait on **Phase 2.5 reputation** in the main README — don’t rebuild library browse in parallel.

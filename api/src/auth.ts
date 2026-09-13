@@ -9,6 +9,7 @@ import {
   normalizeDisplayName,
   sha256Hex,
 } from "./crypto.js";
+import { isAllowedOrigin } from "./cors.js";
 
 export type User = {
   id: string;
@@ -28,6 +29,17 @@ export type AuthEnv = {
 const MAGIC_TTL_MINUTES = 15;
 const SESSION_TTL_DAYS = 30;
 const LINK_COOLDOWN_MS = 60_000;
+
+function resolveLinkOrigin(
+  env: AuthEnv,
+  linkOrigin: string | null | undefined,
+  allowedOrigins: string[] | undefined,
+): string {
+  const fallback = (env.APP_ORIGIN ?? "http://localhost:5173").replace(/\/$/, "");
+  if (!linkOrigin || !allowedOrigins?.length) return fallback;
+  const candidate = linkOrigin.replace(/\/$/, "");
+  return isAllowedOrigin(candidate, allowedOrigins) ? candidate : fallback;
+}
 
 export function getBearerToken(request: Request): string | null {
   const header = request.headers.get("Authorization");
@@ -59,7 +71,7 @@ export async function getSessionUser(db: D1Database, sessionId: string | null): 
 
   if (!row) return null;
   if (isExpired(row.session_expires)) {
-    await db.prepare(`DELETE FROM sessions WHERE id = ?`).bind(sessionId).run();
+    await db.prepare(`DELETE FROM sessions WHERE id = ?`).bind(row.session_id).run();
     return null;
   }
 
@@ -74,6 +86,7 @@ export async function getSessionUser(db: D1Database, sessionId: string | null): 
 export async function requestMagicLink(
   env: AuthEnv,
   emailRaw: string,
+  options?: { linkOrigin?: string | null; allowedOrigins?: string[] },
 ): Promise<{ ok: true } | { error: string; status: number }> {
   const email = normalizeEmail(emailRaw);
   if (!email) return { error: "Invalid email", status: 400 };
@@ -106,7 +119,7 @@ export async function requestMagicLink(
     .bind(tokenHash, email, expiresAt)
     .run();
 
-  const origin = (env.APP_ORIGIN ?? "http://localhost:5173").replace(/\/$/, "");
+  const origin = resolveLinkOrigin(env, options?.linkOrigin, options?.allowedOrigins);
   const link = `${origin}/#/auth?token=${encodeURIComponent(token)}`;
 
   const sent = await sendMagicLinkEmail(env, email, link);

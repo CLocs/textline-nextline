@@ -18,7 +18,7 @@ export function isAllowedOrigin(origin: string | null, allowed: string[]): boole
 
 export function corsHeaders(origin: string | null, allowed: string[]): HeadersInit {
   const headers: Record<string, string> = {
-    "Access-Control-Allow-Methods": "GET, PUT, PATCH, DELETE, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Player-Id",
     "Access-Control-Max-Age": "86400",
   };

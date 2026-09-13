@@ -27,6 +27,7 @@ export type RevertFrame = {
 };
 
 export type GameRun = {
+  id: string;
   titleId: string;
   mode: GameMode;
   length: GameLength;
@@ -49,9 +50,14 @@ export type StartRunOptions = {
   questionQueue?: number[];
 };
 
+export function createRunId(): string {
+  return crypto.randomUUID();
+}
+
 export function startRun(titleId: string, options: StartRunOptions): GameRun {
   const { mode, length, firstPromptLineIndex, questionQueue } = options;
   return {
+    id: createRunId(),
     titleId,
     mode,
     length,
