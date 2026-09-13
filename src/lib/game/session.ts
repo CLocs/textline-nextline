@@ -10,7 +10,7 @@ export type GamePhase = "playing" | "complete";
 
 export type EndReason = "finished" | "miss";
 
-export type HistoryVia = "start" | "correct" | "skip" | "incorrect" | "prompt";
+export type HistoryVia = "start" | "correct" | "reguess" | "skip" | "incorrect" | "prompt";
 
 export type HistoryEntry = {
   lineIndex: number;
@@ -23,6 +23,8 @@ export type RevertFrame = {
   correctCount: number;
   wrongCount: number;
   skipCount: number;
+  scoreCredit: number;
+  questionWrongCount: number;
   historyLength: number;
 };
 
@@ -37,6 +39,10 @@ export type GameRun = {
   correctCount: number;
   wrongCount: number;
   skipCount: number;
+  /** Weighted Fun-mode score: 1 / 0.5 / 0.25 by attempt. */
+  scoreCredit: number;
+  /** Wrong answers on the current prompt (resets when the question advances). */
+  questionWrongCount: number;
   history: HistoryEntry[];
   revertStack: RevertFrame[];
   phase: GamePhase;
@@ -67,6 +73,8 @@ export function startRun(titleId: string, options: StartRunOptions): GameRun {
     correctCount: 0,
     wrongCount: 0,
     skipCount: 0,
+    scoreCredit: 0,
+    questionWrongCount: 0,
     history: [{ lineIndex: firstPromptLineIndex, via: "start" }],
     revertStack: [],
     phase: "playing",
@@ -91,6 +99,17 @@ function missRun(run: GameRun): GameRun {
   return { ...run, phase: "complete", endReason: "miss" };
 }
 
+function wrongsOnCurrentQuestion(run: GameRun): number {
+  return run.questionWrongCount;
+}
+
+/** Credit for a correct answer: 1st try 1, 2nd try 0.5, 3rd+ 0.25. */
+export function creditForPriorWrongs(priorWrongs: number): number {
+  if (priorWrongs <= 0) return 1;
+  if (priorWrongs === 1) return 0.5;
+  return 0.25;
+}
+
 function appendHistory(run: GameRun, lineIndex: number, via: HistoryVia): HistoryEntry[] {
   const last = run.history[run.history.length - 1];
   if (last?.lineIndex === lineIndex && last.via === via) return run.history;
@@ -99,12 +118,18 @@ function appendHistory(run: GameRun, lineIndex: number, via: HistoryVia): Histor
 
 function appendWrongGuess(run: GameRun, selectedLineIndex: number): GameRun {
   const last = run.history[run.history.length - 1];
+  const questionWrongCount = run.questionWrongCount + 1;
   if (last?.lineIndex === selectedLineIndex && last.via === "incorrect") {
-    return { ...run, wrongCount: run.wrongCount + 1 };
+    return {
+      ...run,
+      wrongCount: run.wrongCount + 1,
+      questionWrongCount,
+    };
   }
   return {
     ...run,
     wrongCount: run.wrongCount + 1,
+    questionWrongCount,
     history: [...run.history, { lineIndex: selectedLineIndex, via: "incorrect" }],
   };
 }
@@ -125,6 +150,8 @@ function pushRevertFrame(run: GameRun): RevertFrame[] {
       correctCount: run.correctCount,
       wrongCount: run.wrongCount,
       skipCount: run.skipCount,
+      scoreCredit: run.scoreCredit,
+      questionWrongCount: run.questionWrongCount,
       historyLength: run.history.length,
     },
   ];
@@ -138,12 +165,13 @@ function advanceAfterReveal(
   updates: Partial<GameRun>,
 ): GameRun {
   const revertStack = pushRevertFrame(run);
+  const nextUpdates = { ...updates, questionWrongCount: 0 };
 
   if (run.length === "mini" && run.questionQueue) {
     const nextQuestionIndex = run.questionIndex + 1;
     if (nextQuestionIndex >= run.questionQueue.length) {
       return completeRun(run, {
-        ...updates,
+        ...nextUpdates,
         promptLineIndex: correctLineIndex,
         history,
         questionIndex: nextQuestionIndex,
@@ -154,7 +182,7 @@ function advanceAfterReveal(
     const nextPrompt = run.questionQueue[nextQuestionIndex]!;
     return {
       ...run,
-      ...updates,
+      ...nextUpdates,
       promptLineIndex: nextPrompt,
       questionIndex: nextQuestionIndex,
       history: appendHistory({ ...run, history }, nextPrompt, "prompt"),
@@ -165,7 +193,7 @@ function advanceAfterReveal(
   const hasAnotherQuestion = getNextPlayableLine(source, correctLineIndex) !== undefined;
   if (!hasAnotherQuestion) {
     return completeRun(run, {
-      ...updates,
+      ...nextUpdates,
       promptLineIndex: correctLineIndex,
       history,
       revertStack,
@@ -174,7 +202,7 @@ function advanceAfterReveal(
 
   return {
     ...run,
-    ...updates,
+    ...nextUpdates,
     promptLineIndex: correctLineIndex,
     history,
     revertStack,
@@ -196,6 +224,8 @@ export function goBackQuestion(run: GameRun): GameRun | null {
     correctCount: frame.correctCount,
     wrongCount: frame.wrongCount,
     skipCount: frame.skipCount,
+    scoreCredit: frame.scoreCredit,
+    questionWrongCount: frame.questionWrongCount,
     history: run.history.slice(0, frame.historyLength),
     revertStack: run.revertStack.slice(0, -1),
   };
@@ -232,11 +262,18 @@ export function submitAnswer(
     };
   }
 
+  const priorWrongs = wrongsOnCurrentQuestion(run);
+  const credit = creditForPriorWrongs(priorWrongs);
+  const via: HistoryVia = priorWrongs === 0 ? "correct" : "reguess";
   const correctCount = run.correctCount + 1;
-  const history = appendHistory(run, correctLine.index, "correct");
+  const scoreCredit = run.scoreCredit + credit;
+  const history = appendHistory(run, correctLine.index, via);
 
   return {
-    run: advanceAfterReveal(run, source, correctLine.index, history, { correctCount }),
+    run: advanceAfterReveal(run, source, correctLine.index, history, {
+      correctCount,
+      scoreCredit,
+    }),
     correct: true,
   };
 }

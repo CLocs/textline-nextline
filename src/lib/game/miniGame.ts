@@ -30,6 +30,11 @@ export function getValidPromptIndices(source: LineSource): number[] {
     .map((line) => line.index);
 }
 
+/** Sort prompt indices so a mini-game walks the transcript forward. */
+export function chronologicalPromptQueue(indices: number[]): number[] {
+  return [...indices].sort((a, b) => a - b);
+}
+
 export function buildMiniGameQueue(
   source: LineSource,
   options: MiniGameQueueOptions,
@@ -77,5 +82,5 @@ export function buildMiniGameQueue(
     queue.push(index);
   }
 
-  return queue;
+  return chronologicalPromptQueue(queue);
 }

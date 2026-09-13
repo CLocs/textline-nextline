@@ -17,6 +17,8 @@ function viaLabel(via: HistoryVia): string | null {
       return "Skipped";
     case "incorrect":
       return "Missed";
+    case "reguess":
+      return "Re-guess";
     default:
       return null;
   }
@@ -75,7 +77,13 @@ export function HistorySidebar({ title, history, currentLineIndex }: Props) {
                     </button>
                   )}
                   {starred && <span className="history-tag starred-tag">★ Starred</span>}
-                  {tag && <span className="history-tag">{tag}</span>}
+                  {tag && (
+                    <span
+                      className={`history-tag${entry.via === "reguess" ? " reguess-tag" : ""}`}
+                    >
+                      {tag}
+                    </span>
+                  )}
                   {isCurrent && <span className="history-tag current-tag">Now</span>}
                 </div>
                 <p className={`history-text via-${entry.via}`}>{line.text}</p>
