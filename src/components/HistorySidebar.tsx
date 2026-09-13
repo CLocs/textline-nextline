@@ -59,7 +59,7 @@ export function HistorySidebar({ title, history, currentLineIndex }: Props) {
             return (
               <li
                 key={`${entry.lineIndex}-${entry.via}-${index}-${revision}`}
-                className={`history-item${isCurrent ? " current" : ""}${starred ? " starred" : ""}`}
+                className={`history-item via-${entry.via}${isCurrent ? " current" : ""}${starred ? " starred" : ""}`}
               >
                 <div className="history-item-meta">
                   <span className="history-line-num">{index + 1}</span>

@@ -138,6 +138,21 @@ button {
   background: var(--star-bg);
 }
 
+.history-item.via-correct:not(.current) {
+  border-color: var(--success);
+  border-width: 2px;
+}
+
+.history-item.via-skip:not(.current) {
+  border-color: color-mix(in srgb, var(--muted) 35%, #8d9390);
+  border-width: 2px;
+}
+
+.history-item.via-incorrect {
+  border-color: var(--danger);
+  border-width: 2px;
+}
+
 .history-tag.starred-tag {
   color: var(--star-ink);
   background: var(--star-bg);
