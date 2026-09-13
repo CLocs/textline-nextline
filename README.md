@@ -46,7 +46,7 @@ Useful for async play and social sharing; builds on the same transcript + questi
 - **Fun mode:** score = lines completed when you reach the end of the transcript; wrong attempts tracked but don't end the run.
 - **Medium / Hard:** score = highest line index reached before a miss (0 if you miss the first question).
 - **Streak** = consecutive correct answers in the current run.
-- Optional later: leaderboards per title, daily challenges, personal bests.
+- Optional later: leaderboards per title, daily challenges. Personal bests and match history land in [Phase 2.5](#phase-25--reputation--profile-after-2a).
 
 ---
 
@@ -180,11 +180,86 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 ---
 
+## Phase 2.5 — Reputation & profile *(after 2a)*
+
+**Goal:** Gamify without waiting on rooms or global leaderboards. Every completed run is recorded. Signed-in players get a profile, match history, and a home screen of what people actually play. End-of-run thumbs collect a light quality signal for later popular-star ranking.
+
+Auth already exists (Phase 2a). Solo `GameRun` is still **client-only** today — the only persisted scores are `shared_runs` on a share link. Library is the post-login home. Crowd popular is a raw `COUNT` of stars per line.
+
+### Features
+
+- [ ] **Persist runs** — on complete (finished or miss), write a row to D1 for the signed-in user. Include full-episode and mini-game, plus shared mini-games (keep `shared_runs` for the share leaderboard; also log a personal `runs` row so history is one table).
+- [ ] **Profile** — screen from the auth bar (display name already editable). Show games played, lines guessed, titles touched, and a lightweight reputation rank from cumulative correct answers — not ELO.
+- [ ] **Match history** — table on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips). Newest first. Personal; not a public leaderboard.
+- [ ] **Home screen** — signed-in landing, *before* the full library. Two rails: **top played movies** and **top played shows** (TV grouped by show, same as the library). Mix global play counts with a short **your recent** row. Library stays the browse-everything path.
+- [ ] **Thumbs on complete** — optional 👍 / 👎 on the game-over screen (skip allowed). One rating per run, changeable until they leave. Stars stay “this line is a TL”; thumbs are “this session was a good game.”
+- [ ] **Light weight on popular *(later slice)*** — do **not** change `/api/stars/popular` in the same ship as collecting votes. When enough ratings exist, apply a small title-level nudge (clamp about ±10%) so well-liked titles’ crowd stars surface a bit sooner. Never hide or unstar a line from a thumbs-down.
+
+### Data (D1)
+
+New `runs` table, keyed by run id (many games per user + title):
+
+| Column | Notes |
+|--------|--------|
+| `id` | UUID |
+| `user_id` | Signed-in player |
+| `title_id` | Catalog id |
+| `length` | `full` \| `mini` |
+| `mode` | `fun` \| `medium` \| `hard` |
+| `correct_count`, `wrong_count`, `skip_count` | Same as today’s complete screen |
+| `question_total` | Denormalize so history does not need the catalog |
+| `end_reason` | `finished` \| `miss` |
+| `share_id` | Nullable; set when the run was a shared mini-game |
+| `completed_at` | ISO timestamp |
+
+New `run_ratings` (or `thumb` on `runs`): `up` \| `down`, `rated_at`. Unique on `run_id`.
+
+Indexes: `(user_id, completed_at DESC)` for history; `(title_id)` for top-played; optional `(user_id, title_id)` for personal bests.
+
+**Reputation (v1):** derived, not a stored ELO. Example: rank from total `correct_count` (and maybe games finished). Enough to feel like progress; competitive ladders stay Phase 4.
+
+**Top played:** `COUNT(*)` of runs per `title_id`, then group TV with existing show metadata (`libraryGroups`). Movies stay per title.
+
+### Later popular formula *(not v1)*
+
+Keep star **count** as the primary sort. Then a small multiplier from net thumbs on that title:
+
+```
+popular_score ≈ star_count × (1 + ε × title_sentiment)
+```
+
+`title_sentiment` is mean of run thumbs on that title (up = +1, down = −1), `ε ≈ 0.1`, clamp the factor to roughly `0.9–1.1`. Optional extra: slightly down-weight a player’s stars on a title they thumbs-downed. Thumbs never dominate a 3-star vs 1-star gap.
+
+### Out of scope for 2.5
+
+- Public / friends leaderboards (Phase 4)
+- Rooms / realtime (Phase 2)
+- Changing what a **star** means
+- Requiring a thumb to leave the complete screen
+- Anonymous run log (play already requires sign-in)
+
+### Done when
+
+- Finishing (or missing out of) a solo or shared game writes a `runs` row.
+- Profile shows stats + a match-history table (game, title, score).
+- Home lists top played movies and top played shows; library is still reachable.
+- Complete screen has optional thumbs; ratings persist; popular ranking is **unchanged** until the later weight slice.
+
+### Suggested build order
+
+1. `runs` migration + `POST /api/runs` from `CompleteScreen` (auth session).
+2. `GET /api/runs/mine` → profile match history + derived stats / rank.
+3. `GET /api/stats/played` → home rails (global counts + recent for me).
+4. Optional thumbs on complete → `run_ratings`.
+5. After real vote volume: weighted popular as a follow-up PR with a feature flag.
+
+---
+
 ## Phase 3+ — Social & polish *(backlog)*
 
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [ ] **Difficulty modes** — Medium/Hard free text
-- [ ] **Leaderboards** — per title, global, friends
+- [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
 - [ ] **Daily challenge** — same title + start line for everyone
@@ -212,7 +287,7 @@ Distractors for multiple choice come from **other lines in the same transcript**
 
 **Wildness rating:** ~6/10 on product ambition, ~4/10 on technical risk. Scrape + fuzzy match is ordinary NLP plumbing; co-watcher inference is messy data (inconsistent notes), not hard code. Login + group popularity is the real phase gate — but we’ve already proven anonymous `playerId` + D1 aggregation; accounts just make identity durable across devices.
 
-**Open questions:** Obsidian highlight format (core vs plugins); how titles are named in the vault vs `content/catalog.json`; privacy (vault stays local — only matched TLs leave the machine); whether “likes” are stars or a separate reaction.
+**Open questions:** Obsidian highlight format (core vs plugins); how titles are named in the vault vs `content/catalog.json`; privacy (vault stays local — only matched TLs leave the machine). Line **stars** stay curation; session **thumbs** (Phase 2.5) are a separate, lighter reaction for ranking — not a second star.
 
 ### Spike: online quotes (e.g. IMDb) *(research)*
 
@@ -245,6 +320,7 @@ Distractors for multiple choice come from **other lines in the same transcript**
 | **1.6 — Star sync** | Worker + D1, star/unstar API, client sync | ✅ Stars persist across devices; crowd-popular feeds mini-games |
 | **1.7 — Admin / Curate** | Bulk star from transcript UI | ✅ Faster personal TL curation without playing through |
 | **2a — Auth + share mini-game** | Magic-link login, claim stars, share link | Durable accounts; friends play your starred mini-game (must be signed in) |
+| **2.5 — Reputation & profile** | Persist runs, profile, match history, home, thumbs | Games tracked; home shows top played titles; thumbs later nudge popular stars |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
@@ -291,6 +367,15 @@ Simpsons Season 4 is already in `content/`. Next titles come from **movies you l
 3. **Turn engine** — Advance active player index; apply same MCQ rules as single-player.
 4. **Realtime layer** — Broadcast state changes to all clients in room.
 5. **Lobby & game over** — Waiting room, turn indicator, final standings.
+
+### Suggested build order (Phase 2.5)
+
+Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#phase-25--reputation--profile-after-2a).
+
+1. Persist completed runs to D1.
+2. Profile + match history.
+3. Home rails (top played movies / shows).
+4. Thumbs on complete; weight popular stars only after votes exist.
 
 ---
 
