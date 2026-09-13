@@ -259,6 +259,14 @@ button {
   gap: 1.75rem;
 }
 
+.home-browse-row {
+  margin-top: 0.25rem;
+}
+
+.home-empty-rails {
+  margin: 0;
+}
+
 .library-group-heading {
   margin: 0 0 0.65rem;
   font-size: 0.78rem;

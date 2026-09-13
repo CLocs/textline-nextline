@@ -3,6 +3,7 @@ import type { CatalogEntry } from "../src/types/content.js";
 import { catalogLabel } from "../src/lib/content/libraryGroups.js";
 import {
   playCountMap,
+  recentFromRuns,
   summarizeRuns,
   topPlayedMovies,
   topPlayedShows,
@@ -79,6 +80,21 @@ describe("top played rails", () => {
     const counts = playCountMap([{ titleId: "baby", playCount: 1 }]);
     expect(topPlayedMovies(entries, counts)).toHaveLength(1);
     expect(topPlayedShows(entries, counts)).toEqual([]);
+  });
+});
+
+describe("recentFromRuns", () => {
+  it("returns unique titles newest first", () => {
+    const recent = recentFromRuns(
+      [
+        run({ id: "a", titleId: "baby", completedAt: "2026-09-10T00:00:00.000Z" }),
+        run({ id: "b", titleId: "s5e1", completedAt: "2026-09-13T00:00:00.000Z" }),
+        run({ id: "c", titleId: "baby", completedAt: "2026-09-12T00:00:00.000Z" }),
+        run({ id: "d", titleId: "missing", completedAt: "2026-09-14T00:00:00.000Z" }),
+      ],
+      entries,
+    );
+    expect(recent.map((entry) => entry.id)).toEqual(["s5e1", "baby"]);
   });
 });
 

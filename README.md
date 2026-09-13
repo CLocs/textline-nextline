@@ -147,7 +147,7 @@ Distractors for multiple choice come from **other lines in the same transcript**
 - [x] **Episode meta on import** — parse `Show - 5x01 - Name` into `meta.show` / `season` / `episode`
 - [x] **Grouped library** — Movies list + TV Shows → season → episode (`libraryGroups` + `LibraryScreen`)
 
-Home rails (“top played”) live on the library in [Phase 2.5](#phase-25--reputation--profile-after-2a) and reuse this grouping.
+Home rails (“your recent” + top played) live on the signed-in **Home** landing in [Phase 2.5](#phase-25--reputation--profile-after-2a); **Browse full library** uses this grouping.
 
 ---
 
@@ -204,7 +204,7 @@ Shipped on main (PR #5). PR #6 followed with safer per-title star push and MCQ p
 
 ## Phase 2.5 — Reputation & profile *(after 2a)* ✅
 
-**Goal:** Gamify without waiting on rooms or global leaderboards. Every completed run is recorded. Signed-in players get a tabbed profile (account, match history, game stats). The library stays the landing, with top-played rails above the full lists. End-of-run thumbs collect a light quality signal for later popular-star ranking.
+**Goal:** Gamify without waiting on rooms or global leaderboards. Every completed run is recorded. Signed-in players get a tabbed profile (account, match history, game stats). **Home** is the landing (recent + top played); the full catalog is one click away under Browse. End-of-run thumbs collect a light quality signal for later popular-star ranking.
 
 Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — the only persisted scores were `shared_runs` on a share link. Crowd popular remains a raw `COUNT` of stars per line (thumbs are stored, not yet applied).
 
@@ -213,7 +213,7 @@ Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — th
 - [x] **Persist runs** — on complete (finished or miss), write a row to D1 for the signed-in user. Include full-episode and mini-game, plus shared mini-games (keep `shared_runs` for the share leaderboard; also log a personal `runs` row so history is one table).
 - [x] **Profile** — auth bar name opens a profile with tabs: **Account** (display name), **Match history**, **Game stats** (games played, lines guessed, titles touched, personal most-played). Reputation is those totals — not ELO.
 - [x] **Match history** — list on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips). Newest first. Personal; not a public leaderboard.
-- [x] **Top played rails** — on the library landing, above Movies / TV Shows: **top played movies** and **top played shows** (TV grouped by show). Global play counts. Hidden until at least one run exists.
+- [x] **Home + library** — signed-in landing is **Home**: **your recent**, **top played movies**, **top played shows** (TV grouped by show). **Browse full library** opens Movies \| TV. Global play counts; recent from personal runs. Rails hide until plays exist.
 - [x] **Thumbs on complete** — optional thumbs up / down on the game-over screen (skip allowed). One rating per run, changeable until they leave. Stars stay “this line is a TL”; thumbs are “this session was a good game.”
 - [ ] **Light weight on popular *(later slice)*** — do **not** change `/api/stars/popular` in the same ship as collecting votes. When enough ratings exist, apply a small title-level nudge (clamp about ±10%) so well-liked titles’ crowd stars surface a bit sooner. Never hide or unstar a line from a thumbs-down.
 
@@ -264,7 +264,7 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 
 - Finishing (or missing out of) a solo or shared game writes a `runs` row.
 - Profile shows stats + a match-history list (game, title, score).
-- Library lists top played movies and top played shows (hidden until plays exist).
+- Home lists your recent titles plus top played movies/shows; Browse opens the full catalog.
 - Complete screen has optional thumbs; ratings persist; popular ranking is **unchanged** until the later weight slice.
 
 ### Suggested build order
@@ -400,14 +400,14 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 
 1. Persist completed runs to D1.
 2. Profile + match history.
-3. Library rails (top played movies / shows) — reuse Phase 1.8 `libraryGroups`.
+3. Home rails (your recent + top played) — reuse Phase 1.8 `libraryGroups`; Browse for full catalog.
 4. Thumbs on complete; weight popular stars only after votes exist.
 
 ### Recent feedback (parked)
 
 - **Visual palette** — Coolors palette1 → palette2 (plum/mint/lime) on the content branch; logo artwork later.
 - **Localhost magic links** — Origin-aware links are coded (2a.1); **redeploy Worker** so production API emails point at localhost when you develop there.
-- **Library home / top played** — ✅ Phase 2.5 rails on the library.
+- **Library home / top played** — ✅ Home landing (recent + top played) + Browse full library.
 - **S4 `.en` title suffixes** — optional hygiene; don’t rewrite ids carelessly (stars key on `titleId`).
 
 ---

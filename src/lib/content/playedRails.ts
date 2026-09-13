@@ -64,6 +64,28 @@ export function playCountMap(rows: { titleId: string; playCount: number }[]): Ma
   return map;
 }
 
+/** Newest-first unique titles from the player's runs (skip unknown catalog ids). */
+export function recentFromRuns(
+  runs: StoredRun[],
+  entries: CatalogEntry[],
+  limit = RAIL_LIMIT,
+): CatalogEntry[] {
+  const byId = new Map(entries.map((entry) => [entry.id, entry]));
+  const seen = new Set<string>();
+  const recent: CatalogEntry[] = [];
+
+  const ordered = [...runs].sort((a, b) => b.completedAt.localeCompare(a.completedAt));
+  for (const run of ordered) {
+    if (seen.has(run.titleId)) continue;
+    const entry = byId.get(run.titleId);
+    if (!entry) continue;
+    seen.add(run.titleId);
+    recent.push(entry);
+    if (recent.length >= limit) break;
+  }
+  return recent;
+}
+
 export function summarizeRuns(runs: StoredRun[], entries: CatalogEntry[]): PersonalGameStats {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
   const titles = new Set(runs.map((run) => run.titleId));
