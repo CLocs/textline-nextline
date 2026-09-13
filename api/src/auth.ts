@@ -10,6 +10,7 @@ import {
   sha256Hex,
 } from "./crypto.js";
 import { isAllowedOrigin } from "./cors.js";
+import { verifyGoogleIdToken } from "./google.js";
 
 export type User = {
   id: string;
@@ -24,6 +25,8 @@ export type AuthEnv = {
   RESEND_API_KEY?: string;
   RESEND_FROM?: string;
   AUTH_SECRET?: string;
+  /** Google OAuth Web client ID (public). Enables GIS Sign-In when set. */
+  GOOGLE_CLIENT_ID?: string;
 };
 
 const MAGIC_TTL_MINUTES = 15;
@@ -196,22 +199,36 @@ export async function verifyMagicToken(
     .bind(new Date().toISOString(), tokenHash)
     .run();
 
+  return signInWithEmail(db, row.email);
+}
+
+/** Find or create user by email, then issue a session (shared by magic link + Google). */
+export async function signInWithEmail(
+  db: D1Database,
+  emailRaw: string,
+  options?: { displayName?: string | null },
+): Promise<{ user: User; sessionToken: string } | { error: string; status: number }> {
+  const email = normalizeEmail(emailRaw);
+  if (!email) return { error: "Invalid email", status: 400 };
+
   let user = await db
     .prepare(`SELECT id, email, display_name, created_at FROM users WHERE email = ?`)
-    .bind(row.email)
+    .bind(email)
     .first<{ id: string; email: string; display_name: string | null; created_at: string }>();
 
   if (!user) {
     const id = createId();
     const createdAt = new Date().toISOString();
-    const displayName = displayNameFromEmail(row.email);
+    const hint = options?.displayName?.trim();
+    const displayName =
+      hint && hint.length <= 40 ? hint : displayNameFromEmail(email);
     await db
       .prepare(
         `INSERT INTO users (id, email, display_name, created_at) VALUES (?, ?, ?, ?)`,
       )
-      .bind(id, row.email, displayName, createdAt)
+      .bind(id, email, displayName, createdAt)
       .run();
-    user = { id, email: row.email, display_name: displayName, created_at: createdAt };
+    user = { id, email, display_name: displayName, created_at: createdAt };
   }
 
   const sessionToken = createId();
@@ -229,6 +246,21 @@ export async function verifyMagicToken(
     },
     sessionToken,
   };
+}
+
+export async function signInWithGoogle(
+  env: AuthEnv,
+  idToken: string,
+): Promise<{ user: User; sessionToken: string } | { error: string; status: number }> {
+  const clientId = env.GOOGLE_CLIENT_ID?.trim();
+  if (!clientId) {
+    return { error: "Google Sign-In is not configured", status: 503 };
+  }
+
+  const claims = await verifyGoogleIdToken(idToken, clientId);
+  if ("error" in claims) return claims;
+
+  return signInWithEmail(env.DB, claims.email, { displayName: claims.name });
 }
 
 export async function logoutSession(db: D1Database, sessionId: string | null): Promise<void> {

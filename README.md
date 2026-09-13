@@ -171,6 +171,14 @@ Shipped on main (PR #5). PR #6 followed with safer per-title star push and MCQ p
 - [x] **Origin-aware magic links** — email link uses the request `Origin` when it is in `ALLOWED_ORIGINS` (so localhost gets a localhost link). **Redeploy the Worker** for this to apply against the production API.
 - [x] **Vite-only continue** — “Continue without signing in (local only)” on the login screen in `npm run dev`
 
+### Phase 2a.2 — Google Sign-In *(reduces magic-link friction)*
+
+Keep the **login gate** (browse/play still require an account). Add one-click Google beside magic link (Yahoo/etc. still use email).
+
+- [x] **GIS button + Worker ID-token verify** — Google Identity Services on the login screen; `POST /api/auth/google` verifies the JWT (aud/iss/email) and creates the same D1 session as magic link
+- [x] **Config** — Worker `GOOGLE_CLIENT_ID`; `GET /api/auth/config` exposes it; optional `VITE_GOOGLE_CLIENT_ID` fallback. **You still need** a Google Cloud OAuth Web client + published consent screen for non-test users.
+- [x] **Cost** — Google Sign-In is free; no per-login fee
+
 ### Features (rooms — later)
 
 - [ ] **Room / session**
@@ -373,6 +381,7 @@ Open questions (spike only — no pack UI yet):
 | **1.8 — Library browse UX** | Movies \| TV → season → episode | ✅ Grouped picker via `meta` + `libraryGroups` |
 | **2a — Auth + share mini-game** | Magic-link login, claim stars, share link | ✅ Durable accounts; friends play your starred mini-game |
 | **2a.1 — Local auth polish** | Origin-aware magic links; Vite continue | ✅ Code in; Worker redeploy for email links on localhost |
+| **2a.2 — Google Sign-In** | GIS button + Worker JWT verify; same D1 session | ✅ Code in; set `GOOGLE_CLIENT_ID` + publish OAuth consent |
 | **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
@@ -436,6 +445,7 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 
 - **Visual palette** — Coolors palette1 → palette2 (plum/mint/lime) on the content branch; logo artwork later.
 - **Localhost magic links** — Origin-aware links are coded (2a.1); **redeploy Worker** so production API emails point at localhost when you develop there.
+- **Google Sign-In** — Phase 2a.2: keep login gate; add GIS one-click (free). Magic link stays for non-Google emails.
 - **Library home / top played** — ✅ Home landing (recent + top played) + Browse full library.
 - **S4 `.en` title suffixes** — optional hygiene; don’t rewrite ids carelessly (stars key on `titleId`).
 - **Answer feedback motion** — ✅ Choice pulse (green/red) + score-chip bump on correct/miss.
