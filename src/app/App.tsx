@@ -78,6 +78,8 @@ export function App() {
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
   const beginSharedPlayRef = useRef<(shareId: string) => Promise<void>>(async () => {});
+  const pendingRunRef = useRef(pendingRun);
+  pendingRunRef.current = pendingRun;
 
   const question = useMemo(() => {
     if (!title || !run || run.phase !== "playing") return null;
@@ -337,11 +339,11 @@ export function App() {
   }
 
   function handleFeedbackDone() {
+    const next = pendingRunRef.current;
     setFeedback(null);
     setSkipReveal(null);
-    if (!pendingRun) return;
-    const next = pendingRun;
     setPendingRun(null);
+    if (!next) return;
     setRun(next);
     if (next.phase === "complete") {
       void finishRun(next);

@@ -48,7 +48,7 @@ describe("leadInForPrompt", () => {
     ]);
   });
 
-  it("leaves a long prompt alone", () => {
+  it("leaves the opening line alone (nothing earlier to pull)", () => {
     expect(leadInForPrompt(title, 739)).toEqual([]);
   });
 
@@ -73,5 +73,17 @@ describe("leadInForPrompt", () => {
       ],
     };
     expect(leadInForPrompt(gappy, 1)).toEqual([]);
+  });
+
+  it("caps lead-in at four previous lines", () => {
+    const lines = Array.from({ length: 6 }, (_, index) => ({
+      index,
+      text: "Hello there.",
+      kind: "dialogue" as const,
+      startMs: index * 1000,
+      endMs: index * 1000 + 500,
+    }));
+    const stacked: Title = { ...title, lineCount: 6, lines };
+    expect(leadInForPrompt(stacked, 5).map((line) => line.lineIndex)).toEqual([1, 2, 3, 4]);
   });
 });

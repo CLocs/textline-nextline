@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Title } from "../types/content";
 import { GAME_MODES } from "../types/game";
 import type { McqQuestion } from "../lib/game/mcq";
@@ -46,6 +46,8 @@ export function PlayScreen({
   );
   const [pickedIndex, setPickedIndex] = useState<number | null>(null);
   const [scorePulse, setScorePulse] = useState<"up" | "down" | null>(null);
+  const onFeedbackDoneRef = useRef(onFeedbackDone);
+  onFeedbackDoneRef.current = onFeedbackDone;
 
   useEffect(() => {
     setStarred(isStarred(title.id, question.promptLineIndex));
@@ -59,9 +61,9 @@ export function PlayScreen({
     }
     if (feedback === "skipped" && run.mode === "teach") return;
     const delay = feedback === "wrong" ? WRONG_HOLD_MS : CORRECT_HOLD_MS;
-    const timer = window.setTimeout(onFeedbackDone, delay);
+    const timer = window.setTimeout(() => onFeedbackDoneRef.current(), delay);
     return () => window.clearTimeout(timer);
-  }, [feedback, onFeedbackDone, run.mode]);
+  }, [feedback, run.mode]);
 
   useEffect(() => {
     if (feedback === "correct") setScorePulse("up");

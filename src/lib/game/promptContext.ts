@@ -2,10 +2,10 @@ import type { Line } from "../../types/content.js";
 import { getLine, type LineSource } from "../content/lines.js";
 import { getPreviousPlayableLine, substantiveText } from "../content/playable.js";
 
-/** Pull previous cues until the prompt beat has about this many words. */
-export const MIN_PROMPT_WORDS = 8;
+/** Pull previous cues until the prompt beat has about this many words (effectively always). */
+export const MIN_PROMPT_WORDS = 100;
 /** Cap so we don't dump a whole scene into the question. */
-export const MAX_LEAD_IN_LINES = 2;
+export const MAX_LEAD_IN_LINES = 4;
 /** Don't glue cues across a pause (new beat). */
 export const MAX_LEAD_IN_GAP_MS = 4000;
 

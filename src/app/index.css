@@ -535,7 +535,7 @@ button {
   border-color: var(--success);
   border-width: 2px;
   background: color-mix(in srgb, var(--success) 14%, white);
-  animation: choice-pulse-correct 0.85s ease;
+  animation: choice-pulse-correct 1s ease forwards;
 }
 
 .choice-button.is-wrong {
