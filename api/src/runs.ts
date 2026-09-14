@@ -5,12 +5,12 @@ const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 const LENGTHS = new Set(["full", "mini"]);
-const MODES = new Set(["fun", "medium", "hard"]);
+const MODES = new Set(["fun", "teach", "medium", "hard"]);
 const END_REASONS = new Set(["finished", "miss"]);
 const THUMBS = new Set(["up", "down"]);
 
 export type RunLength = "full" | "mini";
-export type RunMode = "fun" | "medium" | "hard";
+export type RunMode = "fun" | "teach" | "medium" | "hard";
 export type EndReason = "finished" | "miss";
 export type Thumb = "up" | "down";
 

@@ -5,7 +5,7 @@ import { getTitle, listCatalogEntries } from "../lib/content/browser";
 import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue, chronologicalPromptQueue } from "../lib/game/miniGame";
-import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, type GameRun } from "../lib/game/session";
+import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, isForgivingMcq, type GameRun } from "../lib/game/session";
 import { getStarredLineIndices } from "../lib/stars/sync";
 import {
   createMiniShare,
@@ -52,6 +52,7 @@ export function App() {
   const [run, setRun] = useState<GameRun | null>(null);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | "skipped" | null>(null);
   const [skipReveal, setSkipReveal] = useState<string | null>(null);
+  const [pendingRun, setPendingRun] = useState<GameRun | null>(null);
   const [authToken, setAuthToken] = useState<string | undefined>();
   const [loginMessage, setLoginMessage] = useState<string | undefined>(() =>
     getStoredUser() ? undefined : "Sign in to browse episodes and play.",
@@ -189,6 +190,7 @@ export function App() {
     );
     setFeedback(null);
     setSkipReveal(null);
+    setPendingRun(null);
     setScreen("play");
     clearHash();
   }
@@ -298,6 +300,7 @@ export function App() {
     );
     setFeedback(null);
     setSkipReveal(null);
+    setPendingRun(null);
     setScreen("play");
   }
 
@@ -311,31 +314,37 @@ export function App() {
     if (!title || !run || run.phase !== "playing") return;
 
     const result = submitAnswer(run, title, lineIndex);
-    setRun(result.run);
 
     if (result.correct) {
       setFeedback("correct");
-      if (result.run.phase === "complete") {
-        void finishRun(result.run);
-      }
+      setPendingRun(result.run);
       return;
     }
 
+    setRun(result.run);
     setFeedback("wrong");
   }
 
   function handleSkip() {
-    if (!title || !run || run.mode !== "fun") return;
+    if (!title || !run || !isForgivingMcq(run.mode)) return;
 
     const result = skipQuestion(run, title);
     if (!result) return;
 
-    setRun(result.run);
     setSkipReveal(result.revealedText);
     setFeedback("skipped");
+    setPendingRun(result.run);
+  }
 
-    if (result.run.phase === "complete") {
-      void finishRun(result.run);
+  function handleFeedbackDone() {
+    setFeedback(null);
+    setSkipReveal(null);
+    if (!pendingRun) return;
+    const next = pendingRun;
+    setPendingRun(null);
+    setRun(next);
+    if (next.phase === "complete") {
+      void finishRun(next);
     }
   }
 
@@ -375,6 +384,7 @@ export function App() {
     setRun(previous);
     setFeedback(null);
     setSkipReveal(null);
+    setPendingRun(null);
   }
 
   function handleRestart() {
@@ -402,6 +412,7 @@ export function App() {
     setPersistedRunId(null);
     setFeedback(null);
     setSkipReveal(null);
+    setPendingRun(null);
     setActiveShareId(null);
     setShareMeta(null);
     setShareMessage(null);
@@ -447,6 +458,7 @@ export function App() {
     setPersistedRunId(null);
     setFeedback(null);
     setSkipReveal(null);
+    setPendingRun(null);
     setActiveShareId(null);
     setShareMeta(null);
     setShareMessage(null);
@@ -550,10 +562,7 @@ export function App() {
           onSkip={handleSkip}
           onGoBack={handleGoBack}
           onQuit={handleBackToLibrary}
-          onFeedbackDone={() => {
-            setFeedback(null);
-            setSkipReveal(null);
-          }}
+          onFeedbackDone={handleFeedbackDone}
         />
       )}
 

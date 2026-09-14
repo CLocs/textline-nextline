@@ -297,6 +297,10 @@ describe("parseRunBody", () => {
   it("rejects a bad id", () => {
     expect(parseRunBody({ ...validBody, id: "nope" })).toBeNull();
   });
+
+  it("accepts teach mode", () => {
+    expect(parseRunBody({ ...validBody, mode: "teach" })?.mode).toBe("teach");
+  });
 });
 
 describe("runs HTTP", () => {

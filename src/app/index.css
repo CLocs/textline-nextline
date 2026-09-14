@@ -767,6 +767,41 @@ code {
   font-weight: 500;
 }
 
+.teach-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+
+.teach-dialog {
+  width: min(32rem, 100%);
+  padding: 1.25rem 1.35rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-raised);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.teach-dialog h3 {
+  margin: 0 0 1rem;
+}
+
+.teach-dialog-line {
+  margin: 0.35rem 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--line);
+  background: var(--surface);
+}
+
+.teach-dialog-answer {
+  border-left-color: var(--success);
+  background: color-mix(in srgb, var(--success) 12%, white);
+}
+
 .run-over-note {
   margin: 0 0 1rem;
 }

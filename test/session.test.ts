@@ -36,6 +36,14 @@ describe("submitAnswer", () => {
     expect(run.history).toEqual([{ lineIndex: 1, via: "start" }]);
   });
 
+  it("tracks wrong answers without ending Teach mode runs", () => {
+    const run = startRun("test", { mode: "teach", length: "full", firstPromptLineIndex: 1 });
+    const result = submitAnswer(run, title, 4);
+    expect(result.correct).toBe(false);
+    expect(result.run.phase).toBe("playing");
+    expect(result.run.wrongCount).toBe(1);
+  });
+
   it("tracks wrong answers without ending Fun mode runs", () => {
     const run = fullRun(1);
     const result = submitAnswer(run, title, 4);
@@ -173,5 +181,19 @@ describe("skipQuestion", () => {
       { lineIndex: 3, via: "skip" },
     ]);
     expect(result!.run.phase).toBe("playing");
+  });
+
+  it("allows skip in teach mode", () => {
+    const run = startRun("test", { mode: "teach", length: "full", firstPromptLineIndex: 1 });
+    const result = skipQuestion(run, title);
+    expect(result).not.toBeNull();
+    expect(result!.revealedText).toBe("Goodbye.");
+    expect(result!.run.skipCount).toBe(1);
+    expect(result!.run.promptLineIndex).toBe(3);
+  });
+
+  it("rejects skip in medium mode", () => {
+    const run = startRun("test", { mode: "medium", length: "full", firstPromptLineIndex: 1 });
+    expect(skipQuestion(run, title)).toBeNull();
   });
 });

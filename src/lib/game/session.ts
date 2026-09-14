@@ -6,6 +6,11 @@ import {
 } from "../content/playable.js";
 import type { GameLength, GameMode } from "../../types/game.js";
 
+/** Fun and Teach: MCQ, try again on a miss, skip allowed. */
+export function isForgivingMcq(mode: GameMode): boolean {
+  return mode === "fun" || mode === "teach";
+}
+
 export type GamePhase = "playing" | "complete";
 
 export type EndReason = "finished" | "miss";
@@ -210,7 +215,7 @@ function advanceAfterReveal(
 }
 
 export function canGoBack(run: GameRun): boolean {
-  return run.mode === "fun" && run.phase === "playing" && run.revertStack.length > 0;
+  return isForgivingMcq(run.mode) && run.phase === "playing" && run.revertStack.length > 0;
 }
 
 export function goBackQuestion(run: GameRun): GameRun | null {
@@ -246,7 +251,7 @@ export function submitAnswer(
   }
 
   if (selectedLineIndex !== correctLine.index) {
-    if (run.mode !== "fun") {
+    if (!isForgivingMcq(run.mode)) {
       return {
         run: missRun({
           ...run,
@@ -279,7 +284,7 @@ export function submitAnswer(
 }
 
 export function skipQuestion(run: GameRun, source: LineSource): SkipResult | null {
-  if (run.phase !== "playing" || run.mode !== "fun") return null;
+  if (run.phase !== "playing" || !isForgivingMcq(run.mode)) return null;
 
   const correctLine = getNextPlayableLine(source, run.promptLineIndex);
   if (!correctLine) {

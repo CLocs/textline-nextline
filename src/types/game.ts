@@ -1,4 +1,4 @@
-export type GameMode = "fun" | "medium" | "hard";
+export type GameMode = "fun" | "teach" | "medium" | "hard";
 
 export type GameLength = "full" | "mini";
 
@@ -14,6 +14,12 @@ export const GAME_MODES: {
     id: "fun",
     label: "Fun",
     description: "Multiple choice. Wrong answers let you try again. Skip if you're stuck.",
+    available: true,
+  },
+  {
+    id: "teach",
+    label: "Teach",
+    description: "Like Fun, but skip shows this line and the next until you dismiss the card.",
     available: true,
   },
   {
