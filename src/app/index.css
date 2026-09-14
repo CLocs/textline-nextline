@@ -434,6 +434,27 @@ button {
   font-size: 0.95rem;
 }
 
+.play-prompt-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.play-poster {
+  width: 7.5rem;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.play-prompt-row .prompt-block {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
 .prompt-label {
   margin: 0 0 0.5rem;
   font-size: 0.85rem;
@@ -673,6 +694,25 @@ button {
 code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.9em;
+}
+
+.setup-heading {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.setup-heading h2 {
+  margin: 0 0 0.25rem;
+}
+
+.setup-poster {
+  width: 5.5rem;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
 }
 
 .setup-panel h2 {
@@ -1123,9 +1163,8 @@ code {
   }
 }
 
-@media (max-width: 560px) {
-  .score-grid {
-    grid-template-columns: 1fr;
+  .play-poster {
+    width: 5.5rem;
   }
 
   .brand-mark {

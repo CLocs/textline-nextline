@@ -319,8 +319,8 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
-- [x] **Teach mode** — Fun skip greens the correct choice and holds 1s; Teach skip opens this-line / next-line **Got it** card. See [Later ideas](#later-ideas-parked).
-- [ ] **Scene / poster visuals** — first cut: catalog posters; later: frame at quote time (needs media + sync). See [Later ideas](#later-ideas-parked).
+- [x] **Teach mode** — Fun skip greens the correct choice and holds 2s; Teach skip opens this-line / next-line **Got it** card. See [Later ideas](#later-ideas-parked).
+- [ ] **Scene / poster visuals** — drop `public/posters/{titleId}.jpg` for curated films; quote→frame later (offline ffmpeg). See [Scene visuals](#scene-visuals).
 - [ ] **Curator reputation** — count (and weight) stars people lay down. See [Later ideas](#later-ideas-parked).
 - [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
 - [ ] **UGC quotes (IG / YT)** — paste a link, infer or type the line, add to a personal library. See [Later ideas](#later-ideas-parked).
@@ -402,7 +402,63 @@ Not sequenced. Steer as we go. Nearest of these is **Teach mode** (play UX we al
 
 ### Scene visuals
 
-First cut: any / random poster from a set for the title (TMDB-style stills; no video file). Ideal: a **frame of the exact scene** when the quote is spoken. That likely needs the movie file plus an indexing pass so `startMs` / `endMs` on each line sync to the encode. Timing drift across cuts/releases is the hard part; posters are the cheap win.
+Two layers. **Posters now** (drop-in files). **Quote → frame later**, offline, after the movie files land.
+
+**Pilot titles** (curated; Ocean's 13 in progress):
+
+| Title | `titleId` | Poster file |
+|-------|-----------|-------------|
+| The Empire Strikes Back (1980) | `the-empire-strikes-back-1980` | `public/posters/the-empire-strikes-back-1980.jpg` |
+| Inglourious Basterds (2009) | `inglourious-basterds-2009` | `public/posters/inglourious-basterds-2009.jpg` |
+| Payback (1999) | `payback-1999` | `public/posters/payback-1999.jpg` |
+| Ocean's Thirteen (2007) | `oceans-thirteen-2007` | `public/posters/oceans-thirteen-2007.jpg` |
+
+Pull art from anywhere (TMDB, a scan, whatever). Setup and the **mini-game** play screen show the image if the file exists; 404 → no poster, no error. JPG at that path is enough; we can add `.webp` later if needed. Full-episode play stays text-only until stills.
+
+#### First cut — posters *(ready)*
+
+1. Save a poster as `public/posters/{titleId}.jpg`.
+2. Reload setup for that title. Library/play can grow the same helper (`posterUrl`) when we want it on cards.
+
+No API, no movie file. Fine for a handful of curated films.
+
+#### Later — quote synced to a frame *(offline; after files)*
+
+Ideal: the play prompt sits on a **still from the moment that line is spoken**, not the one-sheet. Movie files stay **local** (`inbox/media/`, gitignored). Stills can be checked in (or LFS) for the starred lines only so Pages stays small.
+
+```mermaid
+flowchart LR
+  movie[Local_movie_file]
+  srt[Line_startMs]
+  offset[Per_title_sync_offset]
+  ffmpeg[ffmpeg_extract]
+  still[public/stills/titleId/lineIndex.jpg]
+  play[Play_screen]
+  movie --> ffmpeg
+  srt --> ffmpeg
+  offset --> ffmpeg
+  ffmpeg --> still --> play
+```
+
+**Suggested extract (do not run until files exist):**
+
+```bash
+ffmpeg -ss {startMs/1000 + offsetSec} -i inbox/media/payback-1999.mkv -frames:v 1 -q:v 3 public/stills/payback-1999/412.jpg
+```
+
+Use the line’s `startMs` (prompt cue), not the next-line `startMs`. Optional: midpoint of `startMs`–`endMs` if the first frame is a cut.
+
+**Sync is the hard part.** SRT clocks drift vs the encode (PAL/NTSC, director’s cut vs theatrical — Payback’s source is a **DC** rip). Plan:
+
+1. Drop the matching encode in `inbox/media/{titleId}.mkv` (or `.mp4`). Prefer the same cut the SRT came from.
+2. Pick 3–5 landmark lines (opening logo, a famous TL, end crawl). Extract at `startMs` with offset 0. Compare by eye.
+3. Store a **per-title offset** (ms) in something like `content/stills-sync.json`: `{ "payback-1999": { "offsetMs": 1200, "encode": "DC" } }`. Linear drift (speed) is rarer; if one film needs it, add `driftMsPerHour` later.
+4. Batch extract **starred line indices first** (Empire / Inglourious / Payback / Ocean's 13), not every cue.
+5. Play UI: if `public/stills/{titleId}/{lineIndex}.jpg` exists, show that; else the poster; else nothing.
+
+**Out of scope until files are here:** ffmpeg script in-repo, git-lfs, shipping video, random poster rotation.
+
+**Legal:** stills from your own files for a personal/curated app; don’t scrape streaming services.
 
 ### Curator incentives
 
@@ -410,7 +466,7 @@ How do we reward people who curate transcripts (stars), not only people who play
 
 ### Teach mode ✅
 
-**Fun (default):** skip lights the correct MCQ choice the same way a hit does, then holds **1s** before advancing. Correct answers use the same hold.
+**Fun (default):** skip lights the correct MCQ choice the same way a hit does, then holds **2s** before advancing. Correct answers use the same hold.
 
 **Teach:** same MCQ / try-again / skip as Fun. Skip opens a dialog of **this line → next line**; **Got it** dismisses it, then the run advances. Shared mini-games stay Fun.
 
@@ -450,8 +506,8 @@ Song SRT files mostly don’t exist. Parse lyrics as a straight transcript; **in
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
-| **Later — Teach + curator score** | ✅ Teach skip dialog + 1s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
-| **Later — Visuals** | Posters first; scene frames if we have media + sync | Play screen feels like the movie |
+| **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
+| **Later — Visuals** | Posters via `public/posters/{titleId}.jpg`; stills after local movie files | Play feels like the movie |
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
 | **Exploratory — UGC + songs** | IG/YT paste-a-link quotes; lyrics as transcripts | Catalog beyond our SRT library |
 
@@ -520,8 +576,8 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 - **Curate stars access** — Personal stars only; anyone may Curate their own. No email allowlist.
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
 - **Security ladder** *(later)* — Staged L0–L5 (hygiene → auth pass → deps → PR reviews; formal audit only if we scale). See [spike](#spike-security-ladder-not-a-full-audit-yet).
-- **Teach mode** — ✅ Setup mode; Fun skip illuminates + 1s hold; Teach skip uses a dismissable this/next card.
-- **Scene posters / curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
+- **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
+- **Scene posters / curator score / Letterboxd connect / UGC quotes / songs** — posters: drop-in files for Empire / Inglourious / Payback / Ocean's 13; rest parked in [Later ideas](#later-ideas-parked).
 
 ---
 

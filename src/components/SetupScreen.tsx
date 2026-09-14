@@ -9,6 +9,7 @@ import {
   loadPopularStars,
 } from "../lib/stars/sync";
 import { GAME_LENGTHS, GAME_MODES, MINI_GAME_SIZE, type GameLength, type GameMode } from "../types/game";
+import { PosterArt } from "./PosterArt";
 
 export type GameSetup = {
   mode: GameMode;
@@ -74,10 +75,15 @@ export function SetupScreen({
         ← Library
       </button>
 
-      <h2>{entry.title}</h2>
-      <p className="muted setup-meta">
-        {questionCount} dialogue questions · {starredCount} starred
-      </p>
+      <div className="setup-heading">
+        <PosterArt titleId={entry.id} title={entry.title} className="setup-poster" />
+        <div>
+          <h2>{entry.title}</h2>
+          <p className="muted setup-meta">
+            {questionCount} dialogue questions · {starredCount} starred
+          </p>
+        </div>
+      </div>
 
       <fieldset className="mode-picker">
         <legend>Session length</legend>

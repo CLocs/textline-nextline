@@ -5,9 +5,10 @@ import type { McqQuestion } from "../lib/game/mcq";
 import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
 import { isStarred, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
+import { PosterArt } from "./PosterArt";
 
 /** Hold the illuminated correct choice before advancing (Fun skip + any correct). */
-export const CORRECT_HOLD_MS = 1000;
+export const CORRECT_HOLD_MS = 2000;
 const WRONG_HOLD_MS = 900;
 
 function formatScoreCredit(value: number): string {
@@ -111,7 +112,11 @@ export function PlayScreen({
 
         <p className="episode-label">{title.title}</p>
 
-        <div className="prompt-block">
+        <div className={run.length === "mini" ? "play-prompt-row" : undefined}>
+          {run.length === "mini" && (
+            <PosterArt titleId={title.id} title={title.title} className="play-poster" />
+          )}
+          <div className="prompt-block">
           <div className="prompt-header">
             <p className="prompt-label">
               Current line
@@ -140,6 +145,7 @@ export function PlayScreen({
             ))}
             <p className="prompt-current">{question.promptText}</p>
           </blockquote>
+        </div>
         </div>
 
         <div className="question-block">

@@ -11,3 +11,6 @@ inbox/srt/*
 # Personal Readwise quotes / notes (regenerate with --vault)
 content/readwise-highlights.json
 content/stars-seed.json
+
+# Local movie files for later still extraction (never commit)
+inbox/media/
