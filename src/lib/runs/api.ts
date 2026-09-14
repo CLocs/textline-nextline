@@ -1,7 +1,7 @@
 import { getSessionToken } from "../auth/session.js";
 
 export type RunLength = "full" | "mini";
-export type RunMode = "fun" | "medium" | "hard";
+export type RunMode = "fun" | "teach" | "medium" | "hard";
 export type EndReason = "finished" | "miss";
 export type Thumb = "up" | "down";
 

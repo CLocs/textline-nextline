@@ -319,11 +319,39 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
+- [x] **Teach mode** — Fun skip greens the correct choice and holds 2s; Teach skip opens this-line / next-line **Got it** card. See [Later ideas](#later-ideas-parked).
+- [ ] **Scene / poster visuals** — drop `public/posters/{titleId}.jpg` for curated films; quote→frame later (offline ffmpeg). See [Scene visuals](#scene-visuals).
+- [ ] **Curator reputation** — count (and weight) stars people lay down. See [Later ideas](#later-ideas-parked).
+- [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
+- [ ] **UGC quotes (IG / YT)** — paste a link, infer or type the line, add to a personal library. See [Later ideas](#later-ideas-parked).
+- [ ] **Songs** — lyrics as transcripts; song library + mini-games. See [Later ideas](#later-ideas-parked).
+- [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
 - [ ] **Daily challenge** — same title + start line for everyone
 - [ ] **Obsidian → TL pipeline** — see [Concept 3](#concept-3-obsidian--tls-textlines-backlog) below
 - [ ] **Online quote sources spike** — see [Spike: online quotes](#spike-online-quotes-eg-imdb-research) below
+
+### Spike: security ladder *(not a full audit yet)*
+
+Users care; a single “do security” project will bog us down. Prefer a **ladder**: ship the cheapest high-value rung first, stop when risk matches how public/sensitive we are. Auth today is magic link + Google → D1 sessions; stars/runs/shares are account-scoped.
+
+| Level | What | Type | Effort | Ongoing maintenance | When |
+|-------|------|------|--------|---------------------|------|
+| **L0 — Hygiene** | Secrets only in Wrangler/CI; no tokens in git/logs; `ALLOWED_ORIGINS` + CORS; OAuth JS origins match prod; confirm `/api/auth/config` doesn’t leak secrets | Config / ops | Hours | Low — revisit when adding origins or secrets | **Do soon** (checklist after each auth change) |
+| **L1 — Auth & session pass** | Session TTL / logout; Bearer required on runs/shares/me; Google JWT aud/iss/email_verified; magic-link rate limit; claim-anonymous can’t steal another user’s stars | App security review | ½–1 day | Low — re-check when touching `api/src/auth.ts` / shares | After 2a.2 settles; before inviting many friends |
+| **L2 — Abuse & data bounds** | Input validation already on stars/runs; add soft rate limits (stars, shares, magic links); don’t return other users’ emails except intentional share meta; D1 migration checklist so prod never drifts (e.g. missing `question_queue`) | Product + ops | 1–2 days | Medium — tune limits if spam appears | When share links go beyond a small circle |
+| **L3 — Dependency / supply chain** | `npm audit` (root + `api/`); pin/update `jose` / wrangler; Dependabot or periodic manual bump | Supply chain | Hours, then recurring | Medium — monthly or on alert | Cheap; can run in parallel with L1 |
+| **L4 — Cursor Security Review** | Run the in-repo security-review agent on branch/PR diffs for auth/API changes | Process | Per PR (~minutes–hour) | Low if only on sensitive PRs | Habit on auth/API PRs — not every content PR |
+| **L5 — External / formal audit** | Paid pen-test or third-party review; threat model doc; bug bounty | Formal assurance | Weeks + $ | High — re-audit after big changes | Only if we hold sensitive PII at scale, go commercial, or enterprise users demand it |
+
+**Suggested sequence:** L0 → L1 → L3 (parallel) → L4 as habit → L2 when sharing grows → **skip L5** until the product outgrows a friends-and-family footprint.
+
+**Out of scope until needed:** full SOC2, CSP perfectionism, WAF product, encrypting all D1 at app layer (Cloudflare already encrypts at rest), storing passwords (we don’t).
+
+**Open questions:** publish a short public “how we handle accounts” note?; whether share meta should hide owner email and show display name only.
+
+---
 
 ### Concept 3: Obsidian → TLs (Textlines) *(backlog)*
 
@@ -368,6 +396,94 @@ Open questions (spike only — no pack UI yet):
 
 ---
 
+## Later ideas *(parked)*
+
+Not sequenced. Steer as we go. Nearest of these is **Teach mode** (play UX we already have); posters and curator weighting reuse data we already store. UGC quotes and songs are new products.
+
+### Scene visuals
+
+Two layers. **Posters now** (drop-in files). **Quote → frame later**, offline, after the movie files land.
+
+**Pilot titles** (curated; Ocean's 13 in progress):
+
+| Title | `titleId` | Poster file |
+|-------|-----------|-------------|
+| The Empire Strikes Back (1980) | `the-empire-strikes-back-1980` | `public/posters/the-empire-strikes-back-1980.jpg` |
+| Inglourious Basterds (2009) | `inglourious-basterds-2009` | `public/posters/inglourious-basterds-2009.jpg` |
+| Payback (1999) | `payback-1999` | `public/posters/payback-1999.jpg` |
+| Ocean's Thirteen (2007) | `oceans-thirteen-2007` | `public/posters/oceans-thirteen-2007.jpg` |
+
+Pull art from anywhere (TMDB, a scan, whatever). Setup and the **mini-game** play screen show the image if the file exists; 404 → no poster, no error. JPG at that path is enough; we can add `.webp` later if needed. Full-episode play stays text-only until stills.
+
+#### First cut — posters *(ready)*
+
+1. Save a poster as `public/posters/{titleId}.jpg`.
+2. Reload setup for that title. Library/play can grow the same helper (`posterUrl`) when we want it on cards.
+
+No API, no movie file. Fine for a handful of curated films.
+
+#### Later — quote synced to a frame *(offline; after files)*
+
+Ideal: the play prompt sits on a **still from the moment that line is spoken**, not the one-sheet. Movie files stay **local** (`inbox/media/`, gitignored). Stills can be checked in (or LFS) for the starred lines only so Pages stays small.
+
+```mermaid
+flowchart LR
+  movie[Local_movie_file]
+  srt[Line_startMs]
+  offset[Per_title_sync_offset]
+  ffmpeg[ffmpeg_extract]
+  still[public/stills/titleId/lineIndex.jpg]
+  play[Play_screen]
+  movie --> ffmpeg
+  srt --> ffmpeg
+  offset --> ffmpeg
+  ffmpeg --> still --> play
+```
+
+**Suggested extract (do not run until files exist):**
+
+```bash
+ffmpeg -ss {startMs/1000 + offsetSec} -i inbox/media/payback-1999.mkv -frames:v 1 -q:v 3 public/stills/payback-1999/412.jpg
+```
+
+Use the line’s `startMs` (prompt cue), not the next-line `startMs`. Optional: midpoint of `startMs`–`endMs` if the first frame is a cut.
+
+**Sync is the hard part.** SRT clocks drift vs the encode (PAL/NTSC, director’s cut vs theatrical — Payback’s source is a **DC** rip). Plan:
+
+1. Drop the matching encode in `inbox/media/{titleId}.mkv` (or `.mp4`). Prefer the same cut the SRT came from.
+2. Pick 3–5 landmark lines (opening logo, a famous TL, end crawl). Extract at `startMs` with offset 0. Compare by eye.
+3. Store a **per-title offset** (ms) in something like `content/stills-sync.json`: `{ "payback-1999": { "offsetMs": 1200, "encode": "DC" } }`. Linear drift (speed) is rarer; if one film needs it, add `driftMsPerHour` later.
+4. Batch extract **starred line indices first** (Empire / Inglourious / Payback / Ocean's 13), not every cue.
+5. Play UI: if `public/stills/{titleId}/{lineIndex}.jpg` exists, show that; else the poster; else nothing.
+
+**Out of scope until files are here:** ffmpeg script in-repo, git-lfs, shipping video, random poster rotation.
+
+**Legal:** stills from your own files for a personal/curated app; don’t scrape streaming services.
+
+### Curator incentives
+
+How do we reward people who curate transcripts (stars), not only people who play? More granular: **track how many stars a person lays down**, then weight those stars by whether others also starred the same line and/or liked the game that used it (thumbs = less weight than a co-star). Complements Phase 2.5’s unused [popular-star formula](#later-popular-formula-not-v1) (title-level thumbs) with a **person-level curator score** and a **line-level quality weight**. Do not pay out on raw star count alone (easy to farm).
+
+### Teach mode ✅
+
+**Fun (default):** skip lights the correct MCQ choice the same way a hit does, then holds **2s** before advancing. Correct answers use the same hold.
+
+**Teach:** same MCQ / try-again / skip as Fun. Skip opens a dialog of **this line → next line**; **Got it** dismisses it, then the run advances. Shared mini-games stay Fun.
+
+### Watch-list connections
+
+Connect **Letterboxd** (and maybe **Trakt**) to surface titles they might like — and let them **request** ones we don’t have yet. We already ingest a Letterboxd ZIP for the content queue; this is the player-facing version (OAuth / export, recommendations, request list). Trakt is optional if Letterboxd covers movies well; TV watch history may be the Trakt case.
+
+### Quotes from anywhere (lay person)
+
+Expand past our curated SRT catalog: quotes from **IG, YT, anywhere**. Share a link → scroll to the quote time → infer the line if we can, or type/edit it → add it to **your** library. Curate a mini-game for friends, or send a **single** (Concept 2). Licensing, ToS, and “is this even our transcript?” are the product gates; the game loop (line → next line) stays the same.
+
+### Songs
+
+Song SRT files mostly don’t exist. Parse lyrics as a straight transcript; **infer timestamps** between lines, analyze the audio for timing, or just keep extra previous lines as context (like today’s lead-in). A **song library with curation** is a new catalog kind (not Movies \| TV) and a wider market.
+
+---
+
 ## Roadmap
 
 | Phase | Focus | Target outcome |
@@ -383,12 +499,17 @@ Open questions (spike only — no pack UI yet):
 | **2a.1 — Local auth polish** | Origin-aware magic links; Vite continue | ✅ Code in; Worker redeploy for email links on localhost |
 | **2a.2 — Google Sign-In** | GIS button + Worker JWT verify; same D1 session | ✅ Code in; set `GOOGLE_CLIENT_ID` + publish OAuth consent |
 | **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
+| **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | Staged; avoid one giant audit — see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
+| **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
+| **Later — Visuals** | Posters via `public/posters/{titleId}.jpg`; stills after local movie files | Play feels like the movie |
+| **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
+| **Exploratory — UGC + songs** | IG/YT paste-a-link quotes; lyrics as transcripts | Catalog beyond our SRT library |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
 
@@ -454,6 +575,9 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 - **History sidebar + partial credit** — ✅ Missed cards red; re-guesses yellow (`reguess`); first-try correct green. Score: 1 / 0.5 / 0.25 by attempt (shown in play + complete). Persisted D1 `correct_count` stays whole lines cleared for now.
 - **Curate stars access** — Personal stars only; anyone may Curate their own. No email allowlist.
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
+- **Security ladder** *(later)* — Staged L0–L5 (hygiene → auth pass → deps → PR reviews; formal audit only if we scale). See [spike](#spike-security-ladder-not-a-full-audit-yet).
+- **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
+- **Scene posters / curator score / Letterboxd connect / UGC quotes / songs** — posters: drop-in files for Empire / Inglourious / Payback / Ocean's 13; rest parked in [Later ideas](#later-ideas-parked).
 
 ---
 

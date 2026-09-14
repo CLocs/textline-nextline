@@ -434,6 +434,27 @@ button {
   font-size: 0.95rem;
 }
 
+.play-prompt-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.play-poster {
+  width: 7.5rem;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.play-prompt-row .prompt-block {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
 .prompt-label {
   margin: 0 0 0.5rem;
   font-size: 0.85rem;
@@ -535,7 +556,7 @@ button {
   border-color: var(--success);
   border-width: 2px;
   background: color-mix(in srgb, var(--success) 14%, white);
-  animation: choice-pulse-correct 0.85s ease;
+  animation: choice-pulse-correct 1s ease forwards;
 }
 
 .choice-button.is-wrong {
@@ -675,6 +696,25 @@ code {
   font-size: 0.9em;
 }
 
+.setup-heading {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.setup-heading h2 {
+  margin: 0 0 0.25rem;
+}
+
+.setup-poster {
+  width: 5.5rem;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
 .setup-panel h2 {
   margin: 0.5rem 0 0.25rem;
 }
@@ -765,6 +805,41 @@ code {
 .feedback.skipped {
   color: var(--muted);
   font-weight: 500;
+}
+
+.teach-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+
+.teach-dialog {
+  width: min(32rem, 100%);
+  padding: 1.25rem 1.35rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-raised);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.teach-dialog h3 {
+  margin: 0 0 1rem;
+}
+
+.teach-dialog-line {
+  margin: 0.35rem 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--line);
+  background: var(--surface);
+}
+
+.teach-dialog-answer {
+  border-left-color: var(--success);
+  background: color-mix(in srgb, var(--success) 12%, white);
 }
 
 .run-over-note {
@@ -1088,9 +1163,8 @@ code {
   }
 }
 
-@media (max-width: 560px) {
-  .score-grid {
-    grid-template-columns: 1fr;
+  .play-poster {
+    width: 5.5rem;
   }
 
   .brand-mark {

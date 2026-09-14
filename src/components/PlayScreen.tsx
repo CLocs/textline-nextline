@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Title } from "../types/content";
+import { GAME_MODES } from "../types/game";
 import type { McqQuestion } from "../lib/game/mcq";
-import { canGoBack, type GameRun } from "../lib/game/session";
+import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
 import { isStarred, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
+import { PosterArt } from "./PosterArt";
+
+/** Hold the illuminated correct choice before advancing (Fun skip + any correct). */
+export const CORRECT_HOLD_MS = 2000;
+const WRONG_HOLD_MS = 900;
 
 function formatScoreCredit(value: number): string {
   return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/0$/, "");
@@ -41,6 +47,8 @@ export function PlayScreen({
   );
   const [pickedIndex, setPickedIndex] = useState<number | null>(null);
   const [scorePulse, setScorePulse] = useState<"up" | "down" | null>(null);
+  const onFeedbackDoneRef = useRef(onFeedbackDone);
+  onFeedbackDoneRef.current = onFeedbackDone;
 
   useEffect(() => {
     setStarred(isStarred(title.id, question.promptLineIndex));
@@ -52,10 +60,11 @@ export function PlayScreen({
       setPickedIndex(null);
       return;
     }
-    const delay = feedback === "wrong" ? 900 : 1200;
-    const timer = window.setTimeout(onFeedbackDone, delay);
+    if (feedback === "skipped" && run.mode === "teach") return;
+    const delay = feedback === "wrong" ? WRONG_HOLD_MS : CORRECT_HOLD_MS;
+    const timer = window.setTimeout(() => onFeedbackDoneRef.current(), delay);
     return () => window.clearTimeout(timer);
-  }, [feedback, onFeedbackDone]);
+  }, [feedback, run.mode]);
 
   useEffect(() => {
     if (feedback === "correct") setScorePulse("up");
@@ -65,8 +74,9 @@ export function PlayScreen({
     return () => window.clearTimeout(timer);
   }, [feedback, run.correctCount, run.wrongCount]);
 
-  const modeLabel = run.mode === "fun" ? "Fun" : run.mode === "medium" ? "Medium" : "Hard";
+  const modeLabel = GAME_MODES.find((item) => item.id === run.mode)?.label ?? run.mode;
   const lengthLabel = run.length === "mini" ? "Mini" : "Full";
+  const teachSkipOpen = run.mode === "teach" && feedback === "skipped" && Boolean(skipReveal);
 
   function handleToggleStar() {
     void toggleStar(title.id, question.promptLineIndex, question.promptText).then(setStarred);
@@ -78,6 +88,7 @@ export function PlayScreen({
   }
 
   return (
+    <>
     <div className="play-layout">
       <section className="panel play-panel">
         <div className="play-toolbar">
@@ -101,7 +112,11 @@ export function PlayScreen({
 
         <p className="episode-label">{title.title}</p>
 
-        <div className="prompt-block">
+        <div className={run.length === "mini" ? "play-prompt-row" : undefined}>
+          {run.length === "mini" && (
+            <PosterArt titleId={title.id} title={title.title} className="play-poster" />
+          )}
+          <div className="prompt-block">
           <div className="prompt-header">
             <p className="prompt-label">
               Current line
@@ -131,15 +146,19 @@ export function PlayScreen({
             <p className="prompt-current">{question.promptText}</p>
           </blockquote>
         </div>
+        </div>
 
         <div className="question-block">
           <p className="prompt-label">What comes next?</p>
           <ul className="choice-list">
             {question.choices.map((choice) => {
               const isPicked = pickedIndex === choice.lineIndex;
+              const showCorrect =
+                (feedback === "correct" || feedback === "skipped") &&
+                choice.lineIndex === question.correctLineIndex;
               const choiceClass = [
                 "choice-button",
-                isPicked && feedback === "correct" ? "is-correct" : "",
+                showCorrect ? "is-correct" : "",
                 isPicked && feedback === "wrong" ? "is-wrong" : "",
               ]
                 .filter(Boolean)
@@ -160,12 +179,13 @@ export function PlayScreen({
           </ul>
         </div>
 
-        {run.mode === "fun" && (
+        {isForgivingMcq(run.mode) && (
           <div className="skip-row">
             {canGoBack(run) && (
               <button
                 type="button"
                 className="button ghost"
+                disabled={feedback !== null}
                 onClick={onGoBack}
               >
                 ← Previous question
@@ -192,7 +212,7 @@ export function PlayScreen({
             Correct!
           </p>
         )}
-        {feedback === "skipped" && skipReveal && (
+        {feedback === "skipped" && skipReveal && run.mode !== "teach" && (
           <p className="feedback skipped" role="status">
             Skipped — it was: “{skipReveal}”
           </p>
@@ -205,5 +225,26 @@ export function PlayScreen({
         currentLineIndex={run.promptLineIndex}
       />
     </div>
+
+      {teachSkipOpen && (
+        <div className="teach-dialog-backdrop">
+          <div
+            className="teach-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="teach-dialog-title"
+          >
+            <h3 id="teach-dialog-title">The next line</h3>
+            <p className="prompt-label">This line</p>
+            <blockquote className="teach-dialog-line">{question.promptText}</blockquote>
+            <p className="prompt-label">Next line</p>
+            <blockquote className="teach-dialog-line teach-dialog-answer">{skipReveal}</blockquote>
+            <button type="button" className="button primary" onClick={onFeedbackDone}>
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
