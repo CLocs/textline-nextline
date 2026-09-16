@@ -11,6 +11,11 @@ import { PosterArt } from "./PosterArt";
 export const CORRECT_HOLD_MS = 2000;
 const WRONG_HOLD_MS = 900;
 
+/** Later: cycle Nice / Wow / N streak. */
+function correctPopLabel(): string {
+  return "Correct";
+}
+
 function formatScoreCredit(value: number): string {
   return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/0$/, "");
 }
@@ -177,6 +182,9 @@ export function PlayScreen({
                     onClick={() => handleChoose(choice.lineIndex)}
                   >
                     {choice.text}
+                    {feedback === "correct" && showCorrect && (
+                      <span className="choice-hit-tag">{correctPopLabel()}</span>
+                    )}
                   </button>
                 </li>
               );

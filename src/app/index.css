@@ -18,7 +18,8 @@
   --accent-ink: var(--plum);
   --brand: var(--plum);
   --secondary: var(--sage);
-  --success: color-mix(in srgb, var(--sage) 55%, var(--plum));
+  --success: color-mix(in srgb, var(--sage) 35%, #1e5c38);
+  --success-fill: color-mix(in srgb, var(--success) 22%, white);
   --danger: color-mix(in srgb, var(--plum) 75%, #c45c5c);
   --surface: var(--bg-raised);
   --star-bg: color-mix(in srgb, var(--lime) 28%, white);
@@ -145,7 +146,7 @@ button {
 .history-item.via-correct:not(.current) {
   border-color: var(--success);
   border-width: 2px;
-  background: color-mix(in srgb, var(--success) 14%, white);
+  background: var(--success-fill);
 }
 
 .history-item.via-reguess:not(.current) {
@@ -173,6 +174,11 @@ button {
 .history-tag.reguess-tag {
   color: #8a6a10;
   background: #fff3c4;
+}
+
+.history-tag.correct-tag {
+  color: var(--success);
+  background: var(--success-fill);
 }
 
 .history-text {
@@ -440,17 +446,21 @@ button {
 
 .play-prompt-row {
   display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.85rem;
   margin-bottom: 1rem;
 }
 
 .play-poster {
-  width: 11rem;
+  display: block;
+  width: 100%;
   height: auto;
-  border-radius: 8px;
+  max-height: min(44vh, 26rem);
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
   border: 1px solid var(--line);
-  flex-shrink: 0;
+  background: color-mix(in srgb, var(--ink) 10%, var(--bg-raised));
 }
 
 .play-prompt-row .prompt-block {
@@ -557,10 +567,26 @@ button {
 }
 
 .choice-button.is-correct {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   border-color: var(--success);
   border-width: 2px;
-  background: color-mix(in srgb, var(--success) 14%, white);
+  background: var(--success-fill);
   animation: choice-pulse-correct 1s ease forwards;
+}
+
+.choice-hit-tag {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 16%, white);
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
 }
 
 .choice-button.is-wrong {
@@ -1167,7 +1193,7 @@ code {
   }
 
   .play-poster {
-    width: 8rem;
+    max-height: min(30vh, 12rem);
   }
 
   .brand-mark {

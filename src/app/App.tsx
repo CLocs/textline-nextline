@@ -83,10 +83,11 @@ export function App() {
   const pendingRunRef = useRef(pendingRun);
   pendingRunRef.current = pendingRun;
 
+  // Rebuild MCQ only when the prompt changes so a miss does not reshuffle choices.
   const question = useMemo(() => {
     if (!title || !run || run.phase !== "playing") return null;
     return buildMcq(title, run.promptLineIndex);
-  }, [title, run]);
+  }, [title, run?.phase, run?.promptLineIndex]);
 
   function captureLoginReturn(path: string | undefined) {
     if (!isSafeLoginReturn(path)) return;

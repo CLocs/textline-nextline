@@ -76,8 +76,30 @@ flowchart TD
 | `content/stills-sync.json` | Yes (offset / PAL scale) |
 | R2 `textline-stills` | Production stills (push script) |
 
-## Follow-up
+## Follow-up / left off (2026-09-16)
 
-Ocean's 13 is done (`timeScale: 0.96`, 125 stars, on R2). Empire: PAL handful pending confirm (do not R2-push). Wolf of Wall Street: all 67 D1 stars at scale 1 (on R2). Mini-game play shows still then poster. Catalog ops `#/ops` is owner-only. Production stills: private R2 + Pages Function.
+Paused so the user can eyeball each handful vs the quote, then **batch that title** and R2-push. Do not batch/R2 a title until they confirm it. Work title-by-title.
 
-Never `stars-push --force` on titles in `content/stars-protected.json` (Wolf, Empire, Ocean's 13, Payback, Inglourious, Batman Begins, Django). Default push already skips any title that has live stars.
+**Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67).
+
+**Handfuls waiting in** `inbox/stills-preview/{titleId}/` **at scale 1:**
+
+| Title | Stars | Handful | Watch for |
+|-------|------:|---------|-----------|
+| RocknRolla | 89 | 74, 250, 535, 808, 1147, 1447 | 23.98 |
+| Payback | 78 | 77, 187, 336, 486, 635, 805 | DC encode |
+| Inglourious Basterds | 115 | 135, 340, 740, 922, 1168, 1324 | 10 GB source |
+| Batman Begins | 31 | 70, 155, 228, 310, 340, 410 | |
+| Star Wars (1977) | 28 | 62, 238, 421, 548, 812, 909 | **25 fps PAL** (Empire-like) |
+| Django | 13 | 665, 721, 823, 920, 1049, 1085 | |
+| Return of the Jedi | 7 | all 7 | **25 fps PAL** |
+| Goodfellas | 5 | all 5 | |
+| Lebowski | 1 | 412 | |
+| Fellowship | 137 | 80, 163, 969, 1200, 1514, 1759 | **Extended cut vs SRT** |
+| Empire | 81 | 6 already (PAL 0.96 pending) | do not R2 until PAL confirm |
+
+**On disk, no live stars:** Gone in 60 Seconds, O Brother, 40 Year Old Virgin, BTTF (two MP4s → split). **Skip:** Pulp Fiction Part1/Part2; BTTF II/III files didn't match.
+
+After confirm per title: batch remaining D1 `--indices` (no `--email`), then `content:stills:push -- --title TITLE_ID`. PAL titles: if late cues are credits, re-extract handful at `0.96` first.
+
+Never `stars-push --force` on titles in `content/stars-protected.json`.
