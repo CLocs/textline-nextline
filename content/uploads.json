@@ -1,10 +1,31 @@
 {
-  "updatedAt": "2026-09-16T02:12:55.762Z",
+  "updatedAt": "2026-09-16T03:15:35.019Z",
   "directory": "G:\\videos\\movies",
   "matched": [
     {
       "titleId": "baby-driver-2017",
       "title": "Baby Driver",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "back-to-the-future-1985",
+      "title": "Back to the Future",
+      "status": "split",
+      "files": [
+        "Back to the Future (1985) 1080p.mp4",
+        "Back to the Future I  (1985).mp4"
+      ]
+    },
+    {
+      "titleId": "back-to-the-future-part-ii-1989",
+      "title": "Back to the Future Part II",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "back-to-the-future-part-iii-1990",
+      "title": "Back to the Future Part III",
       "status": "missing",
       "files": []
     },
@@ -17,8 +38,10 @@
     {
       "titleId": "batman-begins-2005",
       "title": "Batman Begins",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Batman Begins (2005).mp4"
+      ]
     },
     {
       "titleId": "django-unchained-2012",
@@ -35,10 +58,28 @@
       "files": []
     },
     {
+      "titleId": "gone-in-sixty-seconds-2000",
+      "title": "Gone in Sixty Seconds",
+      "status": "ok",
+      "files": [
+        "Gone in Sixty Seconds (2000).avi"
+      ]
+    },
+    {
+      "titleId": "goodfellas-1990",
+      "title": "Goodfellas",
+      "status": "ok",
+      "files": [
+        "Goodfellas (1990).avi"
+      ]
+    },
+    {
       "titleId": "inglourious-basterds-2009",
       "title": "Inglourious Basterds",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Inglourious Basterds (2009).mkv"
+      ]
     },
     {
       "titleId": "kill-bill-vol-1-2003",
@@ -71,6 +112,14 @@
       "files": []
     },
     {
+      "titleId": "o-brother-where-art-thou-2000",
+      "title": "O Brother Where Art Thou",
+      "status": "ok",
+      "files": [
+        "O Brother, Where Art Thou (2000).avi"
+      ]
+    },
+    {
       "titleId": "oceans-eleven-2001",
       "title": "Oceans Eleven",
       "status": "missing",
@@ -87,8 +136,10 @@
     {
       "titleId": "payback-1999",
       "title": "Payback",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Payback (1999).mp4"
+      ]
     },
     {
       "titleId": "pulp-fiction-1994",
@@ -142,6 +193,22 @@
       "files": []
     },
     {
+      "titleId": "the-40-year-old-virgin-2005",
+      "title": "The 40 Year Old Virgin",
+      "status": "ok",
+      "files": [
+        "40 Year Old Virgin (2005).avi"
+      ]
+    },
+    {
+      "titleId": "the-big-lebowski-1998",
+      "title": "The Big Lebowski",
+      "status": "ok",
+      "files": [
+        "The Big Lebowski (1998).avi"
+      ]
+    },
+    {
       "titleId": "the-empire-strikes-back-1980",
       "title": "The Empire Strikes Back",
       "status": "ok",
@@ -164,8 +231,10 @@
     {
       "titleId": "the-lord-of-the-rings---the-fellowship-of-the-ring-2001",
       "title": "The Lord of the Rings - The Fellowship of the Ring",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "The.Lord.of.the.Rings.The.Fellowship.of.the.Ring.2001.EXTENDED.1080p.BluRay.10bit.HEVC.6CH.MkvCage.ws.mkv"
+      ]
     },
     {
       "titleId": "the-man-from-uncle-2015",
@@ -208,9 +277,6 @@
       "name": "28 Weeks Later (2007).avi"
     },
     {
-      "name": "40 Year Old Virgin (2005).avi"
-    },
-    {
       "name": "A Clockwork Orange (1971).avi"
     },
     {
@@ -233,12 +299,6 @@
     },
     {
       "name": "Atonement (2007).avi"
-    },
-    {
-      "name": "Back to the Future (1985) 1080p.mp4"
-    },
-    {
-      "name": "Back to the Future I  (1985).mp4"
     },
     {
       "name": "Back To The Future II (1989).avi"
@@ -334,13 +394,7 @@
       "name": "Glengarry Glen Ross.avi"
     },
     {
-      "name": "Gone in Sixty Seconds (2000).avi"
-    },
-    {
       "name": "Good Will Hunting (1997).avi"
-    },
-    {
-      "name": "Goodfellas (1990).avi"
     },
     {
       "name": "Grindhouse (2007) CD1.avi"
@@ -364,9 +418,6 @@
       "name": "Moonrise Kingdom (2012).avi"
     },
     {
-      "name": "O Brother, Where Art Thou (2000).avi"
-    },
-    {
       "name": "Oblivion (2013).mp4"
     },
     {
@@ -383,9 +434,6 @@
     },
     {
       "name": "Ted (2012).avi"
-    },
-    {
-      "name": "The Big Lebowski (1998).avi"
     },
     {
       "name": "The Ghost Writer (2010).avi"

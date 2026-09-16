@@ -23,5 +23,85 @@
     "fps": 23.976,
     "durationSec": 10792.57,
     "note": "1080p 23.976 (~180 min, matches theatrical). Skipped remux (4.3 GB). User confirmed scale 1. All 67 D1 stars extracted to inbox/stills-preview."
+  },
+  "goodfellas-1990": {
+    "offsetMs": 0,
+    "encode": "avi-divx-23976",
+    "source": "G:/videos/movies/Goodfellas (1990).avi",
+    "fps": 23.976,
+    "durationSec": 8731.82,
+    "note": "23.98 fps ~2:25:32. Handful of all 5 D1 stars at scale 1. Do not batch/R2 until eyeball."
+  },
+  "the-big-lebowski-1998": {
+    "offsetMs": 0,
+    "encode": "avi-divx-23976",
+    "source": "G:/videos/movies/The Big Lebowski (1998).avi",
+    "fps": 23.976,
+    "durationSec": 7014.76,
+    "note": "23.98 fps ~1:56:55. Only 1 D1 star (412) at scale 1. Do not R2 until eyeball."
+  },
+  "star-wars-1977": {
+    "offsetMs": 0,
+    "encode": "avi-xvid-pal-25fps",
+    "source": "G:/videos/movies/Star Wars Episode IV - A New Hope.avi",
+    "fps": 25,
+    "durationSec": 7177.04,
+    "note": "25 fps PAL Xvid (~1:59:37). Suspect timeScale 0.96 like Empire. Handful at scale 1. Do not batch/R2 until eyeball."
+  },
+  "star-wars-episode-vi-return-of-the-jedi-1983": {
+    "offsetMs": 0,
+    "encode": "avi-xvid-pal-25fps",
+    "source": "G:/videos/movies/Star Wars Episode VI - Return Of The Jedi.avi",
+    "fps": 25,
+    "durationSec": 7754.84,
+    "note": "25 fps PAL Xvid (~2:09:15). Suspect timeScale 0.96. All 7 D1 stars at scale 1. Do not R2 until eyeball."
+  },
+  "rocknrolla-2008": {
+    "offsetMs": 0,
+    "encode": "avi-xvid-23976",
+    "source": "G:/videos/movies/RocknRolla (2008).avi",
+    "fps": 23.976,
+    "durationSec": 6856.52,
+    "note": "23.98 fps ~1:54:17. Handful of 6/89 D1 stars at scale 1. Do not batch/R2 until eyeball."
+  },
+  "django-unchained-2012": {
+    "offsetMs": 0,
+    "encode": "mkv-h264-23976",
+    "source": "G:/videos/movies/Django Unchained (2012).mkv",
+    "fps": 23.976,
+    "durationSec": 9922.09,
+    "note": "720p 23.976 ~2:45:22. Skipped remux. Handful of 6/13 D1 stars at scale 1. Do not batch/R2 until eyeball."
+  },
+  "batman-begins-2005": {
+    "offsetMs": 0,
+    "encode": "mp4-h264-23976",
+    "source": "G:/videos/movies/Batman Begins (2005).mp4",
+    "fps": 23.976,
+    "durationSec": 8403.2,
+    "note": "1080p 23.976 ~2:20:03. Skipped remux. Handful of 6/31 D1 stars at scale 1. Do not batch/R2 until eyeball."
+  },
+  "payback-1999": {
+    "offsetMs": 0,
+    "encode": "mp4-h264-23976-dc",
+    "source": "G:/videos/movies/Payback (1999).mp4",
+    "fps": 23.976,
+    "durationSec": 6081.02,
+    "note": "1080p 23.976 ~1:41:21 (DC longer than theatrical). Handful of 6/78 D1 stars at scale 1. Do not batch/R2 until eyeball."
+  },
+  "inglourious-basterds-2009": {
+    "offsetMs": 0,
+    "encode": "mkv-h264-24fps-1080p",
+    "source": "G:/videos/movies/Inglourious Basterds (2009).mkv",
+    "fps": 24,
+    "durationSec": 9186.96,
+    "note": "1080p 24 fps ~2:33:07 (10 GB). Skipped remux. Handful of 6/115 D1 stars at scale 1. Do not batch/R2 until eyeball."
+  },
+  "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": {
+    "offsetMs": 0,
+    "encode": "mkv-hevc-23976-extended",
+    "source": "G:/videos/movies/The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv",
+    "fps": 23.976,
+    "durationSec": 13691.78,
+    "note": "EXTENDED 1080p HEVC ~3:48 vs theatrical ~2:58 — expect drift vs SRT. Skipped remux (5.4 GB). Handful of 6/137 at scale 1. Do not batch/R2 until eyeball."
   }
 }

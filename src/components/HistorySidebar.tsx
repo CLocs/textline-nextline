@@ -13,6 +13,8 @@ type Props = {
 
 function viaLabel(via: HistoryVia): string | null {
   switch (via) {
+    case "correct":
+      return "Correct";
     case "skip":
       return "Skipped";
     case "incorrect":
@@ -76,10 +78,15 @@ export function HistorySidebar({ title, history, currentLineIndex }: Props) {
                       {starred ? "★" : "☆"}
                     </button>
                   )}
-                  {starred && <span className="history-tag starred-tag">★ Starred</span>}
                   {tag && (
                     <span
-                      className={`history-tag${entry.via === "reguess" ? " reguess-tag" : ""}`}
+                      className={`history-tag${
+                        entry.via === "reguess"
+                          ? " reguess-tag"
+                          : entry.via === "correct"
+                            ? " correct-tag"
+                            : ""
+                      }`}
                     >
                       {tag}
                     </span>
