@@ -64,6 +64,28 @@ export function playCountMap(rows: { titleId: string; playCount: number }[]): Ma
   return map;
 }
 
+/** Personal play counts per catalog title, highest first. */
+export function yourTopPlayed(
+  runs: StoredRun[],
+  entries: CatalogEntry[],
+  limit = RAIL_LIMIT,
+): PlayedMovie[] {
+  const byId = new Map(entries.map((entry) => [entry.id, entry]));
+  const counts = new Map<string, number>();
+  for (const run of runs) {
+    counts.set(run.titleId, (counts.get(run.titleId) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .map(([titleId, playCount]) => {
+      const entry = byId.get(titleId);
+      return entry ? { entry, playCount } : null;
+    })
+    .filter((row): row is PlayedMovie => row != null)
+    .sort((a, b) => b.playCount - a.playCount || a.entry.title.localeCompare(b.entry.title))
+    .slice(0, limit);
+}
+
 /** Newest-first unique titles from the player's runs (skip unknown catalog ids). */
 export function recentFromRuns(
   runs: StoredRun[],

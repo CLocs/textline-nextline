@@ -207,6 +207,45 @@ function createRunsDb() {
               return null;
             },
             async all<T>() {
+              if (sql.includes("FROM runs r") && sql.includes("JOIN users u") && sql.includes("GROUP BY u.id")) {
+                const [titleId, limit] = args as [string, number];
+                type Agg = {
+                  display_name: string | null;
+                  email: string;
+                  games_played: number;
+                  lines_guessed: number;
+                  best_correct: number;
+                };
+                const byUser = new Map<string, Agg>();
+                for (const row of runs) {
+                  if (row.title_id !== titleId) continue;
+                  const user = users.find((u) => u.id === row.user_id);
+                  if (!user) continue;
+                  const existing = byUser.get(user.id);
+                  if (!existing) {
+                    byUser.set(user.id, {
+                      display_name: user.display_name,
+                      email: user.email,
+                      games_played: 1,
+                      lines_guessed: row.correct_count,
+                      best_correct: row.correct_count,
+                    });
+                  } else {
+                    existing.games_played += 1;
+                    existing.lines_guessed += row.correct_count;
+                    existing.best_correct = Math.max(existing.best_correct, row.correct_count);
+                  }
+                }
+                const results = [...byUser.values()]
+                  .sort(
+                    (a, b) =>
+                      b.games_played - a.games_played ||
+                      b.best_correct - a.best_correct ||
+                      (a.display_name ?? "").localeCompare(b.display_name ?? ""),
+                  )
+                  .slice(0, limit);
+                return { results: results as T[] };
+              }
               if (sql.includes("FROM runs r") && sql.includes("LEFT JOIN run_ratings")) {
                 const [userId, limit] = args as [string, number];
                 const results = runs
@@ -389,6 +428,49 @@ describe("runs HTTP", () => {
     expect(stats.status).toBe(200);
     const data = (await stats.json()) as { titles: { titleId: string; playCount: number }[] };
     expect(data.titles).toEqual([{ titleId: "payback-1999", playCount: 2 }]);
+  });
+
+  it("returns per-title player leaders", async () => {
+    const { db } = createRunsDb();
+    await handleRequest(
+      authed("/api/runs", { method: "POST", body: JSON.stringify(validBody) }),
+      envFor(db),
+    );
+    await handleRequest(
+      authed(
+        "/api/runs",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            ...validBody,
+            id: RUN_ID_B,
+            correctCount: 10,
+            wrongCount: 0,
+            skipCount: 0,
+          }),
+        },
+        OTHER_SESSION,
+      ),
+      envFor(db),
+    );
+
+    const missing = await handleRequest(authed("/api/stats/title"), envFor(db));
+    expect(missing.status).toBe(400);
+
+    const stats = await handleRequest(
+      authed("/api/stats/title?titleId=payback-1999"),
+      envFor(db),
+    );
+    expect(stats.status).toBe(200);
+    const data = (await stats.json()) as {
+      playCount: number;
+      players: { displayName: string; gamesPlayed: number; bestCorrect: number }[];
+    };
+    expect(data.playCount).toBe(2);
+    expect(data.players).toEqual([
+      { displayName: "Pat", gamesPlayed: 1, linesGuessed: 10, bestCorrect: 10 },
+      { displayName: "Sam", gamesPlayed: 1, linesGuessed: 8, bestCorrect: 8 },
+    ]);
   });
 
   it("persists a question queue and shares a frozen mini-game", async () => {

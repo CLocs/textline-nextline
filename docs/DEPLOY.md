@@ -132,6 +132,7 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/runs/:id/share` | Freeze that mini-game’s prompt list; returns `{ shareId, url }` |
 | `PATCH` | `/api/runs/:id/rating` | Body `{ thumb: "up" \| "down" }` |
 | `GET` | `/api/stats/played` | Global play counts per `titleId` (auth) |
+| `GET` | `/api/stats/title?titleId=` | Per-title player leaders: games played + best correct (auth) |
 | `GET` | `/api/ops/catalog` | Owner-only star counts + play counts per title |
 
 Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, and ops routes require auth.

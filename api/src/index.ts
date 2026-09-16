@@ -28,8 +28,10 @@ import {
 } from "./stars.js";
 import {
   fetchPlayedStats,
+  fetchTitleStats,
   insertRun,
   isRunId,
+  isTitleId,
   listMyRuns,
   parseRunBody,
   parseThumb,
@@ -354,6 +356,15 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (request.method === "GET" && pathname === "/api/stats/played") {
       const titles = await fetchPlayedStats(env.DB);
       return jsonResponse({ titles }, 200, origin, allowed);
+    }
+
+    if (request.method === "GET" && pathname === "/api/stats/title") {
+      const titleId = url.searchParams.get("titleId")?.trim() ?? "";
+      if (!isTitleId(titleId)) {
+        return errorResponse("Missing or invalid titleId", 400, origin, allowed);
+      }
+      const stats = await fetchTitleStats(env.DB, titleId);
+      return jsonResponse(stats, 200, origin, allowed);
     }
 
     return errorResponse("Not found", 404, origin, allowed);

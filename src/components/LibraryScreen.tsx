@@ -14,6 +14,7 @@ import {
   recentFromRuns,
   topPlayedMovies,
   topPlayedShows,
+  yourTopPlayed,
 } from "../lib/content/playedRails";
 
 type Props = {
@@ -40,6 +41,8 @@ export function LibraryScreen({ entries, onSelect }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
   const [recent, setRecent] = useState<CatalogEntry[]>([]);
+  const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
+  const [railsReady, setRailsReady] = useState(false);
   const groups = groupCatalogEntries(entries);
 
   useEffect(() => {
@@ -48,6 +51,8 @@ export function LibraryScreen({ entries, onSelect }: Props) {
       if (cancelled) return;
       setCounts(playCountMap(titles));
       setRecent(recentFromRuns(runs, entries));
+      setYours(yourTopPlayed(runs, entries));
+      setRailsReady(true);
     });
     return () => {
       cancelled = true;
@@ -56,8 +61,8 @@ export function LibraryScreen({ entries, onSelect }: Props) {
 
   const playedMovies = useMemo(() => topPlayedMovies(entries, counts), [entries, counts]);
   const playedShows = useMemo(() => topPlayedShows(entries, counts), [entries, counts]);
-  const showHomeRails =
-    recent.length > 0 || playedMovies.length > 0 || playedShows.length > 0;
+  const hasPersonalRails = recent.length > 0 || yours.length > 0;
+  const hasCrowdRails = playedMovies.length > 0 || playedShows.length > 0;
 
   if (view.level === "season") {
     const show = findShow(groups, view.show);
@@ -203,7 +208,7 @@ export function LibraryScreen({ entries, onSelect }: Props) {
     <section className="panel">
       <div className="section-header">
         <h2>Home</h2>
-        <p className="muted">Pick up where you left off, or browse the full library.</p>
+        <p className="muted">Your games, then what everyone else is playing.</p>
       </div>
 
       {entries.length === 0 ? (
@@ -228,9 +233,27 @@ export function LibraryScreen({ entries, onSelect }: Props) {
             </div>
           )}
 
-          {showHomeRails && playedMovies.length > 0 && (
+          {yours.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">Top played movies</h3>
+              <h3 className="library-group-heading">Your top played</h3>
+              <ul className="title-list">
+                {yours.map(({ entry, playCount }) => (
+                  <li key={entry.id}>
+                    <button type="button" className="title-card" onClick={() => onSelect(entry)}>
+                      <span className="title-card-name">{catalogLabel(entry)}</span>
+                      <span className="title-card-meta">
+                        {playCount} play{playCount === 1 ? "" : "s"}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {playedMovies.length > 0 && (
+            <div className="library-group">
+              <h3 className="library-group-heading">Top movies · everyone</h3>
               <ul className="title-list">
                 {playedMovies.map(({ entry, playCount }) => (
                   <li key={entry.id}>
@@ -246,9 +269,9 @@ export function LibraryScreen({ entries, onSelect }: Props) {
             </div>
           )}
 
-          {showHomeRails && playedShows.length > 0 && (
+          {playedShows.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">Top played shows</h3>
+              <h3 className="library-group-heading">Top shows · everyone</h3>
               <ul className="title-list">
                 {playedShows.map((show) => (
                   <li key={show.show}>
@@ -268,9 +291,10 @@ export function LibraryScreen({ entries, onSelect }: Props) {
             </div>
           )}
 
-          {!showHomeRails && (
+          {railsReady && !hasPersonalRails && !hasCrowdRails && (
             <p className="muted home-empty-rails">
-              Play a few games and your recent titles plus crowd favorites show up here.
+              Browse the library to start. Everyone&apos;s most-played titles show up here when
+              play counts load.
             </p>
           )}
 
