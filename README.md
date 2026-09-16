@@ -333,9 +333,9 @@ Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live coun
 |-------|------|------|--------|----|-----------|
 | Ocean's Thirteen (2007) | 125 | 79 | 125, PAL `0.96` | yes | yes |
 | The Wolf of Wall Street (2013) | 67 | 2 | 67, scale 1 | yes | yes |
-| The Empire Strikes Back (1980) | 81 | 21 | handful; PAL pending | no | yes |
+| The Empire Strikes Back (1980) | 81 | 21 | 81, PAL `0.96` | yes | yes |
 | Payback (1999) | 78 | 49 | posters only | — | yes |
-| Inglourious Basterds (2009) | 115 | 112 | posters only | — | yes |
+| Inglourious Basterds (2009) | 115 | 112 | 115, scale 1 | yes | yes |
 | Batman Begins (2005) | 31 | 0 | — | — | yes |
 | Django Unchained (2012) | 13 | 14 | — | — | yes |
 
@@ -346,7 +346,6 @@ Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live coun
 ### Out of scope for 2.6
 
 - Every-cue extract, git-lfs, shipping video, random poster rotation
-- Empire remaining ~75 stars until PAL is confirmed (do not R2-push Empire)
 - Weighted popular (2.5 leftover)
 - Rooms / realtime (Phase 2)
 
@@ -393,6 +392,7 @@ Open questions (spike only — no pack UI yet):
 
 ## Phase 3+ — Social & polish *(backlog)*
 
+- [ ] **Loved / double-star quotes *(next)*** — pin a few golden lines so they show up in most mini-games. See [Later ideas](#loved--double-star-quotes-next).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
@@ -454,7 +454,7 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 
 **Wildness rating:** ~6/10 on product ambition, ~4/10 on technical risk. Scrape + fuzzy match is ordinary NLP plumbing; co-watcher inference is messy data (inconsistent notes), not hard code. Login + group popularity is the real phase gate — but we’ve already proven anonymous `playerId` + D1 aggregation; accounts just make identity durable across devices.
 
-**Open questions:** Obsidian highlight format (core vs plugins); how titles are named in the vault vs `content/catalog.json`; privacy (vault stays local — only matched TLs leave the machine). Line **stars** stay curation; session **thumbs** (Phase 2.5) are a separate, lighter reaction for ranking — not a second star.
+**Open questions:** Obsidian highlight format (core vs plugins); how titles are named in the vault vs `content/catalog.json`; privacy (vault stays local — only matched TLs leave the machine). Line **stars** stay the playable pool; **love / double-star** (queue bias for golden lines) is [next](#loved--double-star-quotes-next). Session **thumbs** (Phase 2.5) stay a lighter ranking signal.
 
 ### Spike: online quotes (e.g. IMDb) *(research)*
 
@@ -478,7 +478,15 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, and **quote stills (2.6)** are in. Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, and **quote stills (2.6)** are in. **Loved / double-star quotes** is next. Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
+
+### Loved / double-star quotes *(next)*
+
+Today a mini-game fills 10 from your personal stars (shuffled), then crowd popular, then random. If a title has ~80 stars, the handful of **golden** lines often miss the queue.
+
+**Love** (double-star) a small set so they generally appear in most mini-games for that title. Star stays “this is in the pool”; love is “this is a banger — bias the queue.” Not session thumbs (2.5) and not curator-score (other people’s stars).
+
+Later shape: a second weight or `loved` flag on `(title_id, line_index, player_id)`; `buildMiniGameQueue` takes loved first, then other personal stars. Cap about 3–5 per title so the quiz isn’t the same 10 every time.
 
 ### Scene visuals *(leftover from 2.6)*
 
@@ -488,7 +496,6 @@ Starred stills, posters, R2, and the mini-game still→poster fallback shipped i
 - git-lfs / checking JPEGs into the repo
 - Shipping video, not stills
 - Random poster rotation
-- Empire remaining stars until PAL is confirmed
 
 **Legal:** stills from your own files for a personal/curated app; don’t scrape streaming services.
 
@@ -557,7 +564,8 @@ The similar-answer guard and this split complement each other: even after a spli
 | **2a.1 — Local auth polish** | Origin-aware magic links; Vite continue | ✅ Code in; Worker redeploy for email links on localhost |
 | **2a.2 — Google Sign-In** | GIS button + Worker JWT verify; same D1 session | ✅ Code in; set `GOOGLE_CLIENT_ID` + publish OAuth consent |
 | **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
-| **2.6 — Quote stills & catalog ops** | Mini-game frames, R2, owner Catalog, protect curated stars | ✅ Ocean's 13 + Wolf on R2; Empire PAL leftover |
+| **2.6 — Quote stills & catalog ops** | Mini-game frames, R2, owner Catalog, protect curated stars | ✅ Ocean's 13 + Wolf + IB + Empire on R2 |
+| **Next — Loved quotes** | Double-star / love a few golden lines so they land in most mini-games | After stills leftover — see [Loved quotes](#loved--double-star-quotes-next) |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | Staged; avoid one giant audit — see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
@@ -566,7 +574,7 @@ The similar-answer guard and this split complement each other: even after a spli
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
 | **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
-| **Later — Visuals leftovers** | Every-cue extract, git-lfs, shipping video; Empire PAL confirm | After 2.6 — see [Scene visuals](#scene-visuals-leftover-from-26) |
+| **Later — Visuals leftovers** | Every-cue extract, git-lfs, shipping video | After 2.6 — see [Scene visuals](#scene-visuals-leftover-from-26) |
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |
 | **Later — Line split** | Curator split of multi-sentence cues without reminting star indices | Star the punchy sentence inside a cue |
@@ -636,6 +644,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 
 ### Recent feedback (parked)
 
+- **Loved / double-star quotes** *(next)* — a few golden lines should appear in most mini-games. See [Later ideas](#loved--double-star-quotes-next).
 - **Visual palette** — Coolors palette1 → palette2 (plum/mint/lime) on the content branch; logo artwork later.
 - **Localhost magic links** — Origin-aware links are coded (2a.1); **redeploy Worker** so production API emails point at localhost when you develop there.
 - **Google Sign-In** — Phase 2a.2: keep login gate; add GIS one-click (free). Magic link stays for non-Google emails.
@@ -649,7 +658,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
 - **Security ladder** *(later)* — Staged L0–L5 (hygiene → auth pass → deps → PR reviews; formal audit only if we scale). See [spike](#spike-security-ladder-not-a-full-audit-yet).
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
-- **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Empire PAL leftover. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
+- **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).

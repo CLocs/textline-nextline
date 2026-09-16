@@ -80,7 +80,7 @@ flowchart TD
 
 Paused so the user can eyeball each handful vs the quote, then **batch that title** and R2-push. Do not batch/R2 a title until they confirm it. Work title-by-title.
 
-**Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67).
+**Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81). Re-run Empire if early cues slip.
 
 **Handfuls waiting in** `inbox/stills-preview/{titleId}/` **at scale 1:**
 
@@ -88,7 +88,6 @@ Paused so the user can eyeball each handful vs the quote, then **batch that titl
 |-------|------:|---------|-----------|
 | RocknRolla | 89 | 74, 250, 535, 808, 1147, 1447 | 23.98 |
 | Payback | 78 | 77, 187, 336, 486, 635, 805 | DC encode |
-| Inglourious Basterds | 115 | 135, 340, 740, 922, 1168, 1324 | 10 GB source |
 | Batman Begins | 31 | 70, 155, 228, 310, 340, 410 | |
 | Star Wars (1977) | 28 | 62, 238, 421, 548, 812, 909 | **25 fps PAL** (Empire-like) |
 | Django | 13 | 665, 721, 823, 920, 1049, 1085 | |
@@ -96,7 +95,6 @@ Paused so the user can eyeball each handful vs the quote, then **batch that titl
 | Goodfellas | 5 | all 5 | |
 | Lebowski | 1 | 412 | |
 | Fellowship | 137 | 80, 163, 969, 1200, 1514, 1759 | **Extended cut vs SRT** |
-| Empire | 81 | 6 already (PAL 0.96 pending) | do not R2 until PAL confirm |
 
 **On disk, no live stars:** Gone in 60 Seconds, O Brother, 40 Year Old Virgin, BTTF (two MP4s → split). **Skip:** Pulp Fiction Part1/Part2; BTTF II/III files didn't match.
 

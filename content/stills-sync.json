@@ -10,11 +10,12 @@
   },
   "the-empire-strikes-back-1980": {
     "offsetMs": 0,
+    "timeScale": 0.96,
     "encode": "avi-xvid-pal-25fps-2012",
     "source": "G:/videos/movies/Star Wars Episode V - The Empire Strikes Back.avi",
     "fps": 25,
     "durationSec": 7334.72,
-    "note": "25 fps PAL Xvid (2:02:15). User: only 46 right at scale 1; 550 should be Yoda. Re-extracted 550/708/854/1147/1318 at 0.96 (46.jpg left at scale 1). Do not batch 81 stars until they confirm PAL."
+    "note": "25 fps PAL Xvid (2:02:15). timeScale 24/25. User: late handful matched at 0.96 (re-run if early cues slip). All 81 D1 stars extracted and pushed to R2."
   },
   "the-wolf-of-wall-street-2013": {
     "offsetMs": 0,
@@ -94,7 +95,7 @@
     "source": "G:/videos/movies/Inglourious Basterds (2009).mkv",
     "fps": 24,
     "durationSec": 9186.96,
-    "note": "1080p 24 fps ~2:33:07 (10 GB). Skipped remux. Handful of 6/115 D1 stars at scale 1. Do not batch/R2 until eyeball."
+    "note": "1080p 24 fps ~2:33:07 (10 GB). Skipped remux. User confirmed scale 1. All 115 D1 stars extracted and pushed to R2."
   },
   "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": {
     "offsetMs": 0,
