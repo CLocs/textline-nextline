@@ -36,6 +36,7 @@ import {
   rateRun,
   shareCompletedRun,
 } from "./runs.js";
+import { fetchOwnerCatalogStats, isOwnerEmail } from "./ops.js";
 
 function resolveShareOrigin(
   appOrigin: string | undefined,
@@ -352,6 +353,22 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
 
     if (request.method === "GET" && pathname === "/api/stats/played") {
       const titles = await fetchPlayedStats(env.DB);
+      return jsonResponse({ titles }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
+  }
+
+  if (pathname.startsWith("/api/ops")) {
+    const userOrError = await requireUser(request, env, origin, allowed);
+    if (userOrError instanceof Response) return userOrError;
+
+    if (!isOwnerEmail(userOrError.email)) {
+      return errorResponse("Forbidden", 403, origin, allowed);
+    }
+
+    if (request.method === "GET" && pathname === "/api/ops/catalog") {
+      const titles = await fetchOwnerCatalogStats(env.DB, userOrError.id);
       return jsonResponse({ titles }, 200, origin, allowed);
     }
 

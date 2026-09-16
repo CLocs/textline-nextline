@@ -1,8 +1,8 @@
 # Content workstream
 
-Grow the playable library in parallel with app phases (1.8 library browse, 2a auth, 2.5 reputation, 2 rooms, …). The game still does **not** fetch subtitles at play time. This workstream is how titles get into `content/`.
+Grow the playable library in parallel with app phases (1.8 library browse, 2a auth, 2.5 reputation, 2.6 stills / catalog ops, 2 rooms, …). The game still does **not** fetch subtitles at play time. This workstream is how titles get into `content/`.
 
-**Today:** Tier-1 movies plus Simpsons Seasons 4–5 (and a hidden sample) are already in `content/`. The Letterboxd likes ∪ 4.5★ queue tracks what to convert next — not every film.
+**Today:** Tier-1 movies plus Simpsons Seasons 4–5 (and a hidden sample) are already in `content/`. Sep 2026 ingest added Back to the Future 1–3, Gone in 60 Seconds, Goodfellas, O Brother, 40 Year Old Virgin, and Lebowski (Dune skipped — incomplete SRT). The Letterboxd likes ∪ 4.5★ queue tracks what to convert next — not every film.
 
 Full pipeline:
 
@@ -44,7 +44,7 @@ Not the full watched list. Letterboxd has no public API we will use; the officia
 - **Converter:** parse / clean / `workToTimedJson` stay in **transcript_maker** (`../transcript_maker`). Do not migrate that logic here. Batch CLI accepts `.srt` / `.vtt` / `.sub` (SubViewer 2.0). Spec: [PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-maker-batch-export.md).
 - **Find film:** TMDB + OpenSubtitles already work in transcript_maker’s browser UI (local Cloudflare proxy, ~20 OpenSubtitles downloads/day). Scraping other subtitle sites is out of scope.
 - **Letterboxd queue:** `npm run content:queue -- --from <zip-or-dir> [--vault <readwise-dir>]` writes `content/queue.json` + `content/queue.md` (sort: priority → diary plays → highlights). Implementation notes: [PROMPT-letterboxd-queue.md](PROMPT-letterboxd-queue.md).
-- **Readwise / stars-seed:** queue with `--vault` writes `content/readwise-highlights.json` and fuzzy-matched `content/stars-seed.json`; push to D1 via `npm run content:stars-push` (prefer `--title` for safety).
+- **Readwise / stars-seed:** queue with `--vault` writes `content/readwise-highlights.json` and fuzzy-matched `content/stars-seed.json`; push to D1 via `npm run content:stars-push` (prefer `--dry-run --remote` first). Never `--force` titles in `stars-protected.json`.
 - **Library browse:** import fills `meta.show` / `season` / `episode`; UI groups Movies \| TV → seasons ([`libraryGroups`](../src/lib/content/libraryGroups.ts)).
 
 ---
@@ -111,10 +111,11 @@ Optional: paced OpenSubtitles download through transcript_maker’s existing pro
 
 ### C3 — Import + movie catalog hygiene *(this repo)* 🔄
 
-Existing `npm run import:all` is enough to publish. Movies and S4/S5 are already playable. Follow-on:
+Existing `npm run import:all` is enough to publish. Movies and S4/S5 are already playable. Sep 2026 delta (2.6 branch): Back to the Future 1–3, Gone in 60 Seconds, Goodfellas, O Brother, 40 Year Old Virgin, Lebowski. Follow-on:
 
 - Persist `year` and `tmdbId` on `TitleMeta` ([`src/types/content.ts`](../src/types/content.ts)) when the export or queue provides them.
 - Stop `.en` leaking into titles/ids (Simpsons S4 imports still have this). Prefer cleaning without rewriting star `titleId`s carelessly.
+- Never re-import titles in [`content/stars-protected.json`](../content/stars-protected.json). Seed-push skips those even with `--force`, and skips any title that already has live D1 stars.
 
 **Done when:** converted titles show clean name + year in the library picker, and legacy `.en` tails are gone safely.
 
@@ -144,4 +145,4 @@ Re-drop a fresh Letterboxd export, diff the queue, convert only the delta. Spot-
 5. C3 hygiene (`.en` tails, TMDB ids) — **next content polish**.
 6. C4 whenever you export Letterboxd again.
 
-App home / “top played” rails are live on the library Home landing — see Phase 2.5 in the main README.
+App home / “top played” rails are live on the library Home landing — see Phase 2.5 in the main README. Quote stills, R2, and owner Catalog are Phase 2.6.

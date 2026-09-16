@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-13T04:37:11.568Z",
+  "updatedAt": "2026-09-16T02:46:39.450Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -10,6 +10,36 @@
       "importedAt": "2026-09-13T03:32:08.004Z",
       "meta": {
         "year": 2017
+      }
+    },
+    {
+      "id": "back-to-the-future-1985",
+      "title": "Back to the Future (1985)",
+      "lineCount": 1355,
+      "sourceFilename": "Back.to.the.Future.1985.eng.srt",
+      "importedAt": "2026-09-16T02:46:35.917Z",
+      "meta": {
+        "year": 1985
+      }
+    },
+    {
+      "id": "back-to-the-future-part-ii-1989",
+      "title": "Back to the Future Part II (1989)",
+      "lineCount": 1190,
+      "sourceFilename": "Back.to.the.Future.Part.II.1989.eng.srt",
+      "importedAt": "2026-09-16T02:46:36.421Z",
+      "meta": {
+        "year": 1989
+      }
+    },
+    {
+      "id": "back-to-the-future-part-iii-1990",
+      "title": "Back to the Future Part III (1990)",
+      "lineCount": 1515,
+      "sourceFilename": "Back.to.the.Future.Part.III.1990.eng.srt",
+      "importedAt": "2026-09-16T02:46:36.928Z",
+      "meta": {
+        "year": 1990
       }
     },
     {
@@ -50,6 +80,26 @@
       "importedAt": "2026-09-13T03:32:08.017Z",
       "meta": {
         "year": 1995
+      }
+    },
+    {
+      "id": "gone-in-sixty-seconds-2000",
+      "title": "Gone in Sixty Seconds (2000)",
+      "lineCount": 1273,
+      "sourceFilename": "Gone.in.Sixty.Seconds.2000.eng.srt",
+      "importedAt": "2026-09-16T02:46:37.430Z",
+      "meta": {
+        "year": 2000
+      }
+    },
+    {
+      "id": "goodfellas-1990",
+      "title": "Goodfellas (1990)",
+      "lineCount": 1962,
+      "sourceFilename": "Goodfellas.1990.eng.srt",
+      "importedAt": "2026-09-16T02:46:37.940Z",
+      "meta": {
+        "year": 1990
       }
     },
     {
@@ -110,6 +160,16 @@
       "importedAt": "2026-09-13T03:32:08.041Z",
       "meta": {
         "year": 1999
+      }
+    },
+    {
+      "id": "o-brother-where-art-thou-2000",
+      "title": "O Brother Where Art Thou (2000)",
+      "lineCount": 1581,
+      "sourceFilename": "O.Brother.Where.Art.Thou.2000.eng.srt",
+      "importedAt": "2026-09-16T02:46:38.449Z",
+      "meta": {
+        "year": 2000
       }
     },
     {
@@ -220,6 +280,26 @@
       "importedAt": "2026-09-13T03:48:40.879Z",
       "meta": {
         "year": 1991
+      }
+    },
+    {
+      "id": "the-40-year-old-virgin-2005",
+      "title": "The 40 Year Old Virgin (2005)",
+      "lineCount": 2264,
+      "sourceFilename": "The.40.Year.Old.Virgin.2005.eng.srt",
+      "importedAt": "2026-09-16T02:46:38.943Z",
+      "meta": {
+        "year": 2005
+      }
+    },
+    {
+      "id": "the-big-lebowski-1998",
+      "title": "The Big Lebowski (1998)",
+      "lineCount": 1583,
+      "sourceFilename": "The.Big.Lebowski.1998.eng.srt",
+      "importedAt": "2026-09-16T02:46:39.446Z",
+      "meta": {
+        "year": 1998
       }
     },
     {

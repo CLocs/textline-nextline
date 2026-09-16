@@ -1,0 +1,427 @@
+{
+  "updatedAt": "2026-09-16T02:12:55.762Z",
+  "directory": "G:\\videos\\movies",
+  "matched": [
+    {
+      "titleId": "baby-driver-2017",
+      "title": "Baby Driver",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "barbie-2023",
+      "title": "Barbie",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "batman-begins-2005",
+      "title": "Batman Begins",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "django-unchained-2012",
+      "title": "Django Unchained",
+      "status": "ok",
+      "files": [
+        "Django Unchained (2012).mkv"
+      ]
+    },
+    {
+      "titleId": "friday-1995",
+      "title": "Friday",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "inglourious-basterds-2009",
+      "title": "Inglourious Basterds",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "kill-bill-vol-1-2003",
+      "title": "Kill Bill Vol. 1",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "lock-stock-and-two-smoking-barrels-1998",
+      "title": "Lock Stock and Two Smoking Barrels",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "lord-of-the-rings-the-return-of-the-king-2003",
+      "title": "Lord of the Rings The Return of the King",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "lord-of-the-rings-the-two-towers-2002",
+      "title": "Lord Of The Rings The Two Towers",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "matrix-1999",
+      "title": "Matrix",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "oceans-eleven-2001",
+      "title": "Oceans Eleven",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "oceans-thirteen-2007",
+      "title": "Oceans Thirteen",
+      "status": "ok",
+      "files": [
+        "Ocean's 13 (2007).avi"
+      ]
+    },
+    {
+      "titleId": "payback-1999",
+      "title": "Payback",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "pulp-fiction-1994",
+      "title": "Pulp Fiction",
+      "status": "split",
+      "files": [
+        "Pulp Fiction (1994) Part1.avi",
+        "Pulp Fiction (1994) Part2.avi"
+      ]
+    },
+    {
+      "titleId": "reservoir-dogs-1992",
+      "title": "Reservoir Dogs",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "rocknrolla-2008",
+      "title": "RocknRolla",
+      "status": "ok",
+      "files": [
+        "RocknRolla (2008).avi"
+      ]
+    },
+    {
+      "titleId": "snatch-2000",
+      "title": "Snatch",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "star-wars-1977",
+      "title": "Star Wars",
+      "status": "ok",
+      "files": [
+        "Star Wars Episode IV - A New Hope.avi"
+      ]
+    },
+    {
+      "titleId": "star-wars-episode-vi-return-of-the-jedi-1983",
+      "title": "Star Wars Episode VI Return of the Jedi",
+      "status": "ok",
+      "files": [
+        "Star Wars Episode VI - Return Of The Jedi.avi"
+      ]
+    },
+    {
+      "titleId": "terminator-2-judgment-day-1991",
+      "title": "Terminator 2 Judgment Day",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "the-empire-strikes-back-1980",
+      "title": "The Empire Strikes Back",
+      "status": "ok",
+      "files": [
+        "Star Wars Episode V - The Empire Strikes Back.avi"
+      ]
+    },
+    {
+      "titleId": "the-gentlemen-2019",
+      "title": "The Gentlemen",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "the-grand-budapest-hotel-2014",
+      "title": "The Grand Budapest Hotel",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "the-lord-of-the-rings---the-fellowship-of-the-ring-2001",
+      "title": "The Lord of the Rings - The Fellowship of the Ring",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "the-man-from-uncle-2015",
+      "title": "The Man from UNCLE",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "the-ministry-of-ungentlemanly-warfare-2024",
+      "title": "The Ministry of Ungentlemanly Warfare",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "the-wolf-of-wall-street-2013",
+      "title": "The Wolf of Wall Street",
+      "status": "ok",
+      "files": [
+        "The Wolf of Wall Street [2013] 1080p BluRay AAC x264-tomcat12[ETRG].mp4"
+      ]
+    },
+    {
+      "titleId": "you-got-served-2004",
+      "title": "You Got Served",
+      "status": "missing",
+      "files": []
+    }
+  ],
+  "unmatched": [
+    {
+      "name": "16 Blocks (2006).avi"
+    },
+    {
+      "name": "21 (2008).avi"
+    },
+    {
+      "name": "28 Days Later(2002).avi"
+    },
+    {
+      "name": "28 Weeks Later (2007).avi"
+    },
+    {
+      "name": "40 Year Old Virgin (2005).avi"
+    },
+    {
+      "name": "A Clockwork Orange (1971).avi"
+    },
+    {
+      "name": "Ace Ventura 2 - When Nature Calls (1995).avi"
+    },
+    {
+      "name": "Aladdin (1992).avi"
+    },
+    {
+      "name": "American Gangster (2007) Part1.avi"
+    },
+    {
+      "name": "American Gangster (2007) Part2.avi"
+    },
+    {
+      "name": "American Psycho (2000).avi"
+    },
+    {
+      "name": "Argo (2012).m4v"
+    },
+    {
+      "name": "Atonement (2007).avi"
+    },
+    {
+      "name": "Back to the Future (1985) 1080p.mp4"
+    },
+    {
+      "name": "Back to the Future I  (1985).mp4"
+    },
+    {
+      "name": "Back To The Future II (1989).avi"
+    },
+    {
+      "name": "Back to the Future III (1990).avi"
+    },
+    {
+      "name": "Bangkok Knockout (2010).avi"
+    },
+    {
+      "name": "Batman - Gotham Knight (2008).avi"
+    },
+    {
+      "name": "Batman - Mask of The Phantasm (1993).avi"
+    },
+    {
+      "name": "Battle Los Angeles (2011).avi"
+    },
+    {
+      "name": "Bend It Like Beckham (2002).avi"
+    },
+    {
+      "name": "Black Dynamite (2009).avi"
+    },
+    {
+      "name": "Black Swan (2011).avi"
+    },
+    {
+      "name": "Bolt (2008).avi"
+    },
+    {
+      "name": "Borat (2006).avi"
+    },
+    {
+      "name": "Bruce Almighty (2003).avi"
+    },
+    {
+      "name": "Casino (1995).avi"
+    },
+    {
+      "name": "Click (2006).avi"
+    },
+    {
+      "name": "Cloudy with a Chance of Meatballs 2 (2013).mp4"
+    },
+    {
+      "name": "Crank (2006).avi"
+    },
+    {
+      "name": "Crank 2 High Voltage (2009).avi"
+    },
+    {
+      "name": "Defiance (2008).avi"
+    },
+    {
+      "name": "District B13 (2004).avi"
+    },
+    {
+      "name": "Easy A (2010).avi"
+    },
+    {
+      "name": "Easy Virtue (2008).avi"
+    },
+    {
+      "name": "Elizabeth The Golden Age (2007).avi"
+    },
+    {
+      "name": "Elvis (2005).avi"
+    },
+    {
+      "name": "Fight Club (1999).avi"
+    },
+    {
+      "name": "Final Fantasy VII - Advent Children (2005).avi"
+    },
+    {
+      "name": "Flightplan (2005).avi"
+    },
+    {
+      "name": "Forrest Gump (1994).avi"
+    },
+    {
+      "name": "From Paris with Love (2010).avi"
+    },
+    {
+      "name": "Full Metal Jacket (1987).avi"
+    },
+    {
+      "name": "Gladiator (2000) CD1.avi"
+    },
+    {
+      "name": "Glengarry Glen Ross.avi"
+    },
+    {
+      "name": "Gone in Sixty Seconds (2000).avi"
+    },
+    {
+      "name": "Good Will Hunting (1997).avi"
+    },
+    {
+      "name": "Goodfellas (1990).avi"
+    },
+    {
+      "name": "Grindhouse (2007) CD1.avi"
+    },
+    {
+      "name": "Grindhouse (2007) CD2.avi"
+    },
+    {
+      "name": "Ink (2009).avi"
+    },
+    {
+      "name": "Lincoln (2012).avi"
+    },
+    {
+      "name": "Looper (2012) p1.avi"
+    },
+    {
+      "name": "Looper (2012) p2.avi"
+    },
+    {
+      "name": "Moonrise Kingdom (2012).avi"
+    },
+    {
+      "name": "O Brother, Where Art Thou (2000).avi"
+    },
+    {
+      "name": "Oblivion (2013).mp4"
+    },
+    {
+      "name": "Star Wars Episode I - The Phantom Menace.avi"
+    },
+    {
+      "name": "Star Wars Episode II - Attack Of The Clones.avi"
+    },
+    {
+      "name": "Star Wars Episode III - Revenge Of The Sith.avi"
+    },
+    {
+      "name": "Taken 2 (2012).mp4"
+    },
+    {
+      "name": "Ted (2012).avi"
+    },
+    {
+      "name": "The Big Lebowski (1998).avi"
+    },
+    {
+      "name": "The Ghost Writer (2010).avi"
+    },
+    {
+      "name": "The Hunger Games (2012) DVDRip XviD-MAXSPEED www.torentz.3xforum.ro.avi"
+    },
+    {
+      "name": "The Illusionist (2006).avi"
+    },
+    {
+      "name": "The Legend of the Drunken Master (1994).avi"
+    },
+    {
+      "name": "The Transformers (1986).avi"
+    },
+    {
+      "name": "THE_RAID__REDEMPTION.Title800.mp4"
+    },
+    {
+      "name": "Thor 2 The Dark World (2013).mp4"
+    },
+    {
+      "name": "Tinker Tailor Soldier Spy (2011).avi"
+    },
+    {
+      "name": "Total Recall (2012).avi"
+    },
+    {
+      "name": "Wedding Crashers (2005) Part1.avi"
+    },
+    {
+      "name": "Wedding Crashers (2005) Part2.avi"
+    },
+    {
+      "name": "Wreck it Ralph (2012).mp4"
+    }
+  ]
+}

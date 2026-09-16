@@ -5,13 +5,15 @@ export type HashRoute =
   | { kind: "login"; returnTo?: string }
   | { kind: "auth"; token: string; returnTo?: string }
   | { kind: "play"; shareId: string }
-  | { kind: "profile"; tab: ProfileTab };
+  | { kind: "profile"; tab: ProfileTab }
+  | { kind: "ops" };
 
 const LOGIN_RETURN_KEY = "textline-nextline-login-return";
 
 /** Internal hash paths we may resume after magic-link sign-in. */
 export function isSafeLoginReturn(value: string | null | undefined): value is string {
   if (!value) return false;
+  if (value === "ops") return true;
   if (value === "profile" || value === "profile/history" || value === "profile/stats") return true;
   return /^play\/[A-Za-z0-9_-]{1,64}$/.test(value);
 }
@@ -45,6 +47,7 @@ export function loginReturnFromRoute(route: HashRoute): string | undefined {
   }
   if (route.kind === "play") return `play/${route.shareId}`;
   if (route.kind === "profile") return profileHash(route.tab);
+  if (route.kind === "ops") return "ops";
   return undefined;
 }
 
@@ -85,6 +88,10 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
   const playMatch = path.match(/^play\/([^/]+)$/);
   if (playMatch?.[1]) {
     return { kind: "play", shareId: decodeURIComponent(playMatch[1]) };
+  }
+
+  if (path === "ops") {
+    return { kind: "ops" };
   }
 
   const profileTab = parseProfileTab(path);

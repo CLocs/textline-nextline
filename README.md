@@ -88,9 +88,9 @@ Each playable **line** maps from a transcript_maker `TranscriptBlock`:
 
 - `index` — 0-based order in the episode (this is the score / progress unit)
 - `text` — block text (speaker dashes stripped, same as Markdown export)
-- `startMs` / `endMs` — optional; useful later for clips or quote challenges
+- `startMs` / `endMs` — optional; quote stills (Phase 2.6) seek to `startMs`
 
-Distractors for multiple choice come from **other lines in the same transcript** (prefer nearby lines) so wrong answers feel plausible.
+Distractors for multiple choice come from **other lines in the same transcript** (prefer nearby lines) so wrong answers feel plausible. A similarity gate skips look-alikes (≥60% token Dice/containment vs the correct next line or another choice) — see [MCQ similar-answer guard](#mcq-similar-answer-guard).
 
 ---
 
@@ -291,6 +291,84 @@ Setup **Share mini-game** still means “play my **current** stars” (queue is 
 
 ---
 
+## Phase 2.6 — Quote stills, R2, catalog ops *(after 2.5)* ✅
+
+**Goal:** Mini-game prompts show a still from the moment that line is spoken — not only the one-sheet. Extract locally, eyeball a handful, then serve production frames from a private R2 bucket. The owner gets a catalog dashboard (stars, plays, still coverage, disk). Seed-push cannot overwrite stars you curated in the app.
+
+Does **not** wait on rooms. Auth (2a) is the only gate for Catalog.
+
+### Features
+
+- [x] **Starred stills** — ffmpeg at line `startMs` (`× timeScale + offsetMs`). PAL 25 fps vs theatrical → `timeScale: 0.96`. Per-title sync in [`content/stills-sync.json`](content/stills-sync.json).
+- [x] **Remux** — AVI/Xvid needs generated PTS (`content:stills:remux` → gitignored `inbox/media/{titleId}.mkv`). Skip remux when the encode already matches theatrical (Wolf BluRay).
+- [x] **Mini-game art** — still `/stills/{titleId}/{lineIndex}.jpg` → poster → hide. Full-episode play stays text-only.
+- [x] **Dev `/stills`** — Vite serves gitignored `inbox/stills-preview/`.
+- [x] **Production R2** — private bucket `textline-stills` + Pages Function [`functions/stills/`](functions/stills/). Push with `content:stills:push`.
+- [x] **Owner Catalog** — `#/ops`, visible only to `dascolin@gmail.com` (`local@dev` in Vite). Sortable columns: curated, stars, plays, still %, on-disk.
+- [x] **Disk match** — `content:uploads` vs `G:\videos\movies` → [`content/uploads.md`](content/uploads.md) + `stills-coverage.json`.
+- [x] **Protect curated stars** — [`content/stars-protected.json`](content/stars-protected.json). Seed push skips those ids even with `--force`, and skips **any** title that already has live stars unless `--force`.
+- [x] **Agent skill** — [`.cursor/skills/stills-extract/SKILL.md`](.cursor/skills/stills-extract/SKILL.md). Stop after a starred handful until the frames match.
+- [x] **Catalog ingest (this branch)** — Back to the Future 1–3, Gone in 60 Seconds, Goodfellas, O Brother, 40 Year Old Virgin, Lebowski. Dune skipped (incomplete SRT).
+
+```mermaid
+flowchart LR
+  movie[Local_movie_file]
+  srt[Line_startMs]
+  sync[stills-sync.json]
+  ffmpeg[ffmpeg_extract]
+  preview[inbox/stills-preview]
+  r2[R2_textline-stills]
+  play[Mini-game_play]
+  movie --> ffmpeg
+  srt --> ffmpeg
+  sync --> ffmpeg
+  ffmpeg --> preview --> r2 --> play
+```
+
+### Status
+
+Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live count ≠ seed (curated in-app). Every other title that already has stars is still skip-on-push.
+
+| Title | Live | Seed | Stills | R2 | Protected |
+|-------|------|------|--------|----|-----------|
+| Ocean's Thirteen (2007) | 125 | 79 | 125, PAL `0.96` | yes | yes |
+| The Wolf of Wall Street (2013) | 67 | 2 | 67, scale 1 | yes | yes |
+| The Empire Strikes Back (1980) | 81 | 21 | handful; PAL pending | no | yes |
+| Payback (1999) | 78 | 49 | posters only | — | yes |
+| Inglourious Basterds (2009) | 115 | 112 | posters only | — | yes |
+| Batman Begins (2005) | 31 | 0 | — | — | yes |
+| Django Unchained (2012) | 13 | 14 | — | — | yes |
+
+32 titles have live stars; a default `stars-push --remote` would only insert **Goodfellas (5)** and **Lebowski (1)** (new catalog, no live rows). Do not `--force` protected titles.
+
+**Posters** (drop-in `public/posters/{titleId}.jpg`; 404 → hide): Empire, Inglourious, Payback, Ocean's 13.
+
+### Out of scope for 2.6
+
+- Every-cue extract, git-lfs, shipping video, random poster rotation
+- Empire remaining ~75 stars until PAL is confirmed (do not R2-push Empire)
+- Weighted popular (2.5 leftover)
+- Rooms / realtime (Phase 2)
+
+### Done when
+
+- Confirmed titles’ starred stills are on R2; play uses `/stills` after Pages deploy (404 → poster).
+- Catalog ops is owner-only and sortable.
+- `content:stars-push` cannot touch protected titles or any title that already has live stars (unless `--force`, which still honors the protected file).
+
+### Suggested build order
+
+1. Remux + extract CLI + `stills-sync.json`.
+2. Mini-game `PosterArt` still → poster.
+3. Vite `/stills` from `inbox/stills-preview`.
+4. R2 bucket + Pages Function + `content:stills:push`.
+5. Owner Catalog `#/ops` + disk uploads table.
+6. Expand `stars-protected.json` whenever live stars diverge from seed.
+
+Commands: [Extract stills](#extract-stills-local) and [Quote stills (R2)](#quote-stills-r2). Deploy notes: [docs/DEPLOY.md](docs/DEPLOY.md#quote-stills-r2).
+
+---
+
 ## Spike: curated / saved mini-game packs *(not building)*
 
 Named playlists of quotes (pick 10 lines, save, replay, share) is a different product from **stars** (personal TL seed) and from **frozen run-replays** (the accident of one play). A history Share is the cheap prototype of “a really good 10.” Use that in the wild before building an editor.
@@ -320,11 +398,13 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
 - [x] **Teach mode** — Fun skip greens the correct choice and holds 2s; Teach skip opens this-line / next-line **Got it** card. See [Later ideas](#later-ideas-parked).
-- [ ] **Scene / poster visuals** — drop `public/posters/{titleId}.jpg` for curated films; quote→frame later (offline ffmpeg). See [Scene visuals](#scene-visuals).
+- [x] **Scene / poster visuals (2.6)** — starred stills + posters + R2; leftover every-cue / video. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
 - [ ] **Curator reputation** — count (and weight) stars people lay down. See [Later ideas](#later-ideas-parked).
 - [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
 - [ ] **UGC quotes (IG / YT)** — paste a link, infer or type the line, add to a personal library. See [Later ideas](#later-ideas-parked).
 - [ ] **Songs** — lyrics as transcripts; song library + mini-games. See [Later ideas](#later-ideas-parked).
+- [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
+- [ ] **Split multi-sentence lines** — curator (or import) splits one cue into sentence beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
@@ -398,65 +478,17 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Nearest of these is **Teach mode** (play UX we already have); posters and curator weighting reuse data we already store. UGC quotes and songs are new products.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, and **quote stills (2.6)** are in. Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
 
-### Scene visuals
+### Scene visuals *(leftover from 2.6)*
 
-Two layers. **Posters now** (drop-in files). **Quote → frame later**, offline, after the movie files land.
+Starred stills, posters, R2, and the mini-game still→poster fallback shipped in [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25). Still parked:
 
-**Pilot titles** (curated; Ocean's 13 in progress):
-
-| Title | `titleId` | Poster file |
-|-------|-----------|-------------|
-| The Empire Strikes Back (1980) | `the-empire-strikes-back-1980` | `public/posters/the-empire-strikes-back-1980.jpg` |
-| Inglourious Basterds (2009) | `inglourious-basterds-2009` | `public/posters/inglourious-basterds-2009.jpg` |
-| Payback (1999) | `payback-1999` | `public/posters/payback-1999.jpg` |
-| Ocean's Thirteen (2007) | `oceans-thirteen-2007` | `public/posters/oceans-thirteen-2007.jpg` |
-
-Pull art from anywhere (TMDB, a scan, whatever). Setup and the **mini-game** play screen show the image if the file exists; 404 → no poster, no error. JPG at that path is enough; we can add `.webp` later if needed. Full-episode play stays text-only until stills.
-
-#### First cut — posters *(ready)*
-
-1. Save a poster as `public/posters/{titleId}.jpg`.
-2. Reload setup for that title. Library/play can grow the same helper (`posterUrl`) when we want it on cards.
-
-No API, no movie file. Fine for a handful of curated films.
-
-#### Later — quote synced to a frame *(offline; after files)*
-
-Ideal: the play prompt sits on a **still from the moment that line is spoken**, not the one-sheet. Movie files stay **local** (`inbox/media/`, gitignored). Stills can be checked in (or LFS) for the starred lines only so Pages stays small.
-
-```mermaid
-flowchart LR
-  movie[Local_movie_file]
-  srt[Line_startMs]
-  offset[Per_title_sync_offset]
-  ffmpeg[ffmpeg_extract]
-  still[public/stills/titleId/lineIndex.jpg]
-  play[Play_screen]
-  movie --> ffmpeg
-  srt --> ffmpeg
-  offset --> ffmpeg
-  ffmpeg --> still --> play
-```
-
-**Suggested extract (do not run until files exist):**
-
-```bash
-ffmpeg -ss {startMs/1000 + offsetSec} -i inbox/media/payback-1999.mkv -frames:v 1 -q:v 3 public/stills/payback-1999/412.jpg
-```
-
-Use the line’s `startMs` (prompt cue), not the next-line `startMs`. Optional: midpoint of `startMs`–`endMs` if the first frame is a cut.
-
-**Sync is the hard part.** SRT clocks drift vs the encode (PAL/NTSC, director’s cut vs theatrical — Payback’s source is a **DC** rip). Plan:
-
-1. Drop the matching encode in `inbox/media/{titleId}.mkv` (or `.mp4`). Prefer the same cut the SRT came from.
-2. Pick 3–5 landmark lines (opening logo, a famous TL, end crawl). Extract at `startMs` with offset 0. Compare by eye.
-3. Store a **per-title offset** (ms) in something like `content/stills-sync.json`: `{ "payback-1999": { "offsetMs": 1200, "encode": "DC" } }`. Linear drift (speed) is rarer; if one film needs it, add `driftMsPerHour` later.
-4. Batch extract **starred line indices first** (Empire / Inglourious / Payback / Ocean's 13), not every cue.
-5. Play UI: if `public/stills/{titleId}/{lineIndex}.jpg` exists, show that; else the poster; else nothing.
-
-**Out of scope until files are here:** ffmpeg script in-repo, git-lfs, shipping video, random poster rotation.
+- Every-cue extract (too heavy; starred landmarks first)
+- git-lfs / checking JPEGs into the repo
+- Shipping video, not stills
+- Random poster rotation
+- Empire remaining stars until PAL is confirmed
 
 **Legal:** stills from your own files for a personal/curated app; don’t scrape streaming services.
 
@@ -482,6 +514,32 @@ Expand past our curated SRT catalog: quotes from **IG, YT, anywhere**. Share a l
 
 Song SRT files mostly don’t exist. Parse lyrics as a straight transcript; **infer timestamps** between lines, analyze the audio for timing, or just keep extra previous lines as context (like today’s lead-in). A **song library with curation** is a new catalog kind (not Movies \| TV) and a wider market.
 
+### MCQ similar-answer guard ✅
+
+Nearby distractors are plausible, but they can also be cruel: the next cue often repeats the last beat. Wolf of Wall Street ~546–547 is the example — *Let 'em watch.* vs *Let 'em watch. Know what I mean?* — same joke, two choices.
+
+**In.** `pickDistractors` in [`src/lib/game/mcq.ts`](src/lib/game/mcq.ts) ranks by distance, then skips look-alikes:
+
+1. Normalize (lowercase, strip punctuation / curly quotes).
+2. Score vs the **correct** next line and vs **already-picked** distractors. **≥ 60% similar → reject** (`SIMILARITY_THRESHOLD` in [`src/lib/game/lineSimilarity.ts`](src/lib/game/lineSimilarity.ts)). Token Dice plus containment catches the *Let 'em watch* pair; raw Levenshtein alone can miss short repeats inside a longer line.
+3. If the near pool is too thin, walk farther down the ranked list instead of re-admitting clones. If a short transcript still cannot fill 3 distractors, allow fewer choices rather than similar ones. If none remain, the question is skipped.
+
+No content re-export. Shared mini-games freeze prompt indices, not distractors, so the guard applies on every play. Retune the 60% constant once we have a handful of real false positives (e.g. two “Yeah.” / “Okay.” lines that are actually different beats).
+
+### Split multi-sentence lines
+
+Some of the funny thing is **one sentence inside a cue**, not the whole subtitle block. One person says two beats in a single SRT line; the game today can only star / quiz the whole block.
+
+**Doable, but don’t remint `line.index`.** Stars, shares, stills, and scores all key on index. Auto-splitting every transcript would orphan existing stars.
+
+Later shape:
+
+1. **Curate-time split** (preferred): on a line, “split into sentences.” Store an overlay (`parentIndex` + `part`) so the original cue stays the identity; new playable beats hang off it. Import-time auto-split only for titles that have no stars yet.
+2. Sentence breaks on `.?!` after dialogue cleanup — same speaker, same cue. Don’t split on abbreviations / ellipses without a manual confirm.
+3. Timestamps: keep the parent `startMs`–`endMs` unless we later proportion the span; stills stay on the parent cue.
+
+The similar-answer guard and this split complement each other: even after a split, consecutive beats can still echo, so keep the 60% filter.
+
 ---
 
 ## Roadmap
@@ -499,6 +557,7 @@ Song SRT files mostly don’t exist. Parse lyrics as a straight transcript; **in
 | **2a.1 — Local auth polish** | Origin-aware magic links; Vite continue | ✅ Code in; Worker redeploy for email links on localhost |
 | **2a.2 — Google Sign-In** | GIS button + Worker JWT verify; same D1 session | ✅ Code in; set `GOOGLE_CLIENT_ID` + publish OAuth consent |
 | **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
+| **2.6 — Quote stills & catalog ops** | Mini-game frames, R2, owner Catalog, protect curated stars | ✅ Ocean's 13 + Wolf on R2; Empire PAL leftover |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | Staged; avoid one giant audit — see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
@@ -507,8 +566,10 @@ Song SRT files mostly don’t exist. Parse lyrics as a straight transcript; **in
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
 | **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
-| **Later — Visuals** | Posters via `public/posters/{titleId}.jpg`; stills after local movie files | Play feels like the movie |
+| **Later — Visuals leftovers** | Every-cue extract, git-lfs, shipping video; Empire PAL confirm | After 2.6 — see [Scene visuals](#scene-visuals-leftover-from-26) |
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
+| **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |
+| **Later — Line split** | Curator split of multi-sentence cues without reminting star indices | Star the punchy sentence inside a cue |
 | **Exploratory — UGC + songs** | IG/YT paste-a-link quotes; lyrics as transcripts | Catalog beyond our SRT library |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
@@ -519,7 +580,7 @@ App phases above do **not** wait on new titles. Library growth is a [parallel co
 | **C1 — Batch convert** | SRT/VTT/`.sub` folder → timed JSON in transcript_maker | ✅ Batch export; SubViewer (`.sub`) supported |
 | **C1.5 — SubViewer (.sub)** | Parse SubViewer 2.0 + `[br]` in transcript_maker | ✅ Simpsons S5 imported via `.sub` |
 | **C2 — SRT acquisition** | Manual drop + optional paced OpenSubtitles | Inbox drop works; OpenSubtitles still optional |
-| **C3 — Import + hygiene** | `import:all` + year/tmdbId + clean titles | 🔄 Movies + S4/S5 playable; `.en` tails / TMDB ids still open |
+| **C3 — Import + hygiene** | `import:all` + year/tmdbId + clean titles | 🔄 +8 movies Sep 2026; `.en` tails / TMDB ids still open |
 | **C4 — Ongoing** | Re-export Letterboxd, convert the delta | New likes / 4.5★ films without a full rebuild |
 
 ### Suggested build order (Phase 0 → 1)
@@ -537,7 +598,7 @@ Catalog already has **movies + Simpsons S4/S5**. More titles come from **movies 
 
 | When | How |
 |------|-----|
-| **Now** | Movies + Simpsons S4/S5 in `content/`. Convert SRT/VTT/`.sub` via transcript_maker → `imports/` → `npm run import:all` |
+| **Now** | Movies + Simpsons S4/S5 in `content/` (incl. BTTF 1–3, Goodfellas, Lebowski, …). Convert SRT/VTT/`.sub` via transcript_maker → `imports/` → `npm run import:all`. Never re-import `stars-protected.json`. |
 | **C0** | ✅ Official Letterboxd export ZIP → seed queue ([prompt](docs/PROMPT-letterboxd-queue.md)) |
 | **C1 / C1.5** | ✅ Batch SRT/VTT/`.sub` → timed JSON in transcript_maker ([prompt](docs/PROMPT-transcript-maker-batch-export.md)) |
 | **C2** | Drop subtitles by hand, or pull via OpenSubtitles (existing transcript_maker proxy, daily cap) |
@@ -562,6 +623,17 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 3. Home rails (your recent + top played) — reuse Phase 1.8 `libraryGroups`; Browse for full catalog.
 4. Thumbs on complete; weight popular stars only after votes exist.
 
+### Suggested build order (Phase 2.6)
+
+Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
+
+1. Remux + extract CLI + per-title `stills-sync.json`.
+2. Mini-game still → poster fallback.
+3. Vite `/stills` from `inbox/stills-preview`.
+4. R2 + Pages Function + `content:stills:push`.
+5. Owner Catalog `#/ops` (sortable) + disk uploads table.
+6. Lock curated title ids in `stars-protected.json`.
+
 ### Recent feedback (parked)
 
 - **Visual palette** — Coolors palette1 → palette2 (plum/mint/lime) on the content branch; logo artwork later.
@@ -577,7 +649,10 @@ Does **not** wait on rooms. Auth (2a) is the only gate. Full spec: [Phase 2.5](#
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
 - **Security ladder** *(later)* — Staged L0–L5 (hygiene → auth pass → deps → PR reviews; formal audit only if we scale). See [spike](#spike-security-ladder-not-a-full-audit-yet).
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
-- **Scene posters / curator score / Letterboxd connect / UGC quotes / songs** — posters: drop-in files for Empire / Inglourious / Payback / Ocean's 13; rest parked in [Later ideas](#later-ideas-parked).
+- **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Empire PAL leftover. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
+- **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
+- **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
+- **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 
 ---
 
@@ -622,6 +697,23 @@ npm run import -- path/to/export.json
 
 This writes normalized titles to `content/titles/<id>.json` and updates `content/catalog.json`.
 
+### Extract stills (local)
+
+Agent skill: [`.cursor/skills/stills-extract/SKILL.md`](.cursor/skills/stills-extract/SKILL.md). Needs **ffmpeg** on PATH. Remux, then extract (gitignored `inbox/media/` + `inbox/stills-preview/`):
+
+```bash
+npm run content:stills:remux -- --title oceans-thirteen-2007 --input "G:\videos\movies\Ocean's 13 (2007).avi"
+npm run content:stills -- --title oceans-thirteen-2007 --indices 40,58,70,526,768,1334
+```
+
+Batch D1 stars with `--indices` after the user confirms sync. Ocean's 13 uses PAL `timeScale: 0.96` in `content/stills-sync.json`. Push confirmed JPEGs to R2:
+
+```bash
+npm run content:stills:push -- --title oceans-thirteen-2007
+```
+
+See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25) and [docs/DEPLOY.md](docs/DEPLOY.md#quote-stills-r2).
+
 ### Content queue (Letterboxd)
 
 Drop an official [Letterboxd export](https://letterboxd.com/user/exportdata/) ZIP into `inbox/letterboxd/` (gitignored), then:
@@ -639,12 +731,36 @@ npm run content:queue -- --from inbox/letterboxd --vault "C:\Users\dasco\Documen
 That also writes `content/readwise-highlights.json` (quotes matched to queue titles) and `content/stars-seed.json` (highlights that already fuzzy-match a line in `content/titles/`). To attach those as **your** cloud stars (D1):
 
 ```bash
-npm run content:stars-push -- --email you@example.com --remote --title Payback
+npm run content:stars-push -- --email you@example.com --remote --dry-run
 ```
 
-Inserts only titles you don't already have stars for (Curate unstars are kept). `--title` limits to one film; `--force` re-seeds a title you already started.
+Inserts only titles you don't already have stars for (`ON CONFLICT DO NOTHING`). Skips [`content/stars-protected.json`](content/stars-protected.json) even with `--force`. Never `--force` a title you curated in the app (Wolf, Empire, Ocean's 13, Payback, Inglourious, Batman Begins, Django). `--title` limits to one film.
 
 You must already have signed in on the live app once (so a `users` row exists). See [docs/DEPLOY.md](docs/DEPLOY.md) for how star sync works.
+
+### Local movie uploads
+
+```bash
+npm run content:uploads -- --dir "G:\videos\movies"
+```
+
+Matches files in that folder to catalog movies (split Part1/Part2 encodes count as one title). Writes [`content/uploads.md`](content/uploads.md), `content/uploads.json`, and `content/stills-coverage.json`.
+
+The **Catalog** screen (`#/ops`) is the live table (curated, stars, plays, still %, on-disk media). It is only visible to `dascolin@gmail.com` (and `local@dev` in Vite).
+
+### Quote stills (R2)
+
+Private bucket `textline-stills`, bound as `STILLS` in [`wrangler.toml`](wrangler.toml). The Pages Function at `functions/stills/` serves `/stills/{titleId}/{line}.jpg` (same path Vite uses locally).
+
+One-time: `npx wrangler r2 bucket create textline-stills`
+
+After extracting:
+
+```bash
+npm run content:stills:push -- --title oceans-thirteen-2007 --title the-wolf-of-wall-street-2013
+```
+
+Then deploy Pages so the Function + binding go live. The GitHub Pages token must include **R2** (Workers Edit template does).
 
 ### Test
 
@@ -675,6 +791,8 @@ Or connect GitHub Actions (push to `main`) with `CLOUDFLARE_API_TOKEN` and `CLOU
 content/           normalized library (catalog + per-title JSON)
 inbox/letterboxd/  gitignored Letterboxd ZIP
 inbox/srt/         gitignored raw subtitles
+inbox/media/       gitignored movie remuxes (stills)
+inbox/stills-preview/  gitignored landmark JPEGs
 imports/           raw transcript_maker exports
 src/
   app/             React UI (library, play, complete, profile)
@@ -686,6 +804,8 @@ src/
     content/       load (Node) + browser (Vite bundle)
 scripts/import.ts  CLI to ingest exports
 scripts/letterboxd-queue.ts  Letterboxd ZIP → content/queue.json
+scripts/extract-stills.ts  ffmpeg stills from line startMs
+scripts/remux-media.ts  stream-copy movie → inbox/media/{titleId}.mkv
 test/
 ```
 

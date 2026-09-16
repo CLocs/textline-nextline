@@ -14,7 +14,15 @@ export type ProtectedStarsFile = {
 const TITLE_ID_RE = /^[a-z0-9-]+$/i;
 
 /** Fallback if content/stars-protected.json is missing. */
-export const DEFAULT_PROTECTED_TITLE_IDS = ["payback-1999", "inglourious-basterds-2009"];
+export const DEFAULT_PROTECTED_TITLE_IDS = [
+  "payback-1999",
+  "inglourious-basterds-2009",
+  "oceans-thirteen-2007",
+  "the-empire-strikes-back-1980",
+  "the-wolf-of-wall-street-2013",
+  "batman-begins-2005",
+  "django-unchained-2012",
+];
 
 export function loadProtectedTitleIds(path: string): string[] {
   if (!existsSync(path)) return [...DEFAULT_PROTECTED_TITLE_IDS];

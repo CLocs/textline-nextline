@@ -68,9 +68,24 @@ describe("loadProtectedTitleIds", () => {
     expect(loadProtectedTitleIds(path)).toEqual(["payback-1999", "friday-1995"]);
   });
 
-  it("falls back to Payback and Inglourious Basterds when the file is missing", () => {
+  it("keeps the repo file in sync with the fallback list", () => {
+    expect(loadProtectedTitleIds(join(process.cwd(), "content", "stars-protected.json"))).toEqual(
+      DEFAULT_PROTECTED_TITLE_IDS,
+    );
+  });
+
+  it("falls back to curated title ids when the file is missing", () => {
     expect(loadProtectedTitleIds(join(tmpdir(), "no-such-stars-protected.json"))).toEqual(
       DEFAULT_PROTECTED_TITLE_IDS,
     );
+    expect(DEFAULT_PROTECTED_TITLE_IDS).toEqual([
+      "payback-1999",
+      "inglourious-basterds-2009",
+      "oceans-thirteen-2007",
+      "the-empire-strikes-back-1980",
+      "the-wolf-of-wall-street-2013",
+      "batman-begins-2005",
+      "django-unchained-2012",
+    ]);
   });
 });

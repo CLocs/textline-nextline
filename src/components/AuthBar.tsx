@@ -4,11 +4,17 @@ type Props = {
   user: AuthUser;
   onProfile: () => void;
   onLogout: () => void;
+  onCatalog?: () => void;
 };
 
-export function AuthBar({ user, onProfile, onLogout }: Props) {
+export function AuthBar({ user, onProfile, onLogout, onCatalog }: Props) {
   return (
     <div className="auth-bar">
+      {onCatalog ? (
+        <button type="button" className="button ghost" onClick={onCatalog}>
+          Catalog
+        </button>
+      ) : null}
       <button
         type="button"
         className="auth-user auth-user-button"

@@ -38,8 +38,10 @@ import { CurateScreen } from "../components/CurateScreen";
 import { LoginScreen } from "../components/LoginScreen";
 import { AuthBar } from "../components/AuthBar";
 import { ProfileScreen } from "../components/ProfileScreen";
+import { CatalogOpsScreen } from "../components/CatalogOpsScreen";
+import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -113,6 +115,10 @@ export function App() {
     }
     if (returnTo?.startsWith("profile")) {
       setHash(returnTo);
+      return;
+    }
+    if (returnTo === "ops") {
+      setHash("ops");
       return;
     }
     clearHash();
@@ -257,6 +263,22 @@ export function App() {
         }
         setProfileTab(route.tab);
         setScreen("profile");
+        return;
+      }
+      if (route.kind === "ops") {
+        const signedIn = user ?? getStoredUser();
+        if (!signedIn) {
+          setLoginMessage("Sign in to view the catalog.");
+          captureLoginReturn("ops");
+          setScreen("login");
+          return;
+        }
+        if (!canViewCatalogOps(signedIn.email, import.meta.env.DEV)) {
+          setScreen("library");
+          clearHash();
+          return;
+        }
+        setScreen("ops");
       }
     }
 
@@ -478,11 +500,18 @@ export function App() {
     setHash(profileHash("account"));
   }
 
+  function handleOpenCatalog() {
+    setScreen("ops");
+    setHash("ops");
+  }
+
+  const showCatalog = canViewCatalogOps(user?.email, import.meta.env.DEV);
+
   // Signed-out users only see the sign-in gate (plus auth deep links).
   const showApp = Boolean(user);
 
   return (
-    <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}`}>
+    <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
       <header className="app-header">
         <div className="app-header-row">
           <div className="brand-lockup">
@@ -496,6 +525,7 @@ export function App() {
             <AuthBar
               user={user}
               onProfile={handleOpenProfile}
+              onCatalog={showCatalog ? handleOpenCatalog : undefined}
               onLogout={() => void handleLogout()}
             />
           )}
@@ -534,6 +564,10 @@ export function App() {
           onBack={handleBackToLibrary}
           onUpdated={setUser}
         />
+      )}
+
+      {showApp && screen === "ops" && user && (
+        <CatalogOpsScreen user={user} entries={entries} onBack={handleBackToLibrary} />
       )}
 
       {showApp && screen === "setup" && pendingEntry && (
