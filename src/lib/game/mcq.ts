@@ -1,6 +1,7 @@
 import type { Line, Title } from "../../types/content.js";
 import { getLine } from "../content/lines.js";
 import { getNextPlayableLine, getPlayableLines, isPlayableLine } from "../content/playable.js";
+import { tooSimilar } from "./lineSimilarity.js";
 import { leadInForPrompt, type PromptLeadIn } from "./promptContext.js";
 
 export type McqChoice = {
@@ -55,9 +56,16 @@ function pickDistractors(
     return distanceA - distanceB;
   });
 
-  const near = ranked.slice(0, Math.max(count * 3, count));
-  const pool = near.length >= count ? near : ranked;
-  return shuffle(pool, rng).slice(0, count);
+  const poolLimit = Math.max(count * 3, count);
+  const pool: Line[] = [];
+  for (const line of ranked) {
+    if (tooSimilar(line.text, correct.text)) continue;
+    if (pool.some((picked) => tooSimilar(line.text, picked.text))) continue;
+    pool.push(line);
+    if (pool.length >= poolLimit) break;
+  }
+
+  return shuffle(pool, rng).slice(0, Math.min(count, pool.length));
 }
 
 export function buildMcq(
@@ -77,6 +85,8 @@ export function buildMcq(
   if (distractorCount < 1) return null;
 
   const distractors = pickDistractors(title, promptLineIndex, correct, distractorCount, rng);
+  if (distractors.length < 1) return null;
+
   const choices = shuffle(
     [
       { lineIndex: correct.index, text: correct.text },

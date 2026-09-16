@@ -1,3 +1,8 @@
 name = "textline-nextline"
 compatibility_date = "2024-09-23"
 pages_build_output_dir = "dist"
+
+# Private quote stills. Upload with `npm run content:stills:push`.
+[[r2_buckets]]
+binding = "STILLS"
+bucket_name = "textline-stills"

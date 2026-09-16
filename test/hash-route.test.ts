@@ -36,12 +36,17 @@ describe("parseHash", () => {
     expect(parseHash("#/profile/history")).toEqual({ kind: "profile", tab: "history" });
     expect(parseHash("#/profile/stats")).toEqual({ kind: "profile", tab: "stats" });
   });
+
+  it("parses the owner catalog route", () => {
+    expect(parseHash("#/ops")).toEqual({ kind: "ops" });
+  });
 });
 
 describe("isSafeLoginReturn", () => {
   it("allows play and profile hashes only", () => {
     expect(isSafeLoginReturn("play/abc123")).toBe(true);
     expect(isSafeLoginReturn("profile/history")).toBe(true);
+    expect(isSafeLoginReturn("ops")).toBe(true);
     expect(isSafeLoginReturn("https://evil.example")).toBe(false);
     expect(isSafeLoginReturn("play/../library")).toBe(false);
   });

@@ -24,8 +24,8 @@ function usage(): never {
 
 Inserts Readwise-matched lines from stars-seed.json into Cloudflare D1 as YOUR stars.
 Does not delete or update existing rows (ON CONFLICT DO NOTHING).
-Skips titles in content/stars-protected.json (curated — add an id when you
-start curating a film) and any title that already has stars for you.
+Skips titles in content/stars-protected.json (curated — add an id when live
+stars diverge from seed) and any title that already has stars for you.
 --force still honors the protected file. --dry-run --remote previews prod skips.
 
   --email     Required. Must already have signed in on the live app once.

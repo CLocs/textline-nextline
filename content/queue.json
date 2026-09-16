@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-13T04:37:43.873Z",
+  "updatedAt": "2026-09-16T02:47:10.430Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -391,9 +391,9 @@
       "playCount": 2,
       "highlightCount": 0,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Gung Ho",
@@ -475,9 +475,9 @@
       "playCount": 0,
       "highlightCount": 9,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Miller's Crossing",

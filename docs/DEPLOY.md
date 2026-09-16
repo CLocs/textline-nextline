@@ -132,16 +132,47 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/runs/:id/share` | Freeze that mini-game’s prompt list; returns `{ shareId, url }` |
 | `PATCH` | `/api/runs/:id/rating` | Body `{ thumb: "up" \| "down" }` |
 | `GET` | `/api/stats/played` | Global play counts per `titleId` (auth) |
+| `GET` | `/api/ops/catalog` | Owner-only star counts + play counts per title |
 
-Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, and stats routes require auth.
+Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, and ops routes require auth.
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 
 ```bash
-npm run content:stars-push -- --email you@example.com --remote
+npm run content:stars-push -- --email you@example.com --remote --dry-run
 ```
 
+Skips titles in `content/stars-protected.json` (even with `--force`) and any title that already has live stars. Do not `--force` titles you curated in the app.
+
 That inserts seed lines as the `users.id` for that email (you must have magic-link signed in once). Re-opening the game signed in hydrates them via `GET /api/stars/mine`.
+
+## Quote stills (R2)
+
+Quote JPEGs are **not** in git. Production Pages reads them from a private R2 bucket.
+
+### One-time setup
+
+1. **Create the bucket** (from repo root):
+
+   ```bash
+   npx wrangler r2 bucket create textline-stills
+   ```
+
+2. **Binding** is already in [`wrangler.toml`](../wrangler.toml) (`STILLS` → `textline-stills`). The Function is [`functions/stills/[[all]].ts`](../functions/stills/[[all]].ts).
+
+3. **Upload** confirmed preview stills (gitignored `inbox/stills-preview/`):
+
+   ```bash
+   npm run content:stills:push -- --title oceans-thirteen-2007 --title the-wolf-of-wall-street-2013
+   ```
+
+   Omit `--title` to push every folder. Skip titles that have not been eyeballed (Empire PAL is not ready).
+
+4. **Deploy Pages** so the Function and R2 binding go live (`npm run deploy` or push to `main`). Until then `/stills/...` 404s in production and the play UI falls back to the poster.
+
+The GitHub `CLOUDFLARE_API_TOKEN` (Workers Edit template) already includes R2. No public bucket URL — only the Pages Function can read objects.
+
+Local Vite still serves `inbox/stills-preview` at `/stills` and does not need R2.
 
 ### Share links
 
@@ -204,6 +235,7 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | Sign in (magic link) | Needs Resend secrets on Worker; claim merges anonymous stars |
 | Share mini-game | Setup → live stars (shuffles); history Share → exact 10 prompts; friend must sign in |
 | Mini-game queue | Your stars → crowd popular → random |
+| Quote stills | R2 + Pages Function at `/stills/...` after `content:stills:push` |
 | Medium / Hard | Not enabled yet |
 | Live multiplayer rooms | Not yet — Phase 2 |
 
@@ -217,6 +249,8 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | Wrangler version mismatch in CI | Workflow uses `npx wrangler` from `package.json` (v4), not wrangler-action |
 | Old episodes after deploy | Hard refresh; confirm `content/` was committed before push |
 | Stars not syncing | Confirm `VITE_API_URL` in build; Worker deployed; D1 schema applied |
+| Play prompt shows poster, not a still | Extract locally, `content:stills:push`, then redeploy Pages; check `/stills/{id}/{n}.jpg` |
+| Pages deploy fails on R2 binding | Token needs **Account → R2 → Edit**; bucket `textline-stills` must exist |
 | Magic link not arriving | Set `RESEND_API_KEY`; check Resend domain; without key, read wrangler logs |
 | Share play asks to sign in | Expected — Phase 2a requires login for attribution |
 | CORS errors | Check Worker `ALLOWED_ORIGINS` in `api/wrangler.toml` |

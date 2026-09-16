@@ -22,7 +22,11 @@
     "import": "tsx scripts/import.ts",
     "import:all": "tsx scripts/import.ts --all",
     "content:queue": "tsx scripts/letterboxd-queue.ts",
-    "content:stars-push": "tsx scripts/stars-push.ts"
+    "content:stars-push": "tsx scripts/stars-push.ts",
+    "content:stills": "tsx scripts/extract-stills.ts",
+    "content:stills:remux": "tsx scripts/remux-media.ts",
+    "content:stills:push": "tsx scripts/push-stills.ts",
+    "content:uploads": "tsx scripts/media-uploads.ts"
   },
   "dependencies": {
     "jose": "^6.2.12",

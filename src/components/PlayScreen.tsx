@@ -114,7 +114,12 @@ export function PlayScreen({
 
         <div className={run.length === "mini" ? "play-prompt-row" : undefined}>
           {run.length === "mini" && (
-            <PosterArt titleId={title.id} title={title.title} className="play-poster" />
+            <PosterArt
+              titleId={title.id}
+              title={title.title}
+              lineIndex={question.promptLineIndex}
+              className="play-poster"
+            />
           )}
           <div className="prompt-block">
           <div className="prompt-header">

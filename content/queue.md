@@ -33,7 +33,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 2 | 14 | [Ratatouille](https://boxd.it/27ww) | 2007 | 5 | yes | [ ] missing |
 | 1 | 2 | 8 | [Inception](https://boxd.it/1skk) | 2010 | 5 | yes | [ ] missing |
 | 1 | 2 | 7 | [Baby Driver](https://boxd.it/bhF2) | 2017 | 5 | yes | [x] |
-| 1 | 2 | 0 | [Back to the Future](https://boxd.it/2b8e) | 1985 | 5 | yes | [ ] missing |
+| 1 | 2 | 0 | [Back to the Future](https://boxd.it/2b8e) | 1985 | 5 | yes | [x] |
 | 1 | 2 | 0 | [Last Breath](https://boxd.it/AJqO) | 2025 | 5 | yes | [ ] missing |
 | 1 | 2 | 0 | [Memento](https://boxd.it/2bcK) | 2000 | 5 | yes | [ ] missing |
 | 1 | 2 | 0 | [Pacific Rim](https://boxd.it/2cB2) | 2013 | 5 | yes | [ ] missing |
@@ -73,7 +73,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 1 | 0 | [The Mask](https://boxd.it/29rS) | 1994 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Top Gun: Maverick](https://boxd.it/cjr4) | 2022 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Wedding Crashers](https://boxd.it/1Yte) | 2005 | 5 | yes | [ ] missing |
-| 1 | 0 | 9 | [GoodFellas](https://boxd.it/29FA) | 1990 | 5 | yes | [ ] missing |
+| 1 | 0 | 9 | [GoodFellas](https://boxd.it/29FA) | 1990 | 5 | yes | [x] |
 | 1 | 0 | 4 | [Once Upon a Time... in Hollywood](https://boxd.it/gH0O) | 2019 | 5 | yes | [ ] missing |
 | 1 | 0 | 0 | [Casino](https://boxd.it/2ads) | 1995 | 5 | yes | [ ] missing |
 | 1 | 0 | 0 | [Kill](https://boxd.it/HTqS) | 2023 | 5 | yes | [ ] missing |
