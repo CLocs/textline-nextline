@@ -79,4 +79,4 @@ flowchart TD
 
 Protected titles skip the **whole film** so Curate unstars stay gone. Later: tombstones on unstar, then merge `seed − tombstones`.
 
-**Next time:** “check my stars then push” or “stars-push — don’t overwrite curated.” That runs step 6 only (protect + dry-run + wait). “content ingest” still runs the full SRT pipeline.
+**Next time:** `@` this file. Add “just stars” (step 6 only: protect + dry-run + wait) or “full ingest” (steps 1–7). Phrases like `content ingest` / `stars-push` still auto-match if you do not `@` it.
