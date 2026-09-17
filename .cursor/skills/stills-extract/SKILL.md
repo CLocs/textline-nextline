@@ -80,7 +80,7 @@ flowchart TD
 
 Paused so the user can eyeball each handful vs the quote, then **batch that title** and R2-push. Do not batch/R2 a title until they confirm it. Work title-by-title.
 
-**Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81). Re-run Empire if early cues slip.
+**Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81), Django (scale 1, 44), Batman Begins (scale 1, 79). Re-run Empire if early cues slip.
 
 **Handfuls waiting in** `inbox/stills-preview/{titleId}/` **at scale 1:**
 
@@ -88,9 +88,7 @@ Paused so the user can eyeball each handful vs the quote, then **batch that titl
 |-------|------:|---------|-----------|
 | RocknRolla | 89 | 74, 250, 535, 808, 1147, 1447 | 23.98 |
 | Payback | 78 | 77, 187, 336, 486, 635, 805 | DC encode |
-| Batman Begins | 31 | 70, 155, 228, 310, 340, 410 | |
 | Star Wars (1977) | 28 | 62, 238, 421, 548, 812, 909 | **25 fps PAL** (Empire-like) |
-| Django | 13 | 665, 721, 823, 920, 1049, 1085 | |
 | Return of the Jedi | 7 | all 7 | **25 fps PAL** |
 | Goodfellas | 5 | all 5 | |
 | Lebowski | 1 | 412 | |

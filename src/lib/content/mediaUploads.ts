@@ -35,6 +35,13 @@ export type UploadsSnapshot = {
 export type StillsCoverageFile = {
   updatedAt: string;
   titles: Record<string, number>;
+  /** Lowest line index with a JPEG in inbox/stills-preview (library cover). */
+  covers?: Record<string, number>;
+};
+
+export type StillsPreviewScan = {
+  titles: Record<string, number>;
+  covers: Record<string, number>;
 };
 
 const SCENE_TAIL =
@@ -145,19 +152,33 @@ export function matchUploadsToCatalog(
   return { matched, unmatched };
 }
 
-export function countStillsByTitle(previewRoot: string): Record<string, number> {
-  const counts: Record<string, number> = {};
-  if (!existsSync(previewRoot) || !statSync(previewRoot).isDirectory()) return counts;
+const STILL_JPEG = /^(\d+)\.jpe?g$/i;
+
+/** Count preview JPEGs and pick the lowest line index as the library cover. */
+export function scanStillsPreview(previewRoot: string): StillsPreviewScan {
+  const titles: Record<string, number> = {};
+  const covers: Record<string, number> = {};
+  if (!existsSync(previewRoot) || !statSync(previewRoot).isDirectory()) {
+    return { titles, covers };
+  }
   for (const dirent of readdirSync(previewRoot, { withFileTypes: true })) {
     if (!dirent.isDirectory()) continue;
     const folder = join(previewRoot, dirent.name);
-    let n = 0;
+    const indices: number[] = [];
     for (const file of readdirSync(folder)) {
-      if (/^\d+\.jpe?g$/i.test(file)) n += 1;
+      const match = file.match(STILL_JPEG);
+      if (!match) continue;
+      indices.push(Number(match[1]));
     }
-    if (n > 0) counts[dirent.name] = n;
+    if (indices.length === 0) continue;
+    titles[dirent.name] = indices.length;
+    covers[dirent.name] = Math.min(...indices);
   }
-  return counts;
+  return { titles, covers };
+}
+
+export function countStillsByTitle(previewRoot: string): Record<string, number> {
+  return scanStillsPreview(previewRoot).titles;
 }
 
 export function formatUploadsMarkdown(snapshot: UploadsSnapshot): string {

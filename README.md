@@ -24,7 +24,7 @@ This is the default game mode and the focus of Phase 1.
 Find a memorable quote, share it with friends, and let them guess the next line.
 
 - Search or browse transcripts for a good setup line.
-- Send a link (or code) to a one-off challenge.
+- Send a link (or code) to a one-off challenge — or, later, send the current in-game prompt to a friend ([inbox](#friends--question-inbox)).
 - Friend plays the single question (or a short streak) without needing the full run context.
 
 Useful for async play and social sharing; builds on the same transcript + question engine from Concept 1.
@@ -336,8 +336,8 @@ Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live coun
 | The Empire Strikes Back (1980) | 81 | 21 | 81, PAL `0.96` | yes | yes |
 | Payback (1999) | 78 | 49 | posters only | — | yes |
 | Inglourious Basterds (2009) | 115 | 112 | 115, scale 1 | yes | yes |
-| Batman Begins (2005) | 31 | 0 | — | — | yes |
-| Django Unchained (2012) | 13 | 14 | — | — | yes |
+| Batman Begins (2005) | 79 | 0 | 79, scale 1 | yes | yes |
+| Django Unchained (2012) | 44 | 14 | 44, scale 1 | yes | yes |
 
 32 titles have live stars; a default `stars-push --remote` would only insert **Goodfellas (5)** and **Lebowski (1)** (new catalog, no live rows). Do not `--force` protected titles.
 
@@ -394,6 +394,7 @@ Open questions (spike only — no pack UI yet):
 
 - [ ] **Loved / double-star quotes *(next)*** — pin a few golden lines so they show up in most mini-games. See [Later ideas](#loved--double-star-quotes-next).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
+- [ ] **Friends + question inbox** — send the current prompt to a friend; they play it from an inbox. See [Later ideas](#later-ideas-parked).
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
@@ -478,7 +479,7 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, and **quote stills (2.6)** are in. **Loved / double-star quotes** is next. Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, and **quote stills (2.6)** are in. **Loved / double-star quotes** is next. Friends + question inbox is the social loop after that (needs a friends graph). Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
 
 ### Loved / double-star quotes *(next)*
 
@@ -486,11 +487,25 @@ Today a mini-game fills 10 from your personal stars (shuffled), then crowd popul
 
 **Love** (double-star) a small set so they generally appear in most mini-games for that title. Star stays “this is in the pool”; love is “this is a banger — bias the queue.” Not session thumbs (2.5) and not curator-score (other people’s stars).
 
-Later shape: a second weight or `loved` flag on `(title_id, line_index, player_id)`; `buildMiniGameQueue` takes loved first, then other personal stars. Cap about 3–5 per title so the quiz isn’t the same 10 every time.
+Later shape: a second weight or `loved` flag on `(title_id, line_index, player_id)`; `buildMiniGameQueue` takes loved first, then other personal stars. Cap about 3–5 per title so the quiz isn’t the same 10 every time. Library cover stills should prefer a loved line that has a frame, once this exists.
+
+### Friends + question inbox
+
+Today’s share is an **anonymous mini-game URL** (10 frozen prompts). This is different: **directed**, **one question**, **from inside a run** (mini or full-episode).
+
+Concept 2 stays the play-a-single-line engine; this is how it arrives.
+
+**Friends (gate).** Accounts exist; there is no graph. Need invite/accept (email or display name), a friends list, and block/remove. No public directory.
+
+**Send.** On the play screen, “Send to a friend” for the current prompt (`titleId` + `promptLineIndex`). Recipient must already be a friend. Optional note later.
+
+**Inbox.** Home (or profile) list of received textlines: who, which title, the line (and still if we have one). Open → one MCQ (`buildMcq`). Distractors may shuffle; the prompt is the payload.
+
+**Not this:** rooms (Phase 2), share-link mini-games (2a), loved-cover stills.
 
 ### Scene visuals *(leftover from 2.6)*
 
-Starred stills, posters, R2, and the mini-game still→poster fallback shipped in [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25). Still parked:
+Starred stills, posters, R2, and the mini-game still→poster fallback shipped in [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25). Library/Home title cards show a small **cover still** (lowest line index in [`content/stills-coverage.json`](content/stills-coverage.json) `covers`; no poster fallback on the card). Still parked:
 
 - Every-cue extract (too heavy; starred landmarks first)
 - git-lfs / checking JPEGs into the repo
@@ -569,6 +584,7 @@ The similar-answer guard and this split complement each other: even after a spli
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | Staged; avoid one giant audit — see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
+| **Later — Friends + question inbox** | Friends graph; send the current prompt; inbox of received textlines | Directed one-question play, not an anonymous 10-pack |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
@@ -658,7 +674,8 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
 - **Security ladder** *(later)* — Staged L0–L5 (hygiene → auth pass → deps → PR reviews; formal audit only if we scale). See [spike](#spike-security-ladder-not-a-full-audit-yet).
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
-- **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
+- **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
+- **Friends + question inbox** *(later)* — send the current play prompt to a friend; they get an inbox of textlines. Needs a friends graph. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).

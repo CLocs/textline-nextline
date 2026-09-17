@@ -9,6 +9,7 @@ import {
   loadPopularStars,
 } from "../lib/stars/sync";
 import { fetchTitleStats, type TitleStats } from "../lib/runs/api";
+import { coverStillLineIndex } from "../lib/content/stillsCover";
 import { GAME_LENGTHS, GAME_MODES, MINI_GAME_SIZE, type GameLength, type GameMode } from "../types/game";
 import { PosterArt } from "./PosterArt";
 
@@ -92,7 +93,13 @@ export function SetupScreen({
       </button>
 
       <div className="setup-heading">
-        <PosterArt titleId={entry.id} title={entry.title} className="setup-poster" />
+        <PosterArt
+          titleId={entry.id}
+          title={entry.title}
+          lineIndex={coverStillLineIndex(entry.id)}
+          fallback="poster"
+          className="setup-poster"
+        />
         <div>
           <h2>{entry.title}</h2>
           <p className="muted setup-meta">
