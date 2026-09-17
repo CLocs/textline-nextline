@@ -7,6 +7,7 @@ import { cohortSummary } from "../lib/runs/cohort";
 import { historyTitleLabel, summarizeRuns } from "../lib/content/playedRails";
 import { GAME_MODES, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
+import { FriendsPanel } from "./FriendsPanel";
 
 type Props = {
   user: AuthUser;
@@ -207,6 +208,13 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated }: 
         >
           Game stats
         </button>
+        <button
+          type="button"
+          className={tab === "friends" ? "button primary" : "button ghost"}
+          onClick={() => onTab("friends")}
+        >
+          Friends
+        </button>
       </div>
 
       {tab === "account" && (
@@ -290,6 +298,7 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated }: 
           )}
         </>
       )}
+      {tab === "friends" && <FriendsPanel user={user} />}
     </section>
   );
 }

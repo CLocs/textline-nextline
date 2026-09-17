@@ -7,6 +7,7 @@ import {
   summarizeRuns,
   topPlayedMovies,
   topPlayedShows,
+  yourTopPlayed,
 } from "../src/lib/content/playedRails.js";
 import type { StoredRun } from "../src/lib/runs/api.js";
 
@@ -95,6 +96,24 @@ describe("recentFromRuns", () => {
       entries,
     );
     expect(recent.map((entry) => entry.id)).toEqual(["s5e1", "baby"]);
+  });
+});
+
+describe("yourTopPlayed", () => {
+  it("ranks personal titles by play count", () => {
+    const yours = yourTopPlayed(
+      [
+        run({ id: "a", titleId: "baby" }),
+        run({ id: "b", titleId: "s5e1" }),
+        run({ id: "c", titleId: "baby" }),
+        run({ id: "d", titleId: "missing" }),
+      ],
+      entries,
+    );
+    expect(yours.map((row) => [row.entry.id, row.playCount])).toEqual([
+      ["baby", 2],
+      ["s5e1", 1],
+    ]);
   });
 });
 

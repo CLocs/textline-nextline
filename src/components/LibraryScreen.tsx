@@ -14,7 +14,10 @@ import {
   recentFromRuns,
   topPlayedMovies,
   topPlayedShows,
+  yourTopPlayed,
 } from "../lib/content/playedRails";
+import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCover";
+import { PosterArt } from "./PosterArt";
 
 type Props = {
   entries: CatalogEntry[];
@@ -36,10 +39,45 @@ function findShow(groups: ReturnType<typeof groupCatalogEntries>, show: string):
   return groups.shows.find((g) => g.show === show);
 }
 
+function TitleCard({
+  name,
+  meta,
+  stillTitleId,
+  stillTitle,
+  onClick,
+}: {
+  name: string;
+  meta: string;
+  stillTitleId?: string;
+  stillTitle?: string;
+  onClick: () => void;
+}) {
+  const lineIndex = stillTitleId ? coverStillLineIndex(stillTitleId) : undefined;
+  return (
+    <button type="button" className="title-card" onClick={onClick}>
+      {stillTitleId != null && lineIndex != null ? (
+        <PosterArt
+          titleId={stillTitleId}
+          title={stillTitle ?? name}
+          lineIndex={lineIndex}
+          fallback="hide"
+          className="title-card-still"
+        />
+      ) : null}
+      <span className="title-card-copy">
+        <span className="title-card-name">{name}</span>
+        <span className="title-card-meta">{meta}</span>
+      </span>
+    </button>
+  );
+}
+
 export function LibraryScreen({ entries, onSelect }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
   const [recent, setRecent] = useState<CatalogEntry[]>([]);
+  const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
+  const [railsReady, setRailsReady] = useState(false);
   const groups = groupCatalogEntries(entries);
 
   useEffect(() => {
@@ -48,6 +86,8 @@ export function LibraryScreen({ entries, onSelect }: Props) {
       if (cancelled) return;
       setCounts(playCountMap(titles));
       setRecent(recentFromRuns(runs, entries));
+      setYours(yourTopPlayed(runs, entries));
+      setRailsReady(true);
     });
     return () => {
       cancelled = true;
@@ -56,8 +96,8 @@ export function LibraryScreen({ entries, onSelect }: Props) {
 
   const playedMovies = useMemo(() => topPlayedMovies(entries, counts), [entries, counts]);
   const playedShows = useMemo(() => topPlayedShows(entries, counts), [entries, counts]);
-  const showHomeRails =
-    recent.length > 0 || playedMovies.length > 0 || playedShows.length > 0;
+  const hasPersonalRails = recent.length > 0 || yours.length > 0;
+  const hasCrowdRails = playedMovies.length > 0 || playedShows.length > 0;
 
   if (view.level === "season") {
     const show = findShow(groups, view.show);
@@ -80,10 +120,13 @@ export function LibraryScreen({ entries, onSelect }: Props) {
         <ul className="title-list">
           {episodes.map((entry) => (
             <li key={entry.id}>
-              <button type="button" className="title-card" onClick={() => onSelect(entry)}>
-                <span className="title-card-name">{episodeLabel(entry)}</span>
-                <span className="title-card-meta">{dialogueLineCount(entry)} lines</span>
-              </button>
+              <TitleCard
+                name={episodeLabel(entry)}
+                meta={`${dialogueLineCount(entry)} lines`}
+                stillTitleId={entry.id}
+                stillTitle={entry.title}
+                onClick={() => onSelect(entry)}
+              />
             </li>
           ))}
         </ul>
@@ -162,10 +205,13 @@ export function LibraryScreen({ entries, onSelect }: Props) {
                 <ul className="title-list">
                   {groups.movies.map((entry) => (
                     <li key={entry.id}>
-                      <button type="button" className="title-card" onClick={() => onSelect(entry)}>
-                        <span className="title-card-name">{entry.title}</span>
-                        <span className="title-card-meta">{dialogueLineCount(entry)} lines</span>
-                      </button>
+                      <TitleCard
+                        name={entry.title}
+                        meta={`${dialogueLineCount(entry)} lines`}
+                        stillTitleId={entry.id}
+                        stillTitle={entry.title}
+                        onClick={() => onSelect(entry)}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -176,20 +222,20 @@ export function LibraryScreen({ entries, onSelect }: Props) {
               <div className="library-group">
                 <h3 className="library-group-heading">TV Shows</h3>
                 <ul className="title-list">
-                  {groups.shows.map((show) => (
+                  {groups.shows.map((show) => {
+                    const cover = coverStillForShow(show);
+                    return (
                     <li key={show.show}>
-                      <button
-                        type="button"
-                        className="title-card"
+                      <TitleCard
+                        name={show.show}
+                        meta={`${show.episodeCount} episode${show.episodeCount === 1 ? "" : "s"}`}
+                        stillTitleId={cover?.titleId}
+                        stillTitle={show.show}
                         onClick={() => setView({ level: "show", show: show.show, from: "browse" })}
-                      >
-                        <span className="title-card-name">{show.show}</span>
-                        <span className="title-card-meta">
-                          {show.episodeCount} episode{show.episodeCount === 1 ? "" : "s"}
-                        </span>
-                      </button>
+                      />
                     </li>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
             )}
@@ -203,7 +249,7 @@ export function LibraryScreen({ entries, onSelect }: Props) {
     <section className="panel">
       <div className="section-header">
         <h2>Home</h2>
-        <p className="muted">Pick up where you left off, or browse the full library.</p>
+        <p className="muted">Your games, then what everyone else is playing.</p>
       </div>
 
       {entries.length === 0 ? (
@@ -218,59 +264,84 @@ export function LibraryScreen({ entries, onSelect }: Props) {
               <ul className="title-list">
                 {recent.map((entry) => (
                   <li key={entry.id}>
-                    <button type="button" className="title-card" onClick={() => onSelect(entry)}>
-                      <span className="title-card-name">{catalogLabel(entry)}</span>
-                      <span className="title-card-meta">{dialogueLineCount(entry)} lines</span>
-                    </button>
+                    <TitleCard
+                      name={catalogLabel(entry)}
+                      meta={`${dialogueLineCount(entry)} lines`}
+                      stillTitleId={entry.id}
+                      stillTitle={entry.title}
+                      onClick={() => onSelect(entry)}
+                    />
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
-          {showHomeRails && playedMovies.length > 0 && (
+          {yours.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">Top played movies</h3>
+              <h3 className="library-group-heading">Your top played</h3>
+              <ul className="title-list">
+                {yours.map(({ entry, playCount }) => (
+                  <li key={entry.id}>
+                    <TitleCard
+                      name={catalogLabel(entry)}
+                      meta={`${playCount} play${playCount === 1 ? "" : "s"}`}
+                      stillTitleId={entry.id}
+                      stillTitle={entry.title}
+                      onClick={() => onSelect(entry)}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {playedMovies.length > 0 && (
+            <div className="library-group">
+              <h3 className="library-group-heading">Top movies · everyone</h3>
               <ul className="title-list">
                 {playedMovies.map(({ entry, playCount }) => (
                   <li key={entry.id}>
-                    <button type="button" className="title-card" onClick={() => onSelect(entry)}>
-                      <span className="title-card-name">{entry.title}</span>
-                      <span className="title-card-meta">
-                        {playCount} play{playCount === 1 ? "" : "s"}
-                      </span>
-                    </button>
+                    <TitleCard
+                      name={entry.title}
+                      meta={`${playCount} play${playCount === 1 ? "" : "s"}`}
+                      stillTitleId={entry.id}
+                      stillTitle={entry.title}
+                      onClick={() => onSelect(entry)}
+                    />
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
-          {showHomeRails && playedShows.length > 0 && (
+          {playedShows.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">Top played shows</h3>
+              <h3 className="library-group-heading">Top shows · everyone</h3>
               <ul className="title-list">
-                {playedShows.map((show) => (
+                {playedShows.map((show) => {
+                  const group = findShow(groups, show.show);
+                  const cover = group ? coverStillForShow(group) : undefined;
+                  return (
                   <li key={show.show}>
-                    <button
-                      type="button"
-                      className="title-card"
+                    <TitleCard
+                      name={show.show}
+                      meta={`${show.playCount} play${show.playCount === 1 ? "" : "s"}`}
+                      stillTitleId={cover?.titleId}
+                      stillTitle={show.show}
                       onClick={() => setView({ level: "show", show: show.show, from: "home" })}
-                    >
-                      <span className="title-card-name">{show.show}</span>
-                      <span className="title-card-meta">
-                        {show.playCount} play{show.playCount === 1 ? "" : "s"}
-                      </span>
-                    </button>
+                    />
                   </li>
-                ))}
+                  );
+                })}
               </ul>
             </div>
           )}
 
-          {!showHomeRails && (
+          {railsReady && !hasPersonalRails && !hasCrowdRails && (
             <p className="muted home-empty-rails">
-              Play a few games and your recent titles plus crowd favorites show up here.
+              Browse the library to start. Everyone&apos;s most-played titles show up here when
+              play counts load.
             </p>
           )}
 

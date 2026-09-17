@@ -89,8 +89,16 @@ export async function getSessionUser(db: D1Database, sessionId: string | null): 
 export function sanitizeLoginReturn(raw: unknown): string | undefined {
   if (typeof raw !== "string") return undefined;
   const value = raw.trim();
-  if (value === "profile" || value === "profile/history" || value === "profile/stats") return value;
+  if (
+    value === "profile" ||
+    value === "profile/history" ||
+    value === "profile/stats" ||
+    value === "profile/friends"
+  ) {
+    return value;
+  }
   if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return value;
+  if (/^friend\/[a-f0-9]{24}$/i.test(value)) return value;
   return undefined;
 }
 

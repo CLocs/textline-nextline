@@ -323,3 +323,68 @@ export async function fetchPlayedStats(
     playCount: Number(row.play_count) || 0,
   }));
 }
+
+export type TitlePlayerStat = {
+  displayName: string;
+  gamesPlayed: number;
+  linesGuessed: number;
+  bestCorrect: number;
+};
+
+export type TitleStats = {
+  playCount: number;
+  players: TitlePlayerStat[];
+};
+
+const TITLE_ID_RE = /^[a-z0-9-]+$/i;
+
+export function isTitleId(value: string): boolean {
+  return TITLE_ID_RE.test(value) && value.length <= 120;
+}
+
+/** Per-title leaderboard: most games, plus each player's best correct-count. */
+export async function fetchTitleStats(
+  db: D1Database,
+  titleId: string,
+  limit = 8,
+): Promise<TitleStats> {
+  const capped = Math.min(Math.max(limit, 1), 20);
+  const result = await db
+    .prepare(
+      `SELECT u.display_name, u.email,
+              COUNT(*) AS games_played,
+              SUM(r.correct_count) AS lines_guessed,
+              MAX(r.correct_count) AS best_correct
+       FROM runs r
+       JOIN users u ON u.id = r.user_id
+       WHERE r.title_id = ?
+       GROUP BY u.id
+       ORDER BY games_played DESC, best_correct DESC, u.display_name ASC
+       LIMIT ?`,
+    )
+    .bind(titleId, capped)
+    .all<{
+      display_name: string | null;
+      email: string;
+      games_played: number;
+      lines_guessed: number;
+      best_correct: number;
+    }>();
+
+  const players: TitlePlayerStat[] = (result.results ?? []).map((row) => {
+    const hint = row.display_name?.trim();
+    const displayName =
+      hint && hint.length > 0 ? hint : (row.email.split("@")[0] ?? "player");
+    return {
+      displayName,
+      gamesPlayed: Number(row.games_played) || 0,
+      linesGuessed: Number(row.lines_guessed) || 0,
+      bestCorrect: Number(row.best_correct) || 0,
+    };
+  });
+
+  return {
+    playCount: players.reduce((sum, row) => sum + row.gamesPlayed, 0),
+    players,
+  };
+}

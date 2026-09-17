@@ -110,3 +110,30 @@ export async function fetchPlayedStats(): Promise<TitlePlayCount[]> {
     (row) => typeof row.titleId === "string" && typeof row.playCount === "number",
   );
 }
+
+export type TitlePlayerStat = {
+  displayName: string;
+  gamesPlayed: number;
+  linesGuessed: number;
+  bestCorrect: number;
+};
+
+export type TitleStats = {
+  playCount: number;
+  players: TitlePlayerStat[];
+};
+
+export async function fetchTitleStats(titleId: string): Promise<TitleStats | null> {
+  const response = await runsFetch(`/api/stats/title?titleId=${encodeURIComponent(titleId)}`);
+  if (!response?.ok) return null;
+  const data = (await response.json()) as Partial<TitleStats>;
+  if (!Array.isArray(data.players) || typeof data.playCount !== "number") return null;
+  const players = data.players.filter(
+    (row) =>
+      typeof row.displayName === "string" &&
+      typeof row.gamesPlayed === "number" &&
+      typeof row.linesGuessed === "number" &&
+      typeof row.bestCorrect === "number",
+  );
+  return { playCount: data.playCount, players };
+}

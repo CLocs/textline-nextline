@@ -35,6 +35,14 @@ describe("parseHash", () => {
     expect(parseHash("#/profile")).toEqual({ kind: "profile", tab: "account" });
     expect(parseHash("#/profile/history")).toEqual({ kind: "profile", tab: "history" });
     expect(parseHash("#/profile/stats")).toEqual({ kind: "profile", tab: "stats" });
+    expect(parseHash("#/profile/friends")).toEqual({ kind: "profile", tab: "friends" });
+  });
+
+  it("parses friend invite routes", () => {
+    expect(parseHash("#/friend/aabbccddeeff001122334455")).toEqual({
+      kind: "friend",
+      token: "aabbccddeeff001122334455",
+    });
   });
 
   it("parses the owner catalog route", () => {
@@ -46,8 +54,11 @@ describe("isSafeLoginReturn", () => {
   it("allows play and profile hashes only", () => {
     expect(isSafeLoginReturn("play/abc123")).toBe(true);
     expect(isSafeLoginReturn("profile/history")).toBe(true);
+    expect(isSafeLoginReturn("profile/friends")).toBe(true);
+    expect(isSafeLoginReturn("friend/aabbccddeeff001122334455")).toBe(true);
     expect(isSafeLoginReturn("ops")).toBe(true);
     expect(isSafeLoginReturn("https://evil.example")).toBe(false);
     expect(isSafeLoginReturn("play/../library")).toBe(false);
+    expect(isSafeLoginReturn("friend/short")).toBe(false);
   });
 });

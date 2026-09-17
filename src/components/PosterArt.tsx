@@ -4,23 +4,34 @@ import { posterUrl, stillUrl } from "../lib/content/poster";
 type Props = {
   titleId: string;
   title: string;
-  /** Mini-game prompt line: try `/stills/{id}/{n}.jpg`, then the poster. */
+  /** Mini-game prompt line, or a library cover index. */
   lineIndex?: number;
+  /** Play/setup fall back to the one-sheet. Library thumbs hide instead. */
+  fallback?: "poster" | "hide";
   className?: string;
 };
 
-export function PosterArt({ titleId, title, lineIndex, className }: Props) {
+export function PosterArt({
+  titleId,
+  title,
+  lineIndex,
+  fallback = "poster",
+  className,
+}: Props) {
   const poster = posterUrl(titleId);
   const still = lineIndex != null ? stillUrl(titleId, lineIndex) : null;
-  const [src, setSrc] = useState(still ?? poster);
-  const [hidden, setHidden] = useState(false);
+  const hidePoster = fallback === "hide";
+  const initial = still ?? (hidePoster ? null : poster);
+  const [src, setSrc] = useState<string | null>(initial);
+  const [hidden, setHidden] = useState(!initial);
 
   useEffect(() => {
-    setHidden(false);
-    setSrc(still ?? poster);
-  }, [titleId, lineIndex, still, poster]);
+    const next = still ?? (hidePoster ? null : poster);
+    setHidden(!next);
+    setSrc(next);
+  }, [titleId, lineIndex, still, poster, hidePoster]);
 
-  if (hidden) return null;
+  if (hidden || !src) return null;
 
   const usingStill = Boolean(still) && src === still;
   return (
@@ -29,7 +40,7 @@ export function PosterArt({ titleId, title, lineIndex, className }: Props) {
       src={src}
       alt={usingStill ? `${title} still` : `${title} poster`}
       onError={() => {
-        if (still && src === still) setSrc(poster);
+        if (!hidePoster && still && src === still) setSrc(poster);
         else setHidden(true);
       }}
     />

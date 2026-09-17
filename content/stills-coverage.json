@@ -1,8 +1,33 @@
 {
-  "updatedAt": "2026-09-16T03:15:35.019Z",
+  "updatedAt": "2026-09-17T02:21:00.000Z",
   "titles": {
+    "batman-begins-2005": 79,
+    "django-unchained-2012": 44,
+    "goodfellas-1990": 5,
+    "inglourious-basterds-2009": 115,
     "oceans-thirteen-2007": 131,
-    "the-empire-strikes-back-1980": 6,
+    "payback-1999": 6,
+    "rocknrolla-2008": 6,
+    "star-wars-1977": 6,
+    "star-wars-episode-vi-return-of-the-jedi-1983": 7,
+    "the-big-lebowski-1998": 1,
+    "the-empire-strikes-back-1980": 81,
+    "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": 6,
     "the-wolf-of-wall-street-2013": 67
+  },
+  "covers": {
+    "batman-begins-2005": 15,
+    "django-unchained-2012": 321,
+    "goodfellas-1990": 743,
+    "inglourious-basterds-2009": 3,
+    "oceans-thirteen-2007": 0,
+    "payback-1999": 77,
+    "rocknrolla-2008": 74,
+    "star-wars-1977": 62,
+    "star-wars-episode-vi-return-of-the-jedi-1983": 438,
+    "the-big-lebowski-1998": 412,
+    "the-empire-strikes-back-1980": 10,
+    "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": 80,
+    "the-wolf-of-wall-street-2013": 27
   }
 }

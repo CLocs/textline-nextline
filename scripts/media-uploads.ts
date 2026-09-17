@@ -3,10 +3,10 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadCatalog } from "../src/lib/content/load.js";
 import {
-  countStillsByTitle,
   formatUploadsMarkdown,
   listVideoFilenames,
   matchUploadsToCatalog,
+  scanStillsPreview,
   type StillsCoverageFile,
   type UploadsSnapshot,
 } from "../src/lib/content/mediaUploads.js";
@@ -64,9 +64,11 @@ function main(): void {
     matched,
     unmatched,
   };
+  const previewScan = scanStillsPreview(args.preview);
   const coverage: StillsCoverageFile = {
     updatedAt: snapshot.updatedAt,
-    titles: countStillsByTitle(args.preview),
+    titles: previewScan.titles,
+    covers: previewScan.covers,
   };
 
   writeFileSync(args.uploadsOut, `${JSON.stringify(snapshot, null, 2)}\n`);

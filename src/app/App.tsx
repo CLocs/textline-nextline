@@ -39,9 +39,10 @@ import { LoginScreen } from "../components/LoginScreen";
 import { AuthBar } from "../components/AuthBar";
 import { ProfileScreen } from "../components/ProfileScreen";
 import { CatalogOpsScreen } from "../components/CatalogOpsScreen";
+import { FriendAcceptScreen } from "../components/FriendAcceptScreen";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -76,6 +77,7 @@ export function App() {
   const [routeError, setRouteError] = useState<string | null>(null);
   const [persistedRunId, setPersistedRunId] = useState<string | null>(null);
   const [profileTab, setProfileTab] = useState<ProfileTab>("account");
+  const [friendToken, setFriendToken] = useState<string | null>(null);
 
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
@@ -112,6 +114,10 @@ export function App() {
       const shareId = returnTo.slice("play/".length);
       clearHash();
       void beginSharedPlayRef.current(shareId);
+      return;
+    }
+    if (returnTo?.startsWith("friend/")) {
+      setHash(returnTo);
       return;
     }
     if (returnTo?.startsWith("profile")) {
@@ -253,6 +259,18 @@ export function App() {
           return;
         }
         void beginSharedPlay(route.shareId);
+        return;
+      }
+      if (route.kind === "friend") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to accept this friend invite.");
+          captureLoginReturn(`friend/${route.token}`);
+          setScreen("login");
+          setHash(`login?return=${encodeURIComponent(`friend/${route.token}`)}`);
+          return;
+        }
+        setFriendToken(route.token);
+        setScreen("friend");
         return;
       }
       if (route.kind === "profile") {
@@ -442,6 +460,7 @@ export function App() {
     setShareMeta(null);
     setShareMessage(null);
     setRouteError(null);
+    setFriendToken(null);
     clearHash();
   }
 
@@ -488,6 +507,7 @@ export function App() {
     setShareMeta(null);
     setShareMessage(null);
     setRouteError(null);
+    setFriendToken(null);
     setAuthToken(undefined);
     setLoginReturn(undefined);
     setLoginMessage("Sign in to browse episodes and play.");
@@ -564,6 +584,18 @@ export function App() {
           }}
           onBack={handleBackToLibrary}
           onUpdated={setUser}
+        />
+      )}
+
+      {showApp && screen === "friend" && friendToken && user && (
+        <FriendAcceptScreen
+          token={friendToken}
+          onDone={() => {
+            setProfileTab("friends");
+            setScreen("profile");
+            setHash(profileHash("friends"));
+          }}
+          onBack={handleBackToLibrary}
         />
       )}
 

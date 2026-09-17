@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { countPlayableQuestions } from "../lib/content/playable";
@@ -8,6 +8,8 @@ import {
   hydrateStarsForTitle,
   loadPopularStars,
 } from "../lib/stars/sync";
+import { fetchTitleStats, type TitleStats } from "../lib/runs/api";
+import { coverStillLineIndex } from "../lib/content/stillsCover";
 import { GAME_LENGTHS, GAME_MODES, MINI_GAME_SIZE, type GameLength, type GameMode } from "../types/game";
 import { PosterArt } from "./PosterArt";
 
@@ -40,6 +42,7 @@ export function SetupScreen({
   const [length, setLength] = useState<GameLength>("full");
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
   const [crowdPopular, setCrowdPopular] = useState<number[]>([]);
+  const [titleStats, setTitleStats] = useState<TitleStats | null>(null);
 
   const title = getTitle(entry.id);
   const questionCount = title ? countPlayableQuestions(title) : 0;
@@ -50,6 +53,13 @@ export function SetupScreen({
         buildMiniGameQueue(title, { personalStarred, crowdPopular }).length,
       )
     : 0;
+
+  const highGames = useMemo(() => {
+    if (!titleStats) return [];
+    return [...titleStats.players].sort(
+      (a, b) => b.bestCorrect - a.bestCorrect || b.gamesPlayed - a.gamesPlayed,
+    );
+  }, [titleStats]);
 
   useEffect(() => {
     let cancelled = false;
@@ -63,7 +73,14 @@ export function SetupScreen({
       if (!cancelled) setCrowdPopular(popular);
     }
 
+    async function loadStats() {
+      setTitleStats(null);
+      const stats = await fetchTitleStats(entry.id);
+      if (!cancelled) setTitleStats(stats);
+    }
+
     void loadStars();
+    void loadStats();
     return () => {
       cancelled = true;
     };
@@ -72,18 +89,58 @@ export function SetupScreen({
   return (
     <section className="panel setup-panel">
       <button type="button" className="button ghost back-link" onClick={onBack}>
-        ← Library
+        ← Home
       </button>
 
       <div className="setup-heading">
-        <PosterArt titleId={entry.id} title={entry.title} className="setup-poster" />
+        <PosterArt
+          titleId={entry.id}
+          title={entry.title}
+          lineIndex={coverStillLineIndex(entry.id)}
+          fallback="poster"
+          className="setup-poster"
+        />
         <div>
           <h2>{entry.title}</h2>
           <p className="muted setup-meta">
             {questionCount} dialogue questions · {starredCount} starred
+            {titleStats && titleStats.playCount > 0
+              ? ` · ${titleStats.playCount} play${titleStats.playCount === 1 ? "" : "s"}`
+              : ""}
           </p>
         </div>
       </div>
+
+      {titleStats && titleStats.players.length > 0 && (
+        <div className="title-leaders">
+          <div className="title-leaders-col">
+            <h3 className="library-group-heading">Most played</h3>
+            <ol className="title-leaders-list">
+              {titleStats.players.slice(0, 5).map((player) => (
+                <li key={`played-${player.displayName}`}>
+                  <span>{player.displayName}</span>
+                  <span className="muted">
+                    {player.gamesPlayed} game{player.gamesPlayed === 1 ? "" : "s"}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="title-leaders-col">
+            <h3 className="library-group-heading">High game</h3>
+            <ol className="title-leaders-list">
+              {highGames.slice(0, 5).map((player) => (
+                <li key={`high-${player.displayName}`}>
+                  <span>{player.displayName}</span>
+                  <span className="muted">
+                    {player.bestCorrect} correct
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      )}
 
       <fieldset className="mode-picker">
         <legend>Session length</legend>

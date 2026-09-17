@@ -1,10 +1,11 @@
-export type ProfileTab = "account" | "history" | "stats";
+export type ProfileTab = "account" | "history" | "stats" | "friends";
 
 export type HashRoute =
   | { kind: "home" }
   | { kind: "login"; returnTo?: string }
   | { kind: "auth"; token: string; returnTo?: string }
   | { kind: "play"; shareId: string }
+  | { kind: "friend"; token: string }
   | { kind: "profile"; tab: ProfileTab }
   | { kind: "ops" };
 
@@ -14,8 +15,16 @@ const LOGIN_RETURN_KEY = "textline-nextline-login-return";
 export function isSafeLoginReturn(value: string | null | undefined): value is string {
   if (!value) return false;
   if (value === "ops") return true;
-  if (value === "profile" || value === "profile/history" || value === "profile/stats") return true;
-  return /^play\/[A-Za-z0-9_-]{1,64}$/.test(value);
+  if (
+    value === "profile" ||
+    value === "profile/history" ||
+    value === "profile/stats" ||
+    value === "profile/friends"
+  ) {
+    return true;
+  }
+  if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
+  return /^friend\/[a-f0-9]{24}$/i.test(value);
 }
 
 export function rememberLoginReturn(path: string | undefined): void {
@@ -46,6 +55,7 @@ export function loginReturnFromRoute(route: HashRoute): string | undefined {
     return isSafeLoginReturn(route.returnTo) ? route.returnTo : undefined;
   }
   if (route.kind === "play") return `play/${route.shareId}`;
+  if (route.kind === "friend") return `friend/${route.token}`;
   if (route.kind === "profile") return profileHash(route.tab);
   if (route.kind === "ops") return "ops";
   return undefined;
@@ -55,6 +65,7 @@ function parseProfileTab(path: string): ProfileTab | null {
   if (path === "profile" || path === "profile/account") return "account";
   if (path === "profile/history") return "history";
   if (path === "profile/stats") return "stats";
+  if (path === "profile/friends") return "friends";
   return null;
 }
 
@@ -88,6 +99,11 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
   const playMatch = path.match(/^play\/([^/]+)$/);
   if (playMatch?.[1]) {
     return { kind: "play", shareId: decodeURIComponent(playMatch[1]) };
+  }
+
+  const friendMatch = path.match(/^friend\/([^/]+)$/);
+  if (friendMatch?.[1]) {
+    return { kind: "friend", token: decodeURIComponent(friendMatch[1]) };
   }
 
   if (path === "ops") {
