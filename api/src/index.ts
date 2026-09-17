@@ -39,6 +39,16 @@ import {
   shareCompletedRun,
 } from "./runs.js";
 import { fetchOwnerCatalogStats, isOwnerEmail } from "./ops.js";
+import {
+  acceptInvite,
+  blockUser,
+  getOrCreateInvite,
+  listFriends,
+  normalizeInviteToken,
+  previewInvite,
+  rotateInvite,
+  unfriend,
+} from "./friends.js";
 
 function resolveShareOrigin(
   appOrigin: string | undefined,
@@ -207,6 +217,66 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const result = await claimAnonymousStars(env.DB, user.id, body.anonymousPlayerId);
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse({ claimed: result.claimed }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
+  }
+
+  // --- Friends (invite links; no user directory) ---
+  if (pathname.startsWith("/api/friends")) {
+    const previewMatch = pathname.match(/^\/api\/friends\/invite\/([^/]+)$/);
+    if (request.method === "GET" && previewMatch?.[1]) {
+      const token = decodeURIComponent(previewMatch[1]);
+      if (!normalizeInviteToken(token)) return errorResponse("Invalid invite", 400, origin, allowed);
+      const viewer = await getSessionUser(env.DB, getBearerToken(request));
+      const result = await previewInvite(env.DB, token, viewer);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    const userOrError = await requireUser(request, env, origin, allowed);
+    if (userOrError instanceof Response) return userOrError;
+    const user = userOrError;
+    const appOrigin = resolveShareOrigin(env.APP_ORIGIN, origin, allowed);
+
+    if (request.method === "POST" && pathname === "/api/friends/invite") {
+      const result = await getOrCreateInvite(env.DB, user, appOrigin);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    if (request.method === "POST" && pathname === "/api/friends/invite/rotate") {
+      const result = await rotateInvite(env.DB, user, appOrigin);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    if (request.method === "POST" && pathname === "/api/friends/accept") {
+      const body = (await readJson(request)) as { token?: string } | null;
+      if (typeof body?.token !== "string") return errorResponse("Missing token", 400, origin, allowed);
+      const result = await acceptInvite(env.DB, user, body.token);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    if (request.method === "GET" && pathname === "/api/friends") {
+      const friends = await listFriends(env.DB, user.id);
+      return jsonResponse({ friends }, 200, origin, allowed);
+    }
+
+    const memberMatch = pathname.match(/^\/api\/friends\/([^/]+)(?:\/(block))?$/);
+    if (memberMatch?.[1] && memberMatch[1] !== "invite" && memberMatch[1] !== "accept") {
+      const otherId = decodeURIComponent(memberMatch[1]);
+      if (request.method === "DELETE" && !memberMatch[2]) {
+        const result = await unfriend(env.DB, user.id, otherId);
+        if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+        return jsonResponse({ ok: true }, 200, origin, allowed);
+      }
+      if (request.method === "POST" && memberMatch[2] === "block") {
+        const result = await blockUser(env.DB, user, otherId);
+        if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+        return jsonResponse({ ok: true }, 200, origin, allowed);
+      }
     }
 
     return errorResponse("Not found", 404, origin, allowed);

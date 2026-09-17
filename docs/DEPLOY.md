@@ -43,6 +43,7 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
    npm run db:migrate:auth:remote --prefix api
    npm run db:migrate:runs:remote --prefix api
    npm run db:migrate:shares:remote --prefix api
+   npm run db:migrate:friends:remote --prefix api
    ```
 
 3. **Deploy the Worker** (from **repo root**):
@@ -98,7 +99,8 @@ npm install
 npm run db:migrate:local
 npm run db:migrate:auth:local   # if D1 was created before Phase 2a
 npm run db:migrate:runs:local   # if D1 was created before Phase 2.5
-npm run db:migrate:shares:local # if D1 was created before frozen mini-game shares
+npm run db:migrate:shares:local  # if D1 was created before frozen mini-game shares
+npm run db:migrate:friends:local # if D1 was created before the friends graph
 npm run dev
 ```
 
@@ -134,8 +136,15 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `GET` | `/api/stats/played` | Global play counts per `titleId` (auth) |
 | `GET` | `/api/stats/title?titleId=` | Per-title player leaders: games played + best correct (auth) |
 | `GET` | `/api/ops/catalog` | Owner-only star counts + play counts per title |
+| `POST` | `/api/friends/invite` | Create or reuse the current friend link (auth). `{ url, reused }` — `url` is null when a live hashed invite already exists |
+| `POST` | `/api/friends/invite/rotate` | Issue a new token; old URL dies (auth) |
+| `GET` | `/api/friends/invite/:token` | Preview `{ displayName }` only (no email). Auth optional (`isSelf` / `alreadyFriends` when signed in) |
+| `POST` | `/api/friends/accept` | Body `{ token }` — mutual friendship (auth) |
+| `GET` | `/api/friends` | `{ friends: [{ userId, displayName }] }` (auth). Never email. No `GET /api/users` |
+| `DELETE` | `/api/friends/:userId` | Unfriend (auth) |
+| `POST` | `/api/friends/:userId/block` | Unfriend + reject future accepts from that user (auth) |
 
-Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, and ops routes require auth.
+Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, and ops routes require auth (invite preview is public).
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 

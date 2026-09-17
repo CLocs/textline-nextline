@@ -394,7 +394,8 @@ Open questions (spike only — no pack UI yet):
 
 - [ ] **Loved / double-star quotes *(next)*** — pin a few golden lines so they show up in most mini-games. See [Later ideas](#loved--double-star-quotes-next).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
-- [ ] **Friends + question inbox** — send the current prompt to a friend; they play it from an inbox. See [Later ideas](#later-ideas-parked).
+- [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
+- [ ] **Question inbox** — send the current prompt to a friend; they play it from an inbox. Gated on the friends graph. See [Later ideas](#later-ideas-parked).
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
@@ -421,7 +422,7 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 |-------|------|------|--------|---------------------|------|
 | **L0 — Hygiene** | Secrets only in Wrangler/CI; no tokens in git/logs; `ALLOWED_ORIGINS` + CORS; OAuth JS origins match prod; confirm `/api/auth/config` doesn’t leak secrets | Config / ops | Hours | Low — revisit when adding origins or secrets | **Do soon** (checklist after each auth change) |
 | **L1 — Auth & session pass** | Session TTL / logout; Bearer required on runs/shares/me; Google JWT aud/iss/email_verified; magic-link rate limit; claim-anonymous can’t steal another user’s stars | App security review | ½–1 day | Low — re-check when touching `api/src/auth.ts` / shares | After 2a.2 settles; before inviting many friends |
-| **L2 — Abuse & data bounds** | Input validation already on stars/runs; add soft rate limits (stars, shares, magic links); don’t return other users’ emails except intentional share meta; D1 migration checklist so prod never drifts (e.g. missing `question_queue`) | Product + ops | 1–2 days | Medium — tune limits if spam appears | When share links go beyond a small circle |
+| **L2 — Abuse & data bounds** | Input validation already on stars/runs; add soft rate limits (stars, shares, magic links, friend rotate); don’t return other users’ emails (friend list is `userId` + `displayName` only); D1 migration checklist so prod never drifts (e.g. missing `question_queue`) | Product + ops | 1–2 days | Medium — tune limits if spam appears | When share links go beyond a small circle |
 | **L3 — Dependency / supply chain** | `npm audit` (root + `api/`); pin/update `jose` / wrangler; Dependabot or periodic manual bump | Supply chain | Hours, then recurring | Medium — monthly or on alert | Cheap; can run in parallel with L1 |
 | **L4 — Cursor Security Review** | Run the in-repo security-review agent on branch/PR diffs for auth/API changes | Process | Per PR (~minutes–hour) | Low if only on sensitive PRs | Habit on auth/API PRs — not every content PR |
 | **L5 — External / formal audit** | Paid pen-test or third-party review; threat model doc; bug bounty | Formal assurance | Weeks + $ | High — re-audit after big changes | Only if we hold sensitive PII at scale, go commercial, or enterprise users demand it |
@@ -479,7 +480,7 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, and **quote stills (2.6)** are in. **Loved / double-star quotes** is next. Friends + question inbox is the social loop after that (needs a friends graph). Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, and the **friends graph** (invite links) are in. **Loved / double-star quotes** is next. Question inbox is the social loop after that. Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
 
 ### Loved / double-star quotes *(next)*
 
@@ -495,13 +496,13 @@ Today’s share is an **anonymous mini-game URL** (10 frozen prompts). This is d
 
 Concept 2 stays the play-a-single-line engine; this is how it arrives.
 
-**Friends (gate).** Accounts exist; there is no graph. Need invite/accept (email or display name), a friends list, and block/remove. No public directory.
+**Friends (gate) ✅.** Mutual friendship via an unguessable **friend link**. Profile → Friends copies `#/friend/{token}`; they sign in and tap Accept. One live link per account; **Rotate** invalidates the old URL (tokens stored as `token_hash` only). List is `{ userId, displayName }` — never email. No `GET /api/users`, no search-by-name, no “who’s online.” Cannot friend yourself. **Remove** drops the pair; **Block** drops it and rejects future accepts from that person even with a new link. Cap ~50. Must be signed in (local Vite “Continue without signing in” has no graph).
 
-**Send.** On the play screen, “Send to a friend” for the current prompt (`titleId` + `promptLineIndex`). Recipient must already be a friend. Optional note later.
+**Send** *(later).* On the play screen, “Send to a friend” for the current prompt (`titleId` + `promptLineIndex`). Recipient must already be a friend. Optional note later.
 
-**Inbox.** Home (or profile) list of received textlines: who, which title, the line (and still if we have one). Open → one MCQ (`buildMcq`). Distractors may shuffle; the prompt is the payload.
+**Inbox** *(later).* Home (or profile) list of received textlines: who, which title, the line (and still if we have one). Open → one MCQ (`buildMcq`). Distractors may shuffle; the prompt is the payload.
 
-**Not this:** rooms (Phase 2), share-link mini-games (2a), loved-cover stills.
+**Not this:** rooms (Phase 2), share-link mini-games (2a), loved-cover stills, exposing emails on friend/share meta, Discord-style servers.
 
 ### Scene visuals *(leftover from 2.6)*
 
@@ -584,7 +585,8 @@ The similar-answer guard and this split complement each other: even after a spli
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | Staged; avoid one giant audit — see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
-| **Later — Friends + question inbox** | Friends graph; send the current prompt; inbox of received textlines | Directed one-question play, not an anonymous 10-pack |
+| **Friends graph** | Invite link, accept, list, remove, block; hashed tokens; no directory | ✅ Mutual add-me links from Profile → Friends |
+| **Later — Question inbox** | Send the current prompt; inbox of received textlines | Directed one-question play, not an anonymous 10-pack |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
@@ -675,7 +677,8 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Security ladder** *(later)* — Staged L0–L5 (hygiene → auth pass → deps → PR reviews; formal audit only if we scale). See [spike](#spike-security-ladder-not-a-full-audit-yet).
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
 - **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
-- **Friends + question inbox** *(later)* — send the current play prompt to a friend; they get an inbox of textlines. Needs a friends graph. See [Later ideas](#later-ideas-parked).
+- **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
+- **Question inbox** *(later)* — send the current play prompt to a friend; they get an inbox of textlines. Gated on the friends graph. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
