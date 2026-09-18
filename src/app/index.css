@@ -1020,6 +1020,61 @@ code {
   flex-shrink: 0;
 }
 
+.friends-group-card {
+  align-items: flex-start;
+}
+
+.friends-group-card .title-card-copy {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.friends-group-create {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.friends-group-create input,
+.friends-group-add select {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.45rem 0.65rem;
+  font: inherit;
+}
+
+.friends-group-members,
+.friends-group-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.friends-group-member {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.15rem 0.35rem 0.15rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
+.friends-group-remove {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 0.15rem;
+}
+
 .auth-name-error {
   margin: 0;
   width: 100%;
@@ -1242,6 +1297,8 @@ code {
   position: fixed;
   z-index: 20;
   width: min(18rem, calc(100vw - 2rem));
+  max-height: min(24rem, calc(100vh - 4rem));
+  overflow: auto;
   display: grid;
   gap: 0.55rem;
   padding: 0.75rem;
@@ -1249,6 +1306,12 @@ code {
   border-radius: 10px;
   background: var(--surface);
   box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+.curate-send-heading {
+  margin: 0.15rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
 .curate-send-friends {

@@ -24,7 +24,7 @@ This is the default game mode and the focus of Phase 1.
 Find a memorable quote, share it with friends, and let them guess the next line.
 
 - Search or browse transcripts for a good setup line.
-- Send a link to a one-off challenge — or send a Curate line to a friend’s [inbox](#friends--question-inbox).
+- Send a link to a one-off challenge — or send a Curate line to a friend or a [named group](#friends--question-inbox).
 - Friend plays the single question (or a short streak) without needing the full run context.
 
 Useful for async play and social sharing; builds on the same transcript + question engine from Concept 1.
@@ -396,6 +396,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
 - [x] **Question inbox** — Curate send icon → friend’s inbox (or copy a 1-line `#/play` link). See [Later ideas](#later-ideas-parked).
+- [x] **Named friend groups** — Profile → Friends send-lists; one Send fans out the same 1-line share. Attempt-chat stays later.
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
@@ -480,7 +481,7 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, and **question inbox** (Curate → one line) are in. **Loved / double-star quotes** is next. Line-splitting is the leftover “what counts as a line” work. Curator weighting reuses data we already store. UGC quotes and songs are new products.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, and **named friend groups** are in. **Loved / double-star quotes** is next. Line-splitting is the leftover “what counts as a line” work. Attempt-chat on a 1-line share is still parked.
 
 ### Loved / double-star quotes *(next)*
 
@@ -496,13 +497,15 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Friends (gate) ✅.** Mutual friendship via an unguessable **friend link**. Profile → Friends copies `#/friend/{token}`; they sign in and tap Accept. One live link per account; **Rotate** invalidates the old URL (tokens stored as `token_hash` only). List is `{ userId, displayName }` — never email. No `GET /api/users`, no search-by-name, no “who’s online.” Cannot friend yourself. **Remove** drops the pair; **Block** drops it and rejects future accepts from that person even with a new link. Cap ~50. Must be signed in (local Vite “Continue without signing in” has no graph).
 
-**Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later.
+**Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later.
 
-**Inbox ✅.** Home **From friends** rail and Profile → **Inbox**. Display name + title (still for that line if we have one). Open → existing shared play: one MCQ (`buildMcq`). Distractors may shuffle; the prompt is the payload.
+**Inbox ✅.** Home **From friends** rail and Profile → **Inbox**. Display name + title (still for that line if we have one). Open → existing shared play: one MCQ (`buildMcq`). Distractors may shuffle; the prompt is the payload. Group send is still one inbox row per person (same `shareId`).
+
+**Groups ✅.** Owner-only lists on Profile → Friends (e.g. “Movie night”). Members must already be **your** friends. Cap ~10 groups / ~20 members. Unfriend or block drops that person from **your** groups. No shared clubs, no directory, no emails. Local Vite shortcut has no groups.
 
 **Not this:** rooms (Phase 2), 10-pack mini-game shares (2a), loved-cover stills, exposing emails on friend/share meta, Discord-style servers.
 
-**Group send + attempt chat** *(later).* Send one line to several friends at once. The inbox item becomes a tiny shared round: person icons in a chat-like thread for who got it **first try / second try / third try**. Not rooms. Needs multi-select (or a group) plus attempt attribution on the existing 1-line share.
+**Attempt chat** *(later).* Person icons in a chat-like thread for who got that 1-line share **first try / second try / third try**. Not rooms. The same frozen share + many inbox rows is the hook.
 
 ### Scene visuals *(leftover from 2.6)*
 
@@ -587,6 +590,7 @@ The similar-answer guard and this split complement each other: even after a spli
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **Friends graph** | Invite link, accept, list, remove, block; hashed tokens; no directory | ✅ Mutual add-me links from Profile → Friends |
 | **Question inbox** | Curate send icon; friend inbox + optional 1-line `#/play` copy | ✅ Directed one-question play, not an anonymous 10-pack |
+| **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
@@ -678,8 +682,9 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
 - **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
 - **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
-- **Question inbox** — ✅ Curate + Play send icon (copy 1-line link or send to a friend). Home From friends + Profile Inbox. See [Later ideas](#later-ideas-parked).
-- **Group send + attempt chat** *(later)* — send one line to several friends; person icons for first/second/third try, in-line like a chat. See [Later ideas](#later-ideas-parked).
+- **Question inbox** — ✅ Curate + Play send icon (copy 1-line link or send to a friend or named group). Home From friends + Profile Inbox. See [Later ideas](#later-ideas-parked).
+- **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
+- **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share, in-line like a chat. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
