@@ -9,6 +9,7 @@ import { GAME_MODES, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
 import { FriendsPanel } from "./FriendsPanel";
 import { InboxPanel } from "./InboxPanel";
+import { useInboxUnfilledCount } from "../lib/inbox/useInboxUnfilledCount";
 
 type Props = {
   user: AuthUser;
@@ -141,6 +142,7 @@ function HistoryMatchRow({
 }
 
 export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, onPlayShare, onLogout }: Props) {
+  const unfilledInbox = useInboxUnfilledCount();
   const [runs, setRuns] = useState<StoredRun[]>([]);
   const [loading, setLoading] = useState(true);
   const [draft, setDraft] = useState(user.displayName ?? "");
@@ -224,6 +226,7 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, on
           onClick={() => onTab("inbox")}
         >
           Inbox
+          {unfilledInbox > 0 ? <span className="inbox-tab-badge">{unfilledInbox}</span> : null}
         </button>
       </div>
 
