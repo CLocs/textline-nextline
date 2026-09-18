@@ -93,7 +93,8 @@ export function sanitizeLoginReturn(raw: unknown): string | undefined {
     value === "profile" ||
     value === "profile/history" ||
     value === "profile/stats" ||
-    value === "profile/friends"
+    value === "profile/friends" ||
+    value === "profile/inbox"
   ) {
     return value;
   }

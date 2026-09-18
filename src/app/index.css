@@ -515,6 +515,13 @@ button {
   margin: 0;
 }
 
+.prompt-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
 .star-button {
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -1183,7 +1190,7 @@ code {
 
 .curate-item {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: 0.75rem;
   align-items: start;
   padding: 0.75rem;
@@ -1212,6 +1219,51 @@ code {
   border-color: var(--star-border);
   color: var(--star-ink);
   background: var(--star-bg);
+}
+
+.curate-send {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--surface);
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.curate-send:disabled {
+  opacity: 0.45;
+}
+
+.curate-send-menu {
+  position: fixed;
+  z-index: 20;
+  width: min(18rem, calc(100vw - 2rem));
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+.curate-send-friends {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.curate-send-friends li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .curate-line-index {

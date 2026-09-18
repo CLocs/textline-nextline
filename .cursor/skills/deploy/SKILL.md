@@ -27,4 +27,4 @@ Two targets. Merging to `main` deploys **both** via GitHub Actions. Do **not** d
 
 ## After Worker deploy
 
-Confirm a friends/auth route is **200**, not **404** (`POST /api/friends/invite` with a session, or `GET /api/auth/config`).
+Confirm a friends/auth/inbox route is **200**, not **404** (`POST /api/friends/invite` or `GET /api/inbox` with a session, or `GET /api/auth/config`).

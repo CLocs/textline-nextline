@@ -9,6 +9,9 @@ import {
   type ShowGroup,
 } from "../lib/content/libraryGroups";
 import { fetchMyRuns, fetchPlayedStats } from "../lib/runs/api";
+import { fetchInbox, type InboxItem } from "../lib/inbox/api";
+import { isAuthApiEnabled } from "../lib/auth/api";
+import { isLocalDevSession } from "../lib/auth/session";
 import {
   playCountMap,
   recentFromRuns,
@@ -22,6 +25,7 @@ import { PosterArt } from "./PosterArt";
 type Props = {
   entries: CatalogEntry[];
   onSelect: (entry: CatalogEntry) => void;
+  onPlayShare: (shareId: string) => void;
 };
 
 type View =
@@ -44,15 +48,18 @@ function TitleCard({
   meta,
   stillTitleId,
   stillTitle,
+  stillLineIndex,
   onClick,
 }: {
   name: string;
   meta: string;
   stillTitleId?: string;
   stillTitle?: string;
+  stillLineIndex?: number;
   onClick: () => void;
 }) {
-  const lineIndex = stillTitleId ? coverStillLineIndex(stillTitleId) : undefined;
+  const lineIndex =
+    stillLineIndex ?? (stillTitleId ? coverStillLineIndex(stillTitleId) : undefined);
   return (
     <button type="button" className="title-card" onClick={onClick}>
       {stillTitleId != null && lineIndex != null ? (
@@ -72,21 +79,27 @@ function TitleCard({
   );
 }
 
-export function LibraryScreen({ entries, onSelect }: Props) {
+export function LibraryScreen({ entries, onSelect, onPlayShare }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
   const [recent, setRecent] = useState<CatalogEntry[]>([]);
   const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
+  const [inbox, setInbox] = useState<InboxItem[]>([]);
   const [railsReady, setRailsReady] = useState(false);
   const groups = groupCatalogEntries(entries);
 
   useEffect(() => {
     let cancelled = false;
-    void Promise.all([fetchPlayedStats(), fetchMyRuns()]).then(([titles, runs]) => {
+    void Promise.all([
+      fetchPlayedStats(),
+      fetchMyRuns(),
+      isAuthApiEnabled() && !isLocalDevSession() ? fetchInbox() : Promise.resolve([] as InboxItem[]),
+    ]).then(([titles, runs, inboxResult]) => {
       if (cancelled) return;
       setCounts(playCountMap(titles));
       setRecent(recentFromRuns(runs, entries));
       setYours(yourTopPlayed(runs, entries));
+      setInbox(Array.isArray(inboxResult) ? inboxResult : []);
       setRailsReady(true);
     });
     return () => {
@@ -96,7 +109,7 @@ export function LibraryScreen({ entries, onSelect }: Props) {
 
   const playedMovies = useMemo(() => topPlayedMovies(entries, counts), [entries, counts]);
   const playedShows = useMemo(() => topPlayedShows(entries, counts), [entries, counts]);
-  const hasPersonalRails = recent.length > 0 || yours.length > 0;
+  const hasPersonalRails = recent.length > 0 || yours.length > 0 || inbox.length > 0;
   const hasCrowdRails = playedMovies.length > 0 || playedShows.length > 0;
 
   if (view.level === "season") {
@@ -258,6 +271,30 @@ export function LibraryScreen({ entries, onSelect }: Props) {
         </p>
       ) : (
         <div className="library-groups">
+          {inbox.length > 0 && (
+            <div className="library-group">
+              <h3 className="library-group-heading">From friends</h3>
+              <ul className="title-list">
+                {inbox.slice(0, 8).map((item) => {
+                  const entry = entries.find((row) => row.id === item.titleId);
+                  const name = entry ? catalogLabel(entry) : item.titleId;
+                  return (
+                    <li key={item.id}>
+                      <TitleCard
+                        name={name}
+                        meta={`From ${item.from.displayName}`}
+                        stillTitleId={item.titleId}
+                        stillTitle={entry?.title ?? item.titleId}
+                        stillLineIndex={item.lineIndex}
+                        onClick={() => onPlayShare(item.shareId)}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+
           {recent.length > 0 && (
             <div className="library-group">
               <h3 className="library-group-heading">Your recent</h3>

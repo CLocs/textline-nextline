@@ -570,7 +570,11 @@ export function App() {
       )}
 
       {showApp && screen === "library" && (
-        <LibraryScreen entries={entries} onSelect={handlePickEpisode} />
+        <LibraryScreen
+          entries={entries}
+          onSelect={handlePickEpisode}
+          onPlayShare={(shareId) => void beginSharedPlay(shareId)}
+        />
       )}
 
       {showApp && screen === "profile" && user && (
@@ -584,6 +588,7 @@ export function App() {
           }}
           onBack={handleBackToLibrary}
           onUpdated={setUser}
+          onPlayShare={(shareId) => void beginSharedPlay(shareId)}
         />
       )}
 

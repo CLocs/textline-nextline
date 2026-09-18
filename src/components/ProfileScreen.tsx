@@ -8,6 +8,7 @@ import { historyTitleLabel, summarizeRuns } from "../lib/content/playedRails";
 import { GAME_MODES, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
 import { FriendsPanel } from "./FriendsPanel";
+import { InboxPanel } from "./InboxPanel";
 
 type Props = {
   user: AuthUser;
@@ -16,6 +17,7 @@ type Props = {
   onTab: (tab: ProfileTab) => void;
   onBack: () => void;
   onUpdated: (user: AuthUser) => void;
+  onPlayShare: (shareId: string) => void;
 };
 
 function modeLabel(mode: GameMode): string {
@@ -137,7 +139,7 @@ function HistoryMatchRow({
   );
 }
 
-export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated }: Props) {
+export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, onPlayShare }: Props) {
   const [runs, setRuns] = useState<StoredRun[]>([]);
   const [loading, setLoading] = useState(true);
   const [draft, setDraft] = useState(user.displayName ?? "");
@@ -214,6 +216,13 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated }: 
           onClick={() => onTab("friends")}
         >
           Friends
+        </button>
+        <button
+          type="button"
+          className={tab === "inbox" ? "button primary" : "button ghost"}
+          onClick={() => onTab("inbox")}
+        >
+          Inbox
         </button>
       </div>
 
@@ -299,6 +308,7 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated }: 
         </>
       )}
       {tab === "friends" && <FriendsPanel user={user} />}
+      {tab === "inbox" && <InboxPanel entries={entries} onPlay={onPlayShare} />}
     </section>
   );
 }

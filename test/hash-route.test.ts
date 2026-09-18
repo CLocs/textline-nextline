@@ -36,6 +36,7 @@ describe("parseHash", () => {
     expect(parseHash("#/profile/history")).toEqual({ kind: "profile", tab: "history" });
     expect(parseHash("#/profile/stats")).toEqual({ kind: "profile", tab: "stats" });
     expect(parseHash("#/profile/friends")).toEqual({ kind: "profile", tab: "friends" });
+    expect(parseHash("#/profile/inbox")).toEqual({ kind: "profile", tab: "inbox" });
   });
 
   it("parses friend invite routes", () => {
@@ -55,6 +56,7 @@ describe("isSafeLoginReturn", () => {
     expect(isSafeLoginReturn("play/abc123")).toBe(true);
     expect(isSafeLoginReturn("profile/history")).toBe(true);
     expect(isSafeLoginReturn("profile/friends")).toBe(true);
+    expect(isSafeLoginReturn("profile/inbox")).toBe(true);
     expect(isSafeLoginReturn("friend/aabbccddeeff001122334455")).toBe(true);
     expect(isSafeLoginReturn("ops")).toBe(true);
     expect(isSafeLoginReturn("https://evil.example")).toBe(false);

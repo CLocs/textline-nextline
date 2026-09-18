@@ -10,6 +10,7 @@ import {
   isStarred,
   toggleStar,
 } from "../lib/stars/sync";
+import { LineSendControl } from "./LineSendControl";
 
 type Props = {
   entry: CatalogEntry;
@@ -143,6 +144,7 @@ export function CurateScreen({ entry, onBack }: Props) {
                   ))}
                   <p className="curate-text">{line.text}</p>
                 </div>
+                <LineSendControl titleId={entry.id} lineIndex={lineIndex} />
               </li>
             );
           })}
