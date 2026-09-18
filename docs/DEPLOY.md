@@ -192,7 +192,7 @@ Recipient must **sign in**. Setup **Share mini-game** still builds a quiz from t
 
 ## GitHub Actions (recommended)
 
-Every push to `main` or `init_202608` runs tests, builds, and deploys Pages.
+Every push to `main` or `init_202608` runs tests, builds, deploys the **Worker + D1 migrations** (`npm run deploy:api`), then deploys Pages. Worker first so new UI never ships against an old API.
 
 ### One-time setup
 
@@ -210,7 +210,7 @@ Every push to `main` or `init_202608` runs tests, builds, and deploys Pages.
 
 6. Push to `main` (or merge your branch). Check **Actions** for the deploy URL.
 
-Deploy the Worker separately with `npm run deploy:api` after updating `api/wrangler.toml` with your D1 `database_id`.
+Worker-only hotfix (no Pages rebuild): `npm run deploy:api` from repo root. First-time setup still needs `api/wrangler.toml` `database_id`.
 
 ### Custom domain (optional)
 
@@ -265,4 +265,5 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | Share play asks to sign in | Expected — Phase 2a requires login for attribution |
 | CORS errors | Check Worker `ALLOWED_ORIGINS` in `api/wrangler.toml` |
 | Friend's stars missing | Expected without Worker — deploy API and set `VITE_API_URL` |
-| `duplicate column name: question_queue` | Frozen-share migration (`004`) already applied. Deploy the Worker with `npm run deploy --prefix api` |
+| Friends tab **Not found** / `/api/friends/*` 404 | Worker not deployed. Merge to `main` (CI) or `npm run deploy:api` |
+| `duplicate column name: question_queue` | Frozen-share migration (`004`) already applied. Redeploy with `npm run deploy:api` |

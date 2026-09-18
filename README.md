@@ -810,7 +810,10 @@ Static hosting on **Cloudflare Pages** — no backend required. See [docs/DEPLOY
 
 ```bash
 npm run deploy          # local: build + wrangler pages deploy
+npm run deploy:api      # Worker + D1 (from repo root; do not skip this after API changes)
 ```
+
+Push to `main` deploys **both** via GitHub Actions.
 
 Or connect GitHub Actions (push to `main`) with `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets.
 
