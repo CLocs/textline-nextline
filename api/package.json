@@ -12,8 +12,8 @@
     "db:migrate:auth:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/002_auth_shares.sql",
     "db:migrate:runs:local": "wrangler d1 execute textline-stars --local --file=migrations/003_runs.sql",
     "db:migrate:runs:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/003_runs.sql",
-    "db:migrate:shares:local": "wrangler d1 execute textline-stars --local --file=migrations/004_frozen_shares.sql",
-    "db:migrate:shares:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/004_frozen_shares.sql",
+    "db:migrate:shares:local": "node scripts/ensure-share-columns.mjs --local",
+    "db:migrate:shares:remote": "node scripts/ensure-share-columns.mjs --remote",
     "db:migrate:friends:local": "wrangler d1 execute textline-stars --local --file=migrations/005_friends.sql",
     "db:migrate:friends:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/005_friends.sql"
   },

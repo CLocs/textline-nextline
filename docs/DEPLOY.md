@@ -266,4 +266,4 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | CORS errors | Check Worker `ALLOWED_ORIGINS` in `api/wrangler.toml` |
 | Friend's stars missing | Expected without Worker — deploy API and set `VITE_API_URL` |
 | Friends tab **Not found** / `/api/friends/*` 404 | Worker not deployed. Merge to `main` (CI) or `npm run deploy:api` |
-| `duplicate column name: question_queue` | Frozen-share migration (`004`) already applied. Redeploy with `npm run deploy:api` |
+| `duplicate column name: question_queue` | `004` ALTER already applied. `deploy:api` now skips existing columns via `ensure-share-columns.mjs` |
