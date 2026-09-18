@@ -547,7 +547,6 @@ export function App() {
               user={user}
               onProfile={handleOpenProfile}
               onCatalog={showCatalog ? handleOpenCatalog : undefined}
-              onLogout={() => void handleLogout()}
             />
           )}
         </div>
@@ -588,6 +587,7 @@ export function App() {
           onBack={handleBackToLibrary}
           onUpdated={setUser}
           onPlayShare={(shareId) => void beginSharedPlay(shareId)}
+          onLogout={() => void handleLogout()}
         />
       )}
 

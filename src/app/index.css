@@ -950,26 +950,11 @@ code {
   justify-content: flex-end;
 }
 
-.auth-user {
-  font-size: 0.9rem;
-  color: var(--muted);
-  max-width: 12rem;
+.auth-user-button {
+  max-width: 16rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.auth-user-button {
-  border: 1px dashed var(--line);
-  border-radius: 10px;
-  padding: 0.25rem 0.65rem;
-  background: var(--surface);
-  cursor: pointer;
-}
-
-.auth-user-button:hover {
-  border-color: var(--accent);
-  color: var(--ink);
 }
 
 .auth-name-form {
@@ -977,6 +962,10 @@ code {
   flex-wrap: wrap;
   gap: 0.4rem;
   align-items: center;
+}
+
+.profile-logout {
+  margin-top: 1.25rem;
 }
 
 .auth-name-form input {
