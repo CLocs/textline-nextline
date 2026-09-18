@@ -6,13 +6,16 @@ import { loadTitle, titlePath } from "../src/lib/content/load.js";
 import { sqlString } from "../src/lib/content/starsPush.js";
 import {
   ffmpegExtractArgs,
+  cueAnchorMs,
   loadStillsSyncFile,
   offsetMsForTitle,
   parseLineIndices,
   resolveCue,
+  seekModeForTitle,
   seekSeconds,
   stillFileName,
   timeScaleForTitle,
+  type CueSeek,
 } from "../src/lib/content/extractStills.js";
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -25,6 +28,7 @@ function usage(): never {
   npm run content:stills -- --title oceans-thirteen-2007 --from-stars --email you@example.com --remote
 
 Extract one JPEG per line at startMs (plus offset, times timeScale from stills-sync.json).
+Use --mid-cue when reverse-shots / VO make startMs land on the previous picture.
 
   --title       Catalog title id (required)
   --indices     Comma-separated line indices
@@ -35,6 +39,7 @@ Extract one JPEG per line at startMs (plus offset, times timeScale from stills-s
   --out         Output directory. Default: inbox/stills-preview
   --offset-ms   Override stills-sync offsetMs
   --time-scale  Override stills-sync timeScale (PAL 25fps is 0.96)
+  --mid-cue     Seek to (startMs+endMs)/2 instead of startMs
   --sync        Path to stills-sync.json
 `);
   process.exit(1);
@@ -50,6 +55,7 @@ function parseArgs(argv: string[]): {
   outDir: string;
   offsetMs: number | null;
   timeScale: number | null;
+  seek: CueSeek | null;
   syncPath: string;
 } {
   let titleId = "";
@@ -61,6 +67,7 @@ function parseArgs(argv: string[]): {
   let outDir = join(packageRoot, "inbox", "stills-preview");
   let offsetMs: number | null = null;
   let timeScale: number | null = null;
+  let seek: CueSeek | null = null;
   let syncPath = defaultSync;
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
@@ -73,6 +80,7 @@ function parseArgs(argv: string[]): {
     else if (arg === "--out") outDir = argv[++i] ?? outDir;
     else if (arg === "--offset-ms") offsetMs = Number(argv[++i] ?? "0");
     else if (arg === "--time-scale") timeScale = Number(argv[++i] ?? "1");
+    else if (arg === "--mid-cue") seek = "mid";
     else if (arg === "--sync") syncPath = argv[++i] ?? syncPath;
     else if (arg === "--help" || arg === "-h") usage();
   }
@@ -97,6 +105,7 @@ function parseArgs(argv: string[]): {
     outDir: resolve(outDir),
     offsetMs,
     timeScale,
+    seek,
     syncPath: resolve(syncPath),
   };
 }
@@ -182,6 +191,7 @@ function main(): void {
   const sync = loadStillsSyncFile(args.syncPath);
   const offsetMs = args.offsetMs ?? offsetMsForTitle(sync, args.titleId);
   const timeScale = args.timeScale ?? timeScaleForTitle(sync, args.titleId);
+  const seek = args.seek ?? seekModeForTitle(sync, args.titleId);
   const indices = args.fromStars
     ? fetchStarIndices(args.titleId, args.email, args.remote)
     : parseLineIndices(args.indicesRaw);
@@ -189,12 +199,12 @@ function main(): void {
   const destDir = join(args.outDir, args.titleId);
   mkdirSync(destDir, { recursive: true });
   console.log(
-    `${indices.length} still(s)  offsetMs=${offsetMs}  timeScale=${timeScale}  ${args.remote ? "remote" : "local"} D1=${args.fromStars}`,
+    `${indices.length} still(s)  offsetMs=${offsetMs}  timeScale=${timeScale}  seek=${seek}  ${args.remote ? "remote" : "local"} D1=${args.fromStars}`,
   );
 
   for (const lineIndex of indices) {
     const cue = resolveCue(title, lineIndex);
-    const seekSec = seekSeconds(cue.startMs, offsetMs, timeScale);
+    const seekSec = seekSeconds(cueAnchorMs(cue, seek), offsetMs, timeScale);
     const output = join(destDir, stillFileName(lineIndex));
     const ffmpegArgs = ffmpegExtractArgs({ input, seekSec, output });
     console.log(`line ${lineIndex}  ${seekSec.toFixed(3)}s  ${cue.text.slice(0, 60)}`);
