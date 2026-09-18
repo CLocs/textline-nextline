@@ -64,7 +64,7 @@ async function friendCount(db: D1Database, userId: string): Promise<number> {
   return Number(row?.n ?? 0);
 }
 
-async function areFriends(db: D1Database, a: string, b: string): Promise<boolean> {
+export async function areFriends(db: D1Database, a: string, b: string): Promise<boolean> {
   const { userA, userB } = canonicalPair(a, b);
   const row = await db
     .prepare(`SELECT user_a FROM friendships WHERE user_a = ? AND user_b = ?`)
@@ -73,7 +73,7 @@ async function areFriends(db: D1Database, a: string, b: string): Promise<boolean
   return Boolean(row);
 }
 
-async function isBlocked(db: D1Database, a: string, b: string): Promise<boolean> {
+export async function isBlocked(db: D1Database, a: string, b: string): Promise<boolean> {
   const row = await db
     .prepare(
       `SELECT blocker_user_id FROM friend_blocks

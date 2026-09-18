@@ -6,6 +6,7 @@ import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
 import { isStarred, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
 import { PosterArt } from "./PosterArt";
+import { LineSendControl } from "./LineSendControl";
 
 /** Hold the illuminated correct choice before advancing (Fun skip + any correct). */
 export const CORRECT_HOLD_MS = 2000;
@@ -137,15 +138,18 @@ export function PlayScreen({
                 </span>
               ) : null}
             </p>
-            <button
-              type="button"
-              className={`star-button${starred ? " starred" : ""}`}
-              aria-pressed={starred}
-              aria-label={starred ? "Unstar this line" : "Star this line for mini-games"}
-              onClick={handleToggleStar}
-            >
-              {starred ? "★ Starred" : "☆ Star"}
-            </button>
+            <div className="prompt-header-actions">
+              <button
+                type="button"
+                className={`star-button${starred ? " starred" : ""}`}
+                aria-pressed={starred}
+                aria-label={starred ? "Unstar this line" : "Star this line for mini-games"}
+                onClick={handleToggleStar}
+              >
+                {starred ? "★ Starred" : "☆ Star"}
+              </button>
+              <LineSendControl titleId={title.id} lineIndex={question.promptLineIndex} />
+            </div>
           </div>
           <blockquote className="prompt-text">
             {question.leadIn.map((line) => (

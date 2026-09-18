@@ -49,6 +49,7 @@ import {
   rotateInvite,
   unfriend,
 } from "./friends.js";
+import { copyLineShare, listInbox, sendLineToFriend } from "./inbox.js";
 
 function resolveShareOrigin(
   appOrigin: string | undefined,
@@ -277,6 +278,50 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
         return jsonResponse({ ok: true }, 200, origin, allowed);
       }
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
+  }
+
+  // --- Inbox (one-line sends; no user directory) ---
+  if (pathname.startsWith("/api/inbox")) {
+    const userOrError = await requireUser(request, env, origin, allowed);
+    if (userOrError instanceof Response) return userOrError;
+    const user = userOrError;
+    const appOrigin = resolveShareOrigin(env.APP_ORIGIN, origin, allowed);
+
+    if (request.method === "POST" && pathname === "/api/inbox/share") {
+      const body = (await readJson(request)) as { titleId?: string; lineIndex?: number } | null;
+      if (typeof body?.titleId !== "string") return errorResponse("Missing titleId", 400, origin, allowed);
+      const result = await copyLineShare(env.DB, user, appOrigin, body.titleId, body.lineIndex);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    if (request.method === "POST" && pathname === "/api/inbox") {
+      const body = (await readJson(request)) as {
+        titleId?: string;
+        lineIndex?: number;
+        toUserId?: string;
+      } | null;
+      if (typeof body?.titleId !== "string" || typeof body.toUserId !== "string") {
+        return errorResponse("Missing titleId or toUserId", 400, origin, allowed);
+      }
+      const result = await sendLineToFriend(
+        env.DB,
+        user,
+        appOrigin,
+        body.titleId,
+        body.lineIndex,
+        body.toUserId,
+      );
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    if (request.method === "GET" && pathname === "/api/inbox") {
+      const items = await listInbox(env.DB, user.id);
+      return jsonResponse({ items }, 200, origin, allowed);
     }
 
     return errorResponse("Not found", 404, origin, allowed);

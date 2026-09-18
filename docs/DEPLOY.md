@@ -44,6 +44,7 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
    npm run db:migrate:runs:remote --prefix api
    npm run db:migrate:shares:remote --prefix api
    npm run db:migrate:friends:remote --prefix api
+   npm run db:migrate:inbox:remote --prefix api
    ```
 
 3. **Deploy the Worker** (from **repo root**):
@@ -101,6 +102,7 @@ npm run db:migrate:auth:local   # if D1 was created before Phase 2a
 npm run db:migrate:runs:local   # if D1 was created before Phase 2.5
 npm run db:migrate:shares:local  # if D1 was created before frozen mini-game shares
 npm run db:migrate:friends:local # if D1 was created before the friends graph
+npm run db:migrate:inbox:local   # if D1 was created before the question inbox
 npm run dev
 ```
 
@@ -143,8 +145,11 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `GET` | `/api/friends` | `{ friends: [{ userId, displayName }] }` (auth). Never email. No `GET /api/users` |
 | `DELETE` | `/api/friends/:userId` | Unfriend (auth) |
 | `POST` | `/api/friends/:userId/block` | Unfriend + reject future accepts from that user (auth) |
+| `POST` | `/api/inbox/share` | Frozen 1-line play URL (auth). Body `{ titleId, lineIndex }` → `{ shareId, url }` |
+| `POST` | `/api/inbox` | Send that line to a friend (auth). Body `{ titleId, lineIndex, toUserId }` |
+| `GET` | `/api/inbox` | Received lines: `{ items: [{ shareId, titleId, lineIndex, from: { userId, displayName } }] }` — never email |
 
-Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, and ops routes require auth (invite preview is public).
+Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, inbox, and ops routes require auth (invite preview is public).
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 
@@ -192,7 +197,7 @@ Recipient must **sign in**. Setup **Share mini-game** still builds a quiz from t
 
 ## GitHub Actions (recommended)
 
-Every push to `main` or `init_202608` runs tests, builds, and deploys Pages.
+Every push to `main` or `init_202608` runs tests, builds, deploys the **Worker + D1 migrations** (`npm run deploy:api`), then deploys Pages. Worker first so new UI never ships against an old API.
 
 ### One-time setup
 
@@ -210,7 +215,7 @@ Every push to `main` or `init_202608` runs tests, builds, and deploys Pages.
 
 6. Push to `main` (or merge your branch). Check **Actions** for the deploy URL.
 
-Deploy the Worker separately with `npm run deploy:api` after updating `api/wrangler.toml` with your D1 `database_id`.
+Worker-only hotfix (no Pages rebuild): `npm run deploy:api` from repo root. First-time setup still needs `api/wrangler.toml` `database_id`.
 
 ### Custom domain (optional)
 
@@ -265,4 +270,5 @@ VITE_API_URL=https://your-worker.workers.dev npm run build
 | Share play asks to sign in | Expected — Phase 2a requires login for attribution |
 | CORS errors | Check Worker `ALLOWED_ORIGINS` in `api/wrangler.toml` |
 | Friend's stars missing | Expected without Worker — deploy API and set `VITE_API_URL` |
-| `duplicate column name: question_queue` | Frozen-share migration (`004`) already applied. Deploy the Worker with `npm run deploy --prefix api` |
+| Friends tab **Not found** / `/api/friends/*` 404 | Worker not deployed. Merge to `main` (CI) or `npm run deploy:api` |
+| `duplicate column name: question_queue` | `004` ALTER already applied. `deploy:api` now skips existing columns via `ensure-share-columns.mjs` |

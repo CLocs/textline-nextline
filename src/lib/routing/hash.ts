@@ -1,4 +1,4 @@
-export type ProfileTab = "account" | "history" | "stats" | "friends";
+export type ProfileTab = "account" | "history" | "stats" | "friends" | "inbox";
 
 export type HashRoute =
   | { kind: "home" }
@@ -19,7 +19,8 @@ export function isSafeLoginReturn(value: string | null | undefined): value is st
     value === "profile" ||
     value === "profile/history" ||
     value === "profile/stats" ||
-    value === "profile/friends"
+    value === "profile/friends" ||
+    value === "profile/inbox"
   ) {
     return true;
   }
@@ -66,6 +67,7 @@ function parseProfileTab(path: string): ProfileTab | null {
   if (path === "profile/history") return "history";
   if (path === "profile/stats") return "stats";
   if (path === "profile/friends") return "friends";
+  if (path === "profile/inbox") return "inbox";
   return null;
 }
 
