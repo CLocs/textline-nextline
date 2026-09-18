@@ -499,7 +499,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later.
 
-**Inbox ✅.** Home **From friends** rail and Profile → **Inbox**. Display name + title (still for that line if we have one). Open → existing shared play: one MCQ (`buildMcq`). Distractors may shuffle; the prompt is the payload. Group send is still one inbox row per person (same `shareId`).
+**Inbox ✅.** Home **From friends** and Profile → **Inbox** show a list of quiz cards (the line + choices). Guess right and the card compresses to textline + nextline. Group send is still one inbox row per person (same `shareId`).
 
 **Groups ✅.** Owner-only lists on Profile → Friends (e.g. “Movie night”). Members must already be **your** friends. Cap ~10 groups / ~20 members. Unfriend or block drops that person from **your** groups. No shared clubs, no directory, no emails. Local Vite shortcut has no groups.
 
@@ -682,7 +682,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
 - **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
 - **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
-- **Question inbox** — ✅ Curate + Play send icon (copy 1-line link or send to a friend or named group). Home From friends + Profile Inbox. See [Later ideas](#later-ideas-parked).
+- **Question inbox** — ✅ Curate + Play send icon; Inbox/Home are inline quiz cards that compress after a correct guess. See [Later ideas](#later-ideas-parked).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share, in-line like a chat. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).

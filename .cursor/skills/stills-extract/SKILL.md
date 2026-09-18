@@ -93,6 +93,7 @@ Paused so the user can eyeball each handful vs the quote, then **batch that titl
 | Goodfellas | 5 | all 5 | |
 | Lebowski | 1 | 412 | |
 | Fellowship | 137 | 80, 163, 969, 1200, 1514, 1759 | **Extended cut vs SRT** |
+| The Gentlemen | 122 | 65, 148, 552, 712, 1302, 1601 | file is `(2020).mkv` |
 
 **On disk, no live stars:** Gone in 60 Seconds, O Brother, 40 Year Old Virgin, BTTF (two MP4s → split). **Skip:** Pulp Fiction Part1/Part2; BTTF II/III files didn't match.
 

@@ -21,11 +21,11 @@ import {
 } from "../lib/content/playedRails";
 import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCover";
 import { PosterArt } from "./PosterArt";
+import { InboxLineCard } from "./InboxLineCard";
 
 type Props = {
   entries: CatalogEntry[];
   onSelect: (entry: CatalogEntry) => void;
-  onPlayShare: (shareId: string) => void;
 };
 
 type View =
@@ -79,7 +79,7 @@ function TitleCard({
   );
 }
 
-export function LibraryScreen({ entries, onSelect, onPlayShare }: Props) {
+export function LibraryScreen({ entries, onSelect }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
   const [recent, setRecent] = useState<CatalogEntry[]>([]);
@@ -274,23 +274,12 @@ export function LibraryScreen({ entries, onSelect, onPlayShare }: Props) {
           {inbox.length > 0 && (
             <div className="library-group">
               <h3 className="library-group-heading">From friends</h3>
-              <ul className="title-list">
-                {inbox.slice(0, 8).map((item) => {
-                  const entry = entries.find((row) => row.id === item.titleId);
-                  const name = entry ? catalogLabel(entry) : item.titleId;
-                  return (
-                    <li key={item.id}>
-                      <TitleCard
-                        name={name}
-                        meta={`From ${item.from.displayName}`}
-                        stillTitleId={item.titleId}
-                        stillTitle={entry?.title ?? item.titleId}
-                        stillLineIndex={item.lineIndex}
-                        onClick={() => onPlayShare(item.shareId)}
-                      />
-                    </li>
-                  );
-                })}
+              <ul className="inbox-line-list">
+                {inbox.slice(0, 8).map((item) => (
+                  <li key={item.id}>
+                    <InboxLineCard item={item} entries={entries} />
+                  </li>
+                ))}
               </ul>
             </div>
           )}

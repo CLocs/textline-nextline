@@ -104,5 +104,13 @@
     "fps": 23.976,
     "durationSec": 13691.78,
     "note": "EXTENDED 1080p HEVC ~3:48 vs theatrical ~2:58 — expect drift vs SRT. Skipped remux (5.4 GB). Handful of 6/137 at scale 1. Do not batch/R2 until eyeball."
+  },
+  "the-gentlemen-2019": {
+    "offsetMs": 0,
+    "encode": "mkv-h264-24fps-1080p",
+    "source": "G:/videos/movies/The Gentlemen (2020).mkv",
+    "fps": 24,
+    "durationSec": 6801.02,
+    "note": "Filename year 2020 vs catalog 2019. 1080p 24 fps ~1:53:21 (~4.9 GB). Skipped remux. Handful of 6/122 D1 stars at scale 1. Do not batch/R2 until eyeball."
   }
 }

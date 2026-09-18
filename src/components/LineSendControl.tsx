@@ -30,11 +30,15 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [sentPeople, setSentPeople] = useState<Set<string>>(new Set());
+  const [sentGroups, setSentGroups] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     setOpen(false);
     setMessage(null);
     setError(null);
+    setSentPeople(new Set());
+    setSentGroups(new Set());
   }, [titleId, lineIndex]);
 
   useEffect(() => {
@@ -104,10 +108,18 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
       setError(result.error);
       return;
     }
+    setSentGroups((current) => new Set(current).add(group.id));
+    if (result.skipped === 0) {
+      setSentPeople((current) => {
+        const next = new Set(current);
+        for (const member of group.members) next.add(member.userId);
+        return next;
+      });
+    }
     setMessage(
       result.skipped > 0
         ? `Sent to ${group.name} (${result.skipped} skipped).`
-        : `Sent to ${group.name}.`,
+        : null,
     );
   }
 
@@ -120,7 +132,8 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
       setError(result.error);
       return;
     }
-    setMessage(`Sent to ${friend.displayName}.`);
+    setSentPeople((current) => new Set(current).add(friend.userId));
+    setMessage(null);
   }
 
   return (
@@ -169,19 +182,22 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
                 <>
                   <p className="curate-send-heading">Groups</p>
                   <ul className="curate-send-friends">
-                    {groups.map((group) => (
+                    {groups.map((group) => {
+                      const sent = sentGroups.has(group.id);
+                      return (
                       <li key={group.id}>
                         <span>{group.name}</span>
                         <button
                           type="button"
                           className="button ghost"
-                          disabled={busy}
+                          disabled={busy || sent}
                           onClick={() => void handleSendGroup(group)}
                         >
-                          Send
+                          {sent ? "Sent" : "Send"}
                         </button>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                 </>
               ) : null}
@@ -189,19 +205,22 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
                 <>
                   {groups.length > 0 ? <p className="curate-send-heading">Friends</p> : null}
                   <ul className="curate-send-friends">
-                    {friends.map((friend) => (
+                    {friends.map((friend) => {
+                      const sent = sentPeople.has(friend.userId);
+                      return (
                       <li key={friend.userId}>
                         <span>{friend.displayName}</span>
                         <button
                           type="button"
                           className="button ghost"
-                          disabled={busy}
+                          disabled={busy || sent}
                           onClick={() => void handleSend(friend)}
                         >
-                          Send
+                          {sent ? "Sent" : "Send"}
                         </button>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                 </>
               ) : null}

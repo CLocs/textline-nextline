@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
 import type { CatalogEntry } from "../types/content";
-import { catalogLabel } from "../lib/content/libraryGroups";
 import { fetchInbox, type InboxItem } from "../lib/inbox/api";
 import { isAuthApiEnabled } from "../lib/auth/api";
 import { isLocalDevSession } from "../lib/auth/session";
-import { PosterArt } from "./PosterArt";
+import { InboxLineCard } from "./InboxLineCard";
 
 type Props = {
   entries: CatalogEntry[];
-  onPlay: (shareId: string) => void;
 };
 
-export function InboxPanel({ entries, onPlay }: Props) {
+export function InboxPanel({ entries }: Props) {
   const [items, setItems] = useState<InboxItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const apiReady = isAuthApiEnabled() && !isLocalDevSession();
-  const byId = new Map(entries.map((entry) => [entry.id, entry]));
 
   useEffect(() => {
     if (!apiReady) {
@@ -57,28 +54,12 @@ export function InboxPanel({ entries, onPlay }: Props) {
   }
 
   return (
-    <ul className="title-list">
-      {items.map((item) => {
-        const entry = byId.get(item.titleId);
-        const name = entry ? catalogLabel(entry) : item.titleId;
-        return (
-          <li key={item.id}>
-            <button type="button" className="title-card" onClick={() => onPlay(item.shareId)}>
-              <PosterArt
-                titleId={item.titleId}
-                title={entry?.title ?? item.titleId}
-                lineIndex={item.lineIndex}
-                fallback="hide"
-                className="title-card-still"
-              />
-              <span className="title-card-copy">
-                <span className="title-card-name">{name}</span>
-                <span className="title-card-meta">From {item.from.displayName}</span>
-              </span>
-            </button>
-          </li>
-        );
-      })}
+    <ul className="inbox-line-list">
+      {items.map((item) => (
+        <li key={item.id}>
+          <InboxLineCard item={item} entries={entries} />
+        </li>
+      ))}
     </ul>
   );
 }

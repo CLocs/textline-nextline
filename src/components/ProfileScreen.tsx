@@ -308,7 +308,7 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, on
         </>
       )}
       {tab === "friends" && <FriendsPanel user={user} />}
-      {tab === "inbox" && <InboxPanel entries={entries} onPlay={onPlayShare} />}
+      {tab === "inbox" && <InboxPanel entries={entries} />}
     </section>
   );
 }
