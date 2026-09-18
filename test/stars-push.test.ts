@@ -86,6 +86,7 @@ describe("loadProtectedTitleIds", () => {
       "the-wolf-of-wall-street-2013",
       "batman-begins-2005",
       "django-unchained-2012",
+      "the-gentlemen-2019",
     ]);
   });
 });

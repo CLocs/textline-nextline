@@ -338,6 +338,7 @@ Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live coun
 | Inglourious Basterds (2009) | 115 | 112 | 115, scale 1 | yes | yes |
 | Batman Begins (2005) | 79 | 0 | 79, scale 1 | yes | yes |
 | Django Unchained (2012) | 44 | 14 | 44, scale 1 | yes | yes |
+| The Gentlemen (2019) | 122 | 63 | 122, mid-cue | yes | yes |
 
 32 titles have live stars; a default `stars-push --remote` would only insert **Goodfellas (5)** and **Lebowski (1)** (new catalog, no live rows). Do not `--force` protected titles.
 
@@ -769,7 +770,7 @@ That also writes `content/readwise-highlights.json` (quotes matched to queue tit
 npm run content:stars-push -- --email you@example.com --remote --dry-run
 ```
 
-Inserts only titles you don't already have stars for (`ON CONFLICT DO NOTHING`). Skips [`content/stars-protected.json`](content/stars-protected.json) even with `--force`. Never `--force` a title you curated in the app (Wolf, Empire, Ocean's 13, Payback, Inglourious, Batman Begins, Django). `--title` limits to one film.
+Inserts only titles you don't already have stars for (`ON CONFLICT DO NOTHING`). Skips [`content/stars-protected.json`](content/stars-protected.json) even with `--force`. Never `--force` a title you curated in the app (Wolf, Empire, Ocean's 13, Payback, Inglourious, Batman Begins, Django, The Gentlemen). `--title` limits to one film.
 
 You must already have signed in on the live app once (so a `users` row exists). See [docs/DEPLOY.md](docs/DEPLOY.md) for how star sync works.
 
