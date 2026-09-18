@@ -2,7 +2,7 @@
 
 Scanned `G:/videos/movies` against the catalog. Split encodes (Part1/Part2) are listed together. Unmatched files are on disk but not in `content/titles/`.
 
-Updated: 2026-09-16
+Updated: 2026-09-18
 
 | Title | Catalog | Files |
 |-------|---------|-------|
@@ -19,9 +19,9 @@ Updated: 2026-09-16
 | Inglourious Basterds | [x] | Inglourious Basterds (2009).mkv |
 | Kill Bill Vol. 1 | [ ] missing | — |
 | Lock Stock and Two Smoking Barrels | [ ] missing | — |
-| Lord of the Rings The Return of the King | [ ] missing | — |
-| Lord Of The Rings The Two Towers | [ ] missing | — |
-| Matrix | [ ] missing | — |
+| Lord of the Rings The Return of the King | [x] | The Lord of the Rings The Return of the King Extended (2003).mkv |
+| Lord Of The Rings The Two Towers | [x] | The Lord of the Rings The Two Towers Extended (2002).mkv |
+| Matrix | [x] | The Matrix (1999).mp4 |
 | O Brother Where Art Thou | [x] | O Brother, Where Art Thou (2000).avi |
 | Oceans Eleven | [ ] missing | — |
 | Oceans Thirteen | [x] | Ocean's 13 (2007).avi |
@@ -38,7 +38,7 @@ Updated: 2026-09-16
 | The Empire Strikes Back | [x] | Star Wars Episode V - The Empire Strikes Back.avi |
 | The Gentlemen | [ ] missing | — |
 | The Grand Budapest Hotel | [ ] missing | — |
-| The Lord of the Rings - The Fellowship of the Ring | [x] | The.Lord.of.the.Rings.The.Fellowship.of.the.Ring.2001.EXTENDED.1080p.BluRay.10bit.HEVC.6CH.MkvCage.ws.mkv |
+| The Lord of the Rings - The Fellowship of the Ring | [x] | The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv |
 | The Man from UNCLE | [ ] missing | — |
 | The Ministry of Ungentlemanly Warfare | [ ] missing | — |
 | The Wolf of Wall Street | [x] | The Wolf of Wall Street [2013] 1080p BluRay AAC x264-tomcat12[ETRG].mp4 |
@@ -105,6 +105,7 @@ Updated: 2026-09-16
 | Star Wars Episode III - Revenge Of The Sith.avi |
 | Taken 2 (2012).mp4 |
 | Ted (2012).avi |
+| The Gentlemen (2020).mkv |
 | The Ghost Writer (2010).avi |
 | The Hunger Games (2012) DVDRip XviD-MAXSPEED www.torentz.3xforum.ro.avi |
 | The Illusionist (2006).avi |

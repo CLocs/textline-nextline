@@ -80,7 +80,7 @@ flowchart TD
 
 Paused so the user can eyeball each handful vs the quote, then **batch that title** and R2-push. Do not batch/R2 a title until they confirm it. Work title-by-title.
 
-**Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81), Django (scale 1, 44), Batman Begins (scale 1, 79), The Gentlemen (mid-cue, 122). Re-run Empire if early cues slip.
+**Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81), Django (scale 1, 44), Batman Begins (scale 1, 79), The Gentlemen (mid-cue, 122), **Matrix (scale 1, 103 D1 + handful extras → 106 on R2)**. Re-run Empire if early cues slip.
 
 **Handfuls waiting in** `inbox/stills-preview/{titleId}/` **at scale 1:**
 
