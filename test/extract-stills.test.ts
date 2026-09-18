@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 import {
+  cueAnchorMs,
   ffmpegExtractArgs,
   ffmpegRemuxArgs,
   mediaRemuxOutput,
   offsetMsForTitle,
   parseLineIndices,
   resolveCue,
+  seekModeForTitle,
   seekSeconds,
   stillFileName,
   timeScaleForTitle,
@@ -32,6 +34,25 @@ describe("seekSeconds", () => {
 
   it("applies PAL timeScale before offset", () => {
     expect(seekSeconds(6975136, 0, 24 / 25)).toBeCloseTo(6696.13056, 5);
+  });
+});
+
+describe("cueAnchorMs", () => {
+  it("defaults to startMs", () => {
+    expect(cueAnchorMs({ startMs: 400770, endMs: 403812 })).toBe(400770);
+  });
+
+  it("mid is halfway through the cue", () => {
+    expect(cueAnchorMs({ startMs: 400770, endMs: 403812 }, "mid")).toBe(402291);
+  });
+});
+
+describe("seekModeForTitle", () => {
+  it("defaults to start", () => {
+    expect(seekModeForTitle({}, "the-gentlemen-2019")).toBe("start");
+    expect(seekModeForTitle({ "the-gentlemen-2019": { offsetMs: 0, seek: "mid" } }, "the-gentlemen-2019")).toBe(
+      "mid",
+    );
   });
 });
 

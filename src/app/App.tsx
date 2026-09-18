@@ -573,7 +573,6 @@ export function App() {
         <LibraryScreen
           entries={entries}
           onSelect={handlePickEpisode}
-          onPlayShare={(shareId) => void beginSharedPlay(shareId)}
         />
       )}
 

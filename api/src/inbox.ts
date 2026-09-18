@@ -1,6 +1,7 @@
 import { createId } from "./crypto.js";
 import type { User } from "./auth.js";
 import { areFriends, isBlocked, isValidFriendUserId } from "./friends.js";
+import { listGroupMemberIds } from "./groups.js";
 import { createFrozenShare } from "./shares.js";
 import { isTitleId } from "./runs.js";
 
@@ -124,6 +125,69 @@ export async function sendLineToFriend(
     .run();
 
   return share;
+}
+
+export type GroupLineShare = LineShare & {
+  sent: number;
+  skipped: number;
+};
+
+export async function sendLineToGroup(
+  db: D1Database,
+  user: User,
+  appOrigin: string,
+  titleIdRaw: string,
+  lineIndexRaw: unknown,
+  groupIdRaw: string,
+): Promise<GroupLineShare | ActionError> {
+  const titleId = titleIdRaw.trim();
+  const lineIndex = parsePromptLineIndex(lineIndexRaw);
+  const groupId = groupIdRaw.trim();
+  if (!titleId || lineIndex == null) return { error: "Invalid line", status: 400 };
+  if (!isValidFriendUserId(groupId)) return { error: "Invalid group", status: 400 };
+
+  const group = await db
+    .prepare(`SELECT id FROM friend_groups WHERE id = ? AND owner_user_id = ?`)
+    .bind(groupId, user.id)
+    .first<{ id: string }>();
+  if (!group) return { error: "Group not found", status: 404 };
+
+  const memberIds = await listGroupMemberIds(db, groupId);
+  if (memberIds.length === 0) return { error: "This group has no members", status: 400 };
+
+  const eligible: string[] = [];
+  for (const toUserId of memberIds) {
+    if (!(await areFriends(db, user.id, toUserId))) continue;
+    if (await isBlocked(db, user.id, toUserId)) continue;
+    const countRow = await db
+      .prepare(`SELECT COUNT(*) AS n FROM line_inbox WHERE recipient_user_id = ?`)
+      .bind(toUserId)
+      .first<{ n: number }>();
+    if (Number(countRow?.n ?? 0) >= INBOX_CAP) continue;
+    eligible.push(toUserId);
+  }
+
+  const skipped = memberIds.length - eligible.length;
+  if (eligible.length === 0) {
+    return { error: "No one in this group can receive this", status: 400 };
+  }
+
+  const share = await issueShare(db, user, appOrigin, titleId, lineIndex);
+  if ("error" in share) return share;
+
+  const createdAt = new Date().toISOString();
+  for (const toUserId of eligible) {
+    await db
+      .prepare(
+        `INSERT OR IGNORE INTO line_inbox
+           (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      )
+      .bind(createId(), share.shareId, user.id, toUserId, titleId, lineIndex, createdAt)
+      .run();
+  }
+
+  return { ...share, sent: eligible.length, skipped };
 }
 
 export async function listInbox(db: D1Database, userId: string): Promise<InboxItem[]> {

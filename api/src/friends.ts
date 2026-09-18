@@ -245,6 +245,21 @@ export async function listFriends(db: D1Database, userId: string): Promise<Frien
   }));
 }
 
+async function dropFromOwnedGroups(
+  db: D1Database,
+  ownerUserId: string,
+  memberUserId: string,
+): Promise<void> {
+  await db
+    .prepare(
+      `DELETE FROM friend_group_members
+       WHERE user_id = ?
+         AND group_id IN (SELECT id FROM friend_groups WHERE owner_user_id = ?)`,
+    )
+    .bind(memberUserId, ownerUserId)
+    .run();
+}
+
 export async function unfriend(
   db: D1Database,
   userId: string,
@@ -258,6 +273,8 @@ export async function unfriend(
     .prepare(`DELETE FROM friendships WHERE user_a = ? AND user_b = ?`)
     .bind(userA, userB)
     .run();
+  await dropFromOwnedGroups(db, userId, otherId);
+  await dropFromOwnedGroups(db, otherId, userId);
   return { ok: true };
 }
 
@@ -274,6 +291,8 @@ export async function blockUser(
     .prepare(`DELETE FROM friendships WHERE user_a = ? AND user_b = ?`)
     .bind(userA, userB)
     .run();
+  await dropFromOwnedGroups(db, user.id, otherId);
+  await dropFromOwnedGroups(db, otherId, user.id);
   await db
     .prepare(
       `INSERT OR IGNORE INTO friend_blocks (blocker_user_id, blocked_user_id, created_at)

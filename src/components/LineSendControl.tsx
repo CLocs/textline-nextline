@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { isAuthApiEnabled } from "../lib/auth/api";
 import { isLocalDevSession } from "../lib/auth/session";
 import { fetchFriends, type FriendListItem } from "../lib/friends/api";
-import { copyLineShare, sendLineToFriend } from "../lib/inbox/api";
+import { fetchGroups, type FriendGroup } from "../lib/groups/api";
+import { copyLineShare, sendLineToFriend, sendLineToGroup } from "../lib/inbox/api";
 
 type Props = {
   titleId: string;
@@ -25,14 +26,19 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
   const [open, setOpen] = useState(false);
   const [anchor, setAnchor] = useState({ top: 0, right: 0 });
   const [friends, setFriends] = useState<FriendListItem[]>([]);
+  const [groups, setGroups] = useState<FriendGroup[]>([]);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [sentPeople, setSentPeople] = useState<Set<string>>(new Set());
+  const [sentGroups, setSentGroups] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     setOpen(false);
     setMessage(null);
     setError(null);
+    setSentPeople(new Set());
+    setSentGroups(new Set());
   }, [titleId, lineIndex]);
 
   useEffect(() => {
@@ -51,13 +57,18 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
   useEffect(() => {
     if (!open || !apiReady) return;
     let cancelled = false;
-    void fetchFriends().then((list) => {
+    void Promise.all([fetchFriends(), fetchGroups()]).then(([list, groupList]) => {
       if (cancelled) return;
       if ("error" in list) {
         setError(list.error);
         return;
       }
+      if ("error" in groupList) {
+        setError(groupList.error);
+        return;
+      }
       setFriends(list);
+      setGroups(groupList);
     });
     return () => {
       cancelled = true;
@@ -88,6 +99,30 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
     setMessage(ok ? "Copied one-line link." : result.url);
   }
 
+  async function handleSendGroup(group: FriendGroup) {
+    setBusy(true);
+    setError(null);
+    const result = await sendLineToGroup(titleId, lineIndex, group.id);
+    setBusy(false);
+    if ("error" in result) {
+      setError(result.error);
+      return;
+    }
+    setSentGroups((current) => new Set(current).add(group.id));
+    if (result.skipped === 0) {
+      setSentPeople((current) => {
+        const next = new Set(current);
+        for (const member of group.members) next.add(member.userId);
+        return next;
+      });
+    }
+    setMessage(
+      result.skipped > 0
+        ? `Sent to ${group.name} (${result.skipped} skipped).`
+        : null,
+    );
+  }
+
   async function handleSend(friend: FriendListItem) {
     setBusy(true);
     setError(null);
@@ -97,7 +132,8 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
       setError(result.error);
       return;
     }
-    setMessage(`Sent to ${friend.displayName}.`);
+    setSentPeople((current) => new Set(current).add(friend.userId));
+    setMessage(null);
   }
 
   return (
@@ -136,26 +172,59 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
           >
             Copy link
           </button>
-          {friends.length === 0 ? (
+          {friends.length === 0 && groups.length === 0 ? (
             <p className="muted">
               No friends yet. Add someone in Profile → Friends, or copy the link.
             </p>
           ) : (
-            <ul className="curate-send-friends">
-              {friends.map((friend) => (
-                <li key={friend.userId}>
-                  <span>{friend.displayName}</span>
-                  <button
-                    type="button"
-                    className="button ghost"
-                    disabled={busy}
-                    onClick={() => void handleSend(friend)}
-                  >
-                    Send
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <>
+              {groups.length > 0 ? (
+                <>
+                  <p className="curate-send-heading">Groups</p>
+                  <ul className="curate-send-friends">
+                    {groups.map((group) => {
+                      const sent = sentGroups.has(group.id);
+                      return (
+                      <li key={group.id}>
+                        <span>{group.name}</span>
+                        <button
+                          type="button"
+                          className="button ghost"
+                          disabled={busy || sent}
+                          onClick={() => void handleSendGroup(group)}
+                        >
+                          {sent ? "Sent" : "Send"}
+                        </button>
+                      </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              ) : null}
+              {friends.length > 0 ? (
+                <>
+                  {groups.length > 0 ? <p className="curate-send-heading">Friends</p> : null}
+                  <ul className="curate-send-friends">
+                    {friends.map((friend) => {
+                      const sent = sentPeople.has(friend.userId);
+                      return (
+                      <li key={friend.userId}>
+                        <span>{friend.displayName}</span>
+                        <button
+                          type="button"
+                          className="button ghost"
+                          disabled={busy || sent}
+                          onClick={() => void handleSend(friend)}
+                        >
+                          {sent ? "Sent" : "Send"}
+                        </button>
+                      </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              ) : null}
+            </>
           )}
           {message ? <p className="muted">{message}</p> : null}
           {error ? (

@@ -33,6 +33,11 @@ export type LineShare = {
   url: string;
 };
 
+export type GroupLineShare = LineShare & {
+  sent: number;
+  skipped: number;
+};
+
 export type InboxItem = {
   id: string;
   shareId: string;
@@ -69,6 +74,21 @@ export async function sendLineToFriend(
   if (response.status === 401) return { error: "Please sign in first" };
   if (!response.ok) return { error: await readError(response, "Could not send line") };
   return (await response.json()) as LineShare;
+}
+
+export async function sendLineToGroup(
+  titleId: string,
+  lineIndex: number,
+  groupId: string,
+): Promise<GroupLineShare | { error: string }> {
+  const response = await inboxFetch("/api/inbox", {
+    method: "POST",
+    body: JSON.stringify({ titleId, lineIndex, groupId }),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (response.status === 401) return { error: "Please sign in first" };
+  if (!response.ok) return { error: await readError(response, "Could not send line") };
+  return (await response.json()) as GroupLineShare;
 }
 
 export async function fetchInbox(): Promise<InboxItem[] | { error: string }> {

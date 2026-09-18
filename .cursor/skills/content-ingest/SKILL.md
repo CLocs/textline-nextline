@@ -47,7 +47,7 @@ Run this whole pipeline in one go unless the user asks to stop after a step.
       ```bash
       npm run content:stars-push -- --email dascolin@gmail.com --remote
       ```
-   Skips protected ids even with `--force`. Also skips any title that already has live stars. Current lock: Wolf, Empire, Ocean's 13, Payback, Inglourious, Batman Begins, Django.
+   Skips protected ids even with `--force`. Also skips any title that already has live stars. Current lock: Wolf, Empire, Ocean's 13, Payback, Inglourious, Batman Begins, Django, The Gentlemen.
 
 7. **Report.** New title ids, cue counts, Readwise hits, D1 skip vs insert, and that **Pages deploy** is still required for new movies to appear on the site. Transcripts live in git; D1 is stars only.
 

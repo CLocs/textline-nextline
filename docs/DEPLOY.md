@@ -45,6 +45,7 @@ Stars persist across browsers when the Pages build includes `VITE_API_URL` point
    npm run db:migrate:shares:remote --prefix api
    npm run db:migrate:friends:remote --prefix api
    npm run db:migrate:inbox:remote --prefix api
+   npm run db:migrate:groups:remote --prefix api
    ```
 
 3. **Deploy the Worker** (from **repo root**):
@@ -103,6 +104,7 @@ npm run db:migrate:runs:local   # if D1 was created before Phase 2.5
 npm run db:migrate:shares:local  # if D1 was created before frozen mini-game shares
 npm run db:migrate:friends:local # if D1 was created before the friends graph
 npm run db:migrate:inbox:local   # if D1 was created before the question inbox
+npm run db:migrate:groups:local  # if D1 was created before named friend groups
 npm run dev
 ```
 
@@ -146,10 +148,15 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `DELETE` | `/api/friends/:userId` | Unfriend (auth) |
 | `POST` | `/api/friends/:userId/block` | Unfriend + reject future accepts from that user (auth) |
 | `POST` | `/api/inbox/share` | Frozen 1-line play URL (auth). Body `{ titleId, lineIndex }` → `{ shareId, url }` |
-| `POST` | `/api/inbox` | Send that line to a friend (auth). Body `{ titleId, lineIndex, toUserId }` |
+| `POST` | `/api/inbox` | Send that line to a friend or group (auth). Body `{ titleId, lineIndex, toUserId }` or `{ titleId, lineIndex, groupId }` |
 | `GET` | `/api/inbox` | Received lines: `{ items: [{ shareId, titleId, lineIndex, from: { userId, displayName } }] }` — never email |
+| `GET` | `/api/groups` | Owner’s send-lists: `{ groups: [{ id, name, members: [{ userId, displayName }] }] }` (auth). Never email |
+| `POST` | `/api/groups` | Create `{ name }` (auth). Cap ~10 |
+| `POST` | `/api/groups/:id/members` | Body `{ userId }` — must already be a friend (auth) |
+| `DELETE` | `/api/groups/:id/members/:userId` | Remove a member (auth) |
+| `DELETE` | `/api/groups/:id` | Delete the list (auth) |
 
-Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, inbox, and ops routes require auth (invite preview is public).
+Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, and ops routes require auth (invite preview is public).
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 

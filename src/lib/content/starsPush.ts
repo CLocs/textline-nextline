@@ -22,6 +22,7 @@ export const DEFAULT_PROTECTED_TITLE_IDS = [
   "the-wolf-of-wall-street-2013",
   "batman-begins-2005",
   "django-unchained-2012",
+  "the-gentlemen-2019",
 ];
 
 export function loadProtectedTitleIds(path: string): string[] {

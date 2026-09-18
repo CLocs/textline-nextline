@@ -80,6 +80,8 @@ function createFriendsDb() {
                   (row) => row.user_a === userA && row.user_b === userB,
                 );
                 if (index !== -1) friendships.splice(index, 1);
+              } else if (sql.includes("DELETE FROM friend_group_members")) {
+                // Groups tables are optional in this mock; unfriend/block always attempt cleanup.
               } else if (sql.includes("INSERT OR IGNORE INTO friend_blocks")) {
                 const [blocker, blocked, createdAt] = args as [string, string, string];
                 if (

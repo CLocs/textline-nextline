@@ -49,7 +49,14 @@ import {
   rotateInvite,
   unfriend,
 } from "./friends.js";
-import { copyLineShare, listInbox, sendLineToFriend } from "./inbox.js";
+import { copyLineShare, listInbox, sendLineToFriend, sendLineToGroup } from "./inbox.js";
+import {
+  addGroupMember,
+  createGroup,
+  deleteGroup,
+  listGroups,
+  removeGroupMember,
+} from "./groups.js";
 
 function resolveShareOrigin(
   appOrigin: string | undefined,
@@ -283,6 +290,56 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     return errorResponse("Not found", 404, origin, allowed);
   }
 
+  // --- Groups (owner-only send-lists of existing friends) ---
+  if (pathname.startsWith("/api/groups")) {
+    const userOrError = await requireUser(request, env, origin, allowed);
+    if (userOrError instanceof Response) return userOrError;
+    const user = userOrError;
+
+    if (request.method === "GET" && pathname === "/api/groups") {
+      const groups = await listGroups(env.DB, user.id);
+      return jsonResponse({ groups }, 200, origin, allowed);
+    }
+
+    if (request.method === "POST" && pathname === "/api/groups") {
+      const body = (await readJson(request)) as { name?: string } | null;
+      if (typeof body?.name !== "string") return errorResponse("Missing name", 400, origin, allowed);
+      const result = await createGroup(env.DB, user, body.name);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    const memberDeleteMatch = pathname.match(/^\/api\/groups\/([^/]+)\/members\/([^/]+)$/);
+    if (memberDeleteMatch?.[1] && memberDeleteMatch[2] && request.method === "DELETE") {
+      const result = await removeGroupMember(
+        env.DB,
+        user,
+        decodeURIComponent(memberDeleteMatch[1]),
+        decodeURIComponent(memberDeleteMatch[2]),
+      );
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    const memberAddMatch = pathname.match(/^\/api\/groups\/([^/]+)\/members$/);
+    if (memberAddMatch?.[1] && request.method === "POST") {
+      const body = (await readJson(request)) as { userId?: string } | null;
+      if (typeof body?.userId !== "string") return errorResponse("Missing userId", 400, origin, allowed);
+      const result = await addGroupMember(env.DB, user, decodeURIComponent(memberAddMatch[1]), body.userId);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    const groupMatch = pathname.match(/^\/api\/groups\/([^/]+)$/);
+    if (groupMatch?.[1] && request.method === "DELETE") {
+      const result = await deleteGroup(env.DB, user, decodeURIComponent(groupMatch[1]));
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
+  }
+
   // --- Inbox (one-line sends; no user directory) ---
   if (pathname.startsWith("/api/inbox")) {
     const userOrError = await requireUser(request, env, origin, allowed);
@@ -303,9 +360,28 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         titleId?: string;
         lineIndex?: number;
         toUserId?: string;
+        groupId?: string;
       } | null;
-      if (typeof body?.titleId !== "string" || typeof body.toUserId !== "string") {
-        return errorResponse("Missing titleId or toUserId", 400, origin, allowed);
+      if (typeof body?.titleId !== "string") {
+        return errorResponse("Missing titleId", 400, origin, allowed);
+      }
+      if (typeof body.groupId === "string" && typeof body.toUserId === "string") {
+        return errorResponse("Send to a group or a friend, not both", 400, origin, allowed);
+      }
+      if (typeof body.groupId === "string") {
+        const result = await sendLineToGroup(
+          env.DB,
+          user,
+          appOrigin,
+          body.titleId,
+          body.lineIndex,
+          body.groupId,
+        );
+        if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+        return jsonResponse(result, 200, origin, allowed);
+      }
+      if (typeof body.toUserId !== "string") {
+        return errorResponse("Missing toUserId or groupId", 400, origin, allowed);
       }
       const result = await sendLineToFriend(
         env.DB,

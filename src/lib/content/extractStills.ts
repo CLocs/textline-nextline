@@ -2,9 +2,13 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Line, Title } from "../../types/content.js";
 
+/** `mid` grabs the middle of the subtitle cue (helps Ritchie reverse-shot / VO). */
+export type CueSeek = "start" | "mid";
+
 export type StillsSyncEntry = {
   offsetMs: number;
   timeScale?: number;
+  seek?: CueSeek;
   encode?: string;
   source?: string;
   fps?: number;
@@ -40,6 +44,15 @@ export function seekSeconds(startMs: number, offsetMs: number, timeScale = 1): n
     throw new Error(`Invalid seek: startMs=${startMs} offsetMs=${offsetMs} timeScale=${timeScale}`);
   }
   return ms / 1000;
+}
+
+export function cueAnchorMs(cue: Pick<Line, "startMs" | "endMs">, seek: CueSeek = "start"): number {
+  if (seek === "mid") return (cue.startMs + cue.endMs) / 2;
+  return cue.startMs;
+}
+
+export function seekModeForTitle(sync: StillsSyncFile, titleId: string): CueSeek {
+  return sync[titleId]?.seek === "mid" ? "mid" : "start";
 }
 
 export function resolveCue(title: Title, lineIndex: number): Line {
