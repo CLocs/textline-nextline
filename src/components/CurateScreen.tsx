@@ -250,34 +250,41 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                 key={lineIndex}
                 className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${isSelected ? " selected" : ""}`}
               >
-                <label className="curate-select">
-                  <input
-                    type="checkbox"
-                    checked={isSelected}
-                    onChange={() => togglePackSelect(lineIndex)}
-                    aria-label={`Select line ${lineIndex + 1} for parallel pack`}
-                  />
-                </label>
-                <button
-                  type="button"
-                  className={`curate-star${starred ? " starred" : ""}`}
-                  aria-pressed={starred}
-                  aria-label={starred ? "Unstar line" : "Star line"}
-                  onClick={() => void handleToggle(lineIndex, line.text)}
-                >
-                  {starred ? "★" : "☆"}
-                </button>
-                {starred && (
+                <div className="curate-controls">
+                  <label className="curate-select">
+                    <input
+                      type="checkbox"
+                      checked={isSelected}
+                      onChange={() => togglePackSelect(lineIndex)}
+                      aria-label={`Select line ${lineIndex + 1} for parallel pack`}
+                    />
+                  </label>
                   <button
                     type="button"
-                    className={`curate-love${loved ? " loved" : ""}`}
+                    className={`curate-star${starred ? " starred" : ""}`}
+                    aria-pressed={starred}
+                    aria-label={starred ? "Unstar line" : "Star line"}
+                    onClick={() => void handleToggle(lineIndex, line.text)}
+                  >
+                    {starred ? "★" : "☆"}
+                  </button>
+                  <button
+                    type="button"
+                    className={`curate-love${loved ? " loved" : ""}${starred ? "" : " is-placeholder"}`}
                     aria-pressed={loved}
-                    aria-label={loved ? "Unlove line" : "Love line for mini-games"}
+                    aria-label={
+                      starred
+                        ? loved
+                          ? "Unlove line"
+                          : "Love line for mini-games"
+                        : "Star a line before loving it"
+                    }
+                    disabled={!starred}
                     onClick={() => void handleLove(lineIndex)}
                   >
                     {loved ? "♥" : "♡"}
                   </button>
-                )}
+                </div>
                 <div className="curate-copy">
                   <span className="curate-line-index">Line {lineIndex + 1}</span>
                   {leadInForPrompt(title, lineIndex).map((lead) => (

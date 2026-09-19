@@ -39,7 +39,7 @@ export function SetupScreen({
   onBack,
 }: Props) {
   const [mode, setMode] = useState<GameMode>("fun");
-  const [length, setLength] = useState<GameLength>("full");
+  const [length, setLength] = useState<GameLength>("mini");
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
   const [crowdPopular, setCrowdPopular] = useState<number[]>([]);
   const [titleStats, setTitleStats] = useState<TitleStats | null>(null);
