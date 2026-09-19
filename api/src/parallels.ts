@@ -3,11 +3,11 @@ import type { User } from "./auth.js";
 import { createFrozenShare } from "./shares.js";
 
 const MIN_LINES = 3;
-/** Long enough for a full scene beat (e.g. Wolf McConaughey/Leo). */
-const MAX_LINES = 64;
+/** Room for a full scene (e.g. Wolf lunch), not just a short beat. */
+const MAX_LINES = 500;
 const MAX_NAME = 80;
 const MAX_NOTE = 140;
-const MAX_CONN_LINES = 64;
+const MAX_CONN_LINES = 500;
 
 export type AnalogyPack = {
   id: string;

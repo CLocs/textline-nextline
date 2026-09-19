@@ -156,7 +156,7 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/groups/:id/members` | Body `{ userId }` — must already be a friend (auth) |
 | `DELETE` | `/api/groups/:id/members/:userId` | Remove a member (auth) |
 | `DELETE` | `/api/groups/:id` | Delete the list (auth) |
-| `POST` | `/api/parallels` | Create quote-parallel pack (auth). Body `{ titleId, lineIndices (3–64), name }` → `{ pack, url, playUrl }` (frozen share under the hood) |
+| `POST` | `/api/parallels` | Create quote-parallel pack (auth). Body `{ titleId, lineIndices (3–500), name }` → `{ pack, url, playUrl }` (frozen share under the hood) |
 | `GET` | `/api/parallels/mine` | Owner’s packs (auth) |
 | `GET` | `/api/parallels/:id` | Pack + ranked catalog connections (public read; `viewerVoted` when authed) |
 | `POST` | `/api/parallels/:id/connections` | Propose catalog parallel (auth). Body `{ titleId, lineIndices, note? }` |

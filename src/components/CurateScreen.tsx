@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { getLine } from "../lib/content/lines";
@@ -13,11 +13,15 @@ import {
 import { MAX_LOVED_PER_TITLE } from "../lib/stars/store";
 import { isLoggedIn } from "../lib/auth/session";
 import { createParallelPack } from "../lib/parallels/api";
+import { offsetsForSizes, VIRTUAL_LIST_GAP, visibleWindow } from "../lib/ui/virtualWindow";
 import { LineSendControl } from "./LineSendControl";
 
 const PACK_MIN = 3;
-/** Long enough for a full scene beat (e.g. Wolf McConaughey/Leo). */
-const PACK_MAX = 64;
+/** Room for a full scene (e.g. Wolf lunch), not just a short beat. */
+const PACK_MAX = 500;
+const ROW_ESTIMATE = 92;
+const ROW_ESTIMATE_WITH_PREV = 148;
+const ROW_OVERSCAN = 10;
 
 type Props = {
   entry: CatalogEntry;
@@ -80,6 +84,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   }, [entry.id, revision]);
 
   const selectedSet = useMemo(() => new Set(selected), [selected]);
+  const listRef = useRef<HTMLDivElement>(null);
+  const sizeMapRef = useRef(new Map<number, number>());
+  const sizeFlushRef = useRef<number | null>(null);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(640);
+  const [sizeRev, setSizeRev] = useState(0);
 
   const filteredIndices = useMemo(() => {
     if (!title) return [];
@@ -95,6 +105,63 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
       );
     });
   }, [title, promptIndices, starredOnly, query, starSets]);
+
+  const estimateSize = showPreviousLines ? ROW_ESTIMATE_WITH_PREV : ROW_ESTIMATE;
+
+  const scheduleSizeFlush = useCallback(() => {
+    if (sizeFlushRef.current != null) return;
+    sizeFlushRef.current = requestAnimationFrame(() => {
+      sizeFlushRef.current = null;
+      setSizeRev((value) => value + 1);
+    });
+  }, []);
+
+  const handleRowHeight = useCallback(
+    (lineIndex: number, height: number) => {
+      if (sizeMapRef.current.get(lineIndex) === height) return;
+      sizeMapRef.current.set(lineIndex, height);
+      scheduleSizeFlush();
+    },
+    [scheduleSizeFlush],
+  );
+
+  useEffect(() => {
+    sizeMapRef.current.clear();
+    setSizeRev((value) => value + 1);
+  }, [showPreviousLines, entry.id]);
+
+  useEffect(() => {
+    const el = listRef.current;
+    if (el) el.scrollTop = 0;
+    setScrollTop(0);
+  }, [query, starredOnly, entry.id]);
+
+  useEffect(() => {
+    return () => {
+      if (sizeFlushRef.current != null) cancelAnimationFrame(sizeFlushRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) return;
+    const update = () => setViewportHeight(el.clientHeight);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [filteredIndices.length]);
+
+  const offsets = useMemo(() => {
+    const sizes = filteredIndices.map(
+      (lineIndex) => sizeMapRef.current.get(lineIndex) ?? estimateSize,
+    );
+    return offsetsForSizes(sizes, VIRTUAL_LIST_GAP);
+  }, [filteredIndices, estimateSize, sizeRev]);
+
+  const totalSize = offsets[filteredIndices.length] ?? 0;
+  const windowRange = visibleWindow(offsets, scrollTop, viewportHeight, ROW_OVERSCAN);
+  const visibleIndices = filteredIndices.slice(windowRange.start, windowRange.end);
 
   async function handleToggle(lineIndex: number, text: string) {
     await toggleStar(entry.id, lineIndex, text);
@@ -284,85 +351,144 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
           {starredOnly || query ? "No lines match your filters." : "No quiz lines in this episode."}
         </p>
       ) : (
-        <ol className="curate-list">
-          {filteredIndices.map((lineIndex) => {
-            const line = getLine(title, lineIndex);
-            if (!line) return null;
+        <div
+          className="curate-list"
+          role="list"
+          ref={listRef}
+          onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)}
+        >
+          <div className="curate-list-canvas" style={{ height: totalSize }}>
+            {visibleIndices.map((lineIndex, visibleOffset) => {
+              const line = getLine(title, lineIndex);
+              if (!line) return null;
 
-            const starred = starSets.starred.has(lineIndex);
-            const loved = starSets.loved.has(lineIndex);
-            const isSelected = selectedSet.has(lineIndex);
+              const starred = starSets.starred.has(lineIndex);
+              const loved = starSets.loved.has(lineIndex);
+              const isSelected = selectedSet.has(lineIndex);
+              const rowIndex = windowRange.start + visibleOffset;
 
-            return (
-              <li
-                key={lineIndex}
-                className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${isSelected ? " selected" : ""}`}
-              >
-                <div className="curate-controls">
-                  <label className="curate-select">
-                    <input
-                      type="checkbox"
-                      checked={isSelected}
-                      onClick={(event) => {
-                        if (!event.shiftKey) return;
-                        // Shift+click: take over so the browser doesn't only toggle this box.
-                        event.preventDefault();
-                        skipPackChangeRef.current = true;
-                        handlePackSelect(lineIndex, true);
-                      }}
-                      onChange={() => {
-                        if (skipPackChangeRef.current) {
-                          skipPackChangeRef.current = false;
-                          return;
-                        }
-                        handlePackSelect(lineIndex, false);
-                      }}
-                      aria-label={`Select line ${lineIndex + 1} for parallel pack`}
-                    />
-                  </label>
-                  <button
-                    type="button"
-                    className={`curate-star${starred ? " starred" : ""}`}
-                    aria-pressed={starred}
-                    aria-label={starred ? "Unstar line" : "Star line"}
-                    onClick={() => void handleToggle(lineIndex, line.text)}
-                  >
-                    {starred ? "★" : "☆"}
-                  </button>
-                  <button
-                    type="button"
-                    className={`curate-love${loved ? " loved" : ""}${starred ? "" : " is-placeholder"}`}
-                    aria-pressed={loved}
-                    aria-label={
-                      starred
-                        ? loved
-                          ? "Unlove line"
-                          : "Love line for mini-games"
-                        : "Star a line before loving it"
-                    }
-                    disabled={!starred}
-                    onClick={() => void handleLove(lineIndex)}
-                  >
-                    {loved ? "♥" : "♡"}
-                  </button>
-                </div>
-                <div className="curate-copy">
-                  <span className="curate-line-index">Line {lineIndex + 1}</span>
-                  {showPreviousLines &&
-                    leadInForPrompt(title, lineIndex).map((lead) => (
-                      <p key={lead.lineIndex} className="curate-lead-in">
-                        {lead.text}
-                      </p>
-                    ))}
-                  <p className="curate-text">{line.text}</p>
-                </div>
-                <LazyLineSendControl titleId={entry.id} lineIndex={lineIndex} />
-              </li>
-            );
-          })}
-        </ol>
+              return (
+                <CurateLineItem
+                  key={lineIndex}
+                  lineIndex={lineIndex}
+                  rowIndex={rowIndex}
+                  setSize={filteredIndices.length}
+                  offset={offsets[rowIndex] ?? 0}
+                  className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${isSelected ? " selected" : ""}`}
+                  onHeight={handleRowHeight}
+                >
+                  <div className="curate-controls">
+                    <label className="curate-select">
+                      <input
+                        type="checkbox"
+                        checked={isSelected}
+                        onClick={(event) => {
+                          if (!event.shiftKey) return;
+                          // Shift+click: take over so the browser doesn't only toggle this box.
+                          event.preventDefault();
+                          skipPackChangeRef.current = true;
+                          handlePackSelect(lineIndex, true);
+                        }}
+                        onChange={() => {
+                          if (skipPackChangeRef.current) {
+                            skipPackChangeRef.current = false;
+                            return;
+                          }
+                          handlePackSelect(lineIndex, false);
+                        }}
+                        aria-label={`Select line ${lineIndex + 1} for parallel pack`}
+                      />
+                    </label>
+                    <button
+                      type="button"
+                      className={`curate-star${starred ? " starred" : ""}`}
+                      aria-pressed={starred}
+                      aria-label={starred ? "Unstar line" : "Star line"}
+                      onClick={() => void handleToggle(lineIndex, line.text)}
+                    >
+                      {starred ? "★" : "☆"}
+                    </button>
+                    <button
+                      type="button"
+                      className={`curate-love${loved ? " loved" : ""}${starred ? "" : " is-placeholder"}`}
+                      aria-pressed={loved}
+                      aria-label={
+                        starred
+                          ? loved
+                            ? "Unlove line"
+                            : "Love line for mini-games"
+                          : "Star a line before loving it"
+                      }
+                      disabled={!starred}
+                      onClick={() => void handleLove(lineIndex)}
+                    >
+                      {loved ? "♥" : "♡"}
+                    </button>
+                  </div>
+                  <div className="curate-copy">
+                    <span className="curate-line-index">Line {lineIndex + 1}</span>
+                    {showPreviousLines &&
+                      leadInForPrompt(title, lineIndex).map((lead) => (
+                        <p key={lead.lineIndex} className="curate-lead-in">
+                          {lead.text}
+                        </p>
+                      ))}
+                    <p className="curate-text">{line.text}</p>
+                  </div>
+                  <LazyLineSendControl titleId={entry.id} lineIndex={lineIndex} />
+                </CurateLineItem>
+              );
+            })}
+          </div>
+        </div>
       )}
     </section>
+  );
+}
+
+type CurateLineItemProps = {
+  lineIndex: number;
+  rowIndex: number;
+  setSize: number;
+  offset: number;
+  className: string;
+  onHeight: (lineIndex: number, height: number) => void;
+  children: ReactNode;
+};
+
+function CurateLineItem({
+  lineIndex,
+  rowIndex,
+  setSize,
+  offset,
+  className,
+  onHeight,
+  children,
+}: CurateLineItemProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const report = () => onHeight(lineIndex, node.offsetHeight);
+    report();
+    const observer = new ResizeObserver(report);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [lineIndex, onHeight]);
+
+  return (
+    <div
+      ref={ref}
+      role="listitem"
+      className={className}
+      style={{ top: offset }}
+      aria-setsize={setSize}
+      aria-posinset={rowIndex + 1}
+    >
+      {children}
+    </div>
   );
 }
 
