@@ -19,7 +19,9 @@
     "db:migrate:inbox:local": "wrangler d1 execute textline-stars --local --file=migrations/006_inbox.sql",
     "db:migrate:inbox:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/006_inbox.sql",
     "db:migrate:groups:local": "wrangler d1 execute textline-stars --local --file=migrations/007_groups.sql",
-    "db:migrate:groups:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/007_groups.sql"
+    "db:migrate:groups:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/007_groups.sql",
+    "db:migrate:parallels:local": "wrangler d1 execute textline-stars --local --file=migrations/008_parallels.sql",
+    "db:migrate:parallels:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/008_parallels.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",

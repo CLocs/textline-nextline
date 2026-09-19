@@ -37,6 +37,11 @@ describe("parseHash", () => {
     expect(parseHash("#/profile/stats")).toEqual({ kind: "profile", tab: "stats" });
     expect(parseHash("#/profile/friends")).toEqual({ kind: "profile", tab: "friends" });
     expect(parseHash("#/profile/inbox")).toEqual({ kind: "profile", tab: "inbox" });
+    expect(parseHash("#/profile/parallels")).toEqual({ kind: "profile", tab: "parallels" });
+  });
+
+  it("parses parallel pack routes", () => {
+    expect(parseHash("#/parallel/abc123")).toEqual({ kind: "parallel", packId: "abc123" });
   });
 
   it("parses friend invite routes", () => {

@@ -1542,3 +1542,97 @@ code {
 .ops-sort.active .ops-sort-mark {
   opacity: 1;
 }
+
+.curate-item.selected {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+.curate-select {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.35rem;
+}
+
+.curate-pack-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--mint) 18%, white);
+}
+
+.curate-pack-name {
+  flex: 1 1 12rem;
+}
+
+.curate-pack-name input {
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.parallel-lines,
+.parallel-conn-lines {
+  margin: 0.75rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.parallel-section-title {
+  margin: 1.5rem 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.parallel-conn-list {
+  list-style: none;
+  margin: 0.75rem 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.parallel-conn {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.parallel-conn-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.parallel-conn-note {
+  margin: 0.35rem 0;
+  font-style: italic;
+}
+
+.parallel-propose {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  max-width: 28rem;
+}
+
+.parallel-propose label {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.parallel-propose input,
+.parallel-propose select {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  background: var(--surface);
+}

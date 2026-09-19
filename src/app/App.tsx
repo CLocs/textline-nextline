@@ -35,6 +35,7 @@ import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
 import { CompleteScreen } from "../components/CompleteScreen";
 import { CurateScreen } from "../components/CurateScreen";
+import { ParallelPackScreen } from "../components/ParallelPackScreen";
 import { LoginScreen } from "../components/LoginScreen";
 import { AuthBar } from "../components/AuthBar";
 import { ProfileScreen } from "../components/ProfileScreen";
@@ -42,7 +43,7 @@ import { CatalogOpsScreen } from "../components/CatalogOpsScreen";
 import { FriendAcceptScreen } from "../components/FriendAcceptScreen";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -78,6 +79,7 @@ export function App() {
   const [persistedRunId, setPersistedRunId] = useState<string | null>(null);
   const [profileTab, setProfileTab] = useState<ProfileTab>("account");
   const [friendToken, setFriendToken] = useState<string | null>(null);
+  const [parallelPackId, setParallelPackId] = useState<string | null>(null);
 
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
@@ -114,6 +116,10 @@ export function App() {
       const shareId = returnTo.slice("play/".length);
       clearHash();
       void beginSharedPlayRef.current(shareId);
+      return;
+    }
+    if (returnTo?.startsWith("parallel/")) {
+      setHash(returnTo);
       return;
     }
     if (returnTo?.startsWith("friend/")) {
@@ -259,6 +265,18 @@ export function App() {
           return;
         }
         void beginSharedPlay(route.shareId);
+        return;
+      }
+      if (route.kind === "parallel") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to view this parallel pack.");
+          captureLoginReturn(`parallel/${route.packId}`);
+          setScreen("login");
+          setHash(`login?return=${encodeURIComponent(`parallel/${route.packId}`)}`);
+          return;
+        }
+        setParallelPackId(route.packId);
+        setScreen("parallel");
         return;
       }
       if (route.kind === "friend") {
@@ -594,7 +612,20 @@ export function App() {
           onBack={handleBackToLibrary}
           onUpdated={setUser}
           onPlayShare={(shareId) => void beginSharedPlay(shareId)}
+          onOpenParallel={(packId) => {
+            setParallelPackId(packId);
+            setScreen("parallel");
+            setHash(`parallel/${packId}`);
+          }}
           onLogout={() => void handleLogout()}
+        />
+      )}
+
+      {showApp && screen === "parallel" && parallelPackId && (
+        <ParallelPackScreen
+          packId={parallelPackId}
+          onPlay={(shareId) => void beginSharedPlay(shareId)}
+          onBack={handleBackToLibrary}
         />
       )}
 
@@ -627,7 +658,15 @@ export function App() {
       )}
 
       {showApp && screen === "curate" && pendingEntry && (
-        <CurateScreen entry={pendingEntry} onBack={() => setScreen("setup")} />
+        <CurateScreen
+          entry={pendingEntry}
+          onBack={() => setScreen("setup")}
+          onOpenParallel={(packId) => {
+            setParallelPackId(packId);
+            setScreen("parallel");
+            setHash(`parallel/${packId}`);
+          }}
+        />
       )}
 
       {showApp && screen === "play" && title && run && question && (

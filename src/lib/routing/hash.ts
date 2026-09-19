@@ -1,10 +1,11 @@
-export type ProfileTab = "account" | "history" | "stats" | "friends" | "inbox";
+export type ProfileTab = "account" | "history" | "stats" | "friends" | "inbox" | "parallels";
 
 export type HashRoute =
   | { kind: "home" }
   | { kind: "login"; returnTo?: string }
   | { kind: "auth"; token: string; returnTo?: string }
   | { kind: "play"; shareId: string }
+  | { kind: "parallel"; packId: string }
   | { kind: "friend"; token: string }
   | { kind: "profile"; tab: ProfileTab }
   | { kind: "ops" };
@@ -20,11 +21,13 @@ export function isSafeLoginReturn(value: string | null | undefined): value is st
     value === "profile/history" ||
     value === "profile/stats" ||
     value === "profile/friends" ||
-    value === "profile/inbox"
+    value === "profile/inbox" ||
+    value === "profile/parallels"
   ) {
     return true;
   }
   if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
+  if (/^parallel\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   return /^friend\/[a-f0-9]{24}$/i.test(value);
 }
 
@@ -56,6 +59,7 @@ export function loginReturnFromRoute(route: HashRoute): string | undefined {
     return isSafeLoginReturn(route.returnTo) ? route.returnTo : undefined;
   }
   if (route.kind === "play") return `play/${route.shareId}`;
+  if (route.kind === "parallel") return `parallel/${route.packId}`;
   if (route.kind === "friend") return `friend/${route.token}`;
   if (route.kind === "profile") return profileHash(route.tab);
   if (route.kind === "ops") return "ops";
@@ -68,6 +72,7 @@ function parseProfileTab(path: string): ProfileTab | null {
   if (path === "profile/stats") return "stats";
   if (path === "profile/friends") return "friends";
   if (path === "profile/inbox") return "inbox";
+  if (path === "profile/parallels") return "parallels";
   return null;
 }
 
@@ -101,6 +106,11 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
   const playMatch = path.match(/^play\/([^/]+)$/);
   if (playMatch?.[1]) {
     return { kind: "play", shareId: decodeURIComponent(playMatch[1]) };
+  }
+
+  const parallelMatch = path.match(/^parallel\/([^/]+)$/);
+  if (parallelMatch?.[1]) {
+    return { kind: "parallel", packId: decodeURIComponent(parallelMatch[1]) };
   }
 
   const friendMatch = path.match(/^friend\/([^/]+)$/);

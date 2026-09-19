@@ -410,7 +410,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
 - [ ] **Split multi-sentence lines** — curator (or import) splits one cue into sentence beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
-- [ ] **Quote parallels / analogy packs** — special recurring game: same beat adapted across situations (Wolf “not fucking real”). Chat + public-voted links to other sources. See [Later ideas](#quote-parallels--analogy-packs).
+- [x] **Quote parallels / analogy packs (Light)** — Curate 3–8 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
 - [ ] **Daily challenge** — same title + start line for everyone
@@ -572,15 +572,22 @@ The similar-answer guard and this split complement each other: even after a spli
 
 Some lines aren’t just next-line quiz material — they’re **templates people reuse**. Wolf of Wall Street’s “not fucking real” beat (and its cousins) gets adapted to whatever situation you’re in. That’s a different product from a one-off mini-game: a **special game** you return to, built around **parallels** — the same energy / structure / punchline in another film, TV scene, news moment, meme, or real-life context.
 
-**Core object:** a **pack** = an ordered **section of lines** (a short list / beat, not only a single cue) from a title, plus:
+**Core object:** a **pack** = an ordered **section of lines** (a short list / beat, not only a single cue) from a title, plus play + connections + votes.
 
-1. **Play** — a dedicated mode (or fixed share) so the pack is the thing you run every time, not a random 10 from stars.
-2. **Chat** — conversation threaded on that pack (reactions, “where I used this,” riffs). Not rooms; closer to attempt-chat but about the *analogy*, not only first/second/third try.
-3. **Public-voted connections** — community proposes a link to another source/context (another `(titleId, lineIndex[])`, a URL, or a short “situation” blurb). Others **vote**. Top connections surface as “also this” parallels for the pack.
+#### Light ✅ *(shipped)*
 
-**Not this (yet):** auto-NLP “find every similar quote in the catalog” as the first ship — start **curator- or player-seeded** packs + voted links. Full-catalog analogy search can come later if the manual graph is fun.
+- Curate: select **3–8** lines → **Save as parallel pack** (creates a frozen `mini_share` + `analogy_packs` row).
+- Pack page `#/parallel/{packId}`: show lines, **Play**, copy link, ranked **catalog** connections, propose parallel (`titleId` + line indices + optional note).
+- **Upvote only** (one per user per connection). Profile → **Parallels** lists your packs.
+- No chat, no URLs/situation blurbs, no Home rail, no downvotes.
 
-**Open questions:** pack ownership (personal vs communal); whether connections can leave our transcript universe (IG/YT/news) under UGC rules; how often “play every time” is a Home rail vs a share link; moderation on chat + connection votes.
+#### Medium *(deferred)*
+
+- Connection kinds: situation blurb + moderated URL; bidirectional links; daily proposal caps.
+- Up/down votes + optional owner pin; Home **Parallels** rail + follow; send pack to friends; short pack chat.
+- Still not auto-NLP catalog search.
+
+**Open questions (Medium+):** pack ownership vs communal; UGC/ToS for URLs; moderation.
 
 ---
 
@@ -617,7 +624,7 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |
 | **Later — Line split** | Curator split of multi-sentence cues without reminting star indices | Star the punchy sentence inside a cue |
 | **Exploratory — UGC + songs** | IG/YT paste-a-link quotes; lyrics as transcripts | Catalog beyond our SRT library |
-| **Exploratory — Quote parallels** | Pack = line section + chat + voted links to other contexts | Special recurring “analogy” game (Wolf “not fucking real”) |
+| **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
 
@@ -705,7 +712,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
-- **Quote parallels / analogy packs** *(later)* — section of lines + chat + public-voted connections to other sources/situations (Wolf “not fucking real” style). See [Later ideas](#quote-parallels--analogy-packs).
+- **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 
 ---
 
