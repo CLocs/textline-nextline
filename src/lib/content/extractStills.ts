@@ -92,15 +92,34 @@ export function loadStillsSyncFile(path: string): StillsSyncFile {
 /**
  * Coarse input seek, then a short accurate output seek.
  * `-ss` after `-i` is the accurate part; preroll keeps late cues from decoding the whole film.
+ * DIV3/msmpeg4 keyframes can be sparse — pass `accurateSeek` to skip the input `-ss`.
  */
 export function ffmpegExtractArgs(opts: {
   input: string;
   seekSec: number;
   output: string;
+  accurateSeek?: boolean;
 }): string[] {
+  const args: string[] = ["-hide_banner", "-loglevel", "error"];
+  if (opts.accurateSeek) {
+    args.push(
+      "-i",
+      opts.input,
+      "-ss",
+      Math.max(0, opts.seekSec).toFixed(3),
+      "-frames:v",
+      "1",
+      "-q:v",
+      "3",
+      "-vf",
+      "scale=1280:-1",
+      "-y",
+      opts.output,
+    );
+    return args;
+  }
   const preroll = Math.min(2, Math.max(0, opts.seekSec));
   const inputSeek = opts.seekSec - preroll;
-  const args: string[] = ["-hide_banner", "-loglevel", "error"];
   if (inputSeek > 0) {
     args.push("-ss", inputSeek.toFixed(3));
   }
