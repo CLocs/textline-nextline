@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { getCatalog, getTitle } from "../lib/content/browser";
 import { getLine } from "../lib/content/lines";
+import { isAuthApiEnabled } from "../lib/auth/api";
+import { isLocalDevSession } from "../lib/auth/session";
+import { fetchFriends, type FriendListItem } from "../lib/friends/api";
+import { fetchGroups, type FriendGroup } from "../lib/groups/api";
 import {
   fetchParallelPack,
   proposeParallelConnection,
@@ -8,6 +12,7 @@ import {
   type AnalogyConnection,
   type AnalogyPack,
 } from "../lib/parallels/api";
+import { concatenateCueTexts } from "../lib/parallels/text";
 
 type Props = {
   packId: string;
@@ -29,9 +34,17 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
   const [connections, setConnections] = useState<AnalogyConnection[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [composing, setComposing] = useState(false);
+  const [connContext, setConnContext] = useState("");
+  const [connText, setConnText] = useState("");
   const [connTitleId, setConnTitleId] = useState("");
   const [connIndices, setConnIndices] = useState("");
   const [connNote, setConnNote] = useState("");
+  const [showCatalog, setShowCatalog] = useState(false);
+  const [friends, setFriends] = useState<FriendListItem[]>([]);
+  const [groups, setGroups] = useState<FriendGroup[]>([]);
+  const [toUserIds, setToUserIds] = useState<string[]>([]);
+  const [toGroupIds, setToGroupIds] = useState<string[]>([]);
   const [proposeBusy, setProposeBusy] = useState(false);
   const [proposeMsg, setProposeMsg] = useState<string | null>(null);
 
@@ -40,6 +53,7 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
+    setComposing(false);
     void fetchParallelPack(packId).then((result) => {
       if (cancelled) return;
       setLoading(false);
@@ -52,7 +66,6 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
       setError(null);
       setPack(result.pack);
       setConnections(result.connections);
-      if (!connTitleId && result.pack.titleId) setConnTitleId(result.pack.titleId);
     });
     return () => {
       cancelled = true;
@@ -63,8 +76,55 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
     () => (pack ? formatLines(pack.titleId, pack.lineIndices) : []),
     [pack],
   );
+  const concatenated = useMemo(() => concatenateCueTexts(packLines), [packLines]);
+  const apiReady = isAuthApiEnabled() && !isLocalDevSession();
 
-  async function handlePropose(event: FormEvent) {
+  useEffect(() => {
+    if (!composing || !apiReady) return;
+    let cancelled = false;
+    void Promise.all([fetchFriends(), fetchGroups()]).then(([list, groupList]) => {
+      if (cancelled) return;
+      if (!("error" in list)) setFriends(list);
+      if (!("error" in groupList)) setGroups(groupList);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [composing, apiReady]);
+
+  function openCompose() {
+    setProposeMsg(null);
+    setConnContext("");
+    setConnText(concatenated);
+    setToUserIds([]);
+    setToGroupIds([]);
+    setComposing(true);
+  }
+
+  async function handleRewrite(event: FormEvent) {
+    event.preventDefault();
+    if (!pack) return;
+    setProposeBusy(true);
+    setProposeMsg(null);
+    const result = await proposeParallelConnection(pack.id, {
+      kind: "rewrite",
+      context: connContext.trim(),
+      text: connText.trim(),
+      toUserIds,
+      toGroupIds,
+    });
+    setProposeBusy(false);
+    if ("error" in result) {
+      setProposeMsg(result.error);
+      return;
+    }
+    setConnections((prev) => [result, ...prev]);
+    setComposing(false);
+    setConnContext("");
+    setProposeMsg("Parallel added.");
+  }
+
+  async function handleCatalogPropose(event: FormEvent) {
     event.preventDefault();
     if (!pack) return;
     setProposeBusy(true);
@@ -98,9 +158,7 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
     setConnections((prev) =>
       [...prev]
         .map((c) =>
-          c.id === connectionId
-            ? { ...c, score: result.score, viewerVoted: true }
-            : c,
+          c.id === connectionId ? { ...c, score: result.score, viewerVoted: true } : c,
         )
         .sort((a, b) => b.score - a.score || b.createdAt.localeCompare(a.createdAt)),
     );
@@ -126,6 +184,109 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
   }
 
   const entry = catalog.find((e) => e.id === pack.titleId);
+
+  if (composing) {
+    return (
+      <section className="panel parallel-panel">
+        <button type="button" className="button ghost back-link" onClick={() => setComposing(false)}>
+          ← Pack
+        </button>
+        <div className="section-header">
+          <h2>Add a parallel</h2>
+          <p className="muted">
+            Start from the scene, then swap in your situation. Short context labels the rewrite.
+          </p>
+        </div>
+        <form className="parallel-propose parallel-compose" onSubmit={(event) => void handleRewrite(event)}>
+          <label>
+            <span>Context</span>
+            <input
+              type="text"
+              maxLength={80}
+              value={connContext}
+              onChange={(e) => setConnContext(e.target.value)}
+              placeholder="e.g. new features"
+              required
+            />
+          </label>
+          <label>
+            <span>Parallel</span>
+            <textarea
+              value={connText}
+              onChange={(e) => setConnText(e.target.value)}
+              maxLength={12000}
+              rows={12}
+              required
+            />
+          </label>
+          <fieldset className="parallel-send-to">
+            <legend>Send to</legend>
+            {!apiReady ? (
+              <p className="muted">Sign in on the live API to send this to a friend or group.</p>
+            ) : friends.length === 0 && groups.length === 0 ? (
+              <p className="muted">No friends yet. Add someone in Profile → Friends.</p>
+            ) : (
+              <>
+                {groups.length > 0 && (
+                  <div className="parallel-send-list">
+                    {groups.map((group) => (
+                      <label key={group.id} className="curate-filter">
+                        <input
+                          type="checkbox"
+                          checked={toGroupIds.includes(group.id)}
+                          onChange={() =>
+                            setToGroupIds((current) =>
+                              current.includes(group.id)
+                                ? current.filter((id) => id !== group.id)
+                                : [...current, group.id],
+                            )
+                          }
+                        />
+                        {group.name}
+                      </label>
+                    ))}
+                  </div>
+                )}
+                {friends.length > 0 && (
+                  <div className="parallel-send-list">
+                    {friends.map((friend) => (
+                      <label key={friend.userId} className="curate-filter">
+                        <input
+                          type="checkbox"
+                          checked={toUserIds.includes(friend.userId)}
+                          onChange={() =>
+                            setToUserIds((current) =>
+                              current.includes(friend.userId)
+                                ? current.filter((id) => id !== friend.userId)
+                                : [...current, friend.userId],
+                            )
+                          }
+                        />
+                        {friend.displayName}
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </>
+            )}
+          </fieldset>
+          <div className="row">
+            <button type="submit" className="button primary" disabled={proposeBusy}>
+              {proposeBusy ? "Saving…" : "Save parallel"}
+            </button>
+            <button type="button" className="button ghost" onClick={() => setComposing(false)}>
+              Cancel
+            </button>
+          </div>
+        </form>
+        {proposeMsg && (
+          <p className="share-message" role="status">
+            {proposeMsg}
+          </p>
+        )}
+      </section>
+    );
+  }
 
   return (
     <section className="panel parallel-panel">
@@ -163,18 +324,50 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
         >
           Copy pack link
         </button>
+        <button type="button" className="button ghost" onClick={openCompose}>
+          Add a parallel
+        </button>
       </div>
 
       <h3 className="parallel-section-title">Parallels</h3>
-      <p className="muted">
-        Catalog connections only (Light). Upvote good analogies. Chat and URLs come later.
-      </p>
+      <p className="muted">Rewrite the beat in a new context, or link another title. Upvote the good ones.</p>
 
       {connections.length === 0 ? (
-        <p className="empty">No parallels yet. Propose one below.</p>
+        <p className="empty">No parallels yet. Add one to rewrite this scene.</p>
       ) : (
         <ul className="parallel-conn-list">
           {connections.map((conn) => {
+            if (conn.kind === "rewrite") {
+              return (
+                <li key={conn.id} className="parallel-conn">
+                  <div className="parallel-conn-head">
+                    <strong>{conn.payload.context}</strong>
+                    <span className="muted">
+                      {conn.score} ↑ · {conn.proposerDisplayName}
+                    </span>
+                  </div>
+                  <p className="parallel-conn-text">{conn.payload.text}</p>
+                  {conn.payload.sentTo && (
+                    <p className="muted parallel-sent-to">
+                      Sent to{" "}
+                      {[
+                        ...conn.payload.sentTo.groups.map((group) => group.name),
+                        ...conn.payload.sentTo.people.map((person) => person.displayName),
+                      ].join(", ")}
+                    </p>
+                  )}
+                  <button
+                    type="button"
+                    className="button ghost"
+                    disabled={conn.viewerVoted}
+                    onClick={() => void handleUpvote(conn.id)}
+                  >
+                    {conn.viewerVoted ? "Upvoted" : "Upvote"}
+                  </button>
+                </li>
+              );
+            }
+
             const connEntry = catalog.find((e) => e.id === conn.payload.titleId);
             const texts = formatLines(conn.payload.titleId, conn.payload.lineIndices);
             return (
@@ -207,43 +400,50 @@ export function ParallelPackScreen({ packId, onPlay, onBack }: Props) {
         </ul>
       )}
 
-      <form className="parallel-propose" onSubmit={(event) => void handlePropose(event)}>
-        <h3 className="parallel-section-title">Propose a parallel</h3>
-        <label>
-          <span>Title</span>
-          <select value={connTitleId} onChange={(e) => setConnTitleId(e.target.value)} required>
-            <option value="">Pick a title…</option>
-            {catalog.map((e) => (
-              <option key={e.id} value={e.id}>
-                {e.title}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span>Line indices (0-based, comma-separated)</span>
-          <input
-            type="text"
-            value={connIndices}
-            onChange={(e) => setConnIndices(e.target.value)}
-            placeholder="e.g. 1008 or 541,554,555"
-            required
-          />
-        </label>
-        <label>
-          <span>Note (optional)</span>
-          <input
-            type="text"
-            maxLength={140}
-            value={connNote}
-            onChange={(e) => setConnNote(e.target.value)}
-            placeholder="Same energy / punchline…"
-          />
-        </label>
-        <button type="submit" className="button primary" disabled={proposeBusy}>
-          {proposeBusy ? "Saving…" : "Propose"}
-        </button>
-      </form>
+      <details
+        className="parallel-catalog-details"
+        open={showCatalog}
+        onToggle={(event) => setShowCatalog(event.currentTarget.open)}
+      >
+        <summary>From another title</summary>
+        <form className="parallel-propose" onSubmit={(event) => void handleCatalogPropose(event)}>
+          <label>
+            <span>Title</span>
+            <select value={connTitleId} onChange={(e) => setConnTitleId(e.target.value)}>
+              <option value="">[none]</option>
+              {catalog.map((e) => (
+                <option key={e.id} value={e.id}>
+                  {e.title}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span>Line indices (0-based, comma-separated)</span>
+            <input
+              type="text"
+              value={connIndices}
+              onChange={(e) => setConnIndices(e.target.value)}
+              placeholder="e.g. 1008 or 541,554,555"
+              disabled={!connTitleId}
+              required={Boolean(connTitleId)}
+            />
+          </label>
+          <label>
+            <span>Note (optional)</span>
+            <input
+              type="text"
+              maxLength={140}
+              value={connNote}
+              onChange={(e) => setConnNote(e.target.value)}
+              placeholder="Same energy / punchline…"
+            />
+          </label>
+          <button type="submit" className="button primary" disabled={proposeBusy || !connTitleId}>
+            {proposeBusy ? "Saving…" : "Propose catalog parallel"}
+          </button>
+        </form>
+      </details>
 
       {proposeMsg && (
         <p className="share-message" role="status">

@@ -1765,16 +1765,69 @@ code {
   max-width: 28rem;
 }
 
+.parallel-compose {
+  max-width: 40rem;
+}
+
 .parallel-propose label {
   display: grid;
   gap: 0.3rem;
 }
 
 .parallel-propose input,
-.parallel-propose select {
+.parallel-propose select,
+.parallel-propose textarea {
   padding: 0.45rem 0.65rem;
   border: 1px solid var(--line);
   border-radius: 8px;
   font: inherit;
   background: var(--surface);
+  color: var(--ink);
+}
+
+.parallel-propose textarea {
+  min-height: 14rem;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.parallel-conn-text {
+  margin: 0.45rem 0 0.75rem;
+  white-space: pre-wrap;
+}
+
+.parallel-send-to {
+  margin: 0;
+  padding: 0.75rem 0 0;
+  border: 0;
+}
+
+.parallel-send-to legend {
+  font-weight: 600;
+  padding: 0;
+}
+
+.parallel-send-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  margin-top: 0.45rem;
+}
+
+.parallel-sent-to {
+  margin: 0 0 0.65rem;
+}
+
+.parallel-inbox-card .button {
+  width: fit-content;
+}
+
+.parallel-catalog-details {
+  margin-top: 1.5rem;
+}
+
+.parallel-catalog-details summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.92rem;
 }

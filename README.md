@@ -607,14 +607,15 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 #### Light ✅ *(shipped)*
 
 - Curate: select **3–500** lines → **Save as parallel pack** (creates a frozen `mini_share` + `analogy_packs` row).
-- Pack page `#/parallel/{packId}`: show lines, **Play**, copy link, ranked **catalog** connections, propose parallel (`titleId` + line indices + optional note).
+- Pack page `#/parallel/{packId}`: show lines, **Play**, copy link, **Add a parallel** (short context + rewritten concatenated scene, optional send to a friend or group). Catalog movie defaults to **[none]**; pick a title only to link another film.
 - **Upvote only** (one per user per connection). Profile → **Parallels** lists your packs.
 - No chat, no URLs/situation blurbs, no Home rail, no downvotes.
 
 #### Medium *(deferred)*
 
 - Connection kinds: situation blurb + moderated URL; bidirectional links; daily proposal caps.
-- Up/down votes + optional owner pin; Home **Parallels** rail + follow; send pack to friends; short pack chat.
+- Up/down votes + optional owner pin; Home **Parallels** rail + follow; short pack chat.
+- **Diff view** of a rewrite vs the original concatenated scene.
 - Still not auto-NLP catalog search.
 
 **Open questions (Medium+):** pack ownership vs communal; UGC/ToS for URLs; moderation.

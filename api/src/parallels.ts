@@ -1,6 +1,8 @@
 import { createId, createShareId } from "./crypto.js";
 import type { User } from "./auth.js";
 import { createFrozenShare } from "./shares.js";
+import { areFriends, isBlocked, isValidFriendUserId } from "./friends.js";
+import { listGroupMemberIds } from "./groups.js";
 
 const MIN_LINES = 3;
 /** Room for a full scene (e.g. Wolf lunch), not just a short beat. */
@@ -8,6 +10,8 @@ const MAX_LINES = 500;
 const MAX_NAME = 80;
 const MAX_NOTE = 140;
 const MAX_CONN_LINES = 500;
+const MAX_CONTEXT = 80;
+const MAX_REWRITE = 12000;
 
 export type AnalogyPack = {
   id: string;
@@ -25,11 +29,20 @@ export type CatalogConnectionPayload = {
   lineIndices: number[];
 };
 
-export type AnalogyConnection = {
+export type RewriteSentTo = {
+  people: { userId: string; displayName: string }[];
+  groups: { id: string; name: string }[];
+};
+
+export type RewriteConnectionPayload = {
+  context: string;
+  text: string;
+  sentTo?: RewriteSentTo;
+};
+
+type ConnectionBase = {
   id: string;
   packId: string;
-  kind: "catalog";
-  payload: CatalogConnectionPayload;
   note: string | null;
   proposerUserId: string;
   proposerDisplayName: string;
@@ -37,6 +50,10 @@ export type AnalogyConnection = {
   score: number;
   viewerVoted: boolean;
 };
+
+export type AnalogyConnection =
+  | (ConnectionBase & { kind: "catalog"; payload: CatalogConnectionPayload })
+  | (ConnectionBase & { kind: "rewrite"; payload: RewriteConnectionPayload });
 
 function decodeIndices(raw: string): number[] {
   try {
@@ -76,8 +93,133 @@ function normalizeNote(raw: unknown): string | null {
   return note || null;
 }
 
+function normalizeContext(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const context = raw.trim().replace(/\s+/g, " ");
+  if (context.length < 1 || context.length > MAX_CONTEXT) return null;
+  return context;
+}
+
+function normalizeRewrite(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const text = raw.trim().replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n");
+  if (text.length < 1 || text.length > MAX_REWRITE) return null;
+  return text;
+}
+
+function parseSentTo(raw: unknown): RewriteSentTo | undefined {
+  if (!raw || typeof raw !== "object") return undefined;
+  const rec = raw as { people?: unknown; groups?: unknown };
+  const people = Array.isArray(rec.people)
+    ? rec.people.flatMap((item) => {
+        if (!item || typeof item !== "object") return [];
+        const row = item as { userId?: unknown; displayName?: unknown };
+        if (typeof row.userId !== "string" || typeof row.displayName !== "string") return [];
+        return [{ userId: row.userId, displayName: row.displayName }];
+      })
+    : [];
+  const groups = Array.isArray(rec.groups)
+    ? rec.groups.flatMap((item) => {
+        if (!item || typeof item !== "object") return [];
+        const row = item as { id?: unknown; name?: unknown };
+        if (typeof row.id !== "string" || typeof row.name !== "string") return [];
+        return [{ id: row.id, name: row.name }];
+      })
+    : [];
+  if (people.length === 0 && groups.length === 0) return undefined;
+  return { people, groups };
+}
+
+function normalizeIdList(raw: unknown, max: number): string[] | null {
+  if (raw === undefined) return [];
+  if (!Array.isArray(raw)) return null;
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const item of raw) {
+    if (typeof item !== "string" || !isValidFriendUserId(item)) return null;
+    if (seen.has(item)) continue;
+    seen.add(item);
+    out.push(item);
+    if (out.length > max) return null;
+  }
+  return out;
+}
+
 function displayName(email: string, displayName: string | null): string {
   return displayName ?? email.split("@")[0] ?? "player";
+}
+
+async function insertConnection(
+  db: D1Database,
+  row: {
+    id: string;
+    packId: string;
+    kind: "catalog" | "rewrite";
+    payload: string;
+    note: string | null;
+    proposerUserId: string;
+    createdAt: string;
+  },
+): Promise<void> {
+  await db
+    .prepare(
+      `INSERT INTO analogy_connections
+         (id, pack_id, kind, payload, note, proposer_user_id, created_at, score)
+       VALUES (?, ?, ?, ?, ?, ?, ?, 0)`,
+    )
+    .bind(row.id, row.packId, row.kind, row.payload, row.note, row.proposerUserId, row.createdAt)
+    .run();
+}
+
+function parseStoredConnection(
+  row: {
+    id: string;
+    pack_id: string;
+    kind: string;
+    payload: string;
+    note: string | null;
+    proposer_user_id: string;
+    created_at: string;
+    score: number;
+    email: string;
+    display_name: string | null;
+  },
+  viewerVoted: boolean,
+): AnalogyConnection | null {
+  const base = {
+    id: row.id,
+    packId: row.pack_id,
+    note: row.note,
+    proposerUserId: row.proposer_user_id,
+    proposerDisplayName: displayName(row.email, row.display_name),
+    createdAt: row.created_at,
+    score: Number(row.score) || 0,
+    viewerVoted,
+  };
+
+  try {
+    const parsed = JSON.parse(row.payload) as unknown;
+    if (row.kind === "rewrite") {
+      if (!parsed || typeof parsed !== "object") return null;
+      const rec = parsed as { context?: unknown; text?: unknown; sentTo?: unknown };
+      const context = typeof rec.context === "string" ? rec.context.trim() : "";
+      const text = typeof rec.text === "string" ? rec.text.trim() : "";
+      if (!text) return null;
+      return { ...base, kind: "rewrite", payload: { context, text, sentTo: parseSentTo(rec.sentTo) } };
+    }
+    if (row.kind !== "catalog" || !parsed || typeof parsed !== "object") return null;
+    const rec = parsed as CatalogConnectionPayload;
+    if (typeof rec.titleId !== "string" || !Array.isArray(rec.lineIndices)) return null;
+    const lineIndices = normalizeIndices(rec.lineIndices);
+    if (!lineIndices || lineIndices.length < 1) return null;
+    return {
+      ...base,
+      kind: "catalog",
+      payload: { titleId: rec.titleId.trim(), lineIndices },
+    };
+  } catch {
+    return null;
+  }
 }
 
 export async function createAnalogyPack(
@@ -242,29 +384,8 @@ export async function listAnalogyConnections(
 
   const out: AnalogyConnection[] = [];
   for (const row of rows) {
-    if (row.kind !== "catalog") continue;
-    let payload: CatalogConnectionPayload;
-    try {
-      const parsed = JSON.parse(row.payload) as CatalogConnectionPayload;
-      if (typeof parsed.titleId !== "string" || !Array.isArray(parsed.lineIndices)) continue;
-      const lineIndices = normalizeIndices(parsed.lineIndices);
-      if (!lineIndices || lineIndices.length < 1) continue;
-      payload = { titleId: parsed.titleId.trim(), lineIndices };
-    } catch {
-      continue;
-    }
-    out.push({
-      id: row.id,
-      packId: row.pack_id,
-      kind: "catalog",
-      payload,
-      note: row.note,
-      proposerUserId: row.proposer_user_id,
-      proposerDisplayName: displayName(row.email, row.display_name),
-      createdAt: row.created_at,
-      score: Number(row.score) || 0,
-      viewerVoted: voted.has(row.id),
-    });
+    const parsed = parseStoredConnection(row, voted.has(row.id));
+    if (parsed) out.push(parsed);
   }
   return out;
 }
@@ -293,16 +414,15 @@ export async function proposeCatalogConnection(
 
   const id = createId();
   const createdAt = new Date().toISOString();
-  const payload = JSON.stringify({ titleId, lineIndices });
-
-  await db
-    .prepare(
-      `INSERT INTO analogy_connections
-         (id, pack_id, kind, payload, note, proposer_user_id, created_at, score)
-       VALUES (?, ?, 'catalog', ?, ?, ?, ?, 0)`,
-    )
-    .bind(id, packId, payload, note, user.id, createdAt)
-    .run();
+  await insertConnection(db, {
+    id,
+    packId,
+    kind: "catalog",
+    payload: JSON.stringify({ titleId, lineIndices }),
+    note,
+    proposerUserId: user.id,
+    createdAt,
+  });
 
   return {
     id,
@@ -316,6 +436,186 @@ export async function proposeCatalogConnection(
     score: 0,
     viewerVoted: false,
   };
+}
+
+export async function proposeRewriteConnection(
+  db: D1Database,
+  user: User,
+  packId: string,
+  body: { context?: unknown; text?: unknown; toUserIds?: unknown; toGroupIds?: unknown },
+): Promise<AnalogyConnection | { error: string; status: number }> {
+  const pack = await getAnalogyPack(db, packId);
+  if (!pack) return { error: "Pack not found", status: 404 };
+
+  const context = normalizeContext(body.context);
+  if (!context) return { error: `Context must be 1–${MAX_CONTEXT} characters`, status: 400 };
+
+  const text = normalizeRewrite(body.text);
+  if (!text) return { error: `Parallel must be 1–${MAX_REWRITE} characters`, status: 400 };
+
+  const toUserIds = normalizeIdList(body.toUserIds, 50);
+  const toGroupIds = normalizeIdList(body.toGroupIds, 10);
+  if (!toUserIds || !toGroupIds) return { error: "Invalid send-to list", status: 400 };
+
+  const sentTo = await resolveRewriteRecipients(db, user, toUserIds, toGroupIds);
+  if ("error" in sentTo) return sentTo;
+
+  const id = createId();
+  const createdAt = new Date().toISOString();
+  const payload: RewriteConnectionPayload = { context, text };
+  if (sentTo.people.length > 0 || sentTo.groups.length > 0) payload.sentTo = sentTo;
+
+  await insertConnection(db, {
+    id,
+    packId,
+    kind: "rewrite",
+    payload: JSON.stringify(payload),
+    note: null,
+    proposerUserId: user.id,
+    createdAt,
+  });
+
+  for (const person of sentTo.people) {
+    await db
+      .prepare(
+        `INSERT OR IGNORE INTO parallel_inbox
+           (id, connection_id, pack_id, sender_user_id, recipient_user_id, group_id, created_at)
+         VALUES (?, ?, ?, ?, ?, NULL, ?)`,
+      )
+      .bind(createId(), id, packId, user.id, person.userId, createdAt)
+      .run();
+  }
+  for (const group of sentTo.groups) {
+    const memberIds = await listGroupMemberIds(db, group.id);
+    for (const memberId of memberIds) {
+      if (memberId === user.id) continue;
+      if (!(await areFriends(db, user.id, memberId))) continue;
+      if (await isBlocked(db, user.id, memberId)) continue;
+      await db
+        .prepare(
+          `INSERT OR IGNORE INTO parallel_inbox
+             (id, connection_id, pack_id, sender_user_id, recipient_user_id, group_id, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        )
+        .bind(createId(), id, packId, user.id, memberId, group.id, createdAt)
+        .run();
+    }
+  }
+
+  return {
+    id,
+    packId,
+    kind: "rewrite",
+    payload,
+    note: null,
+    proposerUserId: user.id,
+    proposerDisplayName: displayName(user.email, user.displayName),
+    createdAt,
+    score: 0,
+    viewerVoted: false,
+  };
+}
+
+async function resolveRewriteRecipients(
+  db: D1Database,
+  user: User,
+  toUserIds: string[],
+  toGroupIds: string[],
+): Promise<RewriteSentTo | { error: string; status: number }> {
+  const people: RewriteSentTo["people"] = [];
+  for (const toUserId of toUserIds) {
+    if (toUserId === user.id) return { error: "Can't send to yourself", status: 400 };
+    if (!(await areFriends(db, user.id, toUserId))) {
+      return { error: "You can only send to friends", status: 403 };
+    }
+    if (await isBlocked(db, user.id, toUserId)) {
+      return { error: "Can't send to this person", status: 403 };
+    }
+    const row = await db
+      .prepare(`SELECT display_name FROM users WHERE id = ?`)
+      .bind(toUserId)
+      .first<{ display_name: string | null }>();
+    people.push({
+      userId: toUserId,
+      displayName: row?.display_name?.trim() || "A player",
+    });
+  }
+
+  const groups: RewriteSentTo["groups"] = [];
+  for (const groupId of toGroupIds) {
+    const group = await db
+      .prepare(`SELECT id, name FROM friend_groups WHERE id = ? AND owner_user_id = ?`)
+      .bind(groupId, user.id)
+      .first<{ id: string; name: string }>();
+    if (!group) return { error: "Group not found", status: 404 };
+    groups.push({ id: group.id, name: group.name });
+  }
+
+  return { people, groups };
+}
+
+export type ParallelInboxItem = {
+  id: string;
+  packId: string;
+  connectionId: string;
+  packName: string;
+  context: string;
+  text: string;
+  from: { userId: string; displayName: string };
+  createdAt: string;
+};
+
+export async function listParallelInbox(db: D1Database, userId: string): Promise<ParallelInboxItem[]> {
+  const result = await db
+    .prepare(
+      `SELECT i.id, i.pack_id, i.connection_id, i.created_at,
+              p.name AS pack_name, c.payload,
+              u.id AS sender_id, u.display_name
+       FROM parallel_inbox i
+       JOIN analogy_packs p ON p.id = i.pack_id
+       JOIN analogy_connections c ON c.id = i.connection_id
+       JOIN users u ON u.id = i.sender_user_id
+       WHERE i.recipient_user_id = ?
+       ORDER BY i.created_at DESC
+       LIMIT 50`,
+    )
+    .bind(userId)
+    .all<{
+      id: string;
+      pack_id: string;
+      connection_id: string;
+      created_at: string;
+      pack_name: string;
+      payload: string;
+      sender_id: string;
+      display_name: string | null;
+    }>();
+
+  return (result.results ?? []).flatMap((row) => {
+    try {
+      const parsed = JSON.parse(row.payload) as { context?: unknown; text?: unknown };
+      const context = typeof parsed.context === "string" ? parsed.context.trim() : "";
+      const text = typeof parsed.text === "string" ? parsed.text.trim() : "";
+      if (!text) return [];
+      return [
+        {
+          id: row.id,
+          packId: row.pack_id,
+          connectionId: row.connection_id,
+          packName: row.pack_name,
+          context,
+          text,
+          from: {
+            userId: row.sender_id,
+            displayName: row.display_name?.trim() || "A player",
+          },
+          createdAt: row.created_at,
+        },
+      ];
+    } catch {
+      return [];
+    }
+  });
 }
 
 export async function upvoteConnection(
