@@ -407,7 +407,9 @@ Open questions (spike only — no pack UI yet):
 - [x] **Scene / poster visuals (2.6)** — starred stills + posters + R2; leftover every-cue / video. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
 - [ ] **Curator reputation** — count (and weight) stars people lay down. See [Later ideas](#later-ideas-parked).
 - [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
-- [ ] **UGC quotes (IG / YT)** — paste a link, infer or type the line, add to a personal library. See [Later ideas](#later-ideas-parked).
+- [ ] **UGC quotes (IG / YT)** — paste a link, infer or type **one** line into a personal library. See [Quotes from anywhere](#quotes-from-anywhere-lay-person).
+- [ ] **YouTube videos as titles** — paste a video URL → pull timed transcript → star / parallel packs → optional scene frames. See [YouTube videos as titles](#youtube-videos-as-titles).
+- [ ] **Chats → cross-title mini-games** — multi-select lines in a thread (any titles) → save as a custom mini-game. See [Chats → cross-title mini-games](#chats--cross-title-mini-games).
 - [ ] **Songs** — lyrics as transcripts; song library + mini-games. See [Later ideas](#later-ideas-parked).
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
 - [ ] **Split multi-sentence lines** — curator (or import) splits one cue into sentence beats without reminting star indices. See [Later ideas](#later-ideas-parked).
@@ -533,7 +535,19 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 3. **Home + bell** — Chats rail; `#/chats` list; Profile tab **Chats** (old `#/profile/inbox` redirects). Unread via `read_at` on `line_inbox`.
 4. **Separation** — group sends appear only in the group thread, not also in each pair’s DM.
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links.
+**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
+
+### Chats → cross-title mini-games
+
+**Why:** A DM or group thread is already a curated mix of lines across movies/shows. Turning that into a playable mini-game (without re-hunting Curate per title) is a natural “our conversation → our game” loop.
+
+**Shape *(parked)*:**
+
+1. In a thread, **multi-select** message cards (incoming and/or outgoing).
+2. **Save as mini-game** — frozen share queue spanning multiple `titleId`s (extend or wrap today’s frozen mini share).
+3. Play / send like any other mini-game share.
+
+**Gates:** queue format today is per-title; cross-title needs a share payload that lists `{ titleId, lineIndex }[]` (or multiple frozen shares). Cap length like mini (e.g. 10). Not the same as parallel packs (analogy), though UX can rhyme with Curate multi-select.
 
 ### Scene visuals *(leftover from 2.6)*
 
@@ -562,7 +576,26 @@ Connect **Letterboxd** (and maybe **Trakt**) to surface titles they might like �
 
 ### Quotes from anywhere (lay person)
 
-Expand past our curated SRT catalog: quotes from **IG, YT, anywhere**. Share a link → scroll to the quote time → infer the line if we can, or type/edit it → add it to **your** library. Curate a mini-game for friends, or send a **single** (Concept 2). Licensing, ToS, and “is this even our transcript?” are the product gates; the game loop (line → next line) stays the same.
+Expand past our curated SRT catalog: **single** quotes from **IG, YT, anywhere**. Share a link → scroll to the quote time → infer the line if we can, or type/edit it → add it to **your** library. Curate a mini-game for friends, or send a **single** (Concept 2). Licensing, ToS, and “is this even our transcript?” are the product gates; the game loop (line → next line) stays the same.
+
+Related but bigger: ingest a **whole YouTube video** as a playable title — see [YouTube videos as titles](#youtube-videos-as-titles).
+
+### YouTube videos as titles
+
+**Why:** A lot of quotable material lives on YouTube (interviews, monologues, essays, clips) — not only movies/TV with SRT drops. Same game once we have timed lines.
+
+**Shape *(parked)*:**
+
+1. **Paste a URL** — owner or curator submits a YouTube link.
+2. **Extract transcript** — timed cues somehow (official captions / auto-captions / third-party; ToS and reliability TBD). Normalize into the same `Title` + `Line` shape as SRT imports (via transcript_maker or a sibling path).
+3. **Play the catalog loop** — star lines, mini-games, **parallel packs**, Chats send — no special mode required once the title exists.
+4. **Scene frames** — later, same stills idea as 2.6: grab frames at `startMs` (harder without a local file; may need screenshot API, user upload, or skip until we have media).
+
+**Not this (v1 of this idea):** downloading full video into the app; competing with YouTube playback; free-text comments on the video.
+
+**Gates:** YouTube ToS / caption licensing, auto-caption quality, dedupe (same video twice), and whether titles are personal-only vs shared catalog.
+
+**Effort:** medium–large (ingest pipeline + legal spike before UI). Frames are a second phase after transcripts play.
 
 ### Songs
 
@@ -675,7 +708,8 @@ Complements Teach mode; this is first-impression chrome, not a new game mode.
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |
 | **Later — Line split** | Curator split of multi-sentence cues without reminting star indices | Star the punchy sentence inside a cue |
-| **Exploratory — UGC + songs** | IG/YT paste-a-link quotes; lyrics as transcripts | Catalog beyond our SRT library |
+| **Exploratory — UGC + songs** | IG/YT single-quote paste; lyrics as transcripts | Catalog beyond our SRT library |
+| **Exploratory — YouTube titles** | Paste video URL → timed transcript → stars / packs; frames later | Whole videos as playable titles — see [YouTube videos as titles](#youtube-videos-as-titles) |
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
 | **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop; opt-in digest — see [Daily quote email](#daily-quote-email) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
@@ -765,7 +799,9 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
-- **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
+- **Curator score / Letterboxd connect / UGC single quotes / songs** — parked in [Later ideas](#later-ideas-parked).
+- **YouTube videos as titles** *(parked)* — Paste URL → extract timed transcript → star / parallel packs; scene frames later. See [YouTube videos as titles](#youtube-videos-as-titles).
+- **Chats → cross-title mini-games** *(parked)* — Multi-select thread lines across titles → frozen mini-game. See [Chats → cross-title mini-games](#chats--cross-title-mini-games).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).

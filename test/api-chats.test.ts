@@ -459,7 +459,11 @@ describe("chats API", () => {
       envFor(db),
     );
     expect(dm.status).toBe(200);
-    const dmBody = (await dm.json()) as { messages: Array<{ lineIndex: number }> };
+    const dmBody = (await dm.json()) as {
+      peer: { userId: string; displayName: string };
+      messages: Array<{ lineIndex: number }>;
+    };
+    expect(dmBody.peer).toEqual({ userId: BOB_ID, displayName: "Bob" });
     expect(dmBody.messages.map((m) => m.lineIndex)).toEqual([27]);
 
     const groupAlice = await handleRequest(
