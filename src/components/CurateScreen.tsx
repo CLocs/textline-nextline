@@ -39,6 +39,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   const [packMsg, setPackMsg] = useState<string | null>(null);
   /** Anchor for Shift+click range select (line index). */
   const packSelectAnchorRef = useRef<number | null>(null);
+  /** Skip the change event that can follow a Shift+click we already handled. */
+  const skipPackChangeRef = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -110,22 +112,11 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
         const lo = Math.min(from, to);
         const hi = Math.max(from, to);
         const range = filteredIndices.slice(lo, hi + 1);
-        setSelected((prev) => {
-          const merged = new Set(prev);
-          let truncated = false;
-          for (const index of range) {
-            if (merged.has(index)) continue;
-            if (merged.size >= PACK_MAX) {
-              truncated = true;
-              break;
-            }
-            merged.add(index);
-          }
-          if (truncated) {
-            setPackMsg(`Pick at most ${PACK_MAX} lines for a pack.`);
-          }
-          return [...merged].sort((a, b) => a - b);
-        });
+        if (range.length > PACK_MAX) {
+          setPackMsg(`Pick at most ${PACK_MAX} lines for a pack.`);
+        }
+        // Anchor → click selects the contiguous range (capped), like a file list.
+        setSelected(range.slice(0, PACK_MAX));
         return;
       }
     }
@@ -299,11 +290,18 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                       type="checkbox"
                       checked={isSelected}
                       onClick={(event) => {
+                        if (!event.shiftKey) return;
+                        // Shift+click: take over so the browser doesn't only toggle this box.
                         event.preventDefault();
-                        handlePackSelect(lineIndex, event.shiftKey);
+                        skipPackChangeRef.current = true;
+                        handlePackSelect(lineIndex, true);
                       }}
                       onChange={() => {
-                        /* controlled via onClick so Shift+click can range-select */
+                        if (skipPackChangeRef.current) {
+                          skipPackChangeRef.current = false;
+                          return;
+                        }
+                        handlePackSelect(lineIndex, false);
                       }}
                       aria-label={`Select line ${lineIndex + 1} for parallel pack`}
                     />
