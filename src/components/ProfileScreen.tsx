@@ -356,7 +356,7 @@ export function ProfileScreen({
       {tab === "parallels" && (
         <>
           <p className="muted">
-            Quote-parallel packs you saved from Curate (3–64 lines). Open a pack to play it or propose
+            Quote-parallel packs you saved from Curate (3–500 lines). Open a pack to play it or propose
             catalog connections.
           </p>
           {packsLoading ? (

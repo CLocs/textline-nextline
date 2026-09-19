@@ -1351,16 +1351,20 @@ code {
 }
 
 .curate-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.5rem;
   max-height: calc(100vh - 16rem);
   overflow: auto;
+  overflow-anchor: none;
+}
+
+.curate-list-canvas {
+  position: relative;
+  width: 100%;
 }
 
 .curate-item {
+  position: absolute;
+  left: 0;
+  right: 0;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 0.75rem;
@@ -1369,8 +1373,6 @@ code {
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--surface);
-  content-visibility: auto;
-  contain-intrinsic-size: auto 7rem;
 }
 
 .curate-controls {

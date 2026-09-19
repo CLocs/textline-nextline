@@ -223,7 +223,7 @@ describe("quote parallels (Light)", () => {
     expect(shares[0]!.line_indices).toBe(JSON.stringify([100, 101, 102]));
   });
 
-  it("rejects packs outside 3–64 lines", async () => {
+  it("rejects packs outside 3–500 lines", async () => {
     const { db } = createDb();
     const result = await createAnalogyPack(db, ada, {
       titleId: "x",
@@ -234,7 +234,7 @@ describe("quote parallels (Light)", () => {
 
     const tooLong = await createAnalogyPack(db, ada, {
       titleId: "x",
-      lineIndices: Array.from({ length: 65 }, (_, i) => i),
+      lineIndices: Array.from({ length: 501 }, (_, i) => i),
       name: "Too long",
     });
     expect(tooLong).toMatchObject({ status: 400 });
@@ -242,15 +242,15 @@ describe("quote parallels (Light)", () => {
 
   it("allows a long scene-sized pack", async () => {
     const { db } = createDb();
-    const lineIndices = Array.from({ length: 50 }, (_, i) => 100 + i);
+    const lineIndices = Array.from({ length: 200 }, (_, i) => 100 + i);
     const result = await createAnalogyPack(db, ada, {
       titleId: "the-wolf-of-wall-street-2013",
       lineIndices,
-      name: "Sell me this pen",
+      name: "Jordan's lunch",
     });
     expect("error" in result).toBe(false);
     if ("error" in result) return;
-    expect(result.lineIndices).toHaveLength(50);
+    expect(result.lineIndices).toHaveLength(200);
   });
 
   it("proposes a catalog connection and upvotes once", async () => {
