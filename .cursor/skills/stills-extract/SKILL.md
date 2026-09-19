@@ -93,7 +93,7 @@ Paused so the user can eyeball each handful vs the quote, then **batch that titl
 | Goodfellas | 5 | all 5 | |
 | Lebowski | 1 | 412 | |
 | Fellowship | 137 | 80, 163, 969, 1200, 1514, 1759 | **Extended cut vs SRT** |
-| Streetcar Named Marge (S4E2) | 18 | 43, 67, 103, 127, 162, 225 | Same DIV3 as S4E1; **-57000 handful — eyeball**; 247/258/261 past EOF at 0 |
+| Streetcar Named Marge (S4E2) | 18 | 43, 67, 103, 127, 162, 225 | **−57s + nudge 103 −5s / 162 −60s — eyeball those two** |
 
 **On disk, no live stars:** Gone in 60 Seconds, O Brother, 40 Year Old Virgin, BTTF (two MP4s → split). **Skip:** Pulp Fiction Part1/Part2; BTTF II/III files didn't match.
 

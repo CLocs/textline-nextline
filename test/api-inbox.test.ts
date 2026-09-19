@@ -4,6 +4,7 @@ import { canonicalPair } from "../api/src/friends.js";
 
 const ALICE_ID = "11111111-1111-4111-8111-111111111111";
 const BOB_ID = "22222222-2222-4222-8222-222222222222";
+const CAROL_ID = "33333333-3333-4333-8333-333333333333";
 const ORIGIN = "http://localhost:5173";
 const TITLE_ID = "the-wolf-of-wall-street-2013";
 
@@ -32,7 +33,7 @@ function farFuture(): string {
   return new Date(Date.now() + 30 * 24 * 60 * 60_000).toISOString();
 }
 
-function createInboxDb(options?: { friends?: boolean; blocked?: boolean }) {
+function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCarol?: boolean }) {
   const users: UserRow[] = [
     {
       id: ALICE_ID,
@@ -47,14 +48,34 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean }) {
       created_at: "2026-01-01T00:00:00.000Z",
     },
   ];
+  if (options?.withCarol) {
+    users.push({
+      id: CAROL_ID,
+      email: "carol@example.com",
+      display_name: "Carol",
+      created_at: "2026-01-01T00:00:00.000Z",
+    });
+  }
   const sessions: SessionRow[] = [
     { id: "sess-alice", user_id: ALICE_ID, expires_at: farFuture() },
     { id: "sess-bob", user_id: BOB_ID, expires_at: farFuture() },
   ];
-  const pair = canonicalPair(ALICE_ID, BOB_ID);
-  const friendships: FriendshipRow[] = options?.friends
-    ? [{ user_a: pair.userA, user_b: pair.userB, created_at: "2026-01-02T00:00:00.000Z" }]
-    : [];
+  if (options?.withCarol) {
+    sessions.push({ id: "sess-carol", user_id: CAROL_ID, expires_at: farFuture() });
+  }
+  const friendships: FriendshipRow[] = [];
+  if (options?.friends) {
+    const pair = canonicalPair(ALICE_ID, BOB_ID);
+    friendships.push({ user_a: pair.userA, user_b: pair.userB, created_at: "2026-01-02T00:00:00.000Z" });
+    if (options.withCarol) {
+      const carolPair = canonicalPair(ALICE_ID, CAROL_ID);
+      friendships.push({
+        user_a: carolPair.userA,
+        user_b: carolPair.userB,
+        created_at: "2026-01-02T00:00:00.000Z",
+      });
+    }
+  }
   const blocks: BlockRow[] = options?.blocked
     ? [{ blocker_user_id: BOB_ID, blocked_user_id: ALICE_ID, created_at: "2026-01-03T00:00:00.000Z" }]
     : [];
@@ -140,11 +161,45 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean }) {
                 const [userId] = args as [string];
                 return { n: inbox.filter((row) => row.recipient_user_id === userId).length } as T;
               }
-              if (sql.includes("FROM mini_shares WHERE owner_user_id")) {
-                const [userId] = args as [string];
-                const rows = shares.filter((share) => share.owner_user_id === userId);
-                const last = rows[rows.length - 1];
-                return (last ? { created_at: last.created_at } : null) as T;
+              if (
+                sql.includes("SELECT share_id, created_at FROM line_inbox") &&
+                sql.includes("sender_user_id")
+              ) {
+                const [sender, recipient, titleId, lineIndex] = args as [
+                  string,
+                  string,
+                  string,
+                  number,
+                ];
+                const rows = inbox
+                  .filter(
+                    (row) =>
+                      row.sender_user_id === sender &&
+                      row.recipient_user_id === recipient &&
+                      row.title_id === titleId &&
+                      row.prompt_line_index === lineIndex,
+                  )
+                  .sort((a, b) => b.created_at.localeCompare(a.created_at));
+                const row = rows[0];
+                return (row
+                  ? { share_id: row.share_id, created_at: row.created_at }
+                  : null) as T;
+              }
+              if (
+                sql.includes("SELECT id FROM mini_shares") &&
+                sql.includes("line_indices")
+              ) {
+                const [ownerId, titleId, lineIndices] = args as [string, string, string];
+                const rows = shares
+                  .filter(
+                    (share) =>
+                      share.owner_user_id === ownerId &&
+                      share.title_id === titleId &&
+                      share.line_indices === lineIndices,
+                  )
+                  .reverse();
+                const row = rows[0];
+                return (row ? { id: row.id } : null) as T;
               }
               if (sql.includes("FROM mini_shares WHERE id")) {
                 const [shareId] = args as [string];
@@ -283,5 +338,41 @@ describe("inbox API", () => {
       envFor(db),
     );
     expect(sent.status).toBe(403);
+  });
+
+  it("allows rapid sends of the same line to different friends", async () => {
+    const { db } = createInboxDb({ friends: true, withCarol: true });
+    const toBob = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 27, toUserId: BOB_ID },
+      }),
+      envFor(db),
+    );
+    expect(toBob.status).toBe(200);
+    const bobBody = (await toBob.json()) as { shareId: string };
+
+    const toCarol = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 27, toUserId: CAROL_ID },
+      }),
+      envFor(db),
+    );
+    expect(toCarol.status).toBe(200);
+    const carolBody = (await toCarol.json()) as { shareId: string };
+    expect(carolBody.shareId).toBe(bobBody.shareId);
+
+    const again = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 27, toUserId: BOB_ID },
+      }),
+      envFor(db),
+    );
+    expect(again.status).toBe(429);
   });
 });

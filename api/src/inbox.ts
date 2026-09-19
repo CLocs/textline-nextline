@@ -6,7 +6,8 @@ import { createFrozenShare } from "./shares.js";
 import { isTitleId } from "./runs.js";
 
 export const INBOX_CAP = 50;
-export const SHARE_COOLDOWN_MS = 10_000;
+/** Debounce only same sender → same recipient → same line (not cross-friend sends). */
+export const RECIPIENT_SEND_COOLDOWN_MS = 10_000;
 
 export type LineShare = {
   shareId: string;
@@ -38,21 +39,28 @@ export function parsePromptLineIndex(raw: unknown): number | null {
   return raw;
 }
 
-async function lastShareAgeMs(db: D1Database, userId: string): Promise<number | null> {
-  const row = await db
-    .prepare(`SELECT created_at FROM mini_shares WHERE owner_user_id = ? ORDER BY created_at DESC LIMIT 1`)
-    .bind(userId)
-    .first<{ created_at: string }>();
-  if (!row) return null;
-  return Date.now() - new Date(row.created_at).getTime();
+function oneLineIndicesJson(lineIndex: number): string {
+  return JSON.stringify([lineIndex]);
 }
 
-async function assertCooldown(db: D1Database, userId: string): Promise<ActionError | null> {
-  const age = await lastShareAgeMs(db, userId);
-  if (age != null && age >= 0 && age < SHARE_COOLDOWN_MS) {
-    return { error: "Please wait a moment before sending another line", status: 429 };
-  }
-  return null;
+/** Reuse a frozen 1-line share so multi-friend sends don't mint a new row each time. */
+async function findReusableOneLineShare(
+  db: D1Database,
+  ownerId: string,
+  titleId: string,
+  lineIndex: number,
+): Promise<string | null> {
+  const row = await db
+    .prepare(
+      `SELECT id FROM mini_shares
+       WHERE owner_user_id = ? AND title_id = ? AND revoked_at IS NULL
+         AND line_indices = ?
+       ORDER BY created_at DESC
+       LIMIT 1`,
+    )
+    .bind(ownerId, titleId, oneLineIndicesJson(lineIndex))
+    .first<{ id: string }>();
+  return row?.id ?? null;
 }
 
 async function issueShare(
@@ -63,10 +71,38 @@ async function issueShare(
   lineIndex: number,
 ): Promise<LineShare | ActionError> {
   if (!isTitleId(titleId)) return { error: "Invalid title", status: 400 };
-  const cooled = await assertCooldown(db, user.id);
-  if (cooled) return cooled;
+  const existingId = await findReusableOneLineShare(db, user.id, titleId, lineIndex);
+  if (existingId) {
+    return { shareId: existingId, url: playUrl(appOrigin, existingId) };
+  }
   const share = await createFrozenShare(db, user, titleId, [lineIndex]);
   return { shareId: share.id, url: playUrl(appOrigin, share.id) };
+}
+
+async function recentSameRecipientSend(
+  db: D1Database,
+  senderId: string,
+  recipientId: string,
+  titleId: string,
+  lineIndex: number,
+): Promise<{ shareId: string; createdAt: string } | null> {
+  const row = await db
+    .prepare(
+      `SELECT share_id, created_at FROM line_inbox
+       WHERE sender_user_id = ? AND recipient_user_id = ?
+         AND title_id = ? AND prompt_line_index = ?
+       ORDER BY created_at DESC
+       LIMIT 1`,
+    )
+    .bind(senderId, recipientId, titleId, lineIndex)
+    .first<{ share_id: string; created_at: string }>();
+  if (!row) return null;
+  return { shareId: row.share_id, createdAt: row.created_at };
+}
+
+function withinCooldown(createdAt: string): boolean {
+  const age = Date.now() - new Date(createdAt).getTime();
+  return age >= 0 && age < RECIPIENT_SEND_COOLDOWN_MS;
 }
 
 export async function copyLineShare(
@@ -102,6 +138,17 @@ export async function sendLineToFriend(
   }
   if (await isBlocked(db, user.id, toUserId)) {
     return { error: "Can't send to this person", status: 403 };
+  }
+
+  const prior = await recentSameRecipientSend(db, user.id, toUserId, titleId, lineIndex);
+  if (prior && withinCooldown(prior.createdAt)) {
+    return {
+      error: "Already sent this line to them — wait a moment to resend",
+      status: 429,
+    };
+  }
+  if (prior) {
+    return { shareId: prior.shareId, url: playUrl(appOrigin, prior.shareId) };
   }
 
   const countRow = await db
@@ -159,6 +206,9 @@ export async function sendLineToGroup(
   for (const toUserId of memberIds) {
     if (!(await areFriends(db, user.id, toUserId))) continue;
     if (await isBlocked(db, user.id, toUserId)) continue;
+    const prior = await recentSameRecipientSend(db, user.id, toUserId, titleId, lineIndex);
+    if (prior && withinCooldown(prior.createdAt)) continue;
+    if (prior) continue;
     const countRow = await db
       .prepare(`SELECT COUNT(*) AS n FROM line_inbox WHERE recipient_user_id = ?`)
       .bind(toUserId)
