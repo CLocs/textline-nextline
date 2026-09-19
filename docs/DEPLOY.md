@@ -169,7 +169,7 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 
 Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, parallels, and ops routes require auth (invite preview and pack GET are public).
 
-After pulling parallels: `npm run db:migrate:parallels:remote`. After parallel inbox: `npm run db:migrate:parallel-inbox:remote`. After loved: `npm run db:migrate:loved:remote`. After chats (`read_at` / `group_id`): `npm run db:migrate:chats:remote` (or full `npm run deploy:api`).
+After pulling parallels: `npm run db:migrate:parallels:remote`. After parallel inbox: `npm run db:migrate:parallel-inbox:remote`. After loved: `npm run db:migrate:loved:remote`. After chats (`read_at` / `group_id` via ensure-share-columns + `011` indexes): `npm run db:migrate:chats:remote` (or full `npm run deploy:api`).
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 

@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS friend_blocks (
 CREATE INDEX IF NOT EXISTS idx_friendships_b ON friendships (user_b);
 CREATE INDEX IF NOT EXISTS idx_friend_blocks_blocked ON friend_blocks (blocked_user_id);
 
--- Directed one-line inbox (also in migrations/006_inbox.sql + 011_chats.sql)
+-- Directed one-line inbox (also in migrations/006_inbox.sql; read_at/group_id via ensure-share-columns + 011)
 CREATE TABLE IF NOT EXISTS line_inbox (
   id TEXT PRIMARY KEY,
   share_id TEXT NOT NULL,
@@ -121,14 +121,12 @@ CREATE TABLE IF NOT EXISTS line_inbox (
   title_id TEXT NOT NULL,
   prompt_line_index INTEGER NOT NULL,
   created_at TEXT NOT NULL,
-  read_at TEXT,
-  group_id TEXT,
   UNIQUE (recipient_user_id, share_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_line_inbox_recipient ON line_inbox (recipient_user_id, created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_line_inbox_sender ON line_inbox (sender_user_id, created_at DESC);
-CREATE INDEX IF NOT EXISTS idx_line_inbox_group ON line_inbox (group_id, created_at DESC);
+-- idx_line_inbox_group is created in migrations/011_chats.sql after group_id exists
 
 -- Owner-only friend send-lists (also in migrations/007_groups.sql)
 CREATE TABLE IF NOT EXISTS friend_groups (
