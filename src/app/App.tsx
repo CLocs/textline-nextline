@@ -521,6 +521,12 @@ export function App() {
     setHash(profileHash("account"));
   }
 
+  function handleOpenInbox() {
+    setProfileTab("inbox");
+    setScreen("profile");
+    setHash(profileHash("inbox"));
+  }
+
   function handleOpenCatalog() {
     setScreen("ops");
     setHash("ops");
@@ -546,8 +552,8 @@ export function App() {
             <AuthBar
               user={user}
               onProfile={handleOpenProfile}
+              onInbox={handleOpenInbox}
               onCatalog={showCatalog ? handleOpenCatalog : undefined}
-              onLogout={() => void handleLogout()}
             />
           )}
         </div>
@@ -588,6 +594,7 @@ export function App() {
           onBack={handleBackToLibrary}
           onUpdated={setUser}
           onPlayShare={(shareId) => void beginSharedPlay(shareId)}
+          onLogout={() => void handleLogout()}
         />
       )}
 

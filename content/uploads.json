@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T03:15:35.019Z",
+  "updatedAt": "2026-09-18T23:44:21.712Z",
   "directory": "G:\\videos\\movies",
   "matched": [
     {
@@ -96,20 +96,26 @@
     {
       "titleId": "lord-of-the-rings-the-return-of-the-king-2003",
       "title": "Lord of the Rings The Return of the King",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "The Lord of the Rings The Return of the King Extended (2003).mkv"
+      ]
     },
     {
       "titleId": "lord-of-the-rings-the-two-towers-2002",
       "title": "Lord Of The Rings The Two Towers",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "The Lord of the Rings The Two Towers Extended (2002).mkv"
+      ]
     },
     {
       "titleId": "matrix-1999",
       "title": "Matrix",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "The Matrix (1999).mp4"
+      ]
     },
     {
       "titleId": "o-brother-where-art-thou-2000",
@@ -233,7 +239,7 @@
       "title": "The Lord of the Rings - The Fellowship of the Ring",
       "status": "ok",
       "files": [
-        "The.Lord.of.the.Rings.The.Fellowship.of.the.Ring.2001.EXTENDED.1080p.BluRay.10bit.HEVC.6CH.MkvCage.ws.mkv"
+        "The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv"
       ]
     },
     {
@@ -434,6 +440,9 @@
     },
     {
       "name": "Ted (2012).avi"
+    },
+    {
+      "name": "The Gentlemen (2020).mkv"
     },
     {
       "name": "The Ghost Writer (2010).avi"

@@ -4,30 +4,16 @@ import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
 import { getNextPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
+import { isInboxItemSolved, markInboxItemSolved } from "../lib/inbox/solved";
 import type { InboxItem } from "../lib/inbox/api";
 import type { CatalogEntry } from "../types/content";
 
-const SOLVED_PREFIX = "textline-inbox-solved:";
 const CORRECT_HOLD_MS = 900;
 
 type Props = {
   item: InboxItem;
   entries: CatalogEntry[];
 };
-
-function solvedKey(id: string): string {
-  return `${SOLVED_PREFIX}${id}`;
-}
-
-function readSolved(id: string): boolean {
-  if (typeof localStorage === "undefined") return false;
-  return localStorage.getItem(solvedKey(id)) === "1";
-}
-
-function writeSolved(id: string): void {
-  if (typeof localStorage === "undefined") return;
-  localStorage.setItem(solvedKey(id), "1");
-}
 
 export function InboxLineCard({ item, entries }: Props) {
   const title = getTitle(item.titleId);
@@ -37,7 +23,7 @@ export function InboxLineCard({ item, entries }: Props) {
     const loaded = getTitle(item.titleId);
     return loaded ? buildMcq(loaded, item.lineIndex) : null;
   }, [item.titleId, item.lineIndex]);
-  const [solved, setSolved] = useState(() => readSolved(item.id));
+  const [solved, setSolved] = useState(() => isInboxItemSolved(item.id));
   const [pickedIndex, setPickedIndex] = useState<number | null>(null);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
 
@@ -47,7 +33,7 @@ export function InboxLineCard({ item, entries }: Props) {
   useEffect(() => {
     if (feedback !== "correct") return;
     const timer = window.setTimeout(() => {
-      writeSolved(item.id);
+      markInboxItemSolved(item.id);
       setSolved(true);
     }, CORRECT_HOLD_MS);
     return () => window.clearTimeout(timer);

@@ -9,6 +9,7 @@ import { GAME_MODES, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
 import { FriendsPanel } from "./FriendsPanel";
 import { InboxPanel } from "./InboxPanel";
+import { useInboxUnfilledCount } from "../lib/inbox/useInboxUnfilledCount";
 
 type Props = {
   user: AuthUser;
@@ -18,6 +19,7 @@ type Props = {
   onBack: () => void;
   onUpdated: (user: AuthUser) => void;
   onPlayShare: (shareId: string) => void;
+  onLogout: () => void;
 };
 
 function modeLabel(mode: GameMode): string {
@@ -139,7 +141,8 @@ function HistoryMatchRow({
   );
 }
 
-export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, onPlayShare }: Props) {
+export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, onPlayShare, onLogout }: Props) {
+  const unfilledInbox = useInboxUnfilledCount();
   const [runs, setRuns] = useState<StoredRun[]>([]);
   const [loading, setLoading] = useState(true);
   const [draft, setDraft] = useState(user.displayName ?? "");
@@ -223,29 +226,35 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, on
           onClick={() => onTab("inbox")}
         >
           Inbox
+          {unfilledInbox > 0 ? <span className="inbox-tab-badge">{unfilledInbox}</span> : null}
         </button>
       </div>
 
       {tab === "account" && (
-        <form className="auth-name-form" onSubmit={(event) => void handleSave(event)}>
-          <label htmlFor="profile-display-name">Display name</label>
-          <input
-            id="profile-display-name"
-            type="text"
-            maxLength={40}
-            value={draft}
-            onChange={(event) => setDraft(event.target.value)}
-            placeholder="Your name"
-          />
-          <button type="submit" className="button primary" disabled={saving || !draft.trim()}>
-            {saving ? "Saving…" : "Save"}
+        <>
+          <form className="auth-name-form" onSubmit={(event) => void handleSave(event)}>
+            <label htmlFor="profile-display-name">Display name</label>
+            <input
+              id="profile-display-name"
+              type="text"
+              maxLength={40}
+              value={draft}
+              onChange={(event) => setDraft(event.target.value)}
+              placeholder="Your name"
+            />
+            <button type="submit" className="button primary" disabled={saving || !draft.trim()}>
+              {saving ? "Saving…" : "Save"}
+            </button>
+            {error && (
+              <p className="feedback wrong" role="alert">
+                {error}
+              </p>
+            )}
+          </form>
+          <button type="button" className="button ghost profile-logout" onClick={onLogout}>
+            Log out
           </button>
-          {error && (
-            <p className="feedback wrong" role="alert">
-              {error}
-            </p>
-          )}
-        </form>
+        </>
       )}
 
       {tab === "history" && (

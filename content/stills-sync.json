@@ -113,5 +113,13 @@
     "fps": 24,
     "durationSec": 6801.02,
     "note": "Filename year 2020 vs catalog 2019. 1080p 24 fps ~1:53:21 (~4.9 GB). Skipped remux. Ritchie reverse-shot/VO: seek mid-cue, not a global offsetMs. All 122 D1 stars extracted and pushed to R2."
+  },
+  "matrix-1999": {
+    "offsetMs": 0,
+    "encode": "mp4-h264-23976",
+    "source": "G:/videos/movies/The Matrix (1999).mp4",
+    "fps": 23.976,
+    "durationSec": 8177.71,
+    "note": "1080p 23.976 ~2:16:18 (matches theatrical). Skipped remux. User confirmed handful at scale 1. All D1 stars extracted and pushed to R2."
   }
 }
