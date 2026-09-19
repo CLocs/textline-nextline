@@ -26,8 +26,8 @@
     "db:migrate:loved:remote": "node scripts/ensure-share-columns.mjs --remote",
     "db:migrate:parallel-inbox:local": "wrangler d1 execute textline-stars --local --file=migrations/010_parallel_inbox.sql",
     "db:migrate:parallel-inbox:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/010_parallel_inbox.sql",
-    "db:migrate:chats:local": "wrangler d1 execute textline-stars --local --file=migrations/011_chats.sql",
-    "db:migrate:chats:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/011_chats.sql"
+    "db:migrate:chats:local": "node scripts/ensure-share-columns.mjs --local && wrangler d1 execute textline-stars --local --file=migrations/011_chats.sql",
+    "db:migrate:chats:remote": "node scripts/ensure-share-columns.mjs --remote && wrangler d1 execute textline-stars --remote --yes --file=migrations/011_chats.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",

@@ -21,6 +21,8 @@ const ALTERS = [
     column: "loved",
     sql: "ALTER TABLE stars ADD COLUMN loved INTEGER NOT NULL DEFAULT 0",
   },
+  { table: "line_inbox", column: "read_at", sql: "ALTER TABLE line_inbox ADD COLUMN read_at TEXT" },
+  { table: "line_inbox", column: "group_id", sql: "ALTER TABLE line_inbox ADD COLUMN group_id TEXT" },
 ];
 
 function wrangler(args) {
