@@ -3,6 +3,7 @@ import type { CatalogEntry } from "../types/content";
 import type { AuthUser } from "../lib/auth/session";
 import { fetchSharedRuns, updateMyDisplayName } from "../lib/auth/api";
 import { fetchMyRuns, shareCompletedRun, type StoredRun } from "../lib/runs/api";
+import { fetchMyParallelPacks, type AnalogyPack } from "../lib/parallels/api";
 import { cohortSummary } from "../lib/runs/cohort";
 import { historyTitleLabel, summarizeRuns } from "../lib/content/playedRails";
 import { GAME_MODES, type GameMode } from "../types/game";
@@ -19,6 +20,7 @@ type Props = {
   onBack: () => void;
   onUpdated: (user: AuthUser) => void;
   onPlayShare: (shareId: string) => void;
+  onOpenParallel: (packId: string) => void;
   onLogout: () => void;
 };
 
@@ -141,9 +143,21 @@ function HistoryMatchRow({
   );
 }
 
-export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, onPlayShare, onLogout }: Props) {
+export function ProfileScreen({
+  user,
+  tab,
+  entries,
+  onTab,
+  onBack,
+  onUpdated,
+  onPlayShare,
+  onOpenParallel,
+  onLogout,
+}: Props) {
   const unfilledInbox = useInboxUnfilledCount();
   const [runs, setRuns] = useState<StoredRun[]>([]);
+  const [packs, setPacks] = useState<AnalogyPack[]>([]);
+  const [packsLoading, setPacksLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [draft, setDraft] = useState(user.displayName ?? "");
   const [saving, setSaving] = useState(false);
@@ -161,6 +175,20 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, on
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (tab !== "parallels") return;
+    let cancelled = false;
+    setPacksLoading(true);
+    void fetchMyParallelPacks().then((result) => {
+      if (cancelled) return;
+      setPacksLoading(false);
+      setPacks(Array.isArray(result) ? result : []);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [tab]);
 
   useEffect(() => {
     setDraft(user.displayName ?? "");
@@ -227,6 +255,13 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, on
         >
           Inbox
           {unfilledInbox > 0 ? <span className="inbox-tab-badge">{unfilledInbox}</span> : null}
+        </button>
+        <button
+          type="button"
+          className={tab === "parallels" ? "button primary" : "button ghost"}
+          onClick={() => onTab("parallels")}
+        >
+          Parallels
         </button>
       </div>
 
@@ -318,6 +353,39 @@ export function ProfileScreen({ user, tab, entries, onTab, onBack, onUpdated, on
       )}
       {tab === "friends" && <FriendsPanel user={user} />}
       {tab === "inbox" && <InboxPanel entries={entries} />}
+      {tab === "parallels" && (
+        <>
+          <p className="muted">
+            Quote-parallel packs you saved from Curate (3–8 lines). Open a pack to play it or propose
+            catalog connections.
+          </p>
+          {packsLoading ? (
+            <p className="muted">Loading packs…</p>
+          ) : packs.length === 0 ? (
+            <p className="empty">No parallel packs yet. Select lines in Curate → Save as parallel pack.</p>
+          ) : (
+            <ul className="title-list">
+              {packs.map((pack) => {
+                const entry = entries.find((e) => e.id === pack.titleId);
+                return (
+                  <li key={pack.id}>
+                    <button
+                      type="button"
+                      className="title-card"
+                      onClick={() => onOpenParallel(pack.id)}
+                    >
+                      <span className="title-card-name">{pack.name}</span>
+                      <span className="title-card-meta">
+                        {entry?.title ?? pack.titleId} · {pack.lineIndices.length} lines
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </>
+      )}
     </section>
   );
 }

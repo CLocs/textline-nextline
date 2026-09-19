@@ -5,6 +5,8 @@ export type Rng = () => number;
 
 export type MiniGameQueueOptions = {
   personalStarred: number[];
+  /** Golden lines — taken first (cap ~3–5 at the UI/API layer). */
+  personalLoved?: number[];
   crowdPopular?: number[];
   size?: number;
   rng?: Rng;
@@ -41,6 +43,7 @@ export function buildMiniGameQueue(
 ): number[] {
   const {
     personalStarred,
+    personalLoved = [],
     crowdPopular = [],
     size = MINI_GAME_SIZE,
     rng = defaultRng,
@@ -49,11 +52,17 @@ export function buildMiniGameQueue(
   const valid = getValidPromptIndices(source);
   const validSet = new Set(valid);
 
-  const personal = shuffle(
-    personalStarred.filter((index) => validSet.has(index)),
+  const loved = shuffle(
+    personalLoved.filter((index) => validSet.has(index)),
     rng,
   );
-  const personalSet = new Set(personal);
+  const lovedSet = new Set(loved);
+
+  const personal = shuffle(
+    personalStarred.filter((index) => validSet.has(index) && !lovedSet.has(index)),
+    rng,
+  );
+  const personalSet = new Set([...loved, ...personal]);
 
   const crowd = shuffle(
     crowdPopular.filter(
@@ -61,7 +70,7 @@ export function buildMiniGameQueue(
     ),
     rng,
   );
-  const used = new Set([...personal, ...crowd]);
+  const used = new Set([...loved, ...personal, ...crowd]);
 
   const fillerPool = shuffle(
     valid.filter((index) => !used.has(index)),
@@ -69,6 +78,10 @@ export function buildMiniGameQueue(
   );
 
   const queue: number[] = [];
+  for (const index of loved) {
+    if (queue.length >= size) break;
+    queue.push(index);
+  }
   for (const index of personal) {
     if (queue.length >= size) break;
     queue.push(index);

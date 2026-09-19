@@ -6,6 +6,11 @@ export type PopularStar = {
   count: number;
 };
 
+export type MyStar = {
+  lineIndex: number;
+  loved: boolean;
+};
+
 function apiBaseUrl(): string | null {
   const url = import.meta.env.VITE_API_URL?.trim();
   return url || null;
@@ -54,13 +59,42 @@ export async function unstarLine(titleId: string, lineIndex: number): Promise<bo
   return response?.ok ?? false;
 }
 
-export async function fetchMyStars(titleId: string): Promise<number[] | null> {
+export async function loveLine(
+  titleId: string,
+  lineIndex: number,
+  loved: boolean,
+): Promise<boolean> {
+  const response = await apiFetch("/api/stars/love", {
+    method: "PUT",
+    body: JSON.stringify({ titleId, lineIndex, loved }),
+  });
+  return response?.ok ?? false;
+}
+
+export async function fetchMyStars(titleId: string): Promise<MyStar[] | null> {
   const response = await apiFetch(
     `/api/stars/mine?titleId=${encodeURIComponent(titleId)}`,
   );
   if (!response?.ok) return null;
-  const data = (await response.json()) as { lineIndices?: number[] };
-  return Array.isArray(data.lineIndices) ? data.lineIndices : [];
+  const data = (await response.json()) as {
+    stars?: MyStar[];
+    lineIndices?: number[];
+    lovedIndices?: number[];
+  };
+  if (Array.isArray(data.stars)) {
+    return data.stars.filter(
+      (s) => typeof s.lineIndex === "number" && typeof s.loved === "boolean",
+    );
+  }
+  // Backward compat if an older Worker is still live
+  if (Array.isArray(data.lineIndices)) {
+    const loved = new Set(data.lovedIndices ?? []);
+    return data.lineIndices.map((lineIndex) => ({
+      lineIndex,
+      loved: loved.has(lineIndex),
+    }));
+  }
+  return [];
 }
 
 export async function fetchPopularStars(

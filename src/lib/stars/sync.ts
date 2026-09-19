@@ -2,16 +2,20 @@ import {
   fetchMyStars,
   fetchPopularStars,
   isStarApiEnabled,
+  loveLine,
   starLine,
   unstarLine,
   type PopularStar,
 } from "./api.js";
 import {
+  getLovedLineIndices,
   getStarredLineIndices,
+  isLoved,
   isStarred,
   listStars,
-  mergeRemoteStarIndices,
+  mergeRemoteStars,
   removeStarLocal,
+  setLovedLocal,
   setStarLocal,
   type Star,
 } from "./store.js";
@@ -22,7 +26,7 @@ export async function hydrateStarsForTitle(titleId: string): Promise<void> {
   if (!isStarApiEnabled()) return;
   const remote = await fetchMyStars(titleId);
   if (remote === null) return;
-  mergeRemoteStarIndices(titleId, remote);
+  mergeRemoteStars(titleId, remote);
 }
 
 export async function loadPopularStars(titleId: string, limit = 50): Promise<number[]> {
@@ -65,8 +69,29 @@ export async function toggleStar(
   return nowStarred;
 }
 
+/** Love requires an existing star. Caps at MAX_LOVED_PER_TITLE locally + on API. */
+export async function toggleLove(titleId: string, lineIndex: number): Promise<boolean | null> {
+  if (!isStarred(titleId, lineIndex)) return null;
+  const wasLoved = isLoved(titleId, lineIndex);
+  const nowLoved = !wasLoved;
+  const ok = setLovedLocal(titleId, lineIndex, nowLoved);
+  if (!ok) return wasLoved;
+
+  if (!isStarApiEnabled()) return nowLoved;
+
+  const synced = await loveLine(titleId, lineIndex, nowLoved);
+  if (!synced) {
+    setLovedLocal(titleId, lineIndex, wasLoved);
+    return wasLoved;
+  }
+
+  return nowLoved;
+}
+
 export {
+  getLovedLineIndices,
   getStarredLineIndices,
+  isLoved,
   isStarred,
   listStars,
   type Star,

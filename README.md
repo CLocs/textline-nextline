@@ -393,7 +393,7 @@ Open questions (spike only — no pack UI yet):
 
 ## Phase 3+ — Social & polish *(backlog)*
 
-- [ ] **Loved / double-star quotes *(next)*** — pin a few golden lines so they show up in most mini-games. See [Later ideas](#loved--double-star-quotes-next).
+- [x] **Loved / double-star quotes** — ♥ up to 5 golden lines per title; mini-games take loved first. See [Later ideas](#loved--double-star-quotes-next).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
 - [x] **Question inbox** — Curate send icon → friend’s inbox (or copy a 1-line `#/play` link). See [Later ideas](#later-ideas-parked).
@@ -410,7 +410,9 @@ Open questions (spike only — no pack UI yet):
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
 - [ ] **Split multi-sentence lines** — curator (or import) splits one cue into sentence beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
-- [ ] **Quote parallels / analogy packs** — special recurring game: same beat adapted across situations (Wolf “not fucking real”). Chat + public-voted links to other sources. See [Later ideas](#quote-parallels--analogy-packs).
+- [x] **Quote parallels / analogy packs (Light)** — Curate 3–8 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
+- [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). See [Later ideas](#daily-quote-email).
+- [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
 - [ ] **Daily challenge** — same title + start line for everyone
@@ -431,6 +433,15 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 | **L5 — External / formal audit** | Paid pen-test or third-party review; threat model doc; bug bounty | Formal assurance | Weeks + $ | High — re-audit after big changes | Only if we hold sensitive PII at scale, go commercial, or enterprise users demand it |
 
 **Suggested sequence:** L0 → L1 → L3 (parallel) → L4 as habit → L2 when sharing grows → **skip L5** until the product outgrows a friends-and-family footprint.
+
+#### L0 hygiene checklist *(pass Sep 2026)*
+
+- [x] Secrets (`RESEND_API_KEY`, `AUTH_SECRET`, `GOOGLE_CLIENT_ID`) via `wrangler secret put` — not committed; `api/wrangler.toml` only has public `ALLOWED_ORIGINS` / `APP_ORIGIN` / `RESEND_FROM`.
+- [x] `GET /api/auth/config` returns `{ googleClientId }` only (OAuth client id is public by design; no API keys).
+- [x] CORS via `ALLOWED_ORIGINS` includes localhost + Pages + `textlinenextline.com`.
+- [x] No `.env` / credential JSON in git for the Worker (Pages `VITE_*` are build-time public).
+
+Re-run this list after any auth or origin change. L1+ still open.
 
 **Out of scope until needed:** full SOC2, CSP perfectionism, WAF product, encrypting all D1 at app layer (Cloudflare already encrypts at rest), storing passwords (we don’t).
 
@@ -483,15 +494,15 @@ Users care; a single “do security” project will bog us down. Prefer a **ladd
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, and **named friend groups** are in. **Loved / double-star quotes** is next. Line-splitting is the leftover “what counts as a line” work. Attempt-chat on a 1-line share is still parked. **Quote parallels** (analogy packs + chat + voted connections) is exploratory.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, and **play UX clarity** are in. Line-splitting is the leftover “what counts as a line” work. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Daily quote email** stays parked.
 
-### Loved / double-star quotes *(next)*
+### Loved / double-star quotes ✅
 
 Today a mini-game fills 10 from your personal stars (shuffled), then crowd popular, then random. If a title has ~80 stars, the handful of **golden** lines often miss the queue.
 
-**Love** (double-star) a small set so they generally appear in most mini-games for that title. Star stays “this is in the pool”; love is “this is a banger — bias the queue.” Not session thumbs (2.5) and not curator-score (other people’s stars).
+**Love** (♥) a small set so they generally appear in most mini-games for that title. Star stays “this is in the pool”; love is “this is a banger — bias the queue.” Not session thumbs (2.5) and not curator-score (other people’s stars).
 
-Later shape: a second weight or `loved` flag on `(title_id, line_index, player_id)`; `buildMiniGameQueue` takes loved first, then other personal stars. Cap about 3–5 per title so the quiz isn’t the same 10 every time. Library cover stills should prefer a loved line that has a frame, once this exists.
+**In:** `loved` flag on `(title_id, line_index, player_id)`; Cap **5** per title. `buildMiniGameQueue` takes loved first, then other personal stars. Curate + Play show ♥ when starred. `PUT /api/stars/love`. Library cover stills preferring a loved frame stays later.
 
 ### Friends + question inbox
 
@@ -572,15 +583,46 @@ The similar-answer guard and this split complement each other: even after a spli
 
 Some lines aren’t just next-line quiz material — they’re **templates people reuse**. Wolf of Wall Street’s “not fucking real” beat (and its cousins) gets adapted to whatever situation you’re in. That’s a different product from a one-off mini-game: a **special game** you return to, built around **parallels** — the same energy / structure / punchline in another film, TV scene, news moment, meme, or real-life context.
 
-**Core object:** a **pack** = an ordered **section of lines** (a short list / beat, not only a single cue) from a title, plus:
+**Core object:** a **pack** = an ordered **section of lines** (a short list / beat, not only a single cue) from a title, plus play + connections + votes.
 
-1. **Play** — a dedicated mode (or fixed share) so the pack is the thing you run every time, not a random 10 from stars.
-2. **Chat** — conversation threaded on that pack (reactions, “where I used this,” riffs). Not rooms; closer to attempt-chat but about the *analogy*, not only first/second/third try.
-3. **Public-voted connections** — community proposes a link to another source/context (another `(titleId, lineIndex[])`, a URL, or a short “situation” blurb). Others **vote**. Top connections surface as “also this” parallels for the pack.
+#### Light ✅ *(shipped)*
 
-**Not this (yet):** auto-NLP “find every similar quote in the catalog” as the first ship — start **curator- or player-seeded** packs + voted links. Full-catalog analogy search can come later if the manual graph is fun.
+- Curate: select **3–8** lines → **Save as parallel pack** (creates a frozen `mini_share` + `analogy_packs` row).
+- Pack page `#/parallel/{packId}`: show lines, **Play**, copy link, ranked **catalog** connections, propose parallel (`titleId` + line indices + optional note).
+- **Upvote only** (one per user per connection). Profile → **Parallels** lists your packs.
+- No chat, no URLs/situation blurbs, no Home rail, no downvotes.
 
-**Open questions:** pack ownership (personal vs communal); whether connections can leave our transcript universe (IG/YT/news) under UGC rules; how often “play every time” is a Home rail vs a share link; moderation on chat + connection votes.
+#### Medium *(deferred)*
+
+- Connection kinds: situation blurb + moderated URL; bidirectional links; daily proposal caps.
+- Up/down votes + optional owner pin; Home **Parallels** rail + follow; send pack to friends; short pack chat.
+- Still not auto-NLP catalog search.
+
+**Open questions (Medium+):** pack ownership vs communal; UGC/ToS for URLs; moderation.
+
+### Daily quote email
+
+**Idea:** A Readwise-style daily: ~**3 quotes** as cards in an email. Clicking a card opens **TLNL** (deep link into play, a 1-line share, or a parallel pack — TBD), not a dead static page.
+
+**Why:** Habit loop without opening the app cold; surfaces curated / loved / starred lines to the owner (and maybe friends later).
+
+**Rough shape:** Worker cron or external mailer → pick 3 lines (loved first, then personal stars, then crowd) → HTML email with quote + title + CTA → `#/play/…` or `#/parallel/…`. Opt-in; unsubscribe; respect auth (signed-in deep links vs public frozen shares).
+
+**Open questions:** one digest vs three separate mails; personal only vs “from friends”; whether the card itself is playable inline (probably not — keep email thin, open the app).
+
+Not the same as **Daily challenge** (same public quiz for everyone).
+
+### Onboarding + play UX clarity ✅
+
+First-time players who land on a **shared mini-game** often don’t know what to do. The play screen also under-signals that choices are MCQ.
+
+**In:**
+
+1. **First-share coach tip** — one-shot dismissable banner on shared `#/play` runs.
+2. **Skip ≠ quote** — dashed muted **Skip** control, distinct from answer rows.
+3. **Clearer MCQ affordance** — **A / B / C / D** labels + aesthetic radio dots; whole row still clickable.
+
+Complements Teach mode; this is first-impression chrome, not a new game mode.
 
 ---
 
@@ -600,8 +642,8 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 | **2a.2 — Google Sign-In** | GIS button + Worker JWT verify; same D1 session | ✅ Code in; set `GOOGLE_CLIENT_ID` + publish OAuth consent |
 | **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
 | **2.6 — Quote stills & catalog ops** | Mini-game frames, R2, owner Catalog, protect curated stars | ✅ Ocean's 13 + Wolf + IB + Empire on R2 |
-| **Next — Loved quotes** | Double-star / love a few golden lines so they land in most mini-games | After stills leftover — see [Loved quotes](#loved--double-star-quotes-next) |
-| **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | Staged; avoid one giant audit — see [spike](#spike-security-ladder-not-a-full-audit-yet) |
+| **Next — Loved quotes** | Double-star / love a few golden lines so they land in most mini-games | ✅ Cap 5; queue bias; Curate/Play ♥ |
+| **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | L0 checklist below; see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **Friends graph** | Invite link, accept, list, remove, block; hashed tokens; no directory | ✅ Mutual add-me links from Profile → Friends |
@@ -617,7 +659,9 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |
 | **Later — Line split** | Curator split of multi-sentence cues without reminting star indices | Star the punchy sentence inside a cue |
 | **Exploratory — UGC + songs** | IG/YT paste-a-link quotes; lyrics as transcripts | Catalog beyond our SRT library |
-| **Exploratory — Quote parallels** | Pack = line section + chat + voted links to other contexts | Special recurring “analogy” game (Wolf “not fucking real”) |
+| **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
+| **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop; opt-in digest — see [Daily quote email](#daily-quote-email) |
+| **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
 
@@ -683,7 +727,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 
 ### Recent feedback (parked)
 
-- **Loved / double-star quotes** *(next)* — a few golden lines should appear in most mini-games. See [Later ideas](#loved--double-star-quotes-next).
+- **Loved / double-star quotes** — ✅ ♥ up to 5 per title; mini-game queue takes loved first. See [Later ideas](#loved--double-star-quotes-next).
 - **Visual palette** — Coolors palette1 → palette2 (plum/mint/lime) on the content branch; logo artwork later.
 - **Localhost magic links** — Origin-aware links are coded (2a.1); **redeploy Worker** so production API emails point at localhost when you develop there.
 - **Google Sign-In** — Phase 2a.2: keep login gate; add GIS one-click (free). Magic link stays for non-Google emails.
@@ -695,7 +739,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **History sidebar + partial credit** — ✅ Missed cards red; re-guesses yellow (`reguess`); first-try correct green. Score: 1 / 0.5 / 0.25 by attempt (shown in play + complete). Persisted D1 `correct_count` stays whole lines cleared for now.
 - **Curate stars access** — Personal stars only; anyone may Curate their own. No email allowlist.
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
-- **Security ladder** *(later)* — Staged L0–L5 (hygiene → auth pass → deps → PR reviews; formal audit only if we scale). See [spike](#spike-security-ladder-not-a-full-audit-yet).
+- **Security ladder** — L0 hygiene checklist passed (secrets / CORS / auth config). L1+ later. See [spike](#spike-security-ladder-not-a-full-audit-yet).
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
 - **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
 - **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
@@ -705,7 +749,9 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
-- **Quote parallels / analogy packs** *(later)* — section of lines + chat + public-voted connections to other sources/situations (Wolf “not fucking real” style). See [Later ideas](#quote-parallels--analogy-packs).
+- **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
+- **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
+- **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).
 
 ---
 

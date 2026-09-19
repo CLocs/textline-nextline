@@ -40,6 +40,7 @@ Use --mid-cue when reverse-shots / VO make startMs land on the previous picture.
   --offset-ms   Override stills-sync offsetMs
   --time-scale  Override stills-sync timeScale (PAL 25fps is 0.96)
   --mid-cue     Seek to (startMs+endMs)/2 instead of startMs
+  --accurate-seek  Decode from start (`-ss` after `-i`). Use for DIV3/sparse keyframes.
   --sync        Path to stills-sync.json
 `);
   process.exit(1);
@@ -56,6 +57,7 @@ function parseArgs(argv: string[]): {
   offsetMs: number | null;
   timeScale: number | null;
   seek: CueSeek | null;
+  accurateSeek: boolean;
   syncPath: string;
 } {
   let titleId = "";
@@ -68,6 +70,7 @@ function parseArgs(argv: string[]): {
   let offsetMs: number | null = null;
   let timeScale: number | null = null;
   let seek: CueSeek | null = null;
+  let accurateSeek = false;
   let syncPath = defaultSync;
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
@@ -81,6 +84,7 @@ function parseArgs(argv: string[]): {
     else if (arg === "--offset-ms") offsetMs = Number(argv[++i] ?? "0");
     else if (arg === "--time-scale") timeScale = Number(argv[++i] ?? "1");
     else if (arg === "--mid-cue") seek = "mid";
+    else if (arg === "--accurate-seek") accurateSeek = true;
     else if (arg === "--sync") syncPath = argv[++i] ?? syncPath;
     else if (arg === "--help" || arg === "-h") usage();
   }
@@ -106,6 +110,7 @@ function parseArgs(argv: string[]): {
     offsetMs,
     timeScale,
     seek,
+    accurateSeek,
     syncPath: resolve(syncPath),
   };
 }
@@ -199,14 +204,14 @@ function main(): void {
   const destDir = join(args.outDir, args.titleId);
   mkdirSync(destDir, { recursive: true });
   console.log(
-    `${indices.length} still(s)  offsetMs=${offsetMs}  timeScale=${timeScale}  seek=${seek}  ${args.remote ? "remote" : "local"} D1=${args.fromStars}`,
+    `${indices.length} still(s)  offsetMs=${offsetMs}  timeScale=${timeScale}  seek=${seek}  accurate=${args.accurateSeek}  ${args.remote ? "remote" : "local"} D1=${args.fromStars}`,
   );
 
   for (const lineIndex of indices) {
     const cue = resolveCue(title, lineIndex);
     const seekSec = seekSeconds(cueAnchorMs(cue, seek), offsetMs, timeScale);
     const output = join(destDir, stillFileName(lineIndex));
-    const ffmpegArgs = ffmpegExtractArgs({ input, seekSec, output });
+    const ffmpegArgs = ffmpegExtractArgs({ input, seekSec, output, accurateSeek: args.accurateSeek });
     console.log(`line ${lineIndex}  ${seekSec.toFixed(3)}s  ${cue.text.slice(0, 60)}`);
     try {
       execFileSync("ffmpeg", ffmpegArgs, { stdio: "inherit" });

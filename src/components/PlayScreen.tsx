@@ -3,7 +3,7 @@ import type { Title } from "../types/content";
 import { GAME_MODES } from "../types/game";
 import type { McqQuestion } from "../lib/game/mcq";
 import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
-import { isStarred, toggleStar } from "../lib/stars/sync";
+import { isLoved, isStarred, toggleLove, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
 import { PosterArt } from "./PosterArt";
 import { LineSendControl } from "./LineSendControl";
@@ -11,6 +11,8 @@ import { LineSendControl } from "./LineSendControl";
 /** Hold the illuminated correct choice before advancing (Fun skip + any correct). */
 export const CORRECT_HOLD_MS = 2000;
 const WRONG_HOLD_MS = 900;
+const SHARE_TIP_KEY = "textline-nextline-share-tip-seen";
+const CHOICE_LABELS = ["A", "B", "C", "D", "E", "F"] as const;
 
 /** Later: cycle Nice / Wow / N streak. */
 function correctPopLabel(): string {
@@ -28,6 +30,8 @@ type Props = {
   feedback: "correct" | "wrong" | "skipped" | null;
   skipReveal: string | null;
   progress: string;
+  /** True when this run came from a shared `#/play/{shareId}` link. */
+  isSharedPlay?: boolean;
   onChoose: (lineIndex: number) => void;
   onSkip: () => void;
   onGoBack: () => void;
@@ -42,6 +46,7 @@ export function PlayScreen({
   feedback,
   skipReveal,
   progress,
+  isSharedPlay = false,
   onChoose,
   onSkip,
   onGoBack,
@@ -51,15 +56,25 @@ export function PlayScreen({
   const [starred, setStarred] = useState(() =>
     isStarred(title.id, question.promptLineIndex),
   );
+  const [loved, setLoved] = useState(() => isLoved(title.id, question.promptLineIndex));
   const [pickedIndex, setPickedIndex] = useState<number | null>(null);
   const [scorePulse, setScorePulse] = useState<"up" | "down" | null>(null);
+  const [showShareTip, setShowShareTip] = useState(false);
   const onFeedbackDoneRef = useRef(onFeedbackDone);
   onFeedbackDoneRef.current = onFeedbackDone;
 
   useEffect(() => {
     setStarred(isStarred(title.id, question.promptLineIndex));
+    setLoved(isLoved(title.id, question.promptLineIndex));
     setPickedIndex(null);
   }, [title.id, question.promptLineIndex]);
+
+  useEffect(() => {
+    if (!isSharedPlay) return;
+    if (typeof localStorage === "undefined") return;
+    if (localStorage.getItem(SHARE_TIP_KEY)) return;
+    setShowShareTip(true);
+  }, [isSharedPlay]);
 
   useEffect(() => {
     if (!feedback) {
@@ -84,8 +99,25 @@ export function PlayScreen({
   const lengthLabel = run.length === "mini" ? "Mini" : "Full";
   const teachSkipOpen = run.mode === "teach" && feedback === "skipped" && Boolean(skipReveal);
 
+  function dismissShareTip() {
+    setShowShareTip(false);
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem(SHARE_TIP_KEY, "1");
+    }
+  }
+
   function handleToggleStar() {
-    void toggleStar(title.id, question.promptLineIndex, question.promptText).then(setStarred);
+    void toggleStar(title.id, question.promptLineIndex, question.promptText).then((now) => {
+      setStarred(now);
+      if (!now) setLoved(false);
+    });
+  }
+
+  function handleToggleLove() {
+    void toggleLove(title.id, question.promptLineIndex).then((now) => {
+      if (now === null) return;
+      setLoved(now);
+    });
   }
 
   function handleChoose(lineIndex: number) {
@@ -115,6 +147,18 @@ export function PlayScreen({
             </span>
           </div>
         </div>
+
+        {showShareTip && (
+          <div className="play-coach" role="status">
+            <p>
+              <strong>How to play:</strong> Read the current line, then tap the choice that comes
+              next (A–D). Wrong guesses let you try again. Skip reveals the answer.
+            </p>
+            <button type="button" className="button ghost" onClick={dismissShareTip}>
+              Got it
+            </button>
+          </div>
+        )}
 
         <p className="episode-label">{title.title}</p>
 
@@ -148,6 +192,17 @@ export function PlayScreen({
               >
                 {starred ? "★ Starred" : "☆ Star"}
               </button>
+              {starred && (
+                <button
+                  type="button"
+                  className={`love-button${loved ? " loved" : ""}`}
+                  aria-pressed={loved}
+                  aria-label={loved ? "Unlove this line" : "Love this line for mini-games"}
+                  onClick={handleToggleLove}
+                >
+                  {loved ? "♥ Loved" : "♡ Love"}
+                </button>
+              )}
               <LineSendControl titleId={title.id} lineIndex={question.promptLineIndex} />
             </div>
           </div>
@@ -163,13 +218,14 @@ export function PlayScreen({
         </div>
 
         <div className="question-block">
-          <p className="prompt-label">What comes next?</p>
-          <ul className="choice-list">
-            {question.choices.map((choice) => {
+          <p className="prompt-label">What comes next? Pick one:</p>
+          <ul className="choice-list" role="radiogroup" aria-label="Next line choices">
+            {question.choices.map((choice, index) => {
               const isPicked = pickedIndex === choice.lineIndex;
               const showCorrect =
                 (feedback === "correct" || feedback === "skipped") &&
                 choice.lineIndex === question.correctLineIndex;
+              const label = CHOICE_LABELS[index] ?? String(index + 1);
               const choiceClass = [
                 "choice-button",
                 showCorrect ? "is-correct" : "",
@@ -181,11 +237,17 @@ export function PlayScreen({
                 <li key={choice.lineIndex}>
                   <button
                     type="button"
+                    role="radio"
+                    aria-checked={isPicked}
                     className={choiceClass}
                     disabled={feedback === "correct" || feedback === "skipped"}
                     onClick={() => handleChoose(choice.lineIndex)}
                   >
-                    {choice.text}
+                    <span className="choice-letter" aria-hidden="true">
+                      <span className="choice-radio" />
+                      {label}
+                    </span>
+                    <span className="choice-text">{choice.text}</span>
                     {feedback === "correct" && showCorrect && (
                       <span className="choice-hit-tag">{correctPopLabel()}</span>
                     )}
@@ -210,7 +272,7 @@ export function PlayScreen({
             )}
             <button
               type="button"
-              className="button ghost"
+              className="skip-button"
               disabled={feedback === "correct" || feedback === "skipped"}
               onClick={onSkip}
             >

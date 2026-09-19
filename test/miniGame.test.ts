@@ -72,6 +72,17 @@ describe("buildMiniGameQueue", () => {
     });
     expect(queue).toEqual([1, 2, 3]);
   });
+  it("puts loved prompts before other personal stars", () => {
+    const queue = buildMiniGameQueue(title, {
+      personalStarred: [1, 2, 3],
+      personalLoved: [3],
+      size: 2,
+      rng: fixedRng([0.1, 0.2, 0.3]),
+    });
+    expect(queue).toContain(3);
+    expect(queue).toHaveLength(2);
+    expect(queue).toEqual([...queue].sort((a, b) => a - b));
+  });
 });
 
 describe("chronologicalPromptQueue", () => {

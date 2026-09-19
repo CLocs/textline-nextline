@@ -94,11 +94,13 @@ export function sanitizeLoginReturn(raw: unknown): string | undefined {
     value === "profile/history" ||
     value === "profile/stats" ||
     value === "profile/friends" ||
-    value === "profile/inbox"
+    value === "profile/inbox" ||
+    value === "profile/parallels"
   ) {
     return value;
   }
   if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return value;
+  if (/^parallel\/[A-Za-z0-9_-]{1,64}$/.test(value)) return value;
   if (/^friend\/[a-f0-9]{24}$/i.test(value)) return value;
   return undefined;
 }
