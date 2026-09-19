@@ -42,13 +42,13 @@ export const GAME_LENGTHS: {
   description: string;
 }[] = [
   {
-    id: "full",
-    label: "Full episode",
-    description: "Play through every dialogue line in order.",
-  },
-  {
     id: "mini",
     label: "Mini-game (10)",
     description: "Ten questions — starred lines first, then random picks.",
+  },
+  {
+    id: "full",
+    label: "Full episode",
+    description: "Play through every dialogue line in order.",
   },
 ];

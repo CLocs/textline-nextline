@@ -27,7 +27,8 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
   const [anchor, setAnchor] = useState({ top: 0, right: 0 });
   const [friends, setFriends] = useState<FriendListItem[]>([]);
   const [groups, setGroups] = useState<FriendGroup[]>([]);
-  const [busy, setBusy] = useState(false);
+  const [copyBusy, setCopyBusy] = useState(false);
+  const [busyTargets, setBusyTargets] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [sentPeople, setSentPeople] = useState<Set<string>>(new Set());
@@ -39,6 +40,8 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
     setError(null);
     setSentPeople(new Set());
     setSentGroups(new Set());
+    setBusyTargets(new Set());
+    setCopyBusy(false);
   }, [titleId, lineIndex]);
 
   useEffect(() => {
@@ -86,11 +89,20 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
     setOpen((value) => !value);
   }
 
+  function markBusy(key: string, busy: boolean) {
+    setBusyTargets((current) => {
+      const next = new Set(current);
+      if (busy) next.add(key);
+      else next.delete(key);
+      return next;
+    });
+  }
+
   async function handleCopy() {
-    setBusy(true);
+    setCopyBusy(true);
     setError(null);
     const result = await copyLineShare(titleId, lineIndex);
-    setBusy(false);
+    setCopyBusy(false);
     if ("error" in result) {
       setError(result.error);
       return;
@@ -100,10 +112,11 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
   }
 
   async function handleSendGroup(group: FriendGroup) {
-    setBusy(true);
+    const key = `group:${group.id}`;
+    markBusy(key, true);
     setError(null);
     const result = await sendLineToGroup(titleId, lineIndex, group.id);
-    setBusy(false);
+    markBusy(key, false);
     if ("error" in result) {
       setError(result.error);
       return;
@@ -124,10 +137,11 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
   }
 
   async function handleSend(friend: FriendListItem) {
-    setBusy(true);
+    const key = `friend:${friend.userId}`;
+    markBusy(key, true);
     setError(null);
     const result = await sendLineToFriend(titleId, lineIndex, friend.userId);
-    setBusy(false);
+    markBusy(key, false);
     if ("error" in result) {
       setError(result.error);
       return;
@@ -167,7 +181,7 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
           <button
             type="button"
             className="button primary"
-            disabled={busy}
+            disabled={copyBusy}
             onClick={() => void handleCopy()}
           >
             Copy link
@@ -184,6 +198,7 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
                   <ul className="curate-send-friends">
                     {groups.map((group) => {
                       const sent = sentGroups.has(group.id);
+                      const busy = busyTargets.has(`group:${group.id}`);
                       return (
                       <li key={group.id}>
                         <span>{group.name}</span>
@@ -193,7 +208,7 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
                           disabled={busy || sent}
                           onClick={() => void handleSendGroup(group)}
                         >
-                          {sent ? "Sent" : "Send"}
+                          {sent ? "Sent" : busy ? "…" : "Send"}
                         </button>
                       </li>
                       );
@@ -207,6 +222,7 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
                   <ul className="curate-send-friends">
                     {friends.map((friend) => {
                       const sent = sentPeople.has(friend.userId);
+                      const busy = busyTargets.has(`friend:${friend.userId}`);
                       return (
                       <li key={friend.userId}>
                         <span>{friend.displayName}</span>
@@ -216,7 +232,7 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
                           disabled={busy || sent}
                           onClick={() => void handleSend(friend)}
                         >
-                          {sent ? "Sent" : "Send"}
+                          {sent ? "Sent" : busy ? "…" : "Send"}
                         </button>
                       </li>
                       );

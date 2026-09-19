@@ -131,11 +131,11 @@
     "note": "Remuxed AVI (DIV3 320x240 29.97, 21:17). TV rip starts ~57s later than the SRT (theme/open). User confirmed handful at offsetMs=-57000. All D1 stars extracted and pushed to R2."
   },
   "the-simpsons---4x02---a-streetcar-named-margeen": {
-    "offsetMs": 0,
+    "offsetMs": -57000,
     "encode": "avi-msmpeg4-2997-320x240",
     "source": "G:/videos/shows/Simpsons/S04E02 - The Simpsons - A Streetcar Named Marge (English).Avi",
     "fps": 29.97,
     "durationSec": 1203.03,
-    "note": "Same DIV3 320x240 29.97 rip as Kamp Krusty. File 20:03 vs SRT last dialogue ~21:42. 18 D1 stars. Handful re-extracted at offsetMs=-57000 (not source of truth yet). Agent: 43 living room, 67 Sinclair flyer, 127 rehearsal Blanche, 225 Apu paperboy look right; 103 Marge+Lisa brownies vs Hutz; 162 pudding can not Ned. Do not batch/R2."
+    "note": "Same DIV3 as Kamp Krusty. User confirmed handful at offsetMs=-57000 plus per-line 103 extra -5s and 162 extra -40s. Batched 16/18 D1 stars (258, 261 seek past EOF). Not pushed to R2."
   }
 }
