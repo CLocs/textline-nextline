@@ -41,9 +41,11 @@ import { AuthBar } from "../components/AuthBar";
 import { ProfileScreen } from "../components/ProfileScreen";
 import { CatalogOpsScreen } from "../components/CatalogOpsScreen";
 import { FriendAcceptScreen } from "../components/FriendAcceptScreen";
+import { ChatsList } from "../components/ChatsList";
+import { ChatThreadScreen } from "../components/ChatThreadScreen";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -80,6 +82,11 @@ export function App() {
   const [profileTab, setProfileTab] = useState<ProfileTab>("account");
   const [friendToken, setFriendToken] = useState<string | null>(null);
   const [parallelPackId, setParallelPackId] = useState<string | null>(null);
+  const [chatPeerId, setChatPeerId] = useState<string | null>(null);
+  const [chatPeerName, setChatPeerName] = useState<string | undefined>();
+  const [chatGroupId, setChatGroupId] = useState<string | null>(null);
+  const [chatGroupName, setChatGroupName] = useState<string | undefined>();
+  const [chatMode, setChatMode] = useState<"dm" | "group">("dm");
 
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
@@ -294,12 +301,51 @@ export function App() {
       if (route.kind === "profile") {
         if (!user && !getStoredUser()) {
           setLoginMessage("Sign in to view your profile.");
-          captureLoginReturn(profileHash(route.tab));
+          captureLoginReturn(profileHash(route.tab === "inbox" ? "chats" : route.tab));
           setScreen("login");
           return;
         }
-        setProfileTab(route.tab);
+        const tab = route.tab === "inbox" ? "chats" : route.tab;
+        setProfileTab(tab);
         setScreen("profile");
+        return;
+      }
+      if (route.kind === "chats") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to view chats.");
+          captureLoginReturn("chats");
+          setScreen("login");
+          return;
+        }
+        setScreen("chats");
+        return;
+      }
+      if (route.kind === "chat") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to view this chat.");
+          captureLoginReturn(`chat/${route.peerUserId}`);
+          setScreen("login");
+          return;
+        }
+        setChatMode("dm");
+        setChatPeerId(route.peerUserId);
+        setChatPeerName(undefined);
+        setChatGroupId(null);
+        setScreen("chat");
+        return;
+      }
+      if (route.kind === "chatGroup") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to view this group chat.");
+          captureLoginReturn(`chat/group/${route.groupId}`);
+          setScreen("login");
+          return;
+        }
+        setChatMode("group");
+        setChatGroupId(route.groupId);
+        setChatGroupName(undefined);
+        setChatPeerId(null);
+        setScreen("chat");
         return;
       }
       if (route.kind === "ops") {
@@ -540,10 +586,27 @@ export function App() {
     setHash(profileHash("account"));
   }
 
-  function handleOpenInbox() {
-    setProfileTab("inbox");
-    setScreen("profile");
-    setHash(profileHash("inbox"));
+  function handleOpenChats() {
+    setScreen("chats");
+    setHash("chats");
+  }
+
+  function handleOpenDm(peerUserId: string, displayName: string) {
+    setChatMode("dm");
+    setChatPeerId(peerUserId);
+    setChatPeerName(displayName);
+    setChatGroupId(null);
+    setScreen("chat");
+    setHash(`chat/${peerUserId}`);
+  }
+
+  function handleOpenGroupChat(groupId: string, name: string) {
+    setChatMode("group");
+    setChatGroupId(groupId);
+    setChatGroupName(name);
+    setChatPeerId(null);
+    setScreen("chat");
+    setHash(`chat/group/${groupId}`);
   }
 
   function handleOpenCatalog() {
@@ -571,7 +634,7 @@ export function App() {
             <AuthBar
               user={user}
               onProfile={handleOpenProfile}
-              onInbox={handleOpenInbox}
+              onChats={handleOpenChats}
               onCatalog={showCatalog ? handleOpenCatalog : undefined}
             />
           )}
@@ -598,6 +661,34 @@ export function App() {
         <LibraryScreen
           entries={entries}
           onSelect={handlePickEpisode}
+          onOpenDm={handleOpenDm}
+          onOpenGroup={handleOpenGroupChat}
+          onOpenChats={handleOpenChats}
+        />
+      )}
+
+      {showApp && screen === "chats" && (
+        <section className="panel">
+          <button type="button" className="button ghost back-link" onClick={handleBackToLibrary}>
+            ← Home
+          </button>
+          <div className="section-header">
+            <h2>Chats</h2>
+            <p className="muted">Direct messages and group chats — quote cards, not free text.</p>
+          </div>
+          <ChatsList onOpenDm={handleOpenDm} onOpenGroup={handleOpenGroupChat} />
+        </section>
+      )}
+
+      {showApp && screen === "chat" && (chatPeerId || chatGroupId) && (
+        <ChatThreadScreen
+          mode={chatMode}
+          peerUserId={chatPeerId ?? undefined}
+          peerName={chatPeerName}
+          groupId={chatGroupId ?? undefined}
+          groupName={chatGroupName}
+          entries={entries}
+          onBack={handleOpenChats}
         />
       )}
 
@@ -607,8 +698,9 @@ export function App() {
           tab={profileTab}
           entries={entries}
           onTab={(tab) => {
-            setProfileTab(tab);
-            setHash(profileHash(tab));
+            const next = tab === "inbox" ? "chats" : tab;
+            setProfileTab(next);
+            setHash(profileHash(next));
           }}
           onBack={handleBackToLibrary}
           onUpdated={setUser}
@@ -618,6 +710,8 @@ export function App() {
             setScreen("parallel");
             setHash(`parallel/${packId}`);
           }}
+          onOpenDm={handleOpenDm}
+          onOpenGroup={handleOpenGroupChat}
           onLogout={() => void handleLogout()}
         />
       )}

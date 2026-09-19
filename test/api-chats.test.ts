@@ -30,6 +30,7 @@ type InboxRow = {
   prompt_line_index: number;
   created_at: string;
   group_id: string | null;
+  read_at: string | null;
 };
 
 function farFuture(): string {
@@ -43,26 +44,11 @@ function addFriendship(rows: FriendshipRow[], a: string, b: string) {
   }
 }
 
-function createGroupsDb(options?: { carolFriend?: boolean }) {
+function createChatsDb() {
   const users: UserRow[] = [
-    {
-      id: ALICE_ID,
-      email: "alice@example.com",
-      display_name: "Alice",
-      created_at: "2026-01-01T00:00:00.000Z",
-    },
-    {
-      id: BOB_ID,
-      email: "bob@example.com",
-      display_name: "Bob",
-      created_at: "2026-01-01T00:00:00.000Z",
-    },
-    {
-      id: CAROL_ID,
-      email: "carol@example.com",
-      display_name: "Carol",
-      created_at: "2026-01-01T00:00:00.000Z",
-    },
+    { id: ALICE_ID, email: "alice@example.com", display_name: "Alice", created_at: "2026-01-01T00:00:00.000Z" },
+    { id: BOB_ID, email: "bob@example.com", display_name: "Bob", created_at: "2026-01-01T00:00:00.000Z" },
+    { id: CAROL_ID, email: "carol@example.com", display_name: "Carol", created_at: "2026-01-01T00:00:00.000Z" },
   ];
   const sessions: SessionRow[] = [
     { id: "sess-alice", user_id: ALICE_ID, expires_at: farFuture() },
@@ -71,7 +57,8 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
   ];
   const friendships: FriendshipRow[] = [];
   addFriendship(friendships, ALICE_ID, BOB_ID);
-  if (options?.carolFriend !== false) addFriendship(friendships, ALICE_ID, CAROL_ID);
+  addFriendship(friendships, ALICE_ID, CAROL_ID);
+  addFriendship(friendships, BOB_ID, CAROL_ID);
   const blocks: BlockRow[] = [];
   const groups: GroupRow[] = [];
   const members: GroupMemberRow[] = [];
@@ -92,30 +79,6 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                 if (!members.some((row) => row.group_id === groupId && row.user_id === userId)) {
                   members.push({ group_id: groupId, user_id: userId, created_at: createdAt });
                 }
-              } else if (sql.includes("DELETE FROM friend_group_members") && sql.includes("group_id IN")) {
-                const [memberId, ownerId] = args as [string, string];
-                const owned = new Set(
-                  groups.filter((group) => group.owner_user_id === ownerId).map((group) => group.id),
-                );
-                for (let i = members.length - 1; i >= 0; i -= 1) {
-                  const row = members[i]!;
-                  if (row.user_id === memberId && owned.has(row.group_id)) members.splice(i, 1);
-                }
-              } else if (sql.includes("DELETE FROM friend_group_members WHERE group_id = ? AND user_id")) {
-                const [groupId, userId] = args as [string, string];
-                const index = members.findIndex(
-                  (row) => row.group_id === groupId && row.user_id === userId,
-                );
-                if (index !== -1) members.splice(index, 1);
-              } else if (sql.includes("DELETE FROM friend_group_members WHERE group_id")) {
-                const [groupId] = args as [string];
-                for (let i = members.length - 1; i >= 0; i -= 1) {
-                  if (members[i]!.group_id === groupId) members.splice(i, 1);
-                }
-              } else if (sql.includes("DELETE FROM friend_groups")) {
-                const [id, owner] = args as [string, string];
-                const index = groups.findIndex((row) => row.id === id && row.owner_user_id === owner);
-                if (index !== -1) groups.splice(index, 1);
               } else if (sql.includes("INSERT INTO mini_shares")) {
                 const [id, owner, titleId, createdAt, lineIndices] = args as [
                   string,
@@ -133,7 +96,7 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                 });
               } else if (sql.includes("INSERT OR IGNORE INTO line_inbox")) {
                 const [id, shareId, sender, recipient, titleId, lineIndex, createdAt, groupId] =
-                  args as [string, string, string, string, string, number, string, string | null];
+                  args as [string, string, string, string, string, number, string, string | null | undefined];
                 if (!inbox.some((row) => row.recipient_user_id === recipient && row.share_id === shareId)) {
                   inbox.push({
                     id,
@@ -144,7 +107,18 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                     prompt_line_index: lineIndex,
                     created_at: createdAt,
                     group_id: groupId ?? null,
+                    read_at: null,
                   });
+                }
+              } else if (sql.includes("UPDATE line_inbox SET read_at")) {
+                const [readAt, recipientId, peerOrGroup] = args as [string, string, string];
+                for (const row of inbox) {
+                  if (row.recipient_user_id !== recipientId || row.read_at) continue;
+                  if (sql.includes("group_id = ?")) {
+                    if (row.group_id === peerOrGroup) row.read_at = readAt;
+                  } else if (sql.includes("group_id IS NULL") && row.sender_user_id === peerOrGroup && !row.group_id) {
+                    row.read_at = readAt;
+                  }
                 }
               }
               return { success: true };
@@ -171,15 +145,32 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                 return (row ? { user_a: row.user_a } : null) as T;
               }
               if (sql.includes("FROM friend_blocks")) {
-                const [a, b, b2, a2] = args as [string, string, string, string];
-                const row = blocks.find(
-                  (block) =>
-                    (block.blocker_user_id === a && block.blocked_user_id === b) ||
-                    (block.blocker_user_id === b2 && block.blocked_user_id === a2),
-                );
-                return (row ? { blocker_user_id: row.blocker_user_id } : null) as T;
+                return null;
               }
               if (sql.includes("SELECT COUNT(*) AS n FROM line_inbox")) {
+                if (sql.includes("read_at IS NULL") && sql.includes("group_id = ?")) {
+                  const [userId, groupId] = args as [string, string];
+                  return {
+                    n: inbox.filter(
+                      (row) =>
+                        row.recipient_user_id === userId &&
+                        row.group_id === groupId &&
+                        !row.read_at,
+                    ).length,
+                  } as T;
+                }
+                if (sql.includes("read_at IS NULL") && sql.includes("group_id IS NULL")) {
+                  const [userId, senderId] = args as [string, string];
+                  return {
+                    n: inbox.filter(
+                      (row) =>
+                        row.recipient_user_id === userId &&
+                        row.sender_user_id === senderId &&
+                        !row.group_id &&
+                        !row.read_at,
+                    ).length,
+                  } as T;
+                }
                 const [userId] = args as [string];
                 return { n: inbox.filter((row) => row.recipient_user_id === userId).length } as T;
               }
@@ -191,11 +182,11 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                 const [groupId] = args as [string];
                 return { n: members.filter((row) => row.group_id === groupId).length } as T;
               }
+              if (sql.includes("FROM mini_shares WHERE owner_user_id") && sql.includes("line_indices")) {
+                return null;
+              }
               if (sql.includes("FROM mini_shares WHERE owner_user_id")) {
-                const [userId] = args as [string];
-                const rows = shares.filter((share) => share.owner_user_id === userId);
-                const last = rows[rows.length - 1];
-                return (last ? { created_at: last.created_at } : null) as T;
+                return null;
               }
               if (sql.includes("SELECT id FROM friend_groups WHERE id = ? AND owner_user_id")) {
                 const [id, owner] = args as [string, string];
@@ -225,33 +216,74 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                 return (user ? { id: user.id, display_name: user.display_name } : null) as T;
               }
               if (sql.includes("SELECT created_at FROM friend_groups")) {
-                const [ownerId] = args as [string];
-                const rows = groups.filter((group) => group.owner_user_id === ownerId);
-                const last = rows[rows.length - 1];
-                return (last ? { created_at: last.created_at } : null) as T;
+                return null;
+              }
+              if (sql.includes("FROM line_inbox") && sql.includes("ORDER BY created_at DESC") && sql.includes("LIMIT 1")) {
+                const filtered = inbox.filter((row) => {
+                  if (sql.includes("group_id = ?")) {
+                    const [groupId] = args as [string];
+                    return row.group_id === groupId;
+                  }
+                  if (sql.includes("group_id IS NULL")) {
+                    const [a, b, c, d] = args as [string, string, string, string];
+                    return (
+                      !row.group_id &&
+                      ((row.sender_user_id === a && row.recipient_user_id === b) ||
+                        (row.sender_user_id === c && row.recipient_user_id === d))
+                    );
+                  }
+                  return false;
+                });
+                const last = filtered.sort((x, y) => y.created_at.localeCompare(x.created_at))[0];
+                return (last
+                  ? {
+                      id: last.id,
+                      share_id: last.share_id,
+                      title_id: last.title_id,
+                      prompt_line_index: last.prompt_line_index,
+                      created_at: last.created_at,
+                      sender_user_id: last.sender_user_id,
+                      recipient_user_id: last.recipient_user_id,
+                    }
+                  : null) as T;
               }
               return null;
             },
             async all<T>() {
-              if (sql.includes("FROM line_inbox i")) {
+              if (sql.includes("CASE WHEN sender_user_id")) {
+                const [viewer] = args as [string];
+                const peers = new Map<string, string>();
+                for (const row of inbox) {
+                  if (row.group_id) continue;
+                  if (row.sender_user_id !== viewer && row.recipient_user_id !== viewer) continue;
+                  const peer =
+                    row.sender_user_id === viewer ? row.recipient_user_id : row.sender_user_id;
+                  const prev = peers.get(peer);
+                  if (!prev || row.created_at > prev) peers.set(peer, row.created_at);
+                }
+                return {
+                  results: [...peers.entries()].map(([peer_id, last_at]) => ({ peer_id, last_at })) as T[],
+                };
+              }
+              if (sql.includes("FROM friendships") && sql.includes("JOIN users")) {
                 const [userId] = args as [string];
-                const results = inbox
-                  .filter((row) => row.recipient_user_id === userId)
+                const results = friendships
+                  .filter((row) => row.user_a === userId || row.user_b === userId)
                   .map((row) => {
-                    const sender = users.find((u) => u.id === row.sender_user_id);
+                    const peerId = row.user_a === userId ? row.user_b : row.user_a;
+                    const peer = users.find((u) => u.id === peerId);
                     return {
-                      id: row.id,
-                      share_id: row.share_id,
-                      title_id: row.title_id,
-                      prompt_line_index: row.prompt_line_index,
-                      created_at: row.created_at,
-                      sender_id: row.sender_user_id,
-                      display_name: sender?.display_name ?? null,
+                      user_id: peerId,
+                      display_name: peer?.display_name ?? null,
                     };
                   });
                 return { results: results as T[] };
               }
-              if (sql.includes("FROM friend_group_members m") && sql.includes("JOIN friend_groups g") && sql.includes("WHERE m.user_id = ?")) {
+              if (
+                sql.includes("FROM friend_group_members m") &&
+                sql.includes("JOIN friend_groups g") &&
+                sql.includes("WHERE m.user_id = ?")
+              ) {
                 const [userId] = args as [string];
                 const results = members
                   .filter((row) => row.user_id === userId)
@@ -307,17 +339,48 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                     })) as T[],
                 };
               }
-              if (sql.includes("SELECT id, name, created_at FROM friend_groups")) {
-                const [ownerId] = args as [string];
-                return {
-                  results: groups
-                    .filter((row) => row.owner_user_id === ownerId)
-                    .map((row) => ({
+              if (sql.includes("FROM line_inbox") && sql.includes("group_id = ?")) {
+                const [groupId] = args as [string];
+                const results = inbox
+                  .filter((row) => row.group_id === groupId)
+                  .map((row) => {
+                    const sender = users.find((u) => u.id === row.sender_user_id);
+                    return {
                       id: row.id,
-                      name: row.name,
+                      share_id: row.share_id,
+                      title_id: row.title_id,
+                      prompt_line_index: row.prompt_line_index,
                       created_at: row.created_at,
-                    })) as T[],
-                };
+                      sender_user_id: row.sender_user_id,
+                      recipient_user_id: row.recipient_user_id,
+                      sender_name: sender?.display_name ?? null,
+                    };
+                  });
+                return { results: results as T[] };
+              }
+              if (sql.includes("FROM line_inbox") && sql.includes("group_id IS NULL")) {
+                const [a, b, c, d] = args as [string, string, string, string];
+                const results = inbox
+                  .filter(
+                    (row) =>
+                      !row.group_id &&
+                      ((row.sender_user_id === a && row.recipient_user_id === b) ||
+                        (row.sender_user_id === c && row.recipient_user_id === d)),
+                  )
+                  .map((row) => {
+                    const sender = users.find((u) => u.id === row.sender_user_id);
+                    return {
+                      id: row.id,
+                      share_id: row.share_id,
+                      title_id: row.title_id,
+                      prompt_line_index: row.prompt_line_index,
+                      created_at: row.created_at,
+                      sender_user_id: row.sender_user_id,
+                      recipient_user_id: row.recipient_user_id,
+                      sender_name: sender?.display_name ?? null,
+                    };
+                  });
+                return { results: results as T[] };
               }
               return { results: [] as T[] };
             },
@@ -327,7 +390,7 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
     },
   } as unknown as D1Database;
 
-  return { db, blocks, inbox, shares };
+  return { db, inbox };
 }
 
 function envFor(db: D1Database) {
@@ -352,126 +415,85 @@ function jsonRequest(
   });
 }
 
-async function createMovieNight(db: D1Database): Promise<string> {
-  const created = await handleRequest(
-    jsonRequest("/api/groups", {
-      method: "POST",
-      token: "sess-alice",
-      body: { name: "Movie night" },
-    }),
-    envFor(db),
-  );
-  expect(created.status).toBe(200);
-  const payload = (await created.json()) as { id: string };
-  return payload.id;
-}
+describe("chats API", () => {
+  it("keeps group sends out of DM threads and shares one group transcript", async () => {
+    const { db } = createChatsDb();
 
-describe("friend groups API", () => {
-  it("sends one frozen share to every group member", async () => {
-    const { db, shares } = createGroupsDb();
-    const groupId = await createMovieNight(db);
+    const created = await handleRequest(
+      jsonRequest("/api/groups", { method: "POST", token: "sess-alice", body: { name: "Movie night" } }),
+      envFor(db),
+    );
+    const group = (await created.json()) as { id: string };
 
     for (const userId of [BOB_ID, CAROL_ID]) {
-      const added = await handleRequest(
-        jsonRequest(`/api/groups/${groupId}/members`, {
+      await handleRequest(
+        jsonRequest(`/api/groups/${group.id}/members`, {
           method: "POST",
           token: "sess-alice",
           body: { userId },
         }),
         envFor(db),
       );
-      expect(added.status).toBe(200);
     }
 
-    const listed = await handleRequest(jsonRequest("/api/groups", { token: "sess-alice" }), envFor(db));
-    const groups = (await listed.json()) as {
-      groups: Array<{ name: string; members: Array<{ userId: string; displayName: string }> }>;
+    await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 27, toUserId: BOB_ID },
+      }),
+      envFor(db),
+    );
+
+    await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 40, groupId: group.id },
+      }),
+      envFor(db),
+    );
+
+    const dm = await handleRequest(
+      jsonRequest(`/api/chats/dm/${BOB_ID}`, { token: "sess-alice" }),
+      envFor(db),
+    );
+    expect(dm.status).toBe(200);
+    const dmBody = (await dm.json()) as { messages: Array<{ lineIndex: number }> };
+    expect(dmBody.messages.map((m) => m.lineIndex)).toEqual([27]);
+
+    const groupAlice = await handleRequest(
+      jsonRequest(`/api/chats/group/${group.id}`, { token: "sess-alice" }),
+      envFor(db),
+    );
+    const groupBob = await handleRequest(
+      jsonRequest(`/api/chats/group/${group.id}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(groupAlice.status).toBe(200);
+    expect(groupBob.status).toBe(200);
+    const aliceMsgs = (await groupAlice.json()) as { messages: Array<{ lineIndex: number; shareId: string }> };
+    const bobMsgs = (await groupBob.json()) as { messages: Array<{ lineIndex: number; shareId: string }> };
+    expect(aliceMsgs.messages).toHaveLength(1);
+    expect(bobMsgs.messages).toHaveLength(1);
+    expect(aliceMsgs.messages[0]?.lineIndex).toBe(40);
+    expect(bobMsgs.messages[0]?.shareId).toBe(aliceMsgs.messages[0]?.shareId);
+
+    const bobSend = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-bob",
+        body: { titleId: TITLE_ID, lineIndex: 50, groupId: group.id },
+      }),
+      envFor(db),
+    );
+    expect(bobSend.status).toBe(200);
+
+    const list = await handleRequest(jsonRequest("/api/chats", { token: "sess-bob" }), envFor(db));
+    const threads = (await list.json()) as {
+      threads: Array<{ kind: string; unreadCount?: number; groupId?: string }>;
     };
-    expect(groups.groups).toHaveLength(1);
-    expect(groups.groups[0]?.name).toBe("Movie night");
-    expect(groups.groups[0]?.members.map((member) => member.userId).sort()).toEqual(
-      [BOB_ID, CAROL_ID].sort(),
-    );
-    expect(JSON.stringify(groups)).not.toContain("@example.com");
-
-    const sent = await handleRequest(
-      jsonRequest("/api/inbox", {
-        method: "POST",
-        token: "sess-alice",
-        body: { titleId: TITLE_ID, lineIndex: 27, groupId },
-      }),
-      envFor(db),
-    );
-    expect(sent.status).toBe(200);
-    const payload = (await sent.json()) as { shareId: string; sent: number; skipped: number };
-    expect(payload.sent).toBe(2);
-    expect(payload.skipped).toBe(0);
-    expect(shares).toHaveLength(1);
-
-    const bobInbox = await handleRequest(jsonRequest("/api/inbox", { token: "sess-bob" }), envFor(db));
-    const carolInbox = await handleRequest(jsonRequest("/api/inbox", { token: "sess-carol" }), envFor(db));
-    const bobItems = (await bobInbox.json()) as { items: Array<{ shareId: string }> };
-    const carolItems = (await carolInbox.json()) as { items: Array<{ shareId: string }> };
-    expect(bobItems.items).toHaveLength(1);
-    expect(carolItems.items).toHaveLength(1);
-    expect(bobItems.items[0]?.shareId).toBe(payload.shareId);
-    expect(carolItems.items[0]?.shareId).toBe(payload.shareId);
-  });
-
-  it("rejects adding a non-friend", async () => {
-    const { db } = createGroupsDb({ carolFriend: false });
-    const groupId = await createMovieNight(db);
-    const denied = await handleRequest(
-      jsonRequest(`/api/groups/${groupId}/members`, {
-        method: "POST",
-        token: "sess-alice",
-        body: { userId: CAROL_ID },
-      }),
-      envFor(db),
-    );
-    expect(denied.status).toBe(403);
-  });
-
-  it("skips a blocked member and still fans out one share", async () => {
-    const { db, blocks } = createGroupsDb();
-    const groupId = await createMovieNight(db);
-    for (const userId of [BOB_ID, CAROL_ID]) {
-      const added = await handleRequest(
-        jsonRequest(`/api/groups/${groupId}/members`, {
-          method: "POST",
-          token: "sess-alice",
-          body: { userId },
-        }),
-        envFor(db),
-      );
-      expect(added.status).toBe(200);
-    }
-
-    blocks.push({
-      blocker_user_id: ALICE_ID,
-      blocked_user_id: BOB_ID,
-      created_at: "2026-01-04T00:00:00.000Z",
-    });
-
-    const sent = await handleRequest(
-      jsonRequest("/api/inbox", {
-        method: "POST",
-        token: "sess-alice",
-        body: { titleId: TITLE_ID, lineIndex: 27, groupId },
-      }),
-      envFor(db),
-    );
-    expect(sent.status).toBe(200);
-    const payload = (await sent.json()) as { shareId: string; sent: number; skipped: number };
-    expect(payload.sent).toBe(1);
-    expect(payload.skipped).toBe(1);
-
-    const bobInbox = await handleRequest(jsonRequest("/api/inbox", { token: "sess-bob" }), envFor(db));
-    const carolInbox = await handleRequest(jsonRequest("/api/inbox", { token: "sess-carol" }), envFor(db));
-    const bobItems = (await bobInbox.json()) as { items: Array<{ shareId: string }> };
-    const carolItems = (await carolInbox.json()) as { items: Array<{ shareId: string }> };
-    expect(bobItems.items).toHaveLength(0);
-    expect(carolItems.items).toHaveLength(1);
-    expect(carolItems.items[0]?.shareId).toBe(payload.shareId);
+    expect(threads.threads.some((t) => t.kind === "group")).toBe(true);
+    expect(threads.threads.some((t) => t.kind === "dm")).toBe(true);
   });
 });

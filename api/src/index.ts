@@ -63,6 +63,13 @@ import {
 } from "./friends.js";
 import { copyLineShare, listInbox, sendLineToFriend, sendLineToGroup } from "./inbox.js";
 import {
+  listChatThreads,
+  listDmMessages,
+  listGroupMessages,
+  markDmRead,
+  markGroupRead,
+} from "./chats.js";
+import {
   addGroupMember,
   createGroup,
   deleteGroup,
@@ -302,7 +309,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     return errorResponse("Not found", 404, origin, allowed);
   }
 
-  // --- Groups (owner-only send-lists of existing friends) ---
+  // --- Groups (owner manages; members can list + send in Chats) ---
   if (pathname.startsWith("/api/groups")) {
     const userOrError = await requireUser(request, env, origin, allowed);
     if (userOrError instanceof Response) return userOrError;
@@ -347,6 +354,48 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const result = await deleteGroup(env.DB, user, decodeURIComponent(groupMatch[1]));
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
+  }
+
+  // --- Chats (DM + shared group threads over line_inbox) ---
+  if (pathname.startsWith("/api/chats")) {
+    const userOrError = await requireUser(request, env, origin, allowed);
+    if (userOrError instanceof Response) return userOrError;
+    const user = userOrError;
+
+    if (request.method === "GET" && pathname === "/api/chats") {
+      const threads = await listChatThreads(env.DB, user.id);
+      return jsonResponse({ threads }, 200, origin, allowed);
+    }
+
+    const dmReadMatch = pathname.match(/^\/api\/chats\/dm\/([^/]+)\/read$/);
+    if (dmReadMatch?.[1] && request.method === "POST") {
+      const result = await markDmRead(env.DB, user, decodeURIComponent(dmReadMatch[1]));
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    const dmMatch = pathname.match(/^\/api\/chats\/dm\/([^/]+)$/);
+    if (dmMatch?.[1] && request.method === "GET") {
+      const result = await listDmMessages(env.DB, user, decodeURIComponent(dmMatch[1]));
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ messages: result }, 200, origin, allowed);
+    }
+
+    const groupReadMatch = pathname.match(/^\/api\/chats\/group\/([^/]+)\/read$/);
+    if (groupReadMatch?.[1] && request.method === "POST") {
+      const result = await markGroupRead(env.DB, user, decodeURIComponent(groupReadMatch[1]));
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    const groupMatch = pathname.match(/^\/api\/chats\/group\/([^/]+)$/);
+    if (groupMatch?.[1] && request.method === "GET") {
+      const result = await listGroupMessages(env.DB, user, decodeURIComponent(groupMatch[1]));
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
     }
 
     return errorResponse("Not found", 404, origin, allowed);

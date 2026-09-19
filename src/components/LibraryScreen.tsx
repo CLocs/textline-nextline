@@ -9,7 +9,7 @@ import {
   type ShowGroup,
 } from "../lib/content/libraryGroups";
 import { fetchMyRuns, fetchPlayedStats } from "../lib/runs/api";
-import { fetchInbox, type InboxItem, type ParallelInboxItem } from "../lib/inbox/api";
+import { fetchInbox, type ParallelInboxItem } from "../lib/inbox/api";
 import { isAuthApiEnabled } from "../lib/auth/api";
 import { isLocalDevSession } from "../lib/auth/session";
 import {
@@ -21,12 +21,15 @@ import {
 } from "../lib/content/playedRails";
 import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCover";
 import { PosterArt } from "./PosterArt";
-import { InboxLineCard } from "./InboxLineCard";
 import { ParallelInboxCard } from "./ParallelInboxCard";
+import { ChatsList } from "./ChatsList";
 
 type Props = {
   entries: CatalogEntry[];
   onSelect: (entry: CatalogEntry) => void;
+  onOpenDm: (peerUserId: string, displayName: string) => void;
+  onOpenGroup: (groupId: string, name: string) => void;
+  onOpenChats: () => void;
 };
 
 type View =
@@ -80,12 +83,17 @@ function TitleCard({
   );
 }
 
-export function LibraryScreen({ entries, onSelect }: Props) {
+export function LibraryScreen({
+  entries,
+  onSelect,
+  onOpenDm,
+  onOpenGroup,
+  onOpenChats,
+}: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
   const [recent, setRecent] = useState<CatalogEntry[]>([]);
   const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
-  const [inbox, setInbox] = useState<InboxItem[]>([]);
   const [parallelInbox, setParallelInbox] = useState<ParallelInboxItem[]>([]);
   const [railsReady, setRailsReady] = useState(false);
   const groups = groupCatalogEntries(entries);
@@ -97,17 +105,15 @@ export function LibraryScreen({ entries, onSelect }: Props) {
       fetchMyRuns(),
       isAuthApiEnabled() && !isLocalDevSession()
         ? fetchInbox()
-        : Promise.resolve({ items: [] as InboxItem[], parallels: [] as ParallelInboxItem[] }),
+        : Promise.resolve({ items: [], parallels: [] as ParallelInboxItem[] }),
     ]).then(([titles, runs, inboxResult]) => {
       if (cancelled) return;
       setCounts(playCountMap(titles));
       setRecent(recentFromRuns(runs, entries));
       setYours(yourTopPlayed(runs, entries));
       if (inboxResult && !("error" in inboxResult)) {
-        setInbox(inboxResult.items);
         setParallelInbox(inboxResult.parallels);
       } else {
-        setInbox([]);
         setParallelInbox([]);
       }
       setRailsReady(true);
@@ -119,7 +125,7 @@ export function LibraryScreen({ entries, onSelect }: Props) {
 
   const playedMovies = useMemo(() => topPlayedMovies(entries, counts), [entries, counts]);
   const playedShows = useMemo(() => topPlayedShows(entries, counts), [entries, counts]);
-  const hasPersonalRails = recent.length > 0 || yours.length > 0 || inbox.length > 0 || parallelInbox.length > 0;
+  const hasPersonalRails = recent.length > 0 || yours.length > 0 || parallelInbox.length > 0;
   const hasCrowdRails = playedMovies.length > 0 || playedShows.length > 0;
 
   if (view.level === "season") {
@@ -281,27 +287,29 @@ export function LibraryScreen({ entries, onSelect }: Props) {
         </p>
       ) : (
         <div className="library-groups">
-          {(inbox.length > 0 || parallelInbox.length > 0) && (
+          <div className="library-group">
+            <div className="section-header chats-home-header">
+              <h3 className="library-group-heading">Chats</h3>
+              <button type="button" className="button ghost" onClick={onOpenChats}>
+                See all
+              </button>
+            </div>
+            <ChatsList compact onOpenDm={onOpenDm} onOpenGroup={onOpenGroup} />
+          </div>
+
+          {parallelInbox.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">From friends</h3>
+              <h3 className="library-group-heading">Parallel rewrites</h3>
               <ul className="inbox-line-list">
-                {[
-                  ...parallelInbox.map((item) => ({ kind: "parallel" as const, at: item.createdAt, item })),
-                  ...inbox.map((item) => ({ kind: "line" as const, at: item.createdAt, item })),
-                ]
-                  .sort((a, b) => b.at.localeCompare(a.at))
+                {parallelInbox
+                  .slice()
+                  .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
                   .slice(0, 8)
-                  .map((entry) =>
-                    entry.kind === "parallel" ? (
-                      <li key={`p-${entry.item.id}`}>
-                        <ParallelInboxCard item={entry.item} />
-                      </li>
-                    ) : (
-                      <li key={`l-${entry.item.id}`}>
-                        <InboxLineCard item={entry.item} entries={entries} />
-                      </li>
-                    ),
-                  )}
+                  .map((item) => (
+                    <li key={`p-${item.id}`}>
+                      <ParallelInboxCard item={item} />
+                    </li>
+                  ))}
               </ul>
             </div>
           )}

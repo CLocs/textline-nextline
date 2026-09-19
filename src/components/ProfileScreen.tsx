@@ -9,8 +9,8 @@ import { historyTitleLabel, summarizeRuns } from "../lib/content/playedRails";
 import { GAME_MODES, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
 import { FriendsPanel } from "./FriendsPanel";
-import { InboxPanel } from "./InboxPanel";
-import { useInboxUnfilledCount } from "../lib/inbox/useInboxUnfilledCount";
+import { ChatsList } from "./ChatsList";
+import { useChatsUnreadCount } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
   user: AuthUser;
@@ -21,6 +21,8 @@ type Props = {
   onUpdated: (user: AuthUser) => void;
   onPlayShare: (shareId: string) => void;
   onOpenParallel: (packId: string) => void;
+  onOpenDm: (peerUserId: string, displayName: string) => void;
+  onOpenGroup: (groupId: string, name: string) => void;
   onLogout: () => void;
 };
 
@@ -152,9 +154,11 @@ export function ProfileScreen({
   onUpdated,
   onPlayShare,
   onOpenParallel,
+  onOpenDm,
+  onOpenGroup,
   onLogout,
 }: Props) {
-  const unfilledInbox = useInboxUnfilledCount();
+  const chatsUnread = useChatsUnreadCount();
   const [runs, setRuns] = useState<StoredRun[]>([]);
   const [packs, setPacks] = useState<AnalogyPack[]>([]);
   const [packsLoading, setPacksLoading] = useState(false);
@@ -250,11 +254,11 @@ export function ProfileScreen({
         </button>
         <button
           type="button"
-          className={tab === "inbox" ? "button primary" : "button ghost"}
-          onClick={() => onTab("inbox")}
+          className={tab === "chats" || tab === "inbox" ? "button primary" : "button ghost"}
+          onClick={() => onTab("chats")}
         >
-          Inbox
-          {unfilledInbox > 0 ? <span className="inbox-tab-badge">{unfilledInbox}</span> : null}
+          Chats
+          {chatsUnread > 0 ? <span className="inbox-tab-badge">{chatsUnread}</span> : null}
         </button>
         <button
           type="button"
@@ -352,7 +356,9 @@ export function ProfileScreen({
         </>
       )}
       {tab === "friends" && <FriendsPanel user={user} />}
-      {tab === "inbox" && <InboxPanel entries={entries} />}
+      {(tab === "chats" || tab === "inbox") && (
+        <ChatsList onOpenDm={onOpenDm} onOpenGroup={onOpenGroup} />
+      )}
       {tab === "parallels" && (
         <>
           <p className="muted">

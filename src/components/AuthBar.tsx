@@ -1,14 +1,14 @@
 import type { AuthUser } from "../lib/auth/session";
-import { useInboxUnfilledCount } from "../lib/inbox/useInboxUnfilledCount";
+import { useChatsUnreadCount } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
   user: AuthUser;
   onProfile: () => void;
-  onInbox: () => void;
+  onChats: () => void;
   onCatalog?: () => void;
 };
 
-function InboxBellIcon() {
+function ChatsBellIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
@@ -19,9 +19,9 @@ function InboxBellIcon() {
   );
 }
 
-export function AuthBar({ user, onProfile, onInbox, onCatalog }: Props) {
-  const unfilled = useInboxUnfilledCount();
-  const inboxLabel = `Inbox, ${unfilled} unfilled quote${unfilled === 1 ? "" : "s"}`;
+export function AuthBar({ user, onProfile, onChats, onCatalog }: Props) {
+  const unread = useChatsUnreadCount();
+  const chatsLabel = `Chats, ${unread} unread`;
 
   return (
     <div className="auth-bar">
@@ -30,18 +30,16 @@ export function AuthBar({ user, onProfile, onInbox, onCatalog }: Props) {
           Catalog
         </button>
       ) : null}
-      {unfilled > 0 ? (
-        <button
-          type="button"
-          className="button ghost inbox-notify"
-          aria-label={inboxLabel}
-          title={inboxLabel}
-          onClick={onInbox}
-        >
-          <InboxBellIcon />
-          <span className="inbox-notify-badge">{unfilled}</span>
-        </button>
-      ) : null}
+      <button
+        type="button"
+        className="button ghost inbox-notify"
+        aria-label={chatsLabel}
+        title={chatsLabel}
+        onClick={onChats}
+      >
+        <ChatsBellIcon />
+        {unread > 0 ? <span className="inbox-notify-badge">{unread}</span> : null}
+      </button>
       <button
         type="button"
         className="button ghost auth-user-button"
