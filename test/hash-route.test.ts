@@ -36,8 +36,19 @@ describe("parseHash", () => {
     expect(parseHash("#/profile/history")).toEqual({ kind: "profile", tab: "history" });
     expect(parseHash("#/profile/stats")).toEqual({ kind: "profile", tab: "stats" });
     expect(parseHash("#/profile/friends")).toEqual({ kind: "profile", tab: "friends" });
-    expect(parseHash("#/profile/inbox")).toEqual({ kind: "profile", tab: "inbox" });
+    expect(parseHash("#/profile/chats")).toEqual({ kind: "profile", tab: "chats" });
+    // Legacy inbox hash aliases to Chats
+    expect(parseHash("#/profile/inbox")).toEqual({ kind: "profile", tab: "chats" });
     expect(parseHash("#/profile/parallels")).toEqual({ kind: "profile", tab: "parallels" });
+  });
+
+  it("parses chats routes", () => {
+    expect(parseHash("#/chats")).toEqual({ kind: "chats" });
+    expect(parseHash("#/chat/user-123")).toEqual({ kind: "chat", peerUserId: "user-123" });
+    expect(parseHash("#/chat/group/group-456")).toEqual({
+      kind: "chatGroup",
+      groupId: "group-456",
+    });
   });
 
   it("parses parallel pack routes", () => {
@@ -62,6 +73,10 @@ describe("isSafeLoginReturn", () => {
     expect(isSafeLoginReturn("profile/history")).toBe(true);
     expect(isSafeLoginReturn("profile/friends")).toBe(true);
     expect(isSafeLoginReturn("profile/inbox")).toBe(true);
+    expect(isSafeLoginReturn("profile/chats")).toBe(true);
+    expect(isSafeLoginReturn("chats")).toBe(true);
+    expect(isSafeLoginReturn("chat/user-123")).toBe(true);
+    expect(isSafeLoginReturn("chat/group/group-456")).toBe(true);
     expect(isSafeLoginReturn("friend/aabbccddeeff001122334455")).toBe(true);
     expect(isSafeLoginReturn("ops")).toBe(true);
     expect(isSafeLoginReturn("https://evil.example")).toBe(false);
