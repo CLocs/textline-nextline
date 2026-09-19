@@ -1,6 +1,6 @@
 /**
- * Idempotent 004: add frozen-share columns only when missing.
- * `ALTER TABLE ... ADD COLUMN` is not IF NOT EXISTS, so re-running 004.sql fails.
+ * Idempotent ALTER TABLE ADD COLUMN helpers.
+ * Plain `ADD COLUMN` is not IF NOT EXISTS, so re-running migration .sql fails in CI.
  */
 import { execSync } from "node:child_process";
 import { dirname, join } from "node:path";
@@ -15,6 +15,11 @@ const ALTERS = [
     table: "mini_shares",
     column: "line_indices",
     sql: "ALTER TABLE mini_shares ADD COLUMN line_indices TEXT",
+  },
+  {
+    table: "stars",
+    column: "loved",
+    sql: "ALTER TABLE stars ADD COLUMN loved INTEGER NOT NULL DEFAULT 0",
   },
 ];
 

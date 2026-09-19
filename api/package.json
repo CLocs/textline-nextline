@@ -22,8 +22,8 @@
     "db:migrate:groups:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/007_groups.sql",
     "db:migrate:parallels:local": "wrangler d1 execute textline-stars --local --file=migrations/008_parallels.sql",
     "db:migrate:parallels:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/008_parallels.sql",
-    "db:migrate:loved:local": "wrangler d1 execute textline-stars --local --file=migrations/009_loved.sql",
-    "db:migrate:loved:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/009_loved.sql"
+    "db:migrate:loved:local": "node scripts/ensure-share-columns.mjs --local",
+    "db:migrate:loved:remote": "node scripts/ensure-share-columns.mjs --remote"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",

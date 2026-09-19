@@ -1,2 +1,4 @@
 -- Loved / double-star: bias mini-game queues (0 = starred only, 1 = loved)
-ALTER TABLE stars ADD COLUMN loved INTEGER NOT NULL DEFAULT 0;
+-- Applied idempotently by `node scripts/ensure-share-columns.mjs` (see package.json
+-- db:migrate:loved:*). Do not run this ALTER blindly — duplicate column fails in CI.
+-- ALTER TABLE stars ADD COLUMN loved INTEGER NOT NULL DEFAULT 0;

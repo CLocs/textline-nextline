@@ -398,6 +398,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
 - [x] **Question inbox** — Curate send icon → friend’s inbox (or copy a 1-line `#/play` link). See [Later ideas](#later-ideas-parked).
 - [x] **Named friend groups** — Profile → Friends send-lists; one Send fans out the same 1-line share. Attempt-chat stays later.
+- [ ] **Send cooldown: per recipient, not global** — 10s share cooldown blocks sending the same line to several friends quickly; debounce only duplicate (line → same person). See [Recent feedback](#recent-feedback-parked).
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
 - [ ] **Curate mini-game builder** — filter starred-by (union) + sort (most starred / most played / chrono ↔); see [Spike: curated packs](#spike-curated--saved-mini-game-packs-not-building)
@@ -511,6 +512,8 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 **Friends (gate) ✅.** Mutual friendship via an unguessable **friend link**. Profile → Friends copies `#/friend/{token}`; they sign in and tap Accept. One live link per account; **Rotate** invalidates the old URL (tokens stored as `token_hash` only). List is `{ userId, displayName }` — never email. No `GET /api/users`, no search-by-name, no “who’s online.” Cannot friend yourself. **Remove** drops the pair; **Block** drops it and rejects future accepts from that person even with a new link. Cap ~50. Must be signed in (local Vite “Continue without signing in” has no graph).
 
 **Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later.
+
+**Kaizen — multi-friend send cooldown *(parked).*** Worker `SHARE_COOLDOWN_MS` (10s) gates *any* new `mini_share` for the sender, so sending one line to Nick then immediately to someone else 429s. Desired: only debounce **same line → same person** (or reuse one frozen share across recipients). Groups already fan out in one click.
 
 **Inbox ✅.** Home **From friends** and Profile → **Inbox** show a list of quiz cards (the line + choices). Guess right and the card compresses to textline + nextline. Group send is still one inbox row per person (same `shareId`).
 
@@ -745,6 +748,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
 - **Question inbox** — ✅ Curate + Play send icon; Inbox/Home are inline quiz cards that compress after a correct guess. See [Later ideas](#later-ideas-parked).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
+- **Send cooldown: per recipient** *(parked)* — Global 10s `SHARE_COOLDOWN_MS` blocks rapid sends to *different* friends; should only debounce same line → same person (reuse share across recipients).
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share, in-line like a chat. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
