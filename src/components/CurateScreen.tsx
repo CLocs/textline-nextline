@@ -7,8 +7,6 @@ import { getValidPromptIndices } from "../lib/game/miniGame";
 import {
   getStarsForTitle,
   hydrateStarsForTitle,
-  isLoved,
-  isStarred,
   toggleLove,
   toggleStar,
 } from "../lib/stars/sync";
@@ -18,7 +16,8 @@ import { createParallelPack } from "../lib/parallels/api";
 import { LineSendControl } from "./LineSendControl";
 
 const PACK_MIN = 3;
-const PACK_MAX = 8;
+/** Long enough for a full scene beat (e.g. Wolf McConaughey/Leo). */
+const PACK_MAX = 64;
 
 type Props = {
   entry: CatalogEntry;
@@ -30,6 +29,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   const title = getTitle(entry.id);
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
   const [starredOnly, setStarredOnly] = useState(false);
+  const [showPreviousLines, setShowPreviousLines] = useState(true);
   const [query, setQuery] = useState("");
   const [revision, setRevision] = useState(0);
   const [selected, setSelected] = useState<number[]>([]);
@@ -38,6 +38,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   const [packMsg, setPackMsg] = useState<string | null>(null);
   /** Anchor for Shift+click range select (line index). */
   const packSelectAnchorRef = useRef<number | null>(null);
+  /** Skip the change event that can follow a Shift+click we already handled. */
+  const skipPackChangeRef = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -65,12 +67,26 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
     [title],
   );
 
+  // One localStorage read per revision — not per row (thousands of quiz lines).
+  const starSets = useMemo(() => {
+    const stars = getStarsForTitle(entry.id);
+    const starred = new Set<number>();
+    const loved = new Set<number>();
+    for (const star of stars) {
+      starred.add(star.lineIndex);
+      if (star.loved) loved.add(star.lineIndex);
+    }
+    return { starred, loved };
+  }, [entry.id, revision]);
+
+  const selectedSet = useMemo(() => new Set(selected), [selected]);
+
   const filteredIndices = useMemo(() => {
     if (!title) return [];
     const normalizedQuery = query.trim().toLowerCase();
 
     return promptIndices.filter((lineIndex) => {
-      if (starredOnly && !isStarred(entry.id, lineIndex)) return false;
+      if (starredOnly && !starSets.starred.has(lineIndex)) return false;
       if (!normalizedQuery) return true;
       const line = getLine(title, lineIndex);
       if (line?.text.toLowerCase().includes(normalizedQuery)) return true;
@@ -78,7 +94,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
         lead.text.toLowerCase().includes(normalizedQuery),
       );
     });
-  }, [title, entry.id, promptIndices, starredOnly, query, revision]);
+  }, [title, promptIndices, starredOnly, query, starSets]);
 
   async function handleToggle(lineIndex: number, text: string) {
     await toggleStar(entry.id, lineIndex, text);
@@ -109,22 +125,11 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
         const lo = Math.min(from, to);
         const hi = Math.max(from, to);
         const range = filteredIndices.slice(lo, hi + 1);
-        setSelected((prev) => {
-          const merged = new Set(prev);
-          let truncated = false;
-          for (const index of range) {
-            if (merged.has(index)) continue;
-            if (merged.size >= PACK_MAX) {
-              truncated = true;
-              break;
-            }
-            merged.add(index);
-          }
-          if (truncated) {
-            setPackMsg(`Pick at most ${PACK_MAX} lines for a pack.`);
-          }
-          return [...merged].sort((a, b) => a - b);
-        });
+        if (range.length > PACK_MAX) {
+          setPackMsg(`Pick at most ${PACK_MAX} lines for a pack.`);
+        }
+        // Anchor → click selects the contiguous range (capped), like a file list.
+        setSelected(range.slice(0, PACK_MAX));
         return;
       }
     }
@@ -196,7 +201,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
         <p className="curate-hint">
           Star lines for mini-games without playing through. Syncs to the cloud when the API is
           enabled. ♥ Love up to {MAX_LOVED_PER_TITLE} golden lines so they usually land in mini-games.
-          Check 3–8 lines to save a quote-parallel pack (Shift+click to select a range).
+          Check {PACK_MIN}–{PACK_MAX} lines to save a quote-parallel pack (Shift+click to select a
+          range).
         </p>
       </div>
 
@@ -217,6 +223,14 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
             onChange={(event) => setStarredOnly(event.target.checked)}
           />
           Starred only
+        </label>
+        <label className="curate-filter">
+          <input
+            type="checkbox"
+            checked={showPreviousLines}
+            onChange={(event) => setShowPreviousLines(event.target.checked)}
+          />
+          Previous lines
         </label>
       </div>
 
@@ -275,9 +289,9 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
             const line = getLine(title, lineIndex);
             if (!line) return null;
 
-            const starred = isStarred(entry.id, lineIndex);
-            const loved = isLoved(entry.id, lineIndex);
-            const isSelected = selected.includes(lineIndex);
+            const starred = starSets.starred.has(lineIndex);
+            const loved = starSets.loved.has(lineIndex);
+            const isSelected = selectedSet.has(lineIndex);
 
             return (
               <li
@@ -290,11 +304,18 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                       type="checkbox"
                       checked={isSelected}
                       onClick={(event) => {
+                        if (!event.shiftKey) return;
+                        // Shift+click: take over so the browser doesn't only toggle this box.
                         event.preventDefault();
-                        handlePackSelect(lineIndex, event.shiftKey);
+                        skipPackChangeRef.current = true;
+                        handlePackSelect(lineIndex, true);
                       }}
                       onChange={() => {
-                        /* controlled via onClick so Shift+click can range-select */
+                        if (skipPackChangeRef.current) {
+                          skipPackChangeRef.current = false;
+                          return;
+                        }
+                        handlePackSelect(lineIndex, false);
                       }}
                       aria-label={`Select line ${lineIndex + 1} for parallel pack`}
                     />
@@ -327,19 +348,52 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                 </div>
                 <div className="curate-copy">
                   <span className="curate-line-index">Line {lineIndex + 1}</span>
-                  {leadInForPrompt(title, lineIndex).map((lead) => (
-                    <p key={lead.lineIndex} className="curate-lead-in">
-                      {lead.text}
-                    </p>
-                  ))}
+                  {showPreviousLines &&
+                    leadInForPrompt(title, lineIndex).map((lead) => (
+                      <p key={lead.lineIndex} className="curate-lead-in">
+                        {lead.text}
+                      </p>
+                    ))}
                   <p className="curate-text">{line.text}</p>
                 </div>
-                <LineSendControl titleId={entry.id} lineIndex={lineIndex} />
+                <LazyLineSendControl titleId={entry.id} lineIndex={lineIndex} />
               </li>
             );
           })}
         </ol>
       )}
     </section>
+  );
+}
+
+/** Avoid mounting ~3k send menus; hydrate on hover/focus/click. */
+function LazyLineSendControl({ titleId, lineIndex }: { titleId: string; lineIndex: number }) {
+  const [active, setActive] = useState(false);
+  const [openOnMount, setOpenOnMount] = useState(false);
+
+  if (active) {
+    return <LineSendControl titleId={titleId} lineIndex={lineIndex} autoOpen={openOnMount} />;
+  }
+
+  return (
+    <button
+      type="button"
+      className="curate-send"
+      aria-label="Send this line"
+      title="Send or copy this line"
+      onMouseEnter={() => setActive(true)}
+      onFocus={() => setActive(true)}
+      onClick={() => {
+        setOpenOnMount(true);
+        setActive(true);
+      }}
+    >
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M2.4 7.6 13 2.5c.6-.3 1.2.3.9.9L8.8 13.8c-.3.6-1.2.5-1.4-.2L6.2 9.4 2.2 8.2c-.7-.2-.6-1.1.2-1.4Z"
+        />
+      </svg>
+    </button>
   );
 }

@@ -397,6 +397,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
 - [x] **Question inbox** — Curate send icon → friend’s inbox (or copy a 1-line `#/play` link). See [Later ideas](#later-ideas-parked).
+- [ ] **Chats (inbox → per-friend threads on Home)** — rename/evolve Inbox into per-person threads (in + out); surface on Home as the main social hub. See [Chats](#chats-inbox--per-friend-threads).
 - [x] **Named friend groups** — Profile → Friends send-lists; one Send fans out the same 1-line share. Attempt-chat stays later.
 - [x] **Send cooldown: per recipient, not global** — Reuse one frozen share across friends; 10s debounce only for same line → same person. See [Recent feedback](#recent-feedback-parked).
 - [ ] **Difficulty modes** — Medium/Hard free text
@@ -411,7 +412,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
 - [ ] **Split multi-sentence lines** — curator (or import) splits one cue into sentence beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
-- [x] **Quote parallels / analogy packs (Light)** — Curate 3–8 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
+- [x] **Quote parallels / analogy packs (Light)** — Curate 3–64 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). See [Later ideas](#daily-quote-email).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
@@ -495,7 +496,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, and **play UX clarity** are in. Line-splitting is the leftover “what counts as a line” work. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Daily quote email** stays parked.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, and **play UX clarity** are in. Line-splitting is the leftover “what counts as a line” work. **Chats** (per-friend threads on Home) and attempt-chat on a 1-line share are parked. **Quote parallels** Light is in (Medium deferred). **Daily quote email** stays parked.
 
 ### Loved / double-star quotes ✅
 
@@ -519,7 +520,24 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Not this:** rooms (Phase 2), 10-pack mini-game shares (2a), loved-cover stills, exposing emails on friend/share meta, Discord-style servers.
 
-**Attempt chat** *(later).* Person icons in a chat-like thread for who got that 1-line share **first try / second try / third try**. Not rooms. The same frozen share + many inbox rows is the hook.
+**Attempt chat** *(later).* Person icons in a chat-like thread for who got that 1-line share **first try / second try / third try**. Not rooms. The same frozen share + many inbox rows is the hook. Fits naturally **inside** Chats once threads exist.
+
+### Chats (inbox → per-friend threads)
+
+**Why:** Inbox today is a flat **incoming** quiz list. Socially it should feel like **conversations with people** — what you sent them and what they sent you — not a mailbox. Home should lead with that (critical social surface), not bury it under Profile → Inbox.
+
+**Name:** **Chats** is the working label (also fine: **Threads**, **Messages**). Avoid “Inbox” once the UI is bidirectional.
+
+**Shape *(parked — medium build)*:**
+
+1. **Per-friend thread** — one conversation per mutual friend: chronological mix of **outgoing** (you sent) and **incoming** (they sent) line cards / pack links.
+2. **Home** — Chats (or “with friends”) near the top: recent threads + unread count; tap a person → thread. Profile inbox tab becomes a deep link or retires.
+3. **Reuse** — same send + `line_inbox` (plus a **sent** query or mirrored row). Group sends still fan out as one row per member; thread shows the person, not the group name (group label optional metadata).
+4. **Attempt outcomes** — score icons (1st/2nd/3rd try) live **in the thread** next to that share (see Attempt chat above), not a separate product.
+
+**Not this:** free-text DMs, Discord channels, or rooms. Still quote/pack cards as the messages.
+
+**Effort:** several days — API for “sent by me,” thread UI, Home rail, unread. Do after dogfooding parallels packs + current inbox with Nick.
 
 ### Scene visuals *(leftover from 2.6)*
 
@@ -588,7 +606,7 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 #### Light ✅ *(shipped)*
 
-- Curate: select **3–8** lines → **Save as parallel pack** (creates a frozen `mini_share` + `analogy_packs` row).
+- Curate: select **3–64** lines → **Save as parallel pack** (creates a frozen `mini_share` + `analogy_packs` row).
 - Pack page `#/parallel/{packId}`: show lines, **Play**, copy link, ranked **catalog** connections, propose parallel (`titleId` + line indices + optional note).
 - **Upvote only** (one per user per connection). Profile → **Parallels** lists your packs.
 - No chat, no URLs/situation blurbs, no Home rail, no downvotes.
@@ -649,6 +667,7 @@ Complements Teach mode; this is first-impression chrome, not a new game mode.
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **Friends graph** | Invite link, accept, list, remove, block; hashed tokens; no directory | ✅ Mutual add-me links from Profile → Friends |
 | **Question inbox** | Curate send icon; friend inbox + optional 1-line `#/play` copy | ✅ Directed one-question play, not an anonymous 10-pack |
+| **Next — Chats** | Per-friend threads (in + out) on Home; rename Inbox | Critical social hub — see [Chats](#chats-inbox--per-friend-threads) |
 | **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
@@ -745,9 +764,10 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
 - **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
 - **Question inbox** — ✅ Curate + Play send icon; Inbox/Home are inline quiz cards that compress after a correct guess. See [Later ideas](#later-ideas-parked).
+- **Chats (inbox → threads on Home)** *(parked)* — Per-friend threads with **outgoing + incoming**; promote to Home as the main social surface. Working name **Chats** (alt: Threads / Messages). Attempt scores live in-thread. See [Chats](#chats-inbox--per-friend-threads).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
-- **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share, in-line like a chat. See [Later ideas](#later-ideas-parked).
+- **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).

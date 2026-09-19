@@ -8,6 +8,8 @@ import { copyLineShare, sendLineToFriend, sendLineToGroup } from "../lib/inbox/a
 type Props = {
   titleId: string;
   lineIndex: number;
+  /** Open the send menu on mount (used when Curate lazy-hydrates on click). */
+  autoOpen?: boolean;
 };
 
 async function copyText(text: string): Promise<boolean> {
@@ -19,11 +21,11 @@ async function copyText(text: string): Promise<boolean> {
   }
 }
 
-export function LineSendControl({ titleId, lineIndex }: Props) {
+export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props) {
   const apiReady = isAuthApiEnabled() && !isLocalDevSession();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(autoOpen);
   const [anchor, setAnchor] = useState({ top: 0, right: 0 });
   const [friends, setFriends] = useState<FriendListItem[]>([]);
   const [groups, setGroups] = useState<FriendGroup[]>([]);
@@ -35,14 +37,22 @@ export function LineSendControl({ titleId, lineIndex }: Props) {
   const [sentGroups, setSentGroups] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    setOpen(false);
+    setOpen(autoOpen);
     setMessage(null);
     setError(null);
     setSentPeople(new Set());
     setSentGroups(new Set());
     setBusyTargets(new Set());
     setCopyBusy(false);
-  }, [titleId, lineIndex]);
+  }, [titleId, lineIndex, autoOpen]);
+
+  useEffect(() => {
+    if (!open || !autoOpen) return;
+    const box = buttonRef.current?.getBoundingClientRect();
+    if (box) {
+      setAnchor({ top: box.bottom + 6, right: window.innerWidth - box.right });
+    }
+  }, [open, autoOpen]);
 
   useEffect(() => {
     if (!open) return;
