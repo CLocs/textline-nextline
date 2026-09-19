@@ -30,6 +30,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   const title = getTitle(entry.id);
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
   const [starredOnly, setStarredOnly] = useState(false);
+  const [showPreviousLines, setShowPreviousLines] = useState(true);
   const [query, setQuery] = useState("");
   const [revision, setRevision] = useState(0);
   const [selected, setSelected] = useState<number[]>([]);
@@ -218,6 +219,14 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
           />
           Starred only
         </label>
+        <label className="curate-filter">
+          <input
+            type="checkbox"
+            checked={showPreviousLines}
+            onChange={(event) => setShowPreviousLines(event.target.checked)}
+          />
+          Previous lines
+        </label>
       </div>
 
       {selected.length > 0 && (
@@ -327,11 +336,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                 </div>
                 <div className="curate-copy">
                   <span className="curate-line-index">Line {lineIndex + 1}</span>
-                  {leadInForPrompt(title, lineIndex).map((lead) => (
-                    <p key={lead.lineIndex} className="curate-lead-in">
-                      {lead.text}
-                    </p>
-                  ))}
+                  {showPreviousLines &&
+                    leadInForPrompt(title, lineIndex).map((lead) => (
+                      <p key={lead.lineIndex} className="curate-lead-in">
+                        {lead.text}
+                      </p>
+                    ))}
                   <p className="curate-text">{line.text}</p>
                 </div>
                 <LineSendControl titleId={entry.id} lineIndex={lineIndex} />
