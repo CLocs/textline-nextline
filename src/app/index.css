@@ -1831,3 +1831,111 @@ code {
   color: var(--muted);
   font-size: 0.92rem;
 }
+
+.chats-home-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.chats-home-header .library-group-heading {
+  margin: 0;
+}
+
+.chats-thread-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.chats-thread-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.chats-thread-row.has-unread {
+  border-color: color-mix(in srgb, var(--accent, #2f6f5e) 35%, var(--line));
+}
+
+.chats-thread-avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--ink) 8%, var(--surface));
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.chats-thread-avatar.is-group {
+  border-radius: 8px;
+}
+
+.chats-thread-copy {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.chats-thread-name {
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.chats-group-tag {
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.chats-thread-preview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.chats-thread-meta {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: end;
+  font-size: 0.8rem;
+}
+
+.chats-unread-badge {
+  min-width: 1.35rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background: var(--accent, #2f6f5e);
+  color: white;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.chats-message-list {
+  margin-top: 1rem;
+}
+
+.chats-outgoing-card {
+  opacity: 0.92;
+  background: color-mix(in srgb, var(--ink) 3%, var(--surface));
+}

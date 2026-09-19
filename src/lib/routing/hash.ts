@@ -1,4 +1,4 @@
-export type ProfileTab = "account" | "history" | "stats" | "friends" | "inbox" | "parallels";
+export type ProfileTab = "account" | "history" | "stats" | "friends" | "chats" | "inbox" | "parallels";
 
 export type HashRoute =
   | { kind: "home" }
@@ -7,6 +7,9 @@ export type HashRoute =
   | { kind: "play"; shareId: string }
   | { kind: "parallel"; packId: string }
   | { kind: "friend"; token: string }
+  | { kind: "chats" }
+  | { kind: "chat"; peerUserId: string }
+  | { kind: "chatGroup"; groupId: string }
   | { kind: "profile"; tab: ProfileTab }
   | { kind: "ops" };
 
@@ -15,19 +18,22 @@ const LOGIN_RETURN_KEY = "textline-nextline-login-return";
 /** Internal hash paths we may resume after magic-link sign-in. */
 export function isSafeLoginReturn(value: string | null | undefined): value is string {
   if (!value) return false;
-  if (value === "ops") return true;
+  if (value === "ops" || value === "chats") return true;
   if (
     value === "profile" ||
     value === "profile/history" ||
     value === "profile/stats" ||
     value === "profile/friends" ||
     value === "profile/inbox" ||
+    value === "profile/chats" ||
     value === "profile/parallels"
   ) {
     return true;
   }
   if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   if (/^parallel\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
+  if (/^chat\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
+  if (/^chat\/group\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   return /^friend\/[a-f0-9]{24}$/i.test(value);
 }
 
@@ -61,7 +67,10 @@ export function loginReturnFromRoute(route: HashRoute): string | undefined {
   if (route.kind === "play") return `play/${route.shareId}`;
   if (route.kind === "parallel") return `parallel/${route.packId}`;
   if (route.kind === "friend") return `friend/${route.token}`;
-  if (route.kind === "profile") return profileHash(route.tab);
+  if (route.kind === "chats") return "chats";
+  if (route.kind === "chat") return `chat/${route.peerUserId}`;
+  if (route.kind === "chatGroup") return `chat/group/${route.groupId}`;
+  if (route.kind === "profile") return profileHash(route.tab === "inbox" ? "chats" : route.tab);
   if (route.kind === "ops") return "ops";
   return undefined;
 }
@@ -71,7 +80,7 @@ function parseProfileTab(path: string): ProfileTab | null {
   if (path === "profile/history") return "history";
   if (path === "profile/stats") return "stats";
   if (path === "profile/friends") return "friends";
-  if (path === "profile/inbox") return "inbox";
+  if (path === "profile/inbox" || path === "profile/chats") return "chats";
   if (path === "profile/parallels") return "parallels";
   return null;
 }
@@ -118,6 +127,20 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
     return { kind: "friend", token: decodeURIComponent(friendMatch[1]) };
   }
 
+  const chatGroupMatch = path.match(/^chat\/group\/([^/]+)$/);
+  if (chatGroupMatch?.[1]) {
+    return { kind: "chatGroup", groupId: decodeURIComponent(chatGroupMatch[1]) };
+  }
+
+  const chatMatch = path.match(/^chat\/([^/]+)$/);
+  if (chatMatch?.[1]) {
+    return { kind: "chat", peerUserId: decodeURIComponent(chatMatch[1]) };
+  }
+
+  if (path === "chats") {
+    return { kind: "chats" };
+  }
+
   if (path === "ops") {
     return { kind: "ops" };
   }
@@ -132,6 +155,7 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
 
 export function profileHash(tab: ProfileTab): string {
   if (tab === "account") return "profile";
+  if (tab === "inbox") return "profile/chats";
   return `profile/${tab}`;
 }
 

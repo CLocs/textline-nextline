@@ -1,7 +1,7 @@
 import { createId } from "./crypto.js";
 import type { User } from "./auth.js";
 import { areFriends, isBlocked, isValidFriendUserId } from "./friends.js";
-import { listGroupMemberIds } from "./groups.js";
+import { listGroupParticipantIds, userCanAccessGroup } from "./groups.js";
 import { createFrozenShare } from "./shares.js";
 import { isTitleId } from "./runs.js";
 
@@ -193,18 +193,17 @@ export async function sendLineToGroup(
   if (!titleId || lineIndex == null) return { error: "Invalid line", status: 400 };
   if (!isValidFriendUserId(groupId)) return { error: "Invalid group", status: 400 };
 
-  const group = await db
-    .prepare(`SELECT id FROM friend_groups WHERE id = ? AND owner_user_id = ?`)
-    .bind(groupId, user.id)
-    .first<{ id: string }>();
+  const group = await userCanAccessGroup(db, groupId, user.id);
   if (!group) return { error: "Group not found", status: 404 };
 
-  const memberIds = await listGroupMemberIds(db, groupId);
-  if (memberIds.length === 0) return { error: "This group has no members", status: 400 };
+  const participants = await listGroupParticipantIds(db, groupId);
+  const recipients = participants.filter((id) => id !== user.id);
+  if (recipients.length === 0) {
+    return { error: "This group has no one else to send to", status: 400 };
+  }
 
   const eligible: string[] = [];
-  for (const toUserId of memberIds) {
-    if (!(await areFriends(db, user.id, toUserId))) continue;
+  for (const toUserId of recipients) {
     if (await isBlocked(db, user.id, toUserId)) continue;
     const prior = await recentSameRecipientSend(db, user.id, toUserId, titleId, lineIndex);
     if (prior && withinCooldown(prior.createdAt)) continue;
@@ -217,7 +216,7 @@ export async function sendLineToGroup(
     eligible.push(toUserId);
   }
 
-  const skipped = memberIds.length - eligible.length;
+  const skipped = recipients.length - eligible.length;
   if (eligible.length === 0) {
     return { error: "No one in this group can receive this", status: 400 };
   }
@@ -230,10 +229,10 @@ export async function sendLineToGroup(
     await db
       .prepare(
         `INSERT OR IGNORE INTO line_inbox
-           (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+           (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at, group_id)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
       )
-      .bind(createId(), share.shareId, user.id, toUserId, titleId, lineIndex, createdAt)
+      .bind(createId(), share.shareId, user.id, toUserId, titleId, lineIndex, createdAt, groupId)
       .run();
   }
 

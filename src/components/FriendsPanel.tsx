@@ -321,11 +321,13 @@ export function FriendsPanel({ user }: Props) {
           Create
         </button>
       </form>
-      {groups.length === 0 ? (
+      {groups.filter((group) => group.role === "owner").length === 0 ? (
         <p className="empty">No groups yet. Name one, then add friends.</p>
       ) : (
         <ul className="title-list">
-          {groups.map((group) => {
+          {groups
+            .filter((group) => group.role === "owner")
+            .map((group) => {
             const memberIds = new Set(group.members.map((member) => member.userId));
             const available = friends.filter((friend) => !memberIds.has(friend.userId));
             return (

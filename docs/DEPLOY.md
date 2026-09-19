@@ -150,7 +150,12 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/friends/:userId/block` | Unfriend + reject future accepts from that user (auth) |
 | `POST` | `/api/inbox/share` | Frozen 1-line play URL (auth). Body `{ titleId, lineIndex }` → `{ shareId, url }` |
 | `POST` | `/api/inbox` | Send that line to a friend or group (auth). Body `{ titleId, lineIndex, toUserId }` or `{ titleId, lineIndex, groupId }` |
-| `GET` | `/api/inbox` | Received lines: `{ items: [{ shareId, titleId, lineIndex, from: { userId, displayName } }] }` — never email |
+| `GET` | `/api/inbox` | Received lines (legacy flat list): `{ items, parallels }` |
+| `GET` | `/api/chats` | Unified DM + group thread summaries (auth) |
+| `GET` | `/api/chats/dm/:userId` | DM messages with a friend (`group_id` null only) |
+| `GET` | `/api/chats/group/:groupId` | Shared group transcript (owner or member) |
+| `POST` | `/api/chats/dm/:userId/read` | Mark DM unread incoming as read |
+| `POST` | `/api/chats/group/:groupId/read` | Mark group unread incoming as read |
 | `GET` | `/api/groups` | Owner’s send-lists: `{ groups: [{ id, name, members: [{ userId, displayName }] }] }` (auth). Never email |
 | `POST` | `/api/groups` | Create `{ name }` (auth). Cap ~10 |
 | `POST` | `/api/groups/:id/members` | Body `{ userId }` — must already be a friend (auth) |
@@ -164,7 +169,7 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 
 Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, parallels, and ops routes require auth (invite preview and pack GET are public).
 
-After pulling parallels: `npm run db:migrate:parallels:remote`. After parallel inbox: `npm run db:migrate:parallel-inbox:remote`. After loved: `npm run db:migrate:loved:remote` (or full `npm run deploy:api`).
+After pulling parallels: `npm run db:migrate:parallels:remote`. After parallel inbox: `npm run db:migrate:parallel-inbox:remote`. After loved: `npm run db:migrate:loved:remote`. After chats (`read_at` / `group_id`): `npm run db:migrate:chats:remote` (or full `npm run deploy:api`).
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 

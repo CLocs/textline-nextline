@@ -37,6 +37,8 @@ export type FriendGroup = {
   id: string;
   name: string;
   createdAt: string;
+  role: "owner" | "member";
+  owner: GroupMember;
   members: GroupMember[];
 };
 
