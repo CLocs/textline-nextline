@@ -136,6 +136,6 @@
     "source": "G:/videos/shows/Simpsons/S04E02 - The Simpsons - A Streetcar Named Marge (English).Avi",
     "fps": 29.97,
     "durationSec": 1203.03,
-    "note": "Same DIV3 as Kamp Krusty. offsetMs=-57000 for 43–162 (103 extra -5s, 162 extra -40s). From 171 on, extra -40s except 179 extra -52s (pudding can) and 184 extra -45s. 258/261 past EOF. Batched, not R2. Review 171+."
+    "note": "Same DIV3 as Kamp Krusty. offsetMs=-57000 for 43–162 (103 extra -5s, 162 extra -40s). From 171 on, extra -40s except 179 extra -52s and 184 extra -45s. 16/18 D1 stars extracted and pushed to R2 (258, 261 seek past EOF)."
   }
 }

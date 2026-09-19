@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { getLine } from "../lib/content/lines";
@@ -36,6 +36,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   const [packName, setPackName] = useState("");
   const [packBusy, setPackBusy] = useState(false);
   const [packMsg, setPackMsg] = useState<string | null>(null);
+  /** Anchor for Shift+click range select (line index). */
+  const packSelectAnchorRef = useRef<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -55,6 +57,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
     setSelected([]);
     setPackName("");
     setPackMsg(null);
+    packSelectAnchorRef.current = null;
   }, [entry.id]);
 
   const promptIndices = useMemo(
@@ -96,8 +99,37 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
     setRevision((value) => value + 1);
   }
 
-  function togglePackSelect(lineIndex: number) {
+  function handlePackSelect(lineIndex: number, shiftKey: boolean) {
     setPackMsg(null);
+
+    if (shiftKey && packSelectAnchorRef.current != null) {
+      const from = filteredIndices.indexOf(packSelectAnchorRef.current);
+      const to = filteredIndices.indexOf(lineIndex);
+      if (from !== -1 && to !== -1) {
+        const lo = Math.min(from, to);
+        const hi = Math.max(from, to);
+        const range = filteredIndices.slice(lo, hi + 1);
+        setSelected((prev) => {
+          const merged = new Set(prev);
+          let truncated = false;
+          for (const index of range) {
+            if (merged.has(index)) continue;
+            if (merged.size >= PACK_MAX) {
+              truncated = true;
+              break;
+            }
+            merged.add(index);
+          }
+          if (truncated) {
+            setPackMsg(`Pick at most ${PACK_MAX} lines for a pack.`);
+          }
+          return [...merged].sort((a, b) => a - b);
+        });
+        return;
+      }
+    }
+
+    packSelectAnchorRef.current = lineIndex;
     setSelected((prev) => {
       if (prev.includes(lineIndex)) return prev.filter((i) => i !== lineIndex);
       if (prev.length >= PACK_MAX) {
@@ -132,6 +164,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
     }
     setSelected([]);
     setPackName("");
+    packSelectAnchorRef.current = null;
     setPackMsg(`Saved “${result.pack.name}”. Opening pack…`);
     onOpenParallel(result.pack.id);
   }
@@ -163,7 +196,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
         <p className="curate-hint">
           Star lines for mini-games without playing through. Syncs to the cloud when the API is
           enabled. ♥ Love up to {MAX_LOVED_PER_TITLE} golden lines so they usually land in mini-games.
-          Check 3–8 lines to save a quote-parallel pack.
+          Check 3–8 lines to save a quote-parallel pack (Shift+click to select a range).
         </p>
       </div>
 
@@ -218,6 +251,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
             onClick={() => {
               setSelected([]);
               setPackMsg(null);
+              packSelectAnchorRef.current = null;
             }}
           >
             Clear
@@ -255,7 +289,13 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                     <input
                       type="checkbox"
                       checked={isSelected}
-                      onChange={() => togglePackSelect(lineIndex)}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        handlePackSelect(lineIndex, event.shiftKey);
+                      }}
+                      onChange={() => {
+                        /* controlled via onClick so Shift+click can range-select */
+                      }}
                       aria-label={`Select line ${lineIndex + 1} for parallel pack`}
                     />
                   </label>
