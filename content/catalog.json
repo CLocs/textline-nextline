@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-16T02:46:39.450Z",
+  "updatedAt": "2026-09-19T21:03:07.969Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -888,6 +888,606 @@
         "show": "The Simpsons",
         "season": 5,
         "episode": 22
+      }
+    },
+    {
+      "id": "the-simpsons---6x01---bart-of-darkness",
+      "title": "The Simpsons - 6x01 - Bart of Darkness",
+      "lineCount": 243,
+      "sourceFilename": "The Simpsons - 6x01 - Bart of Darkness.en.srt",
+      "importedAt": "2026-09-19T20:05:58.634Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 1
+      }
+    },
+    {
+      "id": "the-simpsons---6x02---lisas-rival",
+      "title": "The Simpsons - 6x02 - Lisa's Rival",
+      "lineCount": 334,
+      "sourceFilename": "The Simpsons - 6x02 - Lisa's Rival.en.srt",
+      "importedAt": "2026-09-19T20:05:59.187Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 2
+      }
+    },
+    {
+      "id": "the-simpsons---6x03---another-simpsons-clip-show",
+      "title": "The Simpsons - 6x03 - Another Simpsons Clip Show",
+      "lineCount": 285,
+      "sourceFilename": "The Simpsons - 6x03 - Another Simpsons Clip Show.en.srt",
+      "importedAt": "2026-09-19T20:05:59.725Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 3
+      }
+    },
+    {
+      "id": "the-simpsons---6x04---itchy-scratchy-land",
+      "title": "The Simpsons - 6x04 - Itchy & Scratchy Land",
+      "lineCount": 230,
+      "sourceFilename": "The Simpsons - 6x04 - Itchy & Scratchy Land.en.srt",
+      "importedAt": "2026-09-19T20:06:00.282Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 4
+      }
+    },
+    {
+      "id": "the-simpsons---6x05---sideshow-bob-roberts",
+      "title": "The Simpsons - 6x05 - Sideshow Bob Roberts",
+      "lineCount": 283,
+      "sourceFilename": "The Simpsons - 6x05 - Sideshow Bob Roberts.en.srt",
+      "importedAt": "2026-09-19T20:06:00.814Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 5
+      }
+    },
+    {
+      "id": "the-simpsons---6x06---treehouse-of-horror-v",
+      "title": "The Simpsons - 6x06 - Treehouse of Horror V",
+      "lineCount": 265,
+      "sourceFilename": "The Simpsons - 6x06 - Treehouse of Horror V.en.srt",
+      "importedAt": "2026-09-19T20:06:01.347Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 6
+      }
+    },
+    {
+      "id": "the-simpsons---6x07---barts-girlfriend",
+      "title": "The Simpsons - 6x07 - Bart's Girlfriend",
+      "lineCount": 289,
+      "sourceFilename": "The Simpsons - 6x07 - Bart's Girlfriend.en.srt",
+      "importedAt": "2026-09-19T20:06:01.913Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 7
+      }
+    },
+    {
+      "id": "the-simpsons---6x08---lisa-on-ice",
+      "title": "The Simpsons - 6x08 - Lisa on Ice",
+      "lineCount": 281,
+      "sourceFilename": "The Simpsons - 6x08 - Lisa on Ice.en.srt",
+      "importedAt": "2026-09-19T20:06:02.453Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 8
+      }
+    },
+    {
+      "id": "the-simpsons---6x09---homer-badman",
+      "title": "The Simpsons - 6x09 - Homer Badman",
+      "lineCount": 299,
+      "sourceFilename": "The Simpsons - 6x09 - Homer Badman.en.srt",
+      "importedAt": "2026-09-19T20:06:02.993Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 9
+      }
+    },
+    {
+      "id": "the-simpsons---6x10---grandpa-vs-sexual-inadequacy",
+      "title": "The Simpsons - 6x10 - Grandpa vs Sexual Inadequacy",
+      "lineCount": 315,
+      "sourceFilename": "The Simpsons - 6x10 - Grandpa vs. Sexual Inadequacy.en.srt",
+      "importedAt": "2026-09-19T20:06:03.539Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 10
+      }
+    },
+    {
+      "id": "the-simpsons---6x11---fear-of-flying",
+      "title": "The Simpsons - 6x11 - Fear of Flying",
+      "lineCount": 302,
+      "sourceFilename": "The Simpsons - 6x11 - Fear of Flying.en.srt",
+      "importedAt": "2026-09-19T20:06:04.091Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 11
+      }
+    },
+    {
+      "id": "the-simpsons---6x12---homer-the-great",
+      "title": "The Simpsons - 6x12 - Homer the Great",
+      "lineCount": 286,
+      "sourceFilename": "The Simpsons - 6x12 - Homer the Great.en.srt",
+      "importedAt": "2026-09-19T20:06:04.628Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 12
+      }
+    },
+    {
+      "id": "the-simpsons---6x13---and-maggie-makes-three",
+      "title": "The Simpsons - 6x13 - And Maggie Makes Three",
+      "lineCount": 291,
+      "sourceFilename": "The Simpsons - 6x13 - And Maggie Makes Three.en.srt",
+      "importedAt": "2026-09-19T20:06:05.151Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 13
+      }
+    },
+    {
+      "id": "the-simpsons---6x14---barts-comet",
+      "title": "The Simpsons - 6x14 - Bart's Comet",
+      "lineCount": 200,
+      "sourceFilename": "The Simpsons - 6x14 - Bart's Comet.en.srt",
+      "importedAt": "2026-09-19T20:06:05.701Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 14
+      }
+    },
+    {
+      "id": "the-simpsons---6x15---homie-the-clown",
+      "title": "The Simpsons - 6x15 - Homie the Clown",
+      "lineCount": 272,
+      "sourceFilename": "The Simpsons - 6x15 - Homie the Clown.en.srt",
+      "importedAt": "2026-09-19T20:06:06.265Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 15
+      }
+    },
+    {
+      "id": "the-simpsons---6x16---bart-vs-australia",
+      "title": "The Simpsons - 6x16 - Bart vs Australia",
+      "lineCount": 272,
+      "sourceFilename": "The Simpsons - 6x16 - Bart vs. Australia.en.srt",
+      "importedAt": "2026-09-19T20:06:06.792Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 16
+      }
+    },
+    {
+      "id": "the-simpsons---6x17---homer-vs-patty-and-selma",
+      "title": "The Simpsons - 6x17 - Homer vs Patty and Selma",
+      "lineCount": 318,
+      "sourceFilename": "The Simpsons - 6x17 - Homer vs. Patty and Selma.en.srt",
+      "importedAt": "2026-09-19T20:06:07.316Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 17
+      }
+    },
+    {
+      "id": "the-simpsons---6x18---a-star-is-burns",
+      "title": "The Simpsons - 6x18 - A Star is Burns",
+      "lineCount": 278,
+      "sourceFilename": "The Simpsons - 6x18 - A Star is Burns.en.srt",
+      "importedAt": "2026-09-19T20:06:07.856Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 18
+      }
+    },
+    {
+      "id": "the-simpsons---6x19---lisas-wedding",
+      "title": "The Simpsons - 6x19 - Lisa's Wedding",
+      "lineCount": 298,
+      "sourceFilename": "The Simpsons - 6x19 - Lisa's Wedding.en.srt",
+      "importedAt": "2026-09-19T20:06:08.389Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 19
+      }
+    },
+    {
+      "id": "the-simpsons---6x20---two-dozen-and-one-greyhounds",
+      "title": "The Simpsons - 6x20 - Two Dozen and One Greyhounds",
+      "lineCount": 257,
+      "sourceFilename": "The Simpsons - 6x20 - Two Dozen and One Greyhounds.en.srt",
+      "importedAt": "2026-09-19T20:06:08.914Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 20
+      }
+    },
+    {
+      "id": "the-simpsons---6x21---the-pta-disbands",
+      "title": "The Simpsons - 6x21 - The PTA Disbands",
+      "lineCount": 314,
+      "sourceFilename": "The Simpsons - 6x21 - The PTA Disbands.en.srt",
+      "importedAt": "2026-09-19T20:06:09.457Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 21
+      }
+    },
+    {
+      "id": "the-simpsons---6x22---round-springfield",
+      "title": "The Simpsons - 6x22 - Round Springfield",
+      "lineCount": 286,
+      "sourceFilename": "The Simpsons - 6x22 - Round Springfield.en.srt",
+      "importedAt": "2026-09-19T20:06:10.023Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 22
+      }
+    },
+    {
+      "id": "the-simpsons---6x23---the-springfield-connection",
+      "title": "The Simpsons - 6x23 - The Springfield Connection",
+      "lineCount": 294,
+      "sourceFilename": "The Simpsons - 6x23 - The Springfield Connection.en.srt",
+      "importedAt": "2026-09-19T20:06:10.592Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 23
+      }
+    },
+    {
+      "id": "the-simpsons---6x24---lemon-of-troy",
+      "title": "The Simpsons - 6x24 - Lemon of Troy",
+      "lineCount": 289,
+      "sourceFilename": "The Simpsons - 6x24 - Lemon of Troy.en.srt",
+      "importedAt": "2026-09-19T20:06:11.181Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 24
+      }
+    },
+    {
+      "id": "the-simpsons---6x25---who-shot-mr-burns",
+      "title": "The Simpsons - 6x25 - Who Shot Mr Burns (Part One)",
+      "lineCount": 247,
+      "sourceFilename": "The Simpsons - 6x25 - Who Shot Mr. Burns  (1).en.srt",
+      "importedAt": "2026-09-19T20:06:11.738Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 6,
+        "episode": 25
+      }
+    },
+    {
+      "id": "the-simpsons---7x01---who-shot-mr-burns",
+      "title": "The Simpsons - 7x01 - Who Shot Mr Burns (Part Two)",
+      "lineCount": 318,
+      "sourceFilename": "The Simpsons - 7x01 - Who Shot Mr. Burns  (2).en.srt",
+      "importedAt": "2026-09-19T21:02:54.284Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 1
+      }
+    },
+    {
+      "id": "the-simpsons---7x02---radioactive-man",
+      "title": "The Simpsons - 7x02 - Radioactive Man",
+      "lineCount": 287,
+      "sourceFilename": "The Simpsons - 7x02 - Radioactive Man.en.srt",
+      "importedAt": "2026-09-19T21:02:54.825Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 2
+      }
+    },
+    {
+      "id": "the-simpsons---7x03---home-sweet-home-dum-diddly-doodly",
+      "title": "The Simpsons - 7x03 - Home Sweet Home-Dum-Diddly Doodly",
+      "lineCount": 311,
+      "sourceFilename": "The Simpsons - 7x03 - Home Sweet Home-Dum-Diddly Doodly.en.srt",
+      "importedAt": "2026-09-19T21:02:55.366Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 3
+      }
+    },
+    {
+      "id": "the-simpsons---7x04---bart-sells-his-soul",
+      "title": "The Simpsons - 7x04 - Bart Sells His Soul",
+      "lineCount": 299,
+      "sourceFilename": "The Simpsons - 7x04 - Bart Sells His Soul.en.srt",
+      "importedAt": "2026-09-19T21:02:55.956Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 4
+      }
+    },
+    {
+      "id": "the-simpsons---7x05---lisa-the-vegetarian",
+      "title": "The Simpsons - 7x05 - Lisa The Vegetarian",
+      "lineCount": 274,
+      "sourceFilename": "The Simpsons - 7x05 - Lisa The Vegetarian.en.srt",
+      "importedAt": "2026-09-19T21:02:56.518Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 5
+      }
+    },
+    {
+      "id": "the-simpsons---7x06---treehouse-of-horror-vi",
+      "title": "The Simpsons - 7x06 - Treehouse Of Horror VI",
+      "lineCount": 259,
+      "sourceFilename": "The Simpsons - 7x06 - Treehouse Of Horror VI.en.srt",
+      "importedAt": "2026-09-19T21:02:57.058Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 6
+      }
+    },
+    {
+      "id": "the-simpsons---7x07---king-size-homer",
+      "title": "The Simpsons - 7x07 - King-Size Homer",
+      "lineCount": 325,
+      "sourceFilename": "The Simpsons - 7x07 - King-Size Homer.en.srt",
+      "importedAt": "2026-09-19T21:02:57.598Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 7
+      }
+    },
+    {
+      "id": "the-simpsons---7x08---mother-simpson",
+      "title": "The Simpsons - 7x08 - Mother Simpson",
+      "lineCount": 339,
+      "sourceFilename": "The Simpsons - 7x08 - Mother Simpson.en.srt",
+      "importedAt": "2026-09-19T21:02:58.151Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 8
+      }
+    },
+    {
+      "id": "the-simpsons---7x09---sideshow-bobs-last-gleaming",
+      "title": "The Simpsons - 7x09 - Sideshow Bob's Last Gleaming",
+      "lineCount": 281,
+      "sourceFilename": "The Simpsons - 7x09 - Sideshow Bob's Last Gleaming.en.srt",
+      "importedAt": "2026-09-19T21:02:58.811Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 9
+      }
+    },
+    {
+      "id": "the-simpsons---7x10---the-simpsons-138th-episode-spectacular",
+      "title": "The Simpsons - 7x10 - The Simpson's 138th Episode Spectacular",
+      "lineCount": 239,
+      "sourceFilename": "The Simpsons - 7x10 - The Simpson's 138th Episode Spectacular.en.srt",
+      "importedAt": "2026-09-19T21:02:59.370Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 10
+      }
+    },
+    {
+      "id": "the-simpsons---7x11---marge-be-not-proud",
+      "title": "The Simpsons - 7x11 - Marge Be Not Proud",
+      "lineCount": 283,
+      "sourceFilename": "The Simpsons - 7x11 - Marge Be Not Proud.en.srt",
+      "importedAt": "2026-09-19T21:02:59.960Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 11
+      }
+    },
+    {
+      "id": "the-simpsons---7x12---team-homer",
+      "title": "The Simpsons - 7x12 - Team Homer",
+      "lineCount": 266,
+      "sourceFilename": "The Simpsons - 7x12 - Team Homer.en.srt",
+      "importedAt": "2026-09-19T21:03:00.543Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 12
+      }
+    },
+    {
+      "id": "the-simpsons---7x13---two-bad-neighbors",
+      "title": "The Simpsons - 7x13 - Two Bad Neighbors",
+      "lineCount": 309,
+      "sourceFilename": "The Simpsons - 7x13 - Two Bad Neighbors.en.srt",
+      "importedAt": "2026-09-19T21:03:01.148Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 13
+      }
+    },
+    {
+      "id": "the-simpsons---7x14---scenes-from-a-class-struggle-in-springfield",
+      "title": "The Simpsons - 7x14 - Scenes From A Class Struggle In Springfield",
+      "lineCount": 322,
+      "sourceFilename": "The Simpsons - 7x14 - Scenes From A Class Struggle In Springfield.en.srt",
+      "importedAt": "2026-09-19T21:03:01.729Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 14
+      }
+    },
+    {
+      "id": "the-simpsons---7x15---bart-the-fink",
+      "title": "The Simpsons - 7x15 - Bart The Fink",
+      "lineCount": 283,
+      "sourceFilename": "The Simpsons - 7x15 - Bart The Fink.en.srt",
+      "importedAt": "2026-09-19T21:03:02.307Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 15
+      }
+    },
+    {
+      "id": "the-simpsons---7x16---lisa-the-iconoclast",
+      "title": "The Simpsons - 7x16 - Lisa The Iconoclast",
+      "lineCount": 273,
+      "sourceFilename": "The Simpsons - 7x16 - Lisa The Iconoclast.en.srt",
+      "importedAt": "2026-09-19T21:03:02.891Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 16
+      }
+    },
+    {
+      "id": "the-simpsons---7x17---homer-the-smithers",
+      "title": "The Simpsons - 7x17 - Homer The Smithers",
+      "lineCount": 335,
+      "sourceFilename": "The Simpsons - 7x17 - Homer The Smithers.en.srt",
+      "importedAt": "2026-09-19T21:03:03.461Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 17
+      }
+    },
+    {
+      "id": "the-simpsons---7x18---the-day-the-violence-died",
+      "title": "The Simpsons - 7x18 - The Day The Violence Died",
+      "lineCount": 255,
+      "sourceFilename": "The Simpsons - 7x18 - The Day The Violence Died.en.srt",
+      "importedAt": "2026-09-19T21:03:04.059Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 18
+      }
+    },
+    {
+      "id": "the-simpsons---7x19---a-fish-called-selma",
+      "title": "The Simpsons - 7x19 - A Fish Called Selma",
+      "lineCount": 290,
+      "sourceFilename": "The Simpsons - 7x19 - A Fish Called Selma.en.srt",
+      "importedAt": "2026-09-19T21:03:04.609Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 19
+      }
+    },
+    {
+      "id": "the-simpsons---7x20---bart-on-the-road",
+      "title": "The Simpsons - 7x20 - Bart On The Road",
+      "lineCount": 312,
+      "sourceFilename": "The Simpsons - 7x20 - Bart On The Road.en.srt",
+      "importedAt": "2026-09-19T21:03:05.159Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 20
+      }
+    },
+    {
+      "id": "the-simpsons---7x21---22-short-films-about-springfield",
+      "title": "The Simpsons - 7x21 - 22 Short Films About Springfield",
+      "lineCount": 283,
+      "sourceFilename": "The Simpsons - 7x21 - 22 Short Films About Springfield.en.srt",
+      "importedAt": "2026-09-19T21:03:05.696Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 21
+      }
+    },
+    {
+      "id": "the-simpsons---7x22---raging-abe-simpson-and-his-grumbling-grandson-in-the-curse-of-the-flying-hellfish",
+      "title": "The Simpsons - 7x22 - Raging Abe Simpson And His Grumbling Grandson In The Curse of the Flying Hellfish",
+      "lineCount": 267,
+      "sourceFilename": "The Simpsons - 7x22 - Raging Abe Simpson And His Grumbling Grandson In  The Curse of the Flying Hellfish .en.srt",
+      "importedAt": "2026-09-19T21:03:06.264Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 22
+      }
+    },
+    {
+      "id": "the-simpsons---7x23---much-apu-about-nothing",
+      "title": "The Simpsons - 7x23 - Much Apu About Nothing",
+      "lineCount": 310,
+      "sourceFilename": "The Simpsons - 7x23 - Much Apu About Nothing.en.srt",
+      "importedAt": "2026-09-19T21:03:06.852Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 23
+      }
+    },
+    {
+      "id": "the-simpsons---7x24---homerpalooza",
+      "title": "The Simpsons - 7x24 - Homerpalooza",
+      "lineCount": 309,
+      "sourceFilename": "The Simpsons - 7x24 - Homerpalooza.en.srt",
+      "importedAt": "2026-09-19T21:03:07.416Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 24
+      }
+    },
+    {
+      "id": "the-simpsons---7x25---summer-of-42",
+      "title": "The Simpsons - 7x25 - Summer Of 4'2",
+      "lineCount": 298,
+      "sourceFilename": "The Simpsons - 7x25 - Summer Of 4'2 .en.srt",
+      "importedAt": "2026-09-19T21:03:07.965Z",
+      "meta": {
+        "show": "The Simpsons",
+        "season": 7,
+        "episode": 25
       }
     },
     {

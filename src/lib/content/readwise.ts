@@ -95,6 +95,8 @@ function collectTitleHints(text: string): { title: string; year: number | null }
     const fromUrl = titleFromSourceUrl(url);
     if (fromUrl) hints.push(fromUrl);
   }
+  const summary = text.match(/^- Summary:\s*(.+)$/m)?.[1]?.trim();
+  if (summary && summary.length >= 4) hints.push(parseTitleYear(summary));
   for (const heading of text.matchAll(/^#{2,3}\s+(.+)$/gm)) {
     const raw = heading[1]?.trim() ?? "";
     if (!raw || /^metadata$/i.test(raw) || /highlights/i.test(raw)) continue;
@@ -286,7 +288,7 @@ function uniqueFilmForDoc(doc: ReadwiseDoc, films: QueueFilm[]): QueueFilm | nul
 function uniqueTitleForDoc(doc: ReadwiseDoc, titles: Title[]): Title | null {
   const byEpisode = titlesMatchingEpisode(doc, titles);
   if (byEpisode.length === 1) return byEpisode[0]!;
-  if (byEpisode.length > 1) return null;
+  if (byEpisode.length > 1) return disambiguateEpisodeTitles(doc, byEpisode);
 
   const candidates = titles.map((title) => ({
     title: title.title,
@@ -296,6 +298,22 @@ function uniqueTitleForDoc(doc: ReadwiseDoc, titles: Title[]): Title | null {
   if (!isGenericNoteTitle(doc.title)) {
     const named = pickBestTitleMatch({ title: doc.title, year: doc.year }, candidates);
     if (named) return named.record;
+  }
+  return null;
+}
+
+/** Two-parters share a name until Summary / (Part One) vs (Part Two) can split them. */
+function disambiguateEpisodeTitles(doc: ReadwiseDoc, titles: Title[]): Title | null {
+  const candidates = titles.map((title) => ({
+    title: parseEpisodeHint(title.title)?.episodeTitle ?? title.title,
+    year: title.meta?.year ?? null,
+    record: title,
+  }));
+  const queries = [...doc.titleHints, { title: doc.fullTitle, year: doc.year }, { title: doc.title, year: doc.year }];
+  for (const query of queries) {
+    if (!query.title || isGenericNoteTitle(query.title)) continue;
+    const picked = pickBestTitleMatch(query, candidates);
+    if (picked) return picked.record;
   }
   return null;
 }

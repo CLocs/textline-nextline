@@ -15,7 +15,8 @@ export function useInboxUnfilledCount(): number {
       return;
     }
     void fetchInbox().then((result) => {
-      if (Array.isArray(result)) setItems(result);
+      if ("error" in result) return;
+      setItems(result.items);
     });
   }, [apiReady]);
 

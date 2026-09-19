@@ -9,7 +9,7 @@ import {
   type ShowGroup,
 } from "../lib/content/libraryGroups";
 import { fetchMyRuns, fetchPlayedStats } from "../lib/runs/api";
-import { fetchInbox, type InboxItem } from "../lib/inbox/api";
+import { fetchInbox, type InboxItem, type ParallelInboxItem } from "../lib/inbox/api";
 import { isAuthApiEnabled } from "../lib/auth/api";
 import { isLocalDevSession } from "../lib/auth/session";
 import {
@@ -22,6 +22,7 @@ import {
 import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCover";
 import { PosterArt } from "./PosterArt";
 import { InboxLineCard } from "./InboxLineCard";
+import { ParallelInboxCard } from "./ParallelInboxCard";
 
 type Props = {
   entries: CatalogEntry[];
@@ -85,6 +86,7 @@ export function LibraryScreen({ entries, onSelect }: Props) {
   const [recent, setRecent] = useState<CatalogEntry[]>([]);
   const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
   const [inbox, setInbox] = useState<InboxItem[]>([]);
+  const [parallelInbox, setParallelInbox] = useState<ParallelInboxItem[]>([]);
   const [railsReady, setRailsReady] = useState(false);
   const groups = groupCatalogEntries(entries);
 
@@ -93,13 +95,21 @@ export function LibraryScreen({ entries, onSelect }: Props) {
     void Promise.all([
       fetchPlayedStats(),
       fetchMyRuns(),
-      isAuthApiEnabled() && !isLocalDevSession() ? fetchInbox() : Promise.resolve([] as InboxItem[]),
+      isAuthApiEnabled() && !isLocalDevSession()
+        ? fetchInbox()
+        : Promise.resolve({ items: [] as InboxItem[], parallels: [] as ParallelInboxItem[] }),
     ]).then(([titles, runs, inboxResult]) => {
       if (cancelled) return;
       setCounts(playCountMap(titles));
       setRecent(recentFromRuns(runs, entries));
       setYours(yourTopPlayed(runs, entries));
-      setInbox(Array.isArray(inboxResult) ? inboxResult : []);
+      if (inboxResult && !("error" in inboxResult)) {
+        setInbox(inboxResult.items);
+        setParallelInbox(inboxResult.parallels);
+      } else {
+        setInbox([]);
+        setParallelInbox([]);
+      }
       setRailsReady(true);
     });
     return () => {
@@ -109,7 +119,7 @@ export function LibraryScreen({ entries, onSelect }: Props) {
 
   const playedMovies = useMemo(() => topPlayedMovies(entries, counts), [entries, counts]);
   const playedShows = useMemo(() => topPlayedShows(entries, counts), [entries, counts]);
-  const hasPersonalRails = recent.length > 0 || yours.length > 0 || inbox.length > 0;
+  const hasPersonalRails = recent.length > 0 || yours.length > 0 || inbox.length > 0 || parallelInbox.length > 0;
   const hasCrowdRails = playedMovies.length > 0 || playedShows.length > 0;
 
   if (view.level === "season") {
@@ -271,15 +281,27 @@ export function LibraryScreen({ entries, onSelect }: Props) {
         </p>
       ) : (
         <div className="library-groups">
-          {inbox.length > 0 && (
+          {(inbox.length > 0 || parallelInbox.length > 0) && (
             <div className="library-group">
               <h3 className="library-group-heading">From friends</h3>
               <ul className="inbox-line-list">
-                {inbox.slice(0, 8).map((item) => (
-                  <li key={item.id}>
-                    <InboxLineCard item={item} entries={entries} />
-                  </li>
-                ))}
+                {[
+                  ...parallelInbox.map((item) => ({ kind: "parallel" as const, at: item.createdAt, item })),
+                  ...inbox.map((item) => ({ kind: "line" as const, at: item.createdAt, item })),
+                ]
+                  .sort((a, b) => b.at.localeCompare(a.at))
+                  .slice(0, 8)
+                  .map((entry) =>
+                    entry.kind === "parallel" ? (
+                      <li key={`p-${entry.item.id}`}>
+                        <ParallelInboxCard item={entry.item} />
+                      </li>
+                    ) : (
+                      <li key={`l-${entry.item.id}`}>
+                        <InboxLineCard item={entry.item} entries={entries} />
+                      </li>
+                    ),
+                  )}
               </ul>
             </div>
           )}

@@ -3,6 +3,7 @@ import {
   createAnalogyPack,
   listAnalogyConnections,
   proposeCatalogConnection,
+  proposeRewriteConnection,
   upvoteConnection,
 } from "../api/src/parallels.js";
 import type { User } from "../api/src/auth.js";
@@ -89,7 +90,8 @@ function createDb() {
                   created_at: createdAt,
                 });
               } else if (sql.includes("INSERT INTO analogy_connections")) {
-                const [id, packId, payload, note, proposer, createdAt] = args as [
+                const [id, packId, kind, payload, note, proposer, createdAt] = args as [
+                  string,
                   string,
                   string,
                   string,
@@ -100,7 +102,7 @@ function createDb() {
                 connections.push({
                   id,
                   pack_id: packId,
-                  kind: "catalog",
+                  kind,
                   payload,
                   note,
                   proposer_user_id: proposer,
@@ -223,7 +225,7 @@ describe("quote parallels (Light)", () => {
     expect(shares[0]!.line_indices).toBe(JSON.stringify([100, 101, 102]));
   });
 
-  it("rejects packs outside 3–64 lines", async () => {
+  it("rejects packs outside 3–500 lines", async () => {
     const { db } = createDb();
     const result = await createAnalogyPack(db, ada, {
       titleId: "x",
@@ -234,7 +236,7 @@ describe("quote parallels (Light)", () => {
 
     const tooLong = await createAnalogyPack(db, ada, {
       titleId: "x",
-      lineIndices: Array.from({ length: 65 }, (_, i) => i),
+      lineIndices: Array.from({ length: 501 }, (_, i) => i),
       name: "Too long",
     });
     expect(tooLong).toMatchObject({ status: 400 });
@@ -242,15 +244,15 @@ describe("quote parallels (Light)", () => {
 
   it("allows a long scene-sized pack", async () => {
     const { db } = createDb();
-    const lineIndices = Array.from({ length: 50 }, (_, i) => 100 + i);
+    const lineIndices = Array.from({ length: 200 }, (_, i) => 100 + i);
     const result = await createAnalogyPack(db, ada, {
       titleId: "the-wolf-of-wall-street-2013",
       lineIndices,
-      name: "Sell me this pen",
+      name: "Jordan's lunch",
     });
     expect("error" in result).toBe(false);
     if ("error" in result) return;
-    expect(result.lineIndices).toHaveLength(50);
+    expect(result.lineIndices).toHaveLength(200);
   });
 
   it("proposes a catalog connection and upvotes once", async () => {
@@ -279,6 +281,33 @@ describe("quote parallels (Light)", () => {
     expect(listed).toHaveLength(1);
     expect(listed[0]!.score).toBe(1);
     expect(listed[0]!.viewerVoted).toBe(true);
+    expect(listed[0]!.kind).toBe("catalog");
+    if (listed[0]!.kind !== "catalog") return;
     expect(listed[0]!.payload.titleId).toBe("matrix-1999");
+  });
+
+  it("proposes a rewrite parallel with context and edited text", async () => {
+    const { db } = createDb();
+    const pack = await createAnalogyPack(db, ada, {
+      titleId: "the-wolf-of-wall-street-2013",
+      lineIndices: [118, 119, 120],
+      name: "Jordan's lunch",
+    });
+    if ("error" in pack) throw new Error(pack.error);
+
+    const conn = await proposeRewriteConnection(db, bob, pack.id, {
+      context: "new features",
+      text: "Here's the game plan. We're going to write a new feature. Then another new feature 7.5 mins after that and another new feature every 5 mins until one of us passes the fuck out.",
+    });
+    expect("error" in conn).toBe(false);
+    if ("error" in conn) return;
+    expect(conn.kind).toBe("rewrite");
+    if (conn.kind !== "rewrite") return;
+    expect(conn.payload.context).toBe("new features");
+    expect(conn.payload.text).toContain("new feature");
+
+    const listed = await listAnalogyConnections(db, pack.id, ada.id);
+    expect(listed).toHaveLength(1);
+    expect(listed[0]!.kind).toBe("rewrite");
   });
 });

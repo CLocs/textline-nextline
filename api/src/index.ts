@@ -17,7 +17,9 @@ import {
   getAnalogyPack,
   listAnalogyConnections,
   listMyAnalogyPacks,
+  listParallelInbox,
   proposeCatalogConnection,
+  proposeRewriteConnection,
   upvoteConnection,
 } from "./parallels.js";
 import {
@@ -407,7 +409,8 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
 
     if (request.method === "GET" && pathname === "/api/inbox") {
       const items = await listInbox(env.DB, user.id);
-      return jsonResponse({ items }, 200, origin, allowed);
+      const parallels = await listParallelInbox(env.DB, user.id);
+      return jsonResponse({ items, parallels }, 200, origin, allowed);
     }
 
     return errorResponse("Not found", 404, origin, allowed);
@@ -461,11 +464,19 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       if (userOrError instanceof Response) return userOrError;
       const packId = decodeURIComponent(connMatch[1]);
       const body = (await readJson(request)) as {
+        kind?: unknown;
         titleId?: string;
         lineIndices?: unknown;
         note?: unknown;
+        context?: unknown;
+        text?: unknown;
+        toUserIds?: unknown;
+        toGroupIds?: unknown;
       } | null;
-      const result = await proposeCatalogConnection(env.DB, userOrError, packId, body ?? {});
+      const result =
+        body?.kind === "rewrite"
+          ? await proposeRewriteConnection(env.DB, userOrError, packId, body)
+          : await proposeCatalogConnection(env.DB, userOrError, packId, body ?? {});
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse({ connection: result }, 200, origin, allowed);
     }

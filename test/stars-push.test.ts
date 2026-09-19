@@ -87,6 +87,11 @@ describe("loadProtectedTitleIds", () => {
       "batman-begins-2005",
       "django-unchained-2012",
       "the-gentlemen-2019",
+      "matrix-1999",
+      "the-simpsons---4x01---kamp-krustyen",
+      "the-simpsons---4x02---a-streetcar-named-margeen",
+      "star-wars-1977",
+      "the-ministry-of-ungentlemanly-warfare-2024",
     ]);
   });
 });

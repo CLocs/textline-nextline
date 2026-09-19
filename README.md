@@ -412,7 +412,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
 - [ ] **Split multi-sentence lines** — curator (or import) splits one cue into sentence beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
-- [x] **Quote parallels / analogy packs (Light)** — Curate 3–64 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
+- [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). See [Later ideas](#daily-quote-email).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
@@ -606,15 +606,16 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 #### Light ✅ *(shipped)*
 
-- Curate: select **3–64** lines → **Save as parallel pack** (creates a frozen `mini_share` + `analogy_packs` row).
-- Pack page `#/parallel/{packId}`: show lines, **Play**, copy link, ranked **catalog** connections, propose parallel (`titleId` + line indices + optional note).
+- Curate: select **3–500** lines → **Save as parallel pack** (creates a frozen `mini_share` + `analogy_packs` row).
+- Pack page `#/parallel/{packId}`: show lines, **Play**, copy link, **Add a parallel** (short context + rewritten concatenated scene, optional send to a friend or group). Catalog movie defaults to **[none]**; pick a title only to link another film.
 - **Upvote only** (one per user per connection). Profile → **Parallels** lists your packs.
 - No chat, no URLs/situation blurbs, no Home rail, no downvotes.
 
 #### Medium *(deferred)*
 
 - Connection kinds: situation blurb + moderated URL; bidirectional links; daily proposal caps.
-- Up/down votes + optional owner pin; Home **Parallels** rail + follow; send pack to friends; short pack chat.
+- Up/down votes + optional owner pin; Home **Parallels** rail + follow; short pack chat.
+- **Diff view** of a rewrite vs the original concatenated scene.
 - Still not auto-NLP catalog search.
 
 **Open questions (Medium+):** pack ownership vs communal; UGC/ToS for URLs; moderation.

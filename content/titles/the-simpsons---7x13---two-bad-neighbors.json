@@ -1,0 +1,2177 @@
+{
+  "id": "the-simpsons---7x13---two-bad-neighbors",
+  "title": "The Simpsons - 7x13 - Two Bad Neighbors",
+  "sourceFilename": "The Simpsons - 7x13 - Two Bad Neighbors.en.srt",
+  "importedAt": "2026-09-19T21:03:01.148Z",
+  "lineCount": 309,
+  "lines": [
+    {
+      "index": 0,
+      "text": "The Simpsons",
+      "kind": "dialogue",
+      "startMs": 3903,
+      "endMs": 7669
+    },
+    {
+      "index": 1,
+      "text": "D'oh!",
+      "kind": "dialogue",
+      "startMs": 10510,
+      "endMs": 12478
+    },
+    {
+      "index": 2,
+      "text": "Live from the famous brown sands of Public Beach, Delaware... it's the Grand Nationals of Sand Castle Building... Preview.",
+      "kind": "dialogue",
+      "startMs": 26793,
+      "endMs": 34390
+    },
+    {
+      "index": 3,
+      "text": "Oh! Saturday afternoon TV is so boring.",
+      "kind": "dialogue",
+      "startMs": 34501,
+      "endMs": 38631
+    },
+    {
+      "index": 4,
+      "text": "Bikini girls. Hmm?",
+      "kind": "dialogue",
+      "startMs": 38738,
+      "endMs": 41172
+    },
+    {
+      "index": 5,
+      "text": "Dune buggies. Hmm!",
+      "kind": "dialogue",
+      "startMs": 41274,
+      "endMs": 43469
+    },
+    {
+      "index": 6,
+      "text": "Daredevil surfers.",
+      "kind": "dialogue",
+      "startMs": 43576,
+      "endMs": 47273
+    },
+    {
+      "index": 7,
+      "text": "Ordinarily this beach would be swarming with them, but not today. Oh, no!",
+      "kind": "dialogue",
+      "startMs": 47380,
+      "endMs": 51373
+    },
+    {
+      "index": 8,
+      "text": "They've all been cleared out to make way for painstaking sand preparation.",
+      "kind": "dialogue",
+      "startMs": 51484,
+      "endMs": 55580
+    },
+    {
+      "index": 9,
+      "text": "That's right, Dick. This year everyone's abuzz about one thing- the absence of Mark Rodkin.",
+      "kind": "dialogue",
+      "startMs": 55688,
+      "endMs": 61350
+    },
+    {
+      "index": 10,
+      "text": "Oh, wait. There he is.",
+      "kind": "dialogue",
+      "startMs": 61461,
+      "endMs": 65022
+    },
+    {
+      "index": 11,
+      "text": "Marge, I'm bored! Why don't you read something?",
+      "kind": "dialogue",
+      "startMs": 65131,
+      "endMs": 68225
+    },
+    {
+      "index": 12,
+      "text": "Because I'm trying to reduce my boredom.",
+      "kind": "dialogue",
+      "startMs": 68334,
+      "endMs": 70802
+    },
+    {
+      "index": 13,
+      "text": "You can hand out these flyers for the neighborhood rummage sale.",
+      "kind": "dialogue",
+      "startMs": 70904,
+      "endMs": 74203
+    },
+    {
+      "index": 14,
+      "text": "You'll get some fresh air and exercise.",
+      "kind": "dialogue",
+      "startMs": 74307,
+      "endMs": 75501
+    },
+    {
+      "index": 15,
+      "text": "Eh, I'll do it anyway.",
+      "kind": "dialogue",
+      "startMs": 75608,
+      "endMs": 77103
+    },
+    {
+      "index": 16,
+      "text": "Come on, boy! We're going to see the neighbors.",
+      "kind": "dialogue",
+      "startMs": 82949,
+      "endMs": 84712
+    },
+    {
+      "index": 17,
+      "text": "Good old Evergreen Terrace.",
+      "kind": "dialogue",
+      "startMs": 84818,
+      "endMs": 86752
+    },
+    {
+      "index": 18,
+      "text": "The swankiest street in the classiest part of Pressboard Estates.",
+      "kind": "dialogue",
+      "startMs": 86853,
+      "endMs": 90550
+    },
+    {
+      "index": 19,
+      "text": "If you love it so much, why are you always littering?",
+      "kind": "dialogue",
+      "startMs": 90657,
+      "endMs": 92750
+    },
+    {
+      "index": 20,
+      "text": "It's easier. Duh!",
+      "kind": "dialogue",
+      "startMs": 92859,
+      "endMs": 93889
+    },
+    {
+      "index": 21,
+      "text": "Oh! Howdy, neighbor!",
+      "kind": "dialogue",
+      "startMs": 113279,
+      "endMs": 115474
+    },
+    {
+      "index": 22,
+      "text": "May I spray you with the hose in a playful fashion?",
+      "kind": "dialogue",
+      "startMs": 115582,
+      "endMs": 118210
+    },
+    {
+      "index": 23,
+      "text": "Eh, spray the boy.",
+      "kind": "dialogue",
+      "startMs": 118318,
+      "endMs": 120309
+    },
+    {
+      "index": 24,
+      "text": "Well, ready for the big rummage sale?",
+      "kind": "dialogue",
+      "startMs": 122822,
+      "endMs": 125290
+    },
+    {
+      "index": 25,
+      "text": "Oh, yes, indeed.",
+      "kind": "dialogue",
+      "startMs": 125391,
+      "endMs": 127291
+    },
+    {
+      "index": 26,
+      "text": "I've got nothing but time until they fix that malfunctioning Squishy machine.",
+      "kind": "dialogue",
+      "startMs": 127393,
+      "endMs": 130487
+    },
+    {
+      "index": 27,
+      "text": "Hey, I never noticed this place.",
+      "kind": "dialogue",
+      "startMs": 140173,
+      "endMs": 143700
+    },
+    {
+      "index": 28,
+      "text": "Dad, it's right across the street from us.",
+      "kind": "dialogue",
+      "startMs": 143810,
+      "endMs": 146244
+    },
+    {
+      "index": 29,
+      "text": "That fancy house will never sell.",
+      "kind": "dialogue",
+      "startMs": 146346,
+      "endMs": 148314
+    },
+    {
+      "index": 30,
+      "text": "Nobody who could afford it would want to live in this neighborhood.",
+      "kind": "dialogue",
+      "startMs": 148414,
+      "endMs": 151042
+    },
+    {
+      "index": 31,
+      "text": "Hey, what's wrong with this neighborhood? Big shot!",
+      "kind": "dialogue",
+      "startMs": 151151,
+      "endMs": 154245
+    },
+    {
+      "index": 32,
+      "text": "Too good to buy a house here, snobby?",
+      "kind": "dialogue",
+      "startMs": 154354,
+      "endMs": 156515
+    },
+    {
+      "index": 33,
+      "text": "Who you talking to, Homer? The guy who doesn't live there.",
+      "kind": "dialogue",
+      "startMs": 156623,
+      "endMs": 159148
+    },
+    {
+      "index": 34,
+      "text": "Can we get rid of this ayatollah T-shirt?",
+      "kind": "dialogue",
+      "startMs": 159259,
+      "endMs": 161727
+    },
+    {
+      "index": 35,
+      "text": "Khomeini died years ago.",
+      "kind": "dialogue",
+      "startMs": 161828,
+      "endMs": 163728
+    },
+    {
+      "index": 36,
+      "text": "But, Marge, it works on any ayatollah- Ayatollah Nakhbadeh, Ayatollah Zahedi.",
+      "kind": "dialogue",
+      "startMs": 163830,
+      "endMs": 169631
+    },
+    {
+      "index": 37,
+      "text": "As we speak, Ayatollah Razmara and his cadre of fanatics are consolidating their power.",
+      "kind": "dialogue",
+      "startMs": 169736,
+      "endMs": 174139
+    },
+    {
+      "index": 38,
+      "text": "I don't care who's consolidating their power.",
+      "kind": "dialogue",
+      "startMs": 174240,
+      "endMs": 177141
+    },
+    {
+      "index": 39,
+      "text": "Well, we don't need this.",
+      "kind": "dialogue",
+      "startMs": 177243,
+      "endMs": 179143
+    },
+    {
+      "index": 40,
+      "text": "Marge, that's the Rhinestone Nights Fashion Gun!",
+      "kind": "dialogue",
+      "startMs": 179245,
+      "endMs": 182442
+    },
+    {
+      "index": 41,
+      "text": "I need it to rhinestone up my old clothing. Who's \"Disco Stu\"?",
+      "kind": "dialogue",
+      "startMs": 182549,
+      "endMs": 186349
+    },
+    {
+      "index": 42,
+      "text": "Oh. Well, I wanted to write \"Disco Stud,\" but I ran out of space.",
+      "kind": "dialogue",
+      "startMs": 186452,
+      "endMs": 189580
+    },
+    {
+      "index": 43,
+      "text": "Not that Disco Stu didn't get his share of the action.",
+      "kind": "dialogue",
+      "startMs": 189689,
+      "endMs": 193022
+    },
+    {
+      "index": 44,
+      "text": "So, if you're looking for a half bag of charcoal briquettes... or an artificial Christmas tree, trunk only... come on over to the Hibbert table, pronto!",
+      "kind": "dialogue",
+      "startMs": 197664,
+      "endMs": 205203
+    },
+    {
+      "index": 45,
+      "text": "Well, sir, looks like we got some nice items here at Table Glick.",
+      "kind": "dialogue",
+      "startMs": 205305,
+      "endMs": 208468
+    },
+    {
+      "index": 46,
+      "text": "Like this. What the heckaroonie is this, Mrs. Glick?",
+      "kind": "dialogue",
+      "startMs": 208575,
+      "endMs": 211408
+    },
+    {
+      "index": 47,
+      "text": "It is a candy dish, Ned. Ninety dollars.",
+      "kind": "dialogue",
+      "startMs": 211511,
+      "endMs": 214207
+    },
+    {
+      "index": 48,
+      "text": "Uh-huh. Well, I, uh- I guess you could put a lot of nice things in there.",
+      "kind": "dialogue",
+      "startMs": 214314,
+      "endMs": 218717
+    },
+    {
+      "index": 49,
+      "text": "No! Just candy, Ned. Ninety dollars!",
+      "kind": "dialogue",
+      "startMs": 218818,
+      "endMs": 221378
+    },
+    {
+      "index": 50,
+      "text": "Well, looks like somebody sold something today.",
+      "kind": "dialogue",
+      "startMs": 225525,
+      "endMs": 228221
+    },
+    {
+      "index": 51,
+      "text": "Are you interested in that motorized tie rack, Principal Skinner?",
+      "kind": "dialogue",
+      "startMs": 230964,
+      "endMs": 234297
+    },
+    {
+      "index": 52,
+      "text": "Hmm. It's awfully loud.",
+      "kind": "dialogue",
+      "startMs": 234400,
+      "endMs": 238302
+    },
+    {
+      "index": 53,
+      "text": "Well, you can always take the motor out... and use it as an ordinary tie rack.",
+      "kind": "dialogue",
+      "startMs": 238404,
+      "endMs": 243532
+    },
+    {
+      "index": 54,
+      "text": "But now the ties are motionless.",
+      "kind": "dialogue",
+      "startMs": 243643,
+      "endMs": 246111
+    },
+    {
+      "index": 55,
+      "text": "Those in back are virtually inaccessible.",
+      "kind": "dialogue",
+      "startMs": 246212,
+      "endMs": 248680
+    },
+    {
+      "index": 56,
+      "text": "Well, it's a moot point as I have only one tie to begin with.",
+      "kind": "dialogue",
+      "startMs": 248781,
+      "endMs": 251875
+    },
+    {
+      "index": 57,
+      "text": "I believe I'll pass.",
+      "kind": "dialogue",
+      "startMs": 251985,
+      "endMs": 254146
+    },
+    {
+      "index": 58,
+      "text": "Have you sold that tie rack yet?",
+      "kind": "dialogue",
+      "startMs": 254254,
+      "endMs": 256154
+    },
+    {
+      "index": 59,
+      "text": "No. I'll take it.",
+      "kind": "dialogue",
+      "startMs": 256256,
+      "endMs": 258156
+    },
+    {
+      "index": 60,
+      "text": "Now, folks, nothing spells fun... like rhinestones on a dungaree jacket.",
+      "kind": "dialogue",
+      "startMs": 258258,
+      "endMs": 263089
+    },
+    {
+      "index": 61,
+      "text": "Stu, you should buy that.",
+      "kind": "dialogue",
+      "startMs": 263196,
+      "endMs": 265164
+    },
+    {
+      "index": 62,
+      "text": "Hey. Disco Stu doesn't advertise.",
+      "kind": "dialogue",
+      "startMs": 265265,
+      "endMs": 268928
+    },
+    {
+      "index": 63,
+      "text": "Uh, hey, Ned, let me help you with that.",
+      "kind": "dialogue",
+      "startMs": 269035,
+      "endMs": 271936
+    },
+    {
+      "index": 64,
+      "text": "Hey, everybody! Who thinks Flanders should shut up?",
+      "kind": "dialogue",
+      "startMs": 272038,
+      "endMs": 274598
+    },
+    {
+      "index": 65,
+      "text": "So, anyone here from Evergreen Terrace?",
+      "kind": "dialogue",
+      "startMs": 277944,
+      "endMs": 281141
+    },
+    {
+      "index": 66,
+      "text": "I think this is the best neighborhood in town.",
+      "kind": "dialogue",
+      "startMs": 282715,
+      "endMs": 285377
+    },
+    {
+      "index": 67,
+      "text": "Anybody agree with me?",
+      "kind": "dialogue",
+      "startMs": 285485,
+      "endMs": 287476
+    },
+    {
+      "index": 68,
+      "text": "You're the king, Homer! King of the neighborhood!",
+      "kind": "dialogue",
+      "startMs": 287587,
+      "endMs": 291023
+    },
+    {
+      "index": 69,
+      "text": "Say, that ayatollah thinks he's better than America. Is he right?",
+      "kind": "dialogue",
+      "startMs": 291124,
+      "endMs": 296391
+    },
+    {
+      "index": 70,
+      "text": "No! Yes.",
+      "kind": "dialogue",
+      "startMs": 296496,
+      "endMs": 299329
+    },
+    {
+      "index": 71,
+      "text": "For only five dollars, you can sock it to him in style. Right here!",
+      "kind": "dialogue",
+      "startMs": 299432,
+      "endMs": 304631
+    },
+    {
+      "index": 72,
+      "text": "And for the man who has everything, a tie-rack motor.",
+      "kind": "dialogue",
+      "startMs": 304737,
+      "endMs": 309197
+    },
+    {
+      "index": 73,
+      "text": "I'll take that.",
+      "kind": "dialogue",
+      "startMs": 309309,
+      "endMs": 314042
+    },
+    {
+      "index": 74,
+      "text": "Hey, big spender Dig this blender Rainbow suspenders Hey, big spender We surrender",
+      "kind": "dialogue",
+      "startMs": 315648,
+      "endMs": 326150
+    },
+    {
+      "index": 75,
+      "text": "Spend Some dough at table three",
+      "kind": "dialogue",
+      "startMs": 328161,
+      "endMs": 333962
+    },
+    {
+      "index": 76,
+      "text": "Thank you, neighbors. Thank you.",
+      "kind": "dialogue",
+      "startMs": 340406,
+      "endMs": 342533
+    },
+    {
+      "index": 77,
+      "text": "Now, let's give it up for table five!",
+      "kind": "dialogue",
+      "startMs": 342642,
+      "endMs": 346840
+    },
+    {
+      "index": 78,
+      "text": "Ah, ah, ah, ah Table five, table five Ah, ah, ah, ah Table fi-i-i-ive Table five Table five Hey, what's the big deal?",
+      "kind": "dialogue",
+      "startMs": 346946,
+      "endMs": 366657
+    },
+    {
+      "index": 79,
+      "text": "It's just some new guy moving in.",
+      "kind": "dialogue",
+      "startMs": 366766,
+      "endMs": 368825
+    },
+    {
+      "index": 80,
+      "text": "Disco Stu likes disco music.",
+      "kind": "dialogue",
+      "startMs": 368935,
+      "endMs": 373269
+    },
+    {
+      "index": 81,
+      "text": "Hi there, neighbors. Uh, I'm George Bush.",
+      "kind": "dialogue",
+      "startMs": 386386,
+      "endMs": 390083
+    },
+    {
+      "index": 82,
+      "text": "Former president George Bush?",
+      "kind": "dialogue",
+      "startMs": 393359,
+      "endMs": 396294
+    },
+    {
+      "index": 83,
+      "text": "Oh, former president George Bush!",
+      "kind": "dialogue",
+      "startMs": 396396,
+      "endMs": 398762
+    },
+    {
+      "index": 84,
+      "text": "Okay, let's give it up for the new guy!",
+      "kind": "dialogue",
+      "startMs": 398865,
+      "endMs": 402392
+    },
+    {
+      "index": 85,
+      "text": "Now, let's all turn around and pay attention to me again.",
+      "kind": "dialogue",
+      "startMs": 402502,
+      "endMs": 405903
+    },
+    {
+      "index": 86,
+      "text": "Hello. Hello!",
+      "kind": "dialogue",
+      "startMs": 406005,
+      "endMs": 409133
+    },
+    {
+      "index": 87,
+      "text": "Hello!",
+      "kind": "dialogue",
+      "startMs": 409242,
+      "endMs": 411142
+    },
+    {
+      "index": 88,
+      "text": "Wow! A former president living right across the street!",
+      "kind": "dialogue",
+      "startMs": 414447,
+      "endMs": 418247
+    },
+    {
+      "index": 89,
+      "text": "Oh, why did he have to move in on my territory? Look at him.",
+      "kind": "dialogue",
+      "startMs": 418351,
+      "endMs": 422082
+    },
+    {
+      "index": 90,
+      "text": "Thinks just because he led the free world he can act like a big shot!",
+      "kind": "dialogue",
+      "startMs": 422188,
+      "endMs": 425385
+    },
+    {
+      "index": 91,
+      "text": "Stupid president! Why couldn't he just stay in his own state?",
+      "kind": "dialogue",
+      "startMs": 425491,
+      "endMs": 429450
+    },
+    {
+      "index": 92,
+      "text": "Actually, this is one of the nine states where Mr. Bush claims residency, Dad.",
+      "kind": "dialogue",
+      "startMs": 429562,
+      "endMs": 433498
+    },
+    {
+      "index": 93,
+      "text": "I wouldn't have voted for him, but it's nice to have a celebrity in the neighborhood.",
+      "kind": "dialogue",
+      "startMs": 433599,
+      "endMs": 437000
+    },
+    {
+      "index": 94,
+      "text": "Wait a minute. If Lisa didn't vote for him, and I didn't vote for him- You didn't vote for anybody.",
+      "kind": "dialogue",
+      "startMs": 437103,
+      "endMs": 444143
+    },
+    {
+      "index": 95,
+      "text": "I voted for Prell to go back to the old glass bottle.",
+      "kind": "dialogue",
+      "startMs": 444243,
+      "endMs": 447440
+    },
+    {
+      "index": 96,
+      "text": "After that, I became deeply cynical.",
+      "kind": "dialogue",
+      "startMs": 447547,
+      "endMs": 449845
+    },
+    {
+      "index": 97,
+      "text": "And your business here, Mr. Flanders?",
+      "kind": "dialogue",
+      "startMs": 449949,
+      "endMs": 452713
+    },
+    {
+      "index": 98,
+      "text": "Well, sir, I'm welcoming the Bushes on behalf of the neighborhood association.",
+      "kind": "dialogue",
+      "startMs": 452819,
+      "endMs": 457347
+    },
+    {
+      "index": 99,
+      "text": "Never mind about that, Ray.",
+      "kind": "dialogue",
+      "startMs": 457457,
+      "endMs": 459448
+    },
+    {
+      "index": 100,
+      "text": "Just give 'em a quick pass with the metal detector and let 'em on in.",
+      "kind": "dialogue",
+      "startMs": 459559,
+      "endMs": 462528
+    },
+    {
+      "index": 101,
+      "text": "Hey, Bar! The neighbors are here.",
+      "kind": "dialogue",
+      "startMs": 462628,
+      "endMs": 464528
+    },
+    {
+      "index": 102,
+      "text": "Howdilly-doodilly there, President Bush- Or should I say President Neighbor?",
+      "kind": "dialogue",
+      "startMs": 464630,
+      "endMs": 469863
+    },
+    {
+      "index": 103,
+      "text": "I'm Ned Flanders, and this is Maude, Rod and Todd.",
+      "kind": "dialogue",
+      "startMs": 469969,
+      "endMs": 473530
+    },
+    {
+      "index": 104,
+      "text": "Howdilly-doodilly yourself there, Ned. This is my wife, Barbara.",
+      "kind": "dialogue",
+      "startMs": 473639,
+      "endMs": 477336
+    },
+    {
+      "index": 105,
+      "text": "Call her Bar. Would you like some lemonade?",
+      "kind": "dialogue",
+      "startMs": 477443,
+      "endMs": 479536
+    },
+    {
+      "index": 106,
+      "text": "Tiptop-notch! Okilly-dokilly.",
+      "kind": "dialogue",
+      "startMs": 479645,
+      "endMs": 481545
+    },
+    {
+      "index": 107,
+      "text": "Thankilly-dankilly.",
+      "kind": "dialogue",
+      "startMs": 481647,
+      "endMs": 483615
+    },
+    {
+      "index": 108,
+      "text": "Greatalicious. Scrumpdiddlerific.",
+      "kind": "dialogue",
+      "startMs": 483716,
+      "endMs": 485616
+    },
+    {
+      "index": 109,
+      "text": "Fine and dandy like sour candy!",
+      "kind": "dialogue",
+      "startMs": 485718,
+      "endMs": 487743
+    },
+    {
+      "index": 110,
+      "text": "Bar's a whiz with cold drinks, aren't you, Bar?",
+      "kind": "dialogue",
+      "startMs": 487854,
+      "endMs": 490379
+    },
+    {
+      "index": 111,
+      "text": "Don't understand lemonade myself. Not my forte.",
+      "kind": "dialogue",
+      "startMs": 490490,
+      "endMs": 493618
+    },
+    {
+      "index": 112,
+      "text": "What brings you to Springfield?",
+      "kind": "dialogue",
+      "startMs": 493726,
+      "endMs": 496058
+    },
+    {
+      "index": 113,
+      "text": "George and I just wanted to be private citizens again... go where nobody cared about politics.",
+      "kind": "dialogue",
+      "startMs": 496162,
+      "endMs": 501097
+    },
+    {
+      "index": 114,
+      "text": "So we found the town with the lowest voter turnout in America.",
+      "kind": "dialogue",
+      "startMs": 501200,
+      "endMs": 504260
+    },
+    {
+      "index": 115,
+      "text": "Just happy to be here among good, average people... with no particular hopes or dreams.",
+      "kind": "dialogue",
+      "startMs": 504370,
+      "endMs": 509801
+    },
+    {
+      "index": 116,
+      "text": "But, Mr. President, we're not all good people.",
+      "kind": "dialogue",
+      "startMs": 509909,
+      "endMs": 513811
+    },
+    {
+      "index": 117,
+      "text": "There's one little boy you should watch out for.",
+      "kind": "dialogue",
+      "startMs": 513913,
+      "endMs": 516404
+    },
+    {
+      "index": 118,
+      "text": "He's a bad, bad little boy.",
+      "kind": "dialogue",
+      "startMs": 516516,
+      "endMs": 518609
+    },
+    {
+      "index": 119,
+      "text": "Now, Todd, don't scare the president.",
+      "kind": "dialogue",
+      "startMs": 518718,
+      "endMs": 522017
+    },
+    {
+      "index": 120,
+      "text": "Oh, look at those phonies sucking up to Bush.",
+      "kind": "dialogue",
+      "startMs": 535835,
+      "endMs": 539396
+    },
+    {
+      "index": 121,
+      "text": "I guess you might say he's barking up the wrong Bush.",
+      "kind": "dialogue",
+      "startMs": 543809,
+      "endMs": 548439
+    },
+    {
+      "index": 122,
+      "text": "There it is, Homer. The cleverest thing you'll ever say, and nobody heard it.",
+      "kind": "dialogue",
+      "startMs": 548548,
+      "endMs": 552040
+    },
+    {
+      "index": 123,
+      "text": "D'oh!",
+      "kind": "dialogue",
+      "startMs": 552151,
+      "endMs": 553277
+    },
+    {
+      "index": 124,
+      "text": "Just gonna relax with my U.S. News & World whatnot.",
+      "kind": "dialogue",
+      "startMs": 555488,
+      "endMs": 560289
+    },
+    {
+      "index": 125,
+      "text": "Oh, good. Roasting the new guy.",
+      "kind": "dialogue",
+      "startMs": 560393,
+      "endMs": 563260
+    },
+    {
+      "index": 126,
+      "text": "Hello, Mr. Bush!",
+      "kind": "dialogue",
+      "startMs": 563362,
+      "endMs": 567059
+    },
+    {
+      "index": 127,
+      "text": "George, this is a neighborhood boy, Bart Simpson.",
+      "kind": "dialogue",
+      "startMs": 567166,
+      "endMs": 570795
+    },
+    {
+      "index": 128,
+      "text": "He came over to say hi. Yeah. Hello.",
+      "kind": "dialogue",
+      "startMs": 570903,
+      "endMs": 573565
+    },
+    {
+      "index": 129,
+      "text": "Hi! Hey, what's this? My electric card shuffler. Don't go near that-",
+      "kind": "dialogue",
+      "startMs": 573673,
+      "endMs": 577473
+    },
+    {
+      "index": 130,
+      "text": "Now, I told you- Oh, those cards are from Air Force One... and they only give you so many packs.",
+      "kind": "dialogue",
+      "startMs": 579545,
+      "endMs": 585577
+    },
+    {
+      "index": 131,
+      "text": "Oh, George! Boys will be boys. Bart's just being friendly.",
+      "kind": "dialogue",
+      "startMs": 585685,
+      "endMs": 588654
+    },
+    {
+      "index": 132,
+      "text": "Why don't you get off that sofa and show Bart your photos?",
+      "kind": "dialogue",
+      "startMs": 588754,
+      "endMs": 591689
+    },
+    {
+      "index": 133,
+      "text": "Oh, but he'll gunk 'em all up.",
+      "kind": "dialogue",
+      "startMs": 591791,
+      "endMs": 593759
+    },
+    {
+      "index": 134,
+      "text": "His hands are probably covered with mud and cookies.",
+      "kind": "dialogue",
+      "startMs": 593859,
+      "endMs": 596350
+    },
+    {
+      "index": 135,
+      "text": "He probably stole a napkin.",
+      "kind": "dialogue",
+      "startMs": 596462,
+      "endMs": 599920
+    },
+    {
+      "index": 136,
+      "text": "Who's that, George? That's me with Charlton Heston.",
+      "kind": "dialogue",
+      "startMs": 601500,
+      "endMs": 604128
+    },
+    {
+      "index": 137,
+      "text": "He was- Who's that, George?",
+      "kind": "dialogue",
+      "startMs": 604236,
+      "endMs": 606136
+    },
+    {
+      "index": 138,
+      "text": "You wouldn't know him. That's Bob Mosbacher. He was secretary of- That's a dumb name. Who's that, George?",
+      "kind": "dialogue",
+      "startMs": 606238,
+      "endMs": 611443
+    },
+    {
+      "index": 139,
+      "text": "Maybe he thinks \"Bart\" is a dumb-",
+      "kind": "dialogue",
+      "startMs": 611544,
+      "endMs": 613512
+    },
+    {
+      "index": 140,
+      "text": "How many times were you president, George? Just once.",
+      "kind": "dialogue",
+      "startMs": 613613,
+      "endMs": 616173
+    },
+    {
+      "index": 141,
+      "text": "Bar, isn't it time for dinner yet?",
+      "kind": "dialogue",
+      "startMs": 616282,
+      "endMs": 618409
+    },
+    {
+      "index": 142,
+      "text": "I'm making rice. It'll be a while.",
+      "kind": "dialogue",
+      "startMs": 618517,
+      "endMs": 620815
+    },
+    {
+      "index": 143,
+      "text": "Did your Secret Service goons ever whack anybody, George?",
+      "kind": "dialogue",
+      "startMs": 620920,
+      "endMs": 623388
+    },
+    {
+      "index": 144,
+      "text": "You know, in my day... little boys didn't call their elders by their first names.",
+      "kind": "dialogue",
+      "startMs": 623489,
+      "endMs": 629052
+    },
+    {
+      "index": 145,
+      "text": "Yeah? Well, welcome to the 20th century, George.",
+      "kind": "dialogue",
+      "startMs": 629161,
+      "endMs": 631686
+    },
+    {
+      "index": 146,
+      "text": "I'll kick you right out of the 20th century, you little-",
+      "kind": "dialogue",
+      "startMs": 631797,
+      "endMs": 635324
+    },
+    {
+      "index": 147,
+      "text": "Oh, man. I only got one minute till they stop serving those breakfast balls! D'oh!",
+      "kind": "dialogue",
+      "startMs": 637770,
+      "endMs": 641831
+    },
+    {
+      "index": 148,
+      "text": "Ah, let's see now. What do you folks have here, huh?",
+      "kind": "dialogue",
+      "startMs": 641941,
+      "endMs": 645138
+    },
+    {
+      "index": 149,
+      "text": "Hmm. A Krusty Burger. That doesn't sound too appetizing.",
+      "kind": "dialogue",
+      "startMs": 645244,
+      "endMs": 648042
+    },
+    {
+      "index": 150,
+      "text": "What kind of stew do you have today?",
+      "kind": "dialogue",
+      "startMs": 648147,
+      "endMs": 650342
+    },
+    {
+      "index": 151,
+      "text": "Uh, we don't have stew.",
+      "kind": "dialogue",
+      "startMs": 650449,
+      "endMs": 652679
+    },
+    {
+      "index": 152,
+      "text": "Sir, why don't you just have the cheeseburger?",
+      "kind": "dialogue",
+      "startMs": 652785,
+      "endMs": 656380
+    },
+    {
+      "index": 153,
+      "text": "That's really more of a weekend thing, Ray.",
+      "kind": "dialogue",
+      "startMs": 656489,
+      "endMs": 658957
+    },
+    {
+      "index": 154,
+      "text": "Hey, jerk! Move your fanny!",
+      "kind": "dialogue",
+      "startMs": 659058,
+      "endMs": 661288
+    },
+    {
+      "index": 155,
+      "text": "That guy's louder than World War II.",
+      "kind": "dialogue",
+      "startMs": 661394,
+      "endMs": 663385
+    },
+    {
+      "index": 156,
+      "text": "Ray, go see what the rhubarb is, will you?",
+      "kind": "dialogue",
+      "startMs": 663496,
+      "endMs": 666761
+    },
+    {
+      "index": 157,
+      "text": "Sir, could you pop your hood?",
+      "kind": "dialogue",
+      "startMs": 666866,
+      "endMs": 669334
+    },
+    {
+      "index": 158,
+      "text": "Hey, my taxes paid for that horn!",
+      "kind": "dialogue",
+      "startMs": 671971,
+      "endMs": 674496
+    },
+    {
+      "index": 159,
+      "text": "Why, hello, Mrs. Bush.",
+      "kind": "dialogue",
+      "startMs": 674607,
+      "endMs": 676598
+    },
+    {
+      "index": 160,
+      "text": "Hi, Bart. Mr. Bush is upstairs napping.",
+      "kind": "dialogue",
+      "startMs": 676709,
+      "endMs": 679735
+    },
+    {
+      "index": 161,
+      "text": "Your husband's awful grumpy.",
+      "kind": "dialogue",
+      "startMs": 679845,
+      "endMs": 681710
+    },
+    {
+      "index": 162,
+      "text": "Oh, that's just his way. He really likes you.",
+      "kind": "dialogue",
+      "startMs": 681814,
+      "endMs": 684749
+    },
+    {
+      "index": 163,
+      "text": "You know, it's time for him to get up and work on his memoirs.",
+      "kind": "dialogue",
+      "startMs": 684850,
+      "endMs": 688183
+    },
+    {
+      "index": 164,
+      "text": "Why don't you go wake him?",
+      "kind": "dialogue",
+      "startMs": 688287,
+      "endMs": 690517
+    },
+    {
+      "index": 165,
+      "text": "What the- Great Scott! Don't touch that. That's the alpenhorn Helmut Kohl gave me.",
+      "kind": "dialogue",
+      "startMs": 690623,
+      "endMs": 697826
+    },
+    {
+      "index": 166,
+      "text": "Where'd you get those pajamas? They're presidential pajamas.",
+      "kind": "dialogue",
+      "startMs": 697930,
+      "endMs": 700728
+    },
+    {
+      "index": 167,
+      "text": "You have to be president, and you're not president.",
+      "kind": "dialogue",
+      "startMs": 700833,
+      "endMs": 703393
+    },
+    {
+      "index": 168,
+      "text": "Yes, I am. D- No, you're not. Bar!",
+      "kind": "dialogue",
+      "startMs": 703502,
+      "endMs": 706403
+    },
+    {
+      "index": 169,
+      "text": "Hey, where's your candy? We don't have any. Now, go away!",
+      "kind": "dialogue",
+      "startMs": 710609,
+      "endMs": 713578
+    },
+    {
+      "index": 170,
+      "text": "George!",
+      "kind": "dialogue",
+      "startMs": 713679,
+      "endMs": 715772
+    },
+    {
+      "index": 171,
+      "text": "Older people don't eat much candy, Bart, but I could bake you some cookies.",
+      "kind": "dialogue",
+      "startMs": 715881,
+      "endMs": 720477
+    },
+    {
+      "index": 172,
+      "text": "Can't remember the last time she made cookies for me.",
+      "kind": "dialogue",
+      "startMs": 720586,
+      "endMs": 724113
+    },
+    {
+      "index": 173,
+      "text": "What's that? Oh, n-nothing.",
+      "kind": "dialogue",
+      "startMs": 724223,
+      "endMs": 725850
+    },
+    {
+      "index": 174,
+      "text": "All right. His story checks out.",
+      "kind": "dialogue",
+      "startMs": 726959,
+      "endMs": 728859
+    },
+    {
+      "index": 175,
+      "text": "Marge, would you love me more if I were president?",
+      "kind": "dialogue",
+      "startMs": 728961,
+      "endMs": 731987
+    },
+    {
+      "index": 176,
+      "text": "'Cause I'll do it if it'll make you happy.",
+      "kind": "dialogue",
+      "startMs": 732098,
+      "endMs": 734293
+    },
+    {
+      "index": 177,
+      "text": "Homie, as long as you keep the car full of gas, I'm happy.",
+      "kind": "dialogue",
+      "startMs": 734400,
+      "endMs": 739360
+    },
+    {
+      "index": 178,
+      "text": "Well, you can always depend on that.",
+      "kind": "dialogue",
+      "startMs": 739472,
+      "endMs": 741940
+    },
+    {
+      "index": 179,
+      "text": "And since I'd achieved... all my goals as president in one term... there was no need for a second.",
+      "kind": "dialogue",
+      "startMs": 743743,
+      "endMs": 754143
+    },
+    {
+      "index": 180,
+      "text": "The end.",
+      "kind": "dialogue",
+      "startMs": 754253,
+      "endMs": 756813
+    },
+    {
+      "index": 181,
+      "text": "Mmm. Good memoirs.",
+      "kind": "dialogue",
+      "startMs": 758157,
+      "endMs": 760625
+    },
+    {
+      "index": 182,
+      "text": "Good, not great.",
+      "kind": "dialogue",
+      "startMs": 760726,
+      "endMs": 762421
+    },
+    {
+      "index": 183,
+      "text": "Now, let's look at that old outboard.",
+      "kind": "dialogue",
+      "startMs": 762528,
+      "endMs": 764655
+    },
+    {
+      "index": 184,
+      "text": "Soup that baby up, rattle a few windows down Kennebunkport next May.",
+      "kind": "dialogue",
+      "startMs": 764764,
+      "endMs": 767995
+    },
+    {
+      "index": 185,
+      "text": "Hello, Mr. Bush!",
+      "kind": "dialogue",
+      "startMs": 768100,
+      "endMs": 772264
+    },
+    {
+      "index": 186,
+      "text": "What ya doin'? Now, don't upset the desk there.",
+      "kind": "dialogue",
+      "startMs": 775174,
+      "endMs": 778109
+    },
+    {
+      "index": 187,
+      "text": "Careful! You don't want to horse around with- Hey, cool! What does this do?",
+      "kind": "dialogue",
+      "startMs": 778210,
+      "endMs": 781008
+    },
+    {
+      "index": 188,
+      "text": "Now, don't you pull that cord, young man!",
+      "kind": "dialogue",
+      "startMs": 781113,
+      "endMs": 783741
+    },
+    {
+      "index": 189,
+      "text": "No, no. Hey.! Whoops.",
+      "kind": "dialogue",
+      "startMs": 783849,
+      "endMs": 785749
+    },
+    {
+      "index": 190,
+      "text": "Bar, my motor's gone loco!",
+      "kind": "dialogue",
+      "startMs": 785851,
+      "endMs": 788877
+    },
+    {
+      "index": 191,
+      "text": "Oh, the birdhouse! My prize orchids!",
+      "kind": "dialogue",
+      "startMs": 788988,
+      "endMs": 793687
+    },
+    {
+      "index": 192,
+      "text": "No. Not the memoirs. Don't even think about it.",
+      "kind": "dialogue",
+      "startMs": 803335,
+      "endMs": 806304
+    },
+    {
+      "index": 193,
+      "text": "Not gonna happen.",
+      "kind": "dialogue",
+      "startMs": 806405,
+      "endMs": 808703
+    },
+    {
+      "index": 194,
+      "text": "Whoa, man. Whoa nothing.",
+      "kind": "dialogue",
+      "startMs": 817183,
+      "endMs": 819515
+    },
+    {
+      "index": 195,
+      "text": "I'm gonna do something your daddy should've done a long time ago.",
+      "kind": "dialogue",
+      "startMs": 819618,
+      "endMs": 824317
+    },
+    {
+      "index": 196,
+      "text": "Now, go home and think about what you've done, young man.",
+      "kind": "dialogue",
+      "startMs": 827793,
+      "endMs": 830762
+    },
+    {
+      "index": 197,
+      "text": "He spanked you?",
+      "kind": "dialogue",
+      "startMs": 832832,
+      "endMs": 834800
+    },
+    {
+      "index": 198,
+      "text": "You? Bart Simpson?",
+      "kind": "dialogue",
+      "startMs": 834900,
+      "endMs": 837027
+    },
+    {
+      "index": 199,
+      "text": "I begged him to stop, but he said it was for the good of the nation.",
+      "kind": "dialogue",
+      "startMs": 837136,
+      "endMs": 840264
+    },
+    {
+      "index": 200,
+      "text": "Big deal! When I was a pup, we got spanked by presidents till the cows came home.",
+      "kind": "dialogue",
+      "startMs": 840372,
+      "endMs": 845139
+    },
+    {
+      "index": 201,
+      "text": "Grover Cleveland spanked me on two nonconsecutive occasions!",
+      "kind": "dialogue",
+      "startMs": 845244,
+      "endMs": 848873
+    },
+    {
+      "index": 202,
+      "text": "Grampa, I know in your day spanking was common... but Homer and I just don't believe in that kind of punishment.",
+      "kind": "dialogue",
+      "startMs": 848981,
+      "endMs": 855478
+    },
+    {
+      "index": 203,
+      "text": "And that's why your no-good kids are running wild!",
+      "kind": "dialogue",
+      "startMs": 855588,
+      "endMs": 858216
+    },
+    {
+      "index": 204,
+      "text": "First, Bush invades my home turf, then he takes my pals... then he makes fun of the way I talk... probably.",
+      "kind": "dialogue",
+      "startMs": 859725,
+      "endMs": 865658
+    },
+    {
+      "index": 205,
+      "text": "Now he steals my right to raise a disobedient, smart-alecky son!",
+      "kind": "dialogue",
+      "startMs": 865764,
+      "endMs": 870201
+    },
+    {
+      "index": 206,
+      "text": "Well, that's it!",
+      "kind": "dialogue",
+      "startMs": 870302,
+      "endMs": 872327
+    },
+    {
+      "index": 207,
+      "text": "Hey, Bush! Get out here!",
+      "kind": "dialogue",
+      "startMs": 874039,
+      "endMs": 877497
+    },
+    {
+      "index": 208,
+      "text": "Excuse me, sir. Where are you going?",
+      "kind": "dialogue",
+      "startMs": 877610,
+      "endMs": 879908
+    },
+    {
+      "index": 209,
+      "text": "I'm going to punch George Bush in the face.",
+      "kind": "dialogue",
+      "startMs": 880012,
+      "endMs": 882378
+    },
+    {
+      "index": 210,
+      "text": "Okay. Is he expecting you?",
+      "kind": "dialogue",
+      "startMs": 882481,
+      "endMs": 884346
+    },
+    {
+      "index": 211,
+      "text": "You owe me an apology! Hey, you owe me an apology.",
+      "kind": "dialogue",
+      "startMs": 884450,
+      "endMs": 887578
+    },
+    {
+      "index": 212,
+      "text": "If you were any kind of a father... you'd have disciplined that boy a long time ago.",
+      "kind": "dialogue",
+      "startMs": 887686,
+      "endMs": 892824
+    },
+    {
+      "index": 213,
+      "text": "You want to step back, sir? You're trampling the flowers.",
+      "kind": "dialogue",
+      "startMs": 892925,
+      "endMs": 895359
+    },
+    {
+      "index": 214,
+      "text": "Ooh! Hiding behind your goons, eh, Bush?",
+      "kind": "dialogue",
+      "startMs": 895461,
+      "endMs": 899363
+    },
+    {
+      "index": 215,
+      "text": "Whoa! Well, you are a wimp!",
+      "kind": "dialogue",
+      "startMs": 899465,
+      "endMs": 903799
+    },
+    {
+      "index": 216,
+      "text": "Wimp, am I?",
+      "kind": "dialogue",
+      "startMs": 904970,
+      "endMs": 906870
+    },
+    {
+      "index": 217,
+      "text": "AgentJohnson, Agent Heintz... you men stand down.",
+      "kind": "dialogue",
+      "startMs": 906972,
+      "endMs": 913002
+    },
+    {
+      "index": 218,
+      "text": "All right, mister, you want trouble, you're gonna get trouble.",
+      "kind": "dialogue",
+      "startMs": 915781,
+      "endMs": 919182
+    },
+    {
+      "index": 219,
+      "text": "Oh, I want trouble, all right.",
+      "kind": "dialogue",
+      "startMs": 919285,
+      "endMs": 921344
+    },
+    {
+      "index": 220,
+      "text": "Then you're gonna get trouble. No, you're gonna get trouble.",
+      "kind": "dialogue",
+      "startMs": 921453,
+      "endMs": 924684
+    },
+    {
+      "index": 221,
+      "text": "Oh, that's good. That's good, 'cause I want trouble.",
+      "kind": "dialogue",
+      "startMs": 924790,
+      "endMs": 927054
+    },
+    {
+      "index": 222,
+      "text": "Then we're agreed. There'll be trouble. Oh, yeah! Lots of trouble.",
+      "kind": "dialogue",
+      "startMs": 927159,
+      "endMs": 931061
+    },
+    {
+      "index": 223,
+      "text": "Trouble it is! For you.",
+      "kind": "dialogue",
+      "startMs": 931163,
+      "endMs": 933063
+    },
+    {
+      "index": 224,
+      "text": "D'oh!",
+      "kind": "dialogue",
+      "startMs": 933165,
+      "endMs": 935065
+    },
+    {
+      "index": 225,
+      "text": "This is gonna be sweet.",
+      "kind": "dialogue",
+      "startMs": 937202,
+      "endMs": 939568
+    },
+    {
+      "index": 226,
+      "text": "Two hundred bottle rockets, and George Bush doing toe touches by an open window.",
+      "kind": "dialogue",
+      "startMs": 939672,
+      "endMs": 944234
+    },
+    {
+      "index": 227,
+      "text": "You get one up his butt, it's a million points.",
+      "kind": "dialogue",
+      "startMs": 944343,
+      "endMs": 947335
+    },
+    {
+      "index": 228,
+      "text": "Why don't you just say you're sorry, George?",
+      "kind": "dialogue",
+      "startMs": 954019,
+      "endMs": 957182
+    },
+    {
+      "index": 229,
+      "text": "Because I'm right. Oh, no.",
+      "kind": "dialogue",
+      "startMs": 957289,
+      "endMs": 959814
+    },
+    {
+      "index": 230,
+      "text": "I'm gonna fix their wagon good. I've pulled some pranks in my time.",
+      "kind": "dialogue",
+      "startMs": 959925,
+      "endMs": 964487
+    },
+    {
+      "index": 231,
+      "text": "I- I don't understand.",
+      "kind": "dialogue",
+      "startMs": 965931,
+      "endMs": 968456
+    },
+    {
+      "index": 232,
+      "text": "Are you saying you and Barbara are bad neighbors?",
+      "kind": "dialogue",
+      "startMs": 968567,
+      "endMs": 971035
+    },
+    {
+      "index": 233,
+      "text": "No! That's not Bar and me. It's them.",
+      "kind": "dialogue",
+      "startMs": 971136,
+      "endMs": 973366
+    },
+    {
+      "index": 234,
+      "text": "Who? Maude and me? No! The man and his boy.",
+      "kind": "dialogue",
+      "startMs": 973472,
+      "endMs": 976771
+    },
+    {
+      "index": 235,
+      "text": "You know, the- the boy is named Bart.",
+      "kind": "dialogue",
+      "startMs": 976875,
+      "endMs": 979343
+    },
+    {
+      "index": 236,
+      "text": "I don't know the name of the man. Bar! What's the name of the man?",
+      "kind": "dialogue",
+      "startMs": 979445,
+      "endMs": 982437
+    },
+    {
+      "index": 237,
+      "text": "I'm not getting involved, George. Look, just never mind.",
+      "kind": "dialogue",
+      "startMs": 982548,
+      "endMs": 985210
+    },
+    {
+      "index": 238,
+      "text": "I thought the banner was pretty straightforward, but I guess I'll just take it down.",
+      "kind": "dialogue",
+      "startMs": 985317,
+      "endMs": 989651
+    },
+    {
+      "index": 239,
+      "text": "George, it's time to get dressed.",
+      "kind": "dialogue",
+      "startMs": 989755,
+      "endMs": 992656
+    },
+    {
+      "index": 240,
+      "text": "Nuh-uh. Not going outside today, not with those neighbors.",
+      "kind": "dialogue",
+      "startMs": 992758,
+      "endMs": 996216
+    },
+    {
+      "index": 241,
+      "text": "Staying right here till my speech to the Elks Club.",
+      "kind": "dialogue",
+      "startMs": 996328,
+      "endMs": 999354
+    },
+    {
+      "index": 242,
+      "text": "Yoo-hoo.!",
+      "kind": "dialogue",
+      "startMs": 999465,
+      "endMs": 1001729
+    },
+    {
+      "index": 243,
+      "text": "Who is it? It's your sons, George Bush Jr. and Jeb Bush.",
+      "kind": "dialogue",
+      "startMs": 1003802,
+      "endMs": 1008398
+    },
+    {
+      "index": 244,
+      "text": "Come outside, Dad. Oh, good.",
+      "kind": "dialogue",
+      "startMs": 1008507,
+      "endMs": 1010532
+    },
+    {
+      "index": 245,
+      "text": "Bar! The boys are in the front yard. They'll help me think of a plan to get those Simpsons.",
+      "kind": "dialogue",
+      "startMs": 1010642,
+      "endMs": 1014601
+    },
+    {
+      "index": 246,
+      "text": "Oh, George! Is that all you ever think about?",
+      "kind": "dialogue",
+      "startMs": 1014713,
+      "endMs": 1017273
+    },
+    {
+      "index": 247,
+      "text": "The boys probably just want a letter of recommendation.",
+      "kind": "dialogue",
+      "startMs": 1017383,
+      "endMs": 1019817
+    },
+    {
+      "index": 248,
+      "text": "Boys? Where are you going? Okay, son. Give him the glue!",
+      "kind": "dialogue",
+      "startMs": 1023222,
+      "endMs": 1026419
+    },
+    {
+      "index": 249,
+      "text": "Hey, lookin'good.!",
+      "kind": "dialogue",
+      "startMs": 1030596,
+      "endMs": 1034032
+    },
+    {
+      "index": 250,
+      "text": "And that's why I will continue to oppose teen alcoholism... in all its forms.",
+      "kind": "dialogue",
+      "startMs": 1036168,
+      "endMs": 1043102
+    },
+    {
+      "index": 251,
+      "text": "Now, are there any questions?",
+      "kind": "dialogue",
+      "startMs": 1045811,
+      "endMs": 1048575
+    },
+    {
+      "index": 252,
+      "text": "Keeping in mind that I already explained about my hair.",
+      "kind": "dialogue",
+      "startMs": 1048680,
+      "endMs": 1053310
+    },
+    {
+      "index": 253,
+      "text": "Oh, yeah, that's right. The Simpsons.",
+      "kind": "dialogue",
+      "startMs": 1053419,
+      "endMs": 1055546
+    },
+    {
+      "index": 254,
+      "text": "President Bush is driving on our lawn.",
+      "kind": "dialogue",
+      "startMs": 1064396,
+      "endMs": 1067194
+    },
+    {
+      "index": 255,
+      "text": "He must be lost. He's not lost.",
+      "kind": "dialogue",
+      "startMs": 1067299,
+      "endMs": 1070234
+    },
+    {
+      "index": 256,
+      "text": "Looks like we're experiencing some blowback from the wig offensive.",
+      "kind": "dialogue",
+      "startMs": 1070335,
+      "endMs": 1073304
+    },
+    {
+      "index": 257,
+      "text": "It's time to hit him where he lives. His house?",
+      "kind": "dialogue",
+      "startMs": 1073405,
+      "endMs": 1075999
+    },
+    {
+      "index": 258,
+      "text": "Bingo.",
+      "kind": "dialogue",
+      "startMs": 1076108,
+      "endMs": 1078008
+    },
+    {
+      "index": 259,
+      "text": "So I thought to myself, \"What would God do in this situation?\"",
+      "kind": "dialogue",
+      "startMs": 1081847,
+      "endMs": 1084782
+    },
+    {
+      "index": 260,
+      "text": "Locusts. They'll drive him nuts.",
+      "kind": "dialogue",
+      "startMs": 1084883,
+      "endMs": 1088546
+    },
+    {
+      "index": 261,
+      "text": "It's all in the Bible, son. It's the prankster's bible.",
+      "kind": "dialogue",
+      "startMs": 1088654,
+      "endMs": 1092283
+    },
+    {
+      "index": 262,
+      "text": "Hmm. I can't decide if this'll be considered feisty or crazy.",
+      "kind": "dialogue",
+      "startMs": 1100799,
+      "endMs": 1105099
+    },
+    {
+      "index": 263,
+      "text": "Hey! Hey, what the- Oh, if he thinks George Bush'll stay out of the sewer... he doesn't know George Bush.",
+      "kind": "dialogue",
+      "startMs": 1105204,
+      "endMs": 1112936
+    },
+    {
+      "index": 264,
+      "text": "Hey, turkeys! Behind ya.",
+      "kind": "dialogue",
+      "startMs": 1114746,
+      "endMs": 1117078
+    },
+    {
+      "index": 265,
+      "text": "For the last time, Bush, apologize for spanking my boy!",
+      "kind": "dialogue",
+      "startMs": 1117182,
+      "endMs": 1120174
+    },
+    {
+      "index": 266,
+      "text": "Never. You make him apologize for destroying my memoirs.",
+      "kind": "dialogue",
+      "startMs": 1120285,
+      "endMs": 1123948
+    },
+    {
+      "index": 267,
+      "text": "You didn't tell me you destroyed his memoirs.",
+      "kind": "dialogue",
+      "startMs": 1124056,
+      "endMs": 1127048
+    },
+    {
+      "index": 268,
+      "text": "Never!",
+      "kind": "dialogue",
+      "startMs": 1127159,
+      "endMs": 1129889
+    },
+    {
+      "index": 269,
+      "text": "Yea, Dad!",
+      "kind": "dialogue",
+      "startMs": 1137169,
+      "endMs": 1140900
+    },
+    {
+      "index": 270,
+      "text": "I really feel awful about your lawn, Marge.",
+      "kind": "dialogue",
+      "startMs": 1141006,
+      "endMs": 1143975
+    },
+    {
+      "index": 271,
+      "text": "George can be so stubborn when he thinks he's right.",
+      "kind": "dialogue",
+      "startMs": 1144076,
+      "endMs": 1146806
+    },
+    {
+      "index": 272,
+      "text": "Oh, Homer too. They're so much alike.",
+      "kind": "dialogue",
+      "startMs": 1146912,
+      "endMs": 1149380
+    },
+    {
+      "index": 273,
+      "text": "Too bad they got off on the wrong foot.",
+      "kind": "dialogue",
+      "startMs": 1149481,
+      "endMs": 1151779
+    },
+    {
+      "index": 274,
+      "text": "It's just like the Noriega thing.",
+      "kind": "dialogue",
+      "startMs": 1151884,
+      "endMs": 1154250
+    },
+    {
+      "index": 275,
+      "text": "Now he and George are the best of friends.",
+      "kind": "dialogue",
+      "startMs": 1154353,
+      "endMs": 1157322
+    },
+    {
+      "index": 276,
+      "text": "Here's a little something we learned in C.I.A.",
+      "kind": "dialogue",
+      "startMs": 1160626,
+      "endMs": 1163754
+    },
+    {
+      "index": 277,
+      "text": "Get him, boys! Ow! Ow!",
+      "kind": "dialogue",
+      "startMs": 1167366,
+      "endMs": 1172167
+    },
+    {
+      "index": 278,
+      "text": "Hello!",
+      "kind": "dialogue",
+      "startMs": 1176942,
+      "endMs": 1180173
+    },
+    {
+      "index": 279,
+      "text": "Hello!",
+      "kind": "dialogue",
+      "startMs": 1180279,
+      "endMs": 1182372
+    },
+    {
+      "index": 280,
+      "text": "Now I'll ruin you like a Japanese banquet.",
+      "kind": "dialogue",
+      "startMs": 1190489,
+      "endMs": 1193356
+    },
+    {
+      "index": 281,
+      "text": "I'll take your head and- Gorbachev?",
+      "kind": "dialogue",
+      "startMs": 1193458,
+      "endMs": 1196916
+    },
+    {
+      "index": 282,
+      "text": "What-What are you doing here?",
+      "kind": "dialogue",
+      "startMs": 1197029,
+      "endMs": 1199327
+    },
+    {
+      "index": 283,
+      "text": "I just dropped by with present for warming of house.",
+      "kind": "dialogue",
+      "startMs": 1199431,
+      "endMs": 1202400
+    },
+    {
+      "index": 284,
+      "text": "Instead find you grappling with local oaf.",
+      "kind": "dialogue",
+      "startMs": 1202501,
+      "endMs": 1205629
+    },
+    {
+      "index": 285,
+      "text": "Oh, brought some of your commie friends to help you fight dirty, eh?",
+      "kind": "dialogue",
+      "startMs": 1205737,
+      "endMs": 1209332
+    },
+    {
+      "index": 286,
+      "text": "Mikhail, they put a wig on my head, my memoirs got- George, this is the last straw.!",
+      "kind": "dialogue",
+      "startMs": 1209441,
+      "endMs": 1215409
+    },
+    {
+      "index": 287,
+      "text": "You apologize to Homer right now!",
+      "kind": "dialogue",
+      "startMs": 1215514,
+      "endMs": 1217675
+    },
+    {
+      "index": 288,
+      "text": "But, Bar, we can't show any weakness in front of the Russians.",
+      "kind": "dialogue",
+      "startMs": 1217783,
+      "endMs": 1221583
+    },
+    {
+      "index": 289,
+      "text": "George!",
+      "kind": "dialogue",
+      "startMs": 1221687,
+      "endMs": 1223917
+    },
+    {
+      "index": 290,
+      "text": "Yes, dear.",
+      "kind": "dialogue",
+      "startMs": 1226758,
+      "endMs": 1228726
+    },
+    {
+      "index": 291,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 1232965,
+      "endMs": 1235365
+    },
+    {
+      "index": 292,
+      "text": "I'm sorry I spanked your boy, Homer.",
+      "kind": "dialogue",
+      "startMs": 1235467,
+      "endMs": 1238095
+    },
+    {
+      "index": 293,
+      "text": "Whoo-hoo! In your face, Bush.",
+      "kind": "dialogue",
+      "startMs": 1238203,
+      "endMs": 1241001
+    },
+    {
+      "index": 294,
+      "text": "Now apologize for the tax hike.",
+      "kind": "dialogue",
+      "startMs": 1241106,
+      "endMs": 1244098
+    },
+    {
+      "index": 295,
+      "text": "It's a shame it didn't work out, Marge... but George just felt this neighborhood brought out the worst in him and-",
+      "kind": "dialogue",
+      "startMs": 1248880,
+      "endMs": 1254878
+    },
+    {
+      "index": 296,
+      "text": "Oh, my. Well, so long!",
+      "kind": "dialogue",
+      "startMs": 1259791,
+      "endMs": 1262521
+    },
+    {
+      "index": 297,
+      "text": "Bye-bye.",
+      "kind": "dialogue",
+      "startMs": 1267566,
+      "endMs": 1270228
+    },
+    {
+      "index": 298,
+      "text": "Hi!",
+      "kind": "dialogue",
+      "startMs": 1279344,
+      "endMs": 1281869
+    },
+    {
+      "index": 299,
+      "text": "Pleased to meet you. I just moved in.",
+      "kind": "dialogue",
+      "startMs": 1281980,
+      "endMs": 1284278
+    },
+    {
+      "index": 300,
+      "text": "My name is Jerry Ford.",
+      "kind": "dialogue",
+      "startMs": 1284383,
+      "endMs": 1286647
+    },
+    {
+      "index": 301,
+      "text": "Former president Gerald Ford?",
+      "kind": "dialogue",
+      "startMs": 1286752,
+      "endMs": 1289516
+    },
+    {
+      "index": 302,
+      "text": "Put 'er there. I'm Homer Simpson.",
+      "kind": "dialogue",
+      "startMs": 1289621,
+      "endMs": 1291782
+    },
+    {
+      "index": 303,
+      "text": "Say, Homer, do you like football? Do I ever!",
+      "kind": "dialogue",
+      "startMs": 1291890,
+      "endMs": 1296224
+    },
+    {
+      "index": 304,
+      "text": "Do you like nachos? Yes, Mr. Ford.",
+      "kind": "dialogue",
+      "startMs": 1296328,
+      "endMs": 1299991
+    },
+    {
+      "index": 305,
+      "text": "Well, why don't you come over and watch the game... and we'll have nachos and then some beer?",
+      "kind": "dialogue",
+      "startMs": 1300098,
+      "endMs": 1307171
+    },
+    {
+      "index": 306,
+      "text": "Ooh!",
+      "kind": "dialogue",
+      "startMs": 1307272,
+      "endMs": 1309137
+    },
+    {
+      "index": 307,
+      "text": "Jerry, I think you and I are gonna get along just- D'oh!",
+      "kind": "dialogue",
+      "startMs": 1309241,
+      "endMs": 1315205
+    },
+    {
+      "index": 308,
+      "text": "Shh! www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 1360692,
+      "endMs": 2000
+    }
+  ],
+  "meta": {
+    "show": "The Simpsons",
+    "season": 7,
+    "episode": 13
+  }
+}

@@ -39,11 +39,23 @@ export type AnalogyPack = {
   createdAt: string;
 };
 
-export type AnalogyConnection = {
+export type CatalogConnectionPayload = {
+  titleId: string;
+  lineIndices: number[];
+};
+
+export type RewriteConnectionPayload = {
+  context: string;
+  text: string;
+  sentTo?: {
+    people: { userId: string; displayName: string }[];
+    groups: { id: string; name: string }[];
+  };
+};
+
+type ConnectionBase = {
   id: string;
   packId: string;
-  kind: "catalog";
-  payload: { titleId: string; lineIndices: number[] };
   note: string | null;
   proposerUserId: string;
   proposerDisplayName: string;
@@ -51,6 +63,10 @@ export type AnalogyConnection = {
   score: number;
   viewerVoted: boolean;
 };
+
+export type AnalogyConnection =
+  | (ConnectionBase & { kind: "catalog"; payload: CatalogConnectionPayload })
+  | (ConnectionBase & { kind: "rewrite"; payload: RewriteConnectionPayload });
 
 export async function createParallelPack(body: {
   titleId: string;
@@ -87,7 +103,9 @@ export async function fetchParallelPack(
 
 export async function proposeParallelConnection(
   packId: string,
-  body: { titleId: string; lineIndices: number[]; note?: string },
+  body:
+    | { kind?: "catalog"; titleId: string; lineIndices: number[]; note?: string }
+    | { kind: "rewrite"; context: string; text: string; toUserIds?: string[]; toGroupIds?: string[] },
 ): Promise<AnalogyConnection | { error: string }> {
   const response = await parallelsFetch(`/api/parallels/${encodeURIComponent(packId)}/connections`, {
     method: "POST",

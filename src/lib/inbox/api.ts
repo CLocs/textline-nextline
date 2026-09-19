@@ -91,11 +91,27 @@ export async function sendLineToGroup(
   return (await response.json()) as GroupLineShare;
 }
 
-export async function fetchInbox(): Promise<InboxItem[] | { error: string }> {
+export type ParallelInboxItem = {
+  id: string;
+  packId: string;
+  connectionId: string;
+  packName: string;
+  context: string;
+  text: string;
+  from: { userId: string; displayName: string };
+  createdAt: string;
+};
+
+export async function fetchInbox(): Promise<
+  { items: InboxItem[]; parallels: ParallelInboxItem[] } | { error: string }
+> {
   const response = await inboxFetch("/api/inbox");
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
   if (!response.ok) return { error: await readError(response, "Could not load inbox") };
-  const data = (await response.json()) as { items?: InboxItem[] };
-  return Array.isArray(data.items) ? data.items : [];
+  const data = (await response.json()) as { items?: InboxItem[]; parallels?: ParallelInboxItem[] };
+  return {
+    items: Array.isArray(data.items) ? data.items : [],
+    parallels: Array.isArray(data.parallels) ? data.parallels : [],
+  };
 }
