@@ -6,7 +6,7 @@ import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue, chronologicalPromptQueue } from "../lib/game/miniGame";
 import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, isForgivingMcq, type GameRun } from "../lib/game/session";
-import { getStarredLineIndices } from "../lib/stars/sync";
+import { getLovedLineIndices, getStarredLineIndices } from "../lib/stars/sync";
 import {
   createMiniShare,
   fetchMe,
@@ -35,6 +35,7 @@ import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
 import { CompleteScreen } from "../components/CompleteScreen";
 import { CurateScreen } from "../components/CurateScreen";
+import { ParallelPackScreen } from "../components/ParallelPackScreen";
 import { LoginScreen } from "../components/LoginScreen";
 import { AuthBar } from "../components/AuthBar";
 import { ProfileScreen } from "../components/ProfileScreen";
@@ -42,7 +43,7 @@ import { CatalogOpsScreen } from "../components/CatalogOpsScreen";
 import { FriendAcceptScreen } from "../components/FriendAcceptScreen";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -78,6 +79,7 @@ export function App() {
   const [persistedRunId, setPersistedRunId] = useState<string | null>(null);
   const [profileTab, setProfileTab] = useState<ProfileTab>("account");
   const [friendToken, setFriendToken] = useState<string | null>(null);
+  const [parallelPackId, setParallelPackId] = useState<string | null>(null);
 
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
@@ -114,6 +116,10 @@ export function App() {
       const shareId = returnTo.slice("play/".length);
       clearHash();
       void beginSharedPlayRef.current(shareId);
+      return;
+    }
+    if (returnTo?.startsWith("parallel/")) {
+      setHash(returnTo);
       return;
     }
     if (returnTo?.startsWith("friend/")) {
@@ -261,6 +267,18 @@ export function App() {
         void beginSharedPlay(route.shareId);
         return;
       }
+      if (route.kind === "parallel") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to view this parallel pack.");
+          captureLoginReturn(`parallel/${route.packId}`);
+          setScreen("login");
+          setHash(`login?return=${encodeURIComponent(`parallel/${route.packId}`)}`);
+          return;
+        }
+        setParallelPackId(route.packId);
+        setScreen("parallel");
+        return;
+      }
       if (route.kind === "friend") {
         if (!user && !getStoredUser()) {
           setLoginMessage("Sign in to accept this friend invite.");
@@ -318,6 +336,7 @@ export function App() {
     if (setup.length === "mini") {
       questionQueue = buildMiniGameQueue(loaded, {
         personalStarred: getStarredLineIndices(entry.id),
+        personalLoved: getLovedLineIndices(entry.id),
         crowdPopular: setup.crowdPopular ?? [],
       });
       firstPromptLineIndex = questionQueue[0];
@@ -594,7 +613,20 @@ export function App() {
           onBack={handleBackToLibrary}
           onUpdated={setUser}
           onPlayShare={(shareId) => void beginSharedPlay(shareId)}
+          onOpenParallel={(packId) => {
+            setParallelPackId(packId);
+            setScreen("parallel");
+            setHash(`parallel/${packId}`);
+          }}
           onLogout={() => void handleLogout()}
+        />
+      )}
+
+      {showApp && screen === "parallel" && parallelPackId && (
+        <ParallelPackScreen
+          packId={parallelPackId}
+          onPlay={(shareId) => void beginSharedPlay(shareId)}
+          onBack={handleBackToLibrary}
         />
       )}
 
@@ -627,7 +659,15 @@ export function App() {
       )}
 
       {showApp && screen === "curate" && pendingEntry && (
-        <CurateScreen entry={pendingEntry} onBack={() => setScreen("setup")} />
+        <CurateScreen
+          entry={pendingEntry}
+          onBack={() => setScreen("setup")}
+          onOpenParallel={(packId) => {
+            setParallelPackId(packId);
+            setScreen("parallel");
+            setHash(`parallel/${packId}`);
+          }}
+        />
       )}
 
       {showApp && screen === "play" && title && run && question && (
@@ -638,6 +678,7 @@ export function App() {
           feedback={feedback}
           skipReveal={skipReveal}
           progress={progressLabel(run, title)}
+          isSharedPlay={Boolean(activeShareId)}
           onChoose={handleChoice}
           onSkip={handleSkip}
           onGoBack={handleGoBack}

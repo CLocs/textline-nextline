@@ -13,6 +13,14 @@ import {
 import { corsHeaders, isAllowedOrigin, parseAllowedOrigins } from "./cors.js";
 import { isValidPlayerId } from "./stars.js";
 import {
+  createAnalogyPack,
+  getAnalogyPack,
+  listAnalogyConnections,
+  listMyAnalogyPacks,
+  proposeCatalogConnection,
+  upvoteConnection,
+} from "./parallels.js";
+import {
   createShare,
   getShareMeta,
   getShareQueue,
@@ -23,8 +31,10 @@ import {
   deleteStar,
   fetchMyStars,
   fetchPopularStars,
+  parseLoveBody,
   parseStarBody,
   putStar,
+  setLoved,
 } from "./stars.js";
 import {
   fetchPlayedStats,
@@ -403,6 +413,76 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     return errorResponse("Not found", 404, origin, allowed);
   }
 
+  // --- Quote parallels (Light: packs + catalog connections + upvotes) ---
+  if (pathname.startsWith("/api/parallels")) {
+    if (request.method === "GET" && pathname === "/api/parallels/mine") {
+      const userOrError = await requireUser(request, env, origin, allowed);
+      if (userOrError instanceof Response) return userOrError;
+      const packs = await listMyAnalogyPacks(env.DB, userOrError.id);
+      return jsonResponse({ packs }, 200, origin, allowed);
+    }
+
+    if (request.method === "POST" && pathname === "/api/parallels") {
+      const userOrError = await requireUser(request, env, origin, allowed);
+      if (userOrError instanceof Response) return userOrError;
+      const body = (await readJson(request)) as {
+        titleId?: string;
+        lineIndices?: unknown;
+        name?: unknown;
+      } | null;
+      const result = await createAnalogyPack(env.DB, userOrError, body ?? {});
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      const appOrigin = resolveShareOrigin(env.APP_ORIGIN, origin, allowed);
+      return jsonResponse(
+        {
+          pack: result,
+          url: `${appOrigin}/#/parallel/${result.id}`,
+          playUrl: `${appOrigin}/#/play/${result.shareId}`,
+        },
+        200,
+        origin,
+        allowed,
+      );
+    }
+
+    const voteMatch = pathname.match(/^\/api\/parallels\/connections\/([^/]+)\/vote$/);
+    if (request.method === "POST" && voteMatch?.[1]) {
+      const userOrError = await requireUser(request, env, origin, allowed);
+      if (userOrError instanceof Response) return userOrError;
+      const connectionId = decodeURIComponent(voteMatch[1]);
+      const result = await upvoteConnection(env.DB, userOrError, connectionId);
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
+    const connMatch = pathname.match(/^\/api\/parallels\/([^/]+)\/connections$/);
+    if (request.method === "POST" && connMatch?.[1]) {
+      const userOrError = await requireUser(request, env, origin, allowed);
+      if (userOrError instanceof Response) return userOrError;
+      const packId = decodeURIComponent(connMatch[1]);
+      const body = (await readJson(request)) as {
+        titleId?: string;
+        lineIndices?: unknown;
+        note?: unknown;
+      } | null;
+      const result = await proposeCatalogConnection(env.DB, userOrError, packId, body ?? {});
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ connection: result }, 200, origin, allowed);
+    }
+
+    const packMatch = pathname.match(/^\/api\/parallels\/([^/]+)$/);
+    if (request.method === "GET" && packMatch?.[1] && packMatch[1] !== "mine") {
+      const packId = decodeURIComponent(packMatch[1]);
+      const pack = await getAnalogyPack(env.DB, packId);
+      if (!pack) return errorResponse("Pack not found", 404, origin, allowed);
+      const viewer = await getSessionUser(env.DB, getBearerToken(request));
+      const connections = await listAnalogyConnections(env.DB, packId, viewer?.id ?? null);
+      return jsonResponse({ pack, connections }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
+  }
+
   // --- Shares ---
   if (pathname.startsWith("/api/shares")) {
     const userOrError = await requireUser(request, env, origin, allowed);
@@ -593,8 +673,17 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       return errorResponse("Missing titleId", 400, origin, allowed);
     }
 
-    const lineIndices = await fetchMyStars(env.DB, playerId, titleId);
-    return jsonResponse({ lineIndices }, 200, origin, allowed);
+    const stars = await fetchMyStars(env.DB, playerId, titleId);
+    return jsonResponse(
+      {
+        stars,
+        lineIndices: stars.map((s) => s.lineIndex),
+        lovedIndices: stars.filter((s) => s.loved).map((s) => s.lineIndex),
+      },
+      200,
+      origin,
+      allowed,
+    );
   }
 
   if (request.method === "GET" && pathname === "/api/stars/popular") {
@@ -611,6 +700,26 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
 
     const popular = await fetchPopularStars(env.DB, titleId, limit);
     return jsonResponse({ popular }, 200, origin, allowed);
+  }
+
+  if (request.method === "PUT" && pathname === "/api/stars/love") {
+    const playerId = await resolveStarPlayerId(request, env);
+    if (!playerId) {
+      return errorResponse("Unauthorized or missing player id", 401, origin, allowed);
+    }
+    const body = await readJson(request);
+    const loveBody = parseLoveBody(body);
+    if (!loveBody) {
+      return errorResponse(
+        "Invalid body: expected { titleId, lineIndex, loved }",
+        400,
+        origin,
+        allowed,
+      );
+    }
+    const result = await setLoved(env.DB, playerId, loveBody);
+    if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+    return jsonResponse({ ok: true }, 200, origin, allowed);
   }
 
   if (request.method === "PUT" || request.method === "DELETE") {

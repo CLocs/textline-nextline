@@ -118,7 +118,8 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 |--------|------|---------|
 | `PUT` | `/api/stars` | Star a line. Body: `{ titleId, lineIndex }` |
 | `DELETE` | `/api/stars` | Unstar. Body: `{ titleId, lineIndex }` |
-| `GET` | `/api/stars/mine?titleId=` | Current player's starred indices |
+| `PUT` | `/api/stars/love` | Body `{ titleId, lineIndex, loved }` — requires star; max 5 loved / title |
+| `GET` | `/api/stars/mine?titleId=` | `{ stars: [{ lineIndex, loved }], lineIndices, lovedIndices }` |
 | `GET` | `/api/stars/popular?titleId=&limit=50` | Crowd ranking by star count |
 | `POST` | `/api/auth/request-link` | Body `{ email }` → magic link email |
 | `POST` | `/api/auth/verify` | Body `{ token }` → `{ user, sessionToken }` |
@@ -155,8 +156,15 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/groups/:id/members` | Body `{ userId }` — must already be a friend (auth) |
 | `DELETE` | `/api/groups/:id/members/:userId` | Remove a member (auth) |
 | `DELETE` | `/api/groups/:id` | Delete the list (auth) |
+| `POST` | `/api/parallels` | Create quote-parallel pack (auth). Body `{ titleId, lineIndices (3–8), name }` → `{ pack, url, playUrl }` (frozen share under the hood) |
+| `GET` | `/api/parallels/mine` | Owner’s packs (auth) |
+| `GET` | `/api/parallels/:id` | Pack + ranked catalog connections (public read; `viewerVoted` when authed) |
+| `POST` | `/api/parallels/:id/connections` | Propose catalog parallel (auth). Body `{ titleId, lineIndices, note? }` |
+| `POST` | `/api/parallels/connections/:id/vote` | Upvote once per user (auth) |
 
-Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, and ops routes require auth (invite preview is public).
+Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, parallels, and ops routes require auth (invite preview and pack GET are public).
+
+After pulling parallels: `npm run db:migrate:parallels:remote`. After loved: `npm run db:migrate:loved:remote` (or full `npm run deploy:api`).
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 
