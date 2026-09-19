@@ -12,6 +12,7 @@ import {
 } from "../lib/chats/api";
 import type { CatalogEntry } from "../types/content";
 import { InboxLineCard } from "./InboxLineCard";
+import { ChatQuoteActions } from "./ChatQuoteActions";
 import type { InboxItem } from "../lib/inbox/api";
 
 type Props = {
@@ -39,10 +40,13 @@ function OutgoingPreview({
   const text = title ? (getLine(title, lineIndex)?.text ?? "") : "";
   return (
     <article className="inbox-line-card chats-outgoing-card">
-      <p className="inbox-line-from">
-        {fromLabel}
-        <span className="muted"> · {label}</span>
-      </p>
+      <div className="chat-quote-header">
+        <p className="inbox-line-from">
+          {fromLabel}
+          <span className="muted"> · {label}</span>
+        </p>
+        <ChatQuoteActions titleId={titleId} lineIndex={lineIndex} lineText={text} />
+      </div>
       <blockquote className="prompt-text">
         <p className="prompt-current">{text || `Line ${lineIndex + 1}`}</p>
       </blockquote>
@@ -165,7 +169,7 @@ export function ChatThreadScreen({
           {dmMessages.map((message) => (
             <li key={message.id}>
               {message.playable ? (
-                <InboxLineCard item={dmToInboxItem(message)} entries={entries} />
+                <InboxLineCard item={dmToInboxItem(message)} entries={entries} showQuoteActions />
               ) : (
                 <OutgoingPreview
                   titleId={message.titleId}
@@ -184,7 +188,7 @@ export function ChatThreadScreen({
             return (
               <li key={message.shareId}>
                 {playable && message.playable ? (
-                  <InboxLineCard item={playable} entries={entries} />
+                  <InboxLineCard item={playable} entries={entries} showQuoteActions />
                 ) : (
                   <OutgoingPreview
                     titleId={message.titleId}

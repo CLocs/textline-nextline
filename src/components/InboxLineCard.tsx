@@ -7,15 +7,18 @@ import { buildMcq } from "../lib/game/mcq";
 import { isInboxItemSolved, markInboxItemSolved } from "../lib/inbox/solved";
 import type { InboxItem } from "../lib/inbox/api";
 import type { CatalogEntry } from "../types/content";
+import { ChatQuoteActions } from "./ChatQuoteActions";
 
 const CORRECT_HOLD_MS = 900;
 
 type Props = {
   item: InboxItem;
   entries: CatalogEntry[];
+  /** Star + reshare toolbar (Chats). */
+  showQuoteActions?: boolean;
 };
 
-export function InboxLineCard({ item, entries }: Props) {
+export function InboxLineCard({ item, entries, showQuoteActions = false }: Props) {
   const title = getTitle(item.titleId);
   const entry = entries.find((row) => row.id === item.titleId);
   const label = entry ? catalogLabel(entry) : (title?.title ?? item.titleId);
@@ -51,10 +54,15 @@ export function InboxLineCard({ item, entries }: Props) {
 
   return (
     <article className={`inbox-line-card${solved ? " is-solved" : ""}`}>
-      <p className="inbox-line-from">
-        From {item.from.displayName}
-        <span className="muted"> · {label}</span>
-      </p>
+      <div className={showQuoteActions ? "chat-quote-header" : undefined}>
+        <p className="inbox-line-from">
+          From {item.from.displayName}
+          <span className="muted"> · {label}</span>
+        </p>
+        {showQuoteActions ? (
+          <ChatQuoteActions titleId={item.titleId} lineIndex={item.lineIndex} lineText={promptText} />
+        ) : null}
+      </div>
       {solved ? (
         <blockquote className="inbox-line-pair">
           <p className="prompt-current">{promptText}</p>
