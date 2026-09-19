@@ -93,7 +93,7 @@ Paused so the user can eyeball each handful vs the quote, then **batch that titl
 | Goodfellas | 5 | all 5 | |
 | Lebowski | 1 | 412 | |
 | Fellowship | 137 | 80, 163, 969, 1200, 1514, 1759 | **Extended cut vs SRT** |
-| Streetcar Named Marge (S4E2) | 18 | 16 extracted | **−57s batched, not R2**; 103 −5s / 162 −40s; 258+261 past EOF |
+| Streetcar Named Marge (S4E2) | 18 | 16 extracted | **−57s early; 171+ extra −40s (179 −52s, 184 −45s); not R2** |
 
 **On disk, no live stars:** Gone in 60 Seconds, O Brother, 40 Year Old Virgin, BTTF (two MP4s → split). **Skip:** Pulp Fiction Part1/Part2; BTTF II/III files didn't match.
 
