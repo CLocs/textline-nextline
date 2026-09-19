@@ -121,5 +121,13 @@
     "fps": 23.976,
     "durationSec": 8177.71,
     "note": "1080p 23.976 ~2:16:18 (matches theatrical). Skipped remux. User confirmed handful at scale 1. All D1 stars extracted and pushed to R2."
+  },
+  "the-simpsons---4x01---kamp-krustyen": {
+    "offsetMs": -57000,
+    "encode": "avi-msmpeg4-2997-320x240",
+    "source": "G:/videos/shows/Simpsons/S04E01 - The Simpsons - Kamp Krusty (English).Avi",
+    "fps": 29.97,
+    "durationSec": 1277.15,
+    "note": "Remuxed AVI (DIV3 320x240 29.97, 21:17). TV rip starts ~57s later than the SRT (theme/open). User confirmed handful at offsetMs=-57000. All D1 stars extracted and pushed to R2."
   }
 }

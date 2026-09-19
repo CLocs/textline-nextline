@@ -40,7 +40,7 @@ Use --mid-cue when reverse-shots / VO make startMs land on the previous picture.
   --offset-ms   Override stills-sync offsetMs
   --time-scale  Override stills-sync timeScale (PAL 25fps is 0.96)
   --mid-cue     Seek to (startMs+endMs)/2 instead of startMs
-  --accurate-seek  Decode from start (`-ss` after `-i`). Use for DIV3/sparse keyframes.
+  --accurate-seek  Decode from start (-ss after -i). Use for DIV3/sparse keyframes.
   --sync        Path to stills-sync.json
 `);
   process.exit(1);
