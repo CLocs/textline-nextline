@@ -6,7 +6,7 @@ import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue, chronologicalPromptQueue } from "../lib/game/miniGame";
 import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, isForgivingMcq, type GameRun } from "../lib/game/session";
-import { getStarredLineIndices } from "../lib/stars/sync";
+import { getLovedLineIndices, getStarredLineIndices } from "../lib/stars/sync";
 import {
   createMiniShare,
   fetchMe,
@@ -336,6 +336,7 @@ export function App() {
     if (setup.length === "mini") {
       questionQueue = buildMiniGameQueue(loaded, {
         personalStarred: getStarredLineIndices(entry.id),
+        personalLoved: getLovedLineIndices(entry.id),
         crowdPopular: setup.crowdPopular ?? [],
       });
       firstPromptLineIndex = questionQueue[0];
@@ -677,6 +678,7 @@ export function App() {
           feedback={feedback}
           skipReveal={skipReveal}
           progress={progressLabel(run, title)}
+          isSharedPlay={Boolean(activeShareId)}
           onChoose={handleChoice}
           onSkip={handleSkip}
           onGoBack={handleGoBack}

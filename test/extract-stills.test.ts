@@ -113,6 +113,20 @@ describe("ffmpegExtractArgs", () => {
     expect(args).toContain("scale=1280:-1");
     expect(args).toContain("-frames:v");
   });
+
+  it("skips the input seek when accurateSeek is set", () => {
+    const args = ffmpegExtractArgs({
+      input: "inbox/media/the-simpsons---4x01---kamp-krustyen.mkv",
+      seekSec: 914.252,
+      output: "inbox/stills-preview/the-simpsons---4x01---kamp-krustyen/210.jpg",
+      accurateSeek: true,
+    });
+    const i = args.indexOf("-i");
+    expect(args[i - 1]).not.toBe("-ss");
+    expect(args[i + 1]).toBe("inbox/media/the-simpsons---4x01---kamp-krustyen.mkv");
+    expect(args[i + 2]).toBe("-ss");
+    expect(args[i + 3]).toBe("914.252");
+  });
 });
 
 describe("ffmpegRemuxArgs", () => {

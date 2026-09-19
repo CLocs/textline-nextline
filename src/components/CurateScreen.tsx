@@ -7,9 +7,12 @@ import { getValidPromptIndices } from "../lib/game/miniGame";
 import {
   getStarsForTitle,
   hydrateStarsForTitle,
+  isLoved,
   isStarred,
+  toggleLove,
   toggleStar,
 } from "../lib/stars/sync";
+import { MAX_LOVED_PER_TITLE } from "../lib/stars/store";
 import { isLoggedIn } from "../lib/auth/session";
 import { createParallelPack } from "../lib/parallels/api";
 import { LineSendControl } from "./LineSendControl";
@@ -80,6 +83,19 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
     setRevision((value) => value + 1);
   }
 
+  async function handleLove(lineIndex: number) {
+    const result = await toggleLove(entry.id, lineIndex);
+    if (result === null) {
+      setPackMsg("Star a line before loving it.");
+      return;
+    }
+    const lovedCount = getStarsForTitle(entry.id).filter((s) => s.loved).length;
+    if (!result && lovedCount >= MAX_LOVED_PER_TITLE) {
+      setPackMsg(`Love at most ${MAX_LOVED_PER_TITLE} lines per title.`);
+    }
+    setRevision((value) => value + 1);
+  }
+
   function togglePackSelect(lineIndex: number) {
     setPackMsg(null);
     setSelected((prev) => {
@@ -146,7 +162,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
         </p>
         <p className="curate-hint">
           Star lines for mini-games without playing through. Syncs to the cloud when the API is
-          enabled. Check 3–8 lines to save a quote-parallel pack.
+          enabled. ♥ Love up to {MAX_LOVED_PER_TITLE} golden lines so they usually land in mini-games.
+          Check 3–8 lines to save a quote-parallel pack.
         </p>
       </div>
 
@@ -225,12 +242,13 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
             if (!line) return null;
 
             const starred = isStarred(entry.id, lineIndex);
+            const loved = isLoved(entry.id, lineIndex);
             const isSelected = selected.includes(lineIndex);
 
             return (
               <li
                 key={lineIndex}
-                className={`curate-item${starred ? " starred" : ""}${isSelected ? " selected" : ""}`}
+                className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${isSelected ? " selected" : ""}`}
               >
                 <label className="curate-select">
                   <input
@@ -249,6 +267,17 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                 >
                   {starred ? "★" : "☆"}
                 </button>
+                {starred && (
+                  <button
+                    type="button"
+                    className={`curate-love${loved ? " loved" : ""}`}
+                    aria-pressed={loved}
+                    aria-label={loved ? "Unlove line" : "Love line for mini-games"}
+                    onClick={() => void handleLove(lineIndex)}
+                  >
+                    {loved ? "♥" : "♡"}
+                  </button>
+                )}
                 <div className="curate-copy">
                   <span className="curate-line-index">Line {lineIndex + 1}</span>
                   {leadInForPrompt(title, lineIndex).map((lead) => (

@@ -5,8 +5,10 @@ import {
   fetchMyStars,
   fetchPopularStars,
   isValidPlayerId,
+  parseLoveBody,
   parseStarBody,
   putStar,
+  setLoved,
 } from "../api/src/stars.js";
 import { handleRequest } from "../api/src/index.js";
 
@@ -17,6 +19,7 @@ type Row = {
   line_index: number;
   player_id: string;
   starred_at: string;
+  loved: number;
 };
 
 function createMockDb(initial: Row[] = []) {
@@ -42,20 +45,30 @@ function createMockDb(initial: Row[] = []) {
                     row.player_id === playerId,
                 );
                 if (existing !== -1) {
-                  rows[existing] = {
-                    title_id: titleId,
-                    line_index: lineIndex,
-                    player_id: playerId,
-                    starred_at: starredAt,
-                  };
+                  rows[existing]!.starred_at = starredAt;
                 } else {
                   rows.push({
                     title_id: titleId,
                     line_index: lineIndex,
                     player_id: playerId,
                     starred_at: starredAt,
+                    loved: 0,
                   });
                 }
+              } else if (sql.includes("UPDATE stars SET loved")) {
+                const [loved, titleId, lineIndex, playerId] = args as [
+                  number,
+                  string,
+                  number,
+                  string,
+                ];
+                const row = rows.find(
+                  (r) =>
+                    r.title_id === titleId &&
+                    r.line_index === lineIndex &&
+                    r.player_id === playerId,
+                );
+                if (row) row.loved = loved;
               } else if (sql.includes("DELETE FROM stars")) {
                 const [titleId, lineIndex, playerId] = args as [string, number, string];
                 const index = rows.findIndex(
@@ -68,12 +81,32 @@ function createMockDb(initial: Row[] = []) {
               }
               return { success: true };
             },
+            async first<T>() {
+              if (sql.includes("SELECT loved FROM stars")) {
+                const [titleId, lineIndex, playerId] = args as [string, number, string];
+                const row = rows.find(
+                  (r) =>
+                    r.title_id === titleId &&
+                    r.line_index === lineIndex &&
+                    r.player_id === playerId,
+                );
+                return (row ? { loved: row.loved } : null) as T | null;
+              }
+              if (sql.includes("SELECT COUNT(*) AS n FROM stars")) {
+                const [titleId, playerId] = args as [string, string];
+                const n = rows.filter(
+                  (r) => r.title_id === titleId && r.player_id === playerId && r.loved === 1,
+                ).length;
+                return { n } as T;
+              }
+              return null;
+            },
             async all<T>() {
-              if (sql.includes("SELECT line_index FROM stars") && sql.includes("player_id")) {
+              if (sql.includes("SELECT line_index, loved FROM stars") && sql.includes("player_id")) {
                 const [titleId, playerId] = args as [string, string];
                 const results = rows
                   .filter((row) => row.title_id === titleId && row.player_id === playerId)
-                  .map((row) => ({ line_index: row.line_index }))
+                  .map((row) => ({ line_index: row.line_index, loved: row.loved }))
                   .sort((a, b) => a.line_index - b.line_index);
                 return { results: results as T[] };
               }
@@ -116,14 +149,32 @@ describe("star helpers", () => {
     });
     expect(parseStarBody({ titleId: "", lineIndex: 1 })).toBeNull();
     expect(parseStarBody({ titleId: "ep", lineIndex: 1.5 })).toBeNull();
+    expect(parseLoveBody({ titleId: "ep", lineIndex: 1, loved: true })).toEqual({
+      titleId: "ep",
+      lineIndex: 1,
+      loved: true,
+    });
+    expect(parseLoveBody({ titleId: "ep", lineIndex: 1 })).toBeNull();
   });
 
   it("stores and removes stars", async () => {
     const { db } = createMockDb();
     await putStar(db, PLAYER_ID, { titleId: "ep", lineIndex: 2 });
-    expect(await fetchMyStars(db, PLAYER_ID, "ep")).toEqual([2]);
+    expect(await fetchMyStars(db, PLAYER_ID, "ep")).toEqual([{ lineIndex: 2, loved: false }]);
     await deleteStar(db, PLAYER_ID, { titleId: "ep", lineIndex: 2 });
     expect(await fetchMyStars(db, PLAYER_ID, "ep")).toEqual([]);
+  });
+
+  it("loves a starred line and caps at five", async () => {
+    const { db } = createMockDb();
+    for (let i = 0; i < 5; i += 1) {
+      await putStar(db, PLAYER_ID, { titleId: "ep", lineIndex: i });
+      const ok = await setLoved(db, PLAYER_ID, { titleId: "ep", lineIndex: i, loved: true });
+      expect(ok).toEqual({ ok: true });
+    }
+    await putStar(db, PLAYER_ID, { titleId: "ep", lineIndex: 5 });
+    const capped = await setLoved(db, PLAYER_ID, { titleId: "ep", lineIndex: 5, loved: true });
+    expect(capped).toMatchObject({ status: 400 });
   });
 
   it("aggregates popular stars by distinct players", async () => {
@@ -176,7 +227,11 @@ describe("handleRequest", () => {
       }),
       env,
     );
-    expect(await mine.json()).toEqual({ lineIndices: [4] });
+    expect(await mine.json()).toEqual({
+      stars: [{ lineIndex: 4, loved: false }],
+      lineIndices: [4],
+      lovedIndices: [],
+    });
 
     const del = await handleRequest(
       new Request("http://localhost/api/stars", {

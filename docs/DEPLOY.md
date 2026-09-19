@@ -118,7 +118,8 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 |--------|------|---------|
 | `PUT` | `/api/stars` | Star a line. Body: `{ titleId, lineIndex }` |
 | `DELETE` | `/api/stars` | Unstar. Body: `{ titleId, lineIndex }` |
-| `GET` | `/api/stars/mine?titleId=` | Current player's starred indices |
+| `PUT` | `/api/stars/love` | Body `{ titleId, lineIndex, loved }` — requires star; max 5 loved / title |
+| `GET` | `/api/stars/mine?titleId=` | `{ stars: [{ lineIndex, loved }], lineIndices, lovedIndices }` |
 | `GET` | `/api/stars/popular?titleId=&limit=50` | Crowd ranking by star count |
 | `POST` | `/api/auth/request-link` | Body `{ email }` → magic link email |
 | `POST` | `/api/auth/verify` | Body `{ token }` → `{ user, sessionToken }` |
@@ -163,7 +164,7 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 
 Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, parallels, and ops routes require auth (invite preview and pack GET are public).
 
-After pulling parallels: `npm run db:migrate:parallels:remote` (or full `npm run deploy:api`, which includes it).
+After pulling parallels: `npm run db:migrate:parallels:remote`. After loved: `npm run db:migrate:loved:remote` (or full `npm run deploy:api`).
 
 Each star row is `(title_id, line_index, player_id)`. The static Pages app does **not** store stars; it calls this Worker. `content/stars-seed.json` is only a local match list until you push it:
 

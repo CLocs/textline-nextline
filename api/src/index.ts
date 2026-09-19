@@ -31,8 +31,10 @@ import {
   deleteStar,
   fetchMyStars,
   fetchPopularStars,
+  parseLoveBody,
   parseStarBody,
   putStar,
+  setLoved,
 } from "./stars.js";
 import {
   fetchPlayedStats,
@@ -671,8 +673,17 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       return errorResponse("Missing titleId", 400, origin, allowed);
     }
 
-    const lineIndices = await fetchMyStars(env.DB, playerId, titleId);
-    return jsonResponse({ lineIndices }, 200, origin, allowed);
+    const stars = await fetchMyStars(env.DB, playerId, titleId);
+    return jsonResponse(
+      {
+        stars,
+        lineIndices: stars.map((s) => s.lineIndex),
+        lovedIndices: stars.filter((s) => s.loved).map((s) => s.lineIndex),
+      },
+      200,
+      origin,
+      allowed,
+    );
   }
 
   if (request.method === "GET" && pathname === "/api/stars/popular") {
@@ -689,6 +700,26 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
 
     const popular = await fetchPopularStars(env.DB, titleId, limit);
     return jsonResponse({ popular }, 200, origin, allowed);
+  }
+
+  if (request.method === "PUT" && pathname === "/api/stars/love") {
+    const playerId = await resolveStarPlayerId(request, env);
+    if (!playerId) {
+      return errorResponse("Unauthorized or missing player id", 401, origin, allowed);
+    }
+    const body = await readJson(request);
+    const loveBody = parseLoveBody(body);
+    if (!loveBody) {
+      return errorResponse(
+        "Invalid body: expected { titleId, lineIndex, loved }",
+        400,
+        origin,
+        allowed,
+      );
+    }
+    const result = await setLoved(env.DB, playerId, loveBody);
+    if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+    return jsonResponse({ ok: true }, 200, origin, allowed);
   }
 
   if (request.method === "PUT" || request.method === "DELETE") {

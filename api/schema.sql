@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS stars (
   line_index INTEGER NOT NULL,
   player_id  TEXT NOT NULL,
   starred_at TEXT NOT NULL,
+  loved      INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (title_id, line_index, player_id)
 );
 
