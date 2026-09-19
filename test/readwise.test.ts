@@ -210,6 +210,40 @@ describe("matchDocsToCatalog", () => {
     expect(matches).toHaveLength(1);
     expect(matches[0]?.title).toBe("The Simpsons - 5x10 - $pringfield");
   });
+
+  it("uses Summary Part One vs Part Two to split a two-parter", () => {
+    const partOne: Title = {
+      id: "the-simpsons---6x25---who-shot-mr-burns",
+      title: "The Simpsons - 6x25 - Who Shot Mr Burns (Part One)",
+      sourceFilename: "burns-1.srt",
+      importedAt: "2026-01-01T00:00:00.000Z",
+      lineCount: 2,
+      lines: [
+        { index: 0, text: "Priority? Precisely.", kind: "dialogue", startMs: 0, endMs: 1 },
+        { index: 1, text: "Here's your package, Mr. Burns.", kind: "dialogue", startMs: 2, endMs: 3 },
+      ],
+      meta: { show: "The Simpsons", season: 6, episode: 25 },
+    };
+    const partTwo: Title = {
+      id: "the-simpsons---7x01---who-shot-mr-burns",
+      title: "The Simpsons - 7x01 - Who Shot Mr Burns (Part Two)",
+      sourceFilename: "burns-2.srt",
+      importedAt: "2026-01-01T00:00:00.000Z",
+      lineCount: 2,
+      lines: [
+        { index: 0, text: "It was Maggie.", kind: "dialogue", startMs: 0, endMs: 1 },
+        { index: 1, text: "This gun is registered to Smithers.", kind: "dialogue", startMs: 2, endMs: 3 },
+      ],
+      meta: { show: "The Simpsons", season: 7, episode: 1 },
+    };
+    const docs = parseReadwiseArticles(
+      `# Who Shot Mr. Burns?\n\n## Metadata\n- Full Title: Who Shot Mr. Burns?\n- Summary: Who Shot Mr. Burns? (Part One)\n\n## Highlights\n- Priority? Precisely. ([View Highlight](https://example.com/c))\n`,
+      "burns.md",
+    );
+    const matches = matchDocsToCatalog(docs, [partOne, partTwo]);
+    expect(matches).toHaveLength(1);
+    expect(matches[0]?.letterboxdUri).toBe("catalog:the-simpsons---6x25---who-shot-mr-burns");
+  });
 });
 
 describe("titlesLikelyMatch", () => {

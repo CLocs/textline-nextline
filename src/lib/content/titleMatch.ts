@@ -4,7 +4,7 @@ export function normalizeTitle(title: string): string {
     .toLowerCase()
     .replace(/&/g, " and ")
     .replace(/['’]/g, "")
-    .replace(/[:\-–—_,.]/g, " ")
+    .replace(/[:\-–—_,.?!'"]/g, " ")
     .replace(/\bthe\b/g, " ")
     .replace(/\b(full )?transcripts?\b/g, " ")
     .replace(/\bscripts?\b/g, " ")
