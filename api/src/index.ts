@@ -381,7 +381,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (dmMatch?.[1] && request.method === "GET") {
       const result = await listDmMessages(env.DB, user, decodeURIComponent(dmMatch[1]));
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
-      return jsonResponse({ messages: result }, 200, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
     }
 
     const groupReadMatch = pathname.match(/^\/api\/chats\/group\/([^/]+)\/read$/);

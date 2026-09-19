@@ -105,9 +105,8 @@ export function ChatThreadScreen({
           setError(thread.error);
           return;
         }
-        setDmMessages(thread);
-        if (peerName) setTitle(peerName);
-        else if (thread[0]) setTitle(thread[0].from.displayName);
+        setDmMessages(thread.messages);
+        setTitle(peerName?.trim() || thread.peer.displayName);
         return;
       }
       if (mode === "group" && groupId) {

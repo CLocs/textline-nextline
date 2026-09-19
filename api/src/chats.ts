@@ -173,7 +173,7 @@ export async function listDmMessages(
   db: D1Database,
   user: User,
   peerUserIdRaw: string,
-): Promise<DmMessage[] | ActionError> {
+): Promise<{ peer: { userId: string; displayName: string }; messages: DmMessage[] } | ActionError> {
   const peerUserId = peerUserIdRaw.trim();
   if (!isValidFriendUserId(peerUserId) || peerUserId === user.id) {
     return { error: "Invalid user", status: 400 };
@@ -216,7 +216,7 @@ export async function listDmMessages(
       sender_name: string | null;
     }>();
 
-  return (result.results ?? []).map((row) => {
+  const messages = (result.results ?? []).map((row) => {
     const direction: "in" | "out" = row.sender_user_id === user.id ? "out" : "in";
     return {
       id: row.id,
@@ -232,6 +232,11 @@ export async function listDmMessages(
       playable: direction === "in",
     };
   });
+
+  return {
+    peer: { userId: peer.id, displayName: publicName(peer.display_name) },
+    messages,
+  };
 }
 
 export async function listGroupMessages(

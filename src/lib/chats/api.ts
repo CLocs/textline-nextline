@@ -82,13 +82,27 @@ export async function fetchChats(): Promise<ChatThreadSummary[] | { error: strin
 
 export async function fetchDmThread(
   peerUserId: string,
-): Promise<DmMessage[] | { error: string }> {
+): Promise<
+  { peer: { userId: string; displayName: string }; messages: DmMessage[] } | { error: string }
+> {
   const response = await chatsFetch(`/api/chats/dm/${encodeURIComponent(peerUserId)}`);
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
   if (!response.ok) return { error: await readError(response, "Could not load chat") };
-  const data = (await response.json()) as { messages?: DmMessage[] };
-  return Array.isArray(data.messages) ? data.messages : [];
+  const data = (await response.json()) as {
+    peer?: { userId?: string; displayName?: string };
+    messages?: DmMessage[];
+  };
+  return {
+    peer: {
+      userId: typeof data.peer?.userId === "string" ? data.peer.userId : peerUserId,
+      displayName:
+        typeof data.peer?.displayName === "string" && data.peer.displayName.trim()
+          ? data.peer.displayName
+          : "Friend",
+    },
+    messages: Array.isArray(data.messages) ? data.messages : [],
+  };
 }
 
 export async function fetchGroupThread(
