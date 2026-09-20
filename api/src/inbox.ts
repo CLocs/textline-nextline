@@ -270,3 +270,27 @@ export async function listInbox(db: D1Database, userId: string): Promise<InboxIt
     createdAt: row.created_at,
   }));
 }
+
+export async function markInboxSolved(
+  db: D1Database,
+  user: User,
+  inboxIdRaw: string,
+): Promise<{ ok: true } | ActionError> {
+  const inboxId = inboxIdRaw.trim();
+  if (!inboxId) return { error: "Invalid inbox item", status: 400 };
+  const row = await db
+    .prepare(
+      `SELECT id, recipient_user_id, solved_at FROM line_inbox WHERE id = ?`,
+    )
+    .bind(inboxId)
+    .first<{ id: string; recipient_user_id: string; solved_at: string | null }>();
+  if (!row) return { error: "Not found", status: 404 };
+  if (row.recipient_user_id !== user.id) return { error: "Not found", status: 404 };
+  if (row.solved_at) return { ok: true };
+  const now = new Date().toISOString();
+  await db
+    .prepare(`UPDATE line_inbox SET solved_at = ? WHERE id = ? AND solved_at IS NULL`)
+    .bind(now, inboxId)
+    .run();
+  return { ok: true };
+}

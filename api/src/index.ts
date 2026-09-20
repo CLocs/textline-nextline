@@ -61,7 +61,7 @@ import {
   rotateInvite,
   unfriend,
 } from "./friends.js";
-import { copyLineShare, listInbox, sendLineToFriend, sendLineToGroup } from "./inbox.js";
+import { copyLineShare, listInbox, markInboxSolved, sendLineToFriend, sendLineToGroup } from "./inbox.js";
 import {
   listChatThreads,
   listDmMessages,
@@ -508,6 +508,13 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const items = await listInbox(env.DB, user.id);
       const parallels = await listParallelInbox(env.DB, user.id);
       return jsonResponse({ items, parallels }, 200, origin, allowed);
+    }
+
+    const inboxSolvedMatch = pathname.match(/^\/api\/inbox\/([^/]+)\/solved$/);
+    if (inboxSolvedMatch?.[1] && request.method === "POST") {
+      const result = await markInboxSolved(env.DB, user, decodeURIComponent(inboxSolvedMatch[1]));
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
     }
 
     return errorResponse("Not found", 404, origin, allowed);

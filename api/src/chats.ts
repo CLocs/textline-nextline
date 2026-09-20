@@ -225,6 +225,8 @@ export type DmQuoteMessage = {
   playable: boolean;
   /** Outgoing only: peer opened the thread (their inbox read_at). */
   receipt: "sent" | "read" | null;
+  /** Outgoing only: peer got the next line correct. */
+  peerAnswered: boolean;
   reactions: ChatReaction[];
 };
 
@@ -238,6 +240,8 @@ export type GroupQuoteMessage = {
   sentCount: number;
   /** How many fan-out recipients have read_at set (youSent cards). */
   readCount: number;
+  /** How many fan-out recipients have solved_at set (youSent cards). */
+  answeredCount: number;
   /** Viewer's inbox row when they were a recipient (for play + solved). */
   inboxId: string | null;
   playable: boolean;
@@ -544,7 +548,7 @@ export async function listDmMessages(
   const result = await db
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
-              i.sender_user_id, i.recipient_user_id, i.read_at,
+              i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
               su.display_name AS sender_name
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
@@ -564,6 +568,7 @@ export async function listDmMessages(
       sender_user_id: string;
       recipient_user_id: string;
       read_at: string | null;
+      solved_at: string | null;
       sender_name: string | null;
     }>();
 
@@ -583,6 +588,8 @@ export async function listDmMessages(
       createdAt: row.created_at,
       playable: direction === "in",
       receipt: direction === "out" ? (row.read_at ? ("read" as const) : ("sent" as const)) : null,
+      // Outgoing row is the peer's inbox copy — solved_at means they got it right.
+      peerAnswered: direction === "out" ? Boolean(row.solved_at) : false,
       reactions: [],
     };
   });
@@ -621,7 +628,7 @@ export async function listGroupMessages(
   const result = await db
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
-              i.sender_user_id, i.recipient_user_id, i.read_at,
+              i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
               su.display_name AS sender_name
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
@@ -639,6 +646,7 @@ export async function listGroupMessages(
       sender_user_id: string;
       recipient_user_id: string;
       read_at: string | null;
+      solved_at: string | null;
       sender_name: string | null;
     }>();
 
@@ -650,6 +658,7 @@ export async function listGroupMessages(
     createdAt: string;
     sentCount: number;
     readCount: number;
+    answeredCount: number;
     inboxId: string | null;
     youSent: boolean;
   };
@@ -669,6 +678,7 @@ export async function listGroupMessages(
         createdAt: row.created_at,
         sentCount: 0,
         readCount: 0,
+        answeredCount: 0,
         inboxId: null,
         youSent: row.sender_user_id === user.id,
       };
@@ -676,6 +686,7 @@ export async function listGroupMessages(
     }
     acc.sentCount += 1;
     if (row.read_at) acc.readCount += 1;
+    if (row.solved_at) acc.answeredCount += 1;
     if (row.recipient_user_id === user.id) {
       acc.inboxId = row.id;
     }
@@ -694,6 +705,7 @@ export async function listGroupMessages(
       createdAt: acc.createdAt,
       sentCount: acc.sentCount,
       readCount: acc.readCount,
+      answeredCount: acc.answeredCount,
       inboxId: acc.inboxId,
       playable: Boolean(acc.inboxId) && !acc.youSent,
       youSent: acc.youSent,

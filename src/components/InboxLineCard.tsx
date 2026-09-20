@@ -5,7 +5,7 @@ import { getLine } from "../lib/content/lines";
 import { getNextPlayableLine } from "../lib/content/playable";
 import { leadInForPrompt } from "../lib/game/promptContext";
 import { buildMcq } from "../lib/game/mcq";
-import { isInboxItemSolved, markInboxItemSolved } from "../lib/inbox/solved";
+import { isInboxItemSolved, markInboxItemSolvedEverywhere } from "../lib/inbox/solved";
 import type { InboxItem } from "../lib/inbox/api";
 import type { CatalogEntry } from "../types/content";
 import type { ChatReaction } from "../lib/chats/api";
@@ -57,7 +57,7 @@ export function InboxLineCard({
   useEffect(() => {
     if (feedback !== "correct") return;
     const timer = window.setTimeout(() => {
-      markInboxItemSolved(item.id);
+      void markInboxItemSolvedEverywhere(item.id);
       setSolved(true);
     }, CORRECT_HOLD_MS);
     return () => window.clearTimeout(timer);

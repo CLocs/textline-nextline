@@ -41,6 +41,8 @@ function OutgoingPreview({
   label,
   fromLabel,
   receiptLabel,
+  peerAnswered,
+  answeredLabel,
   shareId,
   reactions,
   peerUserId,
@@ -52,6 +54,8 @@ function OutgoingPreview({
   label: string;
   fromLabel: string;
   receiptLabel?: string | null;
+  peerAnswered?: boolean;
+  answeredLabel?: string | null;
   shareId: string;
   reactions: ChatReaction[];
   peerUserId?: string;
@@ -63,6 +67,7 @@ function OutgoingPreview({
   const leadIn = title ? leadInForPrompt(title, lineIndex) : [];
   const nextText = title ? (getNextPlayableLine(title, lineIndex)?.text ?? "") : "";
   const [nextRevealed, setNextRevealed] = useState(false);
+  const showNext = Boolean(peerAnswered) || nextRevealed;
 
   return (
     <article className="inbox-line-card chats-outgoing-card">
@@ -76,6 +81,12 @@ function OutgoingPreview({
               · {receiptLabel}
             </span>
           ) : null}
+          {answeredLabel ? (
+            <span className="chats-answered" title="Got the next line">
+              {" "}
+              · {answeredLabel}
+            </span>
+          ) : null}
         </p>
         <ChatQuoteActions titleId={titleId} lineIndex={lineIndex} lineText={promptText} />
       </div>
@@ -87,7 +98,7 @@ function OutgoingPreview({
         ))}
         <p className="prompt-current">{promptText || `Line ${lineIndex + 1}`}</p>
         {nextText ? (
-          nextRevealed ? (
+          showNext ? (
             <p className="inbox-nextline">{nextText}</p>
           ) : (
             <button
@@ -158,6 +169,12 @@ function groupReceiptLabel(youSent: boolean, sentCount: number, readCount: numbe
   if (readCount <= 0) return "Sent";
   if (readCount >= sentCount) return "Read";
   return `Read ${readCount}/${sentCount}`;
+}
+
+function groupAnsweredLabel(youSent: boolean, answeredCount: number, sentCount: number): string | null {
+  if (!youSent || answeredCount <= 0) return null;
+  if (answeredCount >= sentCount) return "Correct";
+  return `Correct ${answeredCount}/${sentCount}`;
 }
 
 function dmToInboxItem(message: DmQuoteMessage): InboxItem {
@@ -449,6 +466,8 @@ export function ChatThreadScreen({
                           label={entryLabel(message.titleId)}
                           fromLabel="You sent"
                           receiptLabel={dmReceiptLabel(message.receipt)}
+                          peerAnswered={message.peerAnswered}
+                          answeredLabel={message.peerAnswered ? "Correct" : null}
                           shareId={message.shareId}
                           reactions={message.reactions}
                           peerUserId={peerUserId}
@@ -510,6 +529,12 @@ export function ChatThreadScreen({
                             message.youSent,
                             message.sentCount,
                             message.readCount,
+                          )}
+                          peerAnswered={message.youSent && message.answeredCount > 0}
+                          answeredLabel={groupAnsweredLabel(
+                            message.youSent,
+                            message.answeredCount,
+                            message.sentCount,
                           )}
                           shareId={message.shareId}
                           reactions={message.reactions}

@@ -18,6 +18,17 @@ export function markInboxItemSolved(id: string): void {
   }
 }
 
+/** Local solve + server persist so the sender can see Correct / next line. */
+export async function markInboxItemSolvedEverywhere(id: string): Promise<void> {
+  markInboxItemSolved(id);
+  try {
+    const { markInboxSolvedRemote } = await import("./api.js");
+    await markInboxSolvedRemote(id);
+  } catch {
+    // Local solve still counts for this device.
+  }
+}
+
 export function countUnfilledInbox(items: { id: string }[]): number {
   return items.filter((item) => !isInboxItemSolved(item.id)).length;
 }

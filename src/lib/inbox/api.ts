@@ -115,3 +115,16 @@ export async function fetchInbox(): Promise<
     parallels: Array.isArray(data.parallels) ? data.parallels : [],
   };
 }
+
+export async function markInboxSolvedRemote(
+  inboxId: string,
+): Promise<{ ok: true } | { error: string }> {
+  const response = await inboxFetch(`/api/inbox/${encodeURIComponent(inboxId)}/solved`, {
+    method: "POST",
+    body: "{}",
+  });
+  if (!response) return { error: "API unavailable" };
+  if (response.status === 401) return { error: "Please sign in first" };
+  if (!response.ok) return { error: await readError(response, "Could not mark solved") };
+  return { ok: true };
+}

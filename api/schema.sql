@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS friend_blocks (
 CREATE INDEX IF NOT EXISTS idx_friendships_b ON friendships (user_b);
 CREATE INDEX IF NOT EXISTS idx_friend_blocks_blocked ON friend_blocks (blocked_user_id);
 
--- Directed one-line inbox (also in migrations/006_inbox.sql; read_at/group_id via ensure-share-columns + 011)
+-- Directed one-line inbox (also in migrations/006_inbox.sql; read_at/group_id/solved_at via ensure-share-columns + 011)
 CREATE TABLE IF NOT EXISTS line_inbox (
   id TEXT PRIMARY KEY,
   share_id TEXT NOT NULL,

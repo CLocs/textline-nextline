@@ -31,6 +31,7 @@ type InboxRow = {
   created_at: string;
   group_id: string | null;
   read_at: string | null;
+  solved_at: string | null;
 };
 type ChatMessageRow = {
   id: string;
@@ -129,6 +130,7 @@ function createChatsDb() {
                     created_at: createdAt,
                     group_id: groupId ?? null,
                     read_at: null,
+                    solved_at: null,
                   });
                 }
               } else if (sql.includes("UPDATE line_inbox SET read_at")) {
@@ -141,6 +143,10 @@ function createChatsDb() {
                     row.read_at = readAt;
                   }
                 }
+              } else if (sql.includes("UPDATE line_inbox SET solved_at")) {
+                const [solvedAt, inboxId] = args as [string, string];
+                const row = inbox.find((item) => item.id === inboxId);
+                if (row && !row.solved_at) row.solved_at = solvedAt;
               } else if (sql.includes("INSERT INTO chat_messages")) {
                 const [id, sender, body, createdAt, dmA, dmB, groupId] = args as [
                   string,
@@ -282,6 +288,17 @@ function createChatsDb() {
                 const [id] = args as [string];
                 const user = users.find((u) => u.id === id);
                 return (user ? { id: user.id, display_name: user.display_name } : null) as T;
+              }
+              if (sql.includes("SELECT id, recipient_user_id, solved_at FROM line_inbox WHERE id = ?")) {
+                const [id] = args as [string];
+                const row = inbox.find((item) => item.id === id);
+                return (row
+                  ? {
+                      id: row.id,
+                      recipient_user_id: row.recipient_user_id,
+                      solved_at: row.solved_at,
+                    }
+                  : null) as T;
               }
               if (sql.includes("SELECT created_at FROM friend_groups")) {
                 return null;
@@ -565,6 +582,7 @@ function createChatsDb() {
                       sender_user_id: row.sender_user_id,
                       recipient_user_id: row.recipient_user_id,
                       read_at: row.read_at,
+                      solved_at: row.solved_at,
                       sender_name: sender?.display_name ?? null,
                     };
                   });
@@ -590,6 +608,7 @@ function createChatsDb() {
                       sender_user_id: row.sender_user_id,
                       recipient_user_id: row.recipient_user_id,
                       read_at: row.read_at,
+                      solved_at: row.solved_at,
                       sender_name: sender?.display_name ?? null,
                     };
                   });
@@ -682,20 +701,40 @@ describe("chats API", () => {
       kind: "quote",
       direction: "out",
       receipt: "sent",
+      peerAnswered: false,
     });
 
     await handleRequest(
       jsonRequest(`/api/chats/dm/${ALICE_ID}/read`, { method: "POST", token: "sess-bob" }),
       envFor(db),
     );
+    const bobDmView = await handleRequest(
+      jsonRequest(`/api/chats/dm/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    const bobDmMsgs = (await bobDmView.json()) as {
+      messages: Array<{ kind: string; id: string; direction: string }>;
+    };
+    const bobIncoming = bobDmMsgs.messages.find((m) => m.kind === "quote" && m.direction === "in");
+    expect(bobIncoming?.id).toBeTruthy();
+    const solved = await handleRequest(
+      jsonRequest(`/api/inbox/${bobIncoming!.id}/solved`, {
+        method: "POST",
+        token: "sess-bob",
+      }),
+      envFor(db),
+    );
+    expect(solved.status).toBe(200);
+
     const dmAfterRead = await handleRequest(
       jsonRequest(`/api/chats/dm/${BOB_ID}`, { token: "sess-alice" }),
       envFor(db),
     );
     const after = (await dmAfterRead.json()) as {
-      messages: Array<{ receipt: string | null }>;
+      messages: Array<{ receipt: string | null; peerAnswered?: boolean }>;
     };
     expect(after.messages[0]?.receipt).toBe("read");
+    expect(after.messages[0]?.peerAnswered).toBe(true);
 
     const postText = await handleRequest(
       jsonRequest(`/api/chats/dm/${BOB_ID}/messages`, {

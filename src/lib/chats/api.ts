@@ -81,6 +81,7 @@ export type DmQuoteMessage = {
   createdAt: string;
   playable: boolean;
   receipt: "sent" | "read" | null;
+  peerAnswered: boolean;
   reactions: ChatReaction[];
 };
 
@@ -93,6 +94,7 @@ export type GroupQuoteMessage = {
   createdAt: string;
   sentCount: number;
   readCount: number;
+  answeredCount: number;
   inboxId: string | null;
   playable: boolean;
   youSent: boolean;
@@ -167,6 +169,7 @@ function normalizeDmMessage(raw: Record<string, unknown>): DmThreadMessage | nul
     createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
     playable: Boolean(raw.playable),
     receipt: receipt === "sent" || receipt === "read" ? receipt : null,
+    peerAnswered: Boolean(raw.peerAnswered),
     reactions: normalizeReactions(raw.reactions),
   };
 }
@@ -202,6 +205,7 @@ function normalizeGroupMessage(raw: Record<string, unknown>): GroupThreadMessage
     createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
     sentCount: typeof raw.sentCount === "number" ? raw.sentCount : 0,
     readCount: typeof raw.readCount === "number" ? raw.readCount : 0,
+    answeredCount: typeof raw.answeredCount === "number" ? raw.answeredCount : 0,
     inboxId: typeof raw.inboxId === "string" ? raw.inboxId : null,
     playable: Boolean(raw.playable),
     youSent: Boolean(raw.youSent),

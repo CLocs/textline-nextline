@@ -2210,3 +2210,9 @@ code {
   font-weight: 500;
   white-space: nowrap;
 }
+
+.chats-answered {
+  font-weight: 600;
+  color: var(--success, #1e5c38);
+  white-space: nowrap;
+}
