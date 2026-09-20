@@ -1840,8 +1840,20 @@ code {
   margin-bottom: 0.5rem;
 }
 
+.chats-home-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
 .chats-home-header .library-group-heading {
   margin: 0;
+}
+
+.chats-home-unread {
+  margin: 0;
+  font-size: 0.88rem;
 }
 
 .chats-thread-list {

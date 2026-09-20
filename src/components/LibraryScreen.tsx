@@ -23,6 +23,7 @@ import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCov
 import { PosterArt } from "./PosterArt";
 import { ParallelInboxCard } from "./ParallelInboxCard";
 import { ChatsList } from "./ChatsList";
+import { useChatsUnreadCount } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
   entries: CatalogEntry[];
@@ -96,6 +97,8 @@ export function LibraryScreen({
   const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
   const [parallelInbox, setParallelInbox] = useState<ParallelInboxItem[]>([]);
   const [railsReady, setRailsReady] = useState(false);
+  const chatsUnread = useChatsUnreadCount();
+  const chatsApiReady = isAuthApiEnabled() && !isLocalDevSession();
   const groups = groupCatalogEntries(entries);
 
   useEffect(() => {
@@ -289,7 +292,16 @@ export function LibraryScreen({
         <div className="library-groups">
           <div className="library-group">
             <div className="section-header chats-home-header">
-              <h3 className="library-group-heading">Chats</h3>
+              <div className="chats-home-title">
+                <h3 className="library-group-heading">Chats</h3>
+                {chatsApiReady ? (
+                  <p className="chats-home-unread muted">
+                    {chatsUnread > 0
+                      ? `${chatsUnread} unread`
+                      : "0 unread. You're up to date."}
+                  </p>
+                ) : null}
+              </div>
               <button type="button" className="button ghost" onClick={onOpenChats}>
                 See all
               </button>
