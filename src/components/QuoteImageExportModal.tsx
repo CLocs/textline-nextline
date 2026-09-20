@@ -65,7 +65,18 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [status, setStatus] = useState<string | null>(null);
   const shareSupported = useMemo(() => canShareFiles(), []);
+  const copySupported = useMemo(() => {
+    try {
+      return (
+        typeof navigator.clipboard?.write === "function" &&
+        typeof ClipboardItem !== "undefined"
+      );
+    } catch {
+      return false;
+    }
+  }, []);
 
   function updateFormat(next: QuoteImageFormat) {
     setFormat(next);
@@ -140,6 +151,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
   async function handleDownload() {
     setBusy(true);
     setError(null);
+    setStatus(null);
     try {
       const blob = await buildBlob();
       const url = URL.createObjectURL(blob);
@@ -154,9 +166,26 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     setBusy(false);
   }
 
+  async function handleCopyImage() {
+    setBusy(true);
+    setError(null);
+    setStatus(null);
+    try {
+      const blob = await buildBlob();
+      await navigator.clipboard.write([
+        new ClipboardItem({ "image/png": Promise.resolve(blob) }),
+      ]);
+      setStatus("Copied image.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not copy image");
+    }
+    setBusy(false);
+  }
+
   async function handleShare() {
     setBusy(true);
     setError(null);
+    setStatus(null);
     try {
       const blob = await buildBlob();
       const file = new File([blob], `tlnl-quote-${titleId}-${lineIndex}-${aspect}.png`, {
@@ -290,6 +319,16 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
           >
             {busy ? "…" : "Download PNG"}
           </button>
+          {copySupported ? (
+            <button
+              type="button"
+              className="button ghost"
+              disabled={busy || !previewUrl}
+              onClick={() => void handleCopyImage()}
+            >
+              Copy image
+            </button>
+          ) : null}
           {shareSupported ? (
             <button
               type="button"
@@ -302,6 +341,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
           ) : null}
         </div>
 
+        {status ? <p className="muted">{status}</p> : null}
         {error ? (
           <p className="feedback wrong" role="alert">
             {error}
