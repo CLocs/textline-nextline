@@ -179,10 +179,13 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
         title="Export image, send, or copy this line"
         onClick={toggle}
       >
-        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none">
           <path
-            fill="currentColor"
-            d="M2.4 7.6 13 2.5c.6-.3 1.2.3.9.9L8.8 13.8c-.3.6-1.2.5-1.4-.2L6.2 9.4 2.2 8.2c-.7-.2-.6-1.1.2-1.4Z"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8 1.75v7.5M5.25 4.25 8 1.5l2.75 2.75M3.5 7.75v5a1.25 1.25 0 0 0 1.25 1.25h6.5A1.25 1.25 0 0 0 12.5 12.75v-5"
           />
         </svg>
       </button>
