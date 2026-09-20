@@ -1,0 +1,3633 @@
+{
+  "id": "game-of-thrones---1x10---fire-and-blood",
+  "title": "Game of Thrones - 1x10 - Fire and Blood",
+  "sourceFilename": "Game of Thrones - 1x10 - Fire and Blood.en.srt",
+  "importedAt": "2026-09-20T21:32:44.515Z",
+  "lineCount": 517,
+  "lines": [
+    {
+      "index": 0,
+      "text": "♪ Game of Thrones 01x10 ♪ Fire and Blood Original Air Date on June 19, 2011",
+      "kind": "sdh",
+      "startMs": 93750,
+      "endMs": 97751
+    },
+    {
+      "index": 1,
+      "text": "== sync, corrected by elderman ==",
+      "kind": "dialogue",
+      "startMs": 97776,
+      "endMs": 101776
+    },
+    {
+      "index": 2,
+      "text": "Look at me. Look at me!",
+      "kind": "dialogue",
+      "startMs": 127668,
+      "endMs": 129937
+    },
+    {
+      "index": 3,
+      "text": "Do you remember me now, boy, eh?",
+      "kind": "dialogue",
+      "startMs": 129971,
+      "endMs": 133140
+    },
+    {
+      "index": 4,
+      "text": "Remember me? There's a bright boy.",
+      "kind": "dialogue",
+      "startMs": 133174,
+      "endMs": 135909
+    },
+    {
+      "index": 5,
+      "text": "You'll be coming with me, boy, and you'll be keeping your mouth shut.",
+      "kind": "dialogue",
+      "startMs": 137011,
+      "endMs": 142615
+    },
+    {
+      "index": 6,
+      "text": "Keep your mouth shut, boy. I'm not a boy!",
+      "kind": "dialogue",
+      "startMs": 159131,
+      "endMs": 162067
+    },
+    {
+      "index": 7,
+      "text": "You're not a smart boy, is that what you're trying to say?",
+      "kind": "dialogue",
+      "startMs": 162101,
+      "endMs": 165237
+    },
+    {
+      "index": 8,
+      "text": "Do you want to live, boy?!",
+      "kind": "dialogue",
+      "startMs": 165271,
+      "endMs": 168007
+    },
+    {
+      "index": 9,
+      "text": "North, boy, we're going north.",
+      "kind": "dialogue",
+      "startMs": 170411,
+      "endMs": 173013
+    },
+    {
+      "index": 10,
+      "text": "It had three eyes.",
+      "kind": "dialogue",
+      "startMs": 205647,
+      "endMs": 208382
+    },
+    {
+      "index": 11,
+      "text": "It told me to come with him, so I did.",
+      "kind": "dialogue",
+      "startMs": 208417,
+      "endMs": 211118
+    },
+    {
+      "index": 12,
+      "text": "We went down into the crypts and my father was there.",
+      "kind": "dialogue",
+      "startMs": 211152,
+      "endMs": 214887
+    },
+    {
+      "index": 13,
+      "text": "Your father's not down there, little lord.",
+      "kind": "dialogue",
+      "startMs": 214922,
+      "endMs": 217757
+    },
+    {
+      "index": 14,
+      "text": "Not for many years yet.",
+      "kind": "dialogue",
+      "startMs": 217791,
+      "endMs": 220059
+    },
+    {
+      "index": 15,
+      "text": "You're afraid-- just like Hodor.",
+      "kind": "dialogue",
+      "startMs": 221761,
+      "endMs": 224429
+    },
+    {
+      "index": 16,
+      "text": "I'm not afraid of some hole in the ground.",
+      "kind": "dialogue",
+      "startMs": 224464,
+      "endMs": 226598
+    },
+    {
+      "index": 17,
+      "text": "You've lived beyond the Wall. What are you scared of?",
+      "kind": "dialogue",
+      "startMs": 226633,
+      "endMs": 229869
+    },
+    {
+      "index": 18,
+      "text": "I'm a crippled boy and I'm willing to go.",
+      "kind": "dialogue",
+      "startMs": 229903,
+      "endMs": 233039
+    },
+    {
+      "index": 19,
+      "text": "That's my grandfather Lord Rickard.",
+      "kind": "dialogue",
+      "startMs": 238411,
+      "endMs": 241179
+    },
+    {
+      "index": 20,
+      "text": "He was burned alive by the Mad King Aerys.",
+      "kind": "dialogue",
+      "startMs": 241214,
+      "endMs": 244516
+    },
+    {
+      "index": 21,
+      "text": "That's Lyanna, my father's sister.",
+      "kind": "dialogue",
+      "startMs": 246120,
+      "endMs": 247954
+    },
+    {
+      "index": 22,
+      "text": "King Robert was supposed to marry her, but Rhaegar Targaryen kidnapped her.",
+      "kind": "dialogue",
+      "startMs": 247988,
+      "endMs": 253994
+    },
+    {
+      "index": 23,
+      "text": "Robert started a war to win her back.",
+      "kind": "dialogue",
+      "startMs": 254028,
+      "endMs": 256496
+    },
+    {
+      "index": 24,
+      "text": "He killed Rhaegar, but she died anyway.",
+      "kind": "dialogue",
+      "startMs": 256531,
+      "endMs": 259700
+    },
+    {
+      "index": 25,
+      "text": "That's where I saw father.",
+      "kind": "dialogue",
+      "startMs": 261102,
+      "endMs": 263270
+    },
+    {
+      "index": 26,
+      "text": "You see? He's not here.",
+      "kind": "dialogue",
+      "startMs": 264738,
+      "endMs": 268140
+    },
+    {
+      "index": 27,
+      "text": "-Here, Shaggydog. -Rickon!",
+      "kind": "dialogue",
+      "startMs": 276116,
+      "endMs": 278784
+    },
+    {
+      "index": 28,
+      "text": "That beast is supposed to be chained in the kennels!",
+      "kind": "dialogue",
+      "startMs": 278819,
+      "endMs": 283155
+    },
+    {
+      "index": 29,
+      "text": "He doesn't like chains. What are you doing down here?",
+      "kind": "dialogue",
+      "startMs": 283190,
+      "endMs": 286392
+    },
+    {
+      "index": 30,
+      "text": "Come back up with us. No, I came to see father.",
+      "kind": "dialogue",
+      "startMs": 286426,
+      "endMs": 289762
+    },
+    {
+      "index": 31,
+      "text": "How many times have I told you? He's in King's Landing with Sansa and Arya.",
+      "kind": "dialogue",
+      "startMs": 289796,
+      "endMs": 294634
+    },
+    {
+      "index": 32,
+      "text": "He was down here. I saw him.",
+      "kind": "dialogue",
+      "startMs": 294668,
+      "endMs": 297070
+    },
+    {
+      "index": 33,
+      "text": "Saw him when?",
+      "kind": "dialogue",
+      "startMs": 297104,
+      "endMs": 298838
+    },
+    {
+      "index": 34,
+      "text": "Last night, when I was sleeping.",
+      "kind": "dialogue",
+      "startMs": 298872,
+      "endMs": 303342
+    },
+    {
+      "index": 35,
+      "text": "Here, Shaggydog.",
+      "kind": "dialogue",
+      "startMs": 303377,
+      "endMs": 305877
+    },
+    {
+      "index": 36,
+      "text": "You both miss him.",
+      "kind": "dialogue",
+      "startMs": 310649,
+      "endMs": 312750
+    },
+    {
+      "index": 37,
+      "text": "It's only natural he should be in your thoughts and dreams, but that doesn't mean that-- Bran...",
+      "kind": "dialogue",
+      "startMs": 312784,
+      "endMs": 322427
+    },
+    {
+      "index": 38,
+      "text": "My Lady. My Lady.",
+      "kind": "dialogue",
+      "startMs": 339814,
+      "endMs": 341915
+    },
+    {
+      "index": 39,
+      "text": "My Lady. My Lady.",
+      "kind": "dialogue",
+      "startMs": 341949,
+      "endMs": 343750
+    },
+    {
+      "index": 40,
+      "text": "My Lady. My Lady.",
+      "kind": "dialogue",
+      "startMs": 343784,
+      "endMs": 346252
+    },
+    {
+      "index": 41,
+      "text": "My Lady.",
+      "kind": "dialogue",
+      "startMs": 347654,
+      "endMs": 349388
+    },
+    {
+      "index": 42,
+      "text": "Robb.",
+      "kind": "dialogue",
+      "startMs": 397004,
+      "endMs": 398671
+    },
+    {
+      "index": 43,
+      "text": "Robb.",
+      "kind": "dialogue",
+      "startMs": 400641,
+      "endMs": 401941
+    },
+    {
+      "index": 44,
+      "text": "Robb!",
+      "kind": "dialogue",
+      "startMs": 405679,
+      "endMs": 407880
+    },
+    {
+      "index": 45,
+      "text": "You've ruined your sword.",
+      "kind": "dialogue",
+      "startMs": 411618,
+      "endMs": 414253
+    },
+    {
+      "index": 46,
+      "text": "Shh shh.",
+      "kind": "dialogue",
+      "startMs": 424331,
+      "endMs": 426165
+    },
+    {
+      "index": 47,
+      "text": "Shh. I'll kill them all-- --Every one of them.",
+      "kind": "dialogue",
+      "startMs": 426199,
+      "endMs": 432471
+    },
+    {
+      "index": 48,
+      "text": "I will kill them all.",
+      "kind": "dialogue",
+      "startMs": 432506,
+      "endMs": 435741
+    },
+    {
+      "index": 49,
+      "text": "My boy.",
+      "kind": "dialogue",
+      "startMs": 437711,
+      "endMs": 440146
+    },
+    {
+      "index": 50,
+      "text": "They have your sisters.",
+      "kind": "dialogue",
+      "startMs": 441815,
+      "endMs": 444716
+    },
+    {
+      "index": 51,
+      "text": "We have to get the girls back.",
+      "kind": "dialogue",
+      "startMs": 444751,
+      "endMs": 448053
+    },
+    {
+      "index": 52,
+      "text": "And then we will kill them all.",
+      "kind": "dialogue",
+      "startMs": 450023,
+      "endMs": 452825
+    },
+    {
+      "index": 53,
+      "text": "♪ the boar's great tusks, they boded ill ♪",
+      "kind": "sdh",
+      "startMs": 458565,
+      "endMs": 463102
+    },
+    {
+      "index": 54,
+      "text": "♪ for good King Robert's health ♪",
+      "kind": "sdh",
+      "startMs": 463137,
+      "endMs": 466273
+    },
+    {
+      "index": 55,
+      "text": "♪ and the beast was every bit as fat ♪",
+      "kind": "sdh",
+      "startMs": 466307,
+      "endMs": 470510
+    },
+    {
+      "index": 56,
+      "text": "♪ as Robert was himself ♪",
+      "kind": "sdh",
+      "startMs": 470544,
+      "endMs": 473914
+    },
+    {
+      "index": 57,
+      "text": "♪ but our brave King cried, \"Do your worst!",
+      "kind": "sdh",
+      "startMs": 473948,
+      "endMs": 478185
+    },
+    {
+      "index": 58,
+      "text": "♪ I'll have your ugly head! ♪",
+      "kind": "sdh",
+      "startMs": 478220,
+      "endMs": 481556
+    },
+    {
+      "index": 59,
+      "text": "♪ you're nowhere near as murd'rous as ♪",
+      "kind": "sdh",
+      "startMs": 481590,
+      "endMs": 485493
+    },
+    {
+      "index": 60,
+      "text": "♪ the lion in my bed\" ♪",
+      "kind": "sdh",
+      "startMs": 487129,
+      "endMs": 490264
+    },
+    {
+      "index": 61,
+      "text": "♪ King Robert lost his battle and ♪",
+      "kind": "sdh",
+      "startMs": 491400,
+      "endMs": 494369
+    },
+    {
+      "index": 62,
+      "text": "♪ he failed his final test ♪",
+      "kind": "sdh",
+      "startMs": 494403,
+      "endMs": 498673
+    },
+    {
+      "index": 63,
+      "text": "♪ the lion ripped his balls off ♪",
+      "kind": "sdh",
+      "startMs": 498708,
+      "endMs": 502545
+    },
+    {
+      "index": 64,
+      "text": "♪ and ♪",
+      "kind": "sdh",
+      "startMs": 502579,
+      "endMs": 504714
+    },
+    {
+      "index": 65,
+      "text": "♪ the boar did all the rest. ♪",
+      "kind": "sdh",
+      "startMs": 506317,
+      "endMs": 509219
+    },
+    {
+      "index": 66,
+      "text": "Very amusing.",
+      "kind": "dialogue",
+      "startMs": 523001,
+      "endMs": 524868
+    },
+    {
+      "index": 67,
+      "text": "Isn't it a funny song?",
+      "kind": "dialogue",
+      "startMs": 524903,
+      "endMs": 527370
+    },
+    {
+      "index": 68,
+      "text": "Thank you for your rendition.",
+      "kind": "dialogue",
+      "startMs": 528572,
+      "endMs": 530473
+    },
+    {
+      "index": 69,
+      "text": "I imagine it was even better received at that tavern.",
+      "kind": "dialogue",
+      "startMs": 530507,
+      "endMs": 533475
+    },
+    {
+      "index": 70,
+      "text": "I'm so sorry, Your Grace.",
+      "kind": "dialogue",
+      "startMs": 533510,
+      "endMs": 535544
+    },
+    {
+      "index": 71,
+      "text": "I'll never sing it again, I swear.",
+      "kind": "dialogue",
+      "startMs": 535578,
+      "endMs": 537545
+    },
+    {
+      "index": 72,
+      "text": "Tell me, which do you favor: Your fingers or your tongue?",
+      "kind": "dialogue",
+      "startMs": 537580,
+      "endMs": 542450
+    },
+    {
+      "index": 73,
+      "text": "Your Grace?",
+      "kind": "dialogue",
+      "startMs": 542485,
+      "endMs": 544152
+    },
+    {
+      "index": 74,
+      "text": "Fingers or your tongue?",
+      "kind": "dialogue",
+      "startMs": 544187,
+      "endMs": 546088
+    },
+    {
+      "index": 75,
+      "text": "If you got to keep one, which would it be?",
+      "kind": "dialogue",
+      "startMs": 546122,
+      "endMs": 549258
+    },
+    {
+      "index": 76,
+      "text": "I-- I-- or I could just cut your throat.",
+      "kind": "dialogue",
+      "startMs": 549292,
+      "endMs": 554230
+    },
+    {
+      "index": 77,
+      "text": "Every man needs hands, Your Grace.",
+      "kind": "dialogue",
+      "startMs": 555733,
+      "endMs": 558067
+    },
+    {
+      "index": 78,
+      "text": "Good.",
+      "kind": "dialogue",
+      "startMs": 558102,
+      "endMs": 559669
+    },
+    {
+      "index": 79,
+      "text": "Tongue it is. Your Grace, please.",
+      "kind": "dialogue",
+      "startMs": 559703,
+      "endMs": 562538
+    },
+    {
+      "index": 80,
+      "text": "I won't sing-- Your Grace.",
+      "kind": "dialogue",
+      "startMs": 562573,
+      "endMs": 564640
+    },
+    {
+      "index": 81,
+      "text": "Ser Ilyn, who better than you",
+      "kind": "dialogue",
+      "startMs": 564675,
+      "endMs": 566809
+    },
+    {
+      "index": 82,
+      "text": "to carry out the sentence? I beg you!",
+      "kind": "dialogue",
+      "startMs": 566843,
+      "endMs": 568945
+    },
+    {
+      "index": 83,
+      "text": "Please no.",
+      "kind": "dialogue",
+      "startMs": 568979,
+      "endMs": 570480
+    },
+    {
+      "index": 84,
+      "text": "No!",
+      "kind": "dialogue",
+      "startMs": 572283,
+      "endMs": 573883
+    },
+    {
+      "index": 85,
+      "text": "Your Grace, please. I beg you, I will never sing again!",
+      "kind": "dialogue",
+      "startMs": 576086,
+      "endMs": 579021
+    },
+    {
+      "index": 86,
+      "text": "I'm done for the day. No-oooo!",
+      "kind": "dialogue",
+      "startMs": 579056,
+      "endMs": 580957
+    },
+    {
+      "index": 87,
+      "text": "I'll leave the rest of the matters to you, mother.",
+      "kind": "dialogue",
+      "startMs": 580991,
+      "endMs": 583603
+    },
+    {
+      "index": 88,
+      "text": "Your Grace, please!",
+      "kind": "dialogue",
+      "startMs": 586932,
+      "endMs": 589433
+    },
+    {
+      "index": 89,
+      "text": "You look quite nice.",
+      "kind": "dialogue",
+      "startMs": 596976,
+      "endMs": 598710
+    },
+    {
+      "index": 90,
+      "text": "Thank you, My Lord.",
+      "kind": "dialogue",
+      "startMs": 598745,
+      "endMs": 600479
+    },
+    {
+      "index": 91,
+      "text": "\"Your Grace.\" I'm King now.",
+      "kind": "dialogue",
+      "startMs": 600513,
+      "endMs": 602981
+    },
+    {
+      "index": 92,
+      "text": "Stop-ppp! No!",
+      "kind": "dialogue",
+      "startMs": 603015,
+      "endMs": 606418
+    },
+    {
+      "index": 93,
+      "text": "Walk with me. I want to show you something.",
+      "kind": "dialogue",
+      "startMs": 606452,
+      "endMs": 609220
+    },
+    {
+      "index": 94,
+      "text": "Do as you're bid, child.",
+      "kind": "dialogue",
+      "startMs": 613659,
+      "endMs": 616327
+    },
+    {
+      "index": 95,
+      "text": "...And as soon as you've had your blood, I'll put a son in you.",
+      "kind": "dialogue",
+      "startMs": 622835,
+      "endMs": 625603
+    },
+    {
+      "index": 96,
+      "text": "Mother says that shouldn't be long.",
+      "kind": "dialogue",
+      "startMs": 625637,
+      "endMs": 628407
+    },
+    {
+      "index": 97,
+      "text": "No, please no!",
+      "kind": "dialogue",
+      "startMs": 632078,
+      "endMs": 634580
+    },
+    {
+      "index": 98,
+      "text": "This one's your father.",
+      "kind": "dialogue",
+      "startMs": 634614,
+      "endMs": 636448
+    },
+    {
+      "index": 99,
+      "text": "This one here.",
+      "kind": "dialogue",
+      "startMs": 637784,
+      "endMs": 639685
+    },
+    {
+      "index": 100,
+      "text": "Look at it and see what happens to traitors.",
+      "kind": "dialogue",
+      "startMs": 639719,
+      "endMs": 642154
+    },
+    {
+      "index": 101,
+      "text": "You promised to be merciful. I was.",
+      "kind": "dialogue",
+      "startMs": 642188,
+      "endMs": 646191
+    },
+    {
+      "index": 102,
+      "text": "I gave him a clean death.",
+      "kind": "dialogue",
+      "startMs": 646226,
+      "endMs": 648494
+    },
+    {
+      "index": 103,
+      "text": "Look at him.",
+      "kind": "dialogue",
+      "startMs": 649762,
+      "endMs": 651196
+    },
+    {
+      "index": 104,
+      "text": "Please let me go home. I won't do any treason, I swear.",
+      "kind": "dialogue",
+      "startMs": 651230,
+      "endMs": 654532
+    },
+    {
+      "index": 105,
+      "text": "Mother says I'm still to marry you. So you'll stay here and obey.",
+      "kind": "dialogue",
+      "startMs": 654566,
+      "endMs": 660805
+    },
+    {
+      "index": 106,
+      "text": "Look at him!",
+      "kind": "dialogue",
+      "startMs": 660839,
+      "endMs": 663140
+    },
+    {
+      "index": 107,
+      "text": "Well?",
+      "kind": "dialogue",
+      "startMs": 671651,
+      "endMs": 673385
+    },
+    {
+      "index": 108,
+      "text": "How long do I have to look?",
+      "kind": "dialogue",
+      "startMs": 673419,
+      "endMs": 676322
+    },
+    {
+      "index": 109,
+      "text": "As long as it pleases me.",
+      "kind": "dialogue",
+      "startMs": 678158,
+      "endMs": 680560
+    },
+    {
+      "index": 110,
+      "text": "Do you want to see the rest?",
+      "kind": "dialogue",
+      "startMs": 683097,
+      "endMs": 684698
+    },
+    {
+      "index": 111,
+      "text": "If it please Your Grace.",
+      "kind": "dialogue",
+      "startMs": 684732,
+      "endMs": 686967
+    },
+    {
+      "index": 112,
+      "text": "That's your Septa there.",
+      "kind": "dialogue",
+      "startMs": 687001,
+      "endMs": 689303
+    },
+    {
+      "index": 113,
+      "text": "I'll tell you what: I'm going to give you a present.",
+      "kind": "dialogue",
+      "startMs": 691239,
+      "endMs": 694975
+    },
+    {
+      "index": 114,
+      "text": "After I raise my armies and kill your traitor brother, I'm going to give you his head as well.",
+      "kind": "dialogue",
+      "startMs": 695009,
+      "endMs": 701281
+    },
+    {
+      "index": 115,
+      "text": "Or maybe he'll give me yours.",
+      "kind": "dialogue",
+      "startMs": 701316,
+      "endMs": 704017
+    },
+    {
+      "index": 116,
+      "text": "My mother tells me a King should never strike his lady.",
+      "kind": "dialogue",
+      "startMs": 709624,
+      "endMs": 712691
+    },
+    {
+      "index": 117,
+      "text": "Ser Meryn.",
+      "kind": "dialogue",
+      "startMs": 713860,
+      "endMs": 715628
+    },
+    {
+      "index": 118,
+      "text": "Here, girl.",
+      "kind": "dialogue",
+      "startMs": 737150,
+      "endMs": 739484
+    },
+    {
+      "index": 119,
+      "text": "Will you obey now?",
+      "kind": "dialogue",
+      "startMs": 743289,
+      "endMs": 744889
+    },
+    {
+      "index": 120,
+      "text": "Or do you need another lesson?",
+      "kind": "dialogue",
+      "startMs": 744923,
+      "endMs": 747458
+    },
+    {
+      "index": 121,
+      "text": "I'll look for you in court.",
+      "kind": "dialogue",
+      "startMs": 750529,
+      "endMs": 753198
+    },
+    {
+      "index": 122,
+      "text": "Save yourself some pain, girl.",
+      "kind": "dialogue",
+      "startMs": 755701,
+      "endMs": 758303
+    },
+    {
+      "index": 123,
+      "text": "Give him what he wants.",
+      "kind": "dialogue",
+      "startMs": 758337,
+      "endMs": 760305
+    },
+    {
+      "index": 124,
+      "text": "You'll be needing that again.",
+      "kind": "dialogue",
+      "startMs": 761407,
+      "endMs": 764075
+    },
+    {
+      "index": 125,
+      "text": "The proper course is clear: Pledge fealty to King Renly and move south to join our forces with his.",
+      "kind": "dialogue",
+      "startMs": 784965,
+      "endMs": 792072
+    },
+    {
+      "index": 126,
+      "text": "Renly is not the King.",
+      "kind": "dialogue",
+      "startMs": 792106,
+      "endMs": 794841
+    },
+    {
+      "index": 127,
+      "text": "You cannot mean to hold to Joffrey, My Lord.",
+      "kind": "dialogue",
+      "startMs": 794876,
+      "endMs": 798111
+    },
+    {
+      "index": 128,
+      "text": "He put your father to death.",
+      "kind": "dialogue",
+      "startMs": 798145,
+      "endMs": 799946
+    },
+    {
+      "index": 129,
+      "text": "That doesn't make Renly King.",
+      "kind": "dialogue",
+      "startMs": 799980,
+      "endMs": 801881
+    },
+    {
+      "index": 130,
+      "text": "He's Robert's youngest brother.",
+      "kind": "dialogue",
+      "startMs": 801916,
+      "endMs": 804651
+    },
+    {
+      "index": 131,
+      "text": "If Bran can't be Lord of Winterfell before me, Renly can't be King before Stannis.",
+      "kind": "dialogue",
+      "startMs": 804685,
+      "endMs": 809789
+    },
+    {
+      "index": 132,
+      "text": "Do you mean to declare us for Stannis?",
+      "kind": "dialogue",
+      "startMs": 809823,
+      "endMs": 811891
+    },
+    {
+      "index": 133,
+      "text": "Renly is not right! My Lords.",
+      "kind": "dialogue",
+      "startMs": 811925,
+      "endMs": 813774
+    },
+    {
+      "index": 134,
+      "text": "If we put ourselves behind Stannis-- My Lords!",
+      "kind": "dialogue",
+      "startMs": 813775,
+      "endMs": 816769
+    },
+    {
+      "index": 135,
+      "text": "Here is what I say to these two Kings--",
+      "kind": "dialogue",
+      "startMs": 817664,
+      "endMs": 820766
+    },
+    {
+      "index": 136,
+      "text": "Renly Baratheon is nothing to me, nor Stannis neither.",
+      "kind": "dialogue",
+      "startMs": 823870,
+      "endMs": 828841
+    },
+    {
+      "index": 137,
+      "text": "Why should they rule over me and mine from some flowery seat in the South?",
+      "kind": "dialogue",
+      "startMs": 828875,
+      "endMs": 833579
+    },
+    {
+      "index": 138,
+      "text": "What do they know of the Wall or the Wolfswood?",
+      "kind": "dialogue",
+      "startMs": 833613,
+      "endMs": 837816
+    },
+    {
+      "index": 139,
+      "text": "Even their Gods are wrong!",
+      "kind": "dialogue",
+      "startMs": 838718,
+      "endMs": 840819
+    },
+    {
+      "index": 140,
+      "text": "Why shouldn't we rule ourselves again?",
+      "kind": "dialogue",
+      "startMs": 844824,
+      "endMs": 847159
+    },
+    {
+      "index": 141,
+      "text": "It was the Dragons we bowed to and now the Dragons are dead!",
+      "kind": "dialogue",
+      "startMs": 847193,
+      "endMs": 853432
+    },
+    {
+      "index": 142,
+      "text": "There sits the only King I mean to bend my knee to-- the King in the North!",
+      "kind": "dialogue",
+      "startMs": 854968,
+      "endMs": 863475
+    },
+    {
+      "index": 143,
+      "text": "I'll have peace on those terms.",
+      "kind": "dialogue",
+      "startMs": 871151,
+      "endMs": 872918
+    },
+    {
+      "index": 144,
+      "text": "They can keep their Red Castle and their Iron Chair too.",
+      "kind": "dialogue",
+      "startMs": 872953,
+      "endMs": 878525
+    },
+    {
+      "index": 145,
+      "text": "The King in the North!",
+      "kind": "dialogue",
+      "startMs": 879894,
+      "endMs": 881528
+    },
+    {
+      "index": 146,
+      "text": "Am I your brother, now and always?",
+      "kind": "dialogue",
+      "startMs": 883364,
+      "endMs": 886433
+    },
+    {
+      "index": 147,
+      "text": "Now and always.",
+      "kind": "dialogue",
+      "startMs": 886467,
+      "endMs": 888068
+    },
+    {
+      "index": 148,
+      "text": "My sword is yours, in victory and defeat from this day until my last day.",
+      "kind": "dialogue",
+      "startMs": 891841,
+      "endMs": 897880
+    },
+    {
+      "index": 149,
+      "text": "The King in the North!",
+      "kind": "dialogue",
+      "startMs": 899048,
+      "endMs": 900482
+    },
+    {
+      "index": 150,
+      "text": "The King in the North! The King in the North!",
+      "kind": "dialogue",
+      "startMs": 900517,
+      "endMs": 904420
+    },
+    {
+      "index": 151,
+      "text": "The King in the North!",
+      "kind": "dialogue",
+      "startMs": 904454,
+      "endMs": 906956
+    },
+    {
+      "index": 152,
+      "text": "The King in the North! The King in the North!",
+      "kind": "dialogue",
+      "startMs": 906990,
+      "endMs": 909858
+    },
+    {
+      "index": 153,
+      "text": "The King in the North!",
+      "kind": "dialogue",
+      "startMs": 909892,
+      "endMs": 911959
+    },
+    {
+      "index": 154,
+      "text": "The King in the North!",
+      "kind": "dialogue",
+      "startMs": 911994,
+      "endMs": 914094
+    },
+    {
+      "index": 155,
+      "text": "The King in the North!",
+      "kind": "dialogue",
+      "startMs": 914129,
+      "endMs": 916230
+    },
+    {
+      "index": 156,
+      "text": "The King in the North!",
+      "kind": "dialogue",
+      "startMs": 916264,
+      "endMs": 917898
+    },
+    {
+      "index": 157,
+      "text": "The King in the North! The King in the North!",
+      "kind": "dialogue",
+      "startMs": 917933,
+      "endMs": 923904
+    },
+    {
+      "index": 158,
+      "text": "Lady Stark. I want to see him.",
+      "kind": "dialogue",
+      "startMs": 928043,
+      "endMs": 930778
+    },
+    {
+      "index": 159,
+      "text": "Now!",
+      "kind": "dialogue",
+      "startMs": 931780,
+      "endMs": 933480
+    },
+    {
+      "index": 160,
+      "text": "Leave us.",
+      "kind": "dialogue",
+      "startMs": 953535,
+      "endMs": 955102
+    },
+    {
+      "index": 161,
+      "text": "You look lovely tonight, Lady Stark.",
+      "kind": "dialogue",
+      "startMs": 961176,
+      "endMs": 963611
+    },
+    {
+      "index": 162,
+      "text": "Widowhood becomes you.",
+      "kind": "dialogue",
+      "startMs": 963645,
+      "endMs": 966046
+    },
+    {
+      "index": 163,
+      "text": "Your bed must be lonely.",
+      "kind": "dialogue",
+      "startMs": 968416,
+      "endMs": 970817
+    },
+    {
+      "index": 164,
+      "text": "Is that why you came?",
+      "kind": "dialogue",
+      "startMs": 970852,
+      "endMs": 972619
+    },
+    {
+      "index": 165,
+      "text": "I'm not at my best, but I think I could be of service.",
+      "kind": "dialogue",
+      "startMs": 972654,
+      "endMs": 977491
+    },
+    {
+      "index": 166,
+      "text": "You slip out of that gown and we'll see if I'm up to it.",
+      "kind": "dialogue",
+      "startMs": 977525,
+      "endMs": 981361
+    },
+    {
+      "index": 167,
+      "text": "Oh, I do like a violent woman.",
+      "kind": "dialogue",
+      "startMs": 985699,
+      "endMs": 988868
+    },
+    {
+      "index": 168,
+      "text": "I will kill you tonight, Ser, pack your head in a box and send it to your sister.",
+      "kind": "dialogue",
+      "startMs": 988902,
+      "endMs": 995676
+    },
+    {
+      "index": 169,
+      "text": "Let me show you how-- hit me again, over the ear.",
+      "kind": "dialogue",
+      "startMs": 995710,
+      "endMs": 999747
+    },
+    {
+      "index": 170,
+      "text": "And again and again.",
+      "kind": "dialogue",
+      "startMs": 999781,
+      "endMs": 1001715
+    },
+    {
+      "index": 171,
+      "text": "You're stronger than you look-- it shouldn't take long.",
+      "kind": "dialogue",
+      "startMs": 1001750,
+      "endMs": 1004752
+    },
+    {
+      "index": 172,
+      "text": "That is what you want the world to believe, isn't it? That you don't fear death.",
+      "kind": "dialogue",
+      "startMs": 1004786,
+      "endMs": 1008589
+    },
+    {
+      "index": 173,
+      "text": "But I don't, My Lady.",
+      "kind": "dialogue",
+      "startMs": 1008623,
+      "endMs": 1010457
+    },
+    {
+      "index": 174,
+      "text": "The dark is coming for all of us. Why cry about it?",
+      "kind": "dialogue",
+      "startMs": 1010491,
+      "endMs": 1014027
+    },
+    {
+      "index": 175,
+      "text": "Because you are going to the deepest of the Seven Hells, if the Gods are just.",
+      "kind": "dialogue",
+      "startMs": 1014061,
+      "endMs": 1019065
+    },
+    {
+      "index": 176,
+      "text": "What Gods are those?",
+      "kind": "dialogue",
+      "startMs": 1019099,
+      "endMs": 1021267
+    },
+    {
+      "index": 177,
+      "text": "The trees your husband prayed to?",
+      "kind": "dialogue",
+      "startMs": 1021301,
+      "endMs": 1024003
+    },
+    {
+      "index": 178,
+      "text": "Where were the trees when his head was getting chopped off?",
+      "kind": "dialogue",
+      "startMs": 1025673,
+      "endMs": 1028608
+    },
+    {
+      "index": 179,
+      "text": "If your Gods are real and if they are just, why is the world so full of injustice?",
+      "kind": "dialogue",
+      "startMs": 1028642,
+      "endMs": 1034747
+    },
+    {
+      "index": 180,
+      "text": "Because of men like you.",
+      "kind": "dialogue",
+      "startMs": 1036049,
+      "endMs": 1039018
+    },
+    {
+      "index": 181,
+      "text": "There are no men like me.",
+      "kind": "dialogue",
+      "startMs": 1039053,
+      "endMs": 1041688
+    },
+    {
+      "index": 182,
+      "text": "Only me.",
+      "kind": "dialogue",
+      "startMs": 1042590,
+      "endMs": 1044691
+    },
+    {
+      "index": 183,
+      "text": "My son Bran.",
+      "kind": "dialogue",
+      "startMs": 1049497,
+      "endMs": 1052200
+    },
+    {
+      "index": 184,
+      "text": "How did he come to fall from that tower?",
+      "kind": "dialogue",
+      "startMs": 1053402,
+      "endMs": 1055803
+    },
+    {
+      "index": 185,
+      "text": "I pushed him out the window.",
+      "kind": "dialogue",
+      "startMs": 1055838,
+      "endMs": 1058406
+    },
+    {
+      "index": 186,
+      "text": "Why?",
+      "kind": "dialogue",
+      "startMs": 1060576,
+      "endMs": 1062410
+    },
+    {
+      "index": 187,
+      "text": "I hoped the fall would kill him.",
+      "kind": "dialogue",
+      "startMs": 1063645,
+      "endMs": 1066882
+    },
+    {
+      "index": 188,
+      "text": "Why?",
+      "kind": "dialogue",
+      "startMs": 1066916,
+      "endMs": 1068950
+    },
+    {
+      "index": 189,
+      "text": "You should get some sleep.",
+      "kind": "dialogue",
+      "startMs": 1076758,
+      "endMs": 1078693
+    },
+    {
+      "index": 190,
+      "text": "It's going to be a long war.",
+      "kind": "dialogue",
+      "startMs": 1078727,
+      "endMs": 1081129
+    },
+    {
+      "index": 191,
+      "text": "I can't believe we're actually at war.",
+      "kind": "dialogue",
+      "startMs": 1105557,
+      "endMs": 1108491
+    },
+    {
+      "index": 192,
+      "text": "Was it this exciting last time, when you were young?",
+      "kind": "dialogue",
+      "startMs": 1109961,
+      "endMs": 1112796
+    },
+    {
+      "index": 193,
+      "text": "What does it say?",
+      "kind": "dialogue",
+      "startMs": 1116301,
+      "endMs": 1118602
+    },
+    {
+      "index": 194,
+      "text": "Have we captured Robb Stark yet?",
+      "kind": "dialogue",
+      "startMs": 1119671,
+      "endMs": 1121738
+    },
+    {
+      "index": 195,
+      "text": "What's our next move? Stop talking.",
+      "kind": "dialogue",
+      "startMs": 1121773,
+      "endMs": 1124674
+    },
+    {
+      "index": 196,
+      "text": "Get back into bed.",
+      "kind": "dialogue",
+      "startMs": 1125943,
+      "endMs": 1127911
+    },
+    {
+      "index": 197,
+      "text": "They have my son.",
+      "kind": "dialogue",
+      "startMs": 1135752,
+      "endMs": 1137886
+    },
+    {
+      "index": 198,
+      "text": "The Stark boy appears to be less green than we'd hoped.",
+      "kind": "dialogue",
+      "startMs": 1140890,
+      "endMs": 1143625
+    },
+    {
+      "index": 199,
+      "text": "I've heard his wolf killed a doze men and as many horses.",
+      "kind": "dialogue",
+      "startMs": 1143660,
+      "endMs": 1146929
+    },
+    {
+      "index": 200,
+      "text": "Is it true about Stannis and Renly?",
+      "kind": "dialogue",
+      "startMs": 1146963,
+      "endMs": 1148730
+    },
+    {
+      "index": 201,
+      "text": "Both Baratheon brothers have taken up against us.",
+      "kind": "dialogue",
+      "startMs": 1148765,
+      "endMs": 1151533
+    },
+    {
+      "index": 202,
+      "text": "Jaime captured, his armies scattered...",
+      "kind": "dialogue",
+      "startMs": 1151568,
+      "endMs": 1154136
+    },
+    {
+      "index": 203,
+      "text": "It's a catastrophe.",
+      "kind": "dialogue",
+      "startMs": 1154170,
+      "endMs": 1156071
+    },
+    {
+      "index": 204,
+      "text": "Perhaps we should sue for peace.",
+      "kind": "dialogue",
+      "startMs": 1157106,
+      "endMs": 1159107
+    },
+    {
+      "index": 205,
+      "text": "There's your peace.",
+      "kind": "dialogue",
+      "startMs": 1162445,
+      "endMs": 1164714
+    },
+    {
+      "index": 206,
+      "text": "Joffrey saw to that when h decided to remove Ned Stark's head.",
+      "kind": "dialogue",
+      "startMs": 1164748,
+      "endMs": 1168717
+    },
+    {
+      "index": 207,
+      "text": "You'll have an easier time drinking from that cup than you will bringing Robb Stark to the table now.",
+      "kind": "dialogue",
+      "startMs": 1168752,
+      "endMs": 1175525
+    },
+    {
+      "index": 208,
+      "text": "He's winning... in case you hadn't noticed.",
+      "kind": "dialogue",
+      "startMs": 1175559,
+      "endMs": 1179062
+    },
+    {
+      "index": 209,
+      "text": "I'm told we still have his sisters.",
+      "kind": "dialogue",
+      "startMs": 1179096,
+      "endMs": 1180597
+    },
+    {
+      "index": 210,
+      "text": "The first order of business is ransoming Ser Jaime.",
+      "kind": "dialogue",
+      "startMs": 1180631,
+      "endMs": 1183266
+    },
+    {
+      "index": 211,
+      "text": "No truces. We can't afford to look weak.",
+      "kind": "dialogue",
+      "startMs": 1183301,
+      "endMs": 1185169
+    },
+    {
+      "index": 212,
+      "text": "We should march on them at once.",
+      "kind": "dialogue",
+      "startMs": 1185203,
+      "endMs": 1186804
+    },
+    {
+      "index": 213,
+      "text": "First we must return to Casterly Rock to raise-- They have my son!",
+      "kind": "dialogue",
+      "startMs": 1186838,
+      "endMs": 1191942
+    },
+    {
+      "index": 214,
+      "text": "Get out, all of you.",
+      "kind": "dialogue",
+      "startMs": 1194579,
+      "endMs": 1196681
+    },
+    {
+      "index": 215,
+      "text": "Not you.",
+      "kind": "dialogue",
+      "startMs": 1207159,
+      "endMs": 1209394
+    },
+    {
+      "index": 216,
+      "text": "You were right about Eddard Stark.",
+      "kind": "dialogue",
+      "startMs": 1224276,
+      "endMs": 1227179
+    },
+    {
+      "index": 217,
+      "text": "If he were alive, we could have used him to broker a peace with Winterfell and Riverrun, which would have given us more time to deal with Robert's brothers. But now...",
+      "kind": "dialogue",
+      "startMs": 1228981,
+      "endMs": 1239557
+    },
+    {
+      "index": 218,
+      "text": "Madness-- madness and stupidity.",
+      "kind": "dialogue",
+      "startMs": 1240793,
+      "endMs": 1243828
+    },
+    {
+      "index": 219,
+      "text": "I always thought you were a stunted fool.",
+      "kind": "dialogue",
+      "startMs": 1246699,
+      "endMs": 1249835
+    },
+    {
+      "index": 220,
+      "text": "Perhaps I was wrong.",
+      "kind": "dialogue",
+      "startMs": 1251505,
+      "endMs": 1253138
+    },
+    {
+      "index": 221,
+      "text": "Half wrong.",
+      "kind": "dialogue",
+      "startMs": 1253140,
+      "endMs": 1255442
+    },
+    {
+      "index": 222,
+      "text": "I'm new to strategy, but-- unless we want to be surrounded by three armies, it appears we can't stay here.",
+      "kind": "dialogue",
+      "startMs": 1256877,
+      "endMs": 1263550
+    },
+    {
+      "index": 223,
+      "text": "No one will stay here.",
+      "kind": "dialogue",
+      "startMs": 1263585,
+      "endMs": 1265485
+    },
+    {
+      "index": 224,
+      "text": "Ser Gregor will head out with 500 riders and set the Riverland on fire from God's Eye to the Red Fork.",
+      "kind": "dialogue",
+      "startMs": 1265519,
+      "endMs": 1272892
+    },
+    {
+      "index": 225,
+      "text": "The rest of us will regroup at Harrenhal.",
+      "kind": "dialogue",
+      "startMs": 1272926,
+      "endMs": 1276395
+    },
+    {
+      "index": 226,
+      "text": "And you will go to King's Landing.",
+      "kind": "dialogue",
+      "startMs": 1278498,
+      "endMs": 1280633
+    },
+    {
+      "index": 227,
+      "text": "And do what?",
+      "kind": "dialogue",
+      "startMs": 1280667,
+      "endMs": 1282868
+    },
+    {
+      "index": 228,
+      "text": "Rule!",
+      "kind": "dialogue",
+      "startMs": 1282903,
+      "endMs": 1284804
+    },
+    {
+      "index": 229,
+      "text": "You will serve as Hand of the King in my stead.",
+      "kind": "dialogue",
+      "startMs": 1284838,
+      "endMs": 1287706
+    },
+    {
+      "index": 230,
+      "text": "You will bring that boy King to heel and his mother too, if needs be.",
+      "kind": "dialogue",
+      "startMs": 1287740,
+      "endMs": 1291776
+    },
+    {
+      "index": 231,
+      "text": "And if you get so much as a whiff of treason from any of the rest:",
+      "kind": "dialogue",
+      "startMs": 1291810,
+      "endMs": 1295480
+    },
+    {
+      "index": 232,
+      "text": "Baelish, Varys, Pycelle-- Heads, spikes, walls.",
+      "kind": "dialogue",
+      "startMs": 1295515,
+      "endMs": 1298550
+    },
+    {
+      "index": 233,
+      "text": "Why not my Uncle?",
+      "kind": "dialogue",
+      "startMs": 1298585,
+      "endMs": 1301787
+    },
+    {
+      "index": 234,
+      "text": "Why not anyone? Why me?",
+      "kind": "dialogue",
+      "startMs": 1301821,
+      "endMs": 1304389
+    },
+    {
+      "index": 235,
+      "text": "You're my son.",
+      "kind": "dialogue",
+      "startMs": 1304424,
+      "endMs": 1306992
+    },
+    {
+      "index": 236,
+      "text": "Oh, one more thing: You will not take the whore to court.",
+      "kind": "dialogue",
+      "startMs": 1314201,
+      "endMs": 1319939
+    },
+    {
+      "index": 237,
+      "text": "Do you understand?",
+      "kind": "dialogue",
+      "startMs": 1319973,
+      "endMs": 1321907
+    },
+    {
+      "index": 238,
+      "text": "Ser Jorah?",
+      "kind": "dialogue",
+      "startMs": 1341160,
+      "endMs": 1343795
+    },
+    {
+      "index": 239,
+      "text": "Gently gently.",
+      "kind": "dialogue",
+      "startMs": 1347199,
+      "endMs": 1350368
+    },
+    {
+      "index": 240,
+      "text": "My son...",
+      "kind": "dialogue",
+      "startMs": 1352103,
+      "endMs": 1353837
+    },
+    {
+      "index": 241,
+      "text": "Where is he? I want him.",
+      "kind": "dialogue",
+      "startMs": 1353871,
+      "endMs": 1356373
+    },
+    {
+      "index": 242,
+      "text": "Where is he?",
+      "kind": "dialogue",
+      "startMs": 1359009,
+      "endMs": 1360777
+    },
+    {
+      "index": 243,
+      "text": "The boy did not live.",
+      "kind": "dialogue",
+      "startMs": 1362881,
+      "endMs": 1365115
+    },
+    {
+      "index": 244,
+      "text": "Tell me. What is there to tell?",
+      "kind": "dialogue",
+      "startMs": 1372158,
+      "endMs": 1374926
+    },
+    {
+      "index": 245,
+      "text": "How did my son die?!",
+      "kind": "dialogue",
+      "startMs": 1374961,
+      "endMs": 1377362
+    },
+    {
+      "index": 246,
+      "text": "He never lived, My Princess.",
+      "kind": "dialogue",
+      "startMs": 1378798,
+      "endMs": 1381867
+    },
+    {
+      "index": 247,
+      "text": "The women say...",
+      "kind": "dialogue",
+      "startMs": 1381902,
+      "endMs": 1383969
+    },
+    {
+      "index": 248,
+      "text": "What do the women say?",
+      "kind": "dialogue",
+      "startMs": 1384004,
+      "endMs": 1385771
+    },
+    {
+      "index": 249,
+      "text": "They say the child was-- Monstrous, twisted.",
+      "kind": "dialogue",
+      "startMs": 1388341,
+      "endMs": 1393312
+    },
+    {
+      "index": 250,
+      "text": "I pulled him out myself.",
+      "kind": "dialogue",
+      "startMs": 1393346,
+      "endMs": 1395347
+    },
+    {
+      "index": 251,
+      "text": "He was scaled like a lizard, blind, with leather wings like the wings of a bat.",
+      "kind": "dialogue",
+      "startMs": 1396783,
+      "endMs": 1403655
+    },
+    {
+      "index": 252,
+      "text": "When I touched him the skin fell from his bones.",
+      "kind": "dialogue",
+      "startMs": 1403690,
+      "endMs": 1406925
+    },
+    {
+      "index": 253,
+      "text": "Inside he was full of graveworms.",
+      "kind": "dialogue",
+      "startMs": 1406959,
+      "endMs": 1410896
+    },
+    {
+      "index": 254,
+      "text": "I warned you that only death can pay for life.",
+      "kind": "dialogue",
+      "startMs": 1413166,
+      "endMs": 1417670
+    },
+    {
+      "index": 255,
+      "text": "You knew the price.",
+      "kind": "dialogue",
+      "startMs": 1417704,
+      "endMs": 1419839
+    },
+    {
+      "index": 256,
+      "text": "Where is Khal Drogo?",
+      "kind": "dialogue",
+      "startMs": 1419873,
+      "endMs": 1422809
+    },
+    {
+      "index": 257,
+      "text": "Show him to me.",
+      "kind": "dialogue",
+      "startMs": 1422843,
+      "endMs": 1424944
+    },
+    {
+      "index": 258,
+      "text": "Show me what I bought with my son's life.",
+      "kind": "dialogue",
+      "startMs": 1424978,
+      "endMs": 1430449
+    },
+    {
+      "index": 259,
+      "text": "As you command, lady.",
+      "kind": "dialogue",
+      "startMs": 1430483,
+      "endMs": 1432551
+    },
+    {
+      "index": 260,
+      "text": "Come.",
+      "kind": "dialogue",
+      "startMs": 1432585,
+      "endMs": 1434252
+    },
+    {
+      "index": 261,
+      "text": "I will take you to him.",
+      "kind": "dialogue",
+      "startMs": 1434286,
+      "endMs": 1436087
+    },
+    {
+      "index": 262,
+      "text": "Time enough for that later-- I want to see him now.",
+      "kind": "dialogue",
+      "startMs": 1436121,
+      "endMs": 1439056
+    },
+    {
+      "index": 263,
+      "text": "The Khalasar is gone.",
+      "kind": "dialogue",
+      "startMs": 1454775,
+      "endMs": 1457010
+    },
+    {
+      "index": 264,
+      "text": "A Khal who cannot ride is no Khal.",
+      "kind": "dialogue",
+      "startMs": 1457044,
+      "endMs": 1459646
+    },
+    {
+      "index": 265,
+      "text": "The Dothraki follow only the strong.",
+      "kind": "dialogue",
+      "startMs": 1459681,
+      "endMs": 1462516
+    },
+    {
+      "index": 266,
+      "text": "I'm sorry, My Princess.",
+      "kind": "dialogue",
+      "startMs": 1462550,
+      "endMs": 1465218
+    },
+    {
+      "index": 267,
+      "text": "Drogo!",
+      "kind": "dialogue",
+      "startMs": 1477065,
+      "endMs": 1478165
+    },
+    {
+      "index": 268,
+      "text": "Why is he out here alone?",
+      "kind": "dialogue",
+      "startMs": 1482303,
+      "endMs": 1484204
+    },
+    {
+      "index": 269,
+      "text": "He seems to like the warmth, Princess.",
+      "kind": "dialogue",
+      "startMs": 1484239,
+      "endMs": 1487007
+    },
+    {
+      "index": 270,
+      "text": "He lives.",
+      "kind": "dialogue",
+      "startMs": 1491246,
+      "endMs": 1492980
+    },
+    {
+      "index": 271,
+      "text": "You asked for life, you paid for life.",
+      "kind": "dialogue",
+      "startMs": 1493014,
+      "endMs": 1495816
+    },
+    {
+      "index": 272,
+      "text": "This is not life. When will he be as he was?",
+      "kind": "dialogue",
+      "startMs": 1495850,
+      "endMs": 1499452
+    },
+    {
+      "index": 273,
+      "text": "When the sun rises in the west, sets in the east when the seas go dry.",
+      "kind": "dialogue",
+      "startMs": 1499487,
+      "endMs": 1503924
+    },
+    {
+      "index": 274,
+      "text": "When the mountains blow in the wind like leaves.",
+      "kind": "dialogue",
+      "startMs": 1503958,
+      "endMs": 1507728
+    },
+    {
+      "index": 275,
+      "text": "Leave us.",
+      "kind": "dialogue",
+      "startMs": 1522879,
+      "endMs": 1524580
+    },
+    {
+      "index": 276,
+      "text": "I don't want you alone with this sorceress.",
+      "kind": "dialogue",
+      "startMs": 1526082,
+      "endMs": 1528317
+    },
+    {
+      "index": 277,
+      "text": "I have nothing more to fear from this woman.",
+      "kind": "dialogue",
+      "startMs": 1528352,
+      "endMs": 1531554
+    },
+    {
+      "index": 278,
+      "text": "Go.",
+      "kind": "dialogue",
+      "startMs": 1532456,
+      "endMs": 1534056
+    },
+    {
+      "index": 279,
+      "text": "You knew what I was buying and you knew the price.",
+      "kind": "dialogue",
+      "startMs": 1539896,
+      "endMs": 1543232
+    },
+    {
+      "index": 280,
+      "text": "It was wrong of them to burn my temple.",
+      "kind": "dialogue",
+      "startMs": 1543266,
+      "endMs": 1546134
+    },
+    {
+      "index": 281,
+      "text": "It angered the Great Shepherd. This is not God's work.",
+      "kind": "dialogue",
+      "startMs": 1546169,
+      "endMs": 1550105
+    },
+    {
+      "index": 282,
+      "text": "My child was innocent. Innocent?",
+      "kind": "dialogue",
+      "startMs": 1550139,
+      "endMs": 1552774
+    },
+    {
+      "index": 283,
+      "text": "He would have been the stallion who mounts the world.",
+      "kind": "dialogue",
+      "startMs": 1552808,
+      "endMs": 1556077
+    },
+    {
+      "index": 284,
+      "text": "Now he will burn no cities.",
+      "kind": "dialogue",
+      "startMs": 1556111,
+      "endMs": 1557556
+    },
+    {
+      "index": 285,
+      "text": "Now his Khalasar will trample no nations into dust.",
+      "kind": "dialogue",
+      "startMs": 1557581,
+      "endMs": 1560132
+    },
+    {
+      "index": 286,
+      "text": "I spoke for you.",
+      "kind": "dialogue",
+      "startMs": 1560516,
+      "endMs": 1562851
+    },
+    {
+      "index": 287,
+      "text": "I saved you.",
+      "kind": "dialogue",
+      "startMs": 1562885,
+      "endMs": 1565087
+    },
+    {
+      "index": 288,
+      "text": "Saved me?",
+      "kind": "dialogue",
+      "startMs": 1565121,
+      "endMs": 1567722
+    },
+    {
+      "index": 289,
+      "text": "Three of those riders had already raped me before you saved me, girl.",
+      "kind": "dialogue",
+      "startMs": 1567756,
+      "endMs": 1572627
+    },
+    {
+      "index": 290,
+      "text": "I saw my God's house burn, there where I had healed men and women beyond counting.",
+      "kind": "dialogue",
+      "startMs": 1575731,
+      "endMs": 1582737
+    },
+    {
+      "index": 291,
+      "text": "In the streets I saw piles of heads-- the head of the Baker who makes my bread, the head of a young boy that I had cured of fever just three moons past.",
+      "kind": "dialogue",
+      "startMs": 1582771,
+      "endMs": 1592313
+    },
+    {
+      "index": 292,
+      "text": "So tell me again exactly what it was that you saved.",
+      "kind": "dialogue",
+      "startMs": 1592347,
+      "endMs": 1597719
+    },
+    {
+      "index": 293,
+      "text": "Your life.",
+      "kind": "dialogue",
+      "startMs": 1597753,
+      "endMs": 1599687
+    },
+    {
+      "index": 294,
+      "text": "Hmph.",
+      "kind": "dialogue",
+      "startMs": 1599721,
+      "endMs": 1601722
+    },
+    {
+      "index": 295,
+      "text": "Why don't you take a look at your Khal...",
+      "kind": "dialogue",
+      "startMs": 1601757,
+      "endMs": 1604358
+    },
+    {
+      "index": 296,
+      "text": "Then you will see exactly what life is worth when all the rest has gone.",
+      "kind": "dialogue",
+      "startMs": 1606128,
+      "endMs": 1611799
+    },
+    {
+      "index": 297,
+      "text": "You can't!",
+      "kind": "dialogue",
+      "startMs": 1624479,
+      "endMs": 1626714
+    },
+    {
+      "index": 298,
+      "text": "Get out of my way, Sam.",
+      "kind": "dialogue",
+      "startMs": 1626748,
+      "endMs": 1628950
+    },
+    {
+      "index": 299,
+      "text": "They'll put out the word.",
+      "kind": "dialogue",
+      "startMs": 1628984,
+      "endMs": 1631285
+    },
+    {
+      "index": 300,
+      "text": "They'll send out ravens. People will come after you.",
+      "kind": "dialogue",
+      "startMs": 1631320,
+      "endMs": 1634222
+    },
+    {
+      "index": 301,
+      "text": "Do you know what happens to deserters?",
+      "kind": "dialogue",
+      "startMs": 1634256,
+      "endMs": 1637092
+    },
+    {
+      "index": 302,
+      "text": "Better than you do.",
+      "kind": "dialogue",
+      "startMs": 1639995,
+      "endMs": 1641696
+    },
+    {
+      "index": 303,
+      "text": "What are you going to do?",
+      "kind": "dialogue",
+      "startMs": 1641730,
+      "endMs": 1644399
+    },
+    {
+      "index": 304,
+      "text": "I'm gonna find my brother and put a sword through King Joffrey's throat.",
+      "kind": "dialogue",
+      "startMs": 1644433,
+      "endMs": 1649404
+    },
+    {
+      "index": 305,
+      "text": "You can't leave us now. We need you here.",
+      "kind": "dialogue",
+      "startMs": 1650573,
+      "endMs": 1653709
+    },
+    {
+      "index": 306,
+      "text": "Move. I won't let you go.",
+      "kind": "dialogue",
+      "startMs": 1653743,
+      "endMs": 1657746
+    },
+    {
+      "index": 307,
+      "text": "Move. No.",
+      "kind": "dialogue",
+      "startMs": 1657780,
+      "endMs": 1660682
+    },
+    {
+      "index": 308,
+      "text": "Hyah!",
+      "kind": "dialogue",
+      "startMs": 1661551,
+      "endMs": 1663418
+    },
+    {
+      "index": 309,
+      "text": "Hand of the King?",
+      "kind": "dialogue",
+      "startMs": 1678270,
+      "endMs": 1681072
+    },
+    {
+      "index": 310,
+      "text": "So it would seem.",
+      "kind": "dialogue",
+      "startMs": 1681106,
+      "endMs": 1683107
+    },
+    {
+      "index": 311,
+      "text": "And your father said you couldn't take anyone with you to King's Landing.",
+      "kind": "dialogue",
+      "startMs": 1683141,
+      "endMs": 1687645
+    },
+    {
+      "index": 312,
+      "text": "No, he said I couldn't take you with me to King's Landing.",
+      "kind": "dialogue",
+      "startMs": 1687679,
+      "endMs": 1690615
+    },
+    {
+      "index": 313,
+      "text": "He was very specific on that point.",
+      "kind": "dialogue",
+      "startMs": 1690649,
+      "endMs": 1692317
+    },
+    {
+      "index": 314,
+      "text": "He knew my name?",
+      "kind": "dialogue",
+      "startMs": 1692351,
+      "endMs": 1694352
+    },
+    {
+      "index": 315,
+      "text": "What?",
+      "kind": "dialogue",
+      "startMs": 1694386,
+      "endMs": 1696120
+    },
+    {
+      "index": 316,
+      "text": "He said, \"Don't bring Shae with you to King's Landing\"?",
+      "kind": "dialogue",
+      "startMs": 1696154,
+      "endMs": 1698722
+    },
+    {
+      "index": 317,
+      "text": "I believe he used the word \"whore.\"",
+      "kind": "dialogue",
+      "startMs": 1698757,
+      "endMs": 1701858
+    },
+    {
+      "index": 318,
+      "text": "Are you ashamed of me?",
+      "kind": "dialogue",
+      "startMs": 1703027,
+      "endMs": 1704994
+    },
+    {
+      "index": 319,
+      "text": "Are you afraid that I'm dancing around the court with my tits out?",
+      "kind": "dialogue",
+      "startMs": 1705029,
+      "endMs": 1708064
+    },
+    {
+      "index": 320,
+      "text": "I'm funny now?",
+      "kind": "dialogue",
+      "startMs": 1708098,
+      "endMs": 1711200
+    },
+    {
+      "index": 321,
+      "text": "I'm Shae the funny whore.",
+      "kind": "dialogue",
+      "startMs": 1711235,
+      "endMs": 1713436
+    },
+    {
+      "index": 322,
+      "text": "My father's probably the most powerful man in the country.",
+      "kind": "dialogue",
+      "startMs": 1714905,
+      "endMs": 1717907
+    },
+    {
+      "index": 323,
+      "text": "Certainly the richest.",
+      "kind": "dialogue",
+      "startMs": 1717941,
+      "endMs": 1719208
+    },
+    {
+      "index": 324,
+      "text": "He has all Seven Kingdoms in his pockets.",
+      "kind": "dialogue",
+      "startMs": 1719243,
+      "endMs": 1721844
+    },
+    {
+      "index": 325,
+      "text": "Everyone everywhere always has to do exactly what my father says.",
+      "kind": "dialogue",
+      "startMs": 1721878,
+      "endMs": 1726849
+    },
+    {
+      "index": 326,
+      "text": "He's always been a cunt.",
+      "kind": "dialogue",
+      "startMs": 1728318,
+      "endMs": 1730286
+    },
+    {
+      "index": 327,
+      "text": "I believe the ladies of the court could learn a great deal from a girl like you.",
+      "kind": "dialogue",
+      "startMs": 1737228,
+      "endMs": 1742032
+    },
+    {
+      "index": 328,
+      "text": "Why don't you come with me, be the Hand's lady?",
+      "kind": "dialogue",
+      "startMs": 1744269,
+      "endMs": 1748772
+    },
+    {
+      "index": 329,
+      "text": "Because the King needs a Hand and the Hand--",
+      "kind": "dialogue",
+      "startMs": 1750308,
+      "endMs": 1752976
+    },
+    {
+      "index": 330,
+      "text": "I know what a Hand needs.",
+      "kind": "dialogue",
+      "startMs": 1757348,
+      "endMs": 1760084
+    },
+    {
+      "index": 331,
+      "text": "Ghost? Hyah!",
+      "kind": "dialogue",
+      "startMs": 1773098,
+      "endMs": 1775033
+    },
+    {
+      "index": 332,
+      "text": "Hyah. Hyah!",
+      "kind": "dialogue",
+      "startMs": 1775067,
+      "endMs": 1777936
+    },
+    {
+      "index": 333,
+      "text": "Hyah.",
+      "kind": "dialogue",
+      "startMs": 1781341,
+      "endMs": 1782975
+    },
+    {
+      "index": 334,
+      "text": "Samwell!",
+      "kind": "dialogue",
+      "startMs": 1785612,
+      "endMs": 1788514
+    },
+    {
+      "index": 335,
+      "text": "Is he dead? No, he's not dead.",
+      "kind": "dialogue",
+      "startMs": 1789783,
+      "endMs": 1792418
+    },
+    {
+      "index": 336,
+      "text": "Did we get him?",
+      "kind": "dialogue",
+      "startMs": 1792452,
+      "endMs": 1794020
+    },
+    {
+      "index": 337,
+      "text": "Come on, help me get him up.",
+      "kind": "dialogue",
+      "startMs": 1794054,
+      "endMs": 1796155
+    },
+    {
+      "index": 338,
+      "text": "Lucky you've got plenty of padding.",
+      "kind": "dialogue",
+      "startMs": 1798459,
+      "endMs": 1801694
+    },
+    {
+      "index": 339,
+      "text": "We're taking you back to where you belong.",
+      "kind": "dialogue",
+      "startMs": 1803564,
+      "endMs": 1805565
+    },
+    {
+      "index": 340,
+      "text": "I belong with my brother. But we're your brothers now.",
+      "kind": "dialogue",
+      "startMs": 1805599,
+      "endMs": 1808201
+    },
+    {
+      "index": 341,
+      "text": "They'll kill you if they find out you've gone.",
+      "kind": "dialogue",
+      "startMs": 1808235,
+      "endMs": 1810503
+    },
+    {
+      "index": 342,
+      "text": "They'll kill you if they know you came after me.",
+      "kind": "dialogue",
+      "startMs": 1810537,
+      "endMs": 1812638
+    },
+    {
+      "index": 343,
+      "text": "Go back. Sam told us everything.",
+      "kind": "dialogue",
+      "startMs": 1812673,
+      "endMs": 1815675
+    },
+    {
+      "index": 344,
+      "text": "We're sorry about your father. But it doesn't matter.",
+      "kind": "dialogue",
+      "startMs": 1815709,
+      "endMs": 1818578
+    },
+    {
+      "index": 345,
+      "text": "You took the oath. You can't leave.",
+      "kind": "dialogue",
+      "startMs": 1818612,
+      "endMs": 1820847
+    },
+    {
+      "index": 346,
+      "text": "I have to. You can't.",
+      "kind": "dialogue",
+      "startMs": 1820881,
+      "endMs": 1823016
+    },
+    {
+      "index": 347,
+      "text": "You said the words. I don't care about-- \"Hear my words and bear witness to my vow...\"",
+      "kind": "dialogue",
+      "startMs": 1823050,
+      "endMs": 1828722
+    },
+    {
+      "index": 348,
+      "text": "To hell with all of you.",
+      "kind": "dialogue",
+      "startMs": 1828757,
+      "endMs": 1830694
+    },
+    {
+      "index": 349,
+      "text": "\"Night gathers and now my Watch begins.",
+      "kind": "dialogue",
+      "startMs": 1830719,
+      "endMs": 1833041
+    },
+    {
+      "index": 350,
+      "text": "It shall not end until my death.",
+      "kind": "dialogue",
+      "startMs": 1833195,
+      "endMs": 1836531
+    },
+    {
+      "index": 351,
+      "text": "I shall live and die at my post.\"",
+      "kind": "dialogue",
+      "startMs": 1836565,
+      "endMs": 1838332
+    },
+    {
+      "index": 352,
+      "text": "\"I am the sword in the darkness...\"",
+      "kind": "dialogue",
+      "startMs": 1838367,
+      "endMs": 1840268
+    },
+    {
+      "index": 353,
+      "text": "\"...The Watcher on the Walls, the shield that guards the realms of men.",
+      "kind": "dialogue",
+      "startMs": 1840302,
+      "endMs": 1844773
+    },
+    {
+      "index": 354,
+      "text": "I pledge my life and honor to the Night's Watch, for this night and all nights to come.\"",
+      "kind": "dialogue",
+      "startMs": 1844807,
+      "endMs": 1852647
+    },
+    {
+      "index": 355,
+      "text": "When the sun rises in the west and sets in the east...",
+      "kind": "dialogue",
+      "startMs": 1955718,
+      "endMs": 1964793
+    },
+    {
+      "index": 356,
+      "text": "Then you shall return to me, my sun and stars.",
+      "kind": "dialogue",
+      "startMs": 1967430,
+      "endMs": 1971499
+    },
+    {
+      "index": 357,
+      "text": "Kings?",
+      "kind": "dialogue",
+      "startMs": 2038734,
+      "endMs": 2041169
+    },
+    {
+      "index": 358,
+      "text": "Oh, I can tell you all there is to know about Kings.",
+      "kind": "dialogue",
+      "startMs": 2041203,
+      "endMs": 2045273
+    },
+    {
+      "index": 359,
+      "text": "The thing you need to understand about Kings is...",
+      "kind": "dialogue",
+      "startMs": 2046909,
+      "endMs": 2050445
+    },
+    {
+      "index": 360,
+      "text": "For the past 67 years, I've known-- truly known more Kings than any man alive.",
+      "kind": "dialogue",
+      "startMs": 2055118,
+      "endMs": 2064127
+    },
+    {
+      "index": 361,
+      "text": "They're complicated men, but I know how to serve them.",
+      "kind": "dialogue",
+      "startMs": 2065630,
+      "endMs": 2070199
+    },
+    {
+      "index": 362,
+      "text": "Yes.",
+      "kind": "dialogue",
+      "startMs": 2070234,
+      "endMs": 2072135
+    },
+    {
+      "index": 363,
+      "text": "And keep on serving them.",
+      "kind": "dialogue",
+      "startMs": 2072169,
+      "endMs": 2074771
+    },
+    {
+      "index": 364,
+      "text": "Aerys Targaryen... of all the thousand thousand maladies the Gods visit on us, madness is the worst.",
+      "kind": "dialogue",
+      "startMs": 2077041,
+      "endMs": 2089018
+    },
+    {
+      "index": 365,
+      "text": "He was a good man, such a charmer.",
+      "kind": "dialogue",
+      "startMs": 2089953,
+      "endMs": 2095157
+    },
+    {
+      "index": 366,
+      "text": "To watch him melt away before my eyes, consumed by dreams of fire and blood...",
+      "kind": "dialogue",
+      "startMs": 2096259,
+      "endMs": 2104599
+    },
+    {
+      "index": 367,
+      "text": "Robert Baratheon was an entirely different animal-- powerful man, a great warrior-- but alas, winning a Kingdom and ruling a Kingdom are rather different things.",
+      "kind": "dialogue",
+      "startMs": 2107303,
+      "endMs": 2121718
+    },
+    {
+      "index": 368,
+      "text": "They say that if a man goes through life with his battle visor down, he can often be blind to the enemies at his side.",
+      "kind": "dialogue",
+      "startMs": 2121752,
+      "endMs": 2132728
+    },
+    {
+      "index": 369,
+      "text": "Now I serve his son King Joffrey, may the Gods bless his reign.",
+      "kind": "dialogue",
+      "startMs": 2134663,
+      "endMs": 2142870
+    },
+    {
+      "index": 370,
+      "text": "He is a capable young man-- strong military mind.",
+      "kind": "dialogue",
+      "startMs": 2144240,
+      "endMs": 2147943
+    },
+    {
+      "index": 371,
+      "text": "Stern...",
+      "kind": "dialogue",
+      "startMs": 2147977,
+      "endMs": 2151213
+    },
+    {
+      "index": 372,
+      "text": "But sternness in defense of the realm is no vice.",
+      "kind": "dialogue",
+      "startMs": 2151247,
+      "endMs": 2155218
+    },
+    {
+      "index": 373,
+      "text": "It's far too soon to know what manner of King he will be, but I sense true greatness on the horizon for our new King.",
+      "kind": "dialogue",
+      "startMs": 2156687,
+      "endMs": 2166595
+    },
+    {
+      "index": 374,
+      "text": "True greatness.",
+      "kind": "dialogue",
+      "startMs": 2168665,
+      "endMs": 2171066
+    },
+    {
+      "index": 375,
+      "text": "So what's the thing?",
+      "kind": "dialogue",
+      "startMs": 2175305,
+      "endMs": 2177438
+    },
+    {
+      "index": 376,
+      "text": "What thing?",
+      "kind": "dialogue",
+      "startMs": 2179208,
+      "endMs": 2180908
+    },
+    {
+      "index": 377,
+      "text": "About Kings.",
+      "kind": "dialogue",
+      "startMs": 2180976,
+      "endMs": 2182610
+    },
+    {
+      "index": 378,
+      "text": "You said, \"the thing you need to understand about Kings...\"",
+      "kind": "dialogue",
+      "startMs": 2182645,
+      "endMs": 2185780
+    },
+    {
+      "index": 379,
+      "text": "What? Things? What?",
+      "kind": "dialogue",
+      "startMs": 2186648,
+      "endMs": 2188549
+    },
+    {
+      "index": 380,
+      "text": "When you started, you-- never mind.",
+      "kind": "dialogue",
+      "startMs": 2188583,
+      "endMs": 2191385
+    },
+    {
+      "index": 381,
+      "text": "Let me see you out, my dear.",
+      "kind": "dialogue",
+      "startMs": 2193020,
+      "endMs": 2195455
+    },
+    {
+      "index": 382,
+      "text": "It's all right. No need. Yes yes.",
+      "kind": "dialogue",
+      "startMs": 2195489,
+      "endMs": 2198392
+    },
+    {
+      "index": 383,
+      "text": "Till the next time.",
+      "kind": "dialogue",
+      "startMs": 2198426,
+      "endMs": 2200860
+    },
+    {
+      "index": 384,
+      "text": "Right.",
+      "kind": "dialogue",
+      "startMs": 2220780,
+      "endMs": 2222748
+    },
+    {
+      "index": 385,
+      "text": "When you imagine yourself up there, how do you look?",
+      "kind": "dialogue",
+      "startMs": 2248709,
+      "endMs": 2252178
+    },
+    {
+      "index": 386,
+      "text": "Does the crown fit? Do all the lords and ladies simper and bow, the ones who sneered at you for years?",
+      "kind": "dialogue",
+      "startMs": 2252213,
+      "endMs": 2260253
+    },
+    {
+      "index": 387,
+      "text": "It's hard for them to simper and bow without heads.",
+      "kind": "dialogue",
+      "startMs": 2260287,
+      "endMs": 2263589
+    },
+    {
+      "index": 388,
+      "text": "A man with great ambition and no morals-- I wouldn't bet against you.",
+      "kind": "dialogue",
+      "startMs": 2264891,
+      "endMs": 2269795
+    },
+    {
+      "index": 389,
+      "text": "And what would you do, my friend, if you found yourself sitting up there?",
+      "kind": "dialogue",
+      "startMs": 2269830,
+      "endMs": 2274033
+    },
+    {
+      "index": 390,
+      "text": "I must be one of the few men in this city who doesn't want to be King.",
+      "kind": "dialogue",
+      "startMs": 2275969,
+      "endMs": 2279605
+    },
+    {
+      "index": 391,
+      "text": "You must be one of the few men in the city who isn't a man.",
+      "kind": "dialogue",
+      "startMs": 2279639,
+      "endMs": 2283042
+    },
+    {
+      "index": 392,
+      "text": "Oh, you can do better than that.",
+      "kind": "dialogue",
+      "startMs": 2283077,
+      "endMs": 2284945
+    },
+    {
+      "index": 393,
+      "text": "When they castrated you, did they take the pillar with the stones?",
+      "kind": "dialogue",
+      "startMs": 2289283,
+      "endMs": 2292585
+    },
+    {
+      "index": 394,
+      "text": "I've always wondered. Have you?",
+      "kind": "dialogue",
+      "startMs": 2292620,
+      "endMs": 2294554
+    },
+    {
+      "index": 395,
+      "text": "Do you spend a lot of time wondering what's between my legs?",
+      "kind": "dialogue",
+      "startMs": 2294588,
+      "endMs": 2297591
+    },
+    {
+      "index": 396,
+      "text": "I picture a gash like a woman's. Is that about right?",
+      "kind": "dialogue",
+      "startMs": 2297625,
+      "endMs": 2303196
+    },
+    {
+      "index": 397,
+      "text": "I am flattered, of course, to be pictured at all.",
+      "kind": "dialogue",
+      "startMs": 2303230,
+      "endMs": 2306065
+    },
+    {
+      "index": 398,
+      "text": "Must be strange for you, even after all these years-- a man from another land, despised by most, feared by all-- am I? That is good to know.",
+      "kind": "dialogue",
+      "startMs": 2306099,
+      "endMs": 2318510
+    },
+    {
+      "index": 399,
+      "text": "Do you lie awake at night fearing my gash?",
+      "kind": "dialogue",
+      "startMs": 2318544,
+      "endMs": 2321813
+    },
+    {
+      "index": 400,
+      "text": "But you carry on, whispering in one King's ear and then the next.",
+      "kind": "dialogue",
+      "startMs": 2321847,
+      "endMs": 2328386
+    },
+    {
+      "index": 401,
+      "text": "I admire you.",
+      "kind": "dialogue",
+      "startMs": 2330489,
+      "endMs": 2332357
+    },
+    {
+      "index": 402,
+      "text": "And I admire you, Lord Baelish.",
+      "kind": "dialogue",
+      "startMs": 2332392,
+      "endMs": 2335060
+    },
+    {
+      "index": 403,
+      "text": "A grasper from a minor house with a major talent for befriending powerful men-- and women.",
+      "kind": "dialogue",
+      "startMs": 2335094,
+      "endMs": 2341397
+    },
+    {
+      "index": 404,
+      "text": "A useful talent, I'm sure you'd agree.",
+      "kind": "dialogue",
+      "startMs": 2341422,
+      "endMs": 2343148
+    },
+    {
+      "index": 405,
+      "text": "So here we stand...",
+      "kind": "dialogue",
+      "startMs": 2345872,
+      "endMs": 2349241
+    },
+    {
+      "index": 406,
+      "text": "In mutual admiration and respect.",
+      "kind": "dialogue",
+      "startMs": 2349275,
+      "endMs": 2352477
+    },
+    {
+      "index": 407,
+      "text": "Playing our roles.",
+      "kind": "dialogue",
+      "startMs": 2352512,
+      "endMs": 2354679
+    },
+    {
+      "index": 408,
+      "text": "Serving a new King.",
+      "kind": "dialogue",
+      "startMs": 2354714,
+      "endMs": 2356581
+    },
+    {
+      "index": 409,
+      "text": "Long may he reign.",
+      "kind": "dialogue",
+      "startMs": 2356615,
+      "endMs": 2358550
+    },
+    {
+      "index": 410,
+      "text": "My King. My King.",
+      "kind": "dialogue",
+      "startMs": 2358584,
+      "endMs": 2360819
+    },
+    {
+      "index": 411,
+      "text": "My Lords. Shall we begin?",
+      "kind": "dialogue",
+      "startMs": 2362221,
+      "endMs": 2365190
+    },
+    {
+      "index": 412,
+      "text": "You're Arry now, hear me?",
+      "kind": "dialogue",
+      "startMs": 2366259,
+      "endMs": 2368227
+    },
+    {
+      "index": 413,
+      "text": "Arry the orphan boy.",
+      "kind": "dialogue",
+      "startMs": 2368261,
+      "endMs": 2370496
+    },
+    {
+      "index": 414,
+      "text": "No one asks an orphan too many questions 'cause nobody gives three shits.",
+      "kind": "dialogue",
+      "startMs": 2370530,
+      "endMs": 2375034
+    },
+    {
+      "index": 415,
+      "text": "What's your name?",
+      "kind": "dialogue",
+      "startMs": 2375069,
+      "endMs": 2376369
+    },
+    {
+      "index": 416,
+      "text": "Arry. Ah.",
+      "kind": "dialogue",
+      "startMs": 2376403,
+      "endMs": 2378171
+    },
+    {
+      "index": 417,
+      "text": "We have a long way to travel and in bad company.",
+      "kind": "dialogue",
+      "startMs": 2378206,
+      "endMs": 2381775
+    },
+    {
+      "index": 418,
+      "text": "I have 20 this time, men and boys all bound for the Wall.",
+      "kind": "dialogue",
+      "startMs": 2381809,
+      "endMs": 2386079
+    },
+    {
+      "index": 419,
+      "text": "Your Lord father gave me the pick of the dungeons and I didn't find no little lordlings down there.",
+      "kind": "dialogue",
+      "startMs": 2386113,
+      "endMs": 2392985
+    },
+    {
+      "index": 420,
+      "text": "This lot, half of them would turn you over to the King quick as spit for a pardon.",
+      "kind": "dialogue",
+      "startMs": 2393020,
+      "endMs": 2398391
+    },
+    {
+      "index": 421,
+      "text": "And the other half would do the same, except they'd rape you first.",
+      "kind": "dialogue",
+      "startMs": 2398425,
+      "endMs": 2402696
+    },
+    {
+      "index": 422,
+      "text": "So keep to yourself-- and when you piss, do it in the woods alone.",
+      "kind": "dialogue",
+      "startMs": 2402730,
+      "endMs": 2407233
+    },
+    {
+      "index": 423,
+      "text": "You stay with this lot, boy.",
+      "kind": "dialogue",
+      "startMs": 2408869,
+      "endMs": 2410936
+    },
+    {
+      "index": 424,
+      "text": "And stay-- or I'll lock you in the back of the wagon with these three.",
+      "kind": "dialogue",
+      "startMs": 2410971,
+      "endMs": 2416442
+    },
+    {
+      "index": 425,
+      "text": "Watch yourself, midget.",
+      "kind": "dialogue",
+      "startMs": 2420313,
+      "endMs": 2422114
+    },
+    {
+      "index": 426,
+      "text": "He's got a sword, this one.",
+      "kind": "dialogue",
+      "startMs": 2423416,
+      "endMs": 2425384
+    },
+    {
+      "index": 427,
+      "text": "What's a gutter rat like you doing with a sword?",
+      "kind": "dialogue",
+      "startMs": 2425419,
+      "endMs": 2427921
+    },
+    {
+      "index": 428,
+      "text": "Maybe he's a little squire. He ain't no squire. Look at him.",
+      "kind": "dialogue",
+      "startMs": 2427955,
+      "endMs": 2431158
+    },
+    {
+      "index": 429,
+      "text": "He looks like a girl.",
+      "kind": "dialogue",
+      "startMs": 2431192,
+      "endMs": 2432793
+    },
+    {
+      "index": 430,
+      "text": "I bet he stole that sword.",
+      "kind": "dialogue",
+      "startMs": 2432827,
+      "endMs": 2435028
+    },
+    {
+      "index": 431,
+      "text": "Let's have a look.",
+      "kind": "dialogue",
+      "startMs": 2435063,
+      "endMs": 2437697
+    },
+    {
+      "index": 432,
+      "text": "I could use me a sword like that.",
+      "kind": "dialogue",
+      "startMs": 2440067,
+      "endMs": 2441968
+    },
+    {
+      "index": 433,
+      "text": "Take it off him. Give it here, midget.",
+      "kind": "dialogue",
+      "startMs": 2442003,
+      "endMs": 2444237
+    },
+    {
+      "index": 434,
+      "text": "Look at him!",
+      "kind": "dialogue",
+      "startMs": 2444271,
+      "endMs": 2445438
+    },
+    {
+      "index": 435,
+      "text": "You'd better give Hot Pie the sword.",
+      "kind": "dialogue",
+      "startMs": 2445473,
+      "endMs": 2447573
+    },
+    {
+      "index": 436,
+      "text": "I've seen him kick a boy to death.",
+      "kind": "dialogue",
+      "startMs": 2447608,
+      "endMs": 2449309
+    },
+    {
+      "index": 437,
+      "text": "I knocked him down and I kicked him in the balls and I kept kicking him until he was dead.",
+      "kind": "dialogue",
+      "startMs": 2449343,
+      "endMs": 2454113
+    },
+    {
+      "index": 438,
+      "text": "I kicked him all to pieces.",
+      "kind": "dialogue",
+      "startMs": 2454148,
+      "endMs": 2457583
+    },
+    {
+      "index": 439,
+      "text": "You better give me that sword! You want it?",
+      "kind": "dialogue",
+      "startMs": 2457617,
+      "endMs": 2460653
+    },
+    {
+      "index": 440,
+      "text": "I'll give it to you.",
+      "kind": "dialogue",
+      "startMs": 2460687,
+      "endMs": 2462521
+    },
+    {
+      "index": 441,
+      "text": "I already killed one fat boy.",
+      "kind": "dialogue",
+      "startMs": 2462556,
+      "endMs": 2465258
+    },
+    {
+      "index": 442,
+      "text": "I bet you never killed anyone.",
+      "kind": "dialogue",
+      "startMs": 2465292,
+      "endMs": 2467526
+    },
+    {
+      "index": 443,
+      "text": "I bet you're a liar. But I'm not.",
+      "kind": "dialogue",
+      "startMs": 2467561,
+      "endMs": 2470596
+    },
+    {
+      "index": 444,
+      "text": "I'm good at killing fat boys.",
+      "kind": "dialogue",
+      "startMs": 2470631,
+      "endMs": 2472398
+    },
+    {
+      "index": 445,
+      "text": "I like killing fat boys.",
+      "kind": "dialogue",
+      "startMs": 2472432,
+      "endMs": 2474734
+    },
+    {
+      "index": 446,
+      "text": "Oh, you like picking on the little ones, do you?",
+      "kind": "dialogue",
+      "startMs": 2476136,
+      "endMs": 2478371
+    },
+    {
+      "index": 447,
+      "text": "You know, I've been hammering an anvil these past 10 years.",
+      "kind": "dialogue",
+      "startMs": 2478405,
+      "endMs": 2481241
+    },
+    {
+      "index": 448,
+      "text": "When I hit that steel, it sings.",
+      "kind": "dialogue",
+      "startMs": 2481275,
+      "endMs": 2484311
+    },
+    {
+      "index": 449,
+      "text": "Are you gonna sing when I hit you?",
+      "kind": "dialogue",
+      "startMs": 2484345,
+      "endMs": 2486646
+    },
+    {
+      "index": 450,
+      "text": "This is castle-forged steel.",
+      "kind": "dialogue",
+      "startMs": 2493287,
+      "endMs": 2495521
+    },
+    {
+      "index": 451,
+      "text": "Where'd you steal it?",
+      "kind": "dialogue",
+      "startMs": 2495555,
+      "endMs": 2497689
+    },
+    {
+      "index": 452,
+      "text": "It was a gift. It don't matter now.",
+      "kind": "dialogue",
+      "startMs": 2497724,
+      "endMs": 2500158
+    },
+    {
+      "index": 453,
+      "text": "Where we're going, they don't care what you've done.",
+      "kind": "dialogue",
+      "startMs": 2500193,
+      "endMs": 2502794
+    },
+    {
+      "index": 454,
+      "text": "They've got rapers, pickpockets, highwaymen-- murderers.",
+      "kind": "dialogue",
+      "startMs": 2502829,
+      "endMs": 2508033
+    },
+    {
+      "index": 455,
+      "text": "Which are you? Armorer's apprentice.",
+      "kind": "dialogue",
+      "startMs": 2508067,
+      "endMs": 2511570
+    },
+    {
+      "index": 456,
+      "text": "But my master got sick of me, so here I am.",
+      "kind": "dialogue",
+      "startMs": 2512906,
+      "endMs": 2516876
+    },
+    {
+      "index": 457,
+      "text": "Come on, you sorry sons of whores!",
+      "kind": "dialogue",
+      "startMs": 2516910,
+      "endMs": 2519912
+    },
+    {
+      "index": 458,
+      "text": "It's a thousand leagues from here to the Wall and winter is coming!",
+      "kind": "dialogue",
+      "startMs": 2519947,
+      "endMs": 2525917
+    },
+    {
+      "index": 459,
+      "text": "Ham.",
+      "kind": "dialogue",
+      "startMs": 2556449,
+      "endMs": 2558383
+    },
+    {
+      "index": 460,
+      "text": "How many days in a row must a man be expected to start his day with ham?",
+      "kind": "dialogue",
+      "startMs": 2558418,
+      "endMs": 2563523
+    },
+    {
+      "index": 461,
+      "text": "Bring me some beer at least.",
+      "kind": "dialogue",
+      "startMs": 2563557,
+      "endMs": 2566526
+    },
+    {
+      "index": 462,
+      "text": "You look exhausted.",
+      "kind": "dialogue",
+      "startMs": 2568562,
+      "endMs": 2570497
+    },
+    {
+      "index": 463,
+      "text": "Was your moonlight ride that tiring?",
+      "kind": "dialogue",
+      "startMs": 2570531,
+      "endMs": 2572766
+    },
+    {
+      "index": 464,
+      "text": "Don't look so terrified.",
+      "kind": "dialogue",
+      "startMs": 2576404,
+      "endMs": 2578271
+    },
+    {
+      "index": 465,
+      "text": "If we beheaded everyone that ran away for the night, only ghosts would guard the Wall.",
+      "kind": "dialogue",
+      "startMs": 2578306,
+      "endMs": 2583744
+    },
+    {
+      "index": 466,
+      "text": "At least you weren't whoring in Mole's Town.",
+      "kind": "dialogue",
+      "startMs": 2583778,
+      "endMs": 2587315
+    },
+    {
+      "index": 467,
+      "text": "Honor made you leave, honor brought you back.",
+      "kind": "dialogue",
+      "startMs": 2588283,
+      "endMs": 2591887
+    },
+    {
+      "index": 468,
+      "text": "My friends brought me back.",
+      "kind": "dialogue",
+      "startMs": 2592855,
+      "endMs": 2595056
+    },
+    {
+      "index": 469,
+      "text": "I didn't say it was your honor.",
+      "kind": "dialogue",
+      "startMs": 2595091,
+      "endMs": 2597827
+    },
+    {
+      "index": 470,
+      "text": "They killed my father.",
+      "kind": "dialogue",
+      "startMs": 2597861,
+      "endMs": 2599796
+    },
+    {
+      "index": 471,
+      "text": "And you're going to bring him back to life, are you?",
+      "kind": "dialogue",
+      "startMs": 2599830,
+      "endMs": 2602599
+    },
+    {
+      "index": 472,
+      "text": "No? Good.",
+      "kind": "dialogue",
+      "startMs": 2602633,
+      "endMs": 2604968
+    },
+    {
+      "index": 473,
+      "text": "We've had enough of that sort of thing.",
+      "kind": "dialogue",
+      "startMs": 2605002,
+      "endMs": 2607804
+    },
+    {
+      "index": 474,
+      "text": "Beyond the Wall, the rangers are reporting whole villages abandoned.",
+      "kind": "dialogue",
+      "startMs": 2608972,
+      "endMs": 2613375
+    },
+    {
+      "index": 475,
+      "text": "At night they see fires blazing in the mountains from dusk until dawn.",
+      "kind": "dialogue",
+      "startMs": 2613410,
+      "endMs": 2618880
+    },
+    {
+      "index": 476,
+      "text": "A captured wildling swears their tribes are uniting in some secret stronghold, to what ends the Gods only know.",
+      "kind": "dialogue",
+      "startMs": 2618914,
+      "endMs": 2627189
+    },
+    {
+      "index": 477,
+      "text": "Outside Eastwatch Cotter Pyke's men discovered four blue-eyed corpses.",
+      "kind": "dialogue",
+      "startMs": 2627223,
+      "endMs": 2632861
+    },
+    {
+      "index": 478,
+      "text": "Unlike us, they were wise enough to burn them.",
+      "kind": "dialogue",
+      "startMs": 2632895,
+      "endMs": 2637298
+    },
+    {
+      "index": 479,
+      "text": "Do you think your brother's war is more important than ours?",
+      "kind": "dialogue",
+      "startMs": 2639234,
+      "endMs": 2644905
+    },
+    {
+      "index": 480,
+      "text": "No. When dead men and worse come hunting for us in the night, do you think it matters who sits on the Iron Throne?",
+      "kind": "dialogue",
+      "startMs": 2646074,
+      "endMs": 2655117
+    },
+    {
+      "index": 481,
+      "text": "No. Good.",
+      "kind": "dialogue",
+      "startMs": 2655151,
+      "endMs": 2657586
+    },
+    {
+      "index": 482,
+      "text": "Because I want you and your wolf with us when we ride out beyond the Wall tomorrow.",
+      "kind": "dialogue",
+      "startMs": 2657620,
+      "endMs": 2663726
+    },
+    {
+      "index": 483,
+      "text": "Beyond the Wall?",
+      "kind": "dialogue",
+      "startMs": 2664728,
+      "endMs": 2666862
+    },
+    {
+      "index": 484,
+      "text": "I'll not sit meekly by and wait for the snows.",
+      "kind": "dialogue",
+      "startMs": 2666897,
+      "endMs": 2670599
+    },
+    {
+      "index": 485,
+      "text": "I mean to find out what's happening.",
+      "kind": "dialogue",
+      "startMs": 2670634,
+      "endMs": 2673035
+    },
+    {
+      "index": 486,
+      "text": "The Night's Watch will ride in force against the wildlings, the White Walkers and whatever else is out there.",
+      "kind": "dialogue",
+      "startMs": 2673069,
+      "endMs": 2680410
+    },
+    {
+      "index": 487,
+      "text": "And we will find Benjen Stark, alive or dead.",
+      "kind": "dialogue",
+      "startMs": 2683081,
+      "endMs": 2687985
+    },
+    {
+      "index": 488,
+      "text": "I will command them myself.",
+      "kind": "dialogue",
+      "startMs": 2688019,
+      "endMs": 2691255
+    },
+    {
+      "index": 489,
+      "text": "So I'll only ask you once, Lord Snow...",
+      "kind": "dialogue",
+      "startMs": 2691289,
+      "endMs": 2693490
+    },
+    {
+      "index": 490,
+      "text": "Move out!",
+      "kind": "dialogue",
+      "startMs": 2693525,
+      "endMs": 2696160
+    },
+    {
+      "index": 491,
+      "text": "...Are you a brother of the Night's Watch or a bastard boy who wants to play at war?",
+      "kind": "dialogue",
+      "startMs": 2696194,
+      "endMs": 2702700
+    },
+    {
+      "index": 492,
+      "text": "Drogo will have no use for dragon eggs in the Night Lands.",
+      "kind": "dialogue",
+      "startMs": 2745311,
+      "endMs": 2748746
+    },
+    {
+      "index": 493,
+      "text": "Sell them. You can return to the Free Cities and live as a wealthy woman for all your days.",
+      "kind": "dialogue",
+      "startMs": 2748781,
+      "endMs": 2754285
+    },
+    {
+      "index": 494,
+      "text": "They were not given to me to sell.",
+      "kind": "dialogue",
+      "startMs": 2754320,
+      "endMs": 2756821
+    },
+    {
+      "index": 495,
+      "text": "Khaleesi, My Queen, I vow to serve you, obey you, to die for you if need be, but let him go, Khaleesi.",
+      "kind": "dialogue",
+      "startMs": 2762294,
+      "endMs": 2773405
+    },
+    {
+      "index": 496,
+      "text": "I know what you intend. Do not.",
+      "kind": "dialogue",
+      "startMs": 2773440,
+      "endMs": 2776208
+    },
+    {
+      "index": 497,
+      "text": "I must.",
+      "kind": "dialogue",
+      "startMs": 2776243,
+      "endMs": 2779078
+    },
+    {
+      "index": 498,
+      "text": "You don't understand-- don't ask me to stand aside as you climb on that pyre.",
+      "kind": "dialogue",
+      "startMs": 2779112,
+      "endMs": 2784750
+    },
+    {
+      "index": 499,
+      "text": "I won't watch you burn.",
+      "kind": "dialogue",
+      "startMs": 2784784,
+      "endMs": 2787286
+    },
+    {
+      "index": 500,
+      "text": "Is that what you fear?",
+      "kind": "dialogue",
+      "startMs": 2788923,
+      "endMs": 2791091
+    },
+    {
+      "index": 501,
+      "text": "You will be my Khalasar.",
+      "kind": "dialogue",
+      "startMs": 2810010,
+      "endMs": 2812812
+    },
+    {
+      "index": 502,
+      "text": "I see the faces of slaves.",
+      "kind": "dialogue",
+      "startMs": 2812846,
+      "endMs": 2816282
+    },
+    {
+      "index": 503,
+      "text": "I free you.",
+      "kind": "dialogue",
+      "startMs": 2816316,
+      "endMs": 2818951
+    },
+    {
+      "index": 504,
+      "text": "Take off your collars. Go if yo wish, no one will stop you.",
+      "kind": "dialogue",
+      "startMs": 2818985,
+      "endMs": 2823689
+    },
+    {
+      "index": 505,
+      "text": "But if you stay, it will be as brothers and sisters, as husbands and wives.",
+      "kind": "dialogue",
+      "startMs": 2823723,
+      "endMs": 2833566
+    },
+    {
+      "index": 506,
+      "text": "Ser Jorah, bind this woman to the pyre.",
+      "kind": "dialogue",
+      "startMs": 2844277,
+      "endMs": 2846812
+    },
+    {
+      "index": 507,
+      "text": "You swore to obey me.",
+      "kind": "dialogue",
+      "startMs": 2849450,
+      "endMs": 2851785
+    },
+    {
+      "index": 508,
+      "text": "I am Daenerys Stormborn of House Targaryen of the blood of Old Valyria.",
+      "kind": "dialogue",
+      "startMs": 2860730,
+      "endMs": 2868470
+    },
+    {
+      "index": 509,
+      "text": "I am the Dragon's daughter.",
+      "kind": "dialogue",
+      "startMs": 2868504,
+      "endMs": 2871106
+    },
+    {
+      "index": 510,
+      "text": "And I swear to you that those who would harm you will die screaming.",
+      "kind": "dialogue",
+      "startMs": 2871140,
+      "endMs": 2877180
+    },
+    {
+      "index": 511,
+      "text": "You will not hear me scream.",
+      "kind": "dialogue",
+      "startMs": 2877214,
+      "endMs": 2879082
+    },
+    {
+      "index": 512,
+      "text": "I will.",
+      "kind": "dialogue",
+      "startMs": 2879116,
+      "endMs": 2881150
+    },
+    {
+      "index": 513,
+      "text": "But it is not your screams I want.",
+      "kind": "dialogue",
+      "startMs": 2883121,
+      "endMs": 2885655
+    },
+    {
+      "index": 514,
+      "text": "Only your life.",
+      "kind": "dialogue",
+      "startMs": 2885690,
+      "endMs": 2888192
+    },
+    {
+      "index": 515,
+      "text": "Blood of my blood.",
+      "kind": "dialogue",
+      "startMs": 3038409,
+      "endMs": 3041278
+    },
+    {
+      "index": 516,
+      "text": "== sync, corrected by elderman == www.tvsubtitles.net",
+      "kind": "dialogue",
+      "startMs": 3091755,
+      "endMs": 2000
+    }
+  ],
+  "meta": {
+    "show": "Game of Thrones",
+    "season": 1,
+    "episode": 10
+  }
+}

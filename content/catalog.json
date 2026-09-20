@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-20T06:02:29.868Z",
+  "updatedAt": "2026-09-20T21:32:44.677Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -80,6 +80,882 @@
       "importedAt": "2026-09-13T03:32:08.017Z",
       "meta": {
         "year": 1995
+      }
+    },
+    {
+      "id": "game-of-thrones---1x01---winter-is-coming",
+      "title": "Game of Thrones - 1x01 - Winter is Coming",
+      "lineCount": 589,
+      "sourceFilename": "Game of Thrones - 1x01 - Winter is Coming.en.srt",
+      "importedAt": "2026-09-20T21:32:44.482Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---1x02---the-kingsroad",
+      "title": "Game of Thrones - 1x02 - The Kingsroad",
+      "lineCount": 546,
+      "sourceFilename": "Game of Thrones - 1x02 - The Kingsroad.en.srt",
+      "importedAt": "2026-09-20T21:32:44.490Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---1x03---lord-snow",
+      "title": "Game of Thrones - 1x03 - Lord Snow",
+      "lineCount": 695,
+      "sourceFilename": "Game of Thrones - 1x03 - Lord Snow.en.srt",
+      "importedAt": "2026-09-20T21:32:44.493Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---1x04---cripples-bastards-and-broken-things",
+      "title": "Game of Thrones - 1x04 - Cripples, Bastards, and Broken Things",
+      "lineCount": 719,
+      "sourceFilename": "Game of Thrones - 1x04 - Cripples, Bastards, and Broken Things.en.srt",
+      "importedAt": "2026-09-20T21:32:44.496Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---1x05---the-wolf-and-the-lion",
+      "title": "Game of Thrones - 1x05 - The Wolf and the Lion",
+      "lineCount": 708,
+      "sourceFilename": "Game of Thrones - 1x05 - The Wolf and the Lion.en.srt",
+      "importedAt": "2026-09-20T21:32:44.500Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---1x06---a-golden-crown",
+      "title": "Game of Thrones - 1x06 - A Golden Crown",
+      "lineCount": 549,
+      "sourceFilename": "Game of Thrones - 1x06 - A Golden Crown.en.srt",
+      "importedAt": "2026-09-20T21:32:44.503Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 6
+      }
+    },
+    {
+      "id": "game-of-thrones---1x07---you-win-or-you-die",
+      "title": "Game of Thrones - 1x07 - You Win or You Die",
+      "lineCount": 583,
+      "sourceFilename": "Game of Thrones - 1x07 - You Win or You Die.en.srt",
+      "importedAt": "2026-09-20T21:32:44.506Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 7
+      }
+    },
+    {
+      "id": "game-of-thrones---1x08---the-pointy-end",
+      "title": "Game of Thrones - 1x08 - The Pointy End",
+      "lineCount": 694,
+      "sourceFilename": "Game of Thrones - 1x08 - The Pointy End.en.srt",
+      "importedAt": "2026-09-20T21:32:44.510Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 8
+      }
+    },
+    {
+      "id": "game-of-thrones---1x09---baelor",
+      "title": "Game of Thrones - 1x09 - Baelor",
+      "lineCount": 595,
+      "sourceFilename": "Game of Thrones - 1x09 - Baelor.en.srt",
+      "importedAt": "2026-09-20T21:32:44.512Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 9
+      }
+    },
+    {
+      "id": "game-of-thrones---1x10---fire-and-blood",
+      "title": "Game of Thrones - 1x10 - Fire and Blood",
+      "lineCount": 517,
+      "sourceFilename": "Game of Thrones - 1x10 - Fire and Blood.en.srt",
+      "importedAt": "2026-09-20T21:32:44.515Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 1,
+        "episode": 10
+      }
+    },
+    {
+      "id": "game-of-thrones---2x01---the-north-remembers",
+      "title": "Game of Thrones - 2x01 - The North Remembers",
+      "lineCount": 668,
+      "sourceFilename": "Game of Thrones - 2x01 - The North Remembers.en.srt",
+      "importedAt": "2026-09-20T21:32:44.518Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---2x02---the-night-lands",
+      "title": "Game of Thrones - 2x02 - The Night Lands",
+      "lineCount": 683,
+      "sourceFilename": "Game of Thrones - 2x02 - The Night Lands.en.srt",
+      "importedAt": "2026-09-20T21:32:44.520Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---2x03---what-is-dead-may-never-die",
+      "title": "Game of Thrones - 2x03 - What is Dead May Never Die",
+      "lineCount": 673,
+      "sourceFilename": "Game of Thrones - 2x03 - What is Dead May Never Die.en.srt",
+      "importedAt": "2026-09-20T21:32:44.524Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---2x04---garden-of-bones",
+      "title": "Game of Thrones - 2x04 - Garden of Bones",
+      "lineCount": 568,
+      "sourceFilename": "Game of Thrones - 2x04 - Garden of Bones.en.srt",
+      "importedAt": "2026-09-20T21:32:44.526Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---2x05---the-ghost-of-harrenhal",
+      "title": "Game of Thrones - 2x05 - The Ghost of Harrenhal",
+      "lineCount": 692,
+      "sourceFilename": "Game of Thrones - 2x05 - The Ghost of Harrenhal.en.srt",
+      "importedAt": "2026-09-20T21:32:44.529Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---2x06---the-old-gods-and-the-new",
+      "title": "Game of Thrones - 2x06 - The Old Gods and the New",
+      "lineCount": 687,
+      "sourceFilename": "Game of Thrones - 2x06 - The Old Gods and the New.en.srt",
+      "importedAt": "2026-09-20T21:32:44.532Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 6
+      }
+    },
+    {
+      "id": "game-of-thrones---2x07---a-man-without-honor",
+      "title": "Game of Thrones - 2x07 - A Man Without Honor",
+      "lineCount": 758,
+      "sourceFilename": "Game of Thrones - 2x07 - A Man Without Honor.en.srt",
+      "importedAt": "2026-09-20T21:32:44.535Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 7
+      }
+    },
+    {
+      "id": "game-of-thrones---2x08---the-prince-of-winterfell",
+      "title": "Game of Thrones - 2x08 - The Prince of Winterfell",
+      "lineCount": 758,
+      "sourceFilename": "Game of Thrones - 2x08 - The Prince of Winterfell.en.srt",
+      "importedAt": "2026-09-20T21:32:44.539Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 8
+      }
+    },
+    {
+      "id": "game-of-thrones---2x09---blackwater",
+      "title": "Game of Thrones - 2x09 - Blackwater",
+      "lineCount": 557,
+      "sourceFilename": "Game of Thrones - 2x09 - Blackwater.en.srt",
+      "importedAt": "2026-09-20T21:32:44.542Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 9
+      }
+    },
+    {
+      "id": "game-of-thrones---2x10---valar-morghulis",
+      "title": "Game of Thrones - 2x10 - Valar Morghulis",
+      "lineCount": 599,
+      "sourceFilename": "Game of Thrones - 2x10 - Valar Morghulis.en.srt",
+      "importedAt": "2026-09-20T21:32:44.545Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 2,
+        "episode": 10
+      }
+    },
+    {
+      "id": "game-of-thrones---3x01---valar-dohaeris",
+      "title": "Game of Thrones - 3x01 - Valar Dohaeris",
+      "lineCount": 593,
+      "sourceFilename": "Game of Thrones - 3x01 - Valar Dohaeris.en.srt",
+      "importedAt": "2026-09-20T21:32:44.547Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---3x02---dark-wings-dark-words",
+      "title": "Game of Thrones - 3x02 - Dark Wings, Dark Words",
+      "lineCount": 835,
+      "sourceFilename": "Game of Thrones - 3x02 - Dark Wings, Dark Words.en.srt",
+      "importedAt": "2026-09-20T21:32:44.550Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---3x03---walk-of-punishment",
+      "title": "Game of Thrones - 3x03 - Walk of Punishment",
+      "lineCount": 651,
+      "sourceFilename": "Game of Thrones - 3x03 - Walk of Punishment.en.srt",
+      "importedAt": "2026-09-20T21:32:44.554Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---3x04---and-now-his-watch-is-ended",
+      "title": "Game of Thrones - 3x04 - And Now His Watch is Ended",
+      "lineCount": 652,
+      "sourceFilename": "Game of Thrones - 3x04 - And Now His Watch is Ended.en.srt",
+      "importedAt": "2026-09-20T21:32:44.556Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---3x05---kissed-by-fire",
+      "title": "Game of Thrones - 3x05 - Kissed by Fire",
+      "lineCount": 815,
+      "sourceFilename": "Game of Thrones - 3x05 - Kissed by Fire.en.srt",
+      "importedAt": "2026-09-20T21:32:44.559Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---3x06---the-climb",
+      "title": "Game of Thrones - 3x06 - The Climb",
+      "lineCount": 571,
+      "sourceFilename": "Game of Thrones - 3x06 - The Climb.en.srt",
+      "importedAt": "2026-09-20T21:32:44.562Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 6
+      }
+    },
+    {
+      "id": "game-of-thrones---3x07---the-bear-and-the-maiden-fair",
+      "title": "Game of Thrones - 3x07 - The Bear and the Maiden Fair",
+      "lineCount": 705,
+      "sourceFilename": "Game of Thrones - 3x07 - The Bear and the Maiden Fair.en.srt",
+      "importedAt": "2026-09-20T21:32:44.565Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 7
+      }
+    },
+    {
+      "id": "game-of-thrones---3x08---second-sons",
+      "title": "Game of Thrones - 3x08 - Second Sons",
+      "lineCount": 631,
+      "sourceFilename": "Game of Thrones - 3x08 - Second Sons.en.srt",
+      "importedAt": "2026-09-20T21:32:44.568Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 8
+      }
+    },
+    {
+      "id": "game-of-thrones---3x09---the-rains-of-castamere",
+      "title": "Game of Thrones - 3x09 - The Rains of Castamere",
+      "lineCount": 515,
+      "sourceFilename": "Game of Thrones - 3x09 - The Rains of Castamere.en.srt",
+      "importedAt": "2026-09-20T21:32:44.570Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 9
+      }
+    },
+    {
+      "id": "game-of-thrones---3x10---mhysa",
+      "title": "Game of Thrones - 3x10 - Mhysa",
+      "lineCount": 738,
+      "sourceFilename": "Game of Thrones - 3x10 - Mhysa.en.srt",
+      "importedAt": "2026-09-20T21:32:44.573Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 3,
+        "episode": 10
+      }
+    },
+    {
+      "id": "game-of-thrones---4x01---two-swords",
+      "title": "Game of Thrones - 4x01 - Two Swords",
+      "lineCount": 805,
+      "sourceFilename": "Game of Thrones - 4x01 - Two Swords.en.srt",
+      "importedAt": "2026-09-20T21:32:44.576Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---4x02---the-lion-and-the-rose",
+      "title": "Game of Thrones - 4x02 - The Lion and the Rose",
+      "lineCount": 698,
+      "sourceFilename": "Game of Thrones - 4x02 - The Lion and the Rose.en.srt",
+      "importedAt": "2026-09-20T21:32:44.579Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---4x03---breaker-of-chains",
+      "title": "Game of Thrones - 4x03 - Breaker of Chains",
+      "lineCount": 726,
+      "sourceFilename": "Game of Thrones - 4x03 - Breaker of Chains.en.srt",
+      "importedAt": "2026-09-20T21:32:44.582Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---4x04---oathkeeper",
+      "title": "Game of Thrones - 4x04 - Oathkeeper",
+      "lineCount": 604,
+      "sourceFilename": "Game of Thrones - 4x04 - Oathkeeper.en.srt",
+      "importedAt": "2026-09-20T21:32:44.585Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---4x05---first-of-his-name",
+      "title": "Game of Thrones - 4x05 - First of His Name",
+      "lineCount": 667,
+      "sourceFilename": "Game of Thrones - 4x05 - First of His Name.en.srt",
+      "importedAt": "2026-09-20T21:32:44.588Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---4x06---the-laws-of-gods-and-men",
+      "title": "Game of Thrones - 4x06 - The Laws of Gods and Men",
+      "lineCount": 588,
+      "sourceFilename": "Game of Thrones - 4x06 - The Laws of Gods and Men.en.srt",
+      "importedAt": "2026-09-20T21:32:44.592Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 6
+      }
+    },
+    {
+      "id": "game-of-thrones---4x07---mockingbird",
+      "title": "Game of Thrones - 4x07 - Mockingbird",
+      "lineCount": 643,
+      "sourceFilename": "Game of Thrones - 4x07 - Mockingbird.en.srt",
+      "importedAt": "2026-09-20T21:32:44.594Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 7
+      }
+    },
+    {
+      "id": "game-of-thrones---4x08---the-mountain-and-the-viper",
+      "title": "Game of Thrones - 4x08 - The Mountain and the Viper",
+      "lineCount": 678,
+      "sourceFilename": "Game of Thrones - 4x08 - The Mountain and the Viper.en.srt",
+      "importedAt": "2026-09-20T21:32:44.597Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 8
+      }
+    },
+    {
+      "id": "game-of-thrones---4x09---the-watchers-on-the-wall",
+      "title": "Game of Thrones - 4x09 - The Watchers on the Wall",
+      "lineCount": 491,
+      "sourceFilename": "Game of Thrones - 4x09 - The Watchers on the Wall.en.srt",
+      "importedAt": "2026-09-20T21:32:44.600Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 9
+      }
+    },
+    {
+      "id": "game-of-thrones---4x10---the-children",
+      "title": "Game of Thrones - 4x10 - The Children",
+      "lineCount": 707,
+      "sourceFilename": "Game of Thrones - 4x10 - The Children.en.srt",
+      "importedAt": "2026-09-20T21:32:44.603Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 4,
+        "episode": 10
+      }
+    },
+    {
+      "id": "game-of-thrones---5x01---the-wars-to-come",
+      "title": "Game of Thrones - 5x01 - The Wars to Come",
+      "lineCount": 529,
+      "sourceFilename": "Game of Thrones - 5x01 - The Wars to Come.en.srt",
+      "importedAt": "2026-09-20T21:32:44.607Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---5x02---the-house-of-black-and-white",
+      "title": "Game of Thrones - 5x02 - The House of Black and White",
+      "lineCount": 636,
+      "sourceFilename": "Game of Thrones - 5x02 - The House of Black and White.en.srt",
+      "importedAt": "2026-09-20T21:32:44.609Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---5x03---high-sparrow",
+      "title": "Game of Thrones - 5x03 - High Sparrow",
+      "lineCount": 654,
+      "sourceFilename": "Game of Thrones - 5x03 - High Sparrow.en.srt",
+      "importedAt": "2026-09-20T21:32:44.612Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---5x04---sons-of-the-harpy",
+      "title": "Game of Thrones - 5x04 - Sons of the Harpy",
+      "lineCount": 505,
+      "sourceFilename": "Game of Thrones - 5x04 - Sons of the Harpy.en.srt",
+      "importedAt": "2026-09-20T21:32:44.613Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---5x05---kill-the-boy",
+      "title": "Game of Thrones - 5x05 - Kill the Boy",
+      "lineCount": 586,
+      "sourceFilename": "Game of Thrones - 5x05 - Kill the Boy.en.srt",
+      "importedAt": "2026-09-20T21:32:44.615Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---5x06---unbowed-unbent-unbroken",
+      "title": "Game of Thrones - 5x06 - Unbowed, Unbent, Unbroken",
+      "lineCount": 586,
+      "sourceFilename": "Game of Thrones - 5x06 - Unbowed, Unbent, Unbroken.en.srt",
+      "importedAt": "2026-09-20T21:32:44.617Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 6
+      }
+    },
+    {
+      "id": "game-of-thrones---5x07---the-gift",
+      "title": "Game of Thrones - 5x07 - The Gift",
+      "lineCount": 626,
+      "sourceFilename": "Game of Thrones - 5x07 - The Gift.en.srt",
+      "importedAt": "2026-09-20T21:32:44.620Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 7
+      }
+    },
+    {
+      "id": "game-of-thrones---5x08---hardhome",
+      "title": "Game of Thrones - 5x08 - Hardhome",
+      "lineCount": 559,
+      "sourceFilename": "Game of Thrones - 5x08 - Hardhome.en.srt",
+      "importedAt": "2026-09-20T21:32:44.622Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 8
+      }
+    },
+    {
+      "id": "game-of-thrones---5x09---the-dance-of-dragons",
+      "title": "Game of Thrones - 5x09 - The Dance of Dragons",
+      "lineCount": 467,
+      "sourceFilename": "Game of Thrones - 5x09 - The Dance of Dragons.en.srt",
+      "importedAt": "2026-09-20T21:32:44.624Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 9
+      }
+    },
+    {
+      "id": "game-of-thrones---5x10---mothers-mercy",
+      "title": "Game of Thrones - 5x10 - Mother's Mercy",
+      "lineCount": 513,
+      "sourceFilename": "Game of Thrones - 5x10 - Mother's Mercy.en.srt",
+      "importedAt": "2026-09-20T21:32:44.626Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 5,
+        "episode": 10
+      }
+    },
+    {
+      "id": "game-of-thrones---6x01---the-red-woman",
+      "title": "Game of Thrones - 6x01 - The Red Woman",
+      "lineCount": 357,
+      "sourceFilename": "Game of Thrones - 6x01 - The Red Woman.en.srt",
+      "importedAt": "2026-09-20T21:32:44.629Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---6x02---home",
+      "title": "Game of Thrones - 6x02 - Home",
+      "lineCount": 424,
+      "sourceFilename": "Game of Thrones - 6x02 - Home.en.srt",
+      "importedAt": "2026-09-20T21:32:44.632Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---6x03---oathbreaker",
+      "title": "Game of Thrones - 6x03 - Oathbreaker",
+      "lineCount": 490,
+      "sourceFilename": "Game of Thrones - 6x03 - Oathbreaker.en.srt",
+      "importedAt": "2026-09-20T21:32:44.634Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---6x04---book-of-the-stranger",
+      "title": "Game of Thrones - 6x04 - Book of the Stranger",
+      "lineCount": 537,
+      "sourceFilename": "Game of Thrones - 6x04 - Book of the Stranger.en.srt",
+      "importedAt": "2026-09-20T21:32:44.636Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---6x05---the-door",
+      "title": "Game of Thrones - 6x05 - The Door",
+      "lineCount": 543,
+      "sourceFilename": "Game of Thrones - 6x05 - The Door.en.srt",
+      "importedAt": "2026-09-20T21:32:44.639Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---6x06---blood-of-my-blood",
+      "title": "Game of Thrones - 6x06 - Blood of My Blood",
+      "lineCount": 512,
+      "sourceFilename": "Game of Thrones - 6x06 - Blood of My Blood.en.srt",
+      "importedAt": "2026-09-20T21:32:44.641Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 6
+      }
+    },
+    {
+      "id": "game-of-thrones---6x07---the-broken-man",
+      "title": "Game of Thrones - 6x07 - The Broken Man",
+      "lineCount": 540,
+      "sourceFilename": "Game of Thrones - 6x07 - The Broken Man.en.srt",
+      "importedAt": "2026-09-20T21:32:44.644Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 7
+      }
+    },
+    {
+      "id": "game-of-thrones---6x08---no-one",
+      "title": "Game of Thrones - 6x08 - No One",
+      "lineCount": 576,
+      "sourceFilename": "Game of Thrones - 6x08 - No One.en.srt",
+      "importedAt": "2026-09-20T21:32:44.646Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 8
+      }
+    },
+    {
+      "id": "game-of-thrones---6x09---battle-of-the-bastards",
+      "title": "Game of Thrones - 6x09 - Battle of the Bastards",
+      "lineCount": 394,
+      "sourceFilename": "Game of Thrones - 6x09 - Battle of the Bastards.en.srt",
+      "importedAt": "2026-09-20T21:32:44.648Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 9
+      }
+    },
+    {
+      "id": "game-of-thrones---6x10---the-winds-of-winter",
+      "title": "Game of Thrones - 6x10 - The Winds of Winter",
+      "lineCount": 517,
+      "sourceFilename": "Game of Thrones - 6x10 - The Winds of Winter.en.srt",
+      "importedAt": "2026-09-20T21:32:44.650Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 6,
+        "episode": 10
+      }
+    },
+    {
+      "id": "game-of-thrones---7x01---dragonstone",
+      "title": "Game of Thrones - 7x01 - Dragonstone",
+      "lineCount": 566,
+      "sourceFilename": "Game of Thrones - 7x01 - Dragonstone.en.srt",
+      "importedAt": "2026-09-20T21:32:44.652Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 7,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---7x02---stormborn",
+      "title": "Game of Thrones - 7x02 - Stormborn",
+      "lineCount": 612,
+      "sourceFilename": "Game of Thrones - 7x02 - Stormborn.en.srt",
+      "importedAt": "2026-09-20T21:32:44.654Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 7,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---7x03---the-queens-justice",
+      "title": "Game of Thrones - 7x03 - The Queen's Justice",
+      "lineCount": 738,
+      "sourceFilename": "Game of Thrones - 7x03 - The Queen's Justice.en.srt",
+      "importedAt": "2026-09-20T21:32:44.656Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 7,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---7x04---the-spoils-of-war",
+      "title": "Game of Thrones - 7x04 - The Spoils of War",
+      "lineCount": 467,
+      "sourceFilename": "Game of Thrones - 7x04 - The Spoils of War.en.srt",
+      "importedAt": "2026-09-20T21:32:44.659Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 7,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---7x05---eastwatch",
+      "title": "Game of Thrones - 7x05 - Eastwatch",
+      "lineCount": 583,
+      "sourceFilename": "Game of Thrones - 7x05 - Eastwatch.en.srt",
+      "importedAt": "2026-09-20T21:32:44.661Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 7,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---7x06---beyond-the-wall",
+      "title": "Game of Thrones - 7x06 - Beyond the Wall",
+      "lineCount": 581,
+      "sourceFilename": "Game of Thrones - 7x06 - Beyond the Wall.en.srt",
+      "importedAt": "2026-09-20T21:32:44.663Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 7,
+        "episode": 6
+      }
+    },
+    {
+      "id": "game-of-thrones---7x07---the-dragon-and-the-wolf",
+      "title": "Game of Thrones - 7x07 - The Dragon and the Wolf",
+      "lineCount": 738,
+      "sourceFilename": "Game of Thrones - 7x07 - The Dragon and the Wolf.en.srt",
+      "importedAt": "2026-09-20T21:32:44.665Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 7,
+        "episode": 7
+      }
+    },
+    {
+      "id": "game-of-thrones---8x01---winterfell",
+      "title": "Game of Thrones - 8x01 - Winterfell",
+      "lineCount": 453,
+      "sourceFilename": "Game of Thrones - 8x01 - Winterfell.en.srt",
+      "importedAt": "2026-09-20T21:32:44.667Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 8,
+        "episode": 1
+      }
+    },
+    {
+      "id": "game-of-thrones---8x02---a-knight-of-the-seven-kingdoms",
+      "title": "Game of Thrones - 8x02 - A Knight of the Seven Kingdoms",
+      "lineCount": 666,
+      "sourceFilename": "Game of Thrones - 8x02 - A Knight of the Seven Kingdoms.en.srt",
+      "importedAt": "2026-09-20T21:32:44.669Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 8,
+        "episode": 2
+      }
+    },
+    {
+      "id": "game-of-thrones---8x03---the-long-night",
+      "title": "Game of Thrones - 8x03 - The Long Night",
+      "lineCount": 198,
+      "sourceFilename": "Game of Thrones - 8x03 - The Long Night.en.srt",
+      "importedAt": "2026-09-20T21:32:44.671Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 8,
+        "episode": 3
+      }
+    },
+    {
+      "id": "game-of-thrones---8x04---the-last-of-the-starks",
+      "title": "Game of Thrones - 8x04 - The Last of the Starks",
+      "lineCount": 719,
+      "sourceFilename": "Game of Thrones - 8x04 - The Last of the Starks.en.srt",
+      "importedAt": "2026-09-20T21:32:44.673Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 8,
+        "episode": 4
+      }
+    },
+    {
+      "id": "game-of-thrones---8x05---the-bells",
+      "title": "Game of Thrones - 8x05 - The Bells",
+      "lineCount": 461,
+      "sourceFilename": "Game of Thrones - 8x05 - The Bells.en.srt",
+      "importedAt": "2026-09-20T21:32:44.675Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 8,
+        "episode": 5
+      }
+    },
+    {
+      "id": "game-of-thrones---8x06---the-iron-throne",
+      "title": "Game of Thrones - 8x06 - The Iron Throne",
+      "lineCount": 415,
+      "sourceFilename": "Game of Thrones - 8x06 - The Iron Throne.en.srt",
+      "importedAt": "2026-09-20T21:32:44.676Z",
+      "meta": {
+        "show": "Game of Thrones",
+        "season": 8,
+        "episode": 6
       }
     },
     {
