@@ -68,7 +68,7 @@ button {
 }
 
 .app-shell.ops-active {
-  max-width: 1120px;
+  max-width: 1280px;
 }
 
 .play-layout {
@@ -1680,6 +1680,149 @@ code {
   opacity: 1;
 }
 
+.ops-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+}
+
+.ops-tabs .button.is-active,
+.stills-frame-votes .button.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+.ops-review-stills {
+  margin-left: 0.45rem;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.78rem;
+}
+
+.stills-studio-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: baseline;
+  margin-bottom: 0.85rem;
+}
+
+.stills-studio-show {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.stills-studio-show select {
+  font: inherit;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.stills-studio-summary {
+  margin: 0;
+}
+
+.stills-queue-wrap {
+  max-height: 22rem;
+  overflow: auto;
+  margin-top: 1rem;
+}
+
+.stills-queue-table tr.is-selected td {
+  background: var(--accent-soft);
+}
+
+.stills-review {
+  margin-top: 1.25rem;
+}
+
+.stills-review h3 {
+  margin: 0 0 0.25rem;
+}
+
+.stills-review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+  gap: 0.85rem;
+  margin: 0.85rem 0 1rem;
+}
+
+.stills-frame-card {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.stills-frame-card.is-up {
+  border-color: var(--success);
+  background: var(--success-fill);
+}
+
+.stills-frame-card.is-down {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, white);
+}
+
+.stills-frame-img,
+.stills-frame-missing {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--ink) 10%, var(--bg-raised));
+}
+
+.stills-frame-missing {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stills-frame-quote {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.stills-frame-meta {
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.stills-frame-votes,
+.stills-line-nudge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.stills-sync-controls {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.5rem 0 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--mint) 16%, white);
+}
+
 .curate-item.selected {
   outline: 2px solid var(--lime);
   outline-offset: 2px;
@@ -2266,6 +2409,42 @@ code {
   font-weight: 600;
 }
 
+.quote-image-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.quote-image-chip {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.35rem 0.45rem;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.quote-image-chip.is-active {
+  border-color: color-mix(in srgb, var(--brand) 45%, var(--line));
+  background: color-mix(in srgb, var(--mint) 28%, white);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.quote-image-palette-clean.is-active {
+  background: color-mix(in srgb, var(--mint) 28%, white);
+}
+
+.quote-image-palette-ink.is-active {
+  background: color-mix(in srgb, var(--plum) 22%, white);
+  border-color: color-mix(in srgb, var(--plum) 50%, var(--line));
+}
+
+.quote-image-palette-lime.is-active {
+  background: color-mix(in srgb, var(--lime) 45%, white);
+  border-color: color-mix(in srgb, var(--sage) 40%, var(--lime));
+}
+
 .quote-image-preview-wrap {
   display: grid;
   place-items: center;
@@ -2278,7 +2457,7 @@ code {
 
 .quote-image-preview {
   width: 100%;
-  max-height: min(52vh, 28rem);
+  max-height: min(48vh, 26rem);
   object-fit: contain;
   border-radius: 6px;
 }
