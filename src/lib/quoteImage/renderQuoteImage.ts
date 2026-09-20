@@ -3,6 +3,8 @@ export type QuoteImageFormat = "caption-below" | "on-image";
 export type RenderQuoteImageInput = {
   format: QuoteImageFormat;
   quoteText: string;
+  /** Correct next line; omitted when missing from the transcript. */
+  nextText?: string | null;
   titleLabel: string;
   image: HTMLImageElement | null;
 };
@@ -98,13 +100,16 @@ function drawBackdrop(
 function renderCaptionBelow(
   ctx: CanvasRenderingContext2D,
   quoteText: string,
+  nextText: string | null | undefined,
   titleLabel: string,
   image: HTMLImageElement | null,
 ) {
   const w = QUOTE_IMAGE_WIDTH;
   const h = QUOTE_IMAGE_HEIGHT;
-  const imageH = Math.round(h * 0.58);
+  const imageH = Math.round(h * 0.52);
   const pad = 72;
+  const textMax = w - pad * 2;
+  const hasNext = Boolean(nextText?.trim());
 
   ctx.fillStyle = RAISED;
   ctx.fillRect(0, 0, w, h);
@@ -113,16 +118,27 @@ function renderCaptionBelow(
   ctx.fillStyle = RAISED;
   ctx.fillRect(0, imageH, w, h - imageH);
 
-  const textMax = w - pad * 2;
-  ctx.fillStyle = PLUM;
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.font = `600 54px ${SERIF}`;
-  const quoteLines = wrapLines(ctx, quoteText, textMax, 7);
-  let y = imageH + 64;
-  for (const line of quoteLines) {
+
+  ctx.fillStyle = "rgba(79, 52, 90, 0.72)";
+  ctx.font = `500 42px ${SERIF}`;
+  const promptLines = wrapLines(ctx, quoteText, textMax, hasNext ? 4 : 6);
+  let y = imageH + 56;
+  for (const line of promptLines) {
     ctx.fillText(line, pad, y);
-    y += 68;
+    y += 54;
+  }
+
+  if (hasNext) {
+    y += 18;
+    ctx.fillStyle = PLUM;
+    ctx.font = `600 52px ${SERIF}`;
+    const nextLines = wrapLines(ctx, nextText!.trim(), textMax, 4);
+    for (const line of nextLines) {
+      ctx.fillText(line, pad, y);
+      y += 64;
+    }
   }
 
   ctx.font = `500 28px ${SERIF}`;
@@ -137,12 +153,15 @@ function renderCaptionBelow(
 function renderOnImage(
   ctx: CanvasRenderingContext2D,
   quoteText: string,
+  nextText: string | null | undefined,
   titleLabel: string,
   image: HTMLImageElement | null,
 ) {
   const w = QUOTE_IMAGE_WIDTH;
   const h = QUOTE_IMAGE_HEIGHT;
   const pad = 80;
+  const textMax = w - pad * 2;
+  const hasNext = Boolean(nextText?.trim());
 
   drawBackdrop(ctx, image, 0, 0, w, h);
 
@@ -153,18 +172,36 @@ function renderOnImage(
   ctx.fillStyle = veil;
   ctx.fillRect(0, 0, w, h);
 
-  const textMax = w - pad * 2;
-  ctx.fillStyle = "#f4f8f5";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.font = `600 56px ${SERIF}`;
-  const quoteLines = wrapLines(ctx, quoteText, textMax, 8);
-  const lineH = 72;
-  const blockH = quoteLines.length * lineH;
-  let y = h / 2 - blockH / 2 + lineH / 2;
-  for (const line of quoteLines) {
+
+  ctx.font = `500 44px ${SERIF}`;
+  const promptLines = wrapLines(ctx, quoteText, textMax, hasNext ? 4 : 6);
+  ctx.font = `600 54px ${SERIF}`;
+  const nextLines = hasNext ? wrapLines(ctx, nextText!.trim(), textMax, 4) : [];
+
+  const promptH = 56;
+  const nextH = 68;
+  const gap = hasNext ? 28 : 0;
+  const blockH =
+    promptLines.length * promptH + gap + nextLines.length * nextH;
+  let y = h / 2 - blockH / 2 + promptH / 2;
+
+  ctx.fillStyle = "rgba(244, 248, 245, 0.82)";
+  ctx.font = `500 44px ${SERIF}`;
+  for (const line of promptLines) {
     ctx.fillText(line, w / 2, y);
-    y += lineH;
+    y += promptH;
+  }
+
+  if (hasNext) {
+    y += gap - promptH / 2 + nextH / 2;
+    ctx.fillStyle = "#f4f8f5";
+    ctx.font = `600 54px ${SERIF}`;
+    for (const line of nextLines) {
+      ctx.fillText(line, w / 2, y);
+      y += nextH;
+    }
   }
 
   ctx.textAlign = "left";
@@ -190,9 +227,9 @@ export function renderQuoteImageCanvas(input: RenderQuoteImageInput): HTMLCanvas
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   if (input.format === "caption-below") {
-    renderCaptionBelow(ctx, input.quoteText, input.titleLabel, input.image);
+    renderCaptionBelow(ctx, input.quoteText, input.nextText, input.titleLabel, input.image);
   } else {
-    renderOnImage(ctx, input.quoteText, input.titleLabel, input.image);
+    renderOnImage(ctx, input.quoteText, input.nextText, input.titleLabel, input.image);
   }
 
   return canvas;

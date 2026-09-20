@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { getCatalog, getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
+import { getNextPlayableLine } from "../lib/content/playable";
 import { loadQuoteBackdrop } from "../lib/quoteImage/loadQuoteImage";
 import {
   canvasToPngBlob,
@@ -33,6 +34,9 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     (title ? getLine(title, lineIndex)?.text : undefined)?.trim() ||
     quoteText?.trim() ||
     `Line ${lineIndex + 1}`;
+  const resolvedNext = title
+    ? (getNextPlayableLine(title, lineIndex)?.text ?? "").trim() || null
+    : null;
   const titleLabel = entry ? catalogLabel(entry) : titleId;
 
   const [format, setFormat] = useState<QuoteImageFormat>("caption-below");
@@ -58,6 +62,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       const canvas = renderQuoteImageCanvas({
         format,
         quoteText: resolvedQuote,
+        nextText: resolvedNext,
         titleLabel,
         image,
       });
@@ -69,10 +74,9 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       setError(err instanceof Error ? err.message : "Could not render preview");
     }
     return () => {
-      // data URLs need no revoke; keep for clarity if we switch to blob URLs later
       void objectUrl;
     };
-  }, [format, resolvedQuote, titleLabel, image]);
+  }, [format, resolvedQuote, resolvedNext, titleLabel, image]);
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -86,6 +90,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     const canvas = renderQuoteImageCanvas({
       format,
       quoteText: resolvedQuote,
+      nextText: resolvedNext,
       titleLabel,
       image,
     });
@@ -120,7 +125,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       await navigator.share({
         files: [file],
         title: titleLabel,
-        text: resolvedQuote,
+        text: resolvedNext ? `${resolvedQuote}\n${resolvedNext}` : resolvedQuote,
       });
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {

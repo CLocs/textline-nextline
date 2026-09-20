@@ -704,11 +704,11 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 1. **Export image** in the paper-plane Share menu (Curate / Play / Chat) — works without sign-in; Send / Copy stay auth-gated.
 2. **Caption below** — scene still on top; quote + title + TLNL under the frame.
 3. **On image** — quote overlaid on a veiled still (or brand fallback).
-4. Client canvas PNG (1080×1350); still → poster → brand gradient fallback. Shares the **prompt line** only (not the next line).
+4. Client canvas PNG (1080×1350); still → poster → brand gradient fallback. Card shows **textline + next line** (next line emphasized).
 
 **Later:** palette / layout / aspect swatches; [Daily quote email](#daily-quote-email) cards → open TLNL → Export image.
 
-**Gates still true:** still coverage (many lines have no frame yet); spoiler default stays textline.
+**Gates still true:** still coverage (many lines have no frame yet).
 
 ### Daily quote email
 
