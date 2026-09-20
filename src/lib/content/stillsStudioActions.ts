@@ -247,7 +247,10 @@ export function studioExtract(
   const media = remuxIfNeeded(ctx.packageRoot, id, episode.videoPath);
   const durationSec = probeDurationSec(media);
   const fps = previous?.fps ?? probeFps(media) ?? episode.fps;
-  const { stars } = loadStars(ctx);
+  const { stars } = loadStars(
+    ctx,
+    opts.mode === "batch" || opts.mode === "handful" || opts.mode === "shuffle",
+  );
   const starIndices = stars[id] ?? [];
 
   let offsetMs = Number.isFinite(opts.offsetMs) ? Number(opts.offsetMs) : episode.offsetMs;
@@ -338,7 +341,6 @@ export function studioExtract(
 
   const now = new Date().toISOString();
   const handful = opts.mode === "batch" ? (previous?.handful ?? episode.handful) : indices;
-  const clearingReview = opts.mode !== "batch";
   const triedMethods =
     opts.mode === "batch" || opts.mode === "shuffle"
       ? previous?.triedMethods
@@ -354,8 +356,9 @@ export function studioExtract(
     handful,
     approvedAt: opts.mode === "batch" ? previous?.approvedAt ?? now : undefined,
     // Handful/smart/retry after a batch must drop these so the six-frame review returns.
+    // Batch after a later star change must un-push so the new JPEGs can go to R2.
     batchedAt: opts.mode === "batch" ? now : undefined,
-    pushedAt: clearingReview ? undefined : previous?.pushedAt,
+    pushedAt: undefined,
     methodId: opts.mode === "batch" || opts.mode === "shuffle" ? previous?.methodId ?? method.id : method.id,
     triedMethods,
     note:

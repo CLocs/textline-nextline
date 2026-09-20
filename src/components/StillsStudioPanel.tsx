@@ -675,14 +675,25 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                 <div className="stills-sync-controls">
                   <p className="muted">
                     {selected.status === "pushed"
-                      ? "On R2. Next Pages deploy still required for live /stills."
+                      ? "On R2. Next Pages deploy still required for live /stills. If you changed a D1 star, batch remaining then push again."
                       : pushingThis
                         ? `Uploading ${pushJob?.done ?? 0} / ${pushJob?.total ?? 0}. Safe to switch titles or leave this tab.`
-                        : "All D1 stars are on disk. Open the folder to skim, or push to R2."}
+                        : "All D1 stars are on disk. Open the folder to skim, or push to R2. Changed a star? Batch remaining pulls the current D1 list."}
                   </p>
                   <div className="row">
                     <button type="button" className="button" onClick={() => void openPreviewFolder()}>
                       Open result folder
+                    </button>
+                    <button
+                      type="button"
+                      className="button"
+                      disabled={extractLocked || selected.starCount === 0}
+                      aria-busy={busyKind === "batch"}
+                      onClick={() => void runExtract("batch")}
+                    >
+                      {selected.starCount === 0
+                        ? "No D1 stars to batch"
+                        : actionLabel("batch", "Batch remaining stars")}
                     </button>
                     <button
                       type="button"
@@ -700,6 +711,11 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                             : "Push approved"}
                     </button>
                   </div>
+                  {busyKind === "batch" && busy ? (
+                    <p className="stills-studio-busy" role="status" aria-live="polite">
+                      {busy}
+                    </p>
+                  ) : null}
                   {renderRetryTools("gallery")}
                 </div>
               ) : null}
