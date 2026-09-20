@@ -353,6 +353,7 @@ function createChatsDb() {
                       created_at: row.created_at,
                       sender_user_id: row.sender_user_id,
                       recipient_user_id: row.recipient_user_id,
+                      read_at: row.read_at,
                       sender_name: sender?.display_name ?? null,
                     };
                   });
@@ -377,6 +378,7 @@ function createChatsDb() {
                       created_at: row.created_at,
                       sender_user_id: row.sender_user_id,
                       recipient_user_id: row.recipient_user_id,
+                      read_at: row.read_at,
                       sender_name: sender?.display_name ?? null,
                     };
                   });
@@ -465,6 +467,20 @@ describe("chats API", () => {
     };
     expect(dmBody.peer).toEqual({ userId: BOB_ID, displayName: "Bob" });
     expect(dmBody.messages.map((m) => m.lineIndex)).toEqual([27]);
+    expect(dmBody.messages[0]).toMatchObject({ direction: "out", receipt: "sent" });
+
+    await handleRequest(
+      jsonRequest(`/api/chats/dm/${ALICE_ID}/read`, { method: "POST", token: "sess-bob" }),
+      envFor(db),
+    );
+    const dmAfterRead = await handleRequest(
+      jsonRequest(`/api/chats/dm/${BOB_ID}`, { token: "sess-alice" }),
+      envFor(db),
+    );
+    const after = (await dmAfterRead.json()) as {
+      messages: Array<{ receipt: string | null }>;
+    };
+    expect(after.messages[0]?.receipt).toBe("read");
 
     const groupAlice = await handleRequest(
       jsonRequest(`/api/chats/group/${group.id}`, { token: "sess-alice" }),

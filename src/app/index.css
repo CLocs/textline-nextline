@@ -1840,8 +1840,20 @@ code {
   margin-bottom: 0.5rem;
 }
 
+.chats-home-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
 .chats-home-header .library-group-heading {
   margin: 0;
+}
+
+.chats-home-unread {
+  margin: 0;
+  font-size: 0.88rem;
 }
 
 .chats-thread-list {
@@ -1938,4 +1950,28 @@ code {
 .chats-outgoing-card {
   opacity: 0.92;
   background: color-mix(in srgb, var(--ink) 3%, var(--surface));
+}
+
+.chat-quote-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.chat-quote-header .inbox-line-from {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-quote-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.chats-receipt {
+  font-weight: 500;
+  white-space: nowrap;
 }

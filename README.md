@@ -535,7 +535,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 3. **Home + bell** — Chats rail; `#/chats` list; Profile tab **Chats** (old `#/profile/inbox` redirects). Unread via `read_at` on `line_inbox`.
 4. **Separation** — group sends appear only in the group thread, not also in each pair’s DM.
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
+**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); richer outgoing cards (lead-in + next line / spoiler for the sender).
 
 ### Chats → cross-title mini-games
 

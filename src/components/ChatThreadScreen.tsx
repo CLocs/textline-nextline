@@ -12,6 +12,7 @@ import {
 } from "../lib/chats/api";
 import type { CatalogEntry } from "../types/content";
 import { InboxLineCard } from "./InboxLineCard";
+import { ChatQuoteActions } from "./ChatQuoteActions";
 import type { InboxItem } from "../lib/inbox/api";
 
 type Props = {
@@ -29,25 +30,49 @@ function OutgoingPreview({
   lineIndex,
   label,
   fromLabel,
+  receiptLabel,
 }: {
   titleId: string;
   lineIndex: number;
   label: string;
   fromLabel: string;
+  receiptLabel?: string | null;
 }) {
   const title = getTitle(titleId);
   const text = title ? (getLine(title, lineIndex)?.text ?? "") : "";
   return (
     <article className="inbox-line-card chats-outgoing-card">
-      <p className="inbox-line-from">
-        {fromLabel}
-        <span className="muted"> · {label}</span>
-      </p>
+      <div className="chat-quote-header">
+        <p className="inbox-line-from">
+          {fromLabel}
+          <span className="muted"> · {label}</span>
+          {receiptLabel ? (
+            <span className="chats-receipt muted" title="Opened the chat">
+              {" "}
+              · {receiptLabel}
+            </span>
+          ) : null}
+        </p>
+        <ChatQuoteActions titleId={titleId} lineIndex={lineIndex} lineText={text} />
+      </div>
       <blockquote className="prompt-text">
         <p className="prompt-current">{text || `Line ${lineIndex + 1}`}</p>
       </blockquote>
     </article>
   );
+}
+
+function dmReceiptLabel(receipt: DmMessage["receipt"]): string | null {
+  if (receipt === "read") return "Read";
+  if (receipt === "sent") return "Sent";
+  return null;
+}
+
+function groupReceiptLabel(youSent: boolean, sentCount: number, readCount: number): string | null {
+  if (!youSent) return null;
+  if (readCount <= 0) return "Sent";
+  if (readCount >= sentCount) return "Read";
+  return `Read ${readCount}/${sentCount}`;
 }
 
 function dmToInboxItem(message: DmMessage): InboxItem {
@@ -165,13 +190,14 @@ export function ChatThreadScreen({
           {dmMessages.map((message) => (
             <li key={message.id}>
               {message.playable ? (
-                <InboxLineCard item={dmToInboxItem(message)} entries={entries} />
+                <InboxLineCard item={dmToInboxItem(message)} entries={entries} showQuoteActions />
               ) : (
                 <OutgoingPreview
                   titleId={message.titleId}
                   lineIndex={message.lineIndex}
                   label={entryLabel(message.titleId)}
                   fromLabel="You sent"
+                  receiptLabel={dmReceiptLabel(message.receipt)}
                 />
               )}
             </li>
@@ -184,7 +210,7 @@ export function ChatThreadScreen({
             return (
               <li key={message.shareId}>
                 {playable && message.playable ? (
-                  <InboxLineCard item={playable} entries={entries} />
+                  <InboxLineCard item={playable} entries={entries} showQuoteActions />
                 ) : (
                   <OutgoingPreview
                     titleId={message.titleId}
@@ -195,6 +221,11 @@ export function ChatThreadScreen({
                         ? `You sent · ${message.sentCount} received`
                         : `${message.from.displayName} · ${message.sentCount} received`
                     }
+                    receiptLabel={groupReceiptLabel(
+                      message.youSent,
+                      message.sentCount,
+                      message.readCount,
+                    )}
                   />
                 )}
               </li>
