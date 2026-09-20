@@ -32,6 +32,16 @@ type InboxRow = {
   group_id: string | null;
   read_at: string | null;
 };
+type ChatMessageRow = {
+  id: string;
+  sender_user_id: string;
+  body: string;
+  created_at: string;
+  dm_user_a: string | null;
+  dm_user_b: string | null;
+  group_id: string | null;
+};
+type ThreadReadRow = { user_id: string; thread_key: string; last_read_at: string };
 
 function farFuture(): string {
   return new Date(Date.now() + 30 * 24 * 60 * 60_000).toISOString();
@@ -64,6 +74,8 @@ function createChatsDb() {
   const members: GroupMemberRow[] = [];
   const shares: ShareRow[] = [];
   const inbox: InboxRow[] = [];
+  const chatMessages: ChatMessageRow[] = [];
+  const threadReads: ThreadReadRow[] = [];
 
   const db = {
     prepare(sql: string) {
@@ -120,6 +132,32 @@ function createChatsDb() {
                     row.read_at = readAt;
                   }
                 }
+              } else if (sql.includes("INSERT INTO chat_messages")) {
+                const [id, sender, body, createdAt, dmA, dmB, groupId] = args as [
+                  string,
+                  string,
+                  string,
+                  string,
+                  string | null,
+                  string | null,
+                  string | null,
+                ];
+                chatMessages.push({
+                  id,
+                  sender_user_id: sender,
+                  body,
+                  created_at: createdAt,
+                  dm_user_a: dmA,
+                  dm_user_b: dmB,
+                  group_id: groupId,
+                });
+              } else if (sql.includes("INSERT INTO chat_thread_reads")) {
+                const [userId, threadKey, lastReadAt] = args as [string, string, string];
+                const existing = threadReads.find(
+                  (row) => row.user_id === userId && row.thread_key === threadKey,
+                );
+                if (existing) existing.last_read_at = lastReadAt;
+                else threadReads.push({ user_id: userId, thread_key: threadKey, last_read_at: lastReadAt });
               }
               return { success: true };
             },
@@ -247,9 +285,75 @@ function createChatsDb() {
                     }
                   : null) as T;
               }
+              if (sql.includes("FROM chat_thread_reads")) {
+                const [userId, threadKey] = args as [string, string];
+                const row = threadReads.find(
+                  (item) => item.user_id === userId && item.thread_key === threadKey,
+                );
+                return (row ? { last_read_at: row.last_read_at } : null) as T;
+              }
+              if (sql.includes("SELECT COUNT(*) AS n FROM chat_messages")) {
+                const since = String(args[args.length - 1]);
+                const senderExclude = String(args[args.length - 2]);
+                if (sql.includes("group_id = ?")) {
+                  const [groupId] = args as [string];
+                  return {
+                    n: chatMessages.filter(
+                      (row) =>
+                        row.group_id === groupId &&
+                        row.sender_user_id !== senderExclude &&
+                        row.created_at > since,
+                    ).length,
+                  } as T;
+                }
+                const [dmA, dmB] = args as [string, string];
+                return {
+                  n: chatMessages.filter(
+                    (row) =>
+                      row.dm_user_a === dmA &&
+                      row.dm_user_b === dmB &&
+                      row.sender_user_id !== senderExclude &&
+                      row.created_at > since,
+                  ).length,
+                } as T;
+              }
+              if (
+                sql.includes("FROM chat_messages") &&
+                sql.includes("ORDER BY created_at DESC") &&
+                sql.includes("LIMIT 1")
+              ) {
+                const filtered = chatMessages.filter((row) => {
+                  if (sql.includes("group_id = ?")) {
+                    const [groupId] = args as [string];
+                    return row.group_id === groupId;
+                  }
+                  const [dmA, dmB] = args as [string, string];
+                  return row.dm_user_a === dmA && row.dm_user_b === dmB;
+                });
+                const last = filtered.sort((x, y) => y.created_at.localeCompare(x.created_at))[0];
+                return (last
+                  ? {
+                      body: last.body,
+                      created_at: last.created_at,
+                      sender_user_id: last.sender_user_id,
+                    }
+                  : null) as T;
+              }
               return null;
             },
             async all<T>() {
+              if (sql.includes("CASE WHEN dm_user_a = ?")) {
+                const [viewer] = args as [string];
+                const peers = new Set<string>();
+                for (const row of chatMessages) {
+                  if (row.group_id || !row.dm_user_a || !row.dm_user_b) continue;
+                  if (row.dm_user_a !== viewer && row.dm_user_b !== viewer) continue;
+                  peers.add(row.dm_user_a === viewer ? row.dm_user_b : row.dm_user_a);
+                }
+                return {
+                  results: [...peers].map((peer_id) => ({ peer_id })) as T[],
+                };
+              }
               if (sql.includes("CASE WHEN sender_user_id")) {
                 const [viewer] = args as [string];
                 const peers = new Map<string, string>();
@@ -263,6 +367,30 @@ function createChatsDb() {
                 }
                 return {
                   results: [...peers.entries()].map(([peer_id, last_at]) => ({ peer_id, last_at })) as T[],
+                };
+              }
+              if (sql.includes("FROM chat_messages m") && sql.includes("JOIN users u")) {
+                const filtered = chatMessages.filter((row) => {
+                  if (sql.includes("WHERE m.group_id = ?")) {
+                    const [groupId] = args as [string];
+                    return row.group_id === groupId;
+                  }
+                  const [dmA, dmB] = args as [string, string];
+                  return row.dm_user_a === dmA && row.dm_user_b === dmB;
+                });
+                return {
+                  results: filtered
+                    .sort((a, b) => a.created_at.localeCompare(b.created_at))
+                    .map((row) => {
+                      const sender = users.find((u) => u.id === row.sender_user_id);
+                      return {
+                        id: row.id,
+                        body: row.body,
+                        created_at: row.created_at,
+                        sender_user_id: row.sender_user_id,
+                        sender_name: sender?.display_name ?? null,
+                      };
+                    }) as T[],
                 };
               }
               if (sql.includes("FROM friendships") && sql.includes("JOIN users")) {
@@ -463,11 +591,15 @@ describe("chats API", () => {
     expect(dm.status).toBe(200);
     const dmBody = (await dm.json()) as {
       peer: { userId: string; displayName: string };
-      messages: Array<{ lineIndex: number }>;
+      messages: Array<{ kind?: string; lineIndex?: number; direction?: string; receipt?: string | null }>;
     };
     expect(dmBody.peer).toEqual({ userId: BOB_ID, displayName: "Bob" });
     expect(dmBody.messages.map((m) => m.lineIndex)).toEqual([27]);
-    expect(dmBody.messages[0]).toMatchObject({ direction: "out", receipt: "sent" });
+    expect(dmBody.messages[0]).toMatchObject({
+      kind: "quote",
+      direction: "out",
+      receipt: "sent",
+    });
 
     await handleRequest(
       jsonRequest(`/api/chats/dm/${ALICE_ID}/read`, { method: "POST", token: "sess-bob" }),
@@ -482,6 +614,53 @@ describe("chats API", () => {
     };
     expect(after.messages[0]?.receipt).toBe("read");
 
+    const postText = await handleRequest(
+      jsonRequest(`/api/chats/dm/${BOB_ID}/messages`, {
+        method: "POST",
+        token: "sess-alice",
+        body: { body: "Hello Bob" },
+      }),
+      envFor(db),
+    );
+    expect(postText.status).toBe(200);
+    const dmWithText = await handleRequest(
+      jsonRequest(`/api/chats/dm/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(dmWithText.status).toBe(200);
+    const mixed = (await dmWithText.json()) as {
+      messages: Array<{ kind: string; body?: string }>;
+    };
+    expect(mixed.messages.map((m) => m.kind)).toEqual(["quote", "text"]);
+    expect(mixed.messages[1]).toMatchObject({ kind: "text", body: "Hello Bob" });
+
+    const bobThreads = await handleRequest(jsonRequest("/api/chats", { token: "sess-bob" }), envFor(db));
+    const bobList = (await bobThreads.json()) as {
+      threads: Array<{
+        kind: string;
+        peerUserId?: string;
+        quoteUnreadCount?: number;
+        textUnreadCount?: number;
+      }>;
+    };
+    const bobDm = bobList.threads.find((t) => t.kind === "dm" && t.peerUserId === ALICE_ID);
+    expect(bobDm?.textUnreadCount).toBe(1);
+
+    await handleRequest(
+      jsonRequest(`/api/chats/dm/${ALICE_ID}/read`, { method: "POST", token: "sess-bob" }),
+      envFor(db),
+    );
+    const bobThreadsAfter = await handleRequest(
+      jsonRequest("/api/chats", { token: "sess-bob" }),
+      envFor(db),
+    );
+    const bobListAfter = (await bobThreadsAfter.json()) as {
+      threads: Array<{ peerUserId?: string; textUnreadCount?: number }>;
+    };
+    expect(
+      bobListAfter.threads.find((t) => t.peerUserId === ALICE_ID)?.textUnreadCount,
+    ).toBe(0);
+
     const groupAlice = await handleRequest(
       jsonRequest(`/api/chats/group/${group.id}`, { token: "sess-alice" }),
       envFor(db),
@@ -492,8 +671,12 @@ describe("chats API", () => {
     );
     expect(groupAlice.status).toBe(200);
     expect(groupBob.status).toBe(200);
-    const aliceMsgs = (await groupAlice.json()) as { messages: Array<{ lineIndex: number; shareId: string }> };
-    const bobMsgs = (await groupBob.json()) as { messages: Array<{ lineIndex: number; shareId: string }> };
+    const aliceMsgs = (await groupAlice.json()) as {
+      messages: Array<{ kind?: string; lineIndex?: number; shareId?: string }>;
+    };
+    const bobMsgs = (await groupBob.json()) as {
+      messages: Array<{ kind?: string; lineIndex?: number; shareId?: string }>;
+    };
     expect(aliceMsgs.messages).toHaveLength(1);
     expect(bobMsgs.messages).toHaveLength(1);
     expect(aliceMsgs.messages[0]?.lineIndex).toBe(40);
@@ -508,6 +691,25 @@ describe("chats API", () => {
       envFor(db),
     );
     expect(bobSend.status).toBe(200);
+
+    await handleRequest(
+      jsonRequest(`/api/chats/group/${group.id}/messages`, {
+        method: "POST",
+        token: "sess-bob",
+        body: { body: "Group hello" },
+      }),
+      envFor(db),
+    );
+    const groupCarol = await handleRequest(
+      jsonRequest(`/api/chats/group/${group.id}`, { token: "sess-carol" }),
+      envFor(db),
+    );
+    const carolMsgs = (await groupCarol.json()) as {
+      messages: Array<{ kind: string; body?: string }>;
+    };
+    expect(carolMsgs.messages.some((m) => m.kind === "text" && m.body === "Group hello")).toBe(
+      true,
+    );
 
     const list = await handleRequest(jsonRequest("/api/chats", { token: "sess-bob" }), envFor(db));
     const threads = (await list.json()) as {

@@ -20,6 +20,54 @@ function formatWhen(iso: string): string {
   });
 }
 
+function QuoteUnreadIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M3.5 3.5h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H3.5V3.5zm6 0h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H9.5V3.5z"
+      />
+    </svg>
+  );
+}
+
+function TextUnreadIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M1.5 3.2h13v9.6h-13V3.2zm1.2 1.3 5.3 3.6 5.3-3.6v-.1H2.7zm0 1.5v5.5h10.6V6l-5.3 3.5L2.7 6z"
+      />
+    </svg>
+  );
+}
+
+function DualUnreadBadges({
+  quoteUnreadCount,
+  textUnreadCount,
+}: {
+  quoteUnreadCount: number;
+  textUnreadCount: number;
+}) {
+  if (quoteUnreadCount <= 0 && textUnreadCount <= 0) return null;
+  return (
+    <span className="chats-dual-unread">
+      {quoteUnreadCount > 0 ? (
+        <span className="chats-unread-chip" title={`${quoteUnreadCount} unread quotes`}>
+          <QuoteUnreadIcon />
+          {quoteUnreadCount}
+        </span>
+      ) : null}
+      {textUnreadCount > 0 ? (
+        <span className="chats-unread-chip is-text" title={`${textUnreadCount} unread messages`}>
+          <TextUnreadIcon />
+          {textUnreadCount}
+        </span>
+      ) : null}
+    </span>
+  );
+}
+
 export function ChatsList({ onOpenDm, onOpenGroup, compact = false }: Props) {
   const apiReady = isAuthApiEnabled() && !isLocalDevSession();
   const [threads, setThreads] = useState<ChatThreadSummary[]>([]);
@@ -58,7 +106,7 @@ export function ChatsList({ onOpenDm, onOpenGroup, compact = false }: Props) {
   if (threads.length === 0) {
     return (
       <p className="muted">
-        No chats yet. Send a line from Curate to a friend or group to start a thread.
+        No chats yet. Send a line from Curate or open a thread and say hello.
       </p>
     );
   }
@@ -82,9 +130,10 @@ export function ChatsList({ onOpenDm, onOpenGroup, compact = false }: Props) {
               </span>
               <span className="chats-thread-meta">
                 <span className="muted">{formatWhen(thread.lastAt)}</span>
-                {thread.unreadCount > 0 ? (
-                  <span className="chats-unread-badge">{thread.unreadCount}</span>
-                ) : null}
+                <DualUnreadBadges
+                  quoteUnreadCount={thread.quoteUnreadCount}
+                  textUnreadCount={thread.textUnreadCount}
+                />
               </span>
             </button>
           </li>
@@ -107,9 +156,10 @@ export function ChatsList({ onOpenDm, onOpenGroup, compact = false }: Props) {
               </span>
               <span className="chats-thread-meta">
                 <span className="muted">{formatWhen(thread.lastAt)}</span>
-                {thread.unreadCount > 0 ? (
-                  <span className="chats-unread-badge">{thread.unreadCount}</span>
-                ) : null}
+                <DualUnreadBadges
+                  quoteUnreadCount={thread.quoteUnreadCount}
+                  textUnreadCount={thread.textUnreadCount}
+                />
               </span>
             </button>
           </li>

@@ -532,10 +532,11 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 1. **DM** (`#/chat/{userId}`) — chronological in + out for direct sends only (`group_id` null).
 2. **Group** (`#/chat/group/{groupId}`) — every member sees the same collapsed transcript; any member can send; fan-out stores `group_id`. Owner still manages membership in Profile → Friends.
-3. **Home + bell** — Chats rail; `#/chats` list; Profile tab **Chats** (old `#/profile/inbox` redirects). Unread via `read_at` on `line_inbox`.
+3. **Home + bell** — Chats rail; `#/chats` list; Profile tab **Chats** (old `#/profile/inbox` redirects). Dual unread: quote chips (`line_inbox.read_at`) and text chips (`chat_thread_reads` watermark).
 4. **Separation** — group sends appear only in the group thread, not also in each pair’s DM.
+5. **Text messages** — composer in-thread; `chat_messages` one row per DM/group message; quotes and text share one timeline (`kind: quote | text`).
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); richer outgoing cards (lead-in + next line / spoiler for the sender).
+**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); richer outgoing cards (lead-in + next line / spoiler for the sender); emoji reactions; quotes-only filter.
 
 ### Chats → cross-title mini-games
 

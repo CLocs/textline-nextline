@@ -68,6 +68,8 @@ import {
   listGroupMessages,
   markDmRead,
   markGroupRead,
+  postDmMessage,
+  postGroupMessage,
 } from "./chats.js";
 import {
   addGroupMember,
@@ -377,6 +379,19 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       return jsonResponse({ ok: true }, 200, origin, allowed);
     }
 
+    const dmMessagesMatch = pathname.match(/^\/api\/chats\/dm\/([^/]+)\/messages$/);
+    if (dmMessagesMatch?.[1] && request.method === "POST") {
+      const body = (await readJson(request)) as { body?: unknown } | null;
+      const result = await postDmMessage(
+        env.DB,
+        user,
+        decodeURIComponent(dmMessagesMatch[1]),
+        body?.body,
+      );
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
     const dmMatch = pathname.match(/^\/api\/chats\/dm\/([^/]+)$/);
     if (dmMatch?.[1] && request.method === "GET") {
       const result = await listDmMessages(env.DB, user, decodeURIComponent(dmMatch[1]));
@@ -389,6 +404,19 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const result = await markGroupRead(env.DB, user, decodeURIComponent(groupReadMatch[1]));
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    const groupMessagesMatch = pathname.match(/^\/api\/chats\/group\/([^/]+)\/messages$/);
+    if (groupMessagesMatch?.[1] && request.method === "POST") {
+      const body = (await readJson(request)) as { body?: unknown } | null;
+      const result = await postGroupMessage(
+        env.DB,
+        user,
+        decodeURIComponent(groupMessagesMatch[1]),
+        body?.body,
+      );
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
     }
 
     const groupMatch = pathname.match(/^\/api\/chats\/group\/([^/]+)$/);

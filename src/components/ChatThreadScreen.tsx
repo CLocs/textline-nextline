@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
@@ -7,8 +7,12 @@ import {
   fetchGroupThread,
   markDmRead,
   markGroupRead,
-  type DmMessage,
-  type GroupMessage,
+  postDmChatMessage,
+  postGroupChatMessage,
+  type DmQuoteMessage,
+  type DmThreadMessage,
+  type GroupQuoteMessage,
+  type GroupThreadMessage,
 } from "../lib/chats/api";
 import type { CatalogEntry } from "../types/content";
 import { InboxLineCard } from "./InboxLineCard";
@@ -62,7 +66,24 @@ function OutgoingPreview({
   );
 }
 
-function dmReceiptLabel(receipt: DmMessage["receipt"]): string | null {
+function TextBubble({
+  body,
+  fromLabel,
+  youSent,
+}: {
+  body: string;
+  fromLabel: string;
+  youSent: boolean;
+}) {
+  return (
+    <article className={`chats-text-bubble${youSent ? " is-out" : " is-in"}`}>
+      <p className="chats-text-from muted">{fromLabel}</p>
+      <p className="chats-text-body">{body}</p>
+    </article>
+  );
+}
+
+function dmReceiptLabel(receipt: DmQuoteMessage["receipt"]): string | null {
   if (receipt === "read") return "Read";
   if (receipt === "sent") return "Sent";
   return null;
@@ -75,7 +96,7 @@ function groupReceiptLabel(youSent: boolean, sentCount: number, readCount: numbe
   return `Read ${readCount}/${sentCount}`;
 }
 
-function dmToInboxItem(message: DmMessage): InboxItem {
+function dmToInboxItem(message: DmQuoteMessage): InboxItem {
   return {
     id: message.id,
     shareId: message.shareId,
@@ -86,7 +107,7 @@ function dmToInboxItem(message: DmMessage): InboxItem {
   };
 }
 
-function groupToInboxItem(message: GroupMessage): InboxItem | null {
+function groupToInboxItem(message: GroupQuoteMessage): InboxItem | null {
   if (!message.inboxId) return null;
   return {
     id: message.inboxId,
@@ -107,11 +128,14 @@ export function ChatThreadScreen({
   entries,
   onBack,
 }: Props) {
-  const [dmMessages, setDmMessages] = useState<DmMessage[]>([]);
-  const [groupMessages, setGroupMessages] = useState<GroupMessage[]>([]);
+  const [dmMessages, setDmMessages] = useState<DmThreadMessage[]>([]);
+  const [groupMessages, setGroupMessages] = useState<GroupThreadMessage[]>([]);
   const [title, setTitle] = useState(peerName ?? groupName ?? "Chat");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [draft, setDraft] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -161,6 +185,37 @@ export function ChatThreadScreen({
     return entry ? catalogLabel(entry) : titleId;
   }
 
+  async function handleSend(event: FormEvent) {
+    event.preventDefault();
+    const body = draft.trim();
+    if (!body || sending) return;
+    setSending(true);
+    setSendError(null);
+    const result =
+      mode === "dm" && peerUserId
+        ? await postDmChatMessage(peerUserId, body)
+        : mode === "group" && groupId
+          ? await postGroupChatMessage(groupId, body)
+          : { error: "Missing chat" };
+    setSending(false);
+    if ("error" in result) {
+      setSendError(result.error);
+      return;
+    }
+    setDraft("");
+    if (mode === "dm") {
+      setDmMessages((prev) => [...prev, result.message]);
+    } else {
+      setGroupMessages((prev) => [...prev, result.message]);
+    }
+  }
+
+  const empty =
+    !loading &&
+    !error &&
+    ((mode === "dm" && dmMessages.length === 0) ||
+      (mode === "group" && groupMessages.length === 0));
+
   return (
     <section className="panel chats-thread-panel">
       <button type="button" className="button ghost back-link" onClick={onBack}>
@@ -170,45 +225,63 @@ export function ChatThreadScreen({
         <h2>{title}</h2>
         <p className="muted">
           {mode === "group"
-            ? "Shared group chat — send lines from Curate or Play."
-            : "Direct chat — send lines from Curate or Play."}
+            ? "Shared group chat — type here or send lines from Curate."
+            : "Direct chat — type here or send lines from Curate."}
         </p>
       </div>
 
       {loading ? <p className="muted">Loading…</p> : null}
       {error ? <p className="share-message">{error}</p> : null}
 
-      {!loading && !error && mode === "dm" && dmMessages.length === 0 ? (
-        <p className="muted">No messages yet. Send them a line from Curate.</p>
-      ) : null}
-      {!loading && !error && mode === "group" && groupMessages.length === 0 ? (
-        <p className="muted">No messages yet. Send a line to this group from Curate.</p>
+      {empty ? (
+        <p className="muted">No messages yet. Say hello or send a line from Curate.</p>
       ) : null}
 
       {mode === "dm" ? (
         <ul className="inbox-line-list chats-message-list">
-          {dmMessages.map((message) => (
-            <li key={message.id}>
-              {message.playable ? (
-                <InboxLineCard item={dmToInboxItem(message)} entries={entries} showQuoteActions />
-              ) : (
-                <OutgoingPreview
-                  titleId={message.titleId}
-                  lineIndex={message.lineIndex}
-                  label={entryLabel(message.titleId)}
-                  fromLabel="You sent"
-                  receiptLabel={dmReceiptLabel(message.receipt)}
+          {dmMessages.map((message) =>
+            message.kind === "text" ? (
+              <li key={`t-${message.id}`}>
+                <TextBubble
+                  body={message.body}
+                  fromLabel={message.youSent ? "You" : message.from.displayName}
+                  youSent={message.youSent}
                 />
-              )}
-            </li>
-          ))}
+              </li>
+            ) : (
+              <li key={`q-${message.id}`}>
+                {message.playable ? (
+                  <InboxLineCard item={dmToInboxItem(message)} entries={entries} showQuoteActions />
+                ) : (
+                  <OutgoingPreview
+                    titleId={message.titleId}
+                    lineIndex={message.lineIndex}
+                    label={entryLabel(message.titleId)}
+                    fromLabel="You sent"
+                    receiptLabel={dmReceiptLabel(message.receipt)}
+                  />
+                )}
+              </li>
+            ),
+          )}
         </ul>
       ) : (
         <ul className="inbox-line-list chats-message-list">
           {groupMessages.map((message) => {
+            if (message.kind === "text") {
+              return (
+                <li key={`t-${message.id}`}>
+                  <TextBubble
+                    body={message.body}
+                    fromLabel={message.youSent ? "You" : message.from.displayName}
+                    youSent={message.youSent}
+                  />
+                </li>
+              );
+            }
             const playable = groupToInboxItem(message);
             return (
-              <li key={message.shareId}>
+              <li key={`q-${message.shareId}`}>
                 {playable && message.playable ? (
                   <InboxLineCard item={playable} entries={entries} showQuoteActions />
                 ) : (
@@ -233,6 +306,33 @@ export function ChatThreadScreen({
           })}
         </ul>
       )}
+
+      {!loading && !error ? (
+        <form className="chats-composer" onSubmit={(event) => void handleSend(event)}>
+          <label className="sr-only" htmlFor="chat-composer-input">
+            Message
+          </label>
+          <textarea
+            id="chat-composer-input"
+            rows={2}
+            maxLength={1000}
+            value={draft}
+            placeholder="Write a message…"
+            disabled={sending}
+            onChange={(event) => setDraft(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                void handleSend(event);
+              }
+            }}
+          />
+          <button type="submit" className="button primary" disabled={sending || !draft.trim()}>
+            {sending ? "Sending…" : "Send"}
+          </button>
+          {sendError ? <p className="share-message">{sendError}</p> : null}
+        </form>
+      ) : null}
     </section>
   );
 }
