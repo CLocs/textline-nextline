@@ -410,6 +410,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
 - [ ] **UGC quotes (IG / YT)** — paste a link, infer or type **one** line into a personal library. See [Quotes from anywhere](#quotes-from-anywhere-lay-person).
 - [ ] **YouTube videos as titles** — paste a video URL → pull timed transcript → star / parallel packs → optional scene frames. See [YouTube videos as titles](#youtube-videos-as-titles).
+- [ ] **Chats → quote replies** — text replies under a quote card (thread-lite). See [Chats → quote replies](#chats--quote-replies).
 - [ ] **Chats → cross-title mini-games** — multi-select lines in a thread (any titles) → save as a custom mini-game. See [Chats → cross-title mini-games](#chats--cross-title-mini-games).
 - [ ] **Songs** — lyrics as transcripts; song library + mini-games. See [Later ideas](#later-ideas-parked).
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
@@ -417,7 +418,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Line / still feedback** — players report wrong scene image, request a scene image, or ask to split a line. See [Later ideas](#line--still-feedback).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
-- [ ] **Share quote as image** — caption-below still + meme-on-image; IG swatches later. See [Share quote as image](#share-quote-as-image).
+- [x] **Share quote as image** — caption-below + on-image via Share → Export image; IG swatches later. See [Share quote as image](#share-quote-as-image).
 - [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). Builds on share cards. See [Daily quote email](#daily-quote-email).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
@@ -501,7 +502,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** and **Daily quote email** stay parked (build share formats first, then email).
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** v1 is in (swatches later). **Daily quote email** and **Chats quote replies** stay parked.
 
 ### Loved / double-star quotes ✅
 
@@ -539,13 +540,25 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 4. **Separation** — group sends appear only in the group thread, not also in each pair’s DM.
 5. **Text messages** — composer in-thread; `chat_messages` one row per DM/group message; quotes and text share one timeline (`kind: quote | text`).
 6. **Thread scroll UX** — message list scrolls inside the panel; composer stays put; open/send land on latest; **↓ Latest** when scrolled up.
-7. **Richer quote cards** — outgoing + solved incoming show lead-in; outgoing next line behind **Reveal next line** (auto-reveals with **Correct** after the peer solves).
+7. **Richer quote cards** — outgoing + solved incoming show lead-in; outgoing always shows the next line (sender already knows it); **Correct** appears in the header after the peer solves.
 8. **Quotes-only filter** — All / Quotes toggle in the thread header (client-side; sending text returns you to All).
 9. **Emoji reactions** — 👍❤️😂😮🔥 on text and quote cards (`chat_reactions`; quote target = `share_id`).
 10. **Answered receipt** — peer `line_inbox.solved_at`; sender sees **Correct** + next line on their outgoing card.
 11. **Near-real-time refresh** — open thread polls ~4s; chat list ~8s; unread badges ~12s (pause when tab hidden). True push/WebSockets later if needed.
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
+**Still later:** [replies under quote cards](#chats--quote-replies); attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
+
+### Chats → quote replies
+
+**Why:** A quote card is the unit of play in a thread. People often want to talk *about that line* without the reply floating as a free-floating timeline message.
+
+**Shape *(parked)*:**
+
+1. **Reply** on a quote card (incoming or outgoing) — short text that lives **under that card**, not as a peer of every other message.
+2. Nested under the quote in the All view (and still visible under Quotes if we keep replies tied to the card).
+3. Optional later: reply-to-text bubbles the same way; deep threads / collapse — start flat (one level under the quote).
+
+**Not this:** Discord-style channel threads, or moving the whole chat into per-quote rooms. Same DM/group thread; replies are scoped to a `share_id` (or message id).
 
 ### Chats → cross-title mini-games
 
@@ -682,31 +695,24 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 **Open questions (Medium+):** pack ownership vs communal; UGC/ToS for URLs; moderation.
 
-### Share quote as image
+### Share quote as image ✅
 
-**Idea:** Readwise-style **Share as image** — from a quote (Curate, Play, Chat card, or a future daily-review surface), open a modal, pick a **format**, Save / Share. Readwise path is email → website cards → Share → select format; we **work backwards**: ship in-app share first, then formats, then the email that links into cards.
+**Idea:** Readwise-style **Share as image** — from a quote (Curate, Play, Chat), open a modal, pick a **format**, Download / Share. Readwise path is email → website cards → Share → select format; we **worked backwards**: in-app export first, then daily email later.
 
-**Formats (v1 — two):**
+**Shipped (v1):**
 
-1. **Caption below** — scene still on top (unobstructed); quote (+ title / attribution) under the frame. Best when the frame is the hero.
-2. **Meme / on-image** — quote overlaid on the still so the JPEG/PNG is the whole post (Stories, iMessage, Discord).
+1. **Export image** in the paper-plane Share menu (Curate / Play / Chat) — works without sign-in; Send / Copy stay auth-gated.
+2. **Caption below** — scene still on top; quote + title + TLNL under the frame.
+3. **On image** — quote overlaid on a veiled still (or brand fallback).
+4. Client canvas PNG (1080×1350); still → poster → brand gradient fallback. Shares the **prompt line** only (not the next line).
 
-**Later (3):** light customization like IG/Snapchat — palette swatches, a few layouts (Clean / Classic / Pretty-ish), aspect (square / wide / story). Not a full design studio.
+**Later:** palette / layout / aspect swatches; [Daily quote email](#daily-quote-email) cards → open TLNL → Export image.
 
-**Rough shape:** Client canvas (or SVG → PNG) using existing `/stills/{titleId}/{lineIndex}.jpg` when present, else poster / solid brand fallback. Entry from Curate line row, chat quote actions, maybe Play after solve. No server render required for v1.
-
-**Suggested build order:**
-
-1. One share path that exports **caption-below** for a starred/shared line with a still.
-2. Add **meme / on-image** as a second selectable format.
-3. Optional swatches / aspect.
-4. Wire [Daily quote email](#daily-quote-email) cards → “open in TLNL → Share image.”
-
-**Gates:** still coverage (many lines have no frame yet); spoiler (textline vs nextline — default share the prompt line, not the answer); watermark / brand lockup so cards look like TLNL.
+**Gates still true:** still coverage (many lines have no frame yet); spoiler default stays textline.
 
 ### Daily quote email
 
-**Idea:** A Readwise-style daily: ~**3 quotes** as cards in an email. Clicking a card opens **TLNL** (deep link into play, a 1-line share, or a parallel pack — TBD), not a dead static page. Prefer landing on a surface that can **Share as image** once that ships.
+**Idea:** A Readwise-style daily: ~**3 quotes** as cards in an email. Clicking a card opens **TLNL** (deep link into play, a 1-line share, or a parallel pack — TBD), not a dead static page. Prefer landing on a surface that can **Export image** (Share menu).
 
 **Why:** Habit loop without opening the app cold; surfaces curated / loved / starred lines to the owner (and maybe friends later).
 
@@ -753,6 +759,7 @@ Complements Teach mode; this is first-impression chrome, not a new game mode.
 | **Friends graph** | Invite link, accept, list, remove, block; hashed tokens; no directory | ✅ Mutual add-me links from Profile → Friends |
 | **Question inbox** | Curate send icon; friend inbox + optional 1-line `#/play` copy | ✅ Directed one-question play, not an anonymous 10-pack |
 | **Next — Chats** | Per-friend DMs + shared group threads on Home | ✅ See [Chats](#chats-dms--shared-group-threads) |
+| **Later — Chats quote replies** | Text replies under a quote card (thread-lite) | Parked — see [Chats → quote replies](#chats--quote-replies) |
 | **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
@@ -767,7 +774,7 @@ Complements Teach mode; this is first-impression chrome, not a new game mode.
 | **Exploratory — UGC + songs** | IG/YT single-quote paste; lyrics as transcripts | Catalog beyond our SRT library |
 | **Exploratory — YouTube titles** | Paste video URL → timed transcript → stars / packs; frames later | Whole videos as playable titles — see [YouTube videos as titles](#youtube-videos-as-titles) |
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
-| **Later — Share quote as image** | Caption-below + meme-on-still; IG swatches later | Exportable quote cards — see [Share quote as image](#share-quote-as-image) |
+| **Later — Share quote as image** | Caption-below + on-image; IG swatches later | ✅ v1 Export image in Share menu — see [Share quote as image](#share-quote-as-image) |
 | **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop after share cards — see [Daily quote email](#daily-quote-email) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 
@@ -852,7 +859,8 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
 - **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
 - **Question inbox** — ✅ Curate + Play send icon; Inbox/Home are inline quiz cards that compress after a correct guess. See [Later ideas](#later-ideas-parked).
-- **Chats (DMs + group threads on Home)** — ✅ `#/chats`, DM + shared group threads; Home rail; server unread. Attempt scores still later. See [Chats](#chats-dms--shared-group-threads).
+- **Chats (DMs + group threads on Home)** — ✅ `#/chats`, DM + shared group threads; Home rail; server unread. Quote replies + attempt scores still later. See [Chats](#chats-dms--shared-group-threads).
+- **Chats → quote replies** *(parked)* — Reply under a quote card (scoped to that share); lives under the card, not as a free-floating timeline peer. See [Chats → quote replies](#chats--quote-replies).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
@@ -863,7 +871,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - **Line / still feedback** *(later)* — on a textline: wrong scene image, request a scene image, split line. Catalog queue, not live edits. See [Later ideas](#line--still-feedback).
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
-- **Share quote as image** *(parked)* — Caption-below still + meme-on-image; customization later; then daily email. See [Share quote as image](#share-quote-as-image).
+- **Share quote as image** — ✅ Share → **Export image**; Caption below / On image; Download PNG (+ Web Share when available). Swatches + daily email later. See [Share quote as image](#share-quote-as-image).
 - **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).
 
