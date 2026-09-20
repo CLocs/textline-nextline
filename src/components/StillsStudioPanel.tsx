@@ -14,13 +14,14 @@ import {
   type StudioQueueResponse,
 } from "../lib/content/stillsStudioApi";
 
-import { pickNextStudioMethod, studioMethodsForShow, type StudioVote } from "../lib/content/stillsStudioMethods";
+import { describeStudioMethod, pickNextStudioMethod, recordTriedMethodIds, studioMethodFromId, type StudioMethod, type StudioVote } from "../lib/content/stillsStudioMethods";
 import type { StudioExtractMode } from "../lib/content/stillsStudioTypes";
 
 const SIMPSONS_OFFSET_MS = -57_000;
 
 type Props = {
   initialShow?: string;
+  initialTitleId?: string | null;
 };
 
 function statusLabel(status: StudioEpisode["status"]): string {
@@ -38,7 +39,21 @@ function knobClass(active: boolean): string {
   return `button${active ? " is-active" : ""}`;
 }
 
-export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
+function formatOffsetLabel(ms: number): string {
+  const sec = ms / 1000;
+  if (sec === 0) return "0s";
+  return `${sec > 0 ? "+" : ""}${Number.isInteger(sec) ? String(sec) : sec.toFixed(1)}s`;
+}
+
+type AppliedMethod = {
+  offsetMs: number;
+  timeScale: number;
+  seek: "start" | "mid";
+  label: string;
+  id?: string;
+};
+
+export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId = null }: Props) {
   const [available, setAvailable] = useState<boolean | null>(null);
   const [shows, setShows] = useState<{ show: string; directory: string; directoryExists: boolean }[]>([]);
   const [show, setShow] = useState(initialShow);
@@ -54,7 +69,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
   const [bust, setBust] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
   const [busyKind, setBusyKind] = useState<StudioExtractMode | "push" | null>(null);
+  const [busyMethodId, setBusyMethodId] = useState<string | null>(null);
   const busyRef = useRef(false);
+  const openedTitleRef = useRef<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
 
@@ -105,6 +122,12 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
     setShow(initialShow);
   }, [initialShow]);
 
+  useEffect(() => {
+    if (!selectedId) return;
+    const row = document.querySelector(`[data-title-id="${CSS.escape(selectedId)}"]`);
+    row?.scrollIntoView({ block: "nearest" });
+  }, [selectedId, frames.length]);
+
   const selected = queue?.episodes.find((row) => row.titleId === selectedId) ?? episode;
   const gallery = selected?.status === "batched" || selected?.status === "pushed";
   const downed = frames.filter((frame) => votes[frame.lineIndex] === "down");
@@ -120,11 +143,14 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
         frameOrder: frames.length > 0 ? frames.map((frame) => frame.lineIndex) : selected.handful,
       })
     : null;
-  const triedLabels = useMemo(() => {
+  const triedRecipes = useMemo(() => {
     if (!selected) return [];
-    const names = new Map(studioMethodsForShow(show).map((row) => [row.id, row.label]));
-    return selected.triedMethodIds.map((id) => names.get(id) ?? id.replace(/^custom:/, "Custom "));
+    const ids = recordTriedMethodIds(selected.triedMethodIds, selected.methodId);
+    return ids
+      .map((id) => studioMethodFromId(show, id))
+      .filter((row): row is StudioMethod => Boolean(row));
   }, [selected, show]);
+  const liveRecipeId = describeStudioMethod(show, { offsetMs, timeScale, seek }).id;
 
   const counts = useMemo(() => {
     const tallies = { "no-file": 0, ready: 0, review: 0, approved: 0, batched: 0, pushed: 0 };
@@ -169,10 +195,25 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
     }
   }
 
-  async function runExtract(mode: StudioExtractMode) {
+  useEffect(() => {
+    if (available !== true || !initialTitleId || !queue) return;
+    if (openedTitleRef.current === initialTitleId) return;
+    openedTitleRef.current = initialTitleId;
+    if (!queue.episodes.some((row) => row.titleId === initialTitleId)) {
+      setError(`That title is not in the ${show} stills queue.`);
+      return;
+    }
+    void selectEpisode(initialTitleId);
+  }, [available, initialTitleId, queue, show]);
+
+  async function runExtract(mode: StudioExtractMode, applied?: AppliedMethod) {
     if (!selectedId || busyRef.current) return;
     busyRef.current = true;
+    const nextOffset = applied?.offsetMs ?? offsetMs;
+    const nextScale = applied?.timeScale ?? timeScale;
+    const nextSeek = applied?.seek ?? seek;
     setBusyKind(mode);
+    setBusyMethodId(applied?.id ?? null);
     setBusy(
       mode === "batch"
         ? "Extracting remaining stars — this can take a minute…"
@@ -180,7 +221,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
           ? `Trying ${nextMethod?.label ?? "next recipe"}…`
           : mode === "shuffle"
             ? "Picking six other frames…"
-            : "Extracting frames…",
+            : applied
+              ? `Trying ${applied.label}…`
+              : "Extracting frames…",
     );
     setError(null);
     setNotice(null);
@@ -191,10 +234,10 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       const result = await runStudioExtract({
         titleId: selectedId,
         mode,
-        offsetMs,
-        timeScale,
+        offsetMs: nextOffset,
+        timeScale: nextScale,
         lineOffsets,
-        seek,
+        seek: nextSeek,
         votes: mode === "smart" ? votes : undefined,
       });
       setEpisode(result.episode);
@@ -206,11 +249,11 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       setBust(Date.now());
       setVotes({});
       await refreshQueue();
-      if (mode === "smart") {
+      if (mode === "smart" || applied) {
         setNotice(`Now: ${result.method.label}. ${result.method.why}`);
       }
       if (mode === "shuffle") {
-        setNotice("Shuffled to six other cues. Same timing as before.");
+        setNotice("Shuffled to six other cues. Tap a previous recipe to retry that timing.");
       }
       if (mode === "batch") {
         setNotice(
@@ -231,6 +274,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       busyRef.current = false;
       setBusy(null);
       setBusyKind(null);
+      setBusyMethodId(null);
     }
   }
 
@@ -282,13 +326,44 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
 
   function renderRetryTools(context: "review" | "gallery") {
     const galleryHint = selected?.status === "pushed"
-      ? `Wrong timing? Smart retry six frames. This un-pushes until you batch and push again.${nextMethod ? ` Next up: ${nextMethod.label}.` : ""}`
-      : `Wrong timing? Smart retry six frames. This drops the batch until you thumbs-up again.${nextMethod ? ` Next up: ${nextMethod.label}.` : ""}`;
+      ? `Wrong timing? Retry six frames — this un-pushes until you batch and push again.${nextMethod ? ` Next up: ${nextMethod.label}.` : " Tap a previous recipe to retry that timing."}`
+      : `Wrong timing? Retry six frames — this drops the batch until you thumbs-up again.${nextMethod ? ` Next up: ${nextMethod.label}.` : " Tap a previous recipe to retry that timing."}`;
     return (
       <>
-        {triedLabels.length > 0 ? (
-          <p className="muted stills-tried">
-            Tried: {triedLabels.join(" → ")}
+        {triedRecipes.length > 0 ? (
+          <div className="stills-tried-row">
+            <p className="muted stills-tried">Tried:</p>
+            {triedRecipes.map((recipe) => {
+              const active = recipe.id === liveRecipeId;
+              const pending = busyMethodId === recipe.id;
+              return (
+                <button
+                  key={recipe.id}
+                  type="button"
+                  className={knobClass(active)}
+                  disabled={Boolean(busy)}
+                  aria-pressed={active}
+                  aria-busy={pending}
+                  title={recipe.why}
+                  onClick={() =>
+                    void runExtract("retry", {
+                      id: recipe.id,
+                      offsetMs: recipe.offsetMs,
+                      timeScale: recipe.timeScale,
+                      seek: recipe.seek,
+                      label: recipe.label,
+                    })
+                  }
+                >
+                  {pending && busy ? busy : recipe.label}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
+        {busyMethodId && busy ? (
+          <p className="stills-studio-busy" role="status" aria-live="polite">
+            {busy}
           </p>
         ) : null}
         <div className="stills-retry-stack">
@@ -298,10 +373,10 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
             <p className="muted">
               {anyDown
                 ? `Next: ${nextMethod.label} — ${nextMethod.why}`
-                : `Thumb the six, shuffle for other cues, or skip ahead with Smart retry. Next up: ${nextMethod.label}.`}
+                : `Thumb the six, shuffle for other cues, or tap a previous recipe. Next up: ${nextMethod.label}.`}
             </p>
           ) : (
-            <p className="muted">Tried every recipe. Shuffle the six, or use the knobs / per-line ±1s.</p>
+            <p className="muted">Tried every named recipe. Tap one above to retry it on these six, or use the knobs.</p>
           )}
           <div className="row">
             {nextMethod ? (
@@ -368,13 +443,25 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
             </button>
           </div>
           <p className="muted">PAL is for 25fps DVD rips. Simpsons NTSC stays off unless late frames drift.</p>
+          <p className="muted">
+            Offset now {formatOffsetLabel(offsetMs)}. Each tap adds, so +1s three times is +3s.
+          </p>
           <div className="row">
-            {[-10, -5, -1, 1, 5, 10].map((sec) => (
-              <button key={sec} type="button" className="button ghost" onClick={() => nudgeOffset(sec * 1000)}>
-                {sec > 0 ? "+" : ""}
-                {sec}s
-              </button>
-            ))}
+            {[-10, -5, -1, 1, 5, 10].map((sec) => {
+              const active = offsetMs === sec * 1000;
+              return (
+                <button
+                  key={sec}
+                  type="button"
+                  className={knobClass(active)}
+                  aria-pressed={active}
+                  onClick={() => nudgeOffset(sec * 1000)}
+                >
+                  {sec > 0 ? "+" : ""}
+                  {sec}s
+                </button>
+              );
+            })}
           </div>
           <button
             type="button"
@@ -605,7 +692,11 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
           </thead>
           <tbody>
             {(queue?.episodes ?? []).map((row) => (
-              <tr key={row.titleId} className={row.titleId === selectedId ? "is-selected" : ""}>
+              <tr
+                key={row.titleId}
+                data-title-id={row.titleId}
+                className={row.titleId === selectedId ? "is-selected" : ""}
+              >
                 <td>
                   {row.label}
                   {row.durationWarn ? <span className="muted"> · short file</span> : null}

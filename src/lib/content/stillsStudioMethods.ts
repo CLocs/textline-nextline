@@ -129,6 +129,21 @@ export function describeStudioMethod(show: string, settings: StudioMethodSetting
   };
 }
 
+const CUSTOM_ID = /^custom:(-?\d+):(0\.96|1):(start|mid)$/;
+
+/** Named recipe or a `custom:offset:scale:seek` id from a previous extract. */
+export function studioMethodFromId(show: string, id: string): StudioMethod | null {
+  const named = studioMethodsForShow(show).find((row) => row.id === id);
+  if (named) return named;
+  const match = CUSTOM_ID.exec(id);
+  if (!match) return null;
+  return describeStudioMethod(show, {
+    offsetMs: Number(match[1]),
+    timeScale: match[2] === "0.96" ? 0.96 : 1,
+    seek: match[3] === "mid" ? "mid" : "start",
+  });
+}
+
 export function studioVoteHint(
   frameOrder: number[],
   votes: Record<number, StudioVote> | Record<string, StudioVote> | undefined,

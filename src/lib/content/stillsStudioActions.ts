@@ -349,6 +349,7 @@ export function studioExtract(
     source: episode.videoPath,
     handful,
     approvedAt: opts.mode === "batch" ? previous?.approvedAt ?? now : undefined,
+    // Handful/smart/retry after a batch must drop these so the six-frame review returns.
     batchedAt: opts.mode === "batch" ? now : undefined,
     pushedAt: clearingReview ? undefined : previous?.pushedAt,
     methodId: opts.mode === "batch" || opts.mode === "shuffle" ? previous?.methodId ?? method.id : method.id,

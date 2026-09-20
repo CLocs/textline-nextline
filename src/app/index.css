@@ -1744,9 +1744,22 @@ code {
 }
 
 .stills-queue-wrap {
-  max-height: 22rem;
+  max-height: min(72vh, calc(100vh - 11rem));
+  min-height: 22rem;
   overflow: auto;
   margin-top: 1rem;
+}
+
+.stills-studio:has(.stills-review) .stills-queue-wrap {
+  max-height: min(42vh, 32rem);
+  min-height: 14rem;
+}
+
+.stills-queue-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--bg-raised);
+  z-index: 1;
 }
 
 .stills-queue-table tr.is-selected td {
@@ -1792,6 +1805,31 @@ code {
   font-size: 0.85rem;
 }
 
+.stills-tried-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.stills-tried-row .button {
+  font-size: 0.82rem;
+  padding: 0.4rem 0.7rem;
+}
+
+.stills-sync-controls .button.is-active {
+  background: var(--ink);
+  color: var(--lime);
+  border-color: var(--ink);
+  font-weight: 700;
+}
+
+.stills-sync-controls .button.is-active:hover {
+  background: var(--grape);
+  color: var(--lime);
+  border-color: var(--grape);
+}
+
 .stills-knobs {
   display: grid;
   gap: 0.65rem;
@@ -1800,19 +1838,6 @@ code {
 .stills-knobs summary {
   cursor: pointer;
   font-weight: 600;
-}
-
-.stills-knobs .button.is-active {
-  background: var(--ink);
-  color: var(--lime);
-  border-color: var(--ink);
-  font-weight: 700;
-}
-
-.stills-knobs .button.is-active:hover {
-  background: var(--grape);
-  color: var(--lime);
-  border-color: var(--grape);
 }
 
 .stills-frame-card {

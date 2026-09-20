@@ -3,6 +3,7 @@ import { SIMPSONS_THEME_OFFSET_MS } from "../src/lib/content/extractStills.js";
 import {
   describeStudioMethod,
   pickNextStudioMethod,
+  studioMethodFromId,
   studioMethodsForShow,
   studioVoteHint,
 } from "../src/lib/content/stillsStudioMethods.js";
@@ -82,6 +83,17 @@ describe("pickNextStudioMethod", () => {
         frameOrder: FRAMES,
       }),
     ).toBeNull();
+  });
+
+  it("rebuilds a custom recipe so it can be retried after a shuffle", () => {
+    const custom = studioMethodFromId("Movies", "custom:5000:0.96:start");
+    expect(custom).toMatchObject({
+      offsetMs: 5000,
+      timeScale: 0.96,
+      seek: "start",
+    });
+    expect(studioMethodFromId("Movies", "zero")?.label).toBe("No offset");
+    expect(studioMethodFromId("Movies", "nope")).toBeNull();
   });
 
   it("labels unmatched knobs as custom so the next named recipe still runs", () => {

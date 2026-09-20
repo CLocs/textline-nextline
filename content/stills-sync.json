@@ -84,24 +84,27 @@
   "payback-1999": {
     "offsetMs": 0,
     "timeScale": 1,
-    "encode": "mp4-h264-23976-dc",
+    "encode": "mp4-h264-23976-theatrical",
     "source": "G:\\videos\\movies\\Payback (1999).mp4",
     "fps": 23.976,
     "durationSec": 6081.024,
     "handful": [
-      77,
-      187,
-      336,
-      486,
-      635,
-      805
+      148,
+      297,
+      344,
+      438,
+      648,
+      748
     ],
     "note": "Studio batch 78 stills.",
-    "approvedAt": "2026-09-20T22:19:55.410Z",
     "seek": "start",
     "lineOffsets": {},
-    "batchedAt": "2026-09-20T22:20:08.827Z",
-    "methodId": "zero"
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "approvedAt": "2026-09-20T22:58:14.461Z",
+    "batchedAt": "2026-09-20T22:58:30.482Z"
   },
   "inglourious-basterds-2009": {
     "offsetMs": 0,
@@ -114,10 +117,25 @@
   "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": {
     "offsetMs": 0,
     "encode": "mkv-hevc-23976-extended",
-    "source": "G:/videos/movies/The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv",
+    "source": "G:\\videos\\movies\\The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv",
     "fps": 23.976,
-    "durationSec": 13691.78,
-    "note": "EXTENDED 1080p HEVC ~3:48 vs theatrical ~2:58 — expect drift vs SRT. Skipped remux (5.4 GB). Handful of 6/137 at scale 1. Do not batch/R2 until eyeball."
+    "durationSec": 13691.777,
+    "note": "Studio batch 137 stills.",
+    "timeScale": 1,
+    "seek": "start",
+    "lineOffsets": {},
+    "handful": [
+      216,
+      719,
+      975,
+      1016,
+      1368,
+      1486
+    ],
+    "methodId": "zero",
+    "approvedAt": "2026-09-20T22:51:16.090Z",
+    "batchedAt": "2026-09-20T22:51:54.397Z",
+    "pushedAt": "2026-09-20T22:53:25.035Z"
   },
   "the-gentlemen-2019": {
     "offsetMs": 0,
@@ -174,28 +192,29 @@
     "pushedAt": "2026-09-20T21:48:54.644Z"
   },
   "the-simpsons---4x04---lisa-the-beauty-queenen": {
-    "offsetMs": -62000,
+    "offsetMs": -57000,
     "timeScale": 1,
     "lineOffsets": {},
     "durationSec": 1226.762,
     "source": "G:\\videos\\shows\\Simpsons\\S04E04 - The Simpsons - Lisa The Beauty Queen (English).Avi",
     "handful": [
-      0,
-      72,
-      133,
-      193,
-      260,
-      323
+      68,
+      90,
+      137,
+      167,
+      215,
+      255
     ],
-    "note": "Studio smart Theme skip −62s (0,72,133,193,260,323).",
+    "note": "Studio retry Theme skip −57s (68,90,137,167,215,255).",
     "seek": "start",
     "fps": 29.965060240963854,
-    "methodId": "theme-62",
+    "methodId": "theme-57",
     "triedMethods": [
       "custom:-55000:0.96:start",
       "theme-57",
       "theme-52",
-      "theme-62"
+      "theme-62",
+      "theme-57-pal"
     ]
   },
   "the-simpsons---4x05---treehouse-of-horror-iiien": {

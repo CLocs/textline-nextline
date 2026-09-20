@@ -55,6 +55,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   const [sortDir, setSortDir] = useState<CatalogOpsSortDir>("asc");
   const [tab, setTab] = useState<"catalog" | "stills">("catalog");
   const [stillsShow, setStillsShow] = useState("The Simpsons");
+  const [stillsTitleId, setStillsTitleId] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -124,13 +125,22 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
         <button
           type="button"
           className={`button ghost${tab === "stills" ? " is-active" : ""}`}
-          onClick={() => setTab("stills")}
+          onClick={() => {
+            setStillsTitleId(null);
+            setTab("stills");
+          }}
         >
           Stills
         </button>
       </div>
 
-      {tab === "stills" ? <StillsStudioPanel initialShow={stillsShow} /> : null}
+      {tab === "stills" ? (
+        <StillsStudioPanel
+          key={`${stillsShow}:${stillsTitleId ?? ""}`}
+          initialShow={stillsShow}
+          initialTitleId={stillsTitleId}
+        />
+      ) : null}
 
       {tab === "catalog" ? (
       <div className="ops-table-wrap">
@@ -171,7 +181,13 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
                         type="button"
                         className="button ghost ops-review-stills"
                         onClick={() => {
-                          setStillsShow(row.kind === "movie" ? "Movies" : row.label);
+                          if (row.kind === "movie") {
+                            setStillsShow("Movies");
+                            setStillsTitleId(row.key);
+                          } else {
+                            setStillsShow(row.label);
+                            setStillsTitleId(null);
+                          }
                           setTab("stills");
                         }}
                       >
