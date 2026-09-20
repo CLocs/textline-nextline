@@ -1,30 +1,40 @@
 import { existsSync } from "node:fs";
+import { spawn } from "node:child_process";
 import { join } from "node:path";
 import type { CatalogEntry, Title } from "../../types/content.js";
 import { loadCatalog, loadTitle, titlePath } from "./load.js";
-import {
-  loadStillsSyncFile,
-  seekModeForTitle,
-  type StillsSyncFile,
-} from "./extractStills.js";
-import { countStillsByTitle } from "./mediaUploads.js";
+import type { CueSeek, StillsSyncFile } from "./extractStills.js";
+import { loadStillsSyncFile, seekModeForTitle } from "./extractStills.js";
+import { countStillsByTitle, upsertStillsCoverageTitle } from "./mediaUploads.js";
 import { fetchOwnerStarMap, starCountsFromMap, type OwnerStarMap } from "./stillsD1.js";
-import { pushPreviewStills } from "./stillsPush.js";
+import { listPreviewStillFiles, pushPreviewStills } from "./stillsPush.js";
 import {
   buildShowQueue,
   durationPastEof,
   extractTitleStills,
   handfulFromStars,
+  shuffleHandfulFromStars,
   lastCueStartMsOf,
   listHandfulFrames,
+  listPreviewStillIndices,
   mergeSyncEntry,
+  previewDirForTitle,
   probeDurationSec,
+  probeFps,
   remuxIfNeeded,
   STUDIO_SKIP_TITLE_IDS,
   videoDirForShow,
   writeStillsSyncFile,
+  MOVIES_STUDIO_SHOW,
+  isMoviesStudioShow,
 } from "./stillsStudio.js";
-import type { StudioExtractMode, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
+import {
+  describeStudioMethod,
+  pickNextStudioMethod,
+  recordTriedMethodIds,
+  type StudioVote,
+} from "./stillsStudioMethods.js";
+import type { StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue } from "./stillsStudioTypes.js";
 
 const TITLE_ID_RE = /^[a-z0-9-]+$/i;
 
@@ -43,6 +53,7 @@ export function createStudioContext(packageRoot: string): StudioContext {
 }
 
 let starCache: { stars: OwnerStarMap; remote: boolean; error?: string; at: number } | null = null;
+let pushJob: StudioPushJob | null = null;
 const STAR_TTL_MS = 5 * 60 * 1000;
 
 function loadStars(ctx: StudioContext, force = false): { stars: OwnerStarMap; remote: boolean; error?: string } {
@@ -60,15 +71,23 @@ function catalogShows(entries: CatalogEntry[]): string[] {
     const show = entry.meta?.show?.trim();
     if (show) names.add(show);
   }
+  if (entries.some((entry) => !entry.meta?.show && entry.id !== "sample-episode")) {
+    names.add(MOVIES_STUDIO_SHOW);
+  }
   return [...names].sort((a, b) => a.localeCompare(b));
 }
 
 function titlesNeeded(entries: CatalogEntry[], show: string, sync: StillsSyncFile): Map<string, Title> {
   const map = new Map<string, Title>();
+  const movies = isMoviesStudioShow(show);
   for (const entry of entries) {
-    if (entry.meta?.show !== show) continue;
+    if (movies) {
+      if (entry.meta?.show || entry.id === "sample-episode") continue;
+    } else if (entry.meta?.show !== show) {
+      continue;
+    }
     if (STUDIO_SKIP_TITLE_IDS.includes(entry.id)) continue;
-    if (!sync[entry.id]?.durationSec) continue;
+    if (!movies && !sync[entry.id]?.durationSec) continue;
     if (!existsSync(titlePath(entry.id))) continue;
     map.set(entry.id, loadTitle(entry.id));
   }
@@ -77,6 +96,10 @@ function titlesNeeded(entries: CatalogEntry[], show: string, sync: StillsSyncFil
 
 export function studioHealth(): { ok: true } {
   return { ok: true };
+}
+
+export function studioCoverage(ctx: StudioContext): { titles: Record<string, number> } {
+  return { titles: countStillsByTitle(ctx.previewRoot) };
 }
 
 export function listStudioShows(ctx: StudioContext): { shows: { show: string; directory: string; directoryExists: boolean }[] } {
@@ -120,13 +143,55 @@ function findEpisode(ctx: StudioContext, titleId: string) {
   const title = loadTitle(titleId);
   const catalog = loadCatalog();
   const entry = catalog.titles.find((row) => row.id === titleId);
-  const show = entry?.meta?.show?.trim() || "";
+  const show = entry?.meta?.show?.trim() || MOVIES_STUDIO_SHOW;
   const queue = studioQueue(ctx, show);
   const episode = queue.episodes.find((row) => row.titleId === titleId);
   if (!episode) {
     throw new Error(`Episode is not in the stills queue (skipped or not a show): ${titleId}`);
   }
   return { title, entry, show, episode, queue };
+}
+
+function framesForEpisode(
+  ctx: StudioContext,
+  title: ReturnType<typeof loadTitle>,
+  episode: ReturnType<typeof findEpisode>["episode"],
+): StudioFrame[] {
+  const sync = loadStillsSyncFile(ctx.syncPath);
+  const destDir = join(ctx.previewRoot, title.id);
+  const showAll = episode.status === "batched" || episode.status === "pushed";
+  const fromDisk = listPreviewStillIndices(destDir);
+  const indices =
+    showAll && fromDisk.length > 0
+      ? fromDisk
+      : episode.handful.length > 0
+        ? episode.handful
+        : fromDisk;
+  return listHandfulFrames({
+    packageRoot: ctx.packageRoot,
+    title,
+    indices,
+    offsetMs: episode.offsetMs,
+    timeScale: episode.timeScale,
+    lineOffsets: episode.lineOffsets,
+    seek: seekModeForTitle(sync, title.id),
+  });
+}
+
+function upsertCoverageForTitle(ctx: StudioContext, titleId: string): void {
+  upsertStillsCoverageTitle(
+    join(ctx.packageRoot, "content", "stills-coverage.json"),
+    titleId,
+    join(ctx.previewRoot, titleId),
+  );
+}
+
+function openLocalFolder(folder: string): void {
+  if (process.platform === "win32") {
+    spawn("explorer", [folder], { detached: true, stdio: "ignore" }).unref();
+    return;
+  }
+  spawn("xdg-open", [folder], { detached: true, stdio: "ignore" }).unref();
 }
 
 export function studioEpisode(
@@ -136,19 +201,11 @@ export function studioEpisode(
   episode: ReturnType<typeof findEpisode>["episode"];
   frames: StudioFrame[];
   show: string;
+  previewDir: string;
 } {
   const id = requireTitleId(titleId);
   const { title, episode, show } = findEpisode(ctx, id);
-  const frames = listHandfulFrames({
-    packageRoot: ctx.packageRoot,
-    title,
-    indices: episode.handful,
-    offsetMs: episode.offsetMs,
-    timeScale: episode.timeScale,
-    lineOffsets: episode.lineOffsets,
-    seek: seekModeForTitle(loadStillsSyncFile(ctx.syncPath), id),
-  });
-  return { episode, frames, show };
+  return { episode, frames: framesForEpisode(ctx, title, episode), show, previewDir: previewDirForTitle(id) };
 }
 
 export type ExtractResponse = {
@@ -158,7 +215,22 @@ export type ExtractResponse = {
   failed: number;
   durationWarn: boolean;
   mode: StudioExtractMode;
+  previewDir: string;
+  method: { id: string; label: string; why: string };
 };
+
+function parseSeek(raw: unknown, fallback: CueSeek): CueSeek {
+  return raw === "mid" || raw === "start" ? raw : fallback;
+}
+
+export function parseStudioVotes(raw: unknown): Record<string, StudioVote> | undefined {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return undefined;
+  const votes: Record<string, StudioVote> = {};
+  for (const [key, value] of Object.entries(raw as Record<string, unknown>)) {
+    if (value === "up" || value === "down") votes[key] = value;
+  }
+  return Object.keys(votes).length > 0 ? votes : undefined;
+}
 
 export function studioExtract(
   ctx: StudioContext,
@@ -168,29 +240,58 @@ export function studioExtract(
     offsetMs?: number;
     timeScale?: number;
     lineOffsets?: Record<string, number>;
+    seek?: CueSeek;
+    votes?: Record<string, StudioVote>;
   },
 ): ExtractResponse {
   const id = requireTitleId(opts.titleId);
   const { title, episode, show } = findEpisode(ctx, id);
+  if (pushJob?.status === "running" && pushJob.titleId === id) {
+    throw new Error(`Still pushing ${pushJob.label} to R2. Switch titles or wait for the upload.`);
+  }
   if (!episode.videoPath) {
     throw new Error(`No video file for ${episode.label}.`);
   }
 
   const sync = loadStillsSyncFile(ctx.syncPath);
   const previous = sync[id];
-  const offsetMs = Number.isFinite(opts.offsetMs) ? Number(opts.offsetMs) : episode.offsetMs;
-  const timeScale =
-    opts.timeScale != null && Number.isFinite(opts.timeScale) && opts.timeScale > 0
-      ? opts.timeScale
-      : episode.timeScale;
-  const lineOffsets = opts.lineOffsets ?? episode.lineOffsets;
-  const seek = seekModeForTitle(sync, id);
   const accurateSeek = show === "The Simpsons";
-
   const media = remuxIfNeeded(ctx.packageRoot, id, episode.videoPath);
   const durationSec = probeDurationSec(media);
-  const { stars } = loadStars(ctx);
+  const fps = previous?.fps ?? probeFps(media) ?? episode.fps;
+  const { stars } = loadStars(
+    ctx,
+    opts.mode === "batch" || opts.mode === "handful" || opts.mode === "shuffle",
+  );
   const starIndices = stars[id] ?? [];
+
+  let offsetMs = Number.isFinite(opts.offsetMs) ? Number(opts.offsetMs) : episode.offsetMs;
+  let timeScale =
+    opts.timeScale != null && Number.isFinite(opts.timeScale) && opts.timeScale > 0
+      ? Number(opts.timeScale)
+      : episode.timeScale;
+  let seek = parseSeek(opts.seek, episode.seek);
+  let lineOffsets = opts.lineOffsets ?? episode.lineOffsets;
+  let method = describeStudioMethod(show, { offsetMs, timeScale, seek });
+
+  if (opts.mode === "smart") {
+    const next = pickNextStudioMethod({
+      show,
+      fps,
+      current: { offsetMs: episode.offsetMs, timeScale: episode.timeScale, seek: episode.seek },
+      triedIds: episode.triedMethodIds ?? [],
+      votes: opts.votes,
+      frameOrder: episode.handful.length > 0 ? episode.handful : starIndices,
+    });
+    if (!next) {
+      throw new Error("Tried every recipe. Use the knobs or per-line ±1s.");
+    }
+    offsetMs = next.offsetMs;
+    timeScale = next.timeScale;
+    seek = next.seek;
+    lineOffsets = {};
+    method = next;
+  }
 
   let indices: number[];
   if (opts.mode === "batch") {
@@ -202,35 +303,39 @@ export function studioExtract(
       sync[id] = mergeSyncEntry(previous, {
         offsetMs,
         timeScale,
+        seek,
+        fps: fps ?? undefined,
         lineOffsets,
         durationSec: durationSec ?? previous?.durationSec,
         source: episode.videoPath,
         handful: previous?.handful ?? episode.handful,
         batchedAt: new Date().toISOString(),
         note: previous?.note ?? "Studio batch: no D1 stars yet.",
+        methodId: previous?.methodId ?? method.id,
+        triedMethods: previous?.triedMethods,
       });
       writeStillsSyncFile(ctx.syncPath, sync);
+      upsertCoverageForTitle(ctx, id);
       const refreshed = findEpisode(ctx, id);
       return {
         episode: refreshed.episode,
-        frames: listHandfulFrames({
-          packageRoot: ctx.packageRoot,
-          title,
-          indices: refreshed.episode.handful,
-          offsetMs,
-          timeScale,
-          lineOffsets,
-          seek,
-        }),
+        frames: framesForEpisode(ctx, title, refreshed.episode),
         extracted: 0,
         failed: 0,
         durationWarn: durationPastEof(lastCueStartMsOf(title), durationSec ?? 0, offsetMs, timeScale),
         mode: "batch",
+        previewDir: previewDirForTitle(id),
+        method,
       };
+    }
+  } else if (opts.mode === "shuffle") {
+    indices = shuffleHandfulFromStars(title, starIndices, episode.handful);
+    if (indices.length === 0) {
+      throw new Error("Could not pick another handful of frames.");
     }
   } else {
     indices =
-      opts.mode === "retry" && episode.handful.length > 0
+      (opts.mode === "retry" || opts.mode === "smart") && episode.handful.length > 0
         ? episode.handful
         : handfulFromStars(title, starIndices);
   }
@@ -249,41 +354,46 @@ export function studioExtract(
 
   const now = new Date().toISOString();
   const handful = opts.mode === "batch" ? (previous?.handful ?? episode.handful) : indices;
-  const clearingReview = opts.mode !== "batch";
+  const triedMethods =
+    opts.mode === "batch" || opts.mode === "shuffle"
+      ? previous?.triedMethods
+      : recordTriedMethodIds(previous?.triedMethods, episode.methodId, method.id);
   sync[id] = mergeSyncEntry(previous, {
     offsetMs,
     timeScale,
+    seek,
+    fps: fps ?? undefined,
     lineOffsets,
     durationSec: durationSec ?? previous?.durationSec,
     source: episode.videoPath,
     handful,
     approvedAt: opts.mode === "batch" ? previous?.approvedAt ?? now : undefined,
+    // Handful/smart/retry after a batch must drop these so the six-frame review returns.
+    // Batch after a later star change must un-push so the new JPEGs can go to R2.
     batchedAt: opts.mode === "batch" ? now : undefined,
-    pushedAt: clearingReview ? undefined : previous?.pushedAt,
+    pushedAt: undefined,
+    methodId: opts.mode === "batch" || opts.mode === "shuffle" ? previous?.methodId ?? method.id : method.id,
+    triedMethods,
     note:
       opts.mode === "batch"
         ? `Studio batch ${results.filter((row) => row.ok).length} stills.`
-        : `Studio handful (${handful.join(",")}); inherit offset ${offsetMs}ms.`,
+        : opts.mode === "shuffle"
+          ? `Studio shuffle (${handful.join(",")}).`
+          : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
   });
   writeStillsSyncFile(ctx.syncPath, sync);
+  if (opts.mode === "batch") upsertCoverageForTitle(ctx, id);
 
   const refreshed = findEpisode(ctx, id);
-  const frames = listHandfulFrames({
-    packageRoot: ctx.packageRoot,
-    title,
-    indices: refreshed.episode.handful,
-    offsetMs,
-    timeScale,
-    lineOffsets,
-    seek,
-  });
   return {
     episode: refreshed.episode,
-    frames,
+    frames: framesForEpisode(ctx, title, refreshed.episode),
     extracted: results.filter((row) => row.ok).length,
     failed: results.filter((row) => !row.ok).length,
     durationWarn: durationPastEof(lastCueStartMsOf(title), durationSec ?? 0, offsetMs, timeScale),
     mode: opts.mode,
+    previewDir: previewDirForTitle(id),
+    method,
   };
 }
 
@@ -306,22 +416,77 @@ export function studioApprove(ctx: StudioContext, titleId: string): { episode: R
   return { episode: findEpisode(ctx, id).episode };
 }
 
-export async function studioPush(
-  ctx: StudioContext,
-  titleId: string,
-): Promise<{ uploaded: number; episode: ReturnType<typeof findEpisode>["episode"] }> {
+export function studioPushStatus(): StudioPushJob | null {
+  return pushJob ? { ...pushJob } : null;
+}
+
+export function startStudioPush(ctx: StudioContext, titleId: string): StudioPushJob {
   const id = requireTitleId(titleId);
+  if (pushJob?.status === "running") {
+    if (pushJob.titleId === id) return { ...pushJob };
+    throw new Error(`Already pushing ${pushJob.label} to R2. That keeps going if you switch titles.`);
+  }
   const { episode } = findEpisode(ctx, id);
   const sync = loadStillsSyncFile(ctx.syncPath);
   const previous = sync[id];
   if (!previous?.batchedAt) {
     throw new Error("Push only after remaining stars are batched.");
   }
-  const { uploaded } = await pushPreviewStills(ctx.packageRoot, id);
-  sync[id] = mergeSyncEntry(previous, {
-    offsetMs: previous.offsetMs,
-    pushedAt: new Date().toISOString(),
+  const files = listPreviewStillFiles(ctx.previewRoot, id);
+  if (files.length === 0) {
+    throw new Error(`No preview JPEGs for ${episode.label}.`);
+  }
+  pushJob = {
+    titleId: id,
+    label: episode.label,
+    total: files.length,
+    done: 0,
+    status: "running",
+  };
+  void runStudioPush(ctx, id, previous.offsetMs).catch((error: unknown) => {
+    if (pushJob?.titleId !== id) return;
+    pushJob = {
+      ...pushJob,
+      status: "error",
+      error: error instanceof Error ? error.message : String(error),
+    };
   });
-  writeStillsSyncFile(ctx.syncPath, sync);
-  return { uploaded, episode: findEpisode(ctx, id).episode };
+  return { ...pushJob };
+}
+
+async function runStudioPush(ctx: StudioContext, id: string, offsetMs: number): Promise<void> {
+  const { uploaded } = await pushPreviewStills(ctx.packageRoot, id, {
+    onProgress(done, total) {
+      if (pushJob?.titleId !== id || pushJob.status !== "running") return;
+      pushJob = { ...pushJob, done, total };
+    },
+  });
+  const sync = loadStillsSyncFile(ctx.syncPath);
+  const previous = sync[id];
+  if (previous) {
+    sync[id] = mergeSyncEntry(previous, {
+      offsetMs: previous.offsetMs ?? offsetMs,
+      pushedAt: new Date().toISOString(),
+    });
+    writeStillsSyncFile(ctx.syncPath, sync);
+  }
+  if (pushJob?.titleId !== id) return;
+  pushJob = {
+    ...pushJob,
+    status: "ok",
+    done: uploaded,
+    total: Math.max(pushJob.total, uploaded),
+    uploaded,
+    previewDir: previewDirForTitle(id),
+  };
+}
+
+export function studioOpenPreview(ctx: StudioContext, titleId: string): { ok: true; folder: string } {
+  const id = requireTitleId(titleId);
+  const folder = join(ctx.previewRoot, id);
+  if (!existsSync(folder)) {
+    throw new Error(`No stills folder yet: ${previewDirForTitle(id)}`);
+  }
+  openLocalFolder(folder);
+  return { ok: true, folder };
 }

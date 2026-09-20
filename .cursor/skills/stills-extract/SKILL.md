@@ -22,7 +22,7 @@ The studio:
 2. Remuxes AVI → `inbox/media/{titleId}.mkv` if needed.
 3. Queries D1 once, then extracts **six** frames via `--indices` (not `--from-stars`).
 4. Shows quote + JPEG + thumbs. Any down → nudge offset / per-line extra / PAL 0.96 and re-extract those six. All up → batch remaining D1 stars locally.
-5. **Push approved** is a separate R2 step. Next Pages deploy still required for live `/stills`.
+5. **Push approved** is a separate R2 step. It runs in the background (counts on the button). The user can switch titles or leave the tab; `npm run dev` must stay up. Next Pages deploy still required for live `/stills`.
 
 Simpsons DIV3 29.97 rips inherit **offsetMs = −57000** (theme skip). Skip S4E1 Kamp Krusty and S4E2 Streetcar (already on R2). Skip episodes with no file. Sunny waits until video files are on disk.
 

@@ -15,7 +15,12 @@ export async function onRequestGet(context: { request: Request; env: StillsEnv }
   if (!key) return new Response("Not found", { status: 404 });
 
   const file = await context.env.STILLS.get(key);
-  if (!file) return new Response(null, { status: 404 });
+  if (!file) {
+    return new Response(null, {
+      status: 404,
+      headers: { "Cache-Control": "no-store" },
+    });
+  }
 
   return new Response(file.body, {
     headers: {

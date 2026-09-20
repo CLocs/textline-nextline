@@ -9,7 +9,11 @@ import {
   studioEpisode,
   studioExtract,
   studioHealth,
-  studioPush,
+  parseStudioVotes,
+  studioCoverage,
+  studioOpenPreview,
+  startStudioPush,
+  studioPushStatus,
   studioQueue,
 } from "./stillsStudioActions.js";
 import type { StudioExtractMode } from "./stillsStudioTypes.js";
@@ -32,7 +36,9 @@ function readBody(req: IncomingMessage): Promise<string> {
 }
 
 function parseMode(raw: unknown): StudioExtractMode {
-  if (raw === "retry" || raw === "batch" || raw === "handful") return raw;
+  if (raw === "retry" || raw === "batch" || raw === "handful" || raw === "smart" || raw === "shuffle") {
+    return raw;
+  }
   return "handful";
 }
 
@@ -54,6 +60,10 @@ export function stillsStudioPlugin() {
         sendJson(res, 200, studioHealth());
         return;
       }
+      if (req.method === "GET" && path === "/coverage") {
+        sendJson(res, 200, studioCoverage(ctx));
+        return;
+      }
       if (req.method === "GET" && path === "/shows") {
         sendJson(res, 200, listStudioShows(ctx));
         return;
@@ -68,24 +78,44 @@ export function stillsStudioPlugin() {
         sendJson(res, 200, studioEpisode(ctx, titleId));
         return;
       }
+      if (req.method === "GET" && path === "/push-status") {
+        sendJson(res, 200, { job: studioPushStatus() });
+        return;
+      }
+      if (req.method === "POST" && path === "/open-preview") {
+        const raw = await readBody(req);
+        const body = raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
+        const titleId = typeof body.titleId === "string" ? body.titleId : "";
+        sendJson(res, 200, studioOpenPreview(ctx, titleId));
+        return;
+      }
 
       if (busy) {
         sendJson(res, 409, { error: "Studio is busy with another extract." });
         return;
       }
 
-      if (req.method === "POST" && (path === "/extract" || path === "/batch" || path === "/approve" || path === "/push")) {
+      if (req.method === "POST" && path === "/push") {
         const raw = await readBody(req);
         const body = raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
         const titleId = typeof body.titleId === "string" ? body.titleId : "";
+        sendJson(res, 202, { job: startStudioPush(ctx, titleId) });
+        return;
+      }
+
+      if (req.method === "POST" && (path === "/extract" || path === "/batch" || path === "/approve")) {
+        const raw = await readBody(req);
+        const body = raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
+        const titleId = typeof body.titleId === "string" ? body.titleId : "";
+        const pushing = studioPushStatus();
+        if (pushing?.status === "running" && pushing.titleId === titleId && path !== "/approve") {
+          sendJson(res, 409, { error: `Still pushing ${pushing.label} to R2.` });
+          return;
+        }
         busy = true;
         try {
           if (path === "/approve") {
             sendJson(res, 200, studioApprove(ctx, titleId));
-            return;
-          }
-          if (path === "/push") {
-            sendJson(res, 200, await studioPush(ctx, titleId));
             return;
           }
           const mode = path === "/batch" ? "batch" : parseMode(body.mode);
@@ -101,7 +131,9 @@ export function stillsStudioPlugin() {
               mode,
               offsetMs: typeof body.offsetMs === "number" ? body.offsetMs : undefined,
               timeScale: typeof body.timeScale === "number" ? body.timeScale : undefined,
+              seek: body.seek === "mid" || body.seek === "start" ? body.seek : undefined,
               lineOffsets,
+              votes: parseStudioVotes(body.votes),
             }),
           );
         } finally {
@@ -146,6 +178,12 @@ export function stillsPreviewPlugin() {
     const file = normalize(join(previewRoot, rel));
     const inside = relative(previewRoot, file);
     if (inside.startsWith("..") || isAbsolute(inside) || !existsSync(file) || !statSync(file).isFile()) {
+      if (/^[a-z0-9-]+\/\d+\.jpe?g$/i.test(rel)) {
+        res.statusCode = 404;
+        res.setHeader("Cache-Control", "no-store");
+        res.end();
+        return;
+      }
       next();
       return;
     }

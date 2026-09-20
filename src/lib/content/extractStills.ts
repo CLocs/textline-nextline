@@ -20,6 +20,10 @@ export type StillsSyncEntry = {
   approvedAt?: string;
   batchedAt?: string;
   pushedAt?: string;
+  /** Named studio recipe last applied (`theme-57`, `pal`, …). */
+  methodId?: string;
+  /** Recipe ids already extracted for this title (including current). */
+  triedMethods?: string[];
 };
 
 /** DIV3 Simpsons TV rips skip the theme vs the SRT. */

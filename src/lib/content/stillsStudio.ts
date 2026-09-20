@@ -1,5 +1,5 @@
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
+import { dirname, extname, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import type { CatalogEntry, Line, Title } from "../../types/content.js";
 import { episodeLabel } from "./libraryGroups.js";
@@ -11,12 +11,15 @@ import {
   ffmpegRemuxArgs,
   mediaRemuxOutput,
   resolveCue,
+  seekModeForTitle,
   seekSeconds,
   stillFileName,
   timeScaleForTitle,
 } from "./extractStills.js";
+import { listVideoFilenames, matchUploadsToCatalog } from "./mediaUploads.js";
 import { matchShowVideosToCatalog } from "./showMedia.js";
-import { pickHandfulIndices as pickHandful } from "./stillsHandful.js";
+import { pickHandfulIndices as pickHandful, shuffleHandfulIndices as shuffleHandful } from "./stillsHandful.js";
+import { describeStudioMethod } from "./stillsStudioMethods.js";
 import type { StudioEpisode, StudioEpisodeStatus, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
 
 export type { StudioEpisode, StudioEpisodeStatus, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
@@ -28,7 +31,14 @@ export const STUDIO_SKIP_TITLE_IDS = [
 
 export const SHOW_VIDEO_DIRS: Record<string, string> = {
   "The Simpsons": "G:/videos/shows/Simpsons",
+  Movies: "G:/videos/movies",
 };
+
+export const MOVIES_STUDIO_SHOW = "Movies";
+
+export function isMoviesStudioShow(show: string): boolean {
+  return show.trim().toLowerCase() === "movies";
+}
 
 export function videoDirForShow(show: string): string {
   if (SHOW_VIDEO_DIRS[show]) return SHOW_VIDEO_DIRS[show]!;
@@ -70,7 +80,7 @@ export function episodeStatus(opts: {
   if (opts.batchedAt) return "batched";
   if (opts.approvedAt) return "approved";
   if (!opts.hasFile) return "no-file";
-  if (opts.handful.length > 0 && opts.stillCount > 0) return "review";
+  if (opts.stillCount > 0) return "review";
   return "ready";
 }
 
@@ -85,6 +95,9 @@ export function buildShowQueue(opts: {
   skipIds?: Iterable<string>;
 }): StudioQueue {
   const directory = opts.directory ?? videoDirForShow(opts.show);
+  if (isMoviesStudioShow(opts.show)) {
+    return buildMovieQueue({ ...opts, directory });
+  }
   const skip = new Set(opts.skipIds ?? STUDIO_SKIP_TITLE_IDS);
   const directoryExists = Boolean(directory && existsSync(directory));
   const { matched, unmatched } = directoryExists
@@ -110,6 +123,8 @@ export function buildShowQueue(opts: {
     const durationSec = syncEntry?.durationSec ?? null;
     const lastCueMs = title ? lastCueStartMs(title) : 0;
     const timeScale = timeScaleForTitle(opts.sync, entry.id);
+    const seek = seekModeForTitle(opts.sync, entry.id);
+    const method = describeStudioMethod(opts.show, { offsetMs, timeScale, seek });
     episodes.push({
       titleId: entry.id,
       title: entry.title,
@@ -136,6 +151,11 @@ export function buildShowQueue(opts: {
       durationSec,
       durationWarn:
         durationSec != null && durationPastEof(lastCueMs, durationSec, offsetMs, timeScale),
+      fps: syncEntry?.fps ?? null,
+      seek,
+      methodId: syncEntry?.methodId ?? method.id,
+      methodLabel: method.label,
+      triedMethodIds: syncEntry?.triedMethods ?? [],
     });
   }
 
@@ -143,7 +163,93 @@ export function buildShowQueue(opts: {
   return { show: opts.show, directory, directoryExists, episodes, unmatched };
 }
 
+function buildMovieQueue(opts: {
+  show: string;
+  entries: CatalogEntry[];
+  titlesById: Map<string, Title>;
+  sync: StillsSyncFile;
+  stillCounts: Record<string, number>;
+  starCounts: Record<string, number>;
+  directory: string;
+  skipIds?: Iterable<string>;
+}): StudioQueue {
+  const skip = new Set(opts.skipIds ?? STUDIO_SKIP_TITLE_IDS);
+  const directoryExists = Boolean(opts.directory && existsSync(opts.directory));
+  const { matched, unmatched } = directoryExists
+    ? matchUploadsToCatalog(listVideoFilenames(opts.directory), opts.entries)
+    : { matched: [], unmatched: [] };
+  const filesById = new Map(matched.map((row) => [row.titleId, row]));
+
+  const episodes: StudioEpisode[] = [];
+  for (const entry of opts.entries) {
+    if (entry.meta?.show) continue;
+    if (entry.id === "sample-episode") continue;
+    if (skip.has(entry.id)) continue;
+    const upload = filesById.get(entry.id);
+    const hasFile = upload?.status === "ok" && Boolean(upload.files[0]);
+    const stillCount = opts.stillCounts[entry.id] ?? 0;
+    const syncEntry = opts.sync[entry.id];
+    if (!hasFile && stillCount === 0 && !syncEntry) continue;
+    const title = opts.titlesById.get(entry.id);
+    const offsetMs =
+      syncEntry && Number.isFinite(syncEntry.offsetMs)
+        ? syncEntry.offsetMs
+        : defaultOffsetMsForShow(opts.show);
+    const starCount = opts.starCounts[entry.id] ?? 0;
+    const handful = syncEntry?.handful ?? [];
+    const durationSec = syncEntry?.durationSec ?? null;
+    const lastCueMs = title ? lastCueStartMs(title) : 0;
+    const timeScale = timeScaleForTitle(opts.sync, entry.id);
+    const seek = seekModeForTitle(opts.sync, entry.id);
+    const method = describeStudioMethod(opts.show, { offsetMs, timeScale, seek });
+    const fileName = hasFile ? upload!.files[0]! : null;
+    episodes.push({
+      titleId: entry.id,
+      title: entry.title,
+      label: episodeLabel(entry),
+      season: entry.meta?.year ?? 0,
+      episode: 0,
+      lineCount: entry.lineCount,
+      status: episodeStatus({
+        hasFile,
+        stillCount,
+        handful,
+        approvedAt: syncEntry?.approvedAt,
+        batchedAt: syncEntry?.batchedAt,
+        pushedAt: syncEntry?.pushedAt,
+      }),
+      videoPath: fileName ? join(opts.directory, fileName) : null,
+      videoName: fileName,
+      offsetMs,
+      timeScale,
+      lineOffsets: syncEntry?.lineOffsets ?? {},
+      handful,
+      starCount,
+      stillCount,
+      durationSec,
+      durationWarn:
+        durationSec != null && durationPastEof(lastCueMs, durationSec, offsetMs, timeScale),
+      fps: syncEntry?.fps ?? null,
+      seek,
+      methodId: syncEntry?.methodId ?? method.id,
+      methodLabel: method.label,
+      triedMethodIds: syncEntry?.triedMethods ?? [],
+    });
+  }
+
+  episodes.sort((a, b) => a.label.localeCompare(b.label));
+  return {
+    show: opts.show,
+    directory: opts.directory,
+    directoryExists,
+    episodes,
+    unmatched: unmatched.map((row) => row.name),
+  };
+}
+
 export function remuxIfNeeded(packageRoot: string, titleId: string, sourcePath: string): string {
+  const ext = extname(sourcePath).toLowerCase();
+  if (ext === ".mp4" || ext === ".mkv" || ext === ".m4v") return sourcePath;
   const output = mediaRemuxOutput(packageRoot, titleId);
   if (existsSync(output)) return output;
   mkdirSync(dirname(output), { recursive: true });
@@ -163,6 +269,41 @@ export function probeDurationSec(input: string): number | null {
     ).trim();
     const n = Number(raw);
     return Number.isFinite(n) && n > 0 ? n : null;
+  } catch {
+    return null;
+  }
+}
+
+export function parseFrameRate(raw: string): number | null {
+  const token = raw.trim().split(/\s+/)[0] ?? "";
+  if (!token) return null;
+  if (token.includes("/")) {
+    const [num, den] = token.split("/");
+    const n = Number(num) / Number(den);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  }
+  const n = Number(token);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+export function probeFps(input: string): number | null {
+  try {
+    const raw = execFileSync(
+      "ffprobe",
+      [
+        "-v",
+        "error",
+        "-select_streams",
+        "v:0",
+        "-show_entries",
+        "stream=r_frame_rate",
+        "-of",
+        "default=noprint_wrappers=1:nokey=1",
+        input,
+      ],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+    );
+    return parseFrameRate(raw);
   } catch {
     return null;
   }
@@ -265,8 +406,29 @@ export function handfulFromStars(title: Title, starIndices: number[]): number[] 
   return pickHandful(title, starIndices);
 }
 
+export function shuffleHandfulFromStars(title: Title, starIndices: number[], current: number[]): number[] {
+  return shuffleHandful(title, starIndices, current);
+}
+
 export function lastCueStartMsOf(title: Title): number {
   return lastCueStartMs(title);
+}
+
+const STILL_JPEG = /^(\d+)\.jpe?g$/i;
+
+export function previewDirForTitle(titleId: string): string {
+  return `inbox/stills-preview/${titleId}`;
+}
+
+export function listPreviewStillIndices(destDir: string): number[] {
+  if (!existsSync(destDir)) return [];
+  const indices: number[] = [];
+  for (const name of readdirSync(destDir)) {
+    const match = STILL_JPEG.exec(name);
+    if (match) indices.push(Number(match[1]));
+  }
+  indices.sort((a, b) => a - b);
+  return indices;
 }
 
 export function listHandfulFrames(opts: {

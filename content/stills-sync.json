@@ -83,11 +83,29 @@
   },
   "payback-1999": {
     "offsetMs": 0,
-    "encode": "mp4-h264-23976-dc",
-    "source": "G:/videos/movies/Payback (1999).mp4",
+    "timeScale": 1,
+    "encode": "mp4-h264-23976-theatrical",
+    "source": "G:\\videos\\movies\\Payback (1999).mp4",
     "fps": 23.976,
-    "durationSec": 6081.02,
-    "note": "1080p 23.976 ~1:41:21 (DC longer than theatrical). Handful of 6/78 D1 stars at scale 1. Do not batch/R2 until eyeball."
+    "durationSec": 6081.024,
+    "handful": [
+      148,
+      297,
+      344,
+      438,
+      648,
+      748
+    ],
+    "note": "Studio batch 78 stills.",
+    "seek": "start",
+    "lineOffsets": {},
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "approvedAt": "2026-09-20T22:58:14.461Z",
+    "batchedAt": "2026-09-20T22:58:30.482Z",
+    "pushedAt": "2026-09-20T22:59:54.202Z"
   },
   "inglourious-basterds-2009": {
     "offsetMs": 0,
@@ -100,10 +118,25 @@
   "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": {
     "offsetMs": 0,
     "encode": "mkv-hevc-23976-extended",
-    "source": "G:/videos/movies/The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv",
+    "source": "G:\\videos\\movies\\The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv",
     "fps": 23.976,
-    "durationSec": 13691.78,
-    "note": "EXTENDED 1080p HEVC ~3:48 vs theatrical ~2:58 — expect drift vs SRT. Skipped remux (5.4 GB). Handful of 6/137 at scale 1. Do not batch/R2 until eyeball."
+    "durationSec": 13691.777,
+    "note": "Studio batch 137 stills.",
+    "timeScale": 1,
+    "seek": "start",
+    "lineOffsets": {},
+    "handful": [
+      216,
+      719,
+      975,
+      1016,
+      1368,
+      1486
+    ],
+    "methodId": "zero",
+    "approvedAt": "2026-09-20T22:51:16.090Z",
+    "batchedAt": "2026-09-20T22:51:54.397Z",
+    "pushedAt": "2026-09-20T22:53:25.035Z"
   },
   "the-gentlemen-2019": {
     "offsetMs": 0,
@@ -140,8 +173,10 @@
   },
   "the-simpsons---4x03---homer-the-hereticen": {
     "offsetMs": -57000,
-    "timeScale": 1,
-    "lineOffsets": {},
+    "timeScale": 0.96,
+    "lineOffsets": {
+      "53": 3000
+    },
     "durationSec": 1223.892,
     "source": "G:\\videos\\shows\\Simpsons\\S04E03 - The Simpsons - Homer The Heretic (English).Avi",
     "handful": [
@@ -152,6 +187,105 @@
       226,
       269
     ],
-    "note": "Studio handful (25,53,88,158,226,269); inherit offset -57000ms."
+    "note": "Studio batch 16 stills.",
+    "approvedAt": "2026-09-20T21:46:44.273Z",
+    "batchedAt": "2026-09-20T21:47:13.766Z",
+    "pushedAt": "2026-09-20T21:48:54.644Z"
+  },
+  "the-simpsons---4x04---lisa-the-beauty-queenen": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "lineOffsets": {},
+    "durationSec": 1226.762,
+    "source": "G:\\videos\\shows\\Simpsons\\S04E04 - The Simpsons - Lisa The Beauty Queen (English).Avi",
+    "handful": [
+      68,
+      90,
+      137,
+      167,
+      215,
+      255
+    ],
+    "note": "Studio retry Theme skip −57s (68,90,137,167,215,255).",
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "methodId": "theme-57",
+    "triedMethods": [
+      "custom:-55000:0.96:start",
+      "theme-57",
+      "theme-52",
+      "theme-62",
+      "theme-57-pal"
+    ]
+  },
+  "the-simpsons---4x05---treehouse-of-horror-iiien": {
+    "offsetMs": -52000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "lineOffsets": {},
+    "durationSec": 1221.949,
+    "source": "G:\\videos\\shows\\Simpsons\\S04E05 - The Simpsons - Treehouse Of Horror Iii (English).Avi",
+    "handful": [
+      1,
+      54,
+      79,
+      115,
+      235,
+      343
+    ],
+    "methodId": "theme-52",
+    "triedMethods": [
+      "theme-57",
+      "theme-52"
+    ],
+    "note": "Studio smart Theme skip −52s (1,54,79,115,235,343)."
+  },
+  "friday-1995": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 5826.362209,
+    "source": "G:\\videos\\movies\\Friday (1995).mp4",
+    "handful": [
+      185,
+      367,
+      553,
+      726,
+      927,
+      1031
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio batch 46 stills.",
+    "approvedAt": "2026-09-20T23:14:59.853Z",
+    "batchedAt": "2026-09-20T23:15:09.887Z",
+    "pushedAt": "2026-09-20T23:15:40.686Z"
+  },
+  "lord-of-the-rings-the-two-towers-2002": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 14132.134,
+    "source": "G:\\videos\\movies\\The Lord of the Rings The Two Towers Extended (2002).mkv",
+    "handful": [
+      296,
+      712,
+      831,
+      1152,
+      1445,
+      1669
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio shuffle (296,712,831,1152,1445,1669)."
   }
 }

@@ -10,5 +10,6 @@ describe("posterUrl", () => {
 describe("stillUrl", () => {
   it("keys stills by title and line index", () => {
     expect(stillUrl("oceans-thirteen-2007", 1334)).toBe("/stills/oceans-thirteen-2007/1334.jpg");
+    expect(stillUrl("friday-1995", 199, 1)).toBe("/stills/friday-1995/199.jpg?r=1");
   });
 });

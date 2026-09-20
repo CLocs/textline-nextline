@@ -16,5 +16,7 @@ export async function loadQuoteBackdrop(
 ): Promise<HTMLImageElement | null> {
   const still = await loadImage(stillUrl(titleId, lineIndex));
   if (still) return still;
+  const retried = await loadImage(stillUrl(titleId, lineIndex, Date.now()));
+  if (retried) return retried;
   return loadImage(posterUrl(titleId));
 }

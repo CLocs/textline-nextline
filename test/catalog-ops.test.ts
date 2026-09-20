@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { CatalogEntry } from "../src/types/content.js";
-import { buildCatalogOpsRows, coveragePct, formatCoveragePct, sortCatalogOpsRows } from "../src/lib/content/catalogOps.js";
+import { buildCatalogOpsRows, coveragePct, formatCoveragePct, missingStills, sortCatalogOpsRows } from "../src/lib/content/catalogOps.js";
 import { canViewCatalogOps, isOwnerEmail } from "../src/lib/content/owner.js";
 import {
   formatUploadsMarkdown,
@@ -172,6 +172,15 @@ describe("owner email", () => {
     expect(isOwnerEmail("friend@gmail.com")).toBe(false);
     expect(canViewCatalogOps("local@dev", true)).toBe(true);
     expect(canViewCatalogOps("local@dev", false)).toBe(false);
+  });
+});
+
+describe("missingStills", () => {
+  it("is stars minus extracted frames, never below zero", () => {
+    expect(missingStills(47, 46)).toBe(1);
+    expect(missingStills(10, 10)).toBe(0);
+    expect(missingStills(0, 6)).toBe(0);
+    expect(missingStills(5, 8)).toBe(0);
   });
 });
 

@@ -1,6 +1,6 @@
-import type { StudioEpisode, StudioExtractMode, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
+import type { StudioEpisode, StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue } from "./stillsStudioTypes.js";
 
-export type { StudioEpisode, StudioExtractMode, StudioFrame, StudioQueue };
+export type { StudioEpisode, StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue };
 
 const PREFIX = "/api/stills-studio";
 
@@ -9,6 +9,13 @@ export class StudioUnavailableError extends Error {
     super("Stills studio needs `npm run dev` on this machine.");
     this.name = "StudioUnavailableError";
   }
+}
+
+function isHtmlBody(raw: string, contentType: string | null): boolean {
+  const type = contentType ?? "";
+  if (type.includes("text/html")) return true;
+  const start = raw.trimStart().slice(0, 15).toLowerCase();
+  return start.startsWith("<!doctype") || start.startsWith("<html");
 }
 
 async function studioFetch(path: string, init?: RequestInit): Promise<Response> {
@@ -25,17 +32,33 @@ async function studioFetch(path: string, init?: RequestInit): Promise<Response> 
 }
 
 async function readJson<T>(response: Response): Promise<T> {
-  const data = (await response.json()) as T & { error?: string };
+  const raw = await response.text();
+  if (isHtmlBody(raw, response.headers.get("content-type"))) {
+    throw new StudioUnavailableError();
+  }
+  let data: T & { error?: string };
+  try {
+    data = JSON.parse(raw) as T & { error?: string };
+  } catch {
+    throw new StudioUnavailableError();
+  }
   if (!response.ok) {
     throw new Error(data.error || `Studio request failed (${response.status})`);
   }
   return data;
 }
 
+export async function fetchStudioCoverage(): Promise<Record<string, number>> {
+  const response = await studioFetch("/coverage");
+  const data = await readJson<{ titles?: Record<string, number> }>(response);
+  return data.titles ?? {};
+}
+
 export async function studioHealth(): Promise<boolean> {
   try {
     const response = await studioFetch("/health");
-    return response.ok;
+    const data = await readJson<{ ok?: boolean }>(response);
+    return data.ok === true;
   } catch {
     return false;
   }
@@ -58,6 +81,7 @@ export async function fetchStudioEpisode(titleId: string): Promise<{
   episode: StudioEpisode;
   frames: StudioFrame[];
   show: string;
+  previewDir: string;
 }> {
   const response = await studioFetch(`/episode?titleId=${encodeURIComponent(titleId)}`);
   return readJson(response);
@@ -69,6 +93,8 @@ export async function runStudioExtract(opts: {
   offsetMs?: number;
   timeScale?: number;
   lineOffsets?: Record<string, number>;
+  seek?: "start" | "mid";
+  votes?: Record<number, "up" | "down">;
 }): Promise<{
   episode: StudioEpisode;
   frames: StudioFrame[];
@@ -76,6 +102,8 @@ export async function runStudioExtract(opts: {
   failed: number;
   durationWarn: boolean;
   mode: StudioExtractMode;
+  previewDir: string;
+  method: { id: string; label: string; why: string };
 }> {
   const response = await studioFetch(opts.mode === "batch" ? "/batch" : "/extract", {
     method: "POST",
@@ -94,8 +122,24 @@ export async function approveStudioEpisode(titleId: string): Promise<{ episode: 
   return readJson(response);
 }
 
-export async function pushStudioEpisode(titleId: string): Promise<{ uploaded: number; episode: StudioEpisode }> {
+export async function startStudioPush(titleId: string): Promise<StudioPushJob> {
   const response = await studioFetch("/push", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ titleId }),
+  });
+  const data = await readJson<{ job: StudioPushJob }>(response);
+  return data.job;
+}
+
+export async function fetchStudioPushStatus(): Promise<StudioPushJob | null> {
+  const response = await studioFetch("/push-status");
+  const data = await readJson<{ job?: StudioPushJob | null }>(response);
+  return data.job ?? null;
+}
+
+export async function openStudioPreview(titleId: string): Promise<{ ok: true; folder: string }> {
+  const response = await studioFetch("/open-preview", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ titleId }),

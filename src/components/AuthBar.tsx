@@ -8,12 +8,12 @@ type Props = {
   onCatalog?: () => void;
 };
 
-function ChatsBellIcon() {
+function ChatsMessageIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="currentColor"
-        d="M12 22a2.2 2.2 0 0 0 2.2-2.2h-4.4A2.2 2.2 0 0 0 12 22Zm8-6.2V11a8 8 0 1 0-16 0v4.8L2 18v1h20v-1l-2-2.2Z"
+        d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v9A2.5 2.5 0 0 1 17.5 17H9.2L5 20.6a.75.75 0 0 1-1.2-.6V5.5ZM6.5 4.5a1 1 0 0 0-1 1V18l2.9-2.5a1 1 0 0 1 .6-.2h8.5a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-11Z"
       />
     </svg>
   );
@@ -37,7 +37,7 @@ export function AuthBar({ user, onProfile, onChats, onCatalog }: Props) {
         title={chatsLabel}
         onClick={onChats}
       >
-        <ChatsBellIcon />
+        <ChatsMessageIcon />
         {unread > 0 ? <span className="inbox-notify-badge">{unread}</span> : null}
       </button>
       <button
