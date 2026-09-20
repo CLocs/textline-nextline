@@ -410,6 +410,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
 - [ ] **UGC quotes (IG / YT)** — paste a link, infer or type **one** line into a personal library. See [Quotes from anywhere](#quotes-from-anywhere-lay-person).
 - [ ] **YouTube videos as titles** — paste a video URL → pull timed transcript → star / parallel packs → optional scene frames. See [YouTube videos as titles](#youtube-videos-as-titles).
+- [ ] **Chats → quote replies** — text replies under a quote card (thread-lite). See [Chats → quote replies](#chats--quote-replies).
 - [ ] **Chats → cross-title mini-games** — multi-select lines in a thread (any titles) → save as a custom mini-game. See [Chats → cross-title mini-games](#chats--cross-title-mini-games).
 - [ ] **Songs** — lyrics as transcripts; song library + mini-games. See [Later ideas](#later-ideas-parked).
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
@@ -501,7 +502,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** and **Daily quote email** stay parked (build share formats first, then email).
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image**, **Daily quote email**, and **Chats quote replies** stay parked.
 
 ### Loved / double-star quotes ✅
 
@@ -545,7 +546,19 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 10. **Answered receipt** — peer `line_inbox.solved_at`; sender sees **Correct** + next line on their outgoing card.
 11. **Near-real-time refresh** — open thread polls ~4s; chat list ~8s; unread badges ~12s (pause when tab hidden). True push/WebSockets later if needed.
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
+**Still later:** [replies under quote cards](#chats--quote-replies); attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
+
+### Chats → quote replies
+
+**Why:** A quote card is the unit of play in a thread. People often want to talk *about that line* without the reply floating as a free-floating timeline message.
+
+**Shape *(parked)*:**
+
+1. **Reply** on a quote card (incoming or outgoing) — short text that lives **under that card**, not as a peer of every other message.
+2. Nested under the quote in the All view (and still visible under Quotes if we keep replies tied to the card).
+3. Optional later: reply-to-text bubbles the same way; deep threads / collapse — start flat (one level under the quote).
+
+**Not this:** Discord-style channel threads, or moving the whole chat into per-quote rooms. Same DM/group thread; replies are scoped to a `share_id` (or message id).
 
 ### Chats → cross-title mini-games
 
@@ -753,6 +766,7 @@ Complements Teach mode; this is first-impression chrome, not a new game mode.
 | **Friends graph** | Invite link, accept, list, remove, block; hashed tokens; no directory | ✅ Mutual add-me links from Profile → Friends |
 | **Question inbox** | Curate send icon; friend inbox + optional 1-line `#/play` copy | ✅ Directed one-question play, not an anonymous 10-pack |
 | **Next — Chats** | Per-friend DMs + shared group threads on Home | ✅ See [Chats](#chats-dms--shared-group-threads) |
+| **Later — Chats quote replies** | Text replies under a quote card (thread-lite) | Parked — see [Chats → quote replies](#chats--quote-replies) |
 | **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
@@ -852,7 +866,8 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Quote stills / catalog ops (2.6)** — ✅ Mini-game stills, R2, owner Catalog, protect curated stars. Library/Home cards use a cover still when one exists.
 - **Friends graph** — ✅ Invite-only mutual links (`#/friend/{token}`); Profile → Friends copy/rotate/list/remove/block. No user directory.
 - **Question inbox** — ✅ Curate + Play send icon; Inbox/Home are inline quiz cards that compress after a correct guess. See [Later ideas](#later-ideas-parked).
-- **Chats (DMs + group threads on Home)** — ✅ `#/chats`, DM + shared group threads; Home rail; server unread. Attempt scores still later. See [Chats](#chats-dms--shared-group-threads).
+- **Chats (DMs + group threads on Home)** — ✅ `#/chats`, DM + shared group threads; Home rail; server unread. Quote replies + attempt scores still later. See [Chats](#chats-dms--shared-group-threads).
+- **Chats → quote replies** *(parked)* — Reply under a quote card (scoped to that share); lives under the card, not as a free-floating timeline peer. See [Chats → quote replies](#chats--quote-replies).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).

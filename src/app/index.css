@@ -2142,10 +2142,8 @@ code {
 
 .chats-reaction-add {
   min-width: 1.75rem;
-  padding: 0.1rem 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  padding: 0.1rem 0.35rem;
+  font-size: 1rem;
   line-height: 1.2;
 }
 
