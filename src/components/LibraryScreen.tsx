@@ -23,7 +23,7 @@ import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCov
 import { PosterArt } from "./PosterArt";
 import { ParallelInboxCard } from "./ParallelInboxCard";
 import { ChatsList } from "./ChatsList";
-import { useChatsUnreadCount } from "../lib/chats/useChatsUnreadCount";
+import { useChatsUnreadBreakdown } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
   entries: CatalogEntry[];
@@ -97,7 +97,7 @@ export function LibraryScreen({
   const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
   const [parallelInbox, setParallelInbox] = useState<ParallelInboxItem[]>([]);
   const [railsReady, setRailsReady] = useState(false);
-  const chatsUnread = useChatsUnreadCount();
+  const chatsUnread = useChatsUnreadBreakdown();
   const chatsApiReady = isAuthApiEnabled() && !isLocalDevSession();
   const groups = groupCatalogEntries(entries);
 
@@ -296,9 +296,42 @@ export function LibraryScreen({
                 <h3 className="library-group-heading">Chats</h3>
                 {chatsApiReady ? (
                   <p className="chats-home-unread muted">
-                    {chatsUnread > 0
-                      ? `${chatsUnread} unread`
-                      : "0 unread. You're up to date."}
+                    {chatsUnread.quote > 0 || chatsUnread.text > 0 ? (
+                      <span className="chats-dual-unread chats-home-dual">
+                        {chatsUnread.quote > 0 ? (
+                          <span
+                            className="chats-unread-chip"
+                            title={`${chatsUnread.quote} unread quotes`}
+                          >
+                            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                              <path
+                                fill="currentColor"
+                                d="M3.5 3.5h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H3.5V3.5zm6 0h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H9.5V3.5z"
+                              />
+                            </svg>
+                            {chatsUnread.quote}
+                            <span className="sr-only"> unread quotes</span>
+                          </span>
+                        ) : null}
+                        {chatsUnread.text > 0 ? (
+                          <span
+                            className="chats-unread-chip is-text"
+                            title={`${chatsUnread.text} unread messages`}
+                          >
+                            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                              <path
+                                fill="currentColor"
+                                d="M1.5 3.2h13v9.6h-13V3.2zm1.2 1.3 5.3 3.6 5.3-3.6v-.1H2.7zm0 1.5v5.5h10.6V6l-5.3 3.5L2.7 6z"
+                              />
+                            </svg>
+                            {chatsUnread.text}
+                            <span className="sr-only"> unread messages</span>
+                          </span>
+                        ) : null}
+                      </span>
+                    ) : (
+                      "0 unread. You're up to date."
+                    )}
                   </p>
                 ) : null}
               </div>

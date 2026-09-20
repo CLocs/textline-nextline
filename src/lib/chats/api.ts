@@ -36,6 +36,8 @@ export type ChatThreadSummary =
       lastAt: string;
       lastPreview: string;
       lastDirection: "in" | "out";
+      quoteUnreadCount: number;
+      textUnreadCount: number;
       unreadCount: number;
     }
   | {
@@ -45,10 +47,22 @@ export type ChatThreadSummary =
       memberCount: number;
       lastAt: string;
       lastPreview: string;
+      quoteUnreadCount: number;
+      textUnreadCount: number;
       unreadCount: number;
     };
 
-export type DmMessage = {
+export type ChatTextMessage = {
+  kind: "text";
+  id: string;
+  body: string;
+  from: { userId: string; displayName: string };
+  createdAt: string;
+  youSent: boolean;
+};
+
+export type DmQuoteMessage = {
+  kind: "quote";
   id: string;
   shareId: string;
   titleId: string;
@@ -60,7 +74,8 @@ export type DmMessage = {
   receipt: "sent" | "read" | null;
 };
 
-export type GroupMessage = {
+export type GroupQuoteMessage = {
+  kind: "quote";
   shareId: string;
   titleId: string;
   lineIndex: number;
@@ -73,19 +88,110 @@ export type GroupMessage = {
   youSent: boolean;
 };
 
+export type DmThreadMessage = DmQuoteMessage | ChatTextMessage;
+export type GroupThreadMessage = GroupQuoteMessage | ChatTextMessage;
+
+/** @deprecated Prefer DmQuoteMessage */
+export type DmMessage = DmQuoteMessage;
+/** @deprecated Prefer GroupQuoteMessage */
+export type GroupMessage = GroupQuoteMessage;
+
+function asUnreadCount(value: unknown): number {
+  return typeof value === "number" && Number.isFinite(value) ? Math.max(0, value) : 0;
+}
+
+function normalizeThread(thread: ChatThreadSummary): ChatThreadSummary {
+  const quoteUnreadCount = asUnreadCount(thread.quoteUnreadCount ?? thread.unreadCount);
+  const textUnreadCount = asUnreadCount(thread.textUnreadCount);
+  const unreadCount = asUnreadCount(thread.unreadCount) || quoteUnreadCount + textUnreadCount;
+  return { ...thread, quoteUnreadCount, textUnreadCount, unreadCount };
+}
+
+function normalizeDmMessage(raw: Record<string, unknown>): DmThreadMessage | null {
+  if (raw.kind === "text" || (typeof raw.body === "string" && !raw.shareId && !raw.titleId)) {
+    if (typeof raw.id !== "string" || typeof raw.body !== "string") return null;
+    const from = raw.from as { userId?: string; displayName?: string } | undefined;
+    return {
+      kind: "text",
+      id: raw.id,
+      body: raw.body,
+      from: {
+        userId: typeof from?.userId === "string" ? from.userId : "",
+        displayName: typeof from?.displayName === "string" ? from.displayName : "Friend",
+      },
+      createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
+      youSent: Boolean(raw.youSent),
+    };
+  }
+  if (typeof raw.id !== "string" || typeof raw.titleId !== "string") return null;
+  const from = raw.from as { userId?: string; displayName?: string } | undefined;
+  const receipt = raw.receipt;
+  return {
+    kind: "quote",
+    id: raw.id,
+    shareId: typeof raw.shareId === "string" ? raw.shareId : "",
+    titleId: raw.titleId,
+    lineIndex: typeof raw.lineIndex === "number" ? raw.lineIndex : 0,
+    direction: raw.direction === "out" ? "out" : "in",
+    from: {
+      userId: typeof from?.userId === "string" ? from.userId : "",
+      displayName: typeof from?.displayName === "string" ? from.displayName : "Friend",
+    },
+    createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
+    playable: Boolean(raw.playable),
+    receipt: receipt === "sent" || receipt === "read" ? receipt : null,
+  };
+}
+
+function normalizeGroupMessage(raw: Record<string, unknown>): GroupThreadMessage | null {
+  if (raw.kind === "text" || (typeof raw.body === "string" && !raw.shareId && !raw.titleId)) {
+    if (typeof raw.id !== "string" || typeof raw.body !== "string") return null;
+    const from = raw.from as { userId?: string; displayName?: string } | undefined;
+    return {
+      kind: "text",
+      id: raw.id,
+      body: raw.body,
+      from: {
+        userId: typeof from?.userId === "string" ? from.userId : "",
+        displayName: typeof from?.displayName === "string" ? from.displayName : "Friend",
+      },
+      createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
+      youSent: Boolean(raw.youSent),
+    };
+  }
+  if (typeof raw.shareId !== "string" || typeof raw.titleId !== "string") return null;
+  const from = raw.from as { userId?: string; displayName?: string } | undefined;
+  return {
+    kind: "quote",
+    shareId: raw.shareId,
+    titleId: raw.titleId,
+    lineIndex: typeof raw.lineIndex === "number" ? raw.lineIndex : 0,
+    from: {
+      userId: typeof from?.userId === "string" ? from.userId : "",
+      displayName: typeof from?.displayName === "string" ? from.displayName : "Friend",
+    },
+    createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
+    sentCount: typeof raw.sentCount === "number" ? raw.sentCount : 0,
+    readCount: typeof raw.readCount === "number" ? raw.readCount : 0,
+    inboxId: typeof raw.inboxId === "string" ? raw.inboxId : null,
+    playable: Boolean(raw.playable),
+    youSent: Boolean(raw.youSent),
+  };
+}
+
 export async function fetchChats(): Promise<ChatThreadSummary[] | { error: string }> {
   const response = await chatsFetch("/api/chats");
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
   if (!response.ok) return { error: await readError(response, "Could not load chats") };
   const data = (await response.json()) as { threads?: ChatThreadSummary[] };
-  return Array.isArray(data.threads) ? data.threads : [];
+  return Array.isArray(data.threads) ? data.threads.map(normalizeThread) : [];
 }
 
 export async function fetchDmThread(
   peerUserId: string,
 ): Promise<
-  { peer: { userId: string; displayName: string }; messages: DmMessage[] } | { error: string }
+  { peer: { userId: string; displayName: string }; messages: DmThreadMessage[] } | { error: string }
 > {
   const response = await chatsFetch(`/api/chats/dm/${encodeURIComponent(peerUserId)}`);
   if (!response) return { error: "API unavailable" };
@@ -93,7 +199,7 @@ export async function fetchDmThread(
   if (!response.ok) return { error: await readError(response, "Could not load chat") };
   const data = (await response.json()) as {
     peer?: { userId?: string; displayName?: string };
-    messages?: DmMessage[];
+    messages?: Record<string, unknown>[];
   };
   return {
     peer: {
@@ -104,32 +210,61 @@ export async function fetchDmThread(
           : "Friend",
     },
     messages: Array.isArray(data.messages)
-      ? data.messages.map((message) => ({
-          ...message,
-          receipt:
-            message.receipt === "sent" || message.receipt === "read" ? message.receipt : null,
-        }))
+      ? data.messages
+          .map((row) => normalizeDmMessage(row))
+          .filter((row): row is DmThreadMessage => row !== null)
       : [],
   };
 }
 
 export async function fetchGroupThread(
   groupId: string,
-): Promise<{ name: string; messages: GroupMessage[] } | { error: string }> {
+): Promise<{ name: string; messages: GroupThreadMessage[] } | { error: string }> {
   const response = await chatsFetch(`/api/chats/group/${encodeURIComponent(groupId)}`);
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
   if (!response.ok) return { error: await readError(response, "Could not load group chat") };
-  const data = (await response.json()) as { name?: string; messages?: GroupMessage[] };
+  const data = (await response.json()) as { name?: string; messages?: Record<string, unknown>[] };
   return {
     name: typeof data.name === "string" ? data.name : "Group",
     messages: Array.isArray(data.messages)
-      ? data.messages.map((message) => ({
-          ...message,
-          readCount: typeof message.readCount === "number" ? message.readCount : 0,
-        }))
+      ? data.messages
+          .map((row) => normalizeGroupMessage(row))
+          .filter((row): row is GroupThreadMessage => row !== null)
       : [],
   };
+}
+
+export async function postDmChatMessage(
+  peerUserId: string,
+  body: string,
+): Promise<{ message: ChatTextMessage } | { error: string }> {
+  const response = await chatsFetch(`/api/chats/dm/${encodeURIComponent(peerUserId)}/messages`, {
+    method: "POST",
+    body: JSON.stringify({ body }),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (response.status === 401) return { error: "Please sign in first" };
+  if (!response.ok) return { error: await readError(response, "Could not send message") };
+  const data = (await response.json()) as { message?: ChatTextMessage };
+  if (!data.message || data.message.kind !== "text") return { error: "Could not send message" };
+  return { message: data.message };
+}
+
+export async function postGroupChatMessage(
+  groupId: string,
+  body: string,
+): Promise<{ message: ChatTextMessage } | { error: string }> {
+  const response = await chatsFetch(`/api/chats/group/${encodeURIComponent(groupId)}/messages`, {
+    method: "POST",
+    body: JSON.stringify({ body }),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (response.status === 401) return { error: "Please sign in first" };
+  if (!response.ok) return { error: await readError(response, "Could not send message") };
+  const data = (await response.json()) as { message?: ChatTextMessage };
+  if (!data.message || data.message.kind !== "text") return { error: "Could not send message" };
+  return { message: data.message };
 }
 
 export async function markDmRead(peerUserId: string): Promise<{ ok: true } | { error: string }> {
@@ -154,4 +289,17 @@ export async function markGroupRead(groupId: string): Promise<{ ok: true } | { e
 
 export function chatsUnreadTotal(threads: ChatThreadSummary[]): number {
   return threads.reduce((sum, thread) => sum + (thread.unreadCount || 0), 0);
+}
+
+export function chatsUnreadBreakdown(threads: ChatThreadSummary[]): {
+  quote: number;
+  text: number;
+} {
+  return threads.reduce(
+    (acc, thread) => ({
+      quote: acc.quote + (thread.quoteUnreadCount || 0),
+      text: acc.text + (thread.textUnreadCount || 0),
+    }),
+    { quote: 0, text: 0 },
+  );
 }
