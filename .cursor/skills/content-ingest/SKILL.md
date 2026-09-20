@@ -5,8 +5,9 @@ description: >-
   only new catalog titles, matches Readwise highlights, and pushes stars to D1
   without overwriting curated titles. Use when the user says "run content
   ingest", "content ingest", "I added more movies to inbox/srt", convert/import
-  subtitles, Simpsons .sub files, match Readwise, "stars-push", "don't overwrite
-  my stars", "protect curated stars", or "check my stars then push".
+  subtitles, match Readwise, "stars-push", "don't overwrite my stars",
+  "protect curated stars", or "check my stars then push". A whole TV series
+  (add show, Sunny, Simpsons season dump) is the add-show skill.
 ---
 
 # Content ingest
@@ -79,4 +80,4 @@ flowchart TD
 
 Protected titles skip the **whole film** so Curate unstars stay gone. Later: tombstones on unstar, then merge `seed − tombstones`.
 
-**Next time:** `@` this file. Add “just stars” (step 6 only: protect + dry-run + wait) or “full ingest” (steps 1–7). Phrases like `content ingest` / `stars-push` still auto-match if you do not `@` it.
+**Next time:** `@` this file. Add “just stars” (step 6 only: protect + dry-run + wait) or “full ingest” (steps 1–7). Phrases like `content ingest` / `stars-push` still auto-match if you do not `@` it. A whole TV series (Sunny, Simpsons dump, “add show”) is [add-show](../add-show/SKILL.md).

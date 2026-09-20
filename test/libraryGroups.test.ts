@@ -27,6 +27,16 @@ describe("parseEpisodeMeta", () => {
   it("returns undefined for movies", () => {
     expect(parseEpisodeMeta("Baby Driver (2017)")).toBeUndefined();
   });
+
+  it("parses SxxExx show dumps", () => {
+    expect(
+      parseEpisodeMeta("It's Always Sunny in Philadelphia - S10E01 - The Gang Beats Boggs.en.srt"),
+    ).toEqual({
+      show: "It's Always Sunny in Philadelphia",
+      season: 10,
+      episode: 1,
+    });
+  });
 });
 
 describe("stripLangSuffix", () => {

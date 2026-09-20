@@ -1,0 +1,3647 @@
+{
+  "id": "its-always-sunny-in-philadelphia---16x07---the-gang-goes-bowling",
+  "title": "It's Always Sunny in Philadelphia - 16x07 - The Gang Goes Bowling",
+  "sourceFilename": "It's Always Sunny in Philadelphia - 16x07 - The Gang Goes Bowling.en.srt",
+  "importedAt": "2026-09-20T06:02:01.656Z",
+  "lineCount": 519,
+  "lines": [
+    {
+      "index": 0,
+      "text": "[\"Hip to Be Square\" by Huey Lewis and the News playing]",
+      "kind": "sdh",
+      "startMs": 7485,
+      "endMs": 9617
+    },
+    {
+      "index": 1,
+      "text": "[billiard balls clack]",
+      "kind": "sdh",
+      "startMs": 11880,
+      "endMs": 13186
+    },
+    {
+      "index": 2,
+      "text": "I'm-a order some chili cheese fries.",
+      "kind": "dialogue",
+      "startMs": 13186,
+      "endMs": 15406
+    },
+    {
+      "index": 3,
+      "text": "Oh, yeah? Get me some. Anybody else want an order?",
+      "kind": "dialogue",
+      "startMs": 15406,
+      "endMs": 18148
+    },
+    {
+      "index": 4,
+      "text": "A delivery of chili cheese fries?",
+      "kind": "dialogue",
+      "startMs": 18148,
+      "endMs": 20063
+    },
+    {
+      "index": 5,
+      "text": "They'll be mush by the time they get here. No way.",
+      "kind": "dialogue",
+      "startMs": 20063,
+      "endMs": 22848
+    },
+    {
+      "index": 6,
+      "text": "Aah! Shit. [scoffs, laughs] What are you doing, man? You can't hit it that hard.",
+      "kind": "dialogue",
+      "startMs": 22848,
+      "endMs": 28201
+    },
+    {
+      "index": 7,
+      "text": "You got to use more finesse.",
+      "kind": "dialogue",
+      "startMs": 28201,
+      "endMs": 30203
+    },
+    {
+      "index": 8,
+      "text": "Well, finesse isn't really my style, Charlie.",
+      "kind": "dialogue",
+      "startMs": 30203,
+      "endMs": 31509
+    },
+    {
+      "index": 9,
+      "text": "I like to dominate the table into submission.",
+      "kind": "dialogue",
+      "startMs": 31509,
+      "endMs": 34120
+    },
+    {
+      "index": 10,
+      "text": "Dennis, I got to head out. Tip me out.",
+      "kind": "dialogue",
+      "startMs": 34120,
+      "endMs": 36427
+    },
+    {
+      "index": 11,
+      "text": "[scoffs] What? Give me my tips.",
+      "kind": "dialogue",
+      "startMs": 36427,
+      "endMs": 38472
+    },
+    {
+      "index": 12,
+      "text": "What tips, Dee? What are you talking about?",
+      "kind": "dialogue",
+      "startMs": 38472,
+      "endMs": 39778
+    },
+    {
+      "index": 13,
+      "text": "Hey, any of you guys tip Dee today?",
+      "kind": "dialogue",
+      "startMs": 39778,
+      "endMs": 41693
+    },
+    {
+      "index": 14,
+      "text": "For what? Hell no.",
+      "kind": "dialogue",
+      "startMs": 41693,
+      "endMs": 43260
+    },
+    {
+      "index": 15,
+      "text": "[laughs] No. [Dee] All right, whatever.",
+      "kind": "dialogue",
+      "startMs": 43260,
+      "endMs": 44913
+    },
+    {
+      "index": 16,
+      "text": "Just give me 40 bucks from the register.",
+      "kind": "dialogue",
+      "startMs": 44913,
+      "endMs": 46611
+    },
+    {
+      "index": 17,
+      "text": "What do you need money for?",
+      "kind": "dialogue",
+      "startMs": 46611,
+      "endMs": 48178
+    },
+    {
+      "index": 18,
+      "text": "I'm going out. I just need a little cash.",
+      "kind": "dialogue",
+      "startMs": 48178,
+      "endMs": 49614
+    },
+    {
+      "index": 19,
+      "text": "Where you going?",
+      "kind": "dialogue",
+      "startMs": 49614,
+      "endMs": 51877
+    },
+    {
+      "index": 20,
+      "text": "I'm going to a fancy place with some fancy new friends of mine.",
+      "kind": "dialogue",
+      "startMs": 51877,
+      "endMs": 55402
+    },
+    {
+      "index": 21,
+      "text": "What friends? What is happening?",
+      "kind": "dialogue",
+      "startMs": 55402,
+      "endMs": 57317
+    },
+    {
+      "index": 22,
+      "text": "Why is everyone asking me questions?",
+      "kind": "dialogue",
+      "startMs": 57317,
+      "endMs": 58927
+    },
+    {
+      "index": 23,
+      "text": "Well, it's 'cause you're sneaking around trying to steal money that you haven't earned and looking like Carmen Sandiego.",
+      "kind": "dialogue",
+      "startMs": 58927,
+      "endMs": 63280
+    },
+    {
+      "index": 24,
+      "text": "I mean, what-what are we supposed to think?",
+      "kind": "dialogue",
+      "startMs": 63280,
+      "endMs": 65238
+    },
+    {
+      "index": 25,
+      "text": "W-What are you hiding, Dee? What?",
+      "kind": "dialogue",
+      "startMs": 65238,
+      "endMs": 67284
+    },
+    {
+      "index": 26,
+      "text": "Let me see what's under that coat. - No.",
+      "kind": "dialogue",
+      "startMs": 67284,
+      "endMs": 68415
+    },
+    {
+      "index": 27,
+      "text": "I want to see what's under it. No.",
+      "kind": "dialogue",
+      "startMs": 68415,
+      "endMs": 69590
+    },
+    {
+      "index": 28,
+      "text": "Show me. She's hiding something, Dennis.",
+      "kind": "dialogue",
+      "startMs": 69590,
+      "endMs": 71505
+    },
+    {
+      "index": 29,
+      "text": "You want me to hold her down and rip it off her?",
+      "kind": "dialogue",
+      "startMs": 71505,
+      "endMs": 72941
+    },
+    {
+      "index": 30,
+      "text": "Yeah. [Charlie] Go, Mac. Go, go, go. Stop it.",
+      "kind": "dialogue",
+      "startMs": 74769,
+      "endMs": 77250
+    },
+    {
+      "index": 31,
+      "text": "Okay, okay... Stop. Stop it. Don't touch me.",
+      "kind": "dialogue",
+      "startMs": 77250,
+      "endMs": 78251
+    },
+    {
+      "index": 32,
+      "text": "Don't touch me. Okay?",
+      "kind": "dialogue",
+      "startMs": 78251,
+      "endMs": 80732
+    },
+    {
+      "index": 33,
+      "text": "I decided that I want to take off the coat, 'cause it's hot in here.",
+      "kind": "dialogue",
+      "startMs": 80732,
+      "endMs": 87826
+    },
+    {
+      "index": 34,
+      "text": "[laughs]",
+      "kind": "sdh",
+      "startMs": 87826,
+      "endMs": 89871
+    },
+    {
+      "index": 35,
+      "text": "Bowling? That's the fancy outing you were, uh, hiding from us?",
+      "kind": "dialogue",
+      "startMs": 89871,
+      "endMs": 92222
+    },
+    {
+      "index": 36,
+      "text": "Dee, why were you hiding that from us?",
+      "kind": "dialogue",
+      "startMs": 92222,
+      "endMs": 94441
+    },
+    {
+      "index": 37,
+      "text": "Because it's my thing, okay? It's not your thing, and I don't want you guys getting involved.",
+      "kind": "dialogue",
+      "startMs": 94441,
+      "endMs": 97923
+    },
+    {
+      "index": 38,
+      "text": "[laughter] As if.",
+      "kind": "dialogue",
+      "startMs": 97923,
+      "endMs": 99968
+    },
+    {
+      "index": 39,
+      "text": "As if, Dee. As if.",
+      "kind": "dialogue",
+      "startMs": 99968,
+      "endMs": 101970
+    },
+    {
+      "index": 40,
+      "text": "As if. As if, Dee. As if.",
+      "kind": "dialogue",
+      "startMs": 101970,
+      "endMs": 104234
+    },
+    {
+      "index": 41,
+      "text": "Yeah, okay. All right.",
+      "kind": "dialogue",
+      "startMs": 104234,
+      "endMs": 105800
+    },
+    {
+      "index": 42,
+      "text": "Well, I'm gonna head out. You guys enjoy sitting around with your ding-dongs in your hand doing nothing all night.",
+      "kind": "dialogue",
+      "startMs": 105800,
+      "endMs": 110718
+    },
+    {
+      "index": 43,
+      "text": "[Charlie] Ugh.",
+      "kind": "dialogue",
+      "startMs": 110718,
+      "endMs": 113286
+    },
+    {
+      "index": 44,
+      "text": "[scoffs] - Ding-dongs in our hand... What is she talking...",
+      "kind": "dialogue",
+      "startMs": 113286,
+      "endMs": 115245
+    },
+    {
+      "index": 45,
+      "text": "What a bitch. God. Yeah.",
+      "kind": "dialogue",
+      "startMs": 115245,
+      "endMs": 116942
+    },
+    {
+      "index": 46,
+      "text": "My ding-dong wasn't even in my hand. I mean, what do you...",
+      "kind": "dialogue",
+      "startMs": 116942,
+      "endMs": 118987
+    },
+    {
+      "index": 47,
+      "text": "Mine was. Yeah, so was mine.",
+      "kind": "dialogue",
+      "startMs": 118987,
+      "endMs": 120380
+    },
+    {
+      "index": 48,
+      "text": "Yeah, I was scratching mine when she said that.",
+      "kind": "dialogue",
+      "startMs": 120380,
+      "endMs": 122252
+    },
+    {
+      "index": 49,
+      "text": "I-I had my hands fully down my pants, if I'm being honest.",
+      "kind": "dialogue",
+      "startMs": 122252,
+      "endMs": 124950
+    },
+    {
+      "index": 50,
+      "text": "I had to push it to the left.",
+      "kind": "dialogue",
+      "startMs": 124950,
+      "endMs": 126517
+    },
+    {
+      "index": 51,
+      "text": "They get itchy in there. That's a, such a coincidence.",
+      "kind": "dialogue",
+      "startMs": 126517,
+      "endMs": 128127
+    },
+    {
+      "index": 52,
+      "text": "That is a lucky guess. That's a crazy... yeah.",
+      "kind": "dialogue",
+      "startMs": 128127,
+      "endMs": 129563
+    },
+    {
+      "index": 53,
+      "text": "It was a lucky guess. It was a lucky guess.",
+      "kind": "dialogue",
+      "startMs": 129563,
+      "endMs": 131565
+    },
+    {
+      "index": 54,
+      "text": "But that's not the point. Look-look, the point is...",
+      "kind": "dialogue",
+      "startMs": 131565,
+      "endMs": 133872
+    },
+    {
+      "index": 55,
+      "text": "[chuckles] ...we have a lot better things to do than just go bowling.",
+      "kind": "dialogue",
+      "startMs": 133872,
+      "endMs": 137484
+    },
+    {
+      "index": 56,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 137484,
+      "endMs": 139530
+    },
+    {
+      "index": 57,
+      "text": "Oh, hello, ladies. You ready to roll?",
+      "kind": "dialogue",
+      "startMs": 160290,
+      "endMs": 162422
+    },
+    {
+      "index": 58,
+      "text": "Why is everybody sitting on their butts?",
+      "kind": "dialogue",
+      "startMs": 162422,
+      "endMs": 164337
+    },
+    {
+      "index": 59,
+      "text": "We've been waiting here for 20 minutes.",
+      "kind": "dialogue",
+      "startMs": 164337,
+      "endMs": 166339
+    },
+    {
+      "index": 60,
+      "text": "Okay, well, listen, things are just gonna be a little different if you want me on your team.",
+      "kind": "dialogue",
+      "startMs": 166339,
+      "endMs": 170387
+    },
+    {
+      "index": 61,
+      "text": "I show up when I want.",
+      "kind": "dialogue",
+      "startMs": 170387,
+      "endMs": 171518
+    },
+    {
+      "index": 62,
+      "text": "Well, we don't want you on our team.",
+      "kind": "dialogue",
+      "startMs": 171518,
+      "endMs": 172780
+    },
+    {
+      "index": 63,
+      "text": "It's just that our fourth didn't show up and literally no one else was free on a Friday night.",
+      "kind": "dialogue",
+      "startMs": 172780,
+      "endMs": 176349
+    },
+    {
+      "index": 64,
+      "text": "So you want me to be here. Not really.",
+      "kind": "dialogue",
+      "startMs": 176349,
+      "endMs": 177698
+    },
+    {
+      "index": 65,
+      "text": "Awesome. Good.",
+      "kind": "dialogue",
+      "startMs": 177698,
+      "endMs": 179178
+    },
+    {
+      "index": 66,
+      "text": "Do you have the $35 team fee?",
+      "kind": "dialogue",
+      "startMs": 179178,
+      "endMs": 180484
+    },
+    {
+      "index": 67,
+      "text": "Ooh, I do not, but I have... Okay.",
+      "kind": "dialogue",
+      "startMs": 180484,
+      "endMs": 183182
+    },
+    {
+      "index": 68,
+      "text": "...something much more valuable: my expertise.",
+      "kind": "dialogue",
+      "startMs": 183182,
+      "endMs": 186403
+    },
+    {
+      "index": 69,
+      "text": "So listen to me and you'll be in business.",
+      "kind": "dialogue",
+      "startMs": 186403,
+      "endMs": 187969
+    },
+    {
+      "index": 70,
+      "text": "Anyone want to snort Jell-O shots?",
+      "kind": "dialogue",
+      "startMs": 187969,
+      "endMs": 190145
+    },
+    {
+      "index": 71,
+      "text": "Oh... [Dee] Snail?",
+      "kind": "dialogue",
+      "startMs": 190145,
+      "endMs": 191190
+    },
+    {
+      "index": 72,
+      "text": "You're on the team?",
+      "kind": "dialogue",
+      "startMs": 191190,
+      "endMs": 192409
+    },
+    {
+      "index": 73,
+      "text": "Yeah, I love bowling.",
+      "kind": "dialogue",
+      "startMs": 192409,
+      "endMs": 193584
+    },
+    {
+      "index": 74,
+      "text": "The whole scene is so hot.",
+      "kind": "dialogue",
+      "startMs": 193584,
+      "endMs": 196413
+    },
+    {
+      "index": 75,
+      "text": "I sucked off a rando in the parking lot.",
+      "kind": "dialogue",
+      "startMs": 196413,
+      "endMs": 197762
+    },
+    {
+      "index": 76,
+      "text": "Ugh, my mouth hurts.",
+      "kind": "dialogue",
+      "startMs": 197762,
+      "endMs": 199503
+    },
+    {
+      "index": 77,
+      "text": "Gross. Waitress, you're responsible for this?",
+      "kind": "dialogue",
+      "startMs": 199503,
+      "endMs": 202462
+    },
+    {
+      "index": 78,
+      "text": "I'm not responsible for this, but this is my team, okay?",
+      "kind": "dialogue",
+      "startMs": 202462,
+      "endMs": 204421
+    },
+    {
+      "index": 79,
+      "text": "So you can't just come in here and take over, come in late, not have your money, okay?",
+      "kind": "dialogue",
+      "startMs": 204421,
+      "endMs": 208512
+    },
+    {
+      "index": 80,
+      "text": "I signed us up, I booked the lane, I made us shirts.",
+      "kind": "dialogue",
+      "startMs": 208512,
+      "endMs": 212385
+    },
+    {
+      "index": 81,
+      "text": "I even found us an appliance company to sponsor us.",
+      "kind": "dialogue",
+      "startMs": 212385,
+      "endMs": 215170
+    },
+    {
+      "index": 82,
+      "text": "Frige-it. -\"Frige-it Bitches\"?",
+      "kind": "dialogue",
+      "startMs": 215170,
+      "endMs": 218348
+    },
+    {
+      "index": 83,
+      "text": "[laughs] Yeah. God, you guys are stupid.",
+      "kind": "dialogue",
+      "startMs": 218348,
+      "endMs": 219958
+    },
+    {
+      "index": 84,
+      "text": "I'm not wearing this. No, it's so funny.",
+      "kind": "dialogue",
+      "startMs": 219958,
+      "endMs": 221655
+    },
+    {
+      "index": 85,
+      "text": "It's not funny. We've been laughing all night.",
+      "kind": "dialogue",
+      "startMs": 221655,
+      "endMs": 223744
+    },
+    {
+      "index": 86,
+      "text": "That doesn't surprise me. Now listen up. - Okay...",
+      "kind": "dialogue",
+      "startMs": 223744,
+      "endMs": 225224
+    },
+    {
+      "index": 87,
+      "text": "We're not here to laugh or be funny. - No, thank you.",
+      "kind": "dialogue",
+      "startMs": 225224,
+      "endMs": 227400
+    },
+    {
+      "index": 88,
+      "text": "We're here to win. Oh, God.",
+      "kind": "dialogue",
+      "startMs": 227400,
+      "endMs": 228662
+    },
+    {
+      "index": 89,
+      "text": "Which you can do if you listen to me.",
+      "kind": "dialogue",
+      "startMs": 228662,
+      "endMs": 230360
+    },
+    {
+      "index": 90,
+      "text": "Or perhaps I should let my balls do the talking.",
+      "kind": "dialogue",
+      "startMs": 230360,
+      "endMs": 233363
+    },
+    {
+      "index": 91,
+      "text": "Please do. Yeah.",
+      "kind": "dialogue",
+      "startMs": 233363,
+      "endMs": 235321
+    },
+    {
+      "index": 92,
+      "text": "[slurps]",
+      "kind": "sdh",
+      "startMs": 235321,
+      "endMs": 237105
+    },
+    {
+      "index": 93,
+      "text": "[cheering] Hot shit, Dee.",
+      "kind": "dialogue",
+      "startMs": 244504,
+      "endMs": 246550
+    },
+    {
+      "index": 94,
+      "text": "Do I have your attention? [Dennis] Well, well, well.",
+      "kind": "dialogue",
+      "startMs": 246550,
+      "endMs": 248073
+    },
+    {
+      "index": 95,
+      "text": "Oh, God. What?",
+      "kind": "dialogue",
+      "startMs": 248073,
+      "endMs": 250467
+    },
+    {
+      "index": 96,
+      "text": "Pretty nice roll, Deandra.",
+      "kind": "dialogue",
+      "startMs": 250467,
+      "endMs": 251772
+    },
+    {
+      "index": 97,
+      "text": "Too bad it'll be your last.",
+      "kind": "dialogue",
+      "startMs": 251772,
+      "endMs": 253774
+    },
+    {
+      "index": 98,
+      "text": "Can you please just leave and let me have one thing to myself?",
+      "kind": "dialogue",
+      "startMs": 253774,
+      "endMs": 255820
+    },
+    {
+      "index": 99,
+      "text": "Nah.",
+      "kind": "dialogue",
+      "startMs": 255820,
+      "endMs": 257474
+    },
+    {
+      "index": 100,
+      "text": "So these, uh, \"frigid bitches,\" these are your new \"fancy friends\"?",
+      "kind": "dialogue",
+      "startMs": 257474,
+      "endMs": 261129
+    },
+    {
+      "index": 101,
+      "text": "[laughs] What is this, some kind of women's league?",
+      "kind": "dialogue",
+      "startMs": 261129,
+      "endMs": 263088
+    },
+    {
+      "index": 102,
+      "text": "It's a coed tournament.",
+      "kind": "dialogue",
+      "startMs": 263088,
+      "endMs": 264611
+    },
+    {
+      "index": 103,
+      "text": "[laughs] So you'll be competing against men?",
+      "kind": "dialogue",
+      "startMs": 264611,
+      "endMs": 267484
+    },
+    {
+      "index": 104,
+      "text": "Vaginas and penises together again.",
+      "kind": "dialogue",
+      "startMs": 267484,
+      "endMs": 270051
+    },
+    {
+      "index": 105,
+      "text": "I'll tell you what, why don't we join this league and have ourselves a little competition?",
+      "kind": "dialogue",
+      "startMs": 270051,
+      "endMs": 273316
+    },
+    {
+      "index": 106,
+      "text": "Or are you too scared that you'll lose to us?",
+      "kind": "dialogue",
+      "startMs": 274578,
+      "endMs": 277232
+    },
+    {
+      "index": 107,
+      "text": "[cackles]",
+      "kind": "sdh",
+      "startMs": 277232,
+      "endMs": 279104
+    },
+    {
+      "index": 108,
+      "text": "[high-pitched cackle]",
+      "kind": "sdh",
+      "startMs": 279104,
+      "endMs": 281062
+    },
+    {
+      "index": 109,
+      "text": "He did one, so I thought we were doing... Okay.",
+      "kind": "dialogue",
+      "startMs": 281062,
+      "endMs": 283456
+    },
+    {
+      "index": 110,
+      "text": "Shit.",
+      "kind": "dialogue",
+      "startMs": 283456,
+      "endMs": 284501
+    },
+    {
+      "index": 111,
+      "text": "Anyone got a straw?",
+      "kind": "dialogue",
+      "startMs": 284501,
+      "endMs": 286067
+    },
+    {
+      "index": 112,
+      "text": "I didn't know. Okay. It's fine. All right.",
+      "kind": "dialogue",
+      "startMs": 286067,
+      "endMs": 287460
+    },
+    {
+      "index": 113,
+      "text": "Hey! Hey, guys? Let's have it.",
+      "kind": "dialogue",
+      "startMs": 287460,
+      "endMs": 288287
+    },
+    {
+      "index": 114,
+      "text": "[Mac] Oh, for Christ's sakes. [Dennis] Shit.",
+      "kind": "dialogue",
+      "startMs": 289593,
+      "endMs": 290681
+    },
+    {
+      "index": 115,
+      "text": "Are you kidding me? Please tell me you guys don't own this bowling alley.",
+      "kind": "dialogue",
+      "startMs": 290681,
+      "endMs": 294249
+    },
+    {
+      "index": 116,
+      "text": "We got out of the video rental business just after the bubble burst.",
+      "kind": "dialogue",
+      "startMs": 294249,
+      "endMs": 297427
+    },
+    {
+      "index": 117,
+      "text": "Bowling's always been in our blood.",
+      "kind": "dialogue",
+      "startMs": 297427,
+      "endMs": 299254
+    },
+    {
+      "index": 118,
+      "text": "[Liam] Ryan's got the forearms of an elephant wrangler.",
+      "kind": "dialogue",
+      "startMs": 299254,
+      "endMs": 301474
+    },
+    {
+      "index": 119,
+      "text": "He could have been pro.",
+      "kind": "dialogue",
+      "startMs": 301474,
+      "endMs": 303128
+    },
+    {
+      "index": 120,
+      "text": "[Ryan] I could have been.",
+      "kind": "dialogue",
+      "startMs": 303128,
+      "endMs": 304521
+    },
+    {
+      "index": 121,
+      "text": "If not for my tragic accident.",
+      "kind": "dialogue",
+      "startMs": 304521,
+      "endMs": 306436
+    },
+    {
+      "index": 122,
+      "text": "The story is too horrible for words, so don't ask me...",
+      "kind": "dialogue",
+      "startMs": 306436,
+      "endMs": 309134
+    },
+    {
+      "index": 123,
+      "text": "We-we... - We're not gonna ask. We don't really care",
+      "kind": "dialogue",
+      "startMs": 309134,
+      "endMs": 310570
+    },
+    {
+      "index": 124,
+      "text": "about that, yeah. You can keep that to yourself.",
+      "kind": "dialogue",
+      "startMs": 310570,
+      "endMs": 312137
+    },
+    {
+      "index": 125,
+      "text": "I'd tell you, but you wouldn't be able to handle it.",
+      "kind": "dialogue",
+      "startMs": 312137,
+      "endMs": 314922
+    },
+    {
+      "index": 126,
+      "text": "You clearly want to tell us, but we're not here for it. - We don't want to hear it.",
+      "kind": "dialogue",
+      "startMs": 314922,
+      "endMs": 317447
+    },
+    {
+      "index": 127,
+      "text": "Listen, I'm moving past this. Can we sign up for the league?",
+      "kind": "dialogue",
+      "startMs": 317447,
+      "endMs": 319449
+    },
+    {
+      "index": 128,
+      "text": "Impossible. Why, is it too late to sign up?",
+      "kind": "dialogue",
+      "startMs": 319449,
+      "endMs": 321886
+    },
+    {
+      "index": 129,
+      "text": "No, you just couldn't afford it.",
+      "kind": "dialogue",
+      "startMs": 321886,
+      "endMs": 324628
+    },
+    {
+      "index": 130,
+      "text": "How much is it? -$35.",
+      "kind": "dialogue",
+      "startMs": 324628,
+      "endMs": 326543
+    },
+    {
+      "index": 131,
+      "text": "We got that. - Well, we got that, yeah. That's fine.",
+      "kind": "dialogue",
+      "startMs": 326543,
+      "endMs": 328501
+    },
+    {
+      "index": 132,
+      "text": "Each.",
+      "kind": "dialogue",
+      "startMs": 328501,
+      "endMs": 330460
+    },
+    {
+      "index": 133,
+      "text": "Uh, do you mind covering us? That's still...",
+      "kind": "dialogue",
+      "startMs": 330460,
+      "endMs": 333332
+    },
+    {
+      "index": 134,
+      "text": "[Charlie] W-We're good, we're good, yeah.",
+      "kind": "dialogue",
+      "startMs": 333332,
+      "endMs": 334899
+    },
+    {
+      "index": 135,
+      "text": "Hey, listen, can we play the Frigid Bitches first?",
+      "kind": "dialogue",
+      "startMs": 334899,
+      "endMs": 336509
+    },
+    {
+      "index": 136,
+      "text": "Sure, whatever. I don't give a shit.",
+      "kind": "dialogue",
+      "startMs": 336509,
+      "endMs": 338076
+    },
+    {
+      "index": 137,
+      "text": "You guys got chili cheese fries here?",
+      "kind": "dialogue",
+      "startMs": 338076,
+      "endMs": 339773
+    },
+    {
+      "index": 138,
+      "text": "Franklin, we do have chili and we do have cheese and we do have fries, but combining them is strictly prohibited.",
+      "kind": "dialogue",
+      "startMs": 339773,
+      "endMs": 344865
+    },
+    {
+      "index": 139,
+      "text": "Why? - The story is too terrible to tell.",
+      "kind": "dialogue",
+      "startMs": 344865,
+      "endMs": 347390
+    },
+    {
+      "index": 140,
+      "text": "Oh, for Christ's sake. Nobody cares. - Oh, Christ's sake.",
+      "kind": "dialogue",
+      "startMs": 347390,
+      "endMs": 348956
+    },
+    {
+      "index": 141,
+      "text": "Sign us up for the league. We won't combine the fries.",
+      "kind": "dialogue",
+      "startMs": 348956,
+      "endMs": 350567
+    },
+    {
+      "index": 142,
+      "text": "Make sure we're playing the Frigid Bitches.",
+      "kind": "dialogue",
+      "startMs": 350567,
+      "endMs": 352612
+    },
+    {
+      "index": 143,
+      "text": "[Charlie] Yeah, give us some shoes. W-What size shoe...",
+      "kind": "dialogue",
+      "startMs": 352612,
+      "endMs": 354614
+    },
+    {
+      "index": 144,
+      "text": "All right, how you doing? We'll get the shoes.",
+      "kind": "dialogue",
+      "startMs": 354614,
+      "endMs": 356486
+    },
+    {
+      "index": 145,
+      "text": "Three, two, one and smile.",
+      "kind": "dialogue",
+      "startMs": 356486,
+      "endMs": 359445
+    },
+    {
+      "index": 146,
+      "text": "[camera shutter clicks] Great.",
+      "kind": "dialogue",
+      "startMs": 359445,
+      "endMs": 361186
+    },
+    {
+      "index": 147,
+      "text": "Okay. Let me check that picture.",
+      "kind": "dialogue",
+      "startMs": 361186,
+      "endMs": 362666
+    },
+    {
+      "index": 148,
+      "text": "How's my ass look? Okay.",
+      "kind": "dialogue",
+      "startMs": 362666,
+      "endMs": 363971
+    },
+    {
+      "index": 149,
+      "text": "[whoops] That looks pretty good.",
+      "kind": "dialogue",
+      "startMs": 363971,
+      "endMs": 365669
+    },
+    {
+      "index": 150,
+      "text": "Oh, it looks huge. Sick.",
+      "kind": "dialogue",
+      "startMs": 365669,
+      "endMs": 367497
+    },
+    {
+      "index": 151,
+      "text": "Can we take another? I wasn't sufficiently in character.",
+      "kind": "dialogue",
+      "startMs": 367497,
+      "endMs": 369890
+    },
+    {
+      "index": 152,
+      "text": "In character? Yes, character.",
+      "kind": "dialogue",
+      "startMs": 369890,
+      "endMs": 371762
+    },
+    {
+      "index": 153,
+      "text": "I'm researching a character I'm playing named Donna Brunswick of the Brunswick Bowling Dynasty.",
+      "kind": "dialogue",
+      "startMs": 371762,
+      "endMs": 376462
+    },
+    {
+      "index": 154,
+      "text": "Oh, goddamn. You guys are not taking this seriously.",
+      "kind": "dialogue",
+      "startMs": 376462,
+      "endMs": 378725
+    },
+    {
+      "index": 155,
+      "text": "Okay? Let's cut the BS.",
+      "kind": "dialogue",
+      "startMs": 378725,
+      "endMs": 380205
+    },
+    {
+      "index": 156,
+      "text": "As your leader, I demand we cut the BS.",
+      "kind": "dialogue",
+      "startMs": 380205,
+      "endMs": 381815
+    },
+    {
+      "index": 157,
+      "text": "Now let's talk order.",
+      "kind": "dialogue",
+      "startMs": 381815,
+      "endMs": 383121
+    },
+    {
+      "index": 158,
+      "text": "I'm thinking Snail, Artemis,",
+      "kind": "dialogue",
+      "startMs": 383121,
+      "endMs": 385515
+    },
+    {
+      "index": 159,
+      "text": "Waitress, best for last. - [The Waitress] Okay, I'm just gonna remind you that you're not the leader and you can't be the leader 'cause you don't even know everyone's names.",
+      "kind": "dialogue",
+      "startMs": 385515,
+      "endMs": 391434
+    },
+    {
+      "index": 160,
+      "text": "Mm, can you switch mine to \"Donna\"?",
+      "kind": "dialogue",
+      "startMs": 391434,
+      "endMs": 393566
+    },
+    {
+      "index": 161,
+      "text": "No. - [Charlie] Well, well, well. Looks like the Frigid Bitches are going up against the Hanging Monster Dong Lucky Strike Chili Cheese Fryers.",
+      "kind": "dialogue",
+      "startMs": 393566,
+      "endMs": 402401
+    },
+    {
+      "index": 162,
+      "text": "Is that your name? That's really stupid.",
+      "kind": "dialogue",
+      "startMs": 402401,
+      "endMs": 403881
+    },
+    {
+      "index": 163,
+      "text": "It's too many ideas, man. I told you it was stupid.",
+      "kind": "dialogue",
+      "startMs": 403881,
+      "endMs": 405012
+    },
+    {
+      "index": 164,
+      "text": "I-I knew they were gonna make fun of us",
+      "kind": "dialogue",
+      "startMs": 405012,
+      "endMs": 406536
+    },
+    {
+      "index": 165,
+      "text": "and they did make fun of us. Yeah, 'cause it's stupid.",
+      "kind": "dialogue",
+      "startMs": 406536,
+      "endMs": 408973
+    },
+    {
+      "index": 166,
+      "text": "You know what? Uh, but it doesn't matter, 'cause you guys are dead meat.",
+      "kind": "dialogue",
+      "startMs": 408973,
+      "endMs": 412019
+    },
+    {
+      "index": 167,
+      "text": "Hey, did Dee happen to tell you the history of her experience with bowling?",
+      "kind": "dialogue",
+      "startMs": 412019,
+      "endMs": 416633
+    },
+    {
+      "index": 168,
+      "text": "No. - [Mac] You should tell them, you should tell them.",
+      "kind": "dialogue",
+      "startMs": 416633,
+      "endMs": 419244
+    },
+    {
+      "index": 169,
+      "text": "You tell them, you tell them. Tell them, tell them. I-I was about to.",
+      "kind": "dialogue",
+      "startMs": 419244,
+      "endMs": 421594
+    },
+    {
+      "index": 170,
+      "text": "I don't know. Oh, you were? I was about to. Yes.",
+      "kind": "dialogue",
+      "startMs": 421594,
+      "endMs": 423596
+    },
+    {
+      "index": 171,
+      "text": "[cackles] Are we doing the laugh? - [laughs] He's gonna tell you.",
+      "kind": "dialogue",
+      "startMs": 423596,
+      "endMs": 425859
+    },
+    {
+      "index": 172,
+      "text": "Are we doing laughs? - Yeah, uh, no. I'll just tell it.",
+      "kind": "dialogue",
+      "startMs": 425859,
+      "endMs": 427557
+    },
+    {
+      "index": 173,
+      "text": "He's gonna tell you. Okay, well, when she was a kid, she was, well, she was pretty decent.",
+      "kind": "dialogue",
+      "startMs": 427557,
+      "endMs": 432475
+    },
+    {
+      "index": 174,
+      "text": "And I got to say, she worked really, really hard at it.",
+      "kind": "dialogue",
+      "startMs": 432475,
+      "endMs": 434607
+    },
+    {
+      "index": 175,
+      "text": "So, she eventually became the captain of the girls' team.",
+      "kind": "dialogue",
+      "startMs": 434607,
+      "endMs": 438306
+    },
+    {
+      "index": 176,
+      "text": "Can you believe that?",
+      "kind": "dialogue",
+      "startMs": 438306,
+      "endMs": 439569
+    },
+    {
+      "index": 177,
+      "text": "Now, I'm no fan of women's sports.",
+      "kind": "dialogue",
+      "startMs": 439569,
+      "endMs": 442093
+    },
+    {
+      "index": 178,
+      "text": "Who is? Yeah, they're not very popular. Nobody is.",
+      "kind": "dialogue",
+      "startMs": 442093,
+      "endMs": 444051
+    },
+    {
+      "index": 179,
+      "text": "[Dennis] Nobody watches... Especially women.",
+      "kind": "dialogue",
+      "startMs": 444051,
+      "endMs": 445575
+    },
+    {
+      "index": 180,
+      "text": "Women don't even like women's sports.",
+      "kind": "dialogue",
+      "startMs": 445575,
+      "endMs": 446576
+    },
+    {
+      "index": 181,
+      "text": "So I wouldn't have it.",
+      "kind": "dialogue",
+      "startMs": 446576,
+      "endMs": 448578
+    },
+    {
+      "index": 182,
+      "text": "And to prove that Dee's female mind was mentally weak, I started to go watch her, and I would say, \"gutter ball\" right before she rolled it, and wouldn't you know it, every time I said it, she'd roll a gutter ball.",
+      "kind": "dialogue",
+      "startMs": 448578,
+      "endMs": 467553
+    },
+    {
+      "index": 183,
+      "text": "Since then, if I even so much as look at Dee when she bowls, she can't knock down a single pin.",
+      "kind": "dialogue",
+      "startMs": 467553,
+      "endMs": 474299
+    },
+    {
+      "index": 184,
+      "text": "Not even one.",
+      "kind": "dialogue",
+      "startMs": 474299,
+      "endMs": 477563
+    },
+    {
+      "index": 185,
+      "text": "[laughs]",
+      "kind": "sdh",
+      "startMs": 477563,
+      "endMs": 480044
+    },
+    {
+      "index": 186,
+      "text": "Well, that's a bit of an exaggeration.",
+      "kind": "dialogue",
+      "startMs": 480044,
+      "endMs": 482263
+    },
+    {
+      "index": 187,
+      "text": "[Dennis] Anyway, good luck out there.",
+      "kind": "dialogue",
+      "startMs": 482263,
+      "endMs": 483830
+    },
+    {
+      "index": 188,
+      "text": "[Artemis] Mm. Ladies.",
+      "kind": "dialogue",
+      "startMs": 483830,
+      "endMs": 486093
+    },
+    {
+      "index": 189,
+      "text": "[Charlie laughs] Gentlemen.",
+      "kind": "dialogue",
+      "startMs": 486093,
+      "endMs": 488095
+    },
+    {
+      "index": 190,
+      "text": "That was so good. That was really good.",
+      "kind": "dialogue",
+      "startMs": 488095,
+      "endMs": 489009
+    },
+    {
+      "index": 191,
+      "text": "That was really good, Dennis.",
+      "kind": "dialogue",
+      "startMs": 489009,
+      "endMs": 489880
+    },
+    {
+      "index": 192,
+      "text": "All right, I'm looking at their lineup and I'm wondering who should lead us off against Snail.",
+      "kind": "dialogue",
+      "startMs": 493100,
+      "endMs": 495842
+    },
+    {
+      "index": 193,
+      "text": "I'll start. It'll be good to show our power and dominance, you know,",
+      "kind": "dialogue",
+      "startMs": 495842,
+      "endMs": 499150
+    },
+    {
+      "index": 194,
+      "text": "for intimidation. Uh, Frank?",
+      "kind": "dialogue",
+      "startMs": 499150,
+      "endMs": 500630
+    },
+    {
+      "index": 195,
+      "text": "You should go against Artemis. She's next.",
+      "kind": "dialogue",
+      "startMs": 500630,
+      "endMs": 502632
+    },
+    {
+      "index": 196,
+      "text": "Okay? And-and you should go up after that, 'cause it's The Waitress, and you're gonna irritate the shit",
+      "kind": "dialogue",
+      "startMs": 502632,
+      "endMs": 505939
+    },
+    {
+      "index": 197,
+      "text": "out of her and that-that's a good thing, okay? - Yeah.",
+      "kind": "dialogue",
+      "startMs": 505939,
+      "endMs": 507158
+    },
+    {
+      "index": 198,
+      "text": "Oh, shit.",
+      "kind": "dialogue",
+      "startMs": 507158,
+      "endMs": 508681
+    },
+    {
+      "index": 199,
+      "text": "[Dennis] What? Uh...",
+      "kind": "dialogue",
+      "startMs": 508681,
+      "endMs": 510640
+    },
+    {
+      "index": 200,
+      "text": "Some kid's having, like, a birthday party in the arcade",
+      "kind": "dialogue",
+      "startMs": 510640,
+      "endMs": 512076
+    },
+    {
+      "index": 201,
+      "text": "or something. Okay. So what?",
+      "kind": "dialogue",
+      "startMs": 512076,
+      "endMs": 513904
+    },
+    {
+      "index": 202,
+      "text": "It looks fun. Charlie, do not be that guy that everyone's looking for when it's their turn.",
+      "kind": "dialogue",
+      "startMs": 513904,
+      "endMs": 517908
+    },
+    {
+      "index": 203,
+      "text": "Oh, yeah. Yeah. That shit drives me crazy.",
+      "kind": "dialogue",
+      "startMs": 517908,
+      "endMs": 519518
+    },
+    {
+      "index": 204,
+      "text": "Please don't be that guy. Yeah. Yeah.",
+      "kind": "dialogue",
+      "startMs": 519518,
+      "endMs": 521259
+    },
+    {
+      "index": 205,
+      "text": "Okay, I'll go last against Dee because it's gonna be",
+      "kind": "dialogue",
+      "startMs": 521259,
+      "endMs": 522956
+    },
+    {
+      "index": 206,
+      "text": "a lot of fun getting in her head, so... - [laughter] It's gonna really mess her up. It's gonna be awesome.",
+      "kind": "dialogue",
+      "startMs": 522956,
+      "endMs": 526699
+    },
+    {
+      "index": 207,
+      "text": "All right. Hands in, boys. Say it on three.",
+      "kind": "dialogue",
+      "startMs": 526699,
+      "endMs": 528919
+    },
+    {
+      "index": 208,
+      "text": "[all] Hanging Monster Ch... Now I'm forgetting it.",
+      "kind": "dialogue",
+      "startMs": 528919,
+      "endMs": 530964
+    },
+    {
+      "index": 209,
+      "text": "[stammering] Chili Cheese Fryers!",
+      "kind": "dialogue",
+      "startMs": 530964,
+      "endMs": 532618
+    },
+    {
+      "index": 210,
+      "text": "Cheese fries. Yeah. Oh, now I should go...",
+      "kind": "dialogue",
+      "startMs": 532618,
+      "endMs": 533663
+    },
+    {
+      "index": 211,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 533663,
+      "endMs": 536709
+    },
+    {
+      "index": 212,
+      "text": "Let's do it, bud. [exhales sharply] Let's go, man.",
+      "kind": "dialogue",
+      "startMs": 536709,
+      "endMs": 539756
+    },
+    {
+      "index": 213,
+      "text": "Stride, stride, stride, execute.",
+      "kind": "dialogue",
+      "startMs": 539756,
+      "endMs": 542628
+    },
+    {
+      "index": 214,
+      "text": "Okay, not bad, not bad, Mac. Not bad.",
+      "kind": "dialogue",
+      "startMs": 545588,
+      "endMs": 547633
+    },
+    {
+      "index": 215,
+      "text": "Not bad, dude.",
+      "kind": "dialogue",
+      "startMs": 547633,
+      "endMs": 548939
+    },
+    {
+      "index": 216,
+      "text": "[Dee] Come on, Snail.",
+      "kind": "dialogue",
+      "startMs": 548939,
+      "endMs": 549766
+    },
+    {
+      "index": 217,
+      "text": "What the...",
+      "kind": "dialogue",
+      "startMs": 549766,
+      "endMs": 550767
+    },
+    {
+      "index": 218,
+      "text": "What? What?",
+      "kind": "dialogue",
+      "startMs": 550767,
+      "endMs": 552507
+    },
+    {
+      "index": 219,
+      "text": "Okay, why are you so happy right now?",
+      "kind": "dialogue",
+      "startMs": 552507,
+      "endMs": 554727
+    },
+    {
+      "index": 220,
+      "text": "Gail. What the hell was that?",
+      "kind": "dialogue",
+      "startMs": 554727,
+      "endMs": 556163
+    },
+    {
+      "index": 221,
+      "text": "Ooh, my cooter's on fire for Mac. - Ew.",
+      "kind": "dialogue",
+      "startMs": 556163,
+      "endMs": 558557
+    },
+    {
+      "index": 222,
+      "text": "[slurps] I want to have his baby.",
+      "kind": "dialogue",
+      "startMs": 558557,
+      "endMs": 560603
+    },
+    {
+      "index": 223,
+      "text": "Your cooter is most likely on fire from a yeast infection.",
+      "kind": "dialogue",
+      "startMs": 560603,
+      "endMs": 562735
+    },
+    {
+      "index": 224,
+      "text": "Go in the bathroom, rinse it out and be better next time.",
+      "kind": "dialogue",
+      "startMs": 562735,
+      "endMs": 564911
+    },
+    {
+      "index": 225,
+      "text": "Dennis, cover me. Cover me.",
+      "kind": "dialogue",
+      "startMs": 564911,
+      "endMs": 567784
+    },
+    {
+      "index": 226,
+      "text": "Ryan's eyeballing me and I'm trying to mix these.",
+      "kind": "dialogue",
+      "startMs": 567784,
+      "endMs": 571091
+    },
+    {
+      "index": 227,
+      "text": "I can't do that right now. What? Just go, go...",
+      "kind": "dialogue",
+      "startMs": 571091,
+      "endMs": 572353
+    },
+    {
+      "index": 228,
+      "text": "No, I got... Go stand over here.",
+      "kind": "dialogue",
+      "startMs": 572353,
+      "endMs": 573659
+    },
+    {
+      "index": 229,
+      "text": "I got Liam over here eyeballing me.",
+      "kind": "dialogue",
+      "startMs": 573659,
+      "endMs": 575661
+    },
+    {
+      "index": 230,
+      "text": "I mean, I...",
+      "kind": "dialogue",
+      "startMs": 575661,
+      "endMs": 577794
+    },
+    {
+      "index": 231,
+      "text": "I think he is. Little hard to tell with the eyepatch.",
+      "kind": "dialogue",
+      "startMs": 577794,
+      "endMs": 579622
+    },
+    {
+      "index": 232,
+      "text": "Ah. Anyway, it's your, it's your roll, man.",
+      "kind": "dialogue",
+      "startMs": 581362,
+      "endMs": 582407
+    },
+    {
+      "index": 233,
+      "text": "Go, go, go. Go, yeah. Oh. I'm up?",
+      "kind": "dialogue",
+      "startMs": 582407,
+      "endMs": 583887
+    },
+    {
+      "index": 234,
+      "text": "Yes, you're up. Up.",
+      "kind": "dialogue",
+      "startMs": 583887,
+      "endMs": 585018
+    },
+    {
+      "index": 235,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 585018,
+      "endMs": 587804
+    },
+    {
+      "index": 236,
+      "text": "Artemis. Frank.",
+      "kind": "dialogue",
+      "startMs": 587804,
+      "endMs": 590589
+    },
+    {
+      "index": 237,
+      "text": "How about we, uh, test out the back seat of my LeBaron after the roll?",
+      "kind": "dialogue",
+      "startMs": 590589,
+      "endMs": 595812
+    },
+    {
+      "index": 238,
+      "text": "Everybody stop trying to have sex with each other.",
+      "kind": "dialogue",
+      "startMs": 595812,
+      "endMs": 597814
+    },
+    {
+      "index": 239,
+      "text": "Hey, you know, another reason why men and women can't compete, Dee.",
+      "kind": "dialogue",
+      "startMs": 597814,
+      "endMs": 599816
+    },
+    {
+      "index": 240,
+      "text": "It's too sexually charged.",
+      "kind": "dialogue",
+      "startMs": 599816,
+      "endMs": 601208
+    },
+    {
+      "index": 241,
+      "text": "Come on.",
+      "kind": "dialogue",
+      "startMs": 601208,
+      "endMs": 602732
+    },
+    {
+      "index": 242,
+      "text": "All right. Donna Brunswick...",
+      "kind": "dialogue",
+      "startMs": 602732,
+      "endMs": 604211
+    },
+    {
+      "index": 243,
+      "text": "[automated voice] Strike.",
+      "kind": "dialogue",
+      "startMs": 609608,
+      "endMs": 610783
+    },
+    {
+      "index": 244,
+      "text": "Oh! Hey!",
+      "kind": "dialogue",
+      "startMs": 610783,
+      "endMs": 612655
+    },
+    {
+      "index": 245,
+      "text": "[Dee] Nice.",
+      "kind": "dialogue",
+      "startMs": 612655,
+      "endMs": 614004
+    },
+    {
+      "index": 246,
+      "text": "Artemis, you can bowl? No.",
+      "kind": "dialogue",
+      "startMs": 614004,
+      "endMs": 616484
+    },
+    {
+      "index": 247,
+      "text": "My character can. Me, I can't bowl for shit.",
+      "kind": "dialogue",
+      "startMs": 616484,
+      "endMs": 619270
+    },
+    {
+      "index": 248,
+      "text": "Oh.",
+      "kind": "dialogue",
+      "startMs": 619270,
+      "endMs": 621098
+    },
+    {
+      "index": 249,
+      "text": "Oh, my God.",
+      "kind": "dialogue",
+      "startMs": 624405,
+      "endMs": 625711
+    },
+    {
+      "index": 250,
+      "text": "[Dennis groans] [laughs]",
+      "kind": "dialogue",
+      "startMs": 625711,
+      "endMs": 627060
+    },
+    {
+      "index": 251,
+      "text": "It's not gonna make it.",
+      "kind": "dialogue",
+      "startMs": 630803,
+      "endMs": 631978
+    },
+    {
+      "index": 252,
+      "text": "[automated voice] Strike.",
+      "kind": "dialogue",
+      "startMs": 638637,
+      "endMs": 639638
+    },
+    {
+      "index": 253,
+      "text": "[shouts]",
+      "kind": "sdh",
+      "startMs": 639638,
+      "endMs": 640683
+    },
+    {
+      "index": 254,
+      "text": "Oh, ho. Oh.",
+      "kind": "dialogue",
+      "startMs": 640683,
+      "endMs": 642032
+    },
+    {
+      "index": 255,
+      "text": "[Charlie] All right, Frank.",
+      "kind": "dialogue",
+      "startMs": 642032,
+      "endMs": 642772
+    },
+    {
+      "index": 256,
+      "text": "[Mac] Good job, Frank.",
+      "kind": "dialogue",
+      "startMs": 642772,
+      "endMs": 644730
+    },
+    {
+      "index": 257,
+      "text": "[Charlie] All right, Frank. [Dee] What? Oh, bullshit.",
+      "kind": "dialogue",
+      "startMs": 644730,
+      "endMs": 646645
+    },
+    {
+      "index": 258,
+      "text": "No, come on, that doesn't count.",
+      "kind": "dialogue",
+      "startMs": 646645,
+      "endMs": 647994
+    },
+    {
+      "index": 259,
+      "text": "Uh, no, the computer counted it, so it counts.",
+      "kind": "dialogue",
+      "startMs": 647994,
+      "endMs": 649300
+    },
+    {
+      "index": 260,
+      "text": "That counts. Hey, Artemis, let's mush.",
+      "kind": "dialogue",
+      "startMs": 649300,
+      "endMs": 651606
+    },
+    {
+      "index": 261,
+      "text": "What? No. No. You're not gonna miss your turn, okay?",
+      "kind": "dialogue",
+      "startMs": 651606,
+      "endMs": 653521
+    },
+    {
+      "index": 262,
+      "text": "If you must mush, mush later.",
+      "kind": "dialogue",
+      "startMs": 653521,
+      "endMs": 655001
+    },
+    {
+      "index": 263,
+      "text": "A quickie.",
+      "kind": "dialogue",
+      "startMs": 655001,
+      "endMs": 656002
+    },
+    {
+      "index": 264,
+      "text": "Quickie it is. What?",
+      "kind": "dialogue",
+      "startMs": 656002,
+      "endMs": 658439
+    },
+    {
+      "index": 265,
+      "text": "My character is also a giant whore, which is what attracted me to the role in the first place, so...",
+      "kind": "dialogue",
+      "startMs": 658439,
+      "endMs": 662008
+    },
+    {
+      "index": 266,
+      "text": "No. No, no. - [The Waitress] Come on, you can't go now.",
+      "kind": "dialogue",
+      "startMs": 662008,
+      "endMs": 663749
+    },
+    {
+      "index": 267,
+      "text": "Well, mush fast!",
+      "kind": "dialogue",
+      "startMs": 663749,
+      "endMs": 665664
+    },
+    {
+      "index": 268,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 665664,
+      "endMs": 668101
+    },
+    {
+      "index": 269,
+      "text": "Come on. Yeah, yeah, yeah.",
+      "kind": "dialogue",
+      "startMs": 668101,
+      "endMs": 669450
+    },
+    {
+      "index": 270,
+      "text": "I'm going, I'm going. Oh!",
+      "kind": "dialogue",
+      "startMs": 669450,
+      "endMs": 670669
+    },
+    {
+      "index": 271,
+      "text": "Hey, Tyrone, do not take my spot!",
+      "kind": "dialogue",
+      "startMs": 670669,
+      "endMs": 672889
+    },
+    {
+      "index": 272,
+      "text": "Do not take my spot at the air hockey table.",
+      "kind": "dialogue",
+      "startMs": 672889,
+      "endMs": 675848
+    },
+    {
+      "index": 273,
+      "text": "Charlie, shut up. - You should see the party they got going there.",
+      "kind": "dialogue",
+      "startMs": 675848,
+      "endMs": 677632
+    },
+    {
+      "index": 274,
+      "text": "It's great. They got one of those... - I don't care.",
+      "kind": "dialogue",
+      "startMs": 677632,
+      "endMs": 678851
+    },
+    {
+      "index": 275,
+      "text": "...punching machines that rates how, like,",
+      "kind": "dialogue",
+      "startMs": 678851,
+      "endMs": 680548
+    },
+    {
+      "index": 276,
+      "text": "how much power you have in your punch. - I don't care.",
+      "kind": "dialogue",
+      "startMs": 680548,
+      "endMs": 681985
+    },
+    {
+      "index": 277,
+      "text": "Shut up, I'm trying to focus. It's totally crazy.",
+      "kind": "dialogue",
+      "startMs": 681985,
+      "endMs": 683073
+    },
+    {
+      "index": 278,
+      "text": "By the way, your hair looks great.",
+      "kind": "dialogue",
+      "startMs": 683073,
+      "endMs": 684422
+    },
+    {
+      "index": 279,
+      "text": "Charlie, shut up, I'm trying to focus.",
+      "kind": "dialogue",
+      "startMs": 684422,
+      "endMs": 686293
+    },
+    {
+      "index": 280,
+      "text": "Did you, like, change your hair or something? - Oh, my God.",
+      "kind": "dialogue",
+      "startMs": 686293,
+      "endMs": 688078
+    },
+    {
+      "index": 281,
+      "text": "Elbow in, slight bend in the knee,",
+      "kind": "dialogue",
+      "startMs": 688078,
+      "endMs": 690036
+    },
+    {
+      "index": 282,
+      "text": "and... What the...",
+      "kind": "dialogue",
+      "startMs": 690036,
+      "endMs": 691777
+    },
+    {
+      "index": 283,
+      "text": "[grunts] Oh...",
+      "kind": "dialogue",
+      "startMs": 691777,
+      "endMs": 693300
+    },
+    {
+      "index": 284,
+      "text": "God! Tyrone!",
+      "kind": "dialogue",
+      "startMs": 693300,
+      "endMs": 694562
+    },
+    {
+      "index": 285,
+      "text": "[The Waitress] Come on. [buzzer sounds] All right. I'm coming!",
+      "kind": "dialogue",
+      "startMs": 694562,
+      "endMs": 697652
+    },
+    {
+      "index": 286,
+      "text": "Charlie, Charlie, where you going? - Where you going?",
+      "kind": "dialogue",
+      "startMs": 697652,
+      "endMs": 699045
+    },
+    {
+      "index": 287,
+      "text": "Put the cake down... I'll be back.",
+      "kind": "dialogue",
+      "startMs": 699045,
+      "endMs": 700786
+    },
+    {
+      "index": 288,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 700786,
+      "endMs": 702832
+    },
+    {
+      "index": 289,
+      "text": "Dee, you want to go first? Don't... Stop it.",
+      "kind": "dialogue",
+      "startMs": 702832,
+      "endMs": 704877
+    },
+    {
+      "index": 290,
+      "text": "I know what you're doing. I'm not gonna say anything.",
+      "kind": "dialogue",
+      "startMs": 704877,
+      "endMs": 706574
+    },
+    {
+      "index": 291,
+      "text": "I swear to God. Please, I insist.",
+      "kind": "dialogue",
+      "startMs": 706574,
+      "endMs": 707880
+    },
+    {
+      "index": 292,
+      "text": "I'm not.",
+      "kind": "dialogue",
+      "startMs": 707880,
+      "endMs": 709839
+    },
+    {
+      "index": 293,
+      "text": "Fine. All right. Come on, Dee.",
+      "kind": "dialogue",
+      "startMs": 709839,
+      "endMs": 712145
+    },
+    {
+      "index": 294,
+      "text": "Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 714408,
+      "endMs": 715714
+    },
+    {
+      "index": 295,
+      "text": "You-you dick.",
+      "kind": "dialogue",
+      "startMs": 715714,
+      "endMs": 717890
+    },
+    {
+      "index": 296,
+      "text": "Sorry. I'm sorry. That's not funny.",
+      "kind": "dialogue",
+      "startMs": 717890,
+      "endMs": 719544
+    },
+    {
+      "index": 297,
+      "text": "I couldn't resist. It's... Sorry.",
+      "kind": "dialogue",
+      "startMs": 719544,
+      "endMs": 721851
+    },
+    {
+      "index": 298,
+      "text": "[automated voice] Strike.",
+      "kind": "dialogue",
+      "startMs": 728727,
+      "endMs": 729946
+    },
+    {
+      "index": 299,
+      "text": "Don't say it again.",
+      "kind": "dialogue",
+      "startMs": 730903,
+      "endMs": 732818
+    },
+    {
+      "index": 300,
+      "text": "Okay? Just leave me alone. I'm not. I just... I'm not.",
+      "kind": "dialogue",
+      "startMs": 732818,
+      "endMs": 735821
+    },
+    {
+      "index": 301,
+      "text": "Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 735821,
+      "endMs": 736866
+    },
+    {
+      "index": 302,
+      "text": "You goddamned son of a bitch!",
+      "kind": "dialogue",
+      "startMs": 736866,
+      "endMs": 739520
+    },
+    {
+      "index": 303,
+      "text": "[buzzer sounds]",
+      "kind": "sdh",
+      "startMs": 739520,
+      "endMs": 740870
+    },
+    {
+      "index": 304,
+      "text": "How are you gonna talk to me about form",
+      "kind": "dialogue",
+      "startMs": 740870,
+      "endMs": 742915
+    },
+    {
+      "index": 305,
+      "text": "after you bowl like that? - Get off my back, you frigid bitch.",
+      "kind": "dialogue",
+      "startMs": 742915,
+      "endMs": 745570
+    },
+    {
+      "index": 306,
+      "text": "I knew inviting you was a bad idea.",
+      "kind": "dialogue",
+      "startMs": 745570,
+      "endMs": 747180
+    },
+    {
+      "index": 307,
+      "text": "Well, then, don't invite me. Then don't invite me next time.",
+      "kind": "dialogue",
+      "startMs": 747180,
+      "endMs": 748616
+    },
+    {
+      "index": 308,
+      "text": "I didn't invite... [laughs] Oh, isn't this fun?",
+      "kind": "dialogue",
+      "startMs": 748616,
+      "endMs": 752969
+    },
+    {
+      "index": 309,
+      "text": "Yeah. Yet another reason why women can't compete with men.",
+      "kind": "dialogue",
+      "startMs": 752969,
+      "endMs": 756320
+    },
+    {
+      "index": 310,
+      "text": "Besides your physical limitations, if given the opportunity to either work together as a team or tear each other apart, you will always choose the latter.",
+      "kind": "dialogue",
+      "startMs": 756320,
+      "endMs": 765372
+    },
+    {
+      "index": 311,
+      "text": "Because women are devious a-and destructive and will always default to using their insidious venom on the most sought-after victim of all...",
+      "kind": "dialogue",
+      "startMs": 765372,
+      "endMs": 775426
+    },
+    {
+      "index": 312,
+      "text": "...each other.",
+      "kind": "dialogue",
+      "startMs": 776906,
+      "endMs": 778733
+    },
+    {
+      "index": 313,
+      "text": "[cackles]",
+      "kind": "sdh",
+      "startMs": 778733,
+      "endMs": 780823
+    },
+    {
+      "index": 314,
+      "text": "Okay, Dennis is right. Just hear me out.",
+      "kind": "dialogue",
+      "startMs": 783042,
+      "endMs": 784957
+    },
+    {
+      "index": 315,
+      "text": "If we want to win, we can't compete like men, but what we can do is use those skills of mental manipulation against them.",
+      "kind": "dialogue",
+      "startMs": 784957,
+      "endMs": 792008
+    },
+    {
+      "index": 316,
+      "text": "Do you want to know why?",
+      "kind": "dialogue",
+      "startMs": 792008,
+      "endMs": 793357
+    },
+    {
+      "index": 317,
+      "text": "Why?",
+      "kind": "dialogue",
+      "startMs": 793357,
+      "endMs": 794619
+    },
+    {
+      "index": 318,
+      "text": "Because... they're stupid.",
+      "kind": "dialogue",
+      "startMs": 794619,
+      "endMs": 797665
+    },
+    {
+      "index": 319,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 797665,
+      "endMs": 799842
+    },
+    {
+      "index": 320,
+      "text": "Hey, Mac, how come you throw the ball so straight?",
+      "kind": "dialogue",
+      "startMs": 801060,
+      "endMs": 803671
+    },
+    {
+      "index": 321,
+      "text": "I throw the ball straight because, as a man, dominance is my sporting style.",
+      "kind": "dialogue",
+      "startMs": 803671,
+      "endMs": 808111
+    },
+    {
+      "index": 322,
+      "text": "Uh, I heard it's 'cause you have no finesse.",
+      "kind": "dialogue",
+      "startMs": 808111,
+      "endMs": 811027
+    },
+    {
+      "index": 323,
+      "text": "You don't know how to spin the ball. - What?",
+      "kind": "dialogue",
+      "startMs": 811027,
+      "endMs": 813681
+    },
+    {
+      "index": 324,
+      "text": "Yeah. - I have finesse. I could spin the ball.",
+      "kind": "dialogue",
+      "startMs": 813681,
+      "endMs": 814987
+    },
+    {
+      "index": 325,
+      "text": "You want to see me? Yeah.",
+      "kind": "dialogue",
+      "startMs": 814987,
+      "endMs": 816336
+    },
+    {
+      "index": 326,
+      "text": "Yeah... Hey, uh, Mac? Mac?",
+      "kind": "dialogue",
+      "startMs": 816336,
+      "endMs": 817772
+    },
+    {
+      "index": 327,
+      "text": "Can I talk to you for a second?",
+      "kind": "dialogue",
+      "startMs": 817772,
+      "endMs": 818948
+    },
+    {
+      "index": 328,
+      "text": "Yeah.",
+      "kind": "dialogue",
+      "startMs": 818948,
+      "endMs": 819949
+    },
+    {
+      "index": 329,
+      "text": "Do not try and spin the ball.",
+      "kind": "dialogue",
+      "startMs": 819949,
+      "endMs": 822473
+    },
+    {
+      "index": 330,
+      "text": "She said that I can't spin, and I can spin.",
+      "kind": "dialogue",
+      "startMs": 822473,
+      "endMs": 824910
+    },
+    {
+      "index": 331,
+      "text": "You... Do not try it. - But Dennis, she said I have no finesse,",
+      "kind": "dialogue",
+      "startMs": 824910,
+      "endMs": 826477
+    },
+    {
+      "index": 332,
+      "text": "and you know that I have finesse. - Don't-don't do it.",
+      "kind": "dialogue",
+      "startMs": 826477,
+      "endMs": 828131
+    },
+    {
+      "index": 333,
+      "text": "Don't do it. Just play your game. - Can I just spin one?",
+      "kind": "dialogue",
+      "startMs": 828131,
+      "endMs": 829132
+    },
+    {
+      "index": 334,
+      "text": "I don't care... Let me spin one.",
+      "kind": "dialogue",
+      "startMs": 829132,
+      "endMs": 830046
+    },
+    {
+      "index": 335,
+      "text": "You don't need to spin it.",
+      "kind": "dialogue",
+      "startMs": 830046,
+      "endMs": 831569
+    },
+    {
+      "index": 336,
+      "text": "You just play your game and we're gonna win.",
+      "kind": "dialogue",
+      "startMs": 831569,
+      "endMs": 833005
+    },
+    {
+      "index": 337,
+      "text": "Okay? Do not spin it.",
+      "kind": "dialogue",
+      "startMs": 833005,
+      "endMs": 834267
+    },
+    {
+      "index": 338,
+      "text": "Do not do it.",
+      "kind": "dialogue",
+      "startMs": 834267,
+      "endMs": 835486
+    },
+    {
+      "index": 339,
+      "text": "Okay, fine.",
+      "kind": "dialogue",
+      "startMs": 837662,
+      "endMs": 839142
+    },
+    {
+      "index": 340,
+      "text": "I won't, I won't spin it.",
+      "kind": "dialogue",
+      "startMs": 839142,
+      "endMs": 841013
+    },
+    {
+      "index": 341,
+      "text": "I won't.",
+      "kind": "dialogue",
+      "startMs": 842058,
+      "endMs": 843450
+    },
+    {
+      "index": 342,
+      "text": "[sighs]",
+      "kind": "sdh",
+      "startMs": 843450,
+      "endMs": 844887
+    },
+    {
+      "index": 343,
+      "text": "Stride, stride, stride, spin!",
+      "kind": "dialogue",
+      "startMs": 847150,
+      "endMs": 848716
+    },
+    {
+      "index": 344,
+      "text": "Oh, goddamn it!",
+      "kind": "dialogue",
+      "startMs": 850327,
+      "endMs": 851632
+    },
+    {
+      "index": 345,
+      "text": "[automated voice] Gutter ball. Uh-oh.",
+      "kind": "dialogue",
+      "startMs": 851632,
+      "endMs": 853678
+    },
+    {
+      "index": 346,
+      "text": "[Mac] I'm gonna try it again. - [Charlie] I'm coming, I'm coming.",
+      "kind": "dialogue",
+      "startMs": 853678,
+      "endMs": 855027
+    },
+    {
+      "index": 347,
+      "text": "Wait, I'm coming, I'm coming.",
+      "kind": "dialogue",
+      "startMs": 855027,
+      "endMs": 856028
+    },
+    {
+      "index": 348,
+      "text": "Hey, Tyrone, double or nothing!",
+      "kind": "dialogue",
+      "startMs": 856028,
+      "endMs": 858117
+    },
+    {
+      "index": 349,
+      "text": "'Cause there's no way you're beating me two out of three, dude!",
+      "kind": "dialogue",
+      "startMs": 858117,
+      "endMs": 860380
+    },
+    {
+      "index": 350,
+      "text": "[chuckles] Hey, Charlie? Excuse me.",
+      "kind": "dialogue",
+      "startMs": 860380,
+      "endMs": 862382
+    },
+    {
+      "index": 351,
+      "text": "Can I, can I ask your advice on something?",
+      "kind": "dialogue",
+      "startMs": 862382,
+      "endMs": 864080
+    },
+    {
+      "index": 352,
+      "text": "Yeah. - Well, you're just such a good natural bowler...",
+      "kind": "dialogue",
+      "startMs": 864080,
+      "endMs": 866430
+    },
+    {
+      "index": 353,
+      "text": "Yeah. - ...and I'm having a hard time, so I was wondering, where are you putting your elbow",
+      "kind": "dialogue",
+      "startMs": 866430,
+      "endMs": 869389
+    },
+    {
+      "index": 354,
+      "text": "when you're rolling? My elbow?",
+      "kind": "dialogue",
+      "startMs": 869389,
+      "endMs": 871130
+    },
+    {
+      "index": 355,
+      "text": "Yeah, before you throw the ball, where is your elbow going?",
+      "kind": "dialogue",
+      "startMs": 871130,
+      "endMs": 872653
+    },
+    {
+      "index": 356,
+      "text": "You-you want me to show you where my elbow goes?",
+      "kind": "dialogue",
+      "startMs": 872653,
+      "endMs": 874655
+    },
+    {
+      "index": 357,
+      "text": "Yeah. Oh, I'm...",
+      "kind": "dialogue",
+      "startMs": 874655,
+      "endMs": 876831
+    },
+    {
+      "index": 358,
+      "text": "My-my elbow's like... Uh-huh.",
+      "kind": "dialogue",
+      "startMs": 876831,
+      "endMs": 878746
+    },
+    {
+      "index": 359,
+      "text": "That looks good.",
+      "kind": "dialogue",
+      "startMs": 878746,
+      "endMs": 880661
+    },
+    {
+      "index": 360,
+      "text": "Oh.",
+      "kind": "dialogue",
+      "startMs": 881575,
+      "endMs": 882968
+    },
+    {
+      "index": 361,
+      "text": "[automated voice] Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 882968,
+      "endMs": 884317
+    },
+    {
+      "index": 362,
+      "text": "Uh...",
+      "kind": "dialogue",
+      "startMs": 884317,
+      "endMs": 885623
+    },
+    {
+      "index": 363,
+      "text": "Holy shit. It's working.",
+      "kind": "dialogue",
+      "startMs": 885623,
+      "endMs": 887277
+    },
+    {
+      "index": 364,
+      "text": "[slurps]",
+      "kind": "sdh",
+      "startMs": 887277,
+      "endMs": 888278
+    },
+    {
+      "index": 365,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 888278,
+      "endMs": 890106
+    },
+    {
+      "index": 366,
+      "text": "There we go. Okay.",
+      "kind": "dialogue",
+      "startMs": 892064,
+      "endMs": 893544
+    },
+    {
+      "index": 367,
+      "text": "Okay. It's okay.",
+      "kind": "dialogue",
+      "startMs": 893544,
+      "endMs": 895024
+    },
+    {
+      "index": 368,
+      "text": "Damn it!",
+      "kind": "dialogue",
+      "startMs": 895024,
+      "endMs": 896286
+    },
+    {
+      "index": 369,
+      "text": "Just walk. What are you doing?",
+      "kind": "dialogue",
+      "startMs": 896286,
+      "endMs": 898549
+    },
+    {
+      "index": 370,
+      "text": "Stride, stride, stride, spin! Come on!",
+      "kind": "dialogue",
+      "startMs": 898549,
+      "endMs": 901117
+    },
+    {
+      "index": 371,
+      "text": "Gutter ball. S-Stop it.",
+      "kind": "dialogue",
+      "startMs": 901117,
+      "endMs": 903684
+    },
+    {
+      "index": 372,
+      "text": "Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 903684,
+      "endMs": 905121
+    },
+    {
+      "index": 373,
+      "text": "[buzzer sounds] Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 905121,
+      "endMs": 907036
+    },
+    {
+      "index": 374,
+      "text": "Gutter ball. [The Waitress] Come on.",
+      "kind": "dialogue",
+      "startMs": 907036,
+      "endMs": 908167
+    },
+    {
+      "index": 375,
+      "text": "Gutter ball. [stammers]",
+      "kind": "dialogue",
+      "startMs": 909168,
+      "endMs": 910430
+    },
+    {
+      "index": 376,
+      "text": "Gutter ball. [screams]",
+      "kind": "dialogue",
+      "startMs": 910430,
+      "endMs": 912345
+    },
+    {
+      "index": 377,
+      "text": "[buzzer sounds]",
+      "kind": "sdh",
+      "startMs": 912345,
+      "endMs": 913912
+    },
+    {
+      "index": 378,
+      "text": "[\"Hip Hug-Her\" by Booker T. The M.G.s playing]",
+      "kind": "sdh",
+      "startMs": 913912,
+      "endMs": 915218
+    },
+    {
+      "index": 379,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 915218,
+      "endMs": 916523
+    },
+    {
+      "index": 380,
+      "text": "You want one?",
+      "kind": "dialogue",
+      "startMs": 921702,
+      "endMs": 923052
+    },
+    {
+      "index": 381,
+      "text": "[groaning]",
+      "kind": "sdh",
+      "startMs": 926577,
+      "endMs": 928361
+    },
+    {
+      "index": 382,
+      "text": "Wh... Hey!",
+      "kind": "dialogue",
+      "startMs": 933062,
+      "endMs": 934977
+    },
+    {
+      "index": 383,
+      "text": "[sighs dramatically] What happened?",
+      "kind": "dialogue",
+      "startMs": 934977,
+      "endMs": 935890
+    },
+    {
+      "index": 384,
+      "text": "What the hell happened?",
+      "kind": "dialogue",
+      "startMs": 935890,
+      "endMs": 937675
+    },
+    {
+      "index": 385,
+      "text": "In the third act of my play, Donna rolls a gutter ball in the big match against her rival high school.",
+      "kind": "dialogue",
+      "startMs": 937675,
+      "endMs": 942158
+    },
+    {
+      "index": 386,
+      "text": "Are you serious? Oh, my God.",
+      "kind": "dialogue",
+      "startMs": 942158,
+      "endMs": 944203
+    },
+    {
+      "index": 387,
+      "text": "Can you knock it off with the play, please?",
+      "kind": "dialogue",
+      "startMs": 944203,
+      "endMs": 945552
+    },
+    {
+      "index": 388,
+      "text": "[groaning]",
+      "kind": "sdh",
+      "startMs": 949556,
+      "endMs": 950818
+    },
+    {
+      "index": 389,
+      "text": "Ah, well, well, you done good, ladies.",
+      "kind": "dialogue",
+      "startMs": 952646,
+      "endMs": 955736
+    },
+    {
+      "index": 390,
+      "text": "Your little mind games... they got you pretty far, but unfortunately... [grunts] ...still 11 points shy in the final frame.",
+      "kind": "dialogue",
+      "startMs": 955736,
+      "endMs": 963483
+    },
+    {
+      "index": 391,
+      "text": "Now, technically, I could pick up this spare and push the lead even further, and I... think we all know Dee's about to roll two gutter balls.",
+      "kind": "dialogue",
+      "startMs": 963483,
+      "endMs": 970708
+    },
+    {
+      "index": 392,
+      "text": "So I'll tell you what. Dee, if you would like, uh, you could just quit now and you could all admit that you're inferior in every single way, and we could just call it a night.",
+      "kind": "dialogue",
+      "startMs": 970708,
+      "endMs": 981545
+    },
+    {
+      "index": 393,
+      "text": "Okay, you know what, dick?",
+      "kind": "dialogue",
+      "startMs": 981545,
+      "endMs": 983242
+    },
+    {
+      "index": 394,
+      "text": "I don't like your sister. She's a terrible person.",
+      "kind": "dialogue",
+      "startMs": 983242,
+      "endMs": 986071
+    },
+    {
+      "index": 395,
+      "text": "[chuckles] She's a bitch and she's ugly and I didn't want her on the team.",
+      "kind": "dialogue",
+      "startMs": 986071,
+      "endMs": 988856
+    },
+    {
+      "index": 396,
+      "text": "And she's gross.",
+      "kind": "dialogue",
+      "startMs": 988856,
+      "endMs": 990162
+    },
+    {
+      "index": 397,
+      "text": "Sure, and she's gross.",
+      "kind": "dialogue",
+      "startMs": 990162,
+      "endMs": 991816
+    },
+    {
+      "index": 398,
+      "text": "But you know what? You're even worse.",
+      "kind": "dialogue",
+      "startMs": 991816,
+      "endMs": 994079
+    },
+    {
+      "index": 399,
+      "text": "And I am not gonna sit here and let you just shit on her all night long.",
+      "kind": "dialogue",
+      "startMs": 994079,
+      "endMs": 997126
+    },
+    {
+      "index": 400,
+      "text": "You think you're physically superior?",
+      "kind": "dialogue",
+      "startMs": 997126,
+      "endMs": 1000085
+    },
+    {
+      "index": 401,
+      "text": "Yeah. - Then I challenge you to a test of strength.",
+      "kind": "dialogue",
+      "startMs": 1000085,
+      "endMs": 1003349
+    },
+    {
+      "index": 402,
+      "text": "[arcade music playing] [scoffs] Come on.",
+      "kind": "dialogue",
+      "startMs": 1003349,
+      "endMs": 1004829
+    },
+    {
+      "index": 403,
+      "text": "This isn't fair.",
+      "kind": "dialogue",
+      "startMs": 1004829,
+      "endMs": 1006265
+    },
+    {
+      "index": 404,
+      "text": "Oh. Is it not fair?",
+      "kind": "dialogue",
+      "startMs": 1006265,
+      "endMs": 1007832
+    },
+    {
+      "index": 405,
+      "text": "Okay, well, if you're scared, we don't have to do it.",
+      "kind": "dialogue",
+      "startMs": 1007832,
+      "endMs": 1010095
+    },
+    {
+      "index": 406,
+      "text": "Okay, well, listen, if you insist, that's fine.",
+      "kind": "dialogue",
+      "startMs": 1010095,
+      "endMs": 1012271
+    },
+    {
+      "index": 407,
+      "text": "I do. Okay. Let's do it. Yeah.",
+      "kind": "dialogue",
+      "startMs": 1012271,
+      "endMs": 1013881
+    },
+    {
+      "index": 408,
+      "text": "Ladies first.",
+      "kind": "dialogue",
+      "startMs": 1013881,
+      "endMs": 1015187
+    },
+    {
+      "index": 409,
+      "text": "All right, let's do it. Oh, thank you.",
+      "kind": "dialogue",
+      "startMs": 1015187,
+      "endMs": 1017059
+    },
+    {
+      "index": 410,
+      "text": "[Dee] Go, Waitress, go.",
+      "kind": "dialogue",
+      "startMs": 1017059,
+      "endMs": 1018277
+    },
+    {
+      "index": 411,
+      "text": "Let's go. Give it all you got.",
+      "kind": "dialogue",
+      "startMs": 1018277,
+      "endMs": 1020062
+    },
+    {
+      "index": 412,
+      "text": "[cheering] Oh!",
+      "kind": "dialogue",
+      "startMs": 1021585,
+      "endMs": 1023326
+    },
+    {
+      "index": 413,
+      "text": "[laughs]",
+      "kind": "sdh",
+      "startMs": 1023326,
+      "endMs": 1024805
+    },
+    {
+      "index": 414,
+      "text": "[Mac] Shit.",
+      "kind": "dialogue",
+      "startMs": 1024805,
+      "endMs": 1026894
+    },
+    {
+      "index": 415,
+      "text": "Didn't know you could kick it. Oh, yeah, you could kick it.",
+      "kind": "dialogue",
+      "startMs": 1026894,
+      "endMs": 1028896
+    },
+    {
+      "index": 416,
+      "text": "And that's fine. Okay. Yeah, yeah, okay. Do it.",
+      "kind": "dialogue",
+      "startMs": 1028896,
+      "endMs": 1030985
+    },
+    {
+      "index": 417,
+      "text": "[Charlie] Show them what you got, Dennis. Come on.",
+      "kind": "dialogue",
+      "startMs": 1030985,
+      "endMs": 1032465
+    },
+    {
+      "index": 418,
+      "text": "Let's go, buddy.",
+      "kind": "dialogue",
+      "startMs": 1032465,
+      "endMs": 1035294
+    },
+    {
+      "index": 419,
+      "text": "I summon the very fact that I am a man!",
+      "kind": "dialogue",
+      "startMs": 1035294,
+      "endMs": 1038123
+    },
+    {
+      "index": 420,
+      "text": "[screams]",
+      "kind": "sdh",
+      "startMs": 1038123,
+      "endMs": 1039124
+    },
+    {
+      "index": 421,
+      "text": "[cheering]",
+      "kind": "sdh",
+      "startMs": 1040691,
+      "endMs": 1042388
+    },
+    {
+      "index": 422,
+      "text": "[laughter, cheering]",
+      "kind": "sdh",
+      "startMs": 1042388,
+      "endMs": 1045130
+    },
+    {
+      "index": 423,
+      "text": "[grunting] Aah! Aah...",
+      "kind": "dialogue",
+      "startMs": 1045130,
+      "endMs": 1048351
+    },
+    {
+      "index": 424,
+      "text": "[Dennis] I have defeated you.",
+      "kind": "dialogue",
+      "startMs": 1048351,
+      "endMs": 1049917
+    },
+    {
+      "index": 425,
+      "text": "And of course I have.",
+      "kind": "dialogue",
+      "startMs": 1049917,
+      "endMs": 1051267
+    },
+    {
+      "index": 426,
+      "text": "I've been blessed with the genetic gifts to do so.",
+      "kind": "dialogue",
+      "startMs": 1051267,
+      "endMs": 1053791
+    },
+    {
+      "index": 427,
+      "text": "[cackles]",
+      "kind": "sdh",
+      "startMs": 1053791,
+      "endMs": 1056272
+    },
+    {
+      "index": 428,
+      "text": "[low] I've broken every single bone in my hand.",
+      "kind": "dialogue",
+      "startMs": 1057925,
+      "endMs": 1060189
+    },
+    {
+      "index": 429,
+      "text": "I cannot bowl.",
+      "kind": "dialogue",
+      "startMs": 1060189,
+      "endMs": 1062016
+    },
+    {
+      "index": 430,
+      "text": "What? Really? L-Listen to me.",
+      "kind": "dialogue",
+      "startMs": 1062016,
+      "endMs": 1063627
+    },
+    {
+      "index": 431,
+      "text": "There's nothing solid left in there.",
+      "kind": "dialogue",
+      "startMs": 1063627,
+      "endMs": 1064889
+    },
+    {
+      "index": 432,
+      "text": "It's just bloody soup and bone broth.",
+      "kind": "dialogue",
+      "startMs": 1064889,
+      "endMs": 1067674
+    },
+    {
+      "index": 433,
+      "text": "All right? Now, I need to scream.",
+      "kind": "dialogue",
+      "startMs": 1067674,
+      "endMs": 1069198
+    },
+    {
+      "index": 434,
+      "text": "And I need you to find me somewhere to scream so I don't have to do it here.",
+      "kind": "dialogue",
+      "startMs": 1069198,
+      "endMs": 1072157
+    },
+    {
+      "index": 435,
+      "text": "No, wait a minute.",
+      "kind": "dialogue",
+      "startMs": 1072157,
+      "endMs": 1074203
+    },
+    {
+      "index": 436,
+      "text": "I'm going to scream here, and now, 'cause I can't hold it in, so here we go.",
+      "kind": "dialogue",
+      "startMs": 1074203,
+      "endMs": 1077510
+    },
+    {
+      "index": 437,
+      "text": "[screams]",
+      "kind": "sdh",
+      "startMs": 1077510,
+      "endMs": 1079295
+    },
+    {
+      "index": 438,
+      "text": "♪ Oh, yes... ♪",
+      "kind": "sdh",
+      "startMs": 1079991,
+      "endMs": 1081427
+    },
+    {
+      "index": 439,
+      "text": "Ryan, I need you to bowl for me.",
+      "kind": "dialogue",
+      "startMs": 1081427,
+      "endMs": 1084126
+    },
+    {
+      "index": 440,
+      "text": "I'll never bowl again.",
+      "kind": "dialogue",
+      "startMs": 1084126,
+      "endMs": 1085431
+    },
+    {
+      "index": 441,
+      "text": "Come on, man. Why not? What's the big deal?",
+      "kind": "dialogue",
+      "startMs": 1085431,
+      "endMs": 1087041
+    },
+    {
+      "index": 442,
+      "text": "The story's too horrible to tell.",
+      "kind": "dialogue",
+      "startMs": 1087041,
+      "endMs": 1090175
+    },
+    {
+      "index": 443,
+      "text": "Oh, with this stuff. - For fuck's sake, just spit it out.",
+      "kind": "dialogue",
+      "startMs": 1090175,
+      "endMs": 1091350
+    },
+    {
+      "index": 444,
+      "text": "Yeah, you clearly want to tell it, man.",
+      "kind": "dialogue",
+      "startMs": 1091350,
+      "endMs": 1093178
+    },
+    {
+      "index": 445,
+      "text": "Fine.",
+      "kind": "dialogue",
+      "startMs": 1093178,
+      "endMs": 1094832
+    },
+    {
+      "index": 446,
+      "text": "But brace yourself. [whimpers] [Ryan] There I was, practicing for the state semifinals.",
+      "kind": "dialogue",
+      "startMs": 1094832,
+      "endMs": 1100054
+    },
+    {
+      "index": 447,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 1100054,
+      "endMs": 1101665
+    },
+    {
+      "index": 448,
+      "text": "I was on my way to a perfect game.",
+      "kind": "dialogue",
+      "startMs": 1103797,
+      "endMs": 1105277
+    },
+    {
+      "index": 449,
+      "text": "[Liam] I was enjoying some chili cheese fries.",
+      "kind": "dialogue",
+      "startMs": 1109586,
+      "endMs": 1112328
+    },
+    {
+      "index": 450,
+      "text": "They were delicious, and I offered some to Ryan.",
+      "kind": "dialogue",
+      "startMs": 1112328,
+      "endMs": 1114852
+    },
+    {
+      "index": 451,
+      "text": "[Ryan] I accepted, but not realizing my other hand was in the ball return lane.",
+      "kind": "dialogue",
+      "startMs": 1114852,
+      "endMs": 1119335
+    },
+    {
+      "index": 452,
+      "text": "I never should have allowed myself such indulgences, because little did I know, my ball was returning.",
+      "kind": "dialogue",
+      "startMs": 1119335,
+      "endMs": 1125863
+    },
+    {
+      "index": 453,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 1125863,
+      "endMs": 1127952
+    },
+    {
+      "index": 454,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 1131782,
+      "endMs": 1132957
+    },
+    {
+      "index": 455,
+      "text": "It pinched it really bad.",
+      "kind": "dialogue",
+      "startMs": 1132957,
+      "endMs": 1135177
+    },
+    {
+      "index": 456,
+      "text": "I had a nasty bruise for a week.",
+      "kind": "dialogue",
+      "startMs": 1135177,
+      "endMs": 1137309
+    },
+    {
+      "index": 457,
+      "text": "That's it? That's why you won't bowl?",
+      "kind": "dialogue",
+      "startMs": 1137309,
+      "endMs": 1138702
+    },
+    {
+      "index": 458,
+      "text": "You pinched your finger? You pinched your finger",
+      "kind": "dialogue",
+      "startMs": 1138702,
+      "endMs": 1139964
+    },
+    {
+      "index": 459,
+      "text": "and you won't bowl? Big deal, man.",
+      "kind": "dialogue",
+      "startMs": 1139964,
+      "endMs": 1141139
+    },
+    {
+      "index": 460,
+      "text": "I'll bowl for you... Dennis.",
+      "kind": "dialogue",
+      "startMs": 1141139,
+      "endMs": 1143097
+    },
+    {
+      "index": 461,
+      "text": "Okay, fine. Okay. Wait, what's happening?",
+      "kind": "dialogue",
+      "startMs": 1143097,
+      "endMs": 1144490
+    },
+    {
+      "index": 462,
+      "text": "What-what are you saying? What?",
+      "kind": "dialogue",
+      "startMs": 1144490,
+      "endMs": 1145796
+    },
+    {
+      "index": 463,
+      "text": "Hmm? [Dennis] Well, he...",
+      "kind": "dialogue",
+      "startMs": 1145796,
+      "endMs": 1146884
+    },
+    {
+      "index": 464,
+      "text": "Nothing. What?",
+      "kind": "dialogue",
+      "startMs": 1146884,
+      "endMs": 1148102
+    },
+    {
+      "index": 465,
+      "text": "N-Nothing. What's going on?",
+      "kind": "dialogue",
+      "startMs": 1148102,
+      "endMs": 1149278
+    },
+    {
+      "index": 466,
+      "text": "Liam's gonna bowl for me because I hurt my hand a little bit.",
+      "kind": "dialogue",
+      "startMs": 1149278,
+      "endMs": 1153760
+    },
+    {
+      "index": 467,
+      "text": "O-Ow!",
+      "kind": "dialogue",
+      "startMs": 1153760,
+      "endMs": 1155545
+    },
+    {
+      "index": 468,
+      "text": "Ow, I just, I just twisted my ankle.",
+      "kind": "dialogue",
+      "startMs": 1155545,
+      "endMs": 1157547
+    },
+    {
+      "index": 469,
+      "text": "No. Yeah, and I need Ryan, I need Ryan to bowl for me.",
+      "kind": "dialogue",
+      "startMs": 1157547,
+      "endMs": 1160332
+    },
+    {
+      "index": 470,
+      "text": "[Charlie] No way. No way. My ankle is hurt, and I need Ryan to bowl for me.",
+      "kind": "dialogue",
+      "startMs": 1160332,
+      "endMs": 1163117
+    },
+    {
+      "index": 471,
+      "text": "That... That is bullshit.",
+      "kind": "dialogue",
+      "startMs": 1163117,
+      "endMs": 1164380
+    },
+    {
+      "index": 472,
+      "text": "This is incredibly weird.",
+      "kind": "dialogue",
+      "startMs": 1168558,
+      "endMs": 1171038
+    },
+    {
+      "index": 473,
+      "text": "[grunts]",
+      "kind": "sdh",
+      "startMs": 1171038,
+      "endMs": 1172170
+    },
+    {
+      "index": 474,
+      "text": "♪",
+      "kind": "sdh",
+      "startMs": 1174825,
+      "endMs": 1176348
+    },
+    {
+      "index": 475,
+      "text": "[groans]",
+      "kind": "sdh",
+      "startMs": 1185618,
+      "endMs": 1187272
+    },
+    {
+      "index": 476,
+      "text": "[bones crunch] [both scream]",
+      "kind": "dialogue",
+      "startMs": 1187272,
+      "endMs": 1189056
+    },
+    {
+      "index": 477,
+      "text": "[all shouting]",
+      "kind": "sdh",
+      "startMs": 1189056,
+      "endMs": 1190797
+    },
+    {
+      "index": 478,
+      "text": "Ryan!",
+      "kind": "dialogue",
+      "startMs": 1190797,
+      "endMs": 1192843
+    },
+    {
+      "index": 479,
+      "text": "Brother! Brother, what have I done?",
+      "kind": "dialogue",
+      "startMs": 1192843,
+      "endMs": 1195062
+    },
+    {
+      "index": 480,
+      "text": "[both wailing]",
+      "kind": "sdh",
+      "startMs": 1195062,
+      "endMs": 1196238
+    },
+    {
+      "index": 481,
+      "text": "No!",
+      "kind": "dialogue",
+      "startMs": 1197978,
+      "endMs": 1199589
+    },
+    {
+      "index": 482,
+      "text": "[wailing continues]",
+      "kind": "sdh",
+      "startMs": 1199589,
+      "endMs": 1201373
+    },
+    {
+      "index": 483,
+      "text": "What the...",
+      "kind": "dialogue",
+      "startMs": 1202374,
+      "endMs": 1203332
+    },
+    {
+      "index": 484,
+      "text": "[Dennis laughs]",
+      "kind": "sdh",
+      "startMs": 1204594,
+      "endMs": 1206422
+    },
+    {
+      "index": 485,
+      "text": "[stammers]",
+      "kind": "sdh",
+      "startMs": 1207814,
+      "endMs": 1209860
+    },
+    {
+      "index": 486,
+      "text": "Well, well, well, Dee, it looks like you're gonna have to roll after all.",
+      "kind": "dialogue",
+      "startMs": 1209860,
+      "endMs": 1212776
+    },
+    {
+      "index": 487,
+      "text": "Fine. No problem.",
+      "kind": "dialogue",
+      "startMs": 1212776,
+      "endMs": 1215561
+    },
+    {
+      "index": 488,
+      "text": "Gonna make my team proud.",
+      "kind": "dialogue",
+      "startMs": 1215561,
+      "endMs": 1217868
+    },
+    {
+      "index": 489,
+      "text": "Oh, well, maybe you will.",
+      "kind": "dialogue",
+      "startMs": 1217868,
+      "endMs": 1219348
+    },
+    {
+      "index": 490,
+      "text": "Or maybe... you'll roll a gutter ball.",
+      "kind": "dialogue",
+      "startMs": 1219348,
+      "endMs": 1222394
+    },
+    {
+      "index": 491,
+      "text": "[Dennis laughs]",
+      "kind": "sdh",
+      "startMs": 1224831,
+      "endMs": 1226093
+    },
+    {
+      "index": 492,
+      "text": "One pin. That's all.",
+      "kind": "dialogue",
+      "startMs": 1227834,
+      "endMs": 1230533
+    },
+    {
+      "index": 493,
+      "text": "You can do this.",
+      "kind": "dialogue",
+      "startMs": 1230533,
+      "endMs": 1232274
+    },
+    {
+      "index": 494,
+      "text": "Gutter ball. No. No.",
+      "kind": "dialogue",
+      "startMs": 1232274,
+      "endMs": 1234580
+    },
+    {
+      "index": 495,
+      "text": "Just don't think \"gutter ball,\" that's all.",
+      "kind": "dialogue",
+      "startMs": 1234580,
+      "endMs": 1236539
+    },
+    {
+      "index": 496,
+      "text": "[inhales]",
+      "kind": "sdh",
+      "startMs": 1236539,
+      "endMs": 1239324
+    },
+    {
+      "index": 497,
+      "text": "[Dennis] Oh, hi, Dee.",
+      "kind": "dialogue",
+      "startMs": 1239324,
+      "endMs": 1240586
+    },
+    {
+      "index": 498,
+      "text": "I'm in here, too.",
+      "kind": "dialogue",
+      "startMs": 1240586,
+      "endMs": 1242893
+    },
+    {
+      "index": 499,
+      "text": "Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 1242893,
+      "endMs": 1244286
+    },
+    {
+      "index": 500,
+      "text": "Gutter ball. Gutter ball. Gutter ball. Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 1246418,
+      "endMs": 1250161
+    },
+    {
+      "index": 501,
+      "text": "You goddamned son of a...",
+      "kind": "dialogue",
+      "startMs": 1251597,
+      "endMs": 1253556
+    },
+    {
+      "index": 502,
+      "text": "[slow-motion] bitch!",
+      "kind": "dialogue",
+      "startMs": 1253556,
+      "endMs": 1255514
+    },
+    {
+      "index": 503,
+      "text": "[cackling]",
+      "kind": "sdh",
+      "startMs": 1259605,
+      "endMs": 1261520
+    },
+    {
+      "index": 504,
+      "text": "[Dennis] Gutter ball.",
+      "kind": "dialogue",
+      "startMs": 1263261,
+      "endMs": 1264436
+    },
+    {
+      "index": 505,
+      "text": "Oh. No, no...",
+      "kind": "dialogue",
+      "startMs": 1274968,
+      "endMs": 1277275
+    },
+    {
+      "index": 506,
+      "text": "No, no, no... No, no...",
+      "kind": "dialogue",
+      "startMs": 1278972,
+      "endMs": 1280670
+    },
+    {
+      "index": 507,
+      "text": "No, no, no, no...",
+      "kind": "dialogue",
+      "startMs": 1280670,
+      "endMs": 1282759
+    },
+    {
+      "index": 508,
+      "text": "[distorted shouting]",
+      "kind": "sdh",
+      "startMs": 1284064,
+      "endMs": 1285762
+    },
+    {
+      "index": 509,
+      "text": "I did it! In your faces.",
+      "kind": "dialogue",
+      "startMs": 1288721,
+      "endMs": 1291507
+    },
+    {
+      "index": 510,
+      "text": "Ha... Uh... What's going on?",
+      "kind": "dialogue",
+      "startMs": 1291507,
+      "endMs": 1293813
+    },
+    {
+      "index": 511,
+      "text": "Where'd everybody go? Frank's having a threesome in the bathroom with Gail and Artemis, and, um, yeah, I think the guys went to the Sixers game.",
+      "kind": "dialogue",
+      "startMs": 1293813,
+      "endMs": 1301430
+    },
+    {
+      "index": 512,
+      "text": "What?",
+      "kind": "dialogue",
+      "startMs": 1301430,
+      "endMs": 1303432
+    },
+    {
+      "index": 513,
+      "text": "Oh, goddamn it.",
+      "kind": "dialogue",
+      "startMs": 1303432,
+      "endMs": 1304476
+    },
+    {
+      "index": 514,
+      "text": "Well, why aren't you celebrating?",
+      "kind": "dialogue",
+      "startMs": 1305738,
+      "endMs": 1307392
+    },
+    {
+      "index": 515,
+      "text": "Um... yeah, honestly?",
+      "kind": "dialogue",
+      "startMs": 1307392,
+      "endMs": 1311396
+    },
+    {
+      "index": 516,
+      "text": "I don't give a shit about women's sports.",
+      "kind": "dialogue",
+      "startMs": 1311396,
+      "endMs": 1314094
+    },
+    {
+      "index": 517,
+      "text": "[stammers] Well...",
+      "kind": "dialogue",
+      "startMs": 1314094,
+      "endMs": 1316183
+    },
+    {
+      "index": 518,
+      "text": "[crowd chanting backwards]",
+      "kind": "sdh",
+      "startMs": 1352611,
+      "endMs": 1354396
+    }
+  ],
+  "meta": {
+    "show": "It's Always Sunny in Philadelphia",
+    "season": 16,
+    "episode": 7
+  }
+}

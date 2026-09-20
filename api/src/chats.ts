@@ -6,8 +6,96 @@ import { listGroups, userCanAccessGroup } from "./groups.js";
 const THREAD_CAP = 50;
 const MESSAGE_CAP = 100;
 const BODY_MAX = 1000;
+export const CHAT_REACTION_EMOJIS = ["👍", "❤️", "😂", "😮", "🔥"] as const;
+export type ChatReactionEmoji = (typeof CHAT_REACTION_EMOJIS)[number];
 
 type ActionError = { error: string; status: number };
+
+export type ChatReaction = {
+  emoji: string;
+  count: number;
+  reacted: boolean;
+};
+
+function isAllowedEmoji(raw: unknown): raw is ChatReactionEmoji {
+  return typeof raw === "string" && (CHAT_REACTION_EMOJIS as readonly string[]).includes(raw);
+}
+
+function reactionKey(kind: "text" | "quote", id: string): string {
+  return `${kind}:${id}`;
+}
+
+async function loadReactionsMap(
+  db: D1Database,
+  viewerId: string,
+  targets: Array<{ kind: "text" | "quote"; id: string }>,
+): Promise<Map<string, ChatReaction[]>> {
+  const map = new Map<string, ChatReaction[]>();
+  if (targets.length === 0) return map;
+
+  const textIds = [...new Set(targets.filter((t) => t.kind === "text").map((t) => t.id))];
+  const quoteIds = [...new Set(targets.filter((t) => t.kind === "quote").map((t) => t.id))];
+  const rows: Array<{
+    target_kind: string;
+    target_id: string;
+    emoji: string;
+    user_id: string;
+  }> = [];
+
+  async function fetchKind(kind: "text" | "quote", ids: string[]) {
+    if (ids.length === 0) return;
+    const placeholders = ids.map(() => "?").join(", ");
+    const result = await db
+      .prepare(
+        `SELECT target_kind, target_id, emoji, user_id
+         FROM chat_reactions
+         WHERE target_kind = ? AND target_id IN (${placeholders})`,
+      )
+      .bind(kind, ...ids)
+      .all<{ target_kind: string; target_id: string; emoji: string; user_id: string }>();
+    rows.push(...(result.results ?? []));
+  }
+
+  await fetchKind("text", textIds);
+  await fetchKind("quote", quoteIds);
+
+  type Acc = { count: number; reacted: boolean };
+  const nested = new Map<string, Map<string, Acc>>();
+  for (const row of rows) {
+    const key = reactionKey(row.target_kind as "text" | "quote", row.target_id);
+    let byEmoji = nested.get(key);
+    if (!byEmoji) {
+      byEmoji = new Map();
+      nested.set(key, byEmoji);
+    }
+    let acc = byEmoji.get(row.emoji);
+    if (!acc) {
+      acc = { count: 0, reacted: false };
+      byEmoji.set(row.emoji, acc);
+    }
+    acc.count += 1;
+    if (row.user_id === viewerId) acc.reacted = true;
+  }
+
+  for (const [key, byEmoji] of nested) {
+    const list = [...byEmoji.entries()]
+      .map(([emoji, acc]) => ({ emoji, count: acc.count, reacted: acc.reacted }))
+      .sort((a, b) => a.emoji.localeCompare(b.emoji));
+    map.set(key, list);
+  }
+  return map;
+}
+
+function attachReactions<T extends { kind: "text" | "quote" }>(
+  messages: T[],
+  reactionMap: Map<string, ChatReaction[]>,
+  idFor: (message: T) => string,
+): Array<T & { reactions: ChatReaction[] }> {
+  return messages.map((message) => ({
+    ...message,
+    reactions: reactionMap.get(reactionKey(message.kind, idFor(message))) ?? [],
+  }));
+}
 
 function publicName(displayName: string | null | undefined): string {
   const trimmed = displayName?.trim();
@@ -122,6 +210,7 @@ export type ChatTextMessage = {
   from: { userId: string; displayName: string };
   createdAt: string;
   youSent: boolean;
+  reactions: ChatReaction[];
 };
 
 export type DmQuoteMessage = {
@@ -136,6 +225,9 @@ export type DmQuoteMessage = {
   playable: boolean;
   /** Outgoing only: peer opened the thread (their inbox read_at). */
   receipt: "sent" | "read" | null;
+  /** Outgoing only: peer got the next line correct. */
+  peerAnswered: boolean;
+  reactions: ChatReaction[];
 };
 
 export type GroupQuoteMessage = {
@@ -148,10 +240,13 @@ export type GroupQuoteMessage = {
   sentCount: number;
   /** How many fan-out recipients have read_at set (youSent cards). */
   readCount: number;
+  /** How many fan-out recipients have solved_at set (youSent cards). */
+  answeredCount: number;
   /** Viewer's inbox row when they were a recipient (for play + solved). */
   inboxId: string | null;
   playable: boolean;
   youSent: boolean;
+  reactions: ChatReaction[];
 };
 
 export type DmThreadMessage = DmQuoteMessage | ChatTextMessage;
@@ -381,6 +476,7 @@ async function listDmTextMessages(
     },
     createdAt: row.created_at,
     youSent: row.sender_user_id === userId,
+    reactions: [] as ChatReaction[],
   }));
 }
 
@@ -417,6 +513,7 @@ async function listGroupTextMessages(
     },
     createdAt: row.created_at,
     youSent: row.sender_user_id === userId,
+    reactions: [] as ChatReaction[],
   }));
 }
 
@@ -451,7 +548,7 @@ export async function listDmMessages(
   const result = await db
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
-              i.sender_user_id, i.recipient_user_id, i.read_at,
+              i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
               su.display_name AS sender_name
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
@@ -471,6 +568,7 @@ export async function listDmMessages(
       sender_user_id: string;
       recipient_user_id: string;
       read_at: string | null;
+      solved_at: string | null;
       sender_name: string | null;
     }>();
 
@@ -490,11 +588,26 @@ export async function listDmMessages(
       createdAt: row.created_at,
       playable: direction === "in",
       receipt: direction === "out" ? (row.read_at ? ("read" as const) : ("sent" as const)) : null,
+      // Outgoing row is the peer's inbox copy — solved_at means they got it right.
+      peerAnswered: direction === "out" ? Boolean(row.solved_at) : false,
+      reactions: [],
     };
   });
 
   const texts = await listDmTextMessages(db, user.id, peerUserId);
-  const messages = mergeByCreatedAt(quotes, texts, MESSAGE_CAP);
+  const merged = mergeByCreatedAt(quotes, texts, MESSAGE_CAP);
+  const reactionMap = await loadReactionsMap(
+    db,
+    user.id,
+    merged.map((message) =>
+      message.kind === "text"
+        ? { kind: "text" as const, id: message.id }
+        : { kind: "quote" as const, id: message.shareId },
+    ),
+  );
+  const messages = attachReactions(merged, reactionMap, (message) =>
+    message.kind === "text" ? message.id : message.shareId,
+  );
 
   return {
     peer: { userId: peer.id, displayName: publicName(peer.display_name) },
@@ -515,7 +628,7 @@ export async function listGroupMessages(
   const result = await db
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
-              i.sender_user_id, i.recipient_user_id, i.read_at,
+              i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
               su.display_name AS sender_name
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
@@ -533,6 +646,7 @@ export async function listGroupMessages(
       sender_user_id: string;
       recipient_user_id: string;
       read_at: string | null;
+      solved_at: string | null;
       sender_name: string | null;
     }>();
 
@@ -544,6 +658,7 @@ export async function listGroupMessages(
     createdAt: string;
     sentCount: number;
     readCount: number;
+    answeredCount: number;
     inboxId: string | null;
     youSent: boolean;
   };
@@ -563,6 +678,7 @@ export async function listGroupMessages(
         createdAt: row.created_at,
         sentCount: 0,
         readCount: 0,
+        answeredCount: 0,
         inboxId: null,
         youSent: row.sender_user_id === user.id,
       };
@@ -570,6 +686,7 @@ export async function listGroupMessages(
     }
     acc.sentCount += 1;
     if (row.read_at) acc.readCount += 1;
+    if (row.solved_at) acc.answeredCount += 1;
     if (row.recipient_user_id === user.id) {
       acc.inboxId = row.id;
     }
@@ -588,13 +705,27 @@ export async function listGroupMessages(
       createdAt: acc.createdAt,
       sentCount: acc.sentCount,
       readCount: acc.readCount,
+      answeredCount: acc.answeredCount,
       inboxId: acc.inboxId,
       playable: Boolean(acc.inboxId) && !acc.youSent,
       youSent: acc.youSent,
+      reactions: [],
     }));
 
   const texts = await listGroupTextMessages(db, user.id, groupId);
-  const messages = mergeByCreatedAt(quotes, texts, MESSAGE_CAP);
+  const merged = mergeByCreatedAt(quotes, texts, MESSAGE_CAP);
+  const reactionMap = await loadReactionsMap(
+    db,
+    user.id,
+    merged.map((message) =>
+      message.kind === "text"
+        ? { kind: "text" as const, id: message.id }
+        : { kind: "quote" as const, id: message.shareId },
+    ),
+  );
+  const messages = attachReactions(merged, reactionMap, (message) =>
+    message.kind === "text" ? message.id : message.shareId,
+  );
 
   return { name: group.name, messages };
 }
@@ -638,6 +769,7 @@ export async function postDmMessage(
       from: { userId: user.id, displayName: publicName(user.displayName) },
       createdAt,
       youSent: true,
+      reactions: [],
     },
   };
 }
@@ -674,8 +806,107 @@ export async function postGroupMessage(
       from: { userId: user.id, displayName: publicName(user.displayName) },
       createdAt,
       youSent: true,
+      reactions: [],
     },
   };
+}
+
+export async function toggleChatReaction(
+  db: D1Database,
+  user: User,
+  input: {
+    targetKind: unknown;
+    targetId: unknown;
+    emoji: unknown;
+    peerUserId?: unknown;
+    groupId?: unknown;
+  },
+): Promise<{ reactions: ChatReaction[] } | ActionError> {
+  const targetKind = input.targetKind === "text" || input.targetKind === "quote" ? input.targetKind : null;
+  const targetId = typeof input.targetId === "string" ? input.targetId.trim() : "";
+  if (!targetKind || !targetId) return { error: "Invalid target", status: 400 };
+  if (!isAllowedEmoji(input.emoji)) return { error: "Invalid emoji", status: 400 };
+  const emoji = input.emoji;
+
+  const peerRaw = typeof input.peerUserId === "string" ? input.peerUserId.trim() : "";
+  const groupRaw = typeof input.groupId === "string" ? input.groupId.trim() : "";
+  if (peerRaw && groupRaw) return { error: "Pick DM or group", status: 400 };
+  if (!peerRaw && !groupRaw) return { error: "Missing thread", status: 400 };
+
+  if (peerRaw) {
+    if (!isValidFriendUserId(peerRaw) || peerRaw === user.id) {
+      return { error: "Invalid user", status: 400 };
+    }
+    if (!(await areFriends(db, user.id, peerRaw))) return { error: "Not found", status: 404 };
+    if (await isBlocked(db, user.id, peerRaw)) return { error: "Not found", status: 404 };
+
+    if (targetKind === "text") {
+      const pair = canonicalPair(user.id, peerRaw);
+      const row = await db
+        .prepare(
+          `SELECT id FROM chat_messages
+           WHERE id = ? AND dm_user_a = ? AND dm_user_b = ?`,
+        )
+        .bind(targetId, pair.userA, pair.userB)
+        .first<{ id: string }>();
+      if (!row) return { error: "Not found", status: 404 };
+    } else {
+      const row = await db
+        .prepare(
+          `SELECT share_id FROM line_inbox
+           WHERE share_id = ? AND group_id IS NULL
+             AND ((sender_user_id = ? AND recipient_user_id = ?)
+               OR (sender_user_id = ? AND recipient_user_id = ?))
+           LIMIT 1`,
+        )
+        .bind(targetId, user.id, peerRaw, peerRaw, user.id)
+        .first<{ share_id: string }>();
+      if (!row) return { error: "Not found", status: 404 };
+    }
+  } else {
+    if (!isValidFriendUserId(groupRaw)) return { error: "Invalid group", status: 400 };
+    const group = await userCanAccessGroup(db, groupRaw, user.id);
+    if (!group) return { error: "Not found", status: 404 };
+
+    if (targetKind === "text") {
+      const row = await db
+        .prepare(`SELECT id FROM chat_messages WHERE id = ? AND group_id = ?`)
+        .bind(targetId, groupRaw)
+        .first<{ id: string }>();
+      if (!row) return { error: "Not found", status: 404 };
+    } else {
+      const row = await db
+        .prepare(
+          `SELECT share_id FROM line_inbox WHERE share_id = ? AND group_id = ? LIMIT 1`,
+        )
+        .bind(targetId, groupRaw)
+        .first<{ share_id: string }>();
+      if (!row) return { error: "Not found", status: 404 };
+    }
+  }
+
+  const existing = await db
+    .prepare(
+      `SELECT id FROM chat_reactions
+       WHERE target_kind = ? AND target_id = ? AND emoji = ? AND user_id = ?`,
+    )
+    .bind(targetKind, targetId, emoji, user.id)
+    .first<{ id: string }>();
+
+  if (existing) {
+    await db.prepare(`DELETE FROM chat_reactions WHERE id = ?`).bind(existing.id).run();
+  } else {
+    await db
+      .prepare(
+        `INSERT INTO chat_reactions (id, target_kind, target_id, emoji, user_id, created_at)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+      )
+      .bind(createId(), targetKind, targetId, emoji, user.id, new Date().toISOString())
+      .run();
+  }
+
+  const map = await loadReactionsMap(db, user.id, [{ kind: targetKind, id: targetId }]);
+  return { reactions: map.get(reactionKey(targetKind, targetId)) ?? [] };
 }
 
 export async function markDmRead(

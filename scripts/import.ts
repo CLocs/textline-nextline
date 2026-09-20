@@ -77,7 +77,7 @@ function importFile(filePath: string): ReturnType<typeof workToTitle> {
 
 function usage(): never {
   console.log(`Usage:
-  npm run import -- <file.json>     Import one transcript_maker export
+  npm run import -- <file.json> [more.json ...]   Import one or more transcript_maker exports
   npm run import:all               Import every .json in imports/
 
 Drop raw exports from transcript_maker into imports/ first.`);
@@ -116,17 +116,19 @@ function main(): void {
     return;
   }
 
-  const fileArg = args.find((arg) => !arg.startsWith("-"));
-  if (!fileArg) usage();
-
-  const filePath = resolve(fileArg);
-  const title = importFile(filePath);
+  const fileArgs = args.filter((arg) => !arg.startsWith("-"));
+  if (fileArgs.length === 0) usage();
 
   const byId = new Map(loadExistingCatalogEntries().map((e) => [e.id, e]));
-  byId.set(title.id, titleToCatalogEntry(title));
+  const imported = [];
+  for (const fileArg of fileArgs) {
+    const title = importFile(resolve(fileArg));
+    imported.push(title);
+    byId.set(title.id, titleToCatalogEntry(title));
+  }
   rebuildCatalog([...byId.values()]);
-  console.log("Catalog updated.");
-  markQueue([title]);
+  console.log(`Catalog updated (${imported.length} imported, ${byId.size} title(s) total).`);
+  markQueue(imported);
 }
 
 main();

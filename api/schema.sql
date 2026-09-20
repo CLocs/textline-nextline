@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS friend_blocks (
 CREATE INDEX IF NOT EXISTS idx_friendships_b ON friendships (user_b);
 CREATE INDEX IF NOT EXISTS idx_friend_blocks_blocked ON friend_blocks (blocked_user_id);
 
--- Directed one-line inbox (also in migrations/006_inbox.sql; read_at/group_id via ensure-share-columns + 011)
+-- Directed one-line inbox (also in migrations/006_inbox.sql; read_at/group_id/solved_at via ensure-share-columns + 011)
 CREATE TABLE IF NOT EXISTS line_inbox (
   id TEXT PRIMARY KEY,
   share_id TEXT NOT NULL,
@@ -220,3 +220,17 @@ CREATE TABLE IF NOT EXISTS chat_thread_reads (
   last_read_at TEXT NOT NULL,
   PRIMARY KEY (user_id, thread_key)
 );
+
+-- Emoji reactions (also in migrations/013_chat_reactions.sql)
+CREATE TABLE IF NOT EXISTS chat_reactions (
+  id TEXT PRIMARY KEY,
+  target_kind TEXT NOT NULL,
+  target_id TEXT NOT NULL,
+  emoji TEXT NOT NULL,
+  user_id TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  UNIQUE (target_kind, target_id, emoji, user_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_chat_reactions_target
+  ON chat_reactions (target_kind, target_id);

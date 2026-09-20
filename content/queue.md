@@ -98,7 +98,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 2 | 0 | [Dungeons & Dragons: Honor Among Thieves](https://boxd.it/hN1A) | 2023 | 5 |  | [ ] missing |
 | 2 | 2 | 0 | [Hacksaw Ridge](https://boxd.it/azew) | 2016 | 5 |  | [ ] missing |
 | 2 | 2 | 0 | [Prey](https://boxd.it/sNBU) | 2022 | 5 |  | [ ] missing |
-| 2 | 1 | 1549 | [The Conversation](https://boxd.it/2a38) | 1974 | 5 |  | [ ] missing |
+| 2 | 1 | 1549 | [The Conversation](https://boxd.it/2a38) | 1974 | 5 |  | [x] short |
 | 2 | 1 | 80 | [Drive](https://boxd.it/IG) | 2011 | 5 |  | [ ] missing |
 | 2 | 1 | 78 | [Star Wars](https://boxd.it/72s) | 1977 | 5 |  | [x] |
 | 2 | 1 | 67 | [The Dark Knight Rises](https://boxd.it/H3m) | 2012 | 5 |  | [ ] missing |

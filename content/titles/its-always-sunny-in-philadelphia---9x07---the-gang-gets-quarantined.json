@@ -1,0 +1,2835 @@
+{
+  "id": "its-always-sunny-in-philadelphia---9x07---the-gang-gets-quarantined",
+  "title": "It's Always Sunny in Philadelphia - 9x07 - The Gang Gets Quarantined",
+  "sourceFilename": "It's Always Sunny in Philadelphia - 9x07 - The Gang Gets Quarantined.en.srt",
+  "importedAt": "2026-09-20T06:02:03.858Z",
+  "lineCount": 403,
+  "lines": [
+    {
+      "index": 0,
+      "text": "♪ Motownphilly's back again ♪",
+      "kind": "sdh",
+      "startMs": 2436,
+      "endMs": 5562
+    },
+    {
+      "index": 1,
+      "text": "♪ Da-da-da-da-da-da-da da-da-da ♪",
+      "kind": "sdh",
+      "startMs": 5593,
+      "endMs": 7406
+    },
+    {
+      "index": 2,
+      "text": "♪ Doing a little East Coast swing ♪",
+      "kind": "sdh",
+      "startMs": 7425,
+      "endMs": 10900
+    },
+    {
+      "index": 3,
+      "text": "♪ Boyz II Men going off... ♪ ♪ Da-da-da-da-da-da-da-da ♪",
+      "kind": "sdh",
+      "startMs": 10919,
+      "endMs": 15067
+    },
+    {
+      "index": 4,
+      "text": "♪ Not too hard, not too soft ♪",
+      "kind": "sdh",
+      "startMs": 15090,
+      "endMs": 19093
+    },
+    {
+      "index": 5,
+      "text": "♪ Back in school we used to dream about this every day ♪",
+      "kind": "sdh",
+      "startMs": 19242,
+      "endMs": 23366
+    },
+    {
+      "index": 6,
+      "text": "♪ Could it really happen or do dreams just fade away? ♪",
+      "kind": "sdh",
+      "startMs": 23383,
+      "endMs": 26838
+    },
+    {
+      "index": 7,
+      "text": "No, no, no, no, stop, stop, stop, stop.",
+      "kind": "dialogue",
+      "startMs": 26863,
+      "endMs": 29027
+    },
+    {
+      "index": 8,
+      "text": "God, guys, damn it.",
+      "kind": "dialogue",
+      "startMs": 29052,
+      "endMs": 31808
+    },
+    {
+      "index": 9,
+      "text": "I mean, you know, I need a little... a little buoyancy in the harmonies.",
+      "kind": "dialogue",
+      "startMs": 32056,
+      "endMs": 35463
+    },
+    {
+      "index": 10,
+      "text": "I mean, listen to the lyrics. Right? \"Not too hard... not too soft.\"",
+      "kind": "dialogue",
+      "startMs": 35481,
+      "endMs": 38558
+    },
+    {
+      "index": 11,
+      "text": "You were coming in pretty hard, I would say.",
+      "kind": "dialogue",
+      "startMs": 38583,
+      "endMs": 40864
+    },
+    {
+      "index": 12,
+      "text": "The lead's got to cut through, Dee.",
+      "kind": "dialogue",
+      "startMs": 40890,
+      "endMs": 42221
+    },
+    {
+      "index": 13,
+      "text": "I don't know, man. I thought we sounded pretty good.",
+      "kind": "dialogue",
+      "startMs": 42245,
+      "endMs": 44146
+    },
+    {
+      "index": 14,
+      "text": "Oh, we sounded \"pretty good.\" Oh, hi, super group Boyz II Men, please let us win your contest. We sound, eh, pretty good.",
+      "kind": "dialogue",
+      "startMs": 44155,
+      "endMs": 50403
+    },
+    {
+      "index": 15,
+      "text": "Come on, man. If we're gonna open for Boyz II Men at the Boyz II Men concert, we need to dazzle them with our harmonies.",
+      "kind": "dialogue",
+      "startMs": 50480,
+      "endMs": 56608
+    },
+    {
+      "index": 16,
+      "text": "Mmm... Okay.",
+      "kind": "dialogue",
+      "startMs": 56633,
+      "endMs": 58052
+    },
+    {
+      "index": 17,
+      "text": "He's dead.",
+      "kind": "dialogue",
+      "startMs": 58161,
+      "endMs": 59507
+    },
+    {
+      "index": 18,
+      "text": "Rodriguez is dead. Frank, will you get out of here?",
+      "kind": "dialogue",
+      "startMs": 59835,
+      "endMs": 62048
+    },
+    {
+      "index": 19,
+      "text": "We're in the middle of Boyz II Men rehearsal.",
+      "kind": "dialogue",
+      "startMs": 62072,
+      "endMs": 63566
+    },
+    {
+      "index": 20,
+      "text": "Well, hold on a second. I'll bite-- who's Rodriguez?",
+      "kind": "dialogue",
+      "startMs": 63591,
+      "endMs": 65643
+    },
+    {
+      "index": 21,
+      "text": "That sweet old man from our building.",
+      "kind": "dialogue",
+      "startMs": 65668,
+      "endMs": 67774
+    },
+    {
+      "index": 22,
+      "text": "This is the worst flu that Philly has ever seen.",
+      "kind": "dialogue",
+      "startMs": 68055,
+      "endMs": 70927
+    },
+    {
+      "index": 23,
+      "text": "Wow. We have to quarantine ourselves.",
+      "kind": "dialogue",
+      "startMs": 70983,
+      "endMs": 73741
+    },
+    {
+      "index": 24,
+      "text": "What?",
+      "kind": "dialogue",
+      "startMs": 73761,
+      "endMs": 74386
+    },
+    {
+      "index": 25,
+      "text": "Frank, we're not gonna die of the flu because we're young and vital.",
+      "kind": "dialogue",
+      "startMs": 74411,
+      "endMs": 77149
+    },
+    {
+      "index": 26,
+      "text": "You are old and feeble. - Actually, Frank does bring up a good point.",
+      "kind": "dialogue",
+      "startMs": 77167,
+      "endMs": 80373
+    },
+    {
+      "index": 27,
+      "text": "We can't afford to get sick right now.",
+      "kind": "dialogue",
+      "startMs": 80391,
+      "endMs": 82465
+    },
+    {
+      "index": 28,
+      "text": "'Cause you know what you can't do when you get the flu?",
+      "kind": "dialogue",
+      "startMs": 82858,
+      "endMs": 85143
+    },
+    {
+      "index": 29,
+      "text": "Sing? Sing. - Sing.",
+      "kind": "dialogue",
+      "startMs": 85168,
+      "endMs": 87236
+    },
+    {
+      "index": 30,
+      "text": "Yeah, I mean, I was gonna... You wanted to say it?",
+      "kind": "dialogue",
+      "startMs": 90111,
+      "endMs": 92199
+    },
+    {
+      "index": 31,
+      "text": "Yeah, but I wanted to say it. Oh, shit, well, I'm sorry, man.",
+      "kind": "dialogue",
+      "startMs": 92224,
+      "endMs": 95027
+    },
+    {
+      "index": 32,
+      "text": "Uh, do you want to ask it again, or...? Ask us again.",
+      "kind": "dialogue",
+      "startMs": 95058,
+      "endMs": 98139
+    },
+    {
+      "index": 33,
+      "text": "Uh, you know what you can't do when you get...?",
+      "kind": "dialogue",
+      "startMs": 98694,
+      "endMs": 101233
+    },
+    {
+      "index": 34,
+      "text": "Nah, forget it, it's fine.",
+      "kind": "dialogue",
+      "startMs": 101289,
+      "endMs": 102613
+    },
+    {
+      "index": 35,
+      "text": "Sync & corrections by honeybunny www.addic7ed.com Resync for WEB-DL by Norther",
+      "kind": "dialogue",
+      "startMs": 113710,
+      "endMs": 123710
+    },
+    {
+      "index": 36,
+      "text": "Quarantine, baby! All right, this is gonna be good.",
+      "kind": "dialogue",
+      "startMs": 127766,
+      "endMs": 130304
+    },
+    {
+      "index": 37,
+      "text": "Everybody find a spot to put your sleeping bags and we'll be all set.",
+      "kind": "dialogue",
+      "startMs": 130316,
+      "endMs": 133192
+    },
+    {
+      "index": 38,
+      "text": "All right, Frank, where we at, my man?",
+      "kind": "dialogue",
+      "startMs": 133210,
+      "endMs": 135339
+    },
+    {
+      "index": 39,
+      "text": "Well, right there. - You know, you don't have to sleep together.",
+      "kind": "dialogue",
+      "startMs": 135361,
+      "endMs": 138163
+    },
+    {
+      "index": 40,
+      "text": "It's a comfort thing.",
+      "kind": "dialogue",
+      "startMs": 138293,
+      "endMs": 139637
+    },
+    {
+      "index": 41,
+      "text": "Guys, I got to say, I'm excited to play quarantine.",
+      "kind": "dialogue",
+      "startMs": 140306,
+      "endMs": 142665
+    },
+    {
+      "index": 42,
+      "text": "Oh, my God, for the last time, we're not playing quarantine, this is a quarantine.",
+      "kind": "dialogue",
+      "startMs": 142677,
+      "endMs": 146508
+    },
+    {
+      "index": 43,
+      "text": "Huh? I'm gonna get so blacked out.",
+      "kind": "dialogue",
+      "startMs": 146527,
+      "endMs": 148657
+    },
+    {
+      "index": 44,
+      "text": "Yeah!",
+      "kind": "dialogue",
+      "startMs": 148682,
+      "endMs": 149376
+    },
+    {
+      "index": 45,
+      "text": "What are you talking about? Mac, do you want to lose this singing contest?",
+      "kind": "dialogue",
+      "startMs": 149405,
+      "endMs": 151930
+    },
+    {
+      "index": 46,
+      "text": "Why do you think we're quarantining ourselves in the first place?",
+      "kind": "dialogue",
+      "startMs": 151961,
+      "endMs": 154153
+    },
+    {
+      "index": 47,
+      "text": "To protect my life! No, to preserve our vocal cords, okay?",
+      "kind": "dialogue",
+      "startMs": 154178,
+      "endMs": 157683
+    },
+    {
+      "index": 48,
+      "text": "Which also means no alcohol, guys. Come on, dude!",
+      "kind": "dialogue",
+      "startMs": 157702,
+      "endMs": 161630
+    },
+    {
+      "index": 49,
+      "text": "Wait a minute, wait a minute, that's a good idea. - That's crazy.",
+      "kind": "dialogue",
+      "startMs": 161666,
+      "endMs": 164113
+    },
+    {
+      "index": 50,
+      "text": "Because alcohol lowers your immune system.",
+      "kind": "dialogue",
+      "startMs": 164124,
+      "endMs": 167031
+    },
+    {
+      "index": 51,
+      "text": "Well, why the hell are we quarantining ourselves in a bar, if we can't drink?",
+      "kind": "dialogue",
+      "startMs": 167062,
+      "endMs": 169829
+    },
+    {
+      "index": 52,
+      "text": "We got to drink. Yes, hi, I'd like to order two pepperonis, one combo and breadsticks, like, a shitload of breadsticks...",
+      "kind": "dialogue",
+      "startMs": 169850,
+      "endMs": 177369
+    },
+    {
+      "index": 53,
+      "text": "Hey! You can't do that.",
+      "kind": "dialogue",
+      "startMs": 177401,
+      "endMs": 179635
+    },
+    {
+      "index": 54,
+      "text": "This is a quarantine. Nothing goes out, nothing comes in. Especially a pizza guy.",
+      "kind": "dialogue",
+      "startMs": 180225,
+      "endMs": 185353
+    },
+    {
+      "index": 55,
+      "text": "Going house to house, handling money, banging lonely broads.",
+      "kind": "dialogue",
+      "startMs": 185365,
+      "endMs": 188894
+    },
+    {
+      "index": 56,
+      "text": "They're filthy! All right, come on, listen.",
+      "kind": "dialogue",
+      "startMs": 189028,
+      "endMs": 191795
+    },
+    {
+      "index": 57,
+      "text": "I'm gonna take all your cell phones.",
+      "kind": "dialogue",
+      "startMs": 191816,
+      "endMs": 193291
+    },
+    {
+      "index": 58,
+      "text": "You lost your privileges. Thanks a lot, Dee.",
+      "kind": "dialogue",
+      "startMs": 193309,
+      "endMs": 195910
+    },
+    {
+      "index": 59,
+      "text": "It's just until the vaccine is replenished.",
+      "kind": "dialogue",
+      "startMs": 195938,
+      "endMs": 198513
+    },
+    {
+      "index": 60,
+      "text": "He does make a good point, you know?",
+      "kind": "dialogue",
+      "startMs": 198531,
+      "endMs": 199864
+    },
+    {
+      "index": 61,
+      "text": "Vaccines really do work. My mom used to vaccinate me, like, every month, and I never got sick.",
+      "kind": "dialogue",
+      "startMs": 199882,
+      "endMs": 204953
+    },
+    {
+      "index": 62,
+      "text": "The reason you didn't get sick was because you and your mom would wear those ridiculous bubble boy suits during the flu season.",
+      "kind": "dialogue",
+      "startMs": 205022,
+      "endMs": 209758
+    },
+    {
+      "index": 63,
+      "text": "Okay, what are we gonna do in here if we can't eat pizza or drink beer?",
+      "kind": "dialogue",
+      "startMs": 209789,
+      "endMs": 212858
+    },
+    {
+      "index": 64,
+      "text": "Well, I'll tell you exactly what we're gonna do.",
+      "kind": "dialogue",
+      "startMs": 212872,
+      "endMs": 214738
+    },
+    {
+      "index": 65,
+      "text": "Practice.",
+      "kind": "dialogue",
+      "startMs": 215546,
+      "endMs": 217192
+    },
+    {
+      "index": 66,
+      "text": "Come on, man, you know, like, just let me do it.",
+      "kind": "dialogue",
+      "startMs": 217698,
+      "endMs": 220212
+    },
+    {
+      "index": 67,
+      "text": "Like, why do you keep doing that? Why do you guys keep stealing that from me?",
+      "kind": "dialogue",
+      "startMs": 220229,
+      "endMs": 222883
+    },
+    {
+      "index": 68,
+      "text": "♪ Dum-dum-dum-da-da Dum-dum-dum-da-da ♪",
+      "kind": "sdh",
+      "startMs": 225321,
+      "endMs": 228396
+    },
+    {
+      "index": 69,
+      "text": "♪ Die-ya-ya-yada Da-da-da-ah-oh. ♪",
+      "kind": "sdh",
+      "startMs": 228478,
+      "endMs": 233796
+    },
+    {
+      "index": 70,
+      "text": "Yes! That was good.",
+      "kind": "dialogue",
+      "startMs": 233818,
+      "endMs": 235068
+    },
+    {
+      "index": 71,
+      "text": "That sounded... that's harmony. Yeah, yeah, yeah.",
+      "kind": "dialogue",
+      "startMs": 235093,
+      "endMs": 237181
+    },
+    {
+      "index": 72,
+      "text": "It was terrible, let's try it again, let's try, let's do it again.",
+      "kind": "dialogue",
+      "startMs": 237962,
+      "endMs": 240229
+    },
+    {
+      "index": 73,
+      "text": "We've been working this forever. I think it's fine for now. - Yeah.",
+      "kind": "dialogue",
+      "startMs": 240247,
+      "endMs": 242385
+    },
+    {
+      "index": 74,
+      "text": "You think fine is good enough for the Boyz II the Men?",
+      "kind": "dialogue",
+      "startMs": 242403,
+      "endMs": 244629
+    },
+    {
+      "index": 75,
+      "text": "Ah, calm down.",
+      "kind": "dialogue",
+      "startMs": 244654,
+      "endMs": 246154
+    },
+    {
+      "index": 76,
+      "text": "Okay, guys, I think we're focusing a little too much on the singing and not enough on the showmanship. You know, maybe we should work out a couple of",
+      "kind": "dialogue",
+      "startMs": 246183,
+      "endMs": 252118
+    },
+    {
+      "index": 77,
+      "text": "sweet dance moves, you know? What is that? Yeah.",
+      "kind": "dialogue",
+      "startMs": 252136,
+      "endMs": 253765
+    },
+    {
+      "index": 78,
+      "text": "Like, that we could all do in unison. Or maybe we could wear the same outfit!",
+      "kind": "dialogue",
+      "startMs": 253785,
+      "endMs": 256941
+    },
+    {
+      "index": 79,
+      "text": "Okay, yes! We'll create a visual harmony, same outfit, good.",
+      "kind": "dialogue",
+      "startMs": 256966,
+      "endMs": 260535
+    },
+    {
+      "index": 80,
+      "text": "Oh, you guys, you guys, if we want to stand out, you know what we got to do?",
+      "kind": "dialogue",
+      "startMs": 260547,
+      "endMs": 263692
+    },
+    {
+      "index": 81,
+      "text": "We got to focus on our story. Yes!",
+      "kind": "dialogue",
+      "startMs": 263964,
+      "endMs": 265570
+    },
+    {
+      "index": 82,
+      "text": "Those competitions are all about how singing helped you overcome some major obstacle, you know?",
+      "kind": "dialogue",
+      "startMs": 265589,
+      "endMs": 270066
+    },
+    {
+      "index": 83,
+      "text": "So I'll do, like, a stutter, and I'll say I got it from-from watching, like, a friend get blown to bits in Iraq.",
+      "kind": "dialogue",
+      "startMs": 270091,
+      "endMs": 275856
+    },
+    {
+      "index": 84,
+      "text": "Ooh, ooh, you know what? And do it with a Southern accent",
+      "kind": "dialogue",
+      "startMs": 275877,
+      "endMs": 278043
+    },
+    {
+      "index": 85,
+      "text": "and talk about Jesus a lot. Yeah!",
+      "kind": "dialogue",
+      "startMs": 278067,
+      "endMs": 279926
+    },
+    {
+      "index": 86,
+      "text": "Good, good, okay, so we'll be, like, a group of, like, Southern, stuttering army vets with, like, a religious bend.",
+      "kind": "dialogue",
+      "startMs": 279947,
+      "endMs": 284480
+    },
+    {
+      "index": 87,
+      "text": "Mm-hmm. - Okay, and then we'll all be in the same outfit.",
+      "kind": "dialogue",
+      "startMs": 284492,
+      "endMs": 286405
+    },
+    {
+      "index": 88,
+      "text": "Oh, we should be, like, carnies. We're gonna be carnies.",
+      "kind": "dialogue",
+      "startMs": 286423,
+      "endMs": 288797
+    },
+    {
+      "index": 89,
+      "text": "Religious stuttering army carnies.",
+      "kind": "dialogue",
+      "startMs": 289146,
+      "endMs": 291096
+    },
+    {
+      "index": 90,
+      "text": "Who love Jesus.",
+      "kind": "dialogue",
+      "startMs": 291467,
+      "endMs": 292236
+    },
+    {
+      "index": 91,
+      "text": "And watched our friends explode on stage. And have pearls and sing...",
+      "kind": "dialogue",
+      "startMs": 292261,
+      "endMs": 294805
+    },
+    {
+      "index": 92,
+      "text": "♪ My friend exploded My friend exploded... ♪",
+      "kind": "sdh",
+      "startMs": 294835,
+      "endMs": 297391
+    },
+    {
+      "index": 93,
+      "text": "Hey, hey, hey, hey, hey, hey, hey!",
+      "kind": "dialogue",
+      "startMs": 297428,
+      "endMs": 298631
+    },
+    {
+      "index": 94,
+      "text": "It's great, no? Hey.",
+      "kind": "dialogue",
+      "startMs": 298656,
+      "endMs": 300656
+    },
+    {
+      "index": 95,
+      "text": "No. Absolutely not.",
+      "kind": "dialogue",
+      "startMs": 300892,
+      "endMs": 303295
+    },
+    {
+      "index": 96,
+      "text": "Are you kidding me? What?",
+      "kind": "dialogue",
+      "startMs": 303314,
+      "endMs": 304759
+    },
+    {
+      "index": 97,
+      "text": "What? It's a singing competition.",
+      "kind": "dialogue",
+      "startMs": 304765,
+      "endMs": 306521
+    },
+    {
+      "index": 98,
+      "text": "So can we please work on our harmonies?",
+      "kind": "dialogue",
+      "startMs": 306556,
+      "endMs": 308462
+    },
+    {
+      "index": 99,
+      "text": "And not talk about dressing like army carnies?",
+      "kind": "dialogue",
+      "startMs": 308509,
+      "endMs": 310528
+    },
+    {
+      "index": 100,
+      "text": "But then maybe one of us can be a... One, two, three.",
+      "kind": "dialogue",
+      "startMs": 310540,
+      "endMs": 313421
+    },
+    {
+      "index": 101,
+      "text": "Goddamn it! Come out here! Come on out here.",
+      "kind": "dialogue",
+      "startMs": 313877,
+      "endMs": 317321
+    },
+    {
+      "index": 102,
+      "text": "What? What? What? What is your problem?",
+      "kind": "dialogue",
+      "startMs": 317337,
+      "endMs": 319304
+    },
+    {
+      "index": 103,
+      "text": "This.",
+      "kind": "dialogue",
+      "startMs": 319838,
+      "endMs": 321054
+    },
+    {
+      "index": 104,
+      "text": "I found it in the back office in the garbage. It's still warm.",
+      "kind": "dialogue",
+      "startMs": 321272,
+      "endMs": 325367
+    },
+    {
+      "index": 105,
+      "text": "This whole quarantine has been compromised.",
+      "kind": "dialogue",
+      "startMs": 325462,
+      "endMs": 328700
+    },
+    {
+      "index": 106,
+      "text": "What... me?! Come on... come on.",
+      "kind": "dialogue",
+      "startMs": 329037,
+      "endMs": 331787
+    },
+    {
+      "index": 107,
+      "text": "Why would I do it? You guys would suspect me.",
+      "kind": "dialogue",
+      "startMs": 331805,
+      "endMs": 333814
+    },
+    {
+      "index": 108,
+      "text": "Yeah, yeah, yeah, it was a recent delivery you made to Paddy's Pub.",
+      "kind": "dialogue",
+      "startMs": 334045,
+      "endMs": 336797
+    },
+    {
+      "index": 109,
+      "text": "I'll get to the bottom of this.",
+      "kind": "dialogue",
+      "startMs": 336822,
+      "endMs": 338769
+    },
+    {
+      "index": 110,
+      "text": "Yeah, all right, well, what was the name on the order?",
+      "kind": "dialogue",
+      "startMs": 338794,
+      "endMs": 341257
+    },
+    {
+      "index": 111,
+      "text": "Spider-Man. That's very clever, yeah, yeah, yeah.",
+      "kind": "dialogue",
+      "startMs": 342564,
+      "endMs": 345830
+    },
+    {
+      "index": 112,
+      "text": "Dennis, ask him how it's possible for him to talk to you through a cut phone wire.",
+      "kind": "dialogue",
+      "startMs": 345849,
+      "endMs": 351776
+    },
+    {
+      "index": 113,
+      "text": "How is it possible for you to talk to me through a cut ph...",
+      "kind": "dialogue",
+      "startMs": 351801,
+      "endMs": 353980
+    },
+    {
+      "index": 114,
+      "text": "I cut it when I found the pizza. Holy shit.",
+      "kind": "dialogue",
+      "startMs": 355411,
+      "endMs": 359413
+    },
+    {
+      "index": 115,
+      "text": "Dennis is Spider-Man. No... no one is Spider-Man.",
+      "kind": "dialogue",
+      "startMs": 360124,
+      "endMs": 363399
+    },
+    {
+      "index": 116,
+      "text": "Fine, yeah, oh, yeah, it was me, the evil villain with the perfect voice who ordered the pizza, but, guys, you don't have to worry about me, all right?",
+      "kind": "dialogue",
+      "startMs": 363424,
+      "endMs": 369803
+    },
+    {
+      "index": 117,
+      "text": "I can fight off whatever stupid illness this pizza may or may not have had, all right? I'm in perfect control of my body.",
+      "kind": "dialogue",
+      "startMs": 369815,
+      "endMs": 374479
+    },
+    {
+      "index": 118,
+      "text": "Just like I am with my voice.",
+      "kind": "dialogue",
+      "startMs": 374583,
+      "endMs": 375988
+    },
+    {
+      "index": 119,
+      "text": "I-I-I can go from flaccid to erect at a moment's notice.",
+      "kind": "dialogue",
+      "startMs": 376013,
+      "endMs": 378363
+    },
+    {
+      "index": 120,
+      "text": "He can, I've seen it.",
+      "kind": "dialogue",
+      "startMs": 378436,
+      "endMs": 379749
+    },
+    {
+      "index": 121,
+      "text": "Buddy, you're seeing it. You're all seeing it.",
+      "kind": "dialogue",
+      "startMs": 379873,
+      "endMs": 381729
+    },
+    {
+      "index": 122,
+      "text": "'Cause I'm doing it right now. Flaccid, erect.",
+      "kind": "dialogue",
+      "startMs": 381759,
+      "endMs": 385015
+    },
+    {
+      "index": 123,
+      "text": "Flaccid, erect.",
+      "kind": "dialogue",
+      "startMs": 385372,
+      "endMs": 387925
+    },
+    {
+      "index": 124,
+      "text": "Flaccid, erect.",
+      "kind": "dialogue",
+      "startMs": 388225,
+      "endMs": 389891
+    },
+    {
+      "index": 125,
+      "text": "Not too hard, not too soft.",
+      "kind": "dialogue",
+      "startMs": 390079,
+      "endMs": 393228
+    },
+    {
+      "index": 126,
+      "text": "Come on, what are you doing?!",
+      "kind": "dialogue",
+      "startMs": 395074,
+      "endMs": 396330
+    },
+    {
+      "index": 127,
+      "text": "You're gonna quarantine me inside a quarantine, really?",
+      "kind": "dialogue",
+      "startMs": 396355,
+      "endMs": 399421
+    },
+    {
+      "index": 128,
+      "text": "Aw, sh...",
+      "kind": "dialogue",
+      "startMs": 399745,
+      "endMs": 400893
+    },
+    {
+      "index": 129,
+      "text": "Now, this is the look that I was talking about.",
+      "kind": "dialogue",
+      "startMs": 404456,
+      "endMs": 406694
+    },
+    {
+      "index": 130,
+      "text": "You got the bow ties and the ball caps.",
+      "kind": "dialogue",
+      "startMs": 406706,
+      "endMs": 408739
+    },
+    {
+      "index": 131,
+      "text": "It's casual formal. Yeah, right, right, right.",
+      "kind": "dialogue",
+      "startMs": 408758,
+      "endMs": 411448
+    },
+    {
+      "index": 132,
+      "text": "Like, are they bat boys or are they butlers?",
+      "kind": "dialogue",
+      "startMs": 411472,
+      "endMs": 413622
+    },
+    {
+      "index": 133,
+      "text": "You don't know, but it's like a sweet look.",
+      "kind": "dialogue",
+      "startMs": 413640,
+      "endMs": 415348
+    },
+    {
+      "index": 134,
+      "text": "♪ Ma-ma-ma-ma-ma ♪ ♪ Ma-ma-ma. ♪",
+      "kind": "sdh",
+      "startMs": 415361,
+      "endMs": 418690
+    },
+    {
+      "index": 135,
+      "text": "What is he doing?",
+      "kind": "dialogue",
+      "startMs": 418854,
+      "endMs": 420073
+    },
+    {
+      "index": 136,
+      "text": "Oh, I'm just warming up my voice a little bit.",
+      "kind": "dialogue",
+      "startMs": 420098,
+      "endMs": 421714
+    },
+    {
+      "index": 137,
+      "text": "You guys should, uh, keep warm. Stay warm.",
+      "kind": "dialogue",
+      "startMs": 421739,
+      "endMs": 423633
+    },
+    {
+      "index": 138,
+      "text": "Oh, my God, I'm loving him in the bathroom. - Me, too.",
+      "kind": "dialogue",
+      "startMs": 423651,
+      "endMs": 425807
+    },
+    {
+      "index": 139,
+      "text": "I mean, it's great.",
+      "kind": "dialogue",
+      "startMs": 425819,
+      "endMs": 427329
+    },
+    {
+      "index": 140,
+      "text": "Now, I did a little sketch of the outfit myself.",
+      "kind": "dialogue",
+      "startMs": 427354,
+      "endMs": 429293
+    },
+    {
+      "index": 141,
+      "text": "And I wasn't quite sure what you were going for.",
+      "kind": "dialogue",
+      "startMs": 429318,
+      "endMs": 431187
+    },
+    {
+      "index": 142,
+      "text": "Like, if we were all each gonna be a body part, or if you wanted us mashed in this thing side-by-side somehow?",
+      "kind": "dialogue",
+      "startMs": 431212,
+      "endMs": 436663
+    },
+    {
+      "index": 143,
+      "text": "What are you talking about?",
+      "kind": "dialogue",
+      "startMs": 437788,
+      "endMs": 438895
+    },
+    {
+      "index": 144,
+      "text": "Well, you said that we're all in the same outfit, right?",
+      "kind": "dialogue",
+      "startMs": 438908,
+      "endMs": 440786
+    },
+    {
+      "index": 145,
+      "text": "So I'm trying to figure, like, who goes where.",
+      "kind": "dialogue",
+      "startMs": 440805,
+      "endMs": 442664
+    },
+    {
+      "index": 146,
+      "text": "\"Same\" as in \"matching,\" not same as in jammed into the same set of clothing.",
+      "kind": "dialogue",
+      "startMs": 442682,
+      "endMs": 446854
+    },
+    {
+      "index": 147,
+      "text": "Okay, not sure that's as good, 'cause this really makes a splash with the crowd.",
+      "kind": "dialogue",
+      "startMs": 446872,
+      "endMs": 451404
+    },
+    {
+      "index": 148,
+      "text": "Dee, what do you think about all this?",
+      "kind": "dialogue",
+      "startMs": 451434,
+      "endMs": 453097
+    },
+    {
+      "index": 149,
+      "text": "D-D-D-Don't- Don't put me on the spot.",
+      "kind": "dialogue",
+      "startMs": 453121,
+      "endMs": 455727
+    },
+    {
+      "index": 150,
+      "text": "I-I'm just, I-I-I'm just a Jesus-loving e-e-ex-marine.",
+      "kind": "dialogue",
+      "startMs": 455751,
+      "endMs": 461104
+    },
+    {
+      "index": 151,
+      "text": "That's really good. I mean, so, so sad.",
+      "kind": "dialogue",
+      "startMs": 461716,
+      "endMs": 463885
+    },
+    {
+      "index": 152,
+      "text": "It's supposed to be sad. It's supposed to guilt them into voting for us, you know.",
+      "kind": "dialogue",
+      "startMs": 463903,
+      "endMs": 467203
+    },
+    {
+      "index": 153,
+      "text": "That's not all. This Bible's a Bible of my daddy who just di-di-died in my-my arms of-of throat cancer, from-from eating some-some-some bad pussy.",
+      "kind": "dialogue",
+      "startMs": 467964,
+      "endMs": 478861
+    },
+    {
+      "index": 154,
+      "text": "Hmm. Hmm.",
+      "kind": "dialogue",
+      "startMs": 479910,
+      "endMs": 480880
+    },
+    {
+      "index": 155,
+      "text": "You just earned you spot at the head of the suit, Dee.",
+      "kind": "dialogue",
+      "startMs": 480892,
+      "endMs": 483027
+    },
+    {
+      "index": 156,
+      "text": "That was really good. That was good.",
+      "kind": "dialogue",
+      "startMs": 483039,
+      "endMs": 485233
+    },
+    {
+      "index": 157,
+      "text": "Frank, what the hell are you doing, dude?",
+      "kind": "dialogue",
+      "startMs": 485576,
+      "endMs": 488145
+    },
+    {
+      "index": 158,
+      "text": "I'm getting rid of all this contaminated crap!",
+      "kind": "dialogue",
+      "startMs": 488451,
+      "endMs": 490439
+    },
+    {
+      "index": 159,
+      "text": "Now, come on, you're going crazy with this food thing, Frank. We need to eat.",
+      "kind": "dialogue",
+      "startMs": 490677,
+      "endMs": 493902
+    },
+    {
+      "index": 160,
+      "text": "We need to eat, but we only eat protected food from now on.",
+      "kind": "dialogue",
+      "startMs": 493933,
+      "endMs": 497130
+    },
+    {
+      "index": 161,
+      "text": "Like, oranges and coconuts and snow crab.",
+      "kind": "dialogue",
+      "startMs": 497331,
+      "endMs": 501069
+    },
+    {
+      "index": 162,
+      "text": "No! No snow crabs! The shells could lacerate your throats. Absolutely not.",
+      "kind": "dialogue",
+      "startMs": 501266,
+      "endMs": 505832
+    },
+    {
+      "index": 163,
+      "text": "Okay, well, someone's gonna have to go out and get this food, so I'll do it.",
+      "kind": "dialogue",
+      "startMs": 505851,
+      "endMs": 508732
+    },
+    {
+      "index": 164,
+      "text": "No, no, no! You can go out together. You can't go out alone.",
+      "kind": "dialogue",
+      "startMs": 508744,
+      "endMs": 511944
+    },
+    {
+      "index": 165,
+      "text": "In case one of you get sneezed on, the other one can report back.",
+      "kind": "dialogue",
+      "startMs": 512036,
+      "endMs": 515005
+    },
+    {
+      "index": 166,
+      "text": "Frank, tell you what.",
+      "kind": "dialogue",
+      "startMs": 515030,
+      "endMs": 516268
+    },
+    {
+      "index": 167,
+      "text": "Mac and I will go out.",
+      "kind": "dialogue",
+      "startMs": 516295,
+      "endMs": 517989
+    },
+    {
+      "index": 168,
+      "text": "And I guarantee we won't get sneezed on.",
+      "kind": "dialogue",
+      "startMs": 518014,
+      "endMs": 520458
+    },
+    {
+      "index": 169,
+      "text": "All right, dude, first things first. Let's get some beer, man.",
+      "kind": "dialogue",
+      "startMs": 521287,
+      "endMs": 524224
+    },
+    {
+      "index": 170,
+      "text": "You know, screw Dennis and his rules.",
+      "kind": "dialogue",
+      "startMs": 524244,
+      "endMs": 525768
+    },
+    {
+      "index": 171,
+      "text": "The guy's, like, you know, such a dick about shit.",
+      "kind": "dialogue",
+      "startMs": 525780,
+      "endMs": 527848
+    },
+    {
+      "index": 172,
+      "text": "Yeah, dude, he can be so controlling, you know?",
+      "kind": "dialogue",
+      "startMs": 527872,
+      "endMs": 530403
+    },
+    {
+      "index": 173,
+      "text": "He can do really cool stuff with his dick, though.",
+      "kind": "dialogue",
+      "startMs": 530514,
+      "endMs": 532679
+    },
+    {
+      "index": 174,
+      "text": "You gotta ease up on talking about dicks, man.",
+      "kind": "dialogue",
+      "startMs": 532709,
+      "endMs": 535097
+    },
+    {
+      "index": 175,
+      "text": "Like, it's just, it's too much by this point.",
+      "kind": "dialogue",
+      "startMs": 535124,
+      "endMs": 537349
+    },
+    {
+      "index": 176,
+      "text": "You think? Oh, wait a second.",
+      "kind": "dialogue",
+      "startMs": 537375,
+      "endMs": 539350
+    },
+    {
+      "index": 177,
+      "text": "There's no, there's no opening to this. Shit, I'm sorry, dude.",
+      "kind": "dialogue",
+      "startMs": 539375,
+      "endMs": 542617
+    },
+    {
+      "index": 178,
+      "text": "I forgot, there's no opening in yours.",
+      "kind": "dialogue",
+      "startMs": 542643,
+      "endMs": 544443
+    },
+    {
+      "index": 179,
+      "text": "But my mom rigged hers with a special pouch so that she could have her cocktails.",
+      "kind": "dialogue",
+      "startMs": 544726,
+      "endMs": 549226
+    },
+    {
+      "index": 180,
+      "text": "See? It fills up.",
+      "kind": "dialogue",
+      "startMs": 549251,
+      "endMs": 550742
+    },
+    {
+      "index": 181,
+      "text": "Your mom rigged her suit so she could drink booze?",
+      "kind": "dialogue",
+      "startMs": 551043,
+      "endMs": 553556
+    },
+    {
+      "index": 182,
+      "text": "Dude, you mom's an alcoholic. My mom's not an alcoholic!",
+      "kind": "dialogue",
+      "startMs": 553573,
+      "endMs": 556604
+    },
+    {
+      "index": 183,
+      "text": "No, bro! She is, but it's totally cool, because it skips a generation.",
+      "kind": "dialogue",
+      "startMs": 556628,
+      "endMs": 560364
+    },
+    {
+      "index": 184,
+      "text": "That's why you're not an alcoholic.",
+      "kind": "dialogue",
+      "startMs": 560746,
+      "endMs": 562369
+    },
+    {
+      "index": 185,
+      "text": "That's not good right there, man!",
+      "kind": "dialogue",
+      "startMs": 568463,
+      "endMs": 569964
+    },
+    {
+      "index": 186,
+      "text": "There's too many bogeys!",
+      "kind": "dialogue",
+      "startMs": 569996,
+      "endMs": 571178
+    },
+    {
+      "index": 187,
+      "text": "Let's get some fruit, let's get out of here, let's get back to the quarantine.",
+      "kind": "dialogue",
+      "startMs": 571203,
+      "endMs": 574055
+    },
+    {
+      "index": 188,
+      "text": "That's right, man. Let's get out of here.",
+      "kind": "dialogue",
+      "startMs": 574090,
+      "endMs": 576174
+    },
+    {
+      "index": 189,
+      "text": "Whoa! Stop!",
+      "kind": "dialogue",
+      "startMs": 578275,
+      "endMs": 580426
+    },
+    {
+      "index": 190,
+      "text": "What is this? I love it! Huh?",
+      "kind": "dialogue",
+      "startMs": 580856,
+      "endMs": 583143
+    },
+    {
+      "index": 191,
+      "text": "What was all this?",
+      "kind": "dialogue",
+      "startMs": 583162,
+      "endMs": 584737
+    },
+    {
+      "index": 192,
+      "text": "Oh, it's just a little dance move I've been working on. It's stupid.",
+      "kind": "dialogue",
+      "startMs": 584766,
+      "endMs": 586991
+    },
+    {
+      "index": 193,
+      "text": "I was just practicing. No, man, that's sweet as hell.",
+      "kind": "dialogue",
+      "startMs": 587015,
+      "endMs": 588866
+    },
+    {
+      "index": 194,
+      "text": "Show me that shit.",
+      "kind": "dialogue",
+      "startMs": 588890,
+      "endMs": 589732
+    },
+    {
+      "index": 195,
+      "text": "You like it? Yeah!",
+      "kind": "dialogue",
+      "startMs": 589757,
+      "endMs": 591188
+    },
+    {
+      "index": 196,
+      "text": "It sort of like a Fly Girl power spin.",
+      "kind": "dialogue",
+      "startMs": 591200,
+      "endMs": 593704
+    },
+    {
+      "index": 197,
+      "text": "I've been working on it. It's a...",
+      "kind": "dialogue",
+      "startMs": 593900,
+      "endMs": 595413
+    },
+    {
+      "index": 198,
+      "text": "You want to see the whole thing? It's sort of a...",
+      "kind": "dialogue",
+      "startMs": 595596,
+      "endMs": 598078
+    },
+    {
+      "index": 199,
+      "text": "Whoo!",
+      "kind": "dialogue",
+      "startMs": 598434,
+      "endMs": 600376
+    },
+    {
+      "index": 200,
+      "text": "Oh, shit, you all right?",
+      "kind": "dialogue",
+      "startMs": 600613,
+      "endMs": 601991
+    },
+    {
+      "index": 201,
+      "text": "It's a balance thing. Whoa-whoa-whoa-whoa-whoa!",
+      "kind": "dialogue",
+      "startMs": 602020,
+      "endMs": 605190
+    },
+    {
+      "index": 202,
+      "text": "You got a breach! Oh, shit!",
+      "kind": "dialogue",
+      "startMs": 605273,
+      "endMs": 607339
+    },
+    {
+      "index": 203,
+      "text": "Come on.",
+      "kind": "dialogue",
+      "startMs": 607540,
+      "endMs": 609046
+    },
+    {
+      "index": 204,
+      "text": "Hey! Close your pit! Close your pit! Don't tell Frank.",
+      "kind": "dialogue",
+      "startMs": 609271,
+      "endMs": 612505
+    },
+    {
+      "index": 205,
+      "text": "I won't tell Frank. Hold your arm.",
+      "kind": "dialogue",
+      "startMs": 612536,
+      "endMs": 614550
+    },
+    {
+      "index": 206,
+      "text": "Don't tell Frank. Hold your breath. Go! Move!",
+      "kind": "dialogue",
+      "startMs": 614573,
+      "endMs": 616130
+    },
+    {
+      "index": 207,
+      "text": "Charlie, don't tell Frank!",
+      "kind": "dialogue",
+      "startMs": 616148,
+      "endMs": 617630
+    },
+    {
+      "index": 208,
+      "text": "Look at all the hair. Look at the hair.",
+      "kind": "dialogue",
+      "startMs": 621847,
+      "endMs": 624725
+    },
+    {
+      "index": 209,
+      "text": "It's like a goddamn barber shop.",
+      "kind": "dialogue",
+      "startMs": 625027,
+      "endMs": 627194
+    },
+    {
+      "index": 210,
+      "text": "Be on the lookout, Deandra! Yeah, copy that.",
+      "kind": "dialogue",
+      "startMs": 627465,
+      "endMs": 629971
+    },
+    {
+      "index": 211,
+      "text": "Looking for hair. Stop talking about hair, please.",
+      "kind": "dialogue",
+      "startMs": 629983,
+      "endMs": 632768
+    },
+    {
+      "index": 212,
+      "text": "It's very annoying to me.",
+      "kind": "dialogue",
+      "startMs": 632793,
+      "endMs": 634468
+    },
+    {
+      "index": 213,
+      "text": "That's what carries the disease, Dennis-- the hair.",
+      "kind": "dialogue",
+      "startMs": 634502,
+      "endMs": 638545
+    },
+    {
+      "index": 214,
+      "text": "We don't really need it. Look at us.",
+      "kind": "dialogue",
+      "startMs": 639239,
+      "endMs": 642329
+    },
+    {
+      "index": 215,
+      "text": "We're evolving without it. We came from the apes, and look at us now.",
+      "kind": "dialogue",
+      "startMs": 642629,
+      "endMs": 648416
+    },
+    {
+      "index": 216,
+      "text": "One day, we'll be completely hairless and totally pure.",
+      "kind": "dialogue",
+      "startMs": 649653,
+      "endMs": 655111
+    },
+    {
+      "index": 217,
+      "text": "Yeah, you should write that down.",
+      "kind": "dialogue",
+      "startMs": 655505,
+      "endMs": 657706
+    },
+    {
+      "index": 218,
+      "text": "What are you doing?",
+      "kind": "dialogue",
+      "startMs": 662748,
+      "endMs": 664264
+    },
+    {
+      "index": 219,
+      "text": "Cleaning, cleaning.",
+      "kind": "dialogue",
+      "startMs": 664457,
+      "endMs": 666233
+    },
+    {
+      "index": 220,
+      "text": "You know, you said scrub the place from top to bottom.",
+      "kind": "dialogue",
+      "startMs": 666262,
+      "endMs": 668862
+    },
+    {
+      "index": 221,
+      "text": "And it was a good thing that I did, too, because I'll tell you what.",
+      "kind": "dialogue",
+      "startMs": 668915,
+      "endMs": 672283
+    },
+    {
+      "index": 222,
+      "text": "Mad dusty up there. Yeah, good-good... good thinking.",
+      "kind": "dialogue",
+      "startMs": 672560,
+      "endMs": 675951
+    },
+    {
+      "index": 223,
+      "text": "Yeah. Yeah, yeah.",
+      "kind": "dialogue",
+      "startMs": 675985,
+      "endMs": 677981
+    },
+    {
+      "index": 224,
+      "text": "Were you eating pizza and drinking beer up there?",
+      "kind": "dialogue",
+      "startMs": 689604,
+      "endMs": 692255
+    },
+    {
+      "index": 225,
+      "text": "Yes, Frank, I was eating and drinking in a ceiling.",
+      "kind": "dialogue",
+      "startMs": 692573,
+      "endMs": 695601
+    },
+    {
+      "index": 226,
+      "text": "I mean, will you use your head?",
+      "kind": "dialogue",
+      "startMs": 695634,
+      "endMs": 697990
+    },
+    {
+      "index": 227,
+      "text": "No, I'm getting a little stir crazy. Yeah.",
+      "kind": "dialogue",
+      "startMs": 698015,
+      "endMs": 699981
+    },
+    {
+      "index": 228,
+      "text": "That's-that's...",
+      "kind": "dialogue",
+      "startMs": 700006,
+      "endMs": 701256
+    },
+    {
+      "index": 229,
+      "text": "Yeah, it's driving you nuts.",
+      "kind": "dialogue",
+      "startMs": 701281,
+      "endMs": 703237
+    },
+    {
+      "index": 230,
+      "text": "Driving me nuts. I get it.",
+      "kind": "dialogue",
+      "startMs": 703249,
+      "endMs": 704568
+    },
+    {
+      "index": 231,
+      "text": "Right.",
+      "kind": "dialogue",
+      "startMs": 704594,
+      "endMs": 706116
+    },
+    {
+      "index": 232,
+      "text": "One more thing. Hmm?",
+      "kind": "dialogue",
+      "startMs": 707372,
+      "endMs": 709613
+    },
+    {
+      "index": 233,
+      "text": "That's not mine.",
+      "kind": "dialogue",
+      "startMs": 716140,
+      "endMs": 717729
+    },
+    {
+      "index": 234,
+      "text": "Hey, Frank, are you kidding me? Goddamn it, it's just one beer!",
+      "kind": "dialogue",
+      "startMs": 720970,
+      "endMs": 724381
+    },
+    {
+      "index": 235,
+      "text": "Oh!",
+      "kind": "dialogue",
+      "startMs": 724547,
+      "endMs": 726010
+    },
+    {
+      "index": 236,
+      "text": "It only takes one germ, Dee.",
+      "kind": "dialogue",
+      "startMs": 726541,
+      "endMs": 728541
+    },
+    {
+      "index": 237,
+      "text": "Oh, Jesus!",
+      "kind": "dialogue",
+      "startMs": 729012,
+      "endMs": 730450
+    },
+    {
+      "index": 238,
+      "text": "Of course, how anybody thinks that a germ could survive a scalding hot pizza is beyond me.",
+      "kind": "dialogue",
+      "startMs": 730725,
+      "endMs": 736089
+    },
+    {
+      "index": 239,
+      "text": "Oh, Dennis, you don't look good.",
+      "kind": "dialogue",
+      "startMs": 737124,
+      "endMs": 739131
+    },
+    {
+      "index": 240,
+      "text": "Trust me, Dee, if I found myself getting sick, I would simply say...",
+      "kind": "dialogue",
+      "startMs": 739150,
+      "endMs": 744612
+    },
+    {
+      "index": 241,
+      "text": "\"Sickness be gone!\"",
+      "kind": "dialogue",
+      "startMs": 745767,
+      "endMs": 748664
+    },
+    {
+      "index": 242,
+      "text": "It's all here, you know: oranges, hand sanitizer, basically everything. No snow crabs, you know.",
+      "kind": "dialogue",
+      "startMs": 752758,
+      "endMs": 758092
+    },
+    {
+      "index": 243,
+      "text": "Hey, where's Dee? Quarantined.",
+      "kind": "dialogue",
+      "startMs": 758575,
+      "endMs": 761110
+    },
+    {
+      "index": 244,
+      "text": "There was a breach.",
+      "kind": "dialogue",
+      "startMs": 762488,
+      "endMs": 764560
+    },
+    {
+      "index": 245,
+      "text": "No breaches on your end, right?",
+      "kind": "dialogue",
+      "startMs": 765703,
+      "endMs": 768037
+    },
+    {
+      "index": 246,
+      "text": "No. No, no breaches.",
+      "kind": "dialogue",
+      "startMs": 769182,
+      "endMs": 770452
+    },
+    {
+      "index": 247,
+      "text": "Yeah. Everything's cool. No, no, breaches.",
+      "kind": "dialogue",
+      "startMs": 770465,
+      "endMs": 771883
+    },
+    {
+      "index": 248,
+      "text": "Yeah, everything was cool. Yeah, everything was good.",
+      "kind": "dialogue",
+      "startMs": 771908,
+      "endMs": 773670
+    },
+    {
+      "index": 249,
+      "text": "Good. I'm gonna go shave.",
+      "kind": "dialogue",
+      "startMs": 773687,
+      "endMs": 775397
+    },
+    {
+      "index": 250,
+      "text": "Get all this filthy hair off my face.",
+      "kind": "dialogue",
+      "startMs": 775422,
+      "endMs": 778430
+    },
+    {
+      "index": 251,
+      "text": "Oh.",
+      "kind": "dialogue",
+      "startMs": 779598,
+      "endMs": 780432
+    },
+    {
+      "index": 252,
+      "text": "Then when I come back, we'll play some games so nobody goes nuts or nothing.",
+      "kind": "dialogue",
+      "startMs": 780456,
+      "endMs": 785051
+    },
+    {
+      "index": 253,
+      "text": "Uh, movie, movie. Okay, movie.",
+      "kind": "dialogue",
+      "startMs": 794862,
+      "endMs": 796920
+    },
+    {
+      "index": 254,
+      "text": "Two, three, four, five words. Doesn't matter?",
+      "kind": "dialogue",
+      "startMs": 796941,
+      "endMs": 800143
+    },
+    {
+      "index": 255,
+      "text": "Ocean's Eleven.",
+      "kind": "dialogue",
+      "startMs": 801238,
+      "endMs": 803138
+    },
+    {
+      "index": 256,
+      "text": "Ocean's Twelve!",
+      "kind": "dialogue",
+      "startMs": 804847,
+      "endMs": 806588
+    },
+    {
+      "index": 257,
+      "text": "Ocean's Thirteen!",
+      "kind": "dialogue",
+      "startMs": 807044,
+      "endMs": 808088
+    },
+    {
+      "index": 258,
+      "text": "Frank, I can't concentrate when you look like this.",
+      "kind": "dialogue",
+      "startMs": 808106,
+      "endMs": 809947
+    },
+    {
+      "index": 259,
+      "text": "You look ridiculous, man. It was \"What's Eating Gilbert Grape?\".",
+      "kind": "dialogue",
+      "startMs": 809966,
+      "endMs": 813267
+    },
+    {
+      "index": 260,
+      "text": "That's where all the bacteria lies, Charlie, in your hair.",
+      "kind": "dialogue",
+      "startMs": 813506,
+      "endMs": 816072
+    },
+    {
+      "index": 261,
+      "text": "That's why I shaved it off. Now it just flows off my body.",
+      "kind": "dialogue",
+      "startMs": 816178,
+      "endMs": 819733
+    },
+    {
+      "index": 262,
+      "text": "You should do the same, mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 819819,
+      "endMs": 821897
+    },
+    {
+      "index": 263,
+      "text": "He breached! He breached! His suit ripped in the store!",
+      "kind": "dialogue",
+      "startMs": 825697,
+      "endMs": 827735
+    },
+    {
+      "index": 264,
+      "text": "He tried to do, like a power spin, and it ripped. And he probably got sick!",
+      "kind": "dialogue",
+      "startMs": 827753,
+      "endMs": 830641
+    },
+    {
+      "index": 265,
+      "text": "That's not true! Oh, you rat!",
+      "kind": "dialogue",
+      "startMs": 830660,
+      "endMs": 832738
+    },
+    {
+      "index": 266,
+      "text": "This is bullshit! This is bullshit! I feel fine.",
+      "kind": "dialogue",
+      "startMs": 832763,
+      "endMs": 835857
+    },
+    {
+      "index": 267,
+      "text": "You should stand over there 'cause I think I'm really getting the flu.",
+      "kind": "dialogue",
+      "startMs": 838033,
+      "endMs": 840256
+    },
+    {
+      "index": 268,
+      "text": "Oh, I'm-I'm sick as a dog already.",
+      "kind": "dialogue",
+      "startMs": 840275,
+      "endMs": 842700
+    },
+    {
+      "index": 269,
+      "text": "Oh, if you guys are getting sick, then stay away from me.",
+      "kind": "dialogue",
+      "startMs": 842706,
+      "endMs": 845891
+    },
+    {
+      "index": 270,
+      "text": "Holy shit, dude!",
+      "kind": "dialogue",
+      "startMs": 846198,
+      "endMs": 847929
+    },
+    {
+      "index": 271,
+      "text": "I think we need to call 911 for you.",
+      "kind": "dialogue",
+      "startMs": 848153,
+      "endMs": 850093
+    },
+    {
+      "index": 272,
+      "text": "Hey, should we work on our harmonies? Seriously, dude?",
+      "kind": "dialogue",
+      "startMs": 850118,
+      "endMs": 852859
+    },
+    {
+      "index": 273,
+      "text": "I think we need to get you to a hospital.",
+      "kind": "dialogue",
+      "startMs": 852892,
+      "endMs": 854859
+    },
+    {
+      "index": 274,
+      "text": "Does that sound like a man who needs to be in a hospital?",
+      "kind": "dialogue",
+      "startMs": 872025,
+      "endMs": 876332
+    },
+    {
+      "index": 275,
+      "text": "Yeah, dude. From the top.",
+      "kind": "dialogue",
+      "startMs": 877504,
+      "endMs": 879639
+    },
+    {
+      "index": 276,
+      "text": "♪ Motown... Motownphilly... ♪",
+      "kind": "sdh",
+      "startMs": 880539,
+      "endMs": 883333
+    },
+    {
+      "index": 277,
+      "text": "Charlie?",
+      "kind": "dialogue",
+      "startMs": 896372,
+      "endMs": 897516
+    },
+    {
+      "index": 278,
+      "text": "Charlie, look at that. Look how clean I am.",
+      "kind": "dialogue",
+      "startMs": 897586,
+      "endMs": 900461
+    },
+    {
+      "index": 279,
+      "text": "Dude, you look like a shriveled raisin.",
+      "kind": "dialogue",
+      "startMs": 900486,
+      "endMs": 902211
+    },
+    {
+      "index": 280,
+      "text": "It's all about purity, Charlie.",
+      "kind": "dialogue",
+      "startMs": 902248,
+      "endMs": 904555
+    },
+    {
+      "index": 281,
+      "text": "Humans are filthy. Dirty filthy.",
+      "kind": "dialogue",
+      "startMs": 905184,
+      "endMs": 908247
+    },
+    {
+      "index": 282,
+      "text": "All right, man.",
+      "kind": "dialogue",
+      "startMs": 908269,
+      "endMs": 909824
+    },
+    {
+      "index": 283,
+      "text": "You got to mix in with beasts... fowl, rodents.",
+      "kind": "dialogue",
+      "startMs": 909902,
+      "endMs": 917061
+    },
+    {
+      "index": 284,
+      "text": "People do what they do, man. What am I gonna do about it?",
+      "kind": "dialogue",
+      "startMs": 917117,
+      "endMs": 920295
+    },
+    {
+      "index": 285,
+      "text": "When I get out of here, I'm gonna clean Philadelphia.",
+      "kind": "dialogue",
+      "startMs": 920319,
+      "endMs": 924561
+    },
+    {
+      "index": 286,
+      "text": "Good.",
+      "kind": "dialogue",
+      "startMs": 924573,
+      "endMs": 925997
+    },
+    {
+      "index": 287,
+      "text": "A giant cleanse.",
+      "kind": "dialogue",
+      "startMs": 926022,
+      "endMs": 927978
+    },
+    {
+      "index": 288,
+      "text": "Well, good luck with that.",
+      "kind": "dialogue",
+      "startMs": 928006,
+      "endMs": 929556
+    },
+    {
+      "index": 289,
+      "text": "Not the city... the population.",
+      "kind": "dialogue",
+      "startMs": 931011,
+      "endMs": 934960
+    },
+    {
+      "index": 290,
+      "text": "Okay, well... go for it.",
+      "kind": "dialogue",
+      "startMs": 937447,
+      "endMs": 940164
+    },
+    {
+      "index": 291,
+      "text": "I can't stop shaking.",
+      "kind": "dialogue",
+      "startMs": 951438,
+      "endMs": 953385
+    },
+    {
+      "index": 292,
+      "text": "It's so hot and also so cold.",
+      "kind": "dialogue",
+      "startMs": 953654,
+      "endMs": 956077
+    },
+    {
+      "index": 293,
+      "text": "What's up, what's up? Talking hot and cold?",
+      "kind": "dialogue",
+      "startMs": 956921,
+      "endMs": 958771
+    },
+    {
+      "index": 294,
+      "text": "Mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 958783,
+      "endMs": 959980
+    },
+    {
+      "index": 295,
+      "text": "Charlie, are you sick, too? Hmm, sick?",
+      "kind": "dialogue",
+      "startMs": 960005,
+      "endMs": 962005
+    },
+    {
+      "index": 296,
+      "text": "Nah, Frank's all trying to shave me and shit.",
+      "kind": "dialogue",
+      "startMs": 962024,
+      "endMs": 964280
+    },
+    {
+      "index": 297,
+      "text": "I'm like, \"Dude, no way.\"",
+      "kind": "dialogue",
+      "startMs": 964305,
+      "endMs": 965886
+    },
+    {
+      "index": 298,
+      "text": "So, I figured I'd hang out with you guys instead, you know?",
+      "kind": "dialogue",
+      "startMs": 965905,
+      "endMs": 968433
+    },
+    {
+      "index": 299,
+      "text": "We're very sick, we have the flu.",
+      "kind": "dialogue",
+      "startMs": 968477,
+      "endMs": 969950
+    },
+    {
+      "index": 300,
+      "text": "If you, if you stay in here, you're gonna get sick.",
+      "kind": "dialogue",
+      "startMs": 969968,
+      "endMs": 971875
+    },
+    {
+      "index": 301,
+      "text": "Good, he deserves it for ratting me out.",
+      "kind": "dialogue",
+      "startMs": 971900,
+      "endMs": 974083
+    },
+    {
+      "index": 302,
+      "text": "Please, Mac, I've been vaccinated for every disease in the book.",
+      "kind": "dialogue",
+      "startMs": 974147,
+      "endMs": 977327
+    },
+    {
+      "index": 303,
+      "text": "I'm gonna be just fine.",
+      "kind": "dialogue",
+      "startMs": 977768,
+      "endMs": 979455
+    },
+    {
+      "index": 304,
+      "text": "Oh, God.",
+      "kind": "dialogue",
+      "startMs": 985618,
+      "endMs": 986662
+    },
+    {
+      "index": 305,
+      "text": "That's a lot of throw up. This flu is so brutal.",
+      "kind": "dialogue",
+      "startMs": 986681,
+      "endMs": 990345
+    },
+    {
+      "index": 306,
+      "text": "Hey, guys?",
+      "kind": "dialogue",
+      "startMs": 991789,
+      "endMs": 993327
+    },
+    {
+      "index": 307,
+      "text": "I think I might be coming down with something, too.",
+      "kind": "dialogue",
+      "startMs": 994483,
+      "endMs": 996964
+    },
+    {
+      "index": 308,
+      "text": "Are you kidding me, dude? Like, I think you're gonna die.",
+      "kind": "dialogue",
+      "startMs": 997545,
+      "endMs": 1000276
+    },
+    {
+      "index": 309,
+      "text": "I think I'm gonna die.",
+      "kind": "dialogue",
+      "startMs": 1000300,
+      "endMs": 1001834
+    },
+    {
+      "index": 310,
+      "text": "I've never felt like this before in my life.",
+      "kind": "dialogue",
+      "startMs": 1001859,
+      "endMs": 1004159
+    },
+    {
+      "index": 311,
+      "text": "If I'm gonna die, I'm gonna go down drinking.",
+      "kind": "dialogue",
+      "startMs": 1004515,
+      "endMs": 1007573
+    },
+    {
+      "index": 312,
+      "text": "Anyone want some booze? I knew you drank cleaning supplies.",
+      "kind": "dialogue",
+      "startMs": 1007879,
+      "endMs": 1011342
+    },
+    {
+      "index": 313,
+      "text": "Oh, no, dude, this is booze. I stash whiskey in here.",
+      "kind": "dialogue",
+      "startMs": 1011633,
+      "endMs": 1014680
+    },
+    {
+      "index": 314,
+      "text": "Dude, you are an alcoholic. Whatever.",
+      "kind": "dialogue",
+      "startMs": 1014706,
+      "endMs": 1017575
+    },
+    {
+      "index": 315,
+      "text": "Dee stashes warm beer in the ceiling of the back office.",
+      "kind": "dialogue",
+      "startMs": 1017698,
+      "endMs": 1020504
+    },
+    {
+      "index": 316,
+      "text": "I keep a flask of créme de menthe behind the jukebox in the bar,",
+      "kind": "dialogue",
+      "startMs": 1020534,
+      "endMs": 1023450
+    },
+    {
+      "index": 317,
+      "text": "it's not a big deal. Just drink, you know, because",
+      "kind": "dialogue",
+      "startMs": 1023479,
+      "endMs": 1025951
+    },
+    {
+      "index": 318,
+      "text": "this might be our last chance. Bottoms up.",
+      "kind": "dialogue",
+      "startMs": 1025969,
+      "endMs": 1027900
+    },
+    {
+      "index": 319,
+      "text": "I'm not getting it. So you crawl around on the bed, looking for minerals?",
+      "kind": "dialogue",
+      "startMs": 1033117,
+      "endMs": 1036669
+    },
+    {
+      "index": 320,
+      "text": "Uh, no. If I'm looking for minerals, I got to be under the bed.",
+      "kind": "dialogue",
+      "startMs": 1036694,
+      "endMs": 1039851
+    },
+    {
+      "index": 321,
+      "text": "Minerals on top of the bed doesn't make any sense, actually.",
+      "kind": "dialogue",
+      "startMs": 1039890,
+      "endMs": 1042429
+    },
+    {
+      "index": 322,
+      "text": "None of this makes any sense. It's insane.",
+      "kind": "dialogue",
+      "startMs": 1042617,
+      "endMs": 1044434
+    },
+    {
+      "index": 323,
+      "text": "You know, I don't know about you guys, and I don't know why this is happening, but I actually feel a lot better.",
+      "kind": "dialogue",
+      "startMs": 1044459,
+      "endMs": 1049323
+    },
+    {
+      "index": 324,
+      "text": "Well, you look better.",
+      "kind": "dialogue",
+      "startMs": 1049348,
+      "endMs": 1050545
+    },
+    {
+      "index": 325,
+      "text": "You guys all look better. I'm actually feeling better, too.",
+      "kind": "dialogue",
+      "startMs": 1050718,
+      "endMs": 1052918
+    },
+    {
+      "index": 326,
+      "text": "I feel great. Yeah.",
+      "kind": "dialogue",
+      "startMs": 1052943,
+      "endMs": 1054281
+    },
+    {
+      "index": 327,
+      "text": "How is that even possible?",
+      "kind": "dialogue",
+      "startMs": 1054316,
+      "endMs": 1055727
+    },
+    {
+      "index": 328,
+      "text": "All we've been doing is sitting here and drinking.",
+      "kind": "dialogue",
+      "startMs": 1055732,
+      "endMs": 1057766
+    },
+    {
+      "index": 329,
+      "text": "How could we have gotten better so quickly?",
+      "kind": "dialogue",
+      "startMs": 1057791,
+      "endMs": 1059505
+    },
+    {
+      "index": 330,
+      "text": "Oh, my God, you guys.",
+      "kind": "dialogue",
+      "startMs": 1059523,
+      "endMs": 1061536
+    },
+    {
+      "index": 331,
+      "text": "You guys, we haven't been drinking since we quarantined ourselves into the bar.",
+      "kind": "dialogue",
+      "startMs": 1062855,
+      "endMs": 1065902
+    },
+    {
+      "index": 332,
+      "text": "At least since we got stuck in the bathroom.",
+      "kind": "dialogue",
+      "startMs": 1065917,
+      "endMs": 1067555
+    },
+    {
+      "index": 333,
+      "text": "Oh, that's right. Wait, wait, wait, so what are you saying?",
+      "kind": "dialogue",
+      "startMs": 1067590,
+      "endMs": 1069696
+    },
+    {
+      "index": 334,
+      "text": "That-that we never had the flu?",
+      "kind": "dialogue",
+      "startMs": 1069726,
+      "endMs": 1071383
+    },
+    {
+      "index": 335,
+      "text": "We were just having alcohol withdrawal?",
+      "kind": "dialogue",
+      "startMs": 1071412,
+      "endMs": 1073158
+    },
+    {
+      "index": 336,
+      "text": "Yeah. Alcohol withdrawals!",
+      "kind": "dialogue",
+      "startMs": 1073202,
+      "endMs": 1075624
+    },
+    {
+      "index": 337,
+      "text": "That's great! Is it great?",
+      "kind": "dialogue",
+      "startMs": 1075660,
+      "endMs": 1077467
+    },
+    {
+      "index": 338,
+      "text": "It means we're all alcoholics. Ah...",
+      "kind": "dialogue",
+      "startMs": 1077492,
+      "endMs": 1079844
+    },
+    {
+      "index": 339,
+      "text": "Yeah, yeah... right.",
+      "kind": "dialogue",
+      "startMs": 1079881,
+      "endMs": 1082059
+    },
+    {
+      "index": 340,
+      "text": "What do we do with that information?",
+      "kind": "dialogue",
+      "startMs": 1082823,
+      "endMs": 1084431
+    },
+    {
+      "index": 341,
+      "text": "What do you do with any information?",
+      "kind": "dialogue",
+      "startMs": 1084456,
+      "endMs": 1085807
+    },
+    {
+      "index": 342,
+      "text": "You just stuff it deep down inside and keep an eye on it.",
+      "kind": "dialogue",
+      "startMs": 1085832,
+      "endMs": 1087930
+    },
+    {
+      "index": 343,
+      "text": "You keep it. I'm certainly not gonna stop drinking.",
+      "kind": "dialogue",
+      "startMs": 1087955,
+      "endMs": 1089767
+    },
+    {
+      "index": 344,
+      "text": "I mean, I physically can't. No, no, not at this point.",
+      "kind": "dialogue",
+      "startMs": 1089790,
+      "endMs": 1092769
+    },
+    {
+      "index": 345,
+      "text": "We're in, we're in too deep. Yeah.",
+      "kind": "dialogue",
+      "startMs": 1092800,
+      "endMs": 1094200
+    },
+    {
+      "index": 346,
+      "text": "I'm a, I'm a young guy. Just kids having fun, right?",
+      "kind": "dialogue",
+      "startMs": 1094216,
+      "endMs": 1097847
+    },
+    {
+      "index": 347,
+      "text": "That's right. We got an audition to make. So let's bust this door down, Mac.",
+      "kind": "dialogue",
+      "startMs": 1097872,
+      "endMs": 1100502
+    },
+    {
+      "index": 348,
+      "text": "What do you say, you want to roundhouse the door for us?",
+      "kind": "dialogue",
+      "startMs": 1100526,
+      "endMs": 1102266
+    },
+    {
+      "index": 349,
+      "text": "I was gonna suggest that. Yeah, I know you were, buddy.",
+      "kind": "dialogue",
+      "startMs": 1102296,
+      "endMs": 1104120
+    },
+    {
+      "index": 350,
+      "text": "That's why I said it. Just do it and get it over with.",
+      "kind": "dialogue",
+      "startMs": 1104144,
+      "endMs": 1105870
+    },
+    {
+      "index": 351,
+      "text": "Okay. Hold on, hold on, though.",
+      "kind": "dialogue",
+      "startMs": 1105876,
+      "endMs": 1107553
+    },
+    {
+      "index": 352,
+      "text": "If we don't want to break the door, I have a key.",
+      "kind": "dialogue",
+      "startMs": 1107670,
+      "endMs": 1109897
+    },
+    {
+      "index": 353,
+      "text": "You've got a key?!",
+      "kind": "dialogue",
+      "startMs": 1111111,
+      "endMs": 1112590
+    },
+    {
+      "index": 354,
+      "text": "We've been in here this whole time, and you could've let us out?!",
+      "kind": "dialogue",
+      "startMs": 1112615,
+      "endMs": 1115265
+    },
+    {
+      "index": 355,
+      "text": "I didn't know that we were trapped in here. I thought we were just playing quarantine.",
+      "kind": "dialogue",
+      "startMs": 1115532,
+      "endMs": 1118238
+    },
+    {
+      "index": 356,
+      "text": "What the...?! No, we're not playing quarantine. We're quarantined.",
+      "kind": "dialogue",
+      "startMs": 1118250,
+      "endMs": 1121238
+    },
+    {
+      "index": 357,
+      "text": "Let's go. Just open the door.",
+      "kind": "dialogue",
+      "startMs": 1121257,
+      "endMs": 1123079
+    },
+    {
+      "index": 358,
+      "text": "Yo, Frank! We're not sick. Yeah, we're fine, dude. We...",
+      "kind": "dialogue",
+      "startMs": 1124431,
+      "endMs": 1127615
+    },
+    {
+      "index": 359,
+      "text": "Whoa.",
+      "kind": "dialogue",
+      "startMs": 1127995,
+      "endMs": 1129014
+    },
+    {
+      "index": 360,
+      "text": "What the hell is this?",
+      "kind": "dialogue",
+      "startMs": 1129364,
+      "endMs": 1130853
+    },
+    {
+      "index": 361,
+      "text": "Oh, shit, I think it's hand sanitizer. Hmm?",
+      "kind": "dialogue",
+      "startMs": 1130878,
+      "endMs": 1133546
+    },
+    {
+      "index": 362,
+      "text": "Hand sanitizer? Where is it going?",
+      "kind": "dialogue",
+      "startMs": 1133558,
+      "endMs": 1135673
+    },
+    {
+      "index": 363,
+      "text": "Frank?",
+      "kind": "dialogue",
+      "startMs": 1135692,
+      "endMs": 1137192
+    },
+    {
+      "index": 364,
+      "text": "Uh, why is there hand sanitizer all over the floor?",
+      "kind": "dialogue",
+      "startMs": 1137554,
+      "endMs": 1141903
+    },
+    {
+      "index": 365,
+      "text": "It goes in here and...",
+      "kind": "dialogue",
+      "startMs": 1141928,
+      "endMs": 1143641
+    },
+    {
+      "index": 366,
+      "text": "Oh!",
+      "kind": "dialogue",
+      "startMs": 1143663,
+      "endMs": 1144981
+    },
+    {
+      "index": 367,
+      "text": "Frank? Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 1145132,
+      "endMs": 1146949
+    },
+    {
+      "index": 368,
+      "text": "What the hell did you do to yourself?",
+      "kind": "dialogue",
+      "startMs": 1146962,
+      "endMs": 1149327
+    },
+    {
+      "index": 369,
+      "text": "I just want to be pure.",
+      "kind": "dialogue",
+      "startMs": 1149827,
+      "endMs": 1152758
+    },
+    {
+      "index": 370,
+      "text": "God, what are we gonna do about this?",
+      "kind": "dialogue",
+      "startMs": 1153962,
+      "endMs": 1156062
+    },
+    {
+      "index": 371,
+      "text": "Probably get him to the hospital, right?",
+      "kind": "dialogue",
+      "startMs": 1157046,
+      "endMs": 1158779
+    },
+    {
+      "index": 372,
+      "text": "Yeah.",
+      "kind": "dialogue",
+      "startMs": 1158816,
+      "endMs": 1159614
+    },
+    {
+      "index": 373,
+      "text": "Ooh, let's make a quick stop first.",
+      "kind": "dialogue",
+      "startMs": 1159639,
+      "endMs": 1162054
+    },
+    {
+      "index": 374,
+      "text": "♪ Motownphilly's back again ♪ ♪ Da-da-da-da-da-da-da-da ♪",
+      "kind": "sdh",
+      "startMs": 1162826,
+      "endMs": 1167706
+    },
+    {
+      "index": 375,
+      "text": "♪ Doing a little East Coast swing ♪",
+      "kind": "sdh",
+      "startMs": 1167737,
+      "endMs": 1171295
+    },
+    {
+      "index": 376,
+      "text": "♪ Boyz II Men going off ♪ ♪ Da-da-da-da-da-da-da-da ♪",
+      "kind": "sdh",
+      "startMs": 1171323,
+      "endMs": 1175656
+    },
+    {
+      "index": 377,
+      "text": "♪ Not too hard, not too soft ♪ ♪ Da-da-da-da-da-da-da ♪",
+      "kind": "sdh",
+      "startMs": 1175681,
+      "endMs": 1179435
+    },
+    {
+      "index": 378,
+      "text": "♪ Boyz II Men, ABC, BBD ♪",
+      "kind": "sdh",
+      "startMs": 1179441,
+      "endMs": 1181841
+    },
+    {
+      "index": 379,
+      "text": "Mm-hmm. So, what do you think?",
+      "kind": "dialogue",
+      "startMs": 1181866,
+      "endMs": 1184193
+    },
+    {
+      "index": 380,
+      "text": "In your professional opinion, you think we got a shot?",
+      "kind": "dialogue",
+      "startMs": 1184210,
+      "endMs": 1186112
+    },
+    {
+      "index": 381,
+      "text": "I mean, we're talking about Boyz II Men here.",
+      "kind": "dialogue",
+      "startMs": 1186131,
+      "endMs": 1187629
+    },
+    {
+      "index": 382,
+      "text": "We want to go and we want to win. - Yeah.",
+      "kind": "dialogue",
+      "startMs": 1187656,
+      "endMs": 1189415
+    },
+    {
+      "index": 383,
+      "text": "Boyz II Men? That concert is canceled.",
+      "kind": "dialogue",
+      "startMs": 1189438,
+      "endMs": 1191618
+    },
+    {
+      "index": 384,
+      "text": "What? Why? Yeah, yeah, they all got the flu.",
+      "kind": "dialogue",
+      "startMs": 1191643,
+      "endMs": 1194231
+    },
+    {
+      "index": 385,
+      "text": "Oh, son of a bitch! So we did this for nothing?",
+      "kind": "dialogue",
+      "startMs": 1194258,
+      "endMs": 1196613
+    },
+    {
+      "index": 386,
+      "text": "Well, I mean, no, not nothing.",
+      "kind": "dialogue",
+      "startMs": 1196653,
+      "endMs": 1198501
+    },
+    {
+      "index": 387,
+      "text": "I mean, guys, look, we came together in harmony.",
+      "kind": "dialogue",
+      "startMs": 1198520,
+      "endMs": 1200479
+    },
+    {
+      "index": 388,
+      "text": "You know, if I'm being honest, I'd rather go back to the bar and get drunk, than go to some, you know, concert.",
+      "kind": "dialogue",
+      "startMs": 1200673,
+      "endMs": 1204989
+    },
+    {
+      "index": 389,
+      "text": "Yes! You know what, guys?",
+      "kind": "dialogue",
+      "startMs": 1205019,
+      "endMs": 1206383
+    },
+    {
+      "index": 390,
+      "text": "We can sing at the bar like we always do.",
+      "kind": "dialogue",
+      "startMs": 1206411,
+      "endMs": 1207817
+    },
+    {
+      "index": 391,
+      "text": "That's right. Yeah, but drink.",
+      "kind": "dialogue",
+      "startMs": 1207829,
+      "endMs": 1209092
+    },
+    {
+      "index": 392,
+      "text": "Oh, yeah. 'Cause I want to drink.",
+      "kind": "dialogue",
+      "startMs": 1209110,
+      "endMs": 1210635
+    },
+    {
+      "index": 393,
+      "text": "And we got to stay healthy. That's right.",
+      "kind": "dialogue",
+      "startMs": 1210667,
+      "endMs": 1212136
+    },
+    {
+      "index": 394,
+      "text": "We have to stay healthy. We'll always drink.",
+      "kind": "dialogue",
+      "startMs": 1212158,
+      "endMs": 1213958
+    },
+    {
+      "index": 395,
+      "text": "Well, then from the top, shall we? Okay.",
+      "kind": "dialogue",
+      "startMs": 1214103,
+      "endMs": 1215969
+    },
+    {
+      "index": 396,
+      "text": "♪ Motownphilly's back again ♪",
+      "kind": "sdh",
+      "startMs": 1215990,
+      "endMs": 1218890
+    },
+    {
+      "index": 397,
+      "text": "♪ Da-da-da-da-da-da-da-da ♪",
+      "kind": "sdh",
+      "startMs": 1218906,
+      "endMs": 1220574
+    },
+    {
+      "index": 398,
+      "text": "♪ Doing a little East Coast swing. ♪",
+      "kind": "sdh",
+      "startMs": 1220599,
+      "endMs": 1223074
+    },
+    {
+      "index": 399,
+      "text": "Okay, we've got to get that sanitizer off you, huh?",
+      "kind": "dialogue",
+      "startMs": 1224169,
+      "endMs": 1228412
+    },
+    {
+      "index": 400,
+      "text": "You ready for your sponge bath?",
+      "kind": "dialogue",
+      "startMs": 1233167,
+      "endMs": 1235067
+    },
+    {
+      "index": 401,
+      "text": "Shit.",
+      "kind": "dialogue",
+      "startMs": 1240191,
+      "endMs": 1241995
+    },
+    {
+      "index": 402,
+      "text": "Sync & corrections by honeybunny www.addic7ed.com Resync for WEB-DL by Norther",
+      "kind": "dialogue",
+      "startMs": 1242221,
+      "endMs": 1252221
+    }
+  ],
+  "meta": {
+    "show": "It's Always Sunny in Philadelphia",
+    "season": 9,
+    "episode": 7
+  }
+}

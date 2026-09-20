@@ -31,6 +31,7 @@ type InboxRow = {
   created_at: string;
   group_id: string | null;
   read_at: string | null;
+  solved_at: string | null;
 };
 type ChatMessageRow = {
   id: string;
@@ -42,6 +43,14 @@ type ChatMessageRow = {
   group_id: string | null;
 };
 type ThreadReadRow = { user_id: string; thread_key: string; last_read_at: string };
+type ReactionRow = {
+  id: string;
+  target_kind: string;
+  target_id: string;
+  emoji: string;
+  user_id: string;
+  created_at: string;
+};
 
 function farFuture(): string {
   return new Date(Date.now() + 30 * 24 * 60 * 60_000).toISOString();
@@ -76,6 +85,7 @@ function createChatsDb() {
   const inbox: InboxRow[] = [];
   const chatMessages: ChatMessageRow[] = [];
   const threadReads: ThreadReadRow[] = [];
+  const reactions: ReactionRow[] = [];
 
   const db = {
     prepare(sql: string) {
@@ -120,6 +130,7 @@ function createChatsDb() {
                     created_at: createdAt,
                     group_id: groupId ?? null,
                     read_at: null,
+                    solved_at: null,
                   });
                 }
               } else if (sql.includes("UPDATE line_inbox SET read_at")) {
@@ -132,6 +143,10 @@ function createChatsDb() {
                     row.read_at = readAt;
                   }
                 }
+              } else if (sql.includes("UPDATE line_inbox SET solved_at")) {
+                const [solvedAt, inboxId] = args as [string, string];
+                const row = inbox.find((item) => item.id === inboxId);
+                if (row && !row.solved_at) row.solved_at = solvedAt;
               } else if (sql.includes("INSERT INTO chat_messages")) {
                 const [id, sender, body, createdAt, dmA, dmB, groupId] = args as [
                   string,
@@ -158,6 +173,27 @@ function createChatsDb() {
                 );
                 if (existing) existing.last_read_at = lastReadAt;
                 else threadReads.push({ user_id: userId, thread_key: threadKey, last_read_at: lastReadAt });
+              } else if (sql.includes("INSERT INTO chat_reactions")) {
+                const [id, targetKind, targetId, emoji, userId, createdAt] = args as [
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                  string,
+                ];
+                reactions.push({
+                  id,
+                  target_kind: targetKind,
+                  target_id: targetId,
+                  emoji,
+                  user_id: userId,
+                  created_at: createdAt,
+                });
+              } else if (sql.includes("DELETE FROM chat_reactions")) {
+                const [id] = args as [string];
+                const index = reactions.findIndex((row) => row.id === id);
+                if (index >= 0) reactions.splice(index, 1);
               }
               return { success: true };
             },
@@ -253,6 +289,17 @@ function createChatsDb() {
                 const user = users.find((u) => u.id === id);
                 return (user ? { id: user.id, display_name: user.display_name } : null) as T;
               }
+              if (sql.includes("SELECT id, recipient_user_id, solved_at FROM line_inbox WHERE id = ?")) {
+                const [id] = args as [string];
+                const row = inbox.find((item) => item.id === id);
+                return (row
+                  ? {
+                      id: row.id,
+                      recipient_user_id: row.recipient_user_id,
+                      solved_at: row.solved_at,
+                    }
+                  : null) as T;
+              }
               if (sql.includes("SELECT created_at FROM friend_groups")) {
                 return null;
               }
@@ -339,6 +386,45 @@ function createChatsDb() {
                     }
                   : null) as T;
               }
+              if (sql.includes("SELECT id FROM chat_reactions")) {
+                const [targetKind, targetId, emoji, userId] = args as [string, string, string, string];
+                const row = reactions.find(
+                  (item) =>
+                    item.target_kind === targetKind &&
+                    item.target_id === targetId &&
+                    item.emoji === emoji &&
+                    item.user_id === userId,
+                );
+                return (row ? { id: row.id } : null) as T;
+              }
+              if (sql.includes("SELECT id FROM chat_messages") && sql.includes("dm_user_a")) {
+                const [id, dmA, dmB] = args as [string, string, string];
+                const row = chatMessages.find(
+                  (item) => item.id === id && item.dm_user_a === dmA && item.dm_user_b === dmB,
+                );
+                return (row ? { id: row.id } : null) as T;
+              }
+              if (sql.includes("SELECT id FROM chat_messages") && sql.includes("group_id = ?")) {
+                const [id, groupId] = args as [string, string];
+                const row = chatMessages.find((item) => item.id === id && item.group_id === groupId);
+                return (row ? { id: row.id } : null) as T;
+              }
+              if (sql.includes("SELECT share_id FROM line_inbox") && sql.includes("LIMIT 1")) {
+                if (sql.includes("group_id = ?")) {
+                  const [shareId, groupId] = args as [string, string];
+                  const row = inbox.find((item) => item.share_id === shareId && item.group_id === groupId);
+                  return (row ? { share_id: row.share_id } : null) as T;
+                }
+                const [shareId, a, b, c, d] = args as [string, string, string, string, string];
+                const row = inbox.find(
+                  (item) =>
+                    item.share_id === shareId &&
+                    !item.group_id &&
+                    ((item.sender_user_id === a && item.recipient_user_id === b) ||
+                      (item.sender_user_id === c && item.recipient_user_id === d)),
+                );
+                return (row ? { share_id: row.share_id } : null) as T;
+              }
               return null;
             },
             async all<T>() {
@@ -391,6 +477,20 @@ function createChatsDb() {
                         sender_name: sender?.display_name ?? null,
                       };
                     }) as T[],
+                };
+              }
+              if (sql.includes("FROM chat_reactions") && sql.includes("target_id IN")) {
+                const [kind, ...ids] = args as [string, ...string[]];
+                const idSet = new Set(ids);
+                return {
+                  results: reactions
+                    .filter((row) => row.target_kind === kind && idSet.has(row.target_id))
+                    .map((row) => ({
+                      target_kind: row.target_kind,
+                      target_id: row.target_id,
+                      emoji: row.emoji,
+                      user_id: row.user_id,
+                    })) as T[],
                 };
               }
               if (sql.includes("FROM friendships") && sql.includes("JOIN users")) {
@@ -482,6 +582,7 @@ function createChatsDb() {
                       sender_user_id: row.sender_user_id,
                       recipient_user_id: row.recipient_user_id,
                       read_at: row.read_at,
+                      solved_at: row.solved_at,
                       sender_name: sender?.display_name ?? null,
                     };
                   });
@@ -507,6 +608,7 @@ function createChatsDb() {
                       sender_user_id: row.sender_user_id,
                       recipient_user_id: row.recipient_user_id,
                       read_at: row.read_at,
+                      solved_at: row.solved_at,
                       sender_name: sender?.display_name ?? null,
                     };
                   });
@@ -599,20 +701,40 @@ describe("chats API", () => {
       kind: "quote",
       direction: "out",
       receipt: "sent",
+      peerAnswered: false,
     });
 
     await handleRequest(
       jsonRequest(`/api/chats/dm/${ALICE_ID}/read`, { method: "POST", token: "sess-bob" }),
       envFor(db),
     );
+    const bobDmView = await handleRequest(
+      jsonRequest(`/api/chats/dm/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    const bobDmMsgs = (await bobDmView.json()) as {
+      messages: Array<{ kind: string; id: string; direction: string }>;
+    };
+    const bobIncoming = bobDmMsgs.messages.find((m) => m.kind === "quote" && m.direction === "in");
+    expect(bobIncoming?.id).toBeTruthy();
+    const solved = await handleRequest(
+      jsonRequest(`/api/inbox/${bobIncoming!.id}/solved`, {
+        method: "POST",
+        token: "sess-bob",
+      }),
+      envFor(db),
+    );
+    expect(solved.status).toBe(200);
+
     const dmAfterRead = await handleRequest(
       jsonRequest(`/api/chats/dm/${BOB_ID}`, { token: "sess-alice" }),
       envFor(db),
     );
     const after = (await dmAfterRead.json()) as {
-      messages: Array<{ receipt: string | null }>;
+      messages: Array<{ receipt: string | null; peerAnswered?: boolean }>;
     };
     expect(after.messages[0]?.receipt).toBe("read");
+    expect(after.messages[0]?.peerAnswered).toBe(true);
 
     const postText = await handleRequest(
       jsonRequest(`/api/chats/dm/${BOB_ID}/messages`, {
@@ -717,5 +839,55 @@ describe("chats API", () => {
     };
     expect(threads.threads.some((t) => t.kind === "group")).toBe(true);
     expect(threads.threads.some((t) => t.kind === "dm")).toBe(true);
+
+    const aliceDmForReact = await handleRequest(
+      jsonRequest(`/api/chats/dm/${BOB_ID}`, { token: "sess-alice" }),
+      envFor(db),
+    );
+    const aliceReactMsgs = (await aliceDmForReact.json()) as {
+      messages: Array<{
+        kind: string;
+        id?: string;
+        shareId?: string;
+      }>;
+    };
+    const textMsg = aliceReactMsgs.messages.find((m) => m.kind === "text");
+    const quoteMsg = aliceReactMsgs.messages.find((m) => m.kind === "quote");
+    expect(textMsg?.id).toBeTruthy();
+    expect(quoteMsg?.shareId).toBeTruthy();
+
+    const reactOk = await handleRequest(
+      jsonRequest("/api/chats/reactions", {
+        method: "POST",
+        token: "sess-bob",
+        body: {
+          targetKind: "text",
+          targetId: textMsg!.id,
+          emoji: "👍",
+          peerUserId: ALICE_ID,
+        },
+      }),
+      envFor(db),
+    );
+    expect(reactOk.status).toBe(200);
+    const reactBody = (await reactOk.json()) as {
+      reactions: Array<{ emoji: string; count: number; reacted: boolean }>;
+    };
+    expect(reactBody.reactions).toEqual([{ emoji: "👍", count: 1, reacted: true }]);
+
+    const quoteReact = await handleRequest(
+      jsonRequest("/api/chats/reactions", {
+        method: "POST",
+        token: "sess-bob",
+        body: {
+          targetKind: "quote",
+          targetId: quoteMsg!.shareId,
+          emoji: "🔥",
+          peerUserId: ALICE_ID,
+        },
+      }),
+      envFor(db),
+    );
+    expect(quoteReact.status).toBe(200);
   });
 });

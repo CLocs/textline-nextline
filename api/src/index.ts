@@ -61,7 +61,7 @@ import {
   rotateInvite,
   unfriend,
 } from "./friends.js";
-import { copyLineShare, listInbox, sendLineToFriend, sendLineToGroup } from "./inbox.js";
+import { copyLineShare, listInbox, markInboxSolved, sendLineToFriend, sendLineToGroup } from "./inbox.js";
 import {
   listChatThreads,
   listDmMessages,
@@ -70,6 +70,7 @@ import {
   markGroupRead,
   postDmMessage,
   postGroupMessage,
+  toggleChatReaction,
 } from "./chats.js";
 import {
   addGroupMember,
@@ -372,6 +373,25 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       return jsonResponse({ threads }, 200, origin, allowed);
     }
 
+    if (request.method === "POST" && pathname === "/api/chats/reactions") {
+      const body = (await readJson(request)) as {
+        targetKind?: unknown;
+        targetId?: unknown;
+        emoji?: unknown;
+        peerUserId?: unknown;
+        groupId?: unknown;
+      } | null;
+      const result = await toggleChatReaction(env.DB, user, {
+        targetKind: body?.targetKind,
+        targetId: body?.targetId,
+        emoji: body?.emoji,
+        peerUserId: body?.peerUserId,
+        groupId: body?.groupId,
+      });
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
+    }
+
     const dmReadMatch = pathname.match(/^\/api\/chats\/dm\/([^/]+)\/read$/);
     if (dmReadMatch?.[1] && request.method === "POST") {
       const result = await markDmRead(env.DB, user, decodeURIComponent(dmReadMatch[1]));
@@ -488,6 +508,13 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const items = await listInbox(env.DB, user.id);
       const parallels = await listParallelInbox(env.DB, user.id);
       return jsonResponse({ items, parallels }, 200, origin, allowed);
+    }
+
+    const inboxSolvedMatch = pathname.match(/^\/api\/inbox\/([^/]+)\/solved$/);
+    if (inboxSolvedMatch?.[1] && request.method === "POST") {
+      const result = await markInboxSolved(env.DB, user, decodeURIComponent(inboxSolvedMatch[1]));
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse({ ok: true }, 200, origin, allowed);
     }
 
     return errorResponse("Not found", 404, origin, allowed);

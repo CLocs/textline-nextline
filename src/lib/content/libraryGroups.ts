@@ -3,6 +3,8 @@ import type { CatalogEntry, TitleMeta } from "../../types/content.js";
 const LANG_TAIL = /\.(en|eng|en-us|eng-sdh|en-sdh|sdh)$/i;
 const EPISODE_PATTERN =
   /^(.+?)\s+-\s+(\d{1,2})x(\d{1,3})(?:\s+-\s+(.+))?$/i;
+const SXXEXX_PATTERN =
+  /^(.+?)[\s._-]+S(\d{1,2})E(\d{1,3})(?:[\s._-]+(.+))?$/i;
 
 /** Strip trailing language tags like `.en` from titles/filenames. */
 export function stripLangSuffix(value: string): string {
@@ -18,10 +20,10 @@ export function parseEpisodeMeta(raw: string): TitleMeta | undefined {
   base = base.replace(/\.(srt|vtt|sub)$/i, "");
   base = stripLangSuffix(base);
 
-  const match = base.match(EPISODE_PATTERN);
+  const match = base.match(EPISODE_PATTERN) ?? base.match(SXXEXX_PATTERN);
   if (!match) return undefined;
 
-  const show = match[1]?.trim();
+  const show = match[1]?.trim().replace(/[._]+/g, " ").replace(/\s+/g, " ");
   const season = Number(match[2]);
   const episode = Number(match[3]);
   if (!show || !Number.isFinite(season) || !Number.isFinite(episode)) {
@@ -37,7 +39,9 @@ export function episodeLabel(entry: CatalogEntry): string {
   if (meta?.season != null && meta.episode != null) {
     const ep = String(meta.episode).padStart(2, "0");
     const code = `${meta.season}x${ep}`;
-    const rest = cleaned.match(EPISODE_PATTERN)?.[4]?.trim();
+    const rest =
+      cleaned.match(EPISODE_PATTERN)?.[4]?.trim() ??
+      cleaned.match(SXXEXX_PATTERN)?.[4]?.trim().replace(/[._]+/g, " ");
     return rest ? `${code} · ${rest}` : code;
   }
   return cleaned;

@@ -2007,9 +2007,11 @@ code {
   grid-template-columns: 1fr auto;
   gap: 0.6rem;
   align-items: end;
-  margin-top: 1rem;
-  padding-top: 0.75rem;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.75rem 0 0;
   border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-raised) 92%, white);
 }
 
 .chats-composer textarea {
@@ -2030,8 +2032,154 @@ code {
   margin: 0;
 }
 
+.chats-thread-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 5.5rem);
+  min-height: min(28rem, calc(100dvh - 5.5rem));
+}
+
+.chats-thread-top {
+  flex-shrink: 0;
+}
+
+.chats-thread-top .back-link {
+  margin-bottom: 0.35rem;
+}
+
+.chats-thread-top .section-header {
+  margin-bottom: 0.75rem;
+}
+
+.chats-thread-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+
+.chats-thread-heading h2 {
+  margin: 0;
+}
+
+.chats-thread-heading .muted {
+  margin: 0.25rem 0 0;
+}
+
+.chats-thread-filter {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.chats-thread-filter .button {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.88rem;
+}
+
+.chats-thread-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chats-thread-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.15rem;
+}
+
 .chats-message-list {
-  margin-top: 1rem;
+  margin: 0;
+}
+
+.chats-thread-end {
+  height: 1px;
+  width: 100%;
+}
+
+.chats-jump-latest {
+  align-self: center;
+  flex-shrink: 0;
+  font-size: 0.88rem;
+}
+
+.chats-spoiler-next {
+  display: inline-flex;
+  margin-top: 0.45rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.85rem;
+}
+
+.chats-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.chats-reaction-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.chats-reaction-chip.is-mine {
+  border-color: color-mix(in srgb, var(--accent, #2f6f5e) 45%, var(--line));
+  background: color-mix(in srgb, var(--accent, #2f6f5e) 14%, var(--surface));
+}
+
+.chats-reaction-add-wrap {
+  position: relative;
+}
+
+.chats-reaction-add {
+  min-width: 1.75rem;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.chats-reaction-picker {
+  position: absolute;
+  bottom: calc(100% + 0.35rem);
+  left: 0;
+  z-index: 5;
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bg-raised) 96%, white);
+  box-shadow: var(--shadow);
+}
+
+.chats-reaction-pick {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0.2rem;
+  border-radius: 6px;
+}
+
+.chats-reaction-pick:hover {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
 }
 
 .chats-outgoing-card {
@@ -2060,5 +2208,11 @@ code {
 
 .chats-receipt {
   font-weight: 500;
+  white-space: nowrap;
+}
+
+.chats-answered {
+  font-weight: 600;
+  color: var(--success, #1e5c38);
   white-space: nowrap;
 }

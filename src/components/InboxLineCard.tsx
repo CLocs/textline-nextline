@@ -3,11 +3,14 @@ import { getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
 import { getNextPlayableLine } from "../lib/content/playable";
+import { leadInForPrompt } from "../lib/game/promptContext";
 import { buildMcq } from "../lib/game/mcq";
-import { isInboxItemSolved, markInboxItemSolved } from "../lib/inbox/solved";
+import { isInboxItemSolved, markInboxItemSolvedEverywhere } from "../lib/inbox/solved";
 import type { InboxItem } from "../lib/inbox/api";
 import type { CatalogEntry } from "../types/content";
+import type { ChatReaction } from "../lib/chats/api";
 import { ChatQuoteActions } from "./ChatQuoteActions";
+import { ChatReactions } from "./ChatReactions";
 
 const CORRECT_HOLD_MS = 900;
 
@@ -16,9 +19,23 @@ type Props = {
   entries: CatalogEntry[];
   /** Star + reshare toolbar (Chats). */
   showQuoteActions?: boolean;
+  shareId?: string;
+  reactions?: ChatReaction[];
+  peerUserId?: string;
+  groupId?: string;
+  onReactions?: (reactions: ChatReaction[]) => void;
 };
 
-export function InboxLineCard({ item, entries, showQuoteActions = false }: Props) {
+export function InboxLineCard({
+  item,
+  entries,
+  showQuoteActions = false,
+  shareId,
+  reactions = [],
+  peerUserId,
+  groupId,
+  onReactions,
+}: Props) {
   const title = getTitle(item.titleId);
   const entry = entries.find((row) => row.id === item.titleId);
   const label = entry ? catalogLabel(entry) : (title?.title ?? item.titleId);
@@ -31,12 +48,16 @@ export function InboxLineCard({ item, entries, showQuoteActions = false }: Props
   const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
 
   const promptText = title ? (getLine(title, item.lineIndex)?.text ?? "") : "";
+  const leadIn = useMemo(
+    () => (title ? leadInForPrompt(title, item.lineIndex) : []),
+    [title, item.lineIndex],
+  );
   const nextText = title ? (getNextPlayableLine(title, item.lineIndex)?.text ?? "") : "";
 
   useEffect(() => {
     if (feedback !== "correct") return;
     const timer = window.setTimeout(() => {
-      markInboxItemSolved(item.id);
+      void markInboxItemSolvedEverywhere(item.id);
       setSolved(true);
     }, CORRECT_HOLD_MS);
     return () => window.clearTimeout(timer);
@@ -65,8 +86,13 @@ export function InboxLineCard({ item, entries, showQuoteActions = false }: Props
       </div>
       {solved ? (
         <blockquote className="inbox-line-pair">
+          {leadIn.map((line) => (
+            <p key={line.lineIndex} className="prompt-lead-in">
+              {line.text}
+            </p>
+          ))}
           <p className="prompt-current">{promptText}</p>
-          <p className="inbox-nextline">{nextText}</p>
+          {nextText ? <p className="inbox-nextline">{nextText}</p> : null}
         </blockquote>
       ) : !question ? (
         <p className="muted">This line isn’t playable in the current catalog.</p>
@@ -108,6 +134,16 @@ export function InboxLineCard({ item, entries, showQuoteActions = false }: Props
           </ul>
         </>
       )}
+      {showQuoteActions && shareId && onReactions ? (
+        <ChatReactions
+          targetKind="quote"
+          targetId={shareId}
+          reactions={reactions}
+          peerUserId={peerUserId}
+          groupId={groupId}
+          onReactions={onReactions}
+        />
+      ) : null}
     </article>
   );
 }
