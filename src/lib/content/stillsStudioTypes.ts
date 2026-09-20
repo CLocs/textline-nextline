@@ -49,4 +49,4 @@ export type StudioFrame = {
   error?: string;
 };
 
-export type StudioExtractMode = "handful" | "retry" | "smart" | "batch";
+export type StudioExtractMode = "handful" | "retry" | "smart" | "shuffle" | "batch";

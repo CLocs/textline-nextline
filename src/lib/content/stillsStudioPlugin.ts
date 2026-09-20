@@ -34,7 +34,9 @@ function readBody(req: IncomingMessage): Promise<string> {
 }
 
 function parseMode(raw: unknown): StudioExtractMode {
-  if (raw === "retry" || raw === "batch" || raw === "handful" || raw === "smart") return raw;
+  if (raw === "retry" || raw === "batch" || raw === "handful" || raw === "smart" || raw === "shuffle") {
+    return raw;
+  }
   return "handful";
 }
 

@@ -1773,9 +1773,19 @@ code {
 }
 
 .stills-studio-busy {
-  margin: 0 0 0.75rem;
+  margin: 0;
   font-weight: 700;
   color: var(--ink);
+}
+
+.stills-retry-stack {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.button[aria-busy="true"]:disabled {
+  cursor: wait;
+  opacity: 1;
 }
 
 .stills-tried {
@@ -1790,6 +1800,19 @@ code {
 .stills-knobs summary {
   cursor: pointer;
   font-weight: 600;
+}
+
+.stills-knobs .button.is-active {
+  background: var(--ink);
+  color: var(--lime);
+  border-color: var(--ink);
+  font-weight: 700;
+}
+
+.stills-knobs .button.is-active:hover {
+  background: var(--grape);
+  color: var(--lime);
+  border-color: var(--grape);
 }
 
 .stills-frame-card {
@@ -2499,6 +2522,26 @@ code {
 .quote-image-palette-none.is-active {
   background: color-mix(in srgb, var(--bg) 40%, white);
   border-color: color-mix(in srgb, var(--sage) 55%, var(--line));
+}
+
+.quote-image-leadin {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+}
+
+.quote-image-leadin input {
+  accent-color: var(--brand);
+}
+
+.quote-image-leadin.is-disabled {
+  color: var(--muted);
+  cursor: default;
+  opacity: 0.7;
 }
 
 .quote-image-preview-wrap {

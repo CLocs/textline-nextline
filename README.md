@@ -710,6 +710,8 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 6. **Palettes** — Clean, Ink, Lime, **None** (no hue veil; text shadow on On image for contrast).
 7. **Remembered prefs** — last format / aspect / palette in `localStorage`.
 8. Export modal row labels: Captions / Aspect Ratio / Palette.
+9. **Include previous lines** — optional lead-in cues (same rules as Play/Chat, up to 4); remembered in prefs.
+10. **Text position** — Top / Center / Bottom (no drag); remembered in prefs.
 
 **Later:** [Daily quote email](#daily-quote-email) cards → open TLNL → Export image.
 

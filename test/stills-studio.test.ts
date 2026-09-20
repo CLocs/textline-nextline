@@ -9,6 +9,7 @@ import {
   durationPastEof,
   episodeStatus,
   listPreviewStillIndices,
+  mergeSyncEntry,
   parseFrameRate,
   STUDIO_SKIP_TITLE_IDS,
   videoDirForShow,
@@ -77,6 +78,24 @@ describe("pickHandfulIndices", () => {
     expect(shuffled[0]).toBeGreaterThan(0);
     expect(shuffled.join(",")).not.toBe(first.join(","));
   });
+
+  it("skips theme chorus and subtitle-site junk", () => {
+    const noisy: Title = {
+      ...title,
+      lineCount: 20,
+      lines: [
+        line(0, "[Chorus] ## The Simpsons ##"),
+        ...Array.from({ length: 16 }, (_, i) => line(i + 1, `Distinctive dialogue line number ${i + 1} here`)),
+        line(17, "[ People Chattering ] Shh! www.tvsubtitles.net"),
+        line(18, "ok"),
+        line(19, "ok"),
+      ],
+    };
+    const picked = pickHandfulIndices(noisy, []);
+    expect(picked).toHaveLength(6);
+    expect(picked).not.toContain(0);
+    expect(picked).not.toContain(17);
+  });
 });
 
 describe("episodeStatus", () => {
@@ -87,6 +106,20 @@ describe("episodeStatus", () => {
     expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [] })).toBe("review");
     expect(episodeStatus({ hasFile: true, stillCount: 0, handful: [] })).toBe("ready");
     expect(episodeStatus({ hasFile: false, stillCount: 0, handful: [] })).toBe("no-file");
+  });
+});
+
+describe("mergeSyncEntry", () => {
+  it("drops batch timestamps so a handful retry can leave gallery", () => {
+    const merged = mergeSyncEntry(
+      { offsetMs: 0, batchedAt: "b", approvedAt: "a", pushedAt: "p" },
+      { offsetMs: -1000, batchedAt: undefined, approvedAt: undefined, pushedAt: undefined },
+    );
+    const written = JSON.parse(JSON.stringify(merged)) as Record<string, unknown>;
+    expect(written.offsetMs).toBe(-1000);
+    expect(written.batchedAt).toBeUndefined();
+    expect(written.approvedAt).toBeUndefined();
+    expect(written.pushedAt).toBeUndefined();
   });
 });
 

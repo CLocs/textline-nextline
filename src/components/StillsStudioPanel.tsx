@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   approveStudioEpisode,
   fetchStudioEpisode,
@@ -14,7 +14,8 @@ import {
   type StudioQueueResponse,
 } from "../lib/content/stillsStudioApi";
 
-import { pickNextStudioMethod, studioMethodsForShow } from "../lib/content/stillsStudioMethods";
+import { pickNextStudioMethod, studioMethodsForShow, type StudioVote } from "../lib/content/stillsStudioMethods";
+import type { StudioExtractMode } from "../lib/content/stillsStudioTypes";
 
 const SIMPSONS_OFFSET_MS = -57_000;
 
@@ -33,6 +34,10 @@ function formatSeek(sec: number): string {
   return `${m}:${s.toFixed(1).padStart(4, "0")}`;
 }
 
+function knobClass(active: boolean): string {
+  return `button${active ? " is-active" : ""}`;
+}
+
 export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
   const [available, setAvailable] = useState<boolean | null>(null);
   const [shows, setShows] = useState<{ show: string; directory: string; directoryExists: boolean }[]>([]);
@@ -41,15 +46,21 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [episode, setEpisode] = useState<StudioEpisode | null>(null);
   const [frames, setFrames] = useState<StudioFrame[]>([]);
-  const [votes, setVotes] = useState<Record<number, Vote>>({});
+  const [votes, setVotes] = useState<Record<number, StudioVote>>({});
   const [offsetMs, setOffsetMs] = useState(SIMPSONS_OFFSET_MS);
   const [timeScale, setTimeScale] = useState(1);
   const [seek, setSeek] = useState<"start" | "mid">("start");
   const [lineOffsets, setLineOffsets] = useState<Record<string, number>>({});
   const [bust, setBust] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
+  const [busyKind, setBusyKind] = useState<StudioExtractMode | "push" | null>(null);
+  const busyRef = useRef(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+
+  function actionLabel(kind: StudioExtractMode | "push", idle: string): string {
+    return busyKind === kind && busy ? busy : idle;
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -158,14 +169,18 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
     }
   }
 
-  async function runExtract(mode: "handful" | "retry" | "batch" | "smart") {
-    if (!selectedId) return;
+  async function runExtract(mode: StudioExtractMode) {
+    if (!selectedId || busyRef.current) return;
+    busyRef.current = true;
+    setBusyKind(mode);
     setBusy(
       mode === "batch"
         ? "Extracting remaining stars — this can take a minute…"
         : mode === "smart"
           ? `Trying ${nextMethod?.label ?? "next recipe"}…`
-          : "Extracting frames…",
+          : mode === "shuffle"
+            ? "Picking six other frames…"
+            : "Extracting frames…",
     );
     setError(null);
     setNotice(null);
@@ -194,6 +209,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       if (mode === "smart") {
         setNotice(`Now: ${result.method.label}. ${result.method.why}`);
       }
+      if (mode === "shuffle") {
+        setNotice("Shuffled to six other cues. Same timing as before.");
+      }
       if (mode === "batch") {
         setNotice(
           `Batched ${result.extracted} stills in ${result.previewDir}` +
@@ -210,12 +228,16 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {
+      busyRef.current = false;
       setBusy(null);
+      setBusyKind(null);
     }
   }
 
   async function pushApproved() {
-    if (!selectedId) return;
+    if (!selectedId || busyRef.current) return;
+    busyRef.current = true;
+    setBusyKind("push");
     setBusy("Pushing to R2…");
     setError(null);
     try {
@@ -226,7 +248,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {
+      busyRef.current = false;
       setBusy(null);
+      setBusyKind(null);
     }
   }
 
@@ -249,6 +273,126 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       ...prev,
       [String(lineIndex)]: (prev[String(lineIndex)] ?? 0) + deltaMs,
     }));
+  }
+
+  const themeSkipOn = offsetMs === SIMPSONS_OFFSET_MS;
+  const zeroOn = offsetMs === 0;
+  const palOn = timeScale === 0.96;
+  const midOn = seek === "mid";
+
+  function renderRetryTools(context: "review" | "gallery") {
+    const galleryHint = selected?.status === "pushed"
+      ? `Wrong timing? Smart retry six frames. This un-pushes until you batch and push again.${nextMethod ? ` Next up: ${nextMethod.label}.` : ""}`
+      : `Wrong timing? Smart retry six frames. This drops the batch until you thumbs-up again.${nextMethod ? ` Next up: ${nextMethod.label}.` : ""}`;
+    return (
+      <>
+        {triedLabels.length > 0 ? (
+          <p className="muted stills-tried">
+            Tried: {triedLabels.join(" → ")}
+          </p>
+        ) : null}
+        <div className="stills-retry-stack">
+          {context === "gallery" ? (
+            <p className="muted">{galleryHint}</p>
+          ) : nextMethod ? (
+            <p className="muted">
+              {anyDown
+                ? `Next: ${nextMethod.label} — ${nextMethod.why}`
+                : `Thumb the six, shuffle for other cues, or skip ahead with Smart retry. Next up: ${nextMethod.label}.`}
+            </p>
+          ) : (
+            <p className="muted">Tried every recipe. Shuffle the six, or use the knobs / per-line ±1s.</p>
+          )}
+          <div className="row">
+            {nextMethod ? (
+              <button
+                type="button"
+                className="button primary"
+                disabled={Boolean(busy)}
+                aria-busy={busyKind === "smart"}
+                onClick={() => void runExtract("smart")}
+              >
+                {actionLabel("smart", `Smart retry: ${nextMethod.label}`)}
+              </button>
+            ) : null}
+            <button
+              type="button"
+              className="button"
+              disabled={Boolean(busy)}
+              aria-busy={busyKind === "shuffle"}
+              onClick={() => void runExtract("shuffle")}
+            >
+              {actionLabel("shuffle", "Shuffle six")}
+            </button>
+          </div>
+          {(busyKind === "smart" || busyKind === "shuffle") && busy ? (
+            <p className="stills-studio-busy" role="status" aria-live="polite">
+              {busy}
+            </p>
+          ) : null}
+        </div>
+        <details className="stills-knobs">
+          <summary>More knobs</summary>
+          <div className="row">
+            <button
+              type="button"
+              className={knobClass(themeSkipOn)}
+              aria-pressed={themeSkipOn}
+              onClick={() => setOffsetMs(SIMPSONS_OFFSET_MS)}
+            >
+              −57s
+            </button>
+            <button
+              type="button"
+              className={knobClass(zeroOn)}
+              aria-pressed={zeroOn}
+              onClick={() => setOffsetMs(0)}
+            >
+              0
+            </button>
+            <button
+              type="button"
+              className={knobClass(palOn)}
+              aria-pressed={palOn}
+              onClick={() => setTimeScale((value) => (value === 0.96 ? 1 : 0.96))}
+            >
+              PAL 0.96
+            </button>
+            <button
+              type="button"
+              className={knobClass(midOn)}
+              aria-pressed={midOn}
+              onClick={() => setSeek((value) => (value === "mid" ? "start" : "mid"))}
+            >
+              Mid-cue
+            </button>
+          </div>
+          <p className="muted">PAL is for 25fps DVD rips. Simpsons NTSC stays off unless late frames drift.</p>
+          <div className="row">
+            {[-10, -5, -1, 1, 5, 10].map((sec) => (
+              <button key={sec} type="button" className="button ghost" onClick={() => nudgeOffset(sec * 1000)}>
+                {sec > 0 ? "+" : ""}
+                {sec}s
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="button"
+            disabled={Boolean(busy)}
+            aria-busy={busyKind === "retry"}
+            onClick={() => void runExtract("retry")}
+          >
+            {actionLabel("retry", "Re-extract these six")}
+          </button>
+          {busyKind === "retry" && busy ? (
+            <p className="stills-studio-busy" role="status" aria-live="polite">
+              {busy}
+            </p>
+          ) : null}
+        </details>
+      </>
+    );
   }
 
   if (available === false) {
@@ -292,7 +436,6 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       {queue?.starError ? <p className="muted">D1 stars unavailable: {queue.starError}</p> : null}
       {error ? <p className="feedback wrong">{error}</p> : null}
       {notice ? <p className="feedback correct">{notice}</p> : null}
-      {busy ? <p className="stills-studio-busy">{busy}</p> : null}
 
       {selected ? (
         <section className="stills-review">
@@ -306,14 +449,22 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
           </div>
 
           {frames.length === 0 ? (
-            <button
-              type="button"
-              className="button primary"
-              disabled={Boolean(busy) || selected.status === "no-file"}
-              onClick={() => void runExtract("handful")}
-            >
-              Extract 6 frames
-            </button>
+            <div className="stills-retry-stack">
+              <button
+                type="button"
+                className="button primary"
+                disabled={Boolean(busy) || selected.status === "no-file"}
+                aria-busy={busyKind === "handful"}
+                onClick={() => void runExtract("handful")}
+              >
+                {actionLabel("handful", "Extract 6 frames")}
+              </button>
+              {busyKind === "handful" && busy ? (
+                <p className="stills-studio-busy" role="status" aria-live="polite">
+                  {busy}
+                </p>
+              ) : null}
+            </div>
           ) : (
             <>
               <div className={`stills-review-grid${gallery ? " is-gallery" : ""}`}>
@@ -344,6 +495,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
                             <button
                               type="button"
                               className={`button ghost${vote === "up" ? " is-active" : ""}`}
+                              disabled={Boolean(busy)}
                               onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "up" }))}
                             >
                               👍
@@ -351,6 +503,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
                             <button
                               type="button"
                               className={`button ghost${vote === "down" ? " is-active" : ""}`}
+                              disabled={Boolean(busy)}
                               onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "down" }))}
                             >
                               👎
@@ -374,69 +527,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
               </div>
 
               {!gallery && !allUp && frames.length > 0 ? (
-                <div className="stills-sync-controls">
-                  {triedLabels.length > 0 ? (
-                    <p className="muted stills-tried">
-                      Tried: {triedLabels.join(" → ")}
-                    </p>
-                  ) : null}
-                  {nextMethod ? (
-                    <>
-                      <p className="muted">
-                        {anyDown
-                          ? `Next: ${nextMethod.label} — ${nextMethod.why}`
-                          : `Thumb the six, or skip ahead with Smart retry. Next up: ${nextMethod.label}.`}
-                      </p>
-                      <button
-                        type="button"
-                        className="button primary"
-                        disabled={Boolean(busy)}
-                        onClick={() => void runExtract("smart")}
-                      >
-                        Smart retry: {nextMethod.label}
-                      </button>
-                    </>
-                  ) : (
-                    <p className="muted">Tried every recipe. Use the knobs or per-line ±1s.</p>
-                  )}
-                  <details className="stills-knobs">
-                    <summary>More knobs</summary>
-                    <div className="row">
-                      <button type="button" className="button" onClick={() => setOffsetMs(SIMPSONS_OFFSET_MS)}>
-                        −57s
-                      </button>
-                      <button type="button" className="button" onClick={() => setOffsetMs(0)}>
-                        0
-                      </button>
-                      <button
-                        type="button"
-                        className="button"
-                        onClick={() => setTimeScale((value) => (value === 0.96 ? 1 : 0.96))}
-                      >
-                        PAL 0.96 {timeScale === 0.96 ? "on" : "off"}
-                      </button>
-                      <button
-                        type="button"
-                        className="button"
-                        onClick={() => setSeek((value) => (value === "mid" ? "start" : "mid"))}
-                      >
-                        Mid-cue {seek === "mid" ? "on" : "off"}
-                      </button>
-                    </div>
-                    <p className="muted">PAL is for 25fps DVD rips. Simpsons NTSC stays off unless late frames drift.</p>
-                    <div className="row">
-                      {[-10, -5, -1, 1, 5, 10].map((sec) => (
-                        <button key={sec} type="button" className="button ghost" onClick={() => nudgeOffset(sec * 1000)}>
-                          {sec > 0 ? "+" : ""}
-                          {sec}s
-                        </button>
-                      ))}
-                    </div>
-                    <button type="button" className="button" disabled={Boolean(busy)} onClick={() => void runExtract("retry")}>
-                      Re-extract these six
-                    </button>
-                  </details>
-                </div>
+                <div className="stills-sync-controls">{renderRetryTools("review")}</div>
               ) : null}
 
               {gallery ? (
@@ -454,11 +545,18 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
                       type="button"
                       className="button primary"
                       disabled={Boolean(busy) || selected.status === "pushed"}
+                      aria-busy={busyKind === "push"}
                       onClick={() => void pushApproved()}
                     >
-                      {selected.status === "pushed" ? "Pushed to R2" : "Push approved"}
+                      {selected.status === "pushed" ? "Pushed to R2" : actionLabel("push", "Push approved")}
                     </button>
                   </div>
+                  {busyKind === "push" && busy ? (
+                    <p className="stills-studio-busy" role="status" aria-live="polite">
+                      {busy}
+                    </p>
+                  ) : null}
+                  {renderRetryTools("gallery")}
                 </div>
               ) : null}
 
@@ -470,14 +568,22 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
                       type="button"
                       className="button primary"
                       disabled={Boolean(busy) || selected.starCount === 0}
+                      aria-busy={busyKind === "batch"}
                       onClick={() => void runExtract("batch")}
                     >
-                      {selected.starCount === 0 ? "No D1 stars to batch" : "Batch remaining stars"}
+                      {selected.starCount === 0
+                        ? "No D1 stars to batch"
+                        : actionLabel("batch", "Batch remaining stars")}
                     </button>
                     <button type="button" className="button" onClick={() => void openPreviewFolder()}>
                       Open folder
                     </button>
                   </div>
+                  {busyKind === "batch" && busy ? (
+                    <p className="stills-studio-busy" role="status" aria-live="polite">
+                      {busy}
+                    </p>
+                  ) : null}
                 </div>
               ) : null}
             </>
