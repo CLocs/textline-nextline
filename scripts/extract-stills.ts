@@ -9,6 +9,7 @@ import {
   cueAnchorMs,
   loadStillsSyncFile,
   offsetMsForTitle,
+  lineOffsetMs,
   parseLineIndices,
   resolveCue,
   seekModeForTitle,
@@ -209,7 +210,8 @@ function main(): void {
 
   for (const lineIndex of indices) {
     const cue = resolveCue(title, lineIndex);
-    const seekSec = seekSeconds(cueAnchorMs(cue, seek), offsetMs, timeScale);
+    const extra = lineOffsetMs(sync, args.titleId, lineIndex);
+    const seekSec = seekSeconds(cueAnchorMs(cue, seek), offsetMs, timeScale, extra);
     const output = join(destDir, stillFileName(lineIndex));
     const ffmpegArgs = ffmpegExtractArgs({ input, seekSec, output, accurateSeek: args.accurateSeek });
     console.log(`line ${lineIndex}  ${seekSec.toFixed(3)}s  ${cue.text.slice(0, 60)}`);

@@ -1,18 +1,36 @@
 ---
 name: stills-extract
 description: >-
-  Remuxes a local movie file, extracts quote stills with ffmpeg at line
-  startMs, records per-title offset/PAL timeScale, then batches D1 starred
-  frames. Use when the user says "extract stills", "stills for", "quote
-  frames", "run stills", "stills extract", or points at a movie on
-  G:\videos\movies.
+  Remuxes a local movie or show file, extracts quote stills with ffmpeg at
+  line startMs, records per-title offset/PAL timeScale, then batches D1
+  starred frames. Use when the user says "extract stills", "stills for",
+  "quote frames", "run stills", "stills extract", "stills studio", "review
+  stills", or points at a file on G:\videos\movies or G:\videos\shows.
 ---
 
 # Stills extract
 
-Offline only. Movie files never leave the machine. **Stop after the starred handful** and wait for the user to eyeball frames. Do not batch all stars until they say the stills match.
+Offline only. Movie/show files never leave the machine. **Never batch or R2 until eyeballed** — thumbs-up in the studio counts as the eyeball. Do **not** pass `--from-stars --email` to extract.
 
-## Procedure
+## Shows — Catalog Ops studio (prefer this)
+
+For The Simpsons (and later It's Always Sunny), do **not** drive the loop in chat episode-by-episode. Point the user at Catalog Ops → **Stills** (`#/ops`, owner / `npm run dev`).
+
+The studio:
+
+1. Matches `G:\videos\shows\Simpsons\` `SxxExx` files to catalog `meta.season` / `meta.episode`.
+2. Remuxes AVI → `inbox/media/{titleId}.mkv` if needed.
+3. Queries D1 once, then extracts **six** frames via `--indices` (not `--from-stars`).
+4. Shows quote + JPEG + thumbs. Any down → nudge offset / per-line extra / PAL 0.96 and re-extract those six. All up → batch remaining D1 stars locally.
+5. **Push approved** is a separate R2 step. Next Pages deploy still required for live `/stills`.
+
+Simpsons DIV3 29.97 rips inherit **offsetMs = −57000** (theme skip). Skip S4E1 Kamp Krusty and S4E2 Streetcar (already on R2). Skip episodes with no file. Sunny waits until video files are on disk.
+
+If the Stills tab says start `npm run dev`, the Vite `/api/stills-studio/*` routes are missing (production Pages never has them).
+
+CLI below remains the fallback for **movies** and for one-off show debugging.
+
+## Movies — CLI procedure
 
 1. **Match title to file.** Catalog `titleId` in `content/catalog.json`; `content/titles/{id}.json` must have `startMs`. Trust the **filename** (Empire is `Star Wars Episode V - The Empire Strikes Back.avi`, not the ROTJ AVI).
 
@@ -76,9 +94,11 @@ flowchart TD
 | `content/stills-sync.json` | Yes (offset / PAL scale) |
 | R2 `textline-stills` | Production stills (push script) |
 
-## Follow-up / left off (2026-09-16)
+## Follow-up / left off (2026-09-20)
 
-Paused so the user can eyeball each handful vs the quote, then **batch that title** and R2-push. Do not batch/R2 a title until they confirm it. Work title-by-title.
+**Shows:** use Catalog Ops → Stills. Remaining Simpsons on disk (S4E3 onward, then S5–S7) inherit −57s. S4E1/E2 already on R2. Do not auto-R2 from chat.
+
+**Movies:** paused so the user can eyeball each handful vs the quote, then **batch that title** and R2-push. Do not batch/R2 a title until they confirm it. Work title-by-title.
 
 **Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81), Django (scale 1, 44), Batman Begins (scale 1, 79), The Gentlemen (mid-cue, 122), Matrix (scale 1, 106), Kamp Krusty S4E1 (offset −57s, 10), **Streetcar Named Marge S4E2 (offset −57s + late nudges, 16)**. Re-run Empire if early cues slip.
 

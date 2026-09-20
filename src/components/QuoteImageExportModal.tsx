@@ -1,13 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { getCatalog, getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
+import { getNextPlayableLine } from "../lib/content/playable";
 import { loadQuoteBackdrop } from "../lib/quoteImage/loadQuoteImage";
 import {
-  canvasToPngBlob,
-  renderQuoteImageCanvas,
+  loadQuoteImagePrefs,
+  saveQuoteImagePrefs,
+  type QuoteImageAspect,
   type QuoteImageFormat,
-} from "../lib/quoteImage/renderQuoteImage";
+  type QuoteImagePalette,
+} from "../lib/quoteImage/prefs";
+import { canvasToPngBlob, renderQuoteImageCanvas } from "../lib/quoteImage/renderQuoteImage";
 
 type Props = {
   titleId: string;
@@ -16,6 +21,18 @@ type Props = {
   quoteText?: string;
   onClose: () => void;
 };
+
+const ASPECT_OPTIONS: { id: QuoteImageAspect; label: string }[] = [
+  { id: "portrait", label: "Portrait" },
+  { id: "square", label: "Square" },
+  { id: "story", label: "Story" },
+];
+
+const PALETTE_OPTIONS: { id: QuoteImagePalette; label: string }[] = [
+  { id: "clean", label: "Clean" },
+  { id: "ink", label: "Ink" },
+  { id: "lime", label: "Lime" },
+];
 
 function canShareFiles(): boolean {
   try {
@@ -33,14 +50,35 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     (title ? getLine(title, lineIndex)?.text : undefined)?.trim() ||
     quoteText?.trim() ||
     `Line ${lineIndex + 1}`;
+  const resolvedNext = title
+    ? (getNextPlayableLine(title, lineIndex)?.text ?? "").trim() || null
+    : null;
   const titleLabel = entry ? catalogLabel(entry) : titleId;
 
-  const [format, setFormat] = useState<QuoteImageFormat>("caption-below");
+  const initialPrefs = useMemo(() => loadQuoteImagePrefs(), []);
+  const [format, setFormat] = useState<QuoteImageFormat>(initialPrefs.format);
+  const [aspect, setAspect] = useState<QuoteImageAspect>(initialPrefs.aspect);
+  const [palette, setPalette] = useState<QuoteImagePalette>(initialPrefs.palette);
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const shareSupported = useMemo(() => canShareFiles(), []);
+
+  function updateFormat(next: QuoteImageFormat) {
+    setFormat(next);
+    saveQuoteImagePrefs({ format: next });
+  }
+
+  function updateAspect(next: QuoteImageAspect) {
+    setAspect(next);
+    saveQuoteImagePrefs({ aspect: next });
+  }
+
+  function updatePalette(next: QuoteImagePalette) {
+    setPalette(next);
+    saveQuoteImagePrefs({ palette: next });
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -57,7 +95,10 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     try {
       const canvas = renderQuoteImageCanvas({
         format,
+        aspect,
+        palette,
         quoteText: resolvedQuote,
+        nextText: resolvedNext,
         titleLabel,
         image,
       });
@@ -69,10 +110,9 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       setError(err instanceof Error ? err.message : "Could not render preview");
     }
     return () => {
-      // data URLs need no revoke; keep for clarity if we switch to blob URLs later
       void objectUrl;
     };
-  }, [format, resolvedQuote, titleLabel, image]);
+  }, [format, aspect, palette, resolvedQuote, resolvedNext, titleLabel, image]);
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -85,7 +125,10 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
   async function buildBlob(): Promise<Blob> {
     const canvas = renderQuoteImageCanvas({
       format,
+      aspect,
+      palette,
       quoteText: resolvedQuote,
+      nextText: resolvedNext,
       titleLabel,
       image,
     });
@@ -100,7 +143,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `tlnl-quote-${titleId}-${lineIndex}.png`;
+      link.download = `tlnl-quote-${titleId}-${lineIndex}-${aspect}.png`;
       link.click();
       URL.revokeObjectURL(url);
     } catch (err) {
@@ -114,13 +157,13 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     setError(null);
     try {
       const blob = await buildBlob();
-      const file = new File([blob], `tlnl-quote-${titleId}-${lineIndex}.png`, {
+      const file = new File([blob], `tlnl-quote-${titleId}-${lineIndex}-${aspect}.png`, {
         type: "image/png",
       });
       await navigator.share({
         files: [file],
         title: titleLabel,
-        text: resolvedQuote,
+        text: resolvedNext ? `${resolvedQuote}\n${resolvedNext}` : resolvedQuote,
       });
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
@@ -132,7 +175,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     setBusy(false);
   }
 
-  return (
+  return createPortal(
     <div className="quote-image-backdrop" role="presentation" onClick={onClose}>
       <div
         className="quote-image-dialog"
@@ -154,7 +197,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
             className={`quote-image-format${format === "caption-below" ? " is-active" : ""}`}
             role="radio"
             aria-checked={format === "caption-below"}
-            onClick={() => setFormat("caption-below")}
+            onClick={() => updateFormat("caption-below")}
           >
             Caption below
           </button>
@@ -163,10 +206,42 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
             className={`quote-image-format${format === "on-image" ? " is-active" : ""}`}
             role="radio"
             aria-checked={format === "on-image"}
-            onClick={() => setFormat("on-image")}
+            onClick={() => updateFormat("on-image")}
           >
             On image
           </button>
+        </div>
+
+        <div className="quote-image-row" role="radiogroup" aria-label="Aspect">
+          {ASPECT_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              className={`quote-image-chip${aspect === option.id ? " is-active" : ""}`}
+              role="radio"
+              aria-checked={aspect === option.id}
+              onClick={() => updateAspect(option.id)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="quote-image-row" role="radiogroup" aria-label="Palette">
+          {PALETTE_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              className={`quote-image-chip quote-image-palette-${option.id}${
+                palette === option.id ? " is-active" : ""
+              }`}
+              role="radio"
+              aria-checked={palette === option.id}
+              onClick={() => updatePalette(option.id)}
+            >
+              {option.label}
+            </button>
+          ))}
         </div>
 
         <div className="quote-image-preview-wrap">
@@ -204,6 +279,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
           </p>
         ) : null}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

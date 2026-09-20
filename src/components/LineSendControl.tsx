@@ -6,6 +6,8 @@ import { fetchGroups, type FriendGroup } from "../lib/groups/api";
 import { copyLineShare, sendLineToFriend, sendLineToGroup } from "../lib/inbox/api";
 import { QuoteImageExportModal } from "./QuoteImageExportModal";
 
+const CLOSE_QUOTE_EXPORT = "tlnl:close-quote-export";
+
 type Props = {
   titleId: string;
   lineIndex: number;
@@ -91,6 +93,14 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
     };
   }, [open, apiReady]);
 
+  useEffect(() => {
+    function onCloseExport() {
+      setExportOpen(false);
+    }
+    window.addEventListener(CLOSE_QUOTE_EXPORT, onCloseExport);
+    return () => window.removeEventListener(CLOSE_QUOTE_EXPORT, onCloseExport);
+  }, []);
+
   function toggle() {
     const box = buttonRef.current?.getBoundingClientRect();
     if (box) {
@@ -103,6 +113,7 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
 
   function openExport() {
     setOpen(false);
+    window.dispatchEvent(new Event(CLOSE_QUOTE_EXPORT));
     setExportOpen(true);
   }
 
