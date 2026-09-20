@@ -540,8 +540,9 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 6. **Thread scroll UX** — message list scrolls inside the panel; composer stays put; open/send land on latest; **↓ Latest** when scrolled up.
 7. **Richer quote cards** — outgoing + solved incoming show lead-in; outgoing next line behind **Reveal next line**.
 8. **Quotes-only filter** — All / Quotes toggle in the thread header (client-side; sending text returns you to All).
+9. **Emoji reactions** — 👍❤️😂😮🔥 on text and quote cards (`chat_reactions`; quote target = `share_id`).
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); **emoji reactions**.
+**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
 
 ### Chats → cross-title mini-games
 

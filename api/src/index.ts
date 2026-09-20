@@ -70,6 +70,7 @@ import {
   markGroupRead,
   postDmMessage,
   postGroupMessage,
+  toggleChatReaction,
 } from "./chats.js";
 import {
   addGroupMember,
@@ -370,6 +371,25 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (request.method === "GET" && pathname === "/api/chats") {
       const threads = await listChatThreads(env.DB, user.id);
       return jsonResponse({ threads }, 200, origin, allowed);
+    }
+
+    if (request.method === "POST" && pathname === "/api/chats/reactions") {
+      const body = (await readJson(request)) as {
+        targetKind?: unknown;
+        targetId?: unknown;
+        emoji?: unknown;
+        peerUserId?: unknown;
+        groupId?: unknown;
+      } | null;
+      const result = await toggleChatReaction(env.DB, user, {
+        targetKind: body?.targetKind,
+        targetId: body?.targetId,
+        emoji: body?.emoji,
+        peerUserId: body?.peerUserId,
+        groupId: body?.groupId,
+      });
+      if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+      return jsonResponse(result, 200, origin, allowed);
     }
 
     const dmReadMatch = pathname.match(/^\/api\/chats\/dm\/([^/]+)\/read$/);

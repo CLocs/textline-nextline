@@ -11,6 +11,7 @@ import {
   markGroupRead,
   postDmChatMessage,
   postGroupChatMessage,
+  type ChatReaction,
   type DmQuoteMessage,
   type DmThreadMessage,
   type GroupQuoteMessage,
@@ -19,6 +20,7 @@ import {
 import type { CatalogEntry } from "../types/content";
 import { InboxLineCard } from "./InboxLineCard";
 import { ChatQuoteActions } from "./ChatQuoteActions";
+import { ChatReactions } from "./ChatReactions";
 import type { InboxItem } from "../lib/inbox/api";
 
 const NEAR_BOTTOM_PX = 96;
@@ -39,12 +41,22 @@ function OutgoingPreview({
   label,
   fromLabel,
   receiptLabel,
+  shareId,
+  reactions,
+  peerUserId,
+  groupId,
+  onReactions,
 }: {
   titleId: string;
   lineIndex: number;
   label: string;
   fromLabel: string;
   receiptLabel?: string | null;
+  shareId: string;
+  reactions: ChatReaction[];
+  peerUserId?: string;
+  groupId?: string;
+  onReactions: (reactions: ChatReaction[]) => void;
 }) {
   const title = getTitle(titleId);
   const promptText = title ? (getLine(title, lineIndex)?.text ?? "") : "";
@@ -88,6 +100,14 @@ function OutgoingPreview({
           )
         ) : null}
       </blockquote>
+      <ChatReactions
+        targetKind="quote"
+        targetId={shareId}
+        reactions={reactions}
+        peerUserId={peerUserId}
+        groupId={groupId}
+        onReactions={onReactions}
+      />
     </article>
   );
 }
@@ -96,15 +116,33 @@ function TextBubble({
   body,
   fromLabel,
   youSent,
+  messageId,
+  reactions,
+  peerUserId,
+  groupId,
+  onReactions,
 }: {
   body: string;
   fromLabel: string;
   youSent: boolean;
+  messageId: string;
+  reactions: ChatReaction[];
+  peerUserId?: string;
+  groupId?: string;
+  onReactions: (reactions: ChatReaction[]) => void;
 }) {
   return (
     <article className={`chats-text-bubble${youSent ? " is-out" : " is-in"}`}>
       <p className="chats-text-from muted">{fromLabel}</p>
       <p className="chats-text-body">{body}</p>
+      <ChatReactions
+        targetKind="text"
+        targetId={messageId}
+        reactions={reactions}
+        peerUserId={peerUserId}
+        groupId={groupId}
+        onReactions={onReactions}
+      />
     </article>
   );
 }
@@ -247,6 +285,38 @@ export function ChatThreadScreen({
     return entry ? catalogLabel(entry) : titleId;
   }
 
+  function setDmReactions(targetKind: "text" | "quote", targetId: string, reactions: ChatReaction[]) {
+    setDmMessages((prev) =>
+      prev.map((message) => {
+        if (targetKind === "text" && message.kind === "text" && message.id === targetId) {
+          return { ...message, reactions };
+        }
+        if (targetKind === "quote" && message.kind === "quote" && message.shareId === targetId) {
+          return { ...message, reactions };
+        }
+        return message;
+      }),
+    );
+  }
+
+  function setGroupReactions(
+    targetKind: "text" | "quote",
+    targetId: string,
+    reactions: ChatReaction[],
+  ) {
+    setGroupMessages((prev) =>
+      prev.map((message) => {
+        if (targetKind === "text" && message.kind === "text" && message.id === targetId) {
+          return { ...message, reactions };
+        }
+        if (targetKind === "quote" && message.kind === "quote" && message.shareId === targetId) {
+          return { ...message, reactions };
+        }
+        return message;
+      }),
+    );
+  }
+
   async function handleSend(event: FormEvent) {
     event.preventDefault();
     const body = draft.trim();
@@ -352,6 +422,10 @@ export function ChatThreadScreen({
                         body={message.body}
                         fromLabel={message.youSent ? "You" : message.from.displayName}
                         youSent={message.youSent}
+                        messageId={message.id}
+                        reactions={message.reactions}
+                        peerUserId={peerUserId}
+                        onReactions={(reactions) => setDmReactions("text", message.id, reactions)}
                       />
                     </li>
                   ) : (
@@ -361,6 +435,12 @@ export function ChatThreadScreen({
                           item={dmToInboxItem(message)}
                           entries={entries}
                           showQuoteActions
+                          shareId={message.shareId}
+                          reactions={message.reactions}
+                          peerUserId={peerUserId}
+                          onReactions={(reactions) =>
+                            setDmReactions("quote", message.shareId, reactions)
+                          }
                         />
                       ) : (
                         <OutgoingPreview
@@ -369,6 +449,12 @@ export function ChatThreadScreen({
                           label={entryLabel(message.titleId)}
                           fromLabel="You sent"
                           receiptLabel={dmReceiptLabel(message.receipt)}
+                          shareId={message.shareId}
+                          reactions={message.reactions}
+                          peerUserId={peerUserId}
+                          onReactions={(reactions) =>
+                            setDmReactions("quote", message.shareId, reactions)
+                          }
                         />
                       )}
                     </li>
@@ -385,6 +471,12 @@ export function ChatThreadScreen({
                           body={message.body}
                           fromLabel={message.youSent ? "You" : message.from.displayName}
                           youSent={message.youSent}
+                          messageId={message.id}
+                          reactions={message.reactions}
+                          groupId={groupId}
+                          onReactions={(reactions) =>
+                            setGroupReactions("text", message.id, reactions)
+                          }
                         />
                       </li>
                     );
@@ -393,7 +485,17 @@ export function ChatThreadScreen({
                   return (
                     <li key={`q-${message.shareId}`}>
                       {playable && message.playable ? (
-                        <InboxLineCard item={playable} entries={entries} showQuoteActions />
+                        <InboxLineCard
+                          item={playable}
+                          entries={entries}
+                          showQuoteActions
+                          shareId={message.shareId}
+                          reactions={message.reactions}
+                          groupId={groupId}
+                          onReactions={(reactions) =>
+                            setGroupReactions("quote", message.shareId, reactions)
+                          }
+                        />
                       ) : (
                         <OutgoingPreview
                           titleId={message.titleId}
@@ -409,6 +511,12 @@ export function ChatThreadScreen({
                             message.sentCount,
                             message.readCount,
                           )}
+                          shareId={message.shareId}
+                          reactions={message.reactions}
+                          groupId={groupId}
+                          onReactions={(reactions) =>
+                            setGroupReactions("quote", message.shareId, reactions)
+                          }
                         />
                       )}
                     </li>

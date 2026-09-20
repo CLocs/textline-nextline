@@ -52,6 +52,14 @@ export type ChatThreadSummary =
       unreadCount: number;
     };
 
+export type ChatReaction = {
+  emoji: string;
+  count: number;
+  reacted: boolean;
+};
+
+export const CHAT_REACTION_EMOJIS = ["👍", "❤️", "😂", "😮", "🔥"] as const;
+
 export type ChatTextMessage = {
   kind: "text";
   id: string;
@@ -59,6 +67,7 @@ export type ChatTextMessage = {
   from: { userId: string; displayName: string };
   createdAt: string;
   youSent: boolean;
+  reactions: ChatReaction[];
 };
 
 export type DmQuoteMessage = {
@@ -72,6 +81,7 @@ export type DmQuoteMessage = {
   createdAt: string;
   playable: boolean;
   receipt: "sent" | "read" | null;
+  reactions: ChatReaction[];
 };
 
 export type GroupQuoteMessage = {
@@ -86,6 +96,7 @@ export type GroupQuoteMessage = {
   inboxId: string | null;
   playable: boolean;
   youSent: boolean;
+  reactions: ChatReaction[];
 };
 
 export type DmThreadMessage = DmQuoteMessage | ChatTextMessage;
@@ -107,6 +118,21 @@ function normalizeThread(thread: ChatThreadSummary): ChatThreadSummary {
   return { ...thread, quoteUnreadCount, textUnreadCount, unreadCount };
 }
 
+function normalizeReactions(raw: unknown): ChatReaction[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((row) => {
+      const item = row as { emoji?: unknown; count?: unknown; reacted?: unknown };
+      if (typeof item.emoji !== "string") return null;
+      return {
+        emoji: item.emoji,
+        count: typeof item.count === "number" ? item.count : 0,
+        reacted: Boolean(item.reacted),
+      };
+    })
+    .filter((row): row is ChatReaction => row !== null);
+}
+
 function normalizeDmMessage(raw: Record<string, unknown>): DmThreadMessage | null {
   if (raw.kind === "text" || (typeof raw.body === "string" && !raw.shareId && !raw.titleId)) {
     if (typeof raw.id !== "string" || typeof raw.body !== "string") return null;
@@ -121,6 +147,7 @@ function normalizeDmMessage(raw: Record<string, unknown>): DmThreadMessage | nul
       },
       createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
       youSent: Boolean(raw.youSent),
+      reactions: normalizeReactions(raw.reactions),
     };
   }
   if (typeof raw.id !== "string" || typeof raw.titleId !== "string") return null;
@@ -140,6 +167,7 @@ function normalizeDmMessage(raw: Record<string, unknown>): DmThreadMessage | nul
     createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
     playable: Boolean(raw.playable),
     receipt: receipt === "sent" || receipt === "read" ? receipt : null,
+    reactions: normalizeReactions(raw.reactions),
   };
 }
 
@@ -157,6 +185,7 @@ function normalizeGroupMessage(raw: Record<string, unknown>): GroupThreadMessage
       },
       createdAt: typeof raw.createdAt === "string" ? raw.createdAt : "",
       youSent: Boolean(raw.youSent),
+      reactions: normalizeReactions(raw.reactions),
     };
   }
   if (typeof raw.shareId !== "string" || typeof raw.titleId !== "string") return null;
@@ -176,6 +205,7 @@ function normalizeGroupMessage(raw: Record<string, unknown>): GroupThreadMessage
     inboxId: typeof raw.inboxId === "string" ? raw.inboxId : null,
     playable: Boolean(raw.playable),
     youSent: Boolean(raw.youSent),
+    reactions: normalizeReactions(raw.reactions),
   };
 }
 
@@ -248,7 +278,12 @@ export async function postDmChatMessage(
   if (!response.ok) return { error: await readError(response, "Could not send message") };
   const data = (await response.json()) as { message?: ChatTextMessage };
   if (!data.message || data.message.kind !== "text") return { error: "Could not send message" };
-  return { message: data.message };
+  return {
+    message: {
+      ...data.message,
+      reactions: normalizeReactions(data.message.reactions),
+    },
+  };
 }
 
 export async function postGroupChatMessage(
@@ -264,7 +299,30 @@ export async function postGroupChatMessage(
   if (!response.ok) return { error: await readError(response, "Could not send message") };
   const data = (await response.json()) as { message?: ChatTextMessage };
   if (!data.message || data.message.kind !== "text") return { error: "Could not send message" };
-  return { message: data.message };
+  return {
+    message: {
+      ...data.message,
+      reactions: normalizeReactions(data.message.reactions),
+    },
+  };
+}
+
+export async function toggleChatReaction(input: {
+  targetKind: "text" | "quote";
+  targetId: string;
+  emoji: string;
+  peerUserId?: string;
+  groupId?: string;
+}): Promise<{ reactions: ChatReaction[] } | { error: string }> {
+  const response = await chatsFetch("/api/chats/reactions", {
+    method: "POST",
+    body: JSON.stringify(input),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (response.status === 401) return { error: "Please sign in first" };
+  if (!response.ok) return { error: await readError(response, "Could not react") };
+  const data = (await response.json()) as { reactions?: unknown };
+  return { reactions: normalizeReactions(data.reactions) };
 }
 
 export async function markDmRead(peerUserId: string): Promise<{ ok: true } | { error: string }> {

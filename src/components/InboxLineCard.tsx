@@ -8,7 +8,9 @@ import { buildMcq } from "../lib/game/mcq";
 import { isInboxItemSolved, markInboxItemSolved } from "../lib/inbox/solved";
 import type { InboxItem } from "../lib/inbox/api";
 import type { CatalogEntry } from "../types/content";
+import type { ChatReaction } from "../lib/chats/api";
 import { ChatQuoteActions } from "./ChatQuoteActions";
+import { ChatReactions } from "./ChatReactions";
 
 const CORRECT_HOLD_MS = 900;
 
@@ -17,9 +19,23 @@ type Props = {
   entries: CatalogEntry[];
   /** Star + reshare toolbar (Chats). */
   showQuoteActions?: boolean;
+  shareId?: string;
+  reactions?: ChatReaction[];
+  peerUserId?: string;
+  groupId?: string;
+  onReactions?: (reactions: ChatReaction[]) => void;
 };
 
-export function InboxLineCard({ item, entries, showQuoteActions = false }: Props) {
+export function InboxLineCard({
+  item,
+  entries,
+  showQuoteActions = false,
+  shareId,
+  reactions = [],
+  peerUserId,
+  groupId,
+  onReactions,
+}: Props) {
   const title = getTitle(item.titleId);
   const entry = entries.find((row) => row.id === item.titleId);
   const label = entry ? catalogLabel(entry) : (title?.title ?? item.titleId);
@@ -118,6 +134,16 @@ export function InboxLineCard({ item, entries, showQuoteActions = false }: Props
           </ul>
         </>
       )}
+      {showQuoteActions && shareId && onReactions ? (
+        <ChatReactions
+          targetKind="quote"
+          targetId={shareId}
+          reactions={reactions}
+          peerUserId={peerUserId}
+          groupId={groupId}
+          onReactions={onReactions}
+        />
+      ) : null}
     </article>
   );
 }
