@@ -65,7 +65,7 @@ export function ChatReactions({
           disabled={busy}
           onClick={() => setOpen((value) => !value)}
         >
-          +
+          :)
         </button>
         {open ? (
           <div className="chats-reaction-picker" role="listbox" aria-label="Reactions">

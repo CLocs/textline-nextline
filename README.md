@@ -539,7 +539,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 4. **Separation** — group sends appear only in the group thread, not also in each pair’s DM.
 5. **Text messages** — composer in-thread; `chat_messages` one row per DM/group message; quotes and text share one timeline (`kind: quote | text`).
 6. **Thread scroll UX** — message list scrolls inside the panel; composer stays put; open/send land on latest; **↓ Latest** when scrolled up.
-7. **Richer quote cards** — outgoing + solved incoming show lead-in; outgoing next line behind **Reveal next line** (auto-reveals with **Correct** after the peer solves).
+7. **Richer quote cards** — outgoing + solved incoming show lead-in; outgoing always shows the next line (sender already knows it); **Correct** appears in the header after the peer solves.
 8. **Quotes-only filter** — All / Quotes toggle in the thread header (client-side; sending text returns you to All).
 9. **Emoji reactions** — 👍❤️😂😮🔥 on text and quote cards (`chat_reactions`; quote target = `share_id`).
 10. **Answered receipt** — peer `line_inbox.solved_at`; sender sees **Correct** + next line on their outgoing card.

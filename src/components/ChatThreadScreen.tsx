@@ -42,7 +42,6 @@ function OutgoingPreview({
   label,
   fromLabel,
   receiptLabel,
-  peerAnswered,
   answeredLabel,
   shareId,
   reactions,
@@ -55,7 +54,6 @@ function OutgoingPreview({
   label: string;
   fromLabel: string;
   receiptLabel?: string | null;
-  peerAnswered?: boolean;
   answeredLabel?: string | null;
   shareId: string;
   reactions: ChatReaction[];
@@ -67,8 +65,6 @@ function OutgoingPreview({
   const promptText = title ? (getLine(title, lineIndex)?.text ?? "") : "";
   const leadIn = title ? leadInForPrompt(title, lineIndex) : [];
   const nextText = title ? (getNextPlayableLine(title, lineIndex)?.text ?? "") : "";
-  const [nextRevealed, setNextRevealed] = useState(false);
-  const showNext = Boolean(peerAnswered) || nextRevealed;
 
   return (
     <article className="inbox-line-card chats-outgoing-card">
@@ -98,19 +94,7 @@ function OutgoingPreview({
           </p>
         ))}
         <p className="prompt-current">{promptText || `Line ${lineIndex + 1}`}</p>
-        {nextText ? (
-          showNext ? (
-            <p className="inbox-nextline">{nextText}</p>
-          ) : (
-            <button
-              type="button"
-              className="button ghost chats-spoiler-next"
-              onClick={() => setNextRevealed(true)}
-            >
-              Reveal next line
-            </button>
-          )
-        ) : null}
+        {nextText ? <p className="inbox-nextline">{nextText}</p> : null}
       </blockquote>
       <ChatReactions
         targetKind="quote"
@@ -482,7 +466,6 @@ export function ChatThreadScreen({
                           label={entryLabel(message.titleId)}
                           fromLabel="You sent"
                           receiptLabel={dmReceiptLabel(message.receipt)}
-                          peerAnswered={message.peerAnswered}
                           answeredLabel={message.peerAnswered ? "Correct" : null}
                           shareId={message.shareId}
                           reactions={message.reactions}
@@ -546,7 +529,6 @@ export function ChatThreadScreen({
                             message.sentCount,
                             message.readCount,
                           )}
-                          peerAnswered={message.youSent && message.answeredCount > 0}
                           answeredLabel={groupAnsweredLabel(
                             message.youSent,
                             message.answeredCount,
