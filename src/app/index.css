@@ -1959,8 +1959,7 @@ code {
   flex-shrink: 0;
 }
 
-.chat-quote-star {
-  width: 2rem;
-  height: 2rem;
-  font-size: 1rem;
+.chats-receipt {
+  font-weight: 500;
+  white-space: nowrap;
 }

@@ -57,6 +57,7 @@ export type DmMessage = {
   from: { userId: string; displayName: string };
   createdAt: string;
   playable: boolean;
+  receipt: "sent" | "read" | null;
 };
 
 export type GroupMessage = {
@@ -66,6 +67,7 @@ export type GroupMessage = {
   from: { userId: string; displayName: string };
   createdAt: string;
   sentCount: number;
+  readCount: number;
   inboxId: string | null;
   playable: boolean;
   youSent: boolean;
@@ -101,7 +103,13 @@ export async function fetchDmThread(
           ? data.peer.displayName
           : "Friend",
     },
-    messages: Array.isArray(data.messages) ? data.messages : [],
+    messages: Array.isArray(data.messages)
+      ? data.messages.map((message) => ({
+          ...message,
+          receipt:
+            message.receipt === "sent" || message.receipt === "read" ? message.receipt : null,
+        }))
+      : [],
   };
 }
 
@@ -115,7 +123,12 @@ export async function fetchGroupThread(
   const data = (await response.json()) as { name?: string; messages?: GroupMessage[] };
   return {
     name: typeof data.name === "string" ? data.name : "Group",
-    messages: Array.isArray(data.messages) ? data.messages : [],
+    messages: Array.isArray(data.messages)
+      ? data.messages.map((message) => ({
+          ...message,
+          readCount: typeof message.readCount === "number" ? message.readCount : 0,
+        }))
+      : [],
   };
 }
 

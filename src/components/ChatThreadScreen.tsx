@@ -30,11 +30,13 @@ function OutgoingPreview({
   lineIndex,
   label,
   fromLabel,
+  receiptLabel,
 }: {
   titleId: string;
   lineIndex: number;
   label: string;
   fromLabel: string;
+  receiptLabel?: string | null;
 }) {
   const title = getTitle(titleId);
   const text = title ? (getLine(title, lineIndex)?.text ?? "") : "";
@@ -44,6 +46,12 @@ function OutgoingPreview({
         <p className="inbox-line-from">
           {fromLabel}
           <span className="muted"> · {label}</span>
+          {receiptLabel ? (
+            <span className="chats-receipt muted" title="Opened the chat">
+              {" "}
+              · {receiptLabel}
+            </span>
+          ) : null}
         </p>
         <ChatQuoteActions titleId={titleId} lineIndex={lineIndex} lineText={text} />
       </div>
@@ -52,6 +60,19 @@ function OutgoingPreview({
       </blockquote>
     </article>
   );
+}
+
+function dmReceiptLabel(receipt: DmMessage["receipt"]): string | null {
+  if (receipt === "read") return "Read";
+  if (receipt === "sent") return "Sent";
+  return null;
+}
+
+function groupReceiptLabel(youSent: boolean, sentCount: number, readCount: number): string | null {
+  if (!youSent) return null;
+  if (readCount <= 0) return "Sent";
+  if (readCount >= sentCount) return "Read";
+  return `Read ${readCount}/${sentCount}`;
 }
 
 function dmToInboxItem(message: DmMessage): InboxItem {
@@ -176,6 +197,7 @@ export function ChatThreadScreen({
                   lineIndex={message.lineIndex}
                   label={entryLabel(message.titleId)}
                   fromLabel="You sent"
+                  receiptLabel={dmReceiptLabel(message.receipt)}
                 />
               )}
             </li>
@@ -199,6 +221,11 @@ export function ChatThreadScreen({
                         ? `You sent · ${message.sentCount} received`
                         : `${message.from.displayName} · ${message.sentCount} received`
                     }
+                    receiptLabel={groupReceiptLabel(
+                      message.youSent,
+                      message.sentCount,
+                      message.readCount,
+                    )}
                   />
                 )}
               </li>
