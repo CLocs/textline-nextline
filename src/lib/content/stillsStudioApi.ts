@@ -11,6 +11,13 @@ export class StudioUnavailableError extends Error {
   }
 }
 
+function isHtmlBody(raw: string, contentType: string | null): boolean {
+  const type = contentType ?? "";
+  if (type.includes("text/html")) return true;
+  const start = raw.trimStart().slice(0, 15).toLowerCase();
+  return start.startsWith("<!doctype") || start.startsWith("<html");
+}
+
 async function studioFetch(path: string, init?: RequestInit): Promise<Response> {
   let response: Response;
   try {
@@ -25,7 +32,16 @@ async function studioFetch(path: string, init?: RequestInit): Promise<Response> 
 }
 
 async function readJson<T>(response: Response): Promise<T> {
-  const data = (await response.json()) as T & { error?: string };
+  const raw = await response.text();
+  if (isHtmlBody(raw, response.headers.get("content-type"))) {
+    throw new StudioUnavailableError();
+  }
+  let data: T & { error?: string };
+  try {
+    data = JSON.parse(raw) as T & { error?: string };
+  } catch {
+    throw new StudioUnavailableError();
+  }
   if (!response.ok) {
     throw new Error(data.error || `Studio request failed (${response.status})`);
   }
@@ -35,7 +51,8 @@ async function readJson<T>(response: Response): Promise<T> {
 export async function studioHealth(): Promise<boolean> {
   try {
     const response = await studioFetch("/health");
-    return response.ok;
+    const data = await readJson<{ ok?: boolean }>(response);
+    return data.ok === true;
   } catch {
     return false;
   }

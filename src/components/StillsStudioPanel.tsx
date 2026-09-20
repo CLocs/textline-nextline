@@ -54,9 +54,14 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       if (cancelled) return;
       setAvailable(ok);
       if (!ok) return;
-      void fetchStudioShows().then((list) => {
-        if (!cancelled) setShows(list);
-      });
+      void fetchStudioShows()
+        .then((list) => {
+          if (!cancelled) setShows(list);
+        })
+        .catch((err: unknown) => {
+          if (cancelled) return;
+          if (err instanceof StudioUnavailableError) setAvailable(false);
+        });
     });
     return () => {
       cancelled = true;
@@ -191,7 +196,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
   if (available === false) {
     return (
       <p className="muted">
-        Stills studio is local-only (ffmpeg and G:\videos). Start <code>npm run dev</code> on this machine.
+        Stills studio is local-only (ffmpeg and G:\videos). Production Pages does not
+        serve it — deploying will not help. On this machine run <code>npm run dev</code>{" "}
+        and open that localhost URL.
       </p>
     );
   }

@@ -418,7 +418,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Line / still feedback** — players report wrong scene image, request a scene image, or ask to split a line. See [Later ideas](#line--still-feedback).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
-- [x] **Share quote as image** — caption-below + on-image; aspect + Clean/Ink/Lime; remembered prefs. See [Share quote as image](#share-quote-as-image).
+- [x] **Share quote as image** — caption-below + on-image; Original aspect; Clean/Ink/Lime/None; remembered prefs. See [Share quote as image](#share-quote-as-image).
 - [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). Builds on share cards. See [Daily quote email](#daily-quote-email).
 - [ ] **Global search** — lines across all movies/shows; sort by crowd stars or starred-by-me; also match movie + episode titles. See [Global search](#global-search).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
@@ -706,9 +706,10 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 2. **Caption below** — scene still on top; quote + title + TLNL under the frame.
 3. **On image** — quote overlaid on a veiled still (or brand fallback).
 4. Client canvas PNG; still → poster → brand gradient fallback. Card shows **textline + next line** (next line emphasized).
-5. **Aspect** — Portrait (1080×1350), Square (1080×1080), Story (1080×1920).
-6. **Palettes** — Clean, Ink, Lime (brand-aligned).
+5. **Aspect** — Portrait (1080×1350), Square (1080×1080), Story (1080×1920), **Original** (native still ratio, full scene / no crop).
+6. **Palettes** — Clean, Ink, Lime, **None** (no hue veil; text shadow on On image for contrast).
 7. **Remembered prefs** — last format / aspect / palette in `localStorage`.
+8. Export modal row labels: Captions / Aspect Ratio / Palette.
 
 **Later:** [Daily quote email](#daily-quote-email) cards → open TLNL → Export image.
 
@@ -915,7 +916,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - **Line / still feedback** *(later)* — on a textline: wrong scene image, request a scene image, split line. Catalog queue, not live edits. See [Later ideas](#line--still-feedback).
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
-- **Share quote as image** — ✅ Share → **Export image**; Caption below / On image; Portrait / Square / Story; Clean / Ink / Lime; remembered prefs; Download PNG (+ Web Share when available). Daily email later. See [Share quote as image](#share-quote-as-image).
+- **Share quote as image** — ✅ Share → **Export image**; Caption below / On image; Portrait / Square / Story / Original; Clean / Ink / Lime / None; remembered prefs; Download PNG (+ Web Share when available). Daily email later. See [Share quote as image](#share-quote-as-image).
 - **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
 - **Global search** *(parked)* — one query over lines across all movies/shows; sort most popular (crowd stars) or starred-by-me; also match movie + episode titles. See [Global search](#global-search).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).

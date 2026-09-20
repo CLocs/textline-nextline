@@ -2409,10 +2409,28 @@ code {
   font-weight: 600;
 }
 
+.quote-image-controls {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.quote-image-row-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .quote-image-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.4rem;
+}
+
+.quote-image-row-four {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .quote-image-chip {
@@ -2421,7 +2439,7 @@ code {
   padding: 0.35rem 0.45rem;
   background: var(--surface);
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 }
 
 .quote-image-chip.is-active {
@@ -2443,6 +2461,11 @@ code {
 .quote-image-palette-lime.is-active {
   background: color-mix(in srgb, var(--lime) 45%, white);
   border-color: color-mix(in srgb, var(--sage) 40%, var(--lime));
+}
+
+.quote-image-palette-none.is-active {
+  background: color-mix(in srgb, var(--bg) 40%, white);
+  border-color: color-mix(in srgb, var(--sage) 55%, var(--line));
 }
 
 .quote-image-preview-wrap {

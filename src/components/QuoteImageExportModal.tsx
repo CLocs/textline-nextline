@@ -26,12 +26,14 @@ const ASPECT_OPTIONS: { id: QuoteImageAspect; label: string }[] = [
   { id: "portrait", label: "Portrait" },
   { id: "square", label: "Square" },
   { id: "story", label: "Story" },
+  { id: "original", label: "Original" },
 ];
 
 const PALETTE_OPTIONS: { id: QuoteImagePalette; label: string }[] = [
   { id: "clean", label: "Clean" },
   { id: "ink", label: "Ink" },
   { id: "lime", label: "Lime" },
+  { id: "none", label: "None" },
 ];
 
 function canShareFiles(): boolean {
@@ -191,57 +193,84 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
           </button>
         </div>
 
-        <div className="quote-image-formats" role="radiogroup" aria-label="Format">
-          <button
-            type="button"
-            className={`quote-image-format${format === "caption-below" ? " is-active" : ""}`}
-            role="radio"
-            aria-checked={format === "caption-below"}
-            onClick={() => updateFormat("caption-below")}
+        <div className="quote-image-controls">
+          <p className="quote-image-row-label" id="quote-image-captions-label">
+            Captions
+          </p>
+          <div
+            className="quote-image-formats"
+            role="radiogroup"
+            aria-labelledby="quote-image-captions-label"
           >
-            Caption below
-          </button>
-          <button
-            type="button"
-            className={`quote-image-format${format === "on-image" ? " is-active" : ""}`}
-            role="radio"
-            aria-checked={format === "on-image"}
-            onClick={() => updateFormat("on-image")}
-          >
-            On image
-          </button>
+            <button
+              type="button"
+              className={`quote-image-format${format === "caption-below" ? " is-active" : ""}`}
+              role="radio"
+              aria-checked={format === "caption-below"}
+              onClick={() => updateFormat("caption-below")}
+            >
+              Caption below
+            </button>
+            <button
+              type="button"
+              className={`quote-image-format${format === "on-image" ? " is-active" : ""}`}
+              role="radio"
+              aria-checked={format === "on-image"}
+              onClick={() => updateFormat("on-image")}
+            >
+              On image
+            </button>
+          </div>
         </div>
 
-        <div className="quote-image-row" role="radiogroup" aria-label="Aspect">
-          {ASPECT_OPTIONS.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              className={`quote-image-chip${aspect === option.id ? " is-active" : ""}`}
-              role="radio"
-              aria-checked={aspect === option.id}
-              onClick={() => updateAspect(option.id)}
-            >
-              {option.label}
-            </button>
-          ))}
+        <div className="quote-image-controls">
+          <p className="quote-image-row-label" id="quote-image-aspect-label">
+            Aspect Ratio
+          </p>
+          <div
+            className="quote-image-row quote-image-row-four"
+            role="radiogroup"
+            aria-labelledby="quote-image-aspect-label"
+          >
+            {ASPECT_OPTIONS.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                className={`quote-image-chip${aspect === option.id ? " is-active" : ""}`}
+                role="radio"
+                aria-checked={aspect === option.id}
+                onClick={() => updateAspect(option.id)}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="quote-image-row" role="radiogroup" aria-label="Palette">
-          {PALETTE_OPTIONS.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              className={`quote-image-chip quote-image-palette-${option.id}${
-                palette === option.id ? " is-active" : ""
-              }`}
-              role="radio"
-              aria-checked={palette === option.id}
-              onClick={() => updatePalette(option.id)}
-            >
-              {option.label}
-            </button>
-          ))}
+        <div className="quote-image-controls">
+          <p className="quote-image-row-label" id="quote-image-palette-label">
+            Palette
+          </p>
+          <div
+            className="quote-image-row quote-image-row-four"
+            role="radiogroup"
+            aria-labelledby="quote-image-palette-label"
+          >
+            {PALETTE_OPTIONS.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                className={`quote-image-chip quote-image-palette-${option.id}${
+                  palette === option.id ? " is-active" : ""
+                }`}
+                role="radio"
+                aria-checked={palette === option.id}
+                onClick={() => updatePalette(option.id)}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="quote-image-preview-wrap">

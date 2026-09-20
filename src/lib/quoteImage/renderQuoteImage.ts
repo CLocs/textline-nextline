@@ -1,6 +1,7 @@
 import {
   imageBandRatio,
   sizeForAspect,
+  sizeForOriginalImage,
   type QuoteImageAspect,
   type QuoteImageFormat,
   type QuoteImagePalette,
@@ -37,6 +38,7 @@ type PaletteTokens = {
   onPrompt: string;
   onNext: string;
   onMeta: string;
+  textShadow: boolean;
 };
 
 function paletteTokens(palette: QuoteImagePalette): PaletteTokens {
@@ -57,6 +59,7 @@ function paletteTokens(palette: QuoteImagePalette): PaletteTokens {
         onPrompt: "rgba(244, 248, 245, 0.82)",
         onNext: "#f4f8f5",
         onMeta: "rgba(244, 248, 245, 0.85)",
+        textShadow: false,
       };
     case "lime":
       return {
@@ -74,6 +77,25 @@ function paletteTokens(palette: QuoteImagePalette): PaletteTokens {
         onPrompt: "rgba(244, 248, 245, 0.88)",
         onNext: "#c9f299",
         onMeta: "rgba(244, 248, 245, 0.9)",
+        textShadow: false,
+      };
+    case "none":
+      return {
+        canvasBg: "#f4f8f5",
+        captionBand: "#f4f8f5",
+        prompt: "rgba(79, 52, 90, 0.78)",
+        next: "#4f345a",
+        meta: "rgba(79, 52, 90, 0.72)",
+        brand: "rgba(79, 52, 90, 0.55)",
+        brandAccent: "#f4f8f5",
+        fallbackFrom: "#9cbfa7",
+        fallbackTo: "#4f345a",
+        fallbackMark: "rgba(244, 248, 245, 0.88)",
+        veilStops: ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0)"],
+        onPrompt: "#f4f8f5",
+        onNext: "#ffffff",
+        onMeta: "#f4f8f5",
+        textShadow: true,
       };
     case "clean":
     default:
@@ -92,6 +114,7 @@ function paletteTokens(palette: QuoteImagePalette): PaletteTokens {
         onPrompt: "rgba(244, 248, 245, 0.82)",
         onNext: "#f4f8f5",
         onMeta: "rgba(244, 248, 245, 0.85)",
+        textShadow: false,
       };
   }
 }
@@ -149,6 +172,23 @@ function drawCoverImage(
   ctx.drawImage(image, sx, sy, sw, sh, x, y, w, h);
 }
 
+/** Full scene, letterbox/pillarbox — no crop. */
+function drawContainImage(
+  ctx: CanvasRenderingContext2D,
+  image: HTMLImageElement,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+) {
+  const scale = Math.min(w / image.naturalWidth, h / image.naturalHeight);
+  const dw = image.naturalWidth * scale;
+  const dh = image.naturalHeight * scale;
+  const dx = x + (w - dw) / 2;
+  const dy = y + (h - dh) / 2;
+  ctx.drawImage(image, dx, dy, dw, dh);
+}
+
 function drawBrandFallback(
   ctx: CanvasRenderingContext2D,
   tokens: PaletteTokens,
@@ -179,13 +219,42 @@ function drawBackdrop(
   w: number,
   h: number,
   markSize: number,
+  contain: boolean,
 ) {
-  if (image) drawCoverImage(ctx, image, x, y, w, h);
-  else drawBrandFallback(ctx, tokens, x, y, w, h, markSize);
+  if (image) {
+    if (contain) drawContainImage(ctx, image, x, y, w, h);
+    else drawCoverImage(ctx, image, x, y, w, h);
+  } else {
+    drawBrandFallback(ctx, tokens, x, y, w, h, markSize);
+  }
+}
+
+function withTextShadow(ctx: CanvasRenderingContext2D, enabled: boolean, draw: () => void) {
+  if (enabled) {
+    ctx.shadowColor = "rgba(0, 0, 0, 0.72)";
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 2;
+  }
+  draw();
+  if (enabled) {
+    ctx.shadowColor = "transparent";
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+  }
 }
 
 function layoutScale(width: number, height: number): number {
   return Math.min(width, height) / 1080;
+}
+
+function canvasSizeFor(
+  aspect: QuoteImageAspect,
+  image: HTMLImageElement | null,
+): { width: number; height: number } {
+  if (aspect === "original" && image) return sizeForOriginalImage(image);
+  return sizeForAspect(aspect);
 }
 
 function renderCaptionBelow(
@@ -206,10 +275,16 @@ function renderCaptionBelow(
   const brandSize = Math.round(24 * scale);
   const promptStep = Math.round(54 * scale);
   const nextStep = Math.round(64 * scale);
+  const contain = input.aspect === "original";
 
   ctx.fillStyle = tokens.captionBand;
   ctx.fillRect(0, 0, width, height);
-  drawBackdrop(ctx, tokens, input.image, 0, 0, width, imageH, Math.round(42 * scale));
+  // Letterbox fill behind contain draws
+  if (contain) {
+    ctx.fillStyle = tokens.canvasBg;
+    ctx.fillRect(0, 0, width, imageH);
+  }
+  drawBackdrop(ctx, tokens, input.image, 0, 0, width, imageH, Math.round(42 * scale), contain);
 
   ctx.fillStyle = tokens.captionBand;
   ctx.fillRect(0, imageH, width, height - imageH);
@@ -265,15 +340,23 @@ function renderOnImage(
   const promptH = Math.round(56 * scale);
   const nextH = Math.round(68 * scale);
   const gap = hasNext ? Math.round(28 * scale) : 0;
+  const contain = input.aspect === "original";
 
-  drawBackdrop(ctx, tokens, input.image, 0, 0, width, height, Math.round(42 * scale));
+  if (contain) {
+    ctx.fillStyle = tokens.canvasBg;
+    ctx.fillRect(0, 0, width, height);
+  }
+  drawBackdrop(ctx, tokens, input.image, 0, 0, width, height, Math.round(42 * scale), contain);
 
-  const veil = ctx.createLinearGradient(0, 0, 0, height);
-  veil.addColorStop(0, tokens.veilStops[0]);
-  veil.addColorStop(0.45, tokens.veilStops[1]);
-  veil.addColorStop(1, tokens.veilStops[2]);
-  ctx.fillStyle = veil;
-  ctx.fillRect(0, 0, width, height);
+  const veilOpaque = tokens.veilStops.some((stop) => !stop.endsWith(", 0)"));
+  if (veilOpaque) {
+    const veil = ctx.createLinearGradient(0, 0, 0, height);
+    veil.addColorStop(0, tokens.veilStops[0]);
+    veil.addColorStop(0.45, tokens.veilStops[1]);
+    veil.addColorStop(1, tokens.veilStops[2]);
+    ctx.fillStyle = veil;
+    ctx.fillRect(0, 0, width, height);
+  }
 
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -286,37 +369,41 @@ function renderOnImage(
   const blockH = promptLines.length * promptH + gap + nextLines.length * nextH;
   let y = height / 2 - blockH / 2 + promptH / 2;
 
-  ctx.fillStyle = tokens.onPrompt;
-  ctx.font = `500 ${promptSize}px ${SERIF}`;
-  for (const line of promptLines) {
-    ctx.fillText(line, width / 2, y);
-    y += promptH;
-  }
-
-  if (hasNext) {
-    y += gap - promptH / 2 + nextH / 2;
-    ctx.fillStyle = tokens.onNext;
-    ctx.font = `600 ${nextSize}px ${SERIF}`;
-    for (const line of nextLines) {
+  withTextShadow(ctx, tokens.textShadow, () => {
+    ctx.fillStyle = tokens.onPrompt;
+    ctx.font = `500 ${promptSize}px ${SERIF}`;
+    for (const line of promptLines) {
       ctx.fillText(line, width / 2, y);
-      y += nextH;
+      y += promptH;
     }
-  }
 
-  ctx.textAlign = "left";
-  ctx.textBaseline = "alphabetic";
-  ctx.font = `500 ${metaSize}px ${SERIF}`;
-  ctx.fillStyle = tokens.onMeta;
-  ctx.fillText(input.titleLabel, pad, height - Math.round(88 * scale));
+    if (hasNext) {
+      y += gap - promptH / 2 + nextH / 2;
+      ctx.fillStyle = tokens.onNext;
+      ctx.font = `600 ${nextSize}px ${SERIF}`;
+      for (const line of nextLines) {
+        ctx.fillText(line, width / 2, y);
+        y += nextH;
+      }
+    }
+  });
 
-  ctx.textAlign = "right";
-  ctx.font = `600 ${brandSize}px ${SERIF}`;
-  ctx.fillStyle = tokens.brandAccent;
-  ctx.fillText(BRAND, width - pad, height - Math.round(88 * scale));
+  withTextShadow(ctx, tokens.textShadow, () => {
+    ctx.textAlign = "left";
+    ctx.textBaseline = "alphabetic";
+    ctx.font = `500 ${metaSize}px ${SERIF}`;
+    ctx.fillStyle = tokens.onMeta;
+    ctx.fillText(input.titleLabel, pad, height - Math.round(88 * scale));
+
+    ctx.textAlign = "right";
+    ctx.font = `600 ${brandSize}px ${SERIF}`;
+    ctx.fillStyle = tokens.brandAccent;
+    ctx.fillText(BRAND, width - pad, height - Math.round(88 * scale));
+  });
 }
 
 export function renderQuoteImageCanvas(input: RenderQuoteImageInput): HTMLCanvasElement {
-  const { width, height } = sizeForAspect(input.aspect);
+  const { width, height } = canvasSizeFor(input.aspect, input.image);
   const tokens = paletteTokens(input.palette);
   const canvas = document.createElement("canvas");
   canvas.width = width;
