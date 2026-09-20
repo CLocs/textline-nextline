@@ -16,6 +16,7 @@ import {
   loadUploadsSnapshot,
 } from "../lib/content/catalogOpsData";
 import { fetchOpsCatalog } from "../lib/ops/api";
+import { StillsStudioPanel } from "./StillsStudioPanel";
 
 type Props = {
   user: AuthUser;
@@ -52,6 +53,8 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   const [live, setLive] = useState(false);
   const [sortKey, setSortKey] = useState<CatalogOpsSortKey>("label");
   const [sortDir, setSortDir] = useState<CatalogOpsSortDir>("asc");
+  const [tab, setTab] = useState<"catalog" | "stills">("catalog");
+  const [stillsShow, setStillsShow] = useState("The Simpsons");
 
   useEffect(() => {
     let cancelled = false;
@@ -110,6 +113,26 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
         </p>
       </div>
 
+      <div className="ops-tabs">
+        <button
+          type="button"
+          className={`button ghost${tab === "catalog" ? " is-active" : ""}`}
+          onClick={() => setTab("catalog")}
+        >
+          Catalog
+        </button>
+        <button
+          type="button"
+          className={`button ghost${tab === "stills" ? " is-active" : ""}`}
+          onClick={() => setTab("stills")}
+        >
+          Stills
+        </button>
+      </div>
+
+      {tab === "stills" ? <StillsStudioPanel initialShow={stillsShow} /> : null}
+
+      {tab === "catalog" ? (
       <div className="ops-table-wrap">
         <table className="ops-table">
           <thead>
@@ -141,6 +164,21 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
                   {row.episodeCount != null ? (
                     <span className="muted"> · {row.episodeCount} eps</span>
                   ) : null}
+                  {row.kind === "show" ? (
+                    <>
+                      {" "}
+                      <button
+                        type="button"
+                        className="button ghost ops-review-stills"
+                        onClick={() => {
+                          setStillsShow(row.label);
+                          setTab("stills");
+                        }}
+                      >
+                        Review stills
+                      </button>
+                    </>
+                  ) : null}
                 </td>
                 <td>{row.kind}</td>
                 <td>{row.curated ? "yes" : ""}</td>
@@ -159,6 +197,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
           </tbody>
         </table>
       </div>
+      ) : null}
     </section>
   );
 }

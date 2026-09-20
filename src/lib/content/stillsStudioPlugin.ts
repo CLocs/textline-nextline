@@ -1,0 +1,165 @@
+import { createReadStream, existsSync, statSync } from "node:fs";
+import { isAbsolute, join, normalize, relative } from "node:path";
+import type { IncomingMessage, ServerResponse } from "node:http";
+import type { PreviewServer, ViteDevServer } from "vite";
+import {
+  createStudioContext,
+  listStudioShows,
+  studioApprove,
+  studioEpisode,
+  studioExtract,
+  studioHealth,
+  studioPush,
+  studioQueue,
+} from "./stillsStudioActions.js";
+import type { StudioExtractMode } from "./stillsStudioTypes.js";
+
+const PREFIX = "/api/stills-studio";
+
+function sendJson(res: ServerResponse, status: number, body: unknown): void {
+  res.statusCode = status;
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(body));
+}
+
+function readBody(req: IncomingMessage): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
+    req.on("data", (chunk: Buffer) => chunks.push(chunk));
+    req.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    req.on("error", reject);
+  });
+}
+
+function parseMode(raw: unknown): StudioExtractMode {
+  if (raw === "retry" || raw === "batch" || raw === "handful") return raw;
+  return "handful";
+}
+
+export function stillsStudioPlugin() {
+  const packageRoot = process.cwd();
+  const ctx = createStudioContext(packageRoot);
+  let busy = false;
+
+  async function handle(req: IncomingMessage, res: ServerResponse, next: () => void): Promise<void> {
+    const url = new URL(req.url ?? "", "http://studio.local");
+    if (!url.pathname.startsWith(PREFIX)) {
+      next();
+      return;
+    }
+
+    const path = url.pathname.slice(PREFIX.length) || "/";
+    try {
+      if (req.method === "GET" && path === "/health") {
+        sendJson(res, 200, studioHealth());
+        return;
+      }
+      if (req.method === "GET" && path === "/shows") {
+        sendJson(res, 200, listStudioShows(ctx));
+        return;
+      }
+      if (req.method === "GET" && path === "/queue") {
+        const show = url.searchParams.get("show") ?? "The Simpsons";
+        sendJson(res, 200, studioQueue(ctx, show));
+        return;
+      }
+      if (req.method === "GET" && path === "/episode") {
+        const titleId = url.searchParams.get("titleId") ?? "";
+        sendJson(res, 200, studioEpisode(ctx, titleId));
+        return;
+      }
+
+      if (busy) {
+        sendJson(res, 409, { error: "Studio is busy with another extract." });
+        return;
+      }
+
+      if (req.method === "POST" && (path === "/extract" || path === "/batch" || path === "/approve" || path === "/push")) {
+        const raw = await readBody(req);
+        const body = raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
+        const titleId = typeof body.titleId === "string" ? body.titleId : "";
+        busy = true;
+        try {
+          if (path === "/approve") {
+            sendJson(res, 200, studioApprove(ctx, titleId));
+            return;
+          }
+          if (path === "/push") {
+            sendJson(res, 200, await studioPush(ctx, titleId));
+            return;
+          }
+          const mode = path === "/batch" ? "batch" : parseMode(body.mode);
+          const lineOffsets =
+            body.lineOffsets && typeof body.lineOffsets === "object" && !Array.isArray(body.lineOffsets)
+              ? (body.lineOffsets as Record<string, number>)
+              : undefined;
+          sendJson(
+            res,
+            200,
+            studioExtract(ctx, {
+              titleId,
+              mode,
+              offsetMs: typeof body.offsetMs === "number" ? body.offsetMs : undefined,
+              timeScale: typeof body.timeScale === "number" ? body.timeScale : undefined,
+              lineOffsets,
+            }),
+          );
+        } finally {
+          busy = false;
+        }
+        return;
+      }
+
+      sendJson(res, 404, { error: "Unknown stills studio route." });
+    } catch (error) {
+      busy = false;
+      sendJson(res, 400, { error: error instanceof Error ? error.message : String(error) });
+    }
+  }
+
+  return {
+    name: "stills-studio",
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use((req, res, next) => {
+        void handle(req, res, next);
+      });
+    },
+    configurePreviewServer(server: PreviewServer) {
+      server.middlewares.use((req, res, next) => {
+        void handle(req, res, next);
+      });
+    },
+  };
+}
+
+/** Serve gitignored quote stills at /stills in `vite` / `vite preview`. */
+export function stillsPreviewPlugin() {
+  const previewRoot = normalize(join(process.cwd(), "inbox", "stills-preview"));
+
+  function handle(req: IncomingMessage, res: ServerResponse, next: () => void): void {
+    const raw = req.url ?? "";
+    if (!raw.startsWith("/stills/")) {
+      next();
+      return;
+    }
+    const rel = decodeURIComponent(raw.slice("/stills/".length).split("?")[0] ?? "");
+    const file = normalize(join(previewRoot, rel));
+    const inside = relative(previewRoot, file);
+    if (inside.startsWith("..") || isAbsolute(inside) || !existsSync(file) || !statSync(file).isFile()) {
+      next();
+      return;
+    }
+    res.setHeader("Content-Type", "image/jpeg");
+    createReadStream(file).pipe(res);
+  }
+
+  return {
+    name: "stills-preview",
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use(handle);
+    },
+    configurePreviewServer(server: PreviewServer) {
+      server.middlewares.use(handle);
+    },
+  };
+}

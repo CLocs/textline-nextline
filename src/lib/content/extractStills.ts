@@ -14,7 +14,16 @@ export type StillsSyncEntry = {
   fps?: number;
   durationSec?: number;
   note?: string;
+  /** Extra ms on top of title offsetMs, keyed by line index. */
+  lineOffsets?: Record<string, number>;
+  handful?: number[];
+  approvedAt?: string;
+  batchedAt?: string;
+  pushedAt?: string;
 };
+
+/** DIV3 Simpsons TV rips skip the theme vs the SRT. */
+export const SIMPSONS_THEME_OFFSET_MS = -57_000;
 
 export type StillsSyncFile = Record<string, StillsSyncEntry>;
 
@@ -38,10 +47,12 @@ export function parseLineIndices(raw: string): number[] {
   return indices;
 }
 
-export function seekSeconds(startMs: number, offsetMs: number, timeScale = 1): number {
-  const ms = startMs * timeScale + offsetMs;
+export function seekSeconds(startMs: number, offsetMs: number, timeScale = 1, extraMs = 0): number {
+  const ms = startMs * timeScale + offsetMs + extraMs;
   if (!Number.isFinite(ms)) {
-    throw new Error(`Invalid seek: startMs=${startMs} offsetMs=${offsetMs} timeScale=${timeScale}`);
+    throw new Error(
+      `Invalid seek: startMs=${startMs} offsetMs=${offsetMs} timeScale=${timeScale} extraMs=${extraMs}`,
+    );
   }
   return ms / 1000;
 }
@@ -73,6 +84,18 @@ export function offsetMsForTitle(sync: StillsSyncFile, titleId: string): number 
   return entry.offsetMs;
 }
 
+export function lineOffsetMs(sync: StillsSyncFile, titleId: string, lineIndex: number): number {
+  const extra = sync[titleId]?.lineOffsets?.[String(lineIndex)];
+  if (extra == null || !Number.isFinite(extra)) return 0;
+  return extra;
+}
+
+export function defaultOffsetMsForShow(show: string | undefined | null): number {
+  const name = show?.trim().toLowerCase() ?? "";
+  if (name === "the simpsons" || name.startsWith("the simpsons")) return SIMPSONS_THEME_OFFSET_MS;
+  return 0;
+}
+
 /** PAL 25fps vs theatrical 24fps is 0.96. Missing/invalid → 1. */
 export function timeScaleForTitle(sync: StillsSyncFile, titleId: string): number {
   const scale = sync[titleId]?.timeScale;
@@ -87,6 +110,18 @@ export function loadStillsSyncFile(path: string): StillsSyncFile {
     throw new Error("stills-sync.json must be an object keyed by title id.");
   }
   return raw as StillsSyncFile;
+}
+
+export function cueSeekSeconds(
+  cue: Pick<Line, "startMs" | "endMs">,
+  opts: { offsetMs: number; timeScale?: number; extraMs?: number; seek?: CueSeek },
+): number {
+  return seekSeconds(
+    cueAnchorMs(cue, opts.seek ?? "start"),
+    opts.offsetMs,
+    opts.timeScale ?? 1,
+    opts.extraMs ?? 0,
+  );
 }
 
 /**

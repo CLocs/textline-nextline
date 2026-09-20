@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
   cueAnchorMs,
+  defaultOffsetMsForShow,
   ffmpegExtractArgs,
   ffmpegRemuxArgs,
+  lineOffsetMs,
   mediaRemuxOutput,
   offsetMsForTitle,
   parseLineIndices,
@@ -11,6 +13,7 @@ import {
   seekSeconds,
   stillFileName,
   timeScaleForTitle,
+  SIMPSONS_THEME_OFFSET_MS,
 } from "../src/lib/content/extractStills.js";
 import type { Title } from "../src/types/content.js";
 
@@ -34,6 +37,10 @@ describe("seekSeconds", () => {
 
   it("applies PAL timeScale before offset", () => {
     expect(seekSeconds(6975136, 0, 24 / 25)).toBeCloseTo(6696.13056, 5);
+  });
+
+  it("adds per-line extra after title offset", () => {
+    expect(seekSeconds(171_000, -57_000, 1, -40_000)).toBe(74);
   });
 });
 
@@ -77,6 +84,26 @@ describe("offsetMsForTitle", () => {
     expect(offsetMsForTitle({ "oceans-thirteen-2007": { offsetMs: -400 } }, "oceans-thirteen-2007")).toBe(
       -400,
     );
+  });
+});
+
+describe("lineOffsetMs", () => {
+  it("reads extra ms for a line", () => {
+    expect(lineOffsetMs({}, "x", 103)).toBe(0);
+    expect(
+      lineOffsetMs({ x: { offsetMs: -57000, lineOffsets: { "103": -5000, "162": -40000 } } }, "x", 103),
+    ).toBe(-5000);
+    expect(
+      lineOffsetMs({ x: { offsetMs: -57000, lineOffsets: { "103": -5000 } } }, "x", 171),
+    ).toBe(0);
+  });
+});
+
+describe("defaultOffsetMsForShow", () => {
+  it("uses -57s for Simpsons TV rips", () => {
+    expect(defaultOffsetMsForShow("The Simpsons")).toBe(SIMPSONS_THEME_OFFSET_MS);
+    expect(defaultOffsetMsForShow("It's Always Sunny in Philadelphia")).toBe(0);
+    expect(defaultOffsetMsForShow(undefined)).toBe(0);
   });
 });
 
