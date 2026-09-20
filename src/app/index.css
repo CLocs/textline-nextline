@@ -1460,7 +1460,7 @@ code {
 
 .curate-send-menu {
   position: fixed;
-  z-index: 20;
+  z-index: 45;
   width: min(18rem, calc(100vw - 2rem));
   max-height: min(24rem, calc(100vh - 4rem));
   overflow: auto;
@@ -2208,4 +2208,83 @@ code {
   font-weight: 600;
   color: var(--success, #1e5c38);
   white-space: nowrap;
+}
+
+.quote-image-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--ink) 40%, transparent);
+}
+
+.quote-image-dialog {
+  width: min(28rem, 100%);
+  max-height: min(92vh, 52rem);
+  overflow: auto;
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.15rem 1.25rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-raised);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.quote-image-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.quote-image-header h3 {
+  margin: 0;
+}
+
+.quote-image-formats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.quote-image-format {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.quote-image-format.is-active {
+  border-color: color-mix(in srgb, var(--brand) 45%, var(--line));
+  background: color-mix(in srgb, var(--mint) 28%, white);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.quote-image-preview-wrap {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  padding: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bg) 70%, white);
+}
+
+.quote-image-preview {
+  width: 100%;
+  max-height: min(52vh, 28rem);
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.quote-image-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }

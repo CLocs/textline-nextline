@@ -4,6 +4,7 @@ import { isLocalDevSession } from "../lib/auth/session";
 import { fetchFriends, type FriendListItem } from "../lib/friends/api";
 import { fetchGroups, type FriendGroup } from "../lib/groups/api";
 import { copyLineShare, sendLineToFriend, sendLineToGroup } from "../lib/inbox/api";
+import { QuoteImageExportModal } from "./QuoteImageExportModal";
 
 type Props = {
   titleId: string;
@@ -35,6 +36,7 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
   const [error, setError] = useState<string | null>(null);
   const [sentPeople, setSentPeople] = useState<Set<string>>(new Set());
   const [sentGroups, setSentGroups] = useState<Set<string>>(new Set());
+  const [exportOpen, setExportOpen] = useState(false);
 
   useEffect(() => {
     setOpen(autoOpen);
@@ -44,6 +46,7 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
     setSentGroups(new Set());
     setBusyTargets(new Set());
     setCopyBusy(false);
+    setExportOpen(false);
   }, [titleId, lineIndex, autoOpen]);
 
   useEffect(() => {
@@ -89,7 +92,6 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
   }, [open, apiReady]);
 
   function toggle() {
-    if (!apiReady) return;
     const box = buttonRef.current?.getBoundingClientRect();
     if (box) {
       setAnchor({ top: box.bottom + 6, right: window.innerWidth - box.right });
@@ -97,6 +99,11 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
     setMessage(null);
     setError(null);
     setOpen((value) => !value);
+  }
+
+  function openExport() {
+    setOpen(false);
+    setExportOpen(true);
   }
 
   function markBusy(key: string, busy: boolean) {
@@ -166,11 +173,10 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
         ref={buttonRef}
         type="button"
         className="curate-send"
-        aria-label="Send this line"
+        aria-label="Share this line"
         aria-expanded={open}
         aria-haspopup="dialog"
-        disabled={!apiReady}
-        title={apiReady ? "Send or copy this line" : "Sign in on the live API to send lines"}
+        title="Export image, send, or copy this line"
         onClick={toggle}
       >
         <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
@@ -185,80 +191,96 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
           ref={menuRef}
           className="curate-send-menu"
           role="dialog"
-          aria-label="Send this line"
+          aria-label="Share this line"
           style={{ top: anchor.top, right: anchor.right }}
         >
-          <button
-            type="button"
-            className="button primary"
-            disabled={copyBusy}
-            onClick={() => void handleCopy()}
-          >
-            Copy link
+          <button type="button" className="button primary" onClick={openExport}>
+            Export image
           </button>
-          {friends.length === 0 && groups.length === 0 ? (
-            <p className="muted">
-              No friends yet. Add someone in Profile → Friends, or copy the link.
-            </p>
-          ) : (
+          {apiReady ? (
             <>
-              {groups.length > 0 ? (
+              <button
+                type="button"
+                className="button ghost"
+                disabled={copyBusy}
+                onClick={() => void handleCopy()}
+              >
+                Copy link
+              </button>
+              {friends.length === 0 && groups.length === 0 ? (
+                <p className="muted">
+                  No friends yet. Add someone in Profile → Friends, or copy the link.
+                </p>
+              ) : (
                 <>
-                  <p className="curate-send-heading">Groups</p>
-                  <ul className="curate-send-friends">
-                    {groups.map((group) => {
-                      const sent = sentGroups.has(group.id);
-                      const busy = busyTargets.has(`group:${group.id}`);
-                      return (
-                      <li key={group.id}>
-                        <span>{group.name}</span>
-                        <button
-                          type="button"
-                          className="button ghost"
-                          disabled={busy || sent}
-                          onClick={() => void handleSendGroup(group)}
-                        >
-                          {sent ? "Sent" : busy ? "…" : "Send"}
-                        </button>
-                      </li>
-                      );
-                    })}
-                  </ul>
+                  {groups.length > 0 ? (
+                    <>
+                      <p className="curate-send-heading">Groups</p>
+                      <ul className="curate-send-friends">
+                        {groups.map((group) => {
+                          const sent = sentGroups.has(group.id);
+                          const busy = busyTargets.has(`group:${group.id}`);
+                          return (
+                            <li key={group.id}>
+                              <span>{group.name}</span>
+                              <button
+                                type="button"
+                                className="button ghost"
+                                disabled={busy || sent}
+                                onClick={() => void handleSendGroup(group)}
+                              >
+                                {sent ? "Sent" : busy ? "…" : "Send"}
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  ) : null}
+                  {friends.length > 0 ? (
+                    <>
+                      {groups.length > 0 ? <p className="curate-send-heading">Friends</p> : null}
+                      <ul className="curate-send-friends">
+                        {friends.map((friend) => {
+                          const sent = sentPeople.has(friend.userId);
+                          const busy = busyTargets.has(`friend:${friend.userId}`);
+                          return (
+                            <li key={friend.userId}>
+                              <span>{friend.displayName}</span>
+                              <button
+                                type="button"
+                                className="button ghost"
+                                disabled={busy || sent}
+                                onClick={() => void handleSend(friend)}
+                              >
+                                {sent ? "Sent" : busy ? "…" : "Send"}
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  ) : null}
                 </>
-              ) : null}
-              {friends.length > 0 ? (
-                <>
-                  {groups.length > 0 ? <p className="curate-send-heading">Friends</p> : null}
-                  <ul className="curate-send-friends">
-                    {friends.map((friend) => {
-                      const sent = sentPeople.has(friend.userId);
-                      const busy = busyTargets.has(`friend:${friend.userId}`);
-                      return (
-                      <li key={friend.userId}>
-                        <span>{friend.displayName}</span>
-                        <button
-                          type="button"
-                          className="button ghost"
-                          disabled={busy || sent}
-                          onClick={() => void handleSend(friend)}
-                        >
-                          {sent ? "Sent" : busy ? "…" : "Send"}
-                        </button>
-                      </li>
-                      );
-                    })}
-                  </ul>
-                </>
+              )}
+              {message ? <p className="muted">{message}</p> : null}
+              {error ? (
+                <p className="feedback wrong" role="alert">
+                  {error}
+                </p>
               ) : null}
             </>
+          ) : (
+            <p className="muted">Sign in on the live API to send or copy a link.</p>
           )}
-          {message ? <p className="muted">{message}</p> : null}
-          {error ? (
-            <p className="feedback wrong" role="alert">
-              {error}
-            </p>
-          ) : null}
         </div>
+      ) : null}
+      {exportOpen ? (
+        <QuoteImageExportModal
+          titleId={titleId}
+          lineIndex={lineIndex}
+          onClose={() => setExportOpen(false)}
+        />
       ) : null}
     </>
   );
