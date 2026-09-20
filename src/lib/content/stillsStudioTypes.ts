@@ -24,6 +24,11 @@ export type StudioEpisode = {
   stillCount: number;
   durationSec: number | null;
   durationWarn: boolean;
+  fps: number | null;
+  seek: "start" | "mid";
+  methodId: string;
+  methodLabel: string;
+  triedMethodIds: string[];
 };
 
 export type StudioQueue = {
@@ -44,4 +49,4 @@ export type StudioFrame = {
   error?: string;
 };
 
-export type StudioExtractMode = "handful" | "retry" | "batch";
+export type StudioExtractMode = "handful" | "retry" | "smart" | "batch";

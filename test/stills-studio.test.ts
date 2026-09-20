@@ -1,3 +1,6 @@
+import { mkdtempSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import type { Title } from "../src/types/content.js";
 import { pickHandfulIndices } from "../src/lib/content/stillsHandful.js";
@@ -5,6 +8,8 @@ import {
   buildShowQueue,
   durationPastEof,
   episodeStatus,
+  listPreviewStillIndices,
+  parseFrameRate,
   STUDIO_SKIP_TITLE_IDS,
   videoDirForShow,
 } from "../src/lib/content/stillsStudio.js";
@@ -96,5 +101,22 @@ describe("buildShowQueue", () => {
     expect(queue.episodes.map((ep) => ep.titleId)).toEqual(["the-simpsons---4x03---homer-the-hereticen"]);
     expect(queue.episodes[0]?.status).toBe("no-file");
     expect(queue.episodes[0]?.offsetMs).toBe(-57000);
+  });
+});
+
+describe("listPreviewStillIndices", () => {
+  it("lists jpeg line indices in order", () => {
+    const dir = mkdtempSync(join(tmpdir(), "stills-preview-idx-"));
+    writeFileSync(join(dir, "88.jpg"), "");
+    writeFileSync(join(dir, "25.jpg"), "");
+    writeFileSync(join(dir, "readme.txt"), "");
+    expect(listPreviewStillIndices(dir)).toEqual([25, 88]);
+  });
+});
+
+describe("parseFrameRate", () => {
+  it("parses ntsc and pal probe strings", () => {
+    expect(parseFrameRate("30000/1001")).toBeCloseTo(29.97, 2);
+    expect(parseFrameRate("25/1")).toBe(25);
   });
 });

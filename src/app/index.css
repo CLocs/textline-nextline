@@ -1539,6 +1539,15 @@ code {
   gap: 0.5rem;
 }
 
+.curate-send-target.is-sent,
+.curate-send-target.is-sent:disabled {
+  color: color-mix(in srgb, var(--muted) 55%, white);
+  background: color-mix(in srgb, var(--bg) 55%, white);
+  border-color: color-mix(in srgb, var(--line) 70%, white);
+  opacity: 1;
+  cursor: default;
+}
+
 .curate-line-index {
   display: block;
   font-size: 0.78rem;
@@ -1757,6 +1766,30 @@ code {
   grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
   gap: 0.85rem;
   margin: 0.85rem 0 1rem;
+}
+
+.stills-review-grid.is-gallery {
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+}
+
+.stills-studio-busy {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stills-tried {
+  font-size: 0.85rem;
+}
+
+.stills-knobs {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.stills-knobs summary {
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .stills-frame-card {

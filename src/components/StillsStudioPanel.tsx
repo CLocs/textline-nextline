@@ -4,6 +4,7 @@ import {
   fetchStudioEpisode,
   fetchStudioQueue,
   fetchStudioShows,
+  openStudioPreview,
   pushStudioEpisode,
   runStudioExtract,
   studioHealth,
@@ -13,7 +14,7 @@ import {
   type StudioQueueResponse,
 } from "../lib/content/stillsStudioApi";
 
-type Vote = "up" | "down";
+import { pickNextStudioMethod, studioMethodsForShow } from "../lib/content/stillsStudioMethods";
 
 const SIMPSONS_OFFSET_MS = -57_000;
 
@@ -43,10 +44,12 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
   const [votes, setVotes] = useState<Record<number, Vote>>({});
   const [offsetMs, setOffsetMs] = useState(SIMPSONS_OFFSET_MS);
   const [timeScale, setTimeScale] = useState(1);
+  const [seek, setSeek] = useState<"start" | "mid">("start");
   const [lineOffsets, setLineOffsets] = useState<Record<string, number>>({});
   const [bust, setBust] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -92,9 +95,25 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
   }, [initialShow]);
 
   const selected = queue?.episodes.find((row) => row.titleId === selectedId) ?? episode;
+  const gallery = selected?.status === "batched" || selected?.status === "pushed";
   const downed = frames.filter((frame) => votes[frame.lineIndex] === "down");
-  const allUp = frames.length > 0 && frames.every((frame) => votes[frame.lineIndex] === "up");
-  const anyDown = downed.length > 0;
+  const allUp = !gallery && frames.length > 0 && frames.every((frame) => votes[frame.lineIndex] === "up");
+  const anyDown = !gallery && downed.length > 0;
+  const nextMethod = selected
+    ? pickNextStudioMethod({
+        show,
+        fps: selected.fps,
+        current: { offsetMs, timeScale, seek },
+        triedIds: selected.triedMethodIds,
+        votes,
+        frameOrder: frames.length > 0 ? frames.map((frame) => frame.lineIndex) : selected.handful,
+      })
+    : null;
+  const triedLabels = useMemo(() => {
+    if (!selected) return [];
+    const names = new Map(studioMethodsForShow(show).map((row) => [row.id, row.label]));
+    return selected.triedMethodIds.map((id) => names.get(id) ?? id.replace(/^custom:/, "Custom "));
+  }, [selected, show]);
 
   const counts = useMemo(() => {
     const tallies = { "no-file": 0, ready: 0, review: 0, approved: 0, batched: 0, pushed: 0 };
@@ -118,8 +137,16 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
     setFrames(data.frames);
     setOffsetMs(row.offsetMs);
     setTimeScale(row.timeScale);
+    setSeek(row.seek);
     setLineOffsets(row.lineOffsets);
     setVotes({});
+    if (row.status === "pushed") {
+      setNotice(`Pushed ${data.frames.length} stills to R2 from ${data.previewDir}. Live after the next Pages deploy.`);
+    } else if (row.status === "batched") {
+      setNotice(`Batched ${data.frames.length} stills in ${data.previewDir}. Push to R2 when you mean it.`);
+    } else {
+      setNotice(null);
+    }
   }
 
   async function selectEpisode(titleId: string) {
@@ -131,10 +158,17 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
     }
   }
 
-  async function runExtract(mode: "handful" | "retry" | "batch") {
+  async function runExtract(mode: "handful" | "retry" | "batch" | "smart") {
     if (!selectedId) return;
-    setBusy(mode === "batch" ? "Extracting remaining stars…" : "Extracting frames…");
+    setBusy(
+      mode === "batch"
+        ? "Extracting remaining stars — this can take a minute…"
+        : mode === "smart"
+          ? `Trying ${nextMethod?.label ?? "next recipe"}…`
+          : "Extracting frames…",
+    );
     setError(null);
+    setNotice(null);
     try {
       if (mode === "batch") {
         await approveStudioEpisode(selectedId);
@@ -145,16 +179,29 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
         offsetMs,
         timeScale,
         lineOffsets,
+        seek,
+        votes: mode === "smart" ? votes : undefined,
       });
       setEpisode(result.episode);
       setFrames(result.frames);
       setOffsetMs(result.episode.offsetMs);
       setTimeScale(result.episode.timeScale);
+      setSeek(result.episode.seek);
       setLineOffsets(result.episode.lineOffsets);
       setBust(Date.now());
-      if (mode !== "batch") setVotes({});
+      setVotes({});
       await refreshQueue();
-      if (result.failed > 0) {
+      if (mode === "smart") {
+        setNotice(`Now: ${result.method.label}. ${result.method.why}`);
+      }
+      if (mode === "batch") {
+        setNotice(
+          `Batched ${result.extracted} stills in ${result.previewDir}` +
+            (result.failed > 0 ? ` · ${result.failed} failed` : "") +
+            ".",
+        );
+      }
+      if (result.failed > 0 && mode !== "batch") {
         setError(`${result.failed} frame(s) failed (seek past end of file?).`);
       }
       if (result.durationWarn) {
@@ -175,10 +222,21 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
       const result = await pushStudioEpisode(selectedId);
       setEpisode(result.episode);
       await refreshQueue();
+      setNotice(`Pushed ${result.uploaded} stills to R2 from ${result.previewDir}. Live after the next Pages deploy.`);
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {
       setBusy(null);
+    }
+  }
+
+  async function openPreviewFolder() {
+    if (!selectedId) return;
+    setError(null);
+    try {
+      await openStudioPreview(selectedId);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
     }
   }
 
@@ -233,14 +291,16 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
 
       {queue?.starError ? <p className="muted">D1 stars unavailable: {queue.starError}</p> : null}
       {error ? <p className="feedback wrong">{error}</p> : null}
-      {busy ? <p className="muted">{busy}</p> : null}
+      {notice ? <p className="feedback correct">{notice}</p> : null}
+      {busy ? <p className="stills-studio-busy">{busy}</p> : null}
 
       {selected ? (
         <section className="stills-review">
           <div className="section-header">
             <h3>{selected.label}</h3>
             <p className="muted">
-              {selected.starCount} D1 stars · offset {offsetMs / 1000}s · scale {timeScale}
+              {selected.starCount} D1 stars · {selected.methodLabel}
+              {selected.fps ? ` · ${selected.fps.toFixed(2)} fps` : ""}
               {selected.videoName ? ` · ${selected.videoName}` : ""}
             </p>
           </div>
@@ -256,7 +316,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
             </button>
           ) : (
             <>
-              <div className="stills-review-grid">
+              <div className={`stills-review-grid${gallery ? " is-gallery" : ""}`}>
                 {frames.map((frame) => {
                   const vote = votes[frame.lineIndex];
                   return (
@@ -278,66 +338,127 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
                         line {frame.lineIndex} · {formatSeek(frame.seekSec)}
                         {frame.extraMs ? ` · extra ${frame.extraMs / 1000}s` : ""}
                       </p>
-                      <div className="stills-frame-votes">
-                        <button
-                          type="button"
-                          className={`button ghost${vote === "up" ? " is-active" : ""}`}
-                          onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "up" }))}
-                        >
-                          👍
-                        </button>
-                        <button
-                          type="button"
-                          className={`button ghost${vote === "down" ? " is-active" : ""}`}
-                          onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "down" }))}
-                        >
-                          👎
-                        </button>
-                      </div>
-                      {vote === "down" ? (
-                        <div className="stills-line-nudge">
-                          <button type="button" className="button ghost" onClick={() => nudgeLine(frame.lineIndex, -1000)}>
-                            line −1s
-                          </button>
-                          <button type="button" className="button ghost" onClick={() => nudgeLine(frame.lineIndex, 1000)}>
-                            line +1s
-                          </button>
-                        </div>
-                      ) : null}
+                      {gallery ? null : (
+                        <>
+                          <div className="stills-frame-votes">
+                            <button
+                              type="button"
+                              className={`button ghost${vote === "up" ? " is-active" : ""}`}
+                              onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "up" }))}
+                            >
+                              👍
+                            </button>
+                            <button
+                              type="button"
+                              className={`button ghost${vote === "down" ? " is-active" : ""}`}
+                              onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "down" }))}
+                            >
+                              👎
+                            </button>
+                          </div>
+                          {vote === "down" ? (
+                            <div className="stills-line-nudge">
+                              <button type="button" className="button ghost" onClick={() => nudgeLine(frame.lineIndex, -1000)}>
+                                line −1s
+                              </button>
+                              <button type="button" className="button ghost" onClick={() => nudgeLine(frame.lineIndex, 1000)}>
+                                line +1s
+                              </button>
+                            </div>
+                          ) : null}
+                        </>
+                      )}
                     </article>
                   );
                 })}
               </div>
 
-              {anyDown ? (
+              {!gallery && !allUp && frames.length > 0 ? (
                 <div className="stills-sync-controls">
-                  <p className="muted">Thumbs down — do not batch. Nudge sync and re-extract these six.</p>
-                  <div className="row">
-                    <button type="button" className="button" onClick={() => setOffsetMs(SIMPSONS_OFFSET_MS)}>
-                      −57s
+                  {triedLabels.length > 0 ? (
+                    <p className="muted stills-tried">
+                      Tried: {triedLabels.join(" → ")}
+                    </p>
+                  ) : null}
+                  {nextMethod ? (
+                    <>
+                      <p className="muted">
+                        {anyDown
+                          ? `Next: ${nextMethod.label} — ${nextMethod.why}`
+                          : `Thumb the six, or skip ahead with Smart retry. Next up: ${nextMethod.label}.`}
+                      </p>
+                      <button
+                        type="button"
+                        className="button primary"
+                        disabled={Boolean(busy)}
+                        onClick={() => void runExtract("smart")}
+                      >
+                        Smart retry: {nextMethod.label}
+                      </button>
+                    </>
+                  ) : (
+                    <p className="muted">Tried every recipe. Use the knobs or per-line ±1s.</p>
+                  )}
+                  <details className="stills-knobs">
+                    <summary>More knobs</summary>
+                    <div className="row">
+                      <button type="button" className="button" onClick={() => setOffsetMs(SIMPSONS_OFFSET_MS)}>
+                        −57s
+                      </button>
+                      <button type="button" className="button" onClick={() => setOffsetMs(0)}>
+                        0
+                      </button>
+                      <button
+                        type="button"
+                        className="button"
+                        onClick={() => setTimeScale((value) => (value === 0.96 ? 1 : 0.96))}
+                      >
+                        PAL 0.96 {timeScale === 0.96 ? "on" : "off"}
+                      </button>
+                      <button
+                        type="button"
+                        className="button"
+                        onClick={() => setSeek((value) => (value === "mid" ? "start" : "mid"))}
+                      >
+                        Mid-cue {seek === "mid" ? "on" : "off"}
+                      </button>
+                    </div>
+                    <p className="muted">PAL is for 25fps DVD rips. Simpsons NTSC stays off unless late frames drift.</p>
+                    <div className="row">
+                      {[-10, -5, -1, 1, 5, 10].map((sec) => (
+                        <button key={sec} type="button" className="button ghost" onClick={() => nudgeOffset(sec * 1000)}>
+                          {sec > 0 ? "+" : ""}
+                          {sec}s
+                        </button>
+                      ))}
+                    </div>
+                    <button type="button" className="button" disabled={Boolean(busy)} onClick={() => void runExtract("retry")}>
+                      Re-extract these six
                     </button>
-                    <button type="button" className="button" onClick={() => setOffsetMs(0)}>
-                      0
+                  </details>
+                </div>
+              ) : null}
+
+              {gallery ? (
+                <div className="stills-sync-controls">
+                  <p className="muted">
+                    {selected.status === "pushed"
+                      ? "On R2. Next Pages deploy still required for live /stills."
+                      : "All D1 stars are on disk. Open the folder to skim, or push to R2."}
+                  </p>
+                  <div className="row">
+                    <button type="button" className="button" onClick={() => void openPreviewFolder()}>
+                      Open result folder
                     </button>
                     <button
                       type="button"
-                      className="button"
-                      onClick={() => setTimeScale((value) => (value === 0.96 ? 1 : 0.96))}
+                      className="button primary"
+                      disabled={Boolean(busy) || selected.status === "pushed"}
+                      onClick={() => void pushApproved()}
                     >
-                      PAL 0.96 {timeScale === 0.96 ? "on" : "off"}
+                      {selected.status === "pushed" ? "Pushed to R2" : "Push approved"}
                     </button>
                   </div>
-                  <div className="row">
-                    {[-10, -5, -1, 1, 5, 10].map((sec) => (
-                      <button key={sec} type="button" className="button ghost" onClick={() => nudgeOffset(sec * 1000)}>
-                        {sec > 0 ? "+" : ""}
-                        {sec}s
-                      </button>
-                    ))}
-                  </div>
-                  <button type="button" className="button primary" disabled={Boolean(busy)} onClick={() => void runExtract("retry")}>
-                    Re-extract these six
-                  </button>
                 </div>
               ) : null}
 
@@ -353,20 +474,11 @@ export function StillsStudioPanel({ initialShow = "The Simpsons" }: Props) {
                     >
                       {selected.starCount === 0 ? "No D1 stars to batch" : "Batch remaining stars"}
                     </button>
-                    <button
-                      type="button"
-                      className="button"
-                      disabled={Boolean(busy) || (selected.status !== "batched" && selected.status !== "pushed")}
-                      onClick={() => void pushApproved()}
-                    >
-                      Push approved
+                    <button type="button" className="button" onClick={() => void openPreviewFolder()}>
+                      Open folder
                     </button>
                   </div>
                 </div>
-              ) : null}
-
-              {!anyDown && !allUp && frames.length > 0 ? (
-                <p className="muted">Thumb every frame. Any down keeps you on these six until they match.</p>
               ) : null}
             </>
           )}

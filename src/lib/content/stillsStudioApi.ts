@@ -75,6 +75,7 @@ export async function fetchStudioEpisode(titleId: string): Promise<{
   episode: StudioEpisode;
   frames: StudioFrame[];
   show: string;
+  previewDir: string;
 }> {
   const response = await studioFetch(`/episode?titleId=${encodeURIComponent(titleId)}`);
   return readJson(response);
@@ -86,6 +87,8 @@ export async function runStudioExtract(opts: {
   offsetMs?: number;
   timeScale?: number;
   lineOffsets?: Record<string, number>;
+  seek?: "start" | "mid";
+  votes?: Record<number, "up" | "down">;
 }): Promise<{
   episode: StudioEpisode;
   frames: StudioFrame[];
@@ -93,6 +96,8 @@ export async function runStudioExtract(opts: {
   failed: number;
   durationWarn: boolean;
   mode: StudioExtractMode;
+  previewDir: string;
+  method: { id: string; label: string; why: string };
 }> {
   const response = await studioFetch(opts.mode === "batch" ? "/batch" : "/extract", {
     method: "POST",
@@ -111,8 +116,19 @@ export async function approveStudioEpisode(titleId: string): Promise<{ episode: 
   return readJson(response);
 }
 
-export async function pushStudioEpisode(titleId: string): Promise<{ uploaded: number; episode: StudioEpisode }> {
+export async function pushStudioEpisode(
+  titleId: string,
+): Promise<{ uploaded: number; episode: StudioEpisode; previewDir: string }> {
   const response = await studioFetch("/push", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ titleId }),
+  });
+  return readJson(response);
+}
+
+export async function openStudioPreview(titleId: string): Promise<{ ok: true; folder: string }> {
+  const response = await studioFetch("/open-preview", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ titleId }),

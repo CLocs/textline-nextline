@@ -140,8 +140,10 @@
   },
   "the-simpsons---4x03---homer-the-hereticen": {
     "offsetMs": -57000,
-    "timeScale": 1,
-    "lineOffsets": {},
+    "timeScale": 0.96,
+    "lineOffsets": {
+      "53": 3000
+    },
     "durationSec": 1223.892,
     "source": "G:\\videos\\shows\\Simpsons\\S04E03 - The Simpsons - Homer The Heretic (English).Avi",
     "handful": [
@@ -152,6 +154,25 @@
       226,
       269
     ],
-    "note": "Studio handful (25,53,88,158,226,269); inherit offset -57000ms."
+    "note": "Studio batch 16 stills.",
+    "approvedAt": "2026-09-20T21:46:44.273Z",
+    "batchedAt": "2026-09-20T21:47:13.766Z",
+    "pushedAt": "2026-09-20T21:48:54.644Z"
+  },
+  "the-simpsons---4x04---lisa-the-beauty-queenen": {
+    "offsetMs": -55000,
+    "timeScale": 0.96,
+    "lineOffsets": {},
+    "durationSec": 1226.762,
+    "source": "G:\\videos\\shows\\Simpsons\\S04E04 - The Simpsons - Lisa The Beauty Queen (English).Avi",
+    "handful": [
+      0,
+      72,
+      133,
+      193,
+      260,
+      323
+    ],
+    "note": "Studio handful (0,72,133,193,260,323); inherit offset -55000ms."
   }
 }

@@ -9,6 +9,8 @@ import {
   studioEpisode,
   studioExtract,
   studioHealth,
+  parseStudioVotes,
+  studioOpenPreview,
   studioPush,
   studioQueue,
 } from "./stillsStudioActions.js";
@@ -32,7 +34,7 @@ function readBody(req: IncomingMessage): Promise<string> {
 }
 
 function parseMode(raw: unknown): StudioExtractMode {
-  if (raw === "retry" || raw === "batch" || raw === "handful") return raw;
+  if (raw === "retry" || raw === "batch" || raw === "handful" || raw === "smart") return raw;
   return "handful";
 }
 
@@ -68,6 +70,13 @@ export function stillsStudioPlugin() {
         sendJson(res, 200, studioEpisode(ctx, titleId));
         return;
       }
+      if (req.method === "POST" && path === "/open-preview") {
+        const raw = await readBody(req);
+        const body = raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
+        const titleId = typeof body.titleId === "string" ? body.titleId : "";
+        sendJson(res, 200, studioOpenPreview(ctx, titleId));
+        return;
+      }
 
       if (busy) {
         sendJson(res, 409, { error: "Studio is busy with another extract." });
@@ -101,7 +110,9 @@ export function stillsStudioPlugin() {
               mode,
               offsetMs: typeof body.offsetMs === "number" ? body.offsetMs : undefined,
               timeScale: typeof body.timeScale === "number" ? body.timeScale : undefined,
+              seek: body.seek === "mid" || body.seek === "start" ? body.seek : undefined,
               lineOffsets,
+              votes: parseStudioVotes(body.votes),
             }),
           );
         } finally {

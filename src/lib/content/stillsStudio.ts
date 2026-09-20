@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import type { CatalogEntry, Line, Title } from "../../types/content.js";
@@ -11,12 +11,14 @@ import {
   ffmpegRemuxArgs,
   mediaRemuxOutput,
   resolveCue,
+  seekModeForTitle,
   seekSeconds,
   stillFileName,
   timeScaleForTitle,
 } from "./extractStills.js";
 import { matchShowVideosToCatalog } from "./showMedia.js";
 import { pickHandfulIndices as pickHandful } from "./stillsHandful.js";
+import { describeStudioMethod } from "./stillsStudioMethods.js";
 import type { StudioEpisode, StudioEpisodeStatus, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
 
 export type { StudioEpisode, StudioEpisodeStatus, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
@@ -110,6 +112,8 @@ export function buildShowQueue(opts: {
     const durationSec = syncEntry?.durationSec ?? null;
     const lastCueMs = title ? lastCueStartMs(title) : 0;
     const timeScale = timeScaleForTitle(opts.sync, entry.id);
+    const seek = seekModeForTitle(opts.sync, entry.id);
+    const method = describeStudioMethod(opts.show, { offsetMs, timeScale, seek });
     episodes.push({
       titleId: entry.id,
       title: entry.title,
@@ -136,6 +140,11 @@ export function buildShowQueue(opts: {
       durationSec,
       durationWarn:
         durationSec != null && durationPastEof(lastCueMs, durationSec, offsetMs, timeScale),
+      fps: syncEntry?.fps ?? null,
+      seek,
+      methodId: syncEntry?.methodId ?? method.id,
+      methodLabel: method.label,
+      triedMethodIds: syncEntry?.triedMethods ?? [],
     });
   }
 
@@ -163,6 +172,41 @@ export function probeDurationSec(input: string): number | null {
     ).trim();
     const n = Number(raw);
     return Number.isFinite(n) && n > 0 ? n : null;
+  } catch {
+    return null;
+  }
+}
+
+export function parseFrameRate(raw: string): number | null {
+  const token = raw.trim().split(/\s+/)[0] ?? "";
+  if (!token) return null;
+  if (token.includes("/")) {
+    const [num, den] = token.split("/");
+    const n = Number(num) / Number(den);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  }
+  const n = Number(token);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+export function probeFps(input: string): number | null {
+  try {
+    const raw = execFileSync(
+      "ffprobe",
+      [
+        "-v",
+        "error",
+        "-select_streams",
+        "v:0",
+        "-show_entries",
+        "stream=r_frame_rate",
+        "-of",
+        "default=noprint_wrappers=1:nokey=1",
+        input,
+      ],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+    );
+    return parseFrameRate(raw);
   } catch {
     return null;
   }
@@ -267,6 +311,23 @@ export function handfulFromStars(title: Title, starIndices: number[]): number[] 
 
 export function lastCueStartMsOf(title: Title): number {
   return lastCueStartMs(title);
+}
+
+const STILL_JPEG = /^(\d+)\.jpe?g$/i;
+
+export function previewDirForTitle(titleId: string): string {
+  return `inbox/stills-preview/${titleId}`;
+}
+
+export function listPreviewStillIndices(destDir: string): number[] {
+  if (!existsSync(destDir)) return [];
+  const indices: number[] = [];
+  for (const name of readdirSync(destDir)) {
+    const match = STILL_JPEG.exec(name);
+    if (match) indices.push(Number(match[1]));
+  }
+  indices.sort((a, b) => a - b);
+  return indices;
 }
 
 export function listHandfulFrames(opts: {

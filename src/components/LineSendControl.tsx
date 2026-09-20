@@ -239,7 +239,7 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
                               <span>{group.name}</span>
                               <button
                                 type="button"
-                                className="button ghost"
+                                className={`button ghost curate-send-target${sent ? " is-sent" : ""}`}
                                 disabled={busy || sent}
                                 onClick={() => void handleSendGroup(group)}
                               >
@@ -263,7 +263,7 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
                               <span>{friend.displayName}</span>
                               <button
                                 type="button"
-                                className="button ghost"
+                                className={`button ghost curate-send-target${sent ? " is-sent" : ""}`}
                                 disabled={busy || sent}
                                 onClick={() => void handleSend(friend)}
                               >
