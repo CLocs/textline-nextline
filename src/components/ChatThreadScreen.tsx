@@ -24,6 +24,7 @@ import { ChatReactions } from "./ChatReactions";
 import type { InboxItem } from "../lib/inbox/api";
 
 const NEAR_BOTTOM_PX = 96;
+const THREAD_POLL_MS = 4000;
 
 type Props = {
   mode: "dm" | "group";
@@ -242,18 +243,20 @@ export function ChatThreadScreen({
     stickToBottomRef.current = true;
     setShowJumpLatest(false);
 
-    async function load() {
-      setLoading(true);
-      setError(null);
+    async function load(opts: { silent?: boolean } = {}) {
+      if (!opts.silent) {
+        setLoading(true);
+        setError(null);
+      }
       if (mode === "dm" && peerUserId) {
         const [thread, _read] = await Promise.all([
           fetchDmThread(peerUserId),
           markDmRead(peerUserId),
         ]);
         if (cancelled) return;
-        setLoading(false);
+        if (!opts.silent) setLoading(false);
         if ("error" in thread) {
-          setError(thread.error);
+          if (!opts.silent) setError(thread.error);
           return;
         }
         setDmMessages(thread.messages);
@@ -266,9 +269,9 @@ export function ChatThreadScreen({
           markGroupRead(groupId),
         ]);
         if (cancelled) return;
-        setLoading(false);
+        if (!opts.silent) setLoading(false);
         if ("error" in thread) {
-          setError(thread.error);
+          if (!opts.silent) setError(thread.error);
           return;
         }
         setGroupMessages(thread.messages);
@@ -277,8 +280,21 @@ export function ChatThreadScreen({
     }
 
     void load();
+
+    function poll() {
+      if (document.visibilityState === "hidden") return;
+      void load({ silent: true });
+    }
+
+    const intervalId = window.setInterval(poll, THREAD_POLL_MS);
+    window.addEventListener("focus", poll);
+    document.addEventListener("visibilitychange", poll);
+
     return () => {
       cancelled = true;
+      window.clearInterval(intervalId);
+      window.removeEventListener("focus", poll);
+      document.removeEventListener("visibilitychange", poll);
     };
   }, [mode, peerUserId, peerName, groupId, groupName]);
 

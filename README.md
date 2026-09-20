@@ -542,6 +542,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 8. **Quotes-only filter** — All / Quotes toggle in the thread header (client-side; sending text returns you to All).
 9. **Emoji reactions** — 👍❤️😂😮🔥 on text and quote cards (`chat_reactions`; quote target = `share_id`).
 10. **Answered receipt** — peer `line_inbox.solved_at`; sender sees **Correct** + next line on their outgoing card.
+11. **Near-real-time refresh** — open thread polls ~4s; chat list ~8s; unread badges ~12s (pause when tab hidden). True push/WebSockets later if needed.
 
 **Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games).
 

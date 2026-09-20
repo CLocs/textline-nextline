@@ -81,20 +81,39 @@ export function ChatsList({ onOpenDm, onOpenGroup, compact = false }: Props) {
       return;
     }
     let cancelled = false;
-    setLoading(true);
-    void fetchChats().then((result) => {
+
+    async function load(opts: { silent?: boolean } = {}) {
+      if (!opts.silent) setLoading(true);
+      const result = await fetchChats();
       if (cancelled) return;
-      setLoading(false);
+      if (!opts.silent) setLoading(false);
       if ("error" in result) {
-        setError(result.error);
-        setThreads([]);
+        if (!opts.silent) {
+          setError(result.error);
+          setThreads([]);
+        }
         return;
       }
       setError(null);
       setThreads(compact ? result.slice(0, 8) : result);
-    });
+    }
+
+    void load();
+
+    function poll() {
+      if (document.visibilityState === "hidden") return;
+      void load({ silent: true });
+    }
+
+    const intervalId = window.setInterval(poll, 8000);
+    window.addEventListener("focus", poll);
+    document.addEventListener("visibilitychange", poll);
+
     return () => {
       cancelled = true;
+      window.clearInterval(intervalId);
+      window.removeEventListener("focus", poll);
+      document.removeEventListener("visibilitychange", poll);
     };
   }, [apiReady, compact]);
 
