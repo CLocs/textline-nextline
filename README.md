@@ -417,7 +417,8 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Line / still feedback** — players report wrong scene image, request a scene image, or ask to split a line. See [Later ideas](#line--still-feedback).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
-- [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). See [Later ideas](#daily-quote-email).
+- [ ] **Share quote as image** — caption-below still + meme-on-image; IG swatches later. See [Share quote as image](#share-quote-as-image).
+- [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). Builds on share cards. See [Daily quote email](#daily-quote-email).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile-friendly PWA**
@@ -500,7 +501,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Daily quote email** stays parked.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** and **Daily quote email** stay parked (build share formats first, then email).
 
 ### Loved / double-star quotes ✅
 
@@ -681,9 +682,31 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 **Open questions (Medium+):** pack ownership vs communal; UGC/ToS for URLs; moderation.
 
+### Share quote as image
+
+**Idea:** Readwise-style **Share as image** — from a quote (Curate, Play, Chat card, or a future daily-review surface), open a modal, pick a **format**, Save / Share. Readwise path is email → website cards → Share → select format; we **work backwards**: ship in-app share first, then formats, then the email that links into cards.
+
+**Formats (v1 — two):**
+
+1. **Caption below** — scene still on top (unobstructed); quote (+ title / attribution) under the frame. Best when the frame is the hero.
+2. **Meme / on-image** — quote overlaid on the still so the JPEG/PNG is the whole post (Stories, iMessage, Discord).
+
+**Later (3):** light customization like IG/Snapchat — palette swatches, a few layouts (Clean / Classic / Pretty-ish), aspect (square / wide / story). Not a full design studio.
+
+**Rough shape:** Client canvas (or SVG → PNG) using existing `/stills/{titleId}/{lineIndex}.jpg` when present, else poster / solid brand fallback. Entry from Curate line row, chat quote actions, maybe Play after solve. No server render required for v1.
+
+**Suggested build order:**
+
+1. One share path that exports **caption-below** for a starred/shared line with a still.
+2. Add **meme / on-image** as a second selectable format.
+3. Optional swatches / aspect.
+4. Wire [Daily quote email](#daily-quote-email) cards → “open in TLNL → Share image.”
+
+**Gates:** still coverage (many lines have no frame yet); spoiler (textline vs nextline — default share the prompt line, not the answer); watermark / brand lockup so cards look like TLNL.
+
 ### Daily quote email
 
-**Idea:** A Readwise-style daily: ~**3 quotes** as cards in an email. Clicking a card opens **TLNL** (deep link into play, a 1-line share, or a parallel pack — TBD), not a dead static page.
+**Idea:** A Readwise-style daily: ~**3 quotes** as cards in an email. Clicking a card opens **TLNL** (deep link into play, a 1-line share, or a parallel pack — TBD), not a dead static page. Prefer landing on a surface that can **Share as image** once that ships.
 
 **Why:** Habit loop without opening the app cold; surfaces curated / loved / starred lines to the owner (and maybe friends later).
 
@@ -691,7 +714,7 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 **Open questions:** one digest vs three separate mails; personal only vs “from friends”; whether the card itself is playable inline (probably not — keep email thin, open the app).
 
-Not the same as **Daily challenge** (same public quiz for everyone).
+Not the same as **Daily challenge** (same public quiz for everyone). Depends on (or pairs with) [Share quote as image](#share-quote-as-image) for the full Readwise loop.
 
 ### Onboarding + play UX clarity ✅
 
@@ -744,7 +767,8 @@ Complements Teach mode; this is first-impression chrome, not a new game mode.
 | **Exploratory — UGC + songs** | IG/YT single-quote paste; lyrics as transcripts | Catalog beyond our SRT library |
 | **Exploratory — YouTube titles** | Paste video URL → timed transcript → stars / packs; frames later | Whole videos as playable titles — see [YouTube videos as titles](#youtube-videos-as-titles) |
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
-| **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop; opt-in digest — see [Daily quote email](#daily-quote-email) |
+| **Later — Share quote as image** | Caption-below + meme-on-still; IG swatches later | Exportable quote cards — see [Share quote as image](#share-quote-as-image) |
+| **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop after share cards — see [Daily quote email](#daily-quote-email) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
@@ -839,6 +863,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
 - **Line / still feedback** *(later)* — on a textline: wrong scene image, request a scene image, split line. Catalog queue, not live edits. See [Later ideas](#line--still-feedback).
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
+- **Share quote as image** *(parked)* — Caption-below still + meme-on-image; customization later; then daily email. See [Share quote as image](#share-quote-as-image).
 - **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).
 
