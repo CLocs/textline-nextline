@@ -347,6 +347,7 @@ Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live coun
 ### Out of scope for 2.6
 
 - Every-cue extract, git-lfs, shipping video, random poster rotation
+- Player reports (wrong still / request still / split line) — see [Line / still feedback](#line--still-feedback)
 - Weighted popular (2.5 leftover)
 - Rooms / realtime (Phase 2)
 
@@ -413,6 +414,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Songs** — lyrics as transcripts; song library + mini-games. See [Later ideas](#later-ideas-parked).
 - [x] **MCQ similar-answer guard** — drop distractors ≥60% similar to the correct next line (or each other). See [Later ideas](#later-ideas-parked).
 - [ ] **Split multi-sentence lines** — curator (or import) splits one cue into sentence beats without reminting star indices. See [Later ideas](#later-ideas-parked).
+- [ ] **Line / still feedback** — players report wrong scene image, request a scene image, or ask to split a line. See [Later ideas](#line--still-feedback).
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). See [Later ideas](#daily-quote-email).
@@ -498,7 +500,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Daily quote email** stays parked.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Daily quote email** stays parked.
 
 ### Loved / double-star quotes ✅
 
@@ -536,8 +538,9 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 4. **Separation** — group sends appear only in the group thread, not also in each pair’s DM.
 5. **Text messages** — composer in-thread; `chat_messages` one row per DM/group message; quotes and text share one timeline (`kind: quote | text`).
 6. **Thread scroll UX** — message list scrolls inside the panel; composer stays put; open/send land on latest; **↓ Latest** when scrolled up.
+7. **Richer quote cards** — outgoing + solved incoming show lead-in; outgoing next line behind **Reveal next line**.
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); richer outgoing cards / rich quote cards (lead-in + next line / spoiler for the sender); emoji reactions; quotes-only filter.
+**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); **quotes-only filter**; **emoji reactions**.
 
 ### Chats → cross-title mini-games
 
@@ -559,6 +562,7 @@ Starred stills, posters, R2, and the mini-game still→poster fallback shipped i
 - git-lfs / checking JPEGs into the repo
 - Shipping video, not stills
 - Random poster rotation
+- Player **wrong still** / **request still** reports (see [Line / still feedback](#line--still-feedback))
 
 **Legal:** stills from your own files for a personal/curated app; don’t scrape streaming services.
 
@@ -628,6 +632,28 @@ Later shape:
 3. Timestamps: keep the parent `startMs`–`endMs` unless we later proportion the span; stills stay on the parent cue.
 
 The similar-answer guard and this split complement each other: even after a split, consecutive beats can still echo, so keep the 60% filter.
+
+Players can **request** a split before the overlay exists — see [Line / still feedback](#line--still-feedback). Reports queue curator work; they do not split the live cue.
+
+### Line / still feedback
+
+Players (not only the owner) should be able to flag a textline: **wrong scene image**, **request a scene image**, **split this line**.
+
+**Why:** Stills land at `startMs` and sometimes miss the beat; many starred lines have no frame yet (poster fallback); multi-sentence cues hide the punch. Today that only surfaces out of band.
+
+**Shape *(parked)*:**
+
+1. On Play / Curate, a light **feedback** control on the current line — not a full report form.
+2. Three typed reports:
+   - **Wrong still** — the frame doesn’t match this line (optional note: too early / too late / wrong scene).
+   - **Request still** — no frame (or poster fallback); ask for one.
+   - **Split line** — this cue is two beats; request a curator split (see [Split multi-sentence lines](#split-multi-sentence-lines)). Does not split live; queues overlay work.
+3. Persist `(title_id, line_index, kind, user_id)` so Catalog / ops can sort by volume. Signed-in only. One vote per kind per line per user is enough for v1.
+4. Owner Catalog shows a queue: wrong stills, missing stills, split requests — then the existing extract / split tools.
+
+**Not this (v1):** players uploading replacement JPEGs; auto-reextract from a report; live split on play; public “this still is bad” chrome on the prompt.
+
+**Gates:** Auth already exists. Reports must not change live stills or remint `line.index`. Split requests feed the overlay; still reports feed the [2.6 extract loop](#phase-26--quote-stills-r2-catalog-ops-after-25).
 
 ### Quote parallels / analogy packs
 
@@ -710,6 +736,7 @@ Complements Teach mode; this is first-impression chrome, not a new game mode.
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |
 | **Later — Line split** | Curator split of multi-sentence cues without reminting star indices | Star the punchy sentence inside a cue |
+| **Later — Line / still feedback** | Players report wrong still, request a still, or ask to split a line | Crowd queue for Catalog extract / split — see [Line / still feedback](#line--still-feedback) |
 | **Exploratory — UGC + songs** | IG/YT single-quote paste; lyrics as transcripts | Catalog beyond our SRT library |
 | **Exploratory — YouTube titles** | Paste video URL → timed transcript → stars / packs; frames later | Whole videos as playable titles — see [YouTube videos as titles](#youtube-videos-as-titles) |
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
@@ -806,6 +833,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Chats → cross-title mini-games** *(parked)* — Multi-select thread lines across titles → frozen mini-game. See [Chats → cross-title mini-games](#chats--cross-title-mini-games).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
 - **Split multi-sentence lines** *(later)* — curator overlay so one cue can be two playable beats without reminting star indices. See [Later ideas](#later-ideas-parked).
+- **Line / still feedback** *(later)* — on a textline: wrong scene image, request a scene image, split line. Catalog queue, not live edits. See [Later ideas](#line--still-feedback).
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).

@@ -3,6 +3,7 @@ import { getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
 import { getNextPlayableLine } from "../lib/content/playable";
+import { leadInForPrompt } from "../lib/game/promptContext";
 import { buildMcq } from "../lib/game/mcq";
 import { isInboxItemSolved, markInboxItemSolved } from "../lib/inbox/solved";
 import type { InboxItem } from "../lib/inbox/api";
@@ -31,6 +32,10 @@ export function InboxLineCard({ item, entries, showQuoteActions = false }: Props
   const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
 
   const promptText = title ? (getLine(title, item.lineIndex)?.text ?? "") : "";
+  const leadIn = useMemo(
+    () => (title ? leadInForPrompt(title, item.lineIndex) : []),
+    [title, item.lineIndex],
+  );
   const nextText = title ? (getNextPlayableLine(title, item.lineIndex)?.text ?? "") : "";
 
   useEffect(() => {
@@ -65,8 +70,13 @@ export function InboxLineCard({ item, entries, showQuoteActions = false }: Props
       </div>
       {solved ? (
         <blockquote className="inbox-line-pair">
+          {leadIn.map((line) => (
+            <p key={line.lineIndex} className="prompt-lead-in">
+              {line.text}
+            </p>
+          ))}
           <p className="prompt-current">{promptText}</p>
-          <p className="inbox-nextline">{nextText}</p>
+          {nextText ? <p className="inbox-nextline">{nextText}</p> : null}
         </blockquote>
       ) : !question ? (
         <p className="muted">This line isn’t playable in the current catalog.</p>

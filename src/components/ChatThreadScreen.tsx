@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type FormEvent, type UIEvent } from "react
 import { getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
+import { getNextPlayableLine } from "../lib/content/playable";
+import { leadInForPrompt } from "../lib/game/promptContext";
 import {
   fetchDmThread,
   fetchGroupThread,
@@ -45,7 +47,11 @@ function OutgoingPreview({
   receiptLabel?: string | null;
 }) {
   const title = getTitle(titleId);
-  const text = title ? (getLine(title, lineIndex)?.text ?? "") : "";
+  const promptText = title ? (getLine(title, lineIndex)?.text ?? "") : "";
+  const leadIn = title ? leadInForPrompt(title, lineIndex) : [];
+  const nextText = title ? (getNextPlayableLine(title, lineIndex)?.text ?? "") : "";
+  const [nextRevealed, setNextRevealed] = useState(false);
+
   return (
     <article className="inbox-line-card chats-outgoing-card">
       <div className="chat-quote-header">
@@ -59,10 +65,28 @@ function OutgoingPreview({
             </span>
           ) : null}
         </p>
-        <ChatQuoteActions titleId={titleId} lineIndex={lineIndex} lineText={text} />
+        <ChatQuoteActions titleId={titleId} lineIndex={lineIndex} lineText={promptText} />
       </div>
-      <blockquote className="prompt-text">
-        <p className="prompt-current">{text || `Line ${lineIndex + 1}`}</p>
+      <blockquote className="prompt-text inbox-line-pair">
+        {leadIn.map((line) => (
+          <p key={line.lineIndex} className="prompt-lead-in">
+            {line.text}
+          </p>
+        ))}
+        <p className="prompt-current">{promptText || `Line ${lineIndex + 1}`}</p>
+        {nextText ? (
+          nextRevealed ? (
+            <p className="inbox-nextline">{nextText}</p>
+          ) : (
+            <button
+              type="button"
+              className="button ghost chats-spoiler-next"
+              onClick={() => setNextRevealed(true)}
+            >
+              Reveal next line
+            </button>
+          )
+        ) : null}
       </blockquote>
     </article>
   );
