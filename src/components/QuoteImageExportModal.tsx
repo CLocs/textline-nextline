@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { getCatalog, getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
@@ -137,7 +138,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     setBusy(false);
   }
 
-  return (
+  return createPortal(
     <div className="quote-image-backdrop" role="presentation" onClick={onClose}>
       <div
         className="quote-image-dialog"
@@ -209,6 +210,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
           </p>
         ) : null}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
