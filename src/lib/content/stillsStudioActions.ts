@@ -7,7 +7,7 @@ import type { CueSeek } from "./extractStills.js";
 import { loadStillsSyncFile, seekModeForTitle } from "./extractStills.js";
 import { countStillsByTitle } from "./mediaUploads.js";
 import { fetchOwnerStarMap, starCountsFromMap, type OwnerStarMap } from "./stillsD1.js";
-import { pushPreviewStills } from "./stillsPush.js";
+import { listPreviewStillFiles, pushPreviewStills } from "./stillsPush.js";
 import {
   buildShowQueue,
   durationPastEof,
@@ -34,7 +34,7 @@ import {
   recordTriedMethodIds,
   type StudioVote,
 } from "./stillsStudioMethods.js";
-import type { StudioExtractMode, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
+import type { StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue } from "./stillsStudioTypes.js";
 
 const TITLE_ID_RE = /^[a-z0-9-]+$/i;
 
@@ -53,6 +53,7 @@ export function createStudioContext(packageRoot: string): StudioContext {
 }
 
 let starCache: { stars: OwnerStarMap; remote: boolean; error?: string; at: number } | null = null;
+let pushJob: StudioPushJob | null = null;
 const STAR_TTL_MS = 5 * 60 * 1000;
 
 function loadStars(ctx: StudioContext, force = false): { stars: OwnerStarMap; remote: boolean; error?: string } {
@@ -233,6 +234,9 @@ export function studioExtract(
 ): ExtractResponse {
   const id = requireTitleId(opts.titleId);
   const { title, episode, show } = findEpisode(ctx, id);
+  if (pushJob?.status === "running" && pushJob.titleId === id) {
+    throw new Error(`Still pushing ${pushJob.label} to R2. Switch titles or wait for the upload.`);
+  }
   if (!episode.videoPath) {
     throw new Error(`No video file for ${episode.label}.`);
   }
@@ -395,24 +399,69 @@ export function studioApprove(ctx: StudioContext, titleId: string): { episode: R
   return { episode: findEpisode(ctx, id).episode };
 }
 
-export async function studioPush(
-  ctx: StudioContext,
-  titleId: string,
-): Promise<{ uploaded: number; episode: ReturnType<typeof findEpisode>["episode"]; previewDir: string }> {
+export function studioPushStatus(): StudioPushJob | null {
+  return pushJob ? { ...pushJob } : null;
+}
+
+export function startStudioPush(ctx: StudioContext, titleId: string): StudioPushJob {
   const id = requireTitleId(titleId);
+  if (pushJob?.status === "running") {
+    if (pushJob.titleId === id) return { ...pushJob };
+    throw new Error(`Already pushing ${pushJob.label} to R2. That keeps going if you switch titles.`);
+  }
   const { episode } = findEpisode(ctx, id);
   const sync = loadStillsSyncFile(ctx.syncPath);
   const previous = sync[id];
   if (!previous?.batchedAt) {
     throw new Error("Push only after remaining stars are batched.");
   }
-  const { uploaded } = await pushPreviewStills(ctx.packageRoot, id);
-  sync[id] = mergeSyncEntry(previous, {
-    offsetMs: previous.offsetMs,
-    pushedAt: new Date().toISOString(),
+  const files = listPreviewStillFiles(ctx.previewRoot, id);
+  if (files.length === 0) {
+    throw new Error(`No preview JPEGs for ${episode.label}.`);
+  }
+  pushJob = {
+    titleId: id,
+    label: episode.label,
+    total: files.length,
+    done: 0,
+    status: "running",
+  };
+  void runStudioPush(ctx, id, previous.offsetMs).catch((error: unknown) => {
+    if (pushJob?.titleId !== id) return;
+    pushJob = {
+      ...pushJob,
+      status: "error",
+      error: error instanceof Error ? error.message : String(error),
+    };
   });
-  writeStillsSyncFile(ctx.syncPath, sync);
-  return { uploaded, episode: findEpisode(ctx, id).episode, previewDir: previewDirForTitle(id) };
+  return { ...pushJob };
+}
+
+async function runStudioPush(ctx: StudioContext, id: string, offsetMs: number): Promise<void> {
+  const { uploaded } = await pushPreviewStills(ctx.packageRoot, id, {
+    onProgress(done, total) {
+      if (pushJob?.titleId !== id || pushJob.status !== "running") return;
+      pushJob = { ...pushJob, done, total };
+    },
+  });
+  const sync = loadStillsSyncFile(ctx.syncPath);
+  const previous = sync[id];
+  if (previous) {
+    sync[id] = mergeSyncEntry(previous, {
+      offsetMs: previous.offsetMs ?? offsetMs,
+      pushedAt: new Date().toISOString(),
+    });
+    writeStillsSyncFile(ctx.syncPath, sync);
+  }
+  if (pushJob?.titleId !== id) return;
+  pushJob = {
+    ...pushJob,
+    status: "ok",
+    done: uploaded,
+    total: Math.max(pushJob.total, uploaded),
+    uploaded,
+    previewDir: previewDirForTitle(id),
+  };
 }
 
 export function studioOpenPreview(ctx: StudioContext, titleId: string): { ok: true; folder: string } {

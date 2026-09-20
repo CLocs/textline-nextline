@@ -50,3 +50,14 @@ export type StudioFrame = {
 };
 
 export type StudioExtractMode = "handful" | "retry" | "smart" | "shuffle" | "batch";
+
+export type StudioPushJob = {
+  titleId: string;
+  label: string;
+  total: number;
+  done: number;
+  status: "running" | "ok" | "error";
+  error?: string;
+  uploaded?: number;
+  previewDir?: string;
+};

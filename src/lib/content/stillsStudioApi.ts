@@ -1,6 +1,6 @@
-import type { StudioEpisode, StudioExtractMode, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
+import type { StudioEpisode, StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue } from "./stillsStudioTypes.js";
 
-export type { StudioEpisode, StudioExtractMode, StudioFrame, StudioQueue };
+export type { StudioEpisode, StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue };
 
 const PREFIX = "/api/stills-studio";
 
@@ -116,15 +116,20 @@ export async function approveStudioEpisode(titleId: string): Promise<{ episode: 
   return readJson(response);
 }
 
-export async function pushStudioEpisode(
-  titleId: string,
-): Promise<{ uploaded: number; episode: StudioEpisode; previewDir: string }> {
+export async function startStudioPush(titleId: string): Promise<StudioPushJob> {
   const response = await studioFetch("/push", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ titleId }),
   });
-  return readJson(response);
+  const data = await readJson<{ job: StudioPushJob }>(response);
+  return data.job;
+}
+
+export async function fetchStudioPushStatus(): Promise<StudioPushJob | null> {
+  const response = await studioFetch("/push-status");
+  const data = await readJson<{ job?: StudioPushJob | null }>(response);
+  return data.job ?? null;
 }
 
 export async function openStudioPreview(titleId: string): Promise<{ ok: true; folder: string }> {

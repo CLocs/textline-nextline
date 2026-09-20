@@ -218,3 +218,13 @@ describe("parseFrameRate", () => {
     expect(parseFrameRate("25/1")).toBe(25);
   });
 });
+
+describe("studio R2 push job", () => {
+  it("rejects invalid title ids before starting a wrangler upload", async () => {
+    const { createStudioContext, startStudioPush, studioPushStatus } = await import(
+      "../src/lib/content/stillsStudioActions.js"
+    );
+    expect(studioPushStatus()?.status === "running").toBe(false);
+    expect(() => startStudioPush(createStudioContext(process.cwd()), "Nope!!")).toThrow(/Invalid title id/);
+  });
+});

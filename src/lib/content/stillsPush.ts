@@ -55,6 +55,7 @@ function putObject(packageRoot: string, key: string, file: string): Promise<void
 export async function pushPreviewStills(
   packageRoot: string,
   titleId: string,
+  opts?: { onProgress?: (done: number, total: number) => void },
 ): Promise<{ uploaded: number }> {
   const previewRoot = join(packageRoot, "inbox", "stills-preview");
   const files = listPreviewStillFiles(previewRoot, titleId);
@@ -63,6 +64,7 @@ export async function pushPreviewStills(
   }
   let next = 0;
   let done = 0;
+  opts?.onProgress?.(0, files.length);
   async function worker(): Promise<void> {
     while (next < files.length) {
       const i = next;
@@ -70,6 +72,7 @@ export async function pushPreviewStills(
       const item = files[i]!;
       await putObject(packageRoot, item.key, item.file);
       done += 1;
+      opts?.onProgress?.(done, files.length);
     }
   }
   await Promise.all(Array.from({ length: Math.min(CONCURRENCY, files.length) }, () => worker()));

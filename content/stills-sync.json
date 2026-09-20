@@ -104,7 +104,8 @@
       "zero"
     ],
     "approvedAt": "2026-09-20T22:58:14.461Z",
-    "batchedAt": "2026-09-20T22:58:30.482Z"
+    "batchedAt": "2026-09-20T22:58:30.482Z",
+    "pushedAt": "2026-09-20T22:59:54.202Z"
   },
   "inglourious-basterds-2009": {
     "offsetMs": 0,
@@ -239,5 +240,52 @@
       "theme-52"
     ],
     "note": "Studio smart Theme skip −52s (1,54,79,115,235,343)."
+  },
+  "friday-1995": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 5826.362209,
+    "source": "G:\\videos\\movies\\Friday (1995).mp4",
+    "handful": [
+      185,
+      367,
+      553,
+      726,
+      927,
+      1031
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio batch 46 stills.",
+    "approvedAt": "2026-09-20T23:01:18.093Z",
+    "batchedAt": "2026-09-20T23:01:27.118Z",
+    "pushedAt": "2026-09-20T23:02:00.829Z"
+  },
+  "lord-of-the-rings-the-two-towers-2002": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 14132.134,
+    "source": "G:\\videos\\movies\\The Lord of the Rings The Two Towers Extended (2002).mkv",
+    "handful": [
+      296,
+      712,
+      831,
+      1152,
+      1445,
+      1669
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio shuffle (296,712,831,1152,1445,1669)."
   }
 }

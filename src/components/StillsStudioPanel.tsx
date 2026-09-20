@@ -3,14 +3,16 @@ import {
   approveStudioEpisode,
   fetchStudioEpisode,
   fetchStudioQueue,
+  fetchStudioPushStatus,
   fetchStudioShows,
   openStudioPreview,
-  pushStudioEpisode,
   runStudioExtract,
+  startStudioPush,
   studioHealth,
   StudioUnavailableError,
   type StudioEpisode,
   type StudioFrame,
+  type StudioPushJob,
   type StudioQueueResponse,
 } from "../lib/content/stillsStudioApi";
 
@@ -68,14 +70,20 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
   const [lineOffsets, setLineOffsets] = useState<Record<string, number>>({});
   const [bust, setBust] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
-  const [busyKind, setBusyKind] = useState<StudioExtractMode | "push" | null>(null);
+  const [busyKind, setBusyKind] = useState<StudioExtractMode | null>(null);
   const [busyMethodId, setBusyMethodId] = useState<string | null>(null);
   const busyRef = useRef(false);
   const openedTitleRef = useRef<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+  const [pushJob, setPushJob] = useState<StudioPushJob | null>(null);
+  const seenPushRef = useRef<string | null>(null);
+  const selectedIdRef = useRef<string | null>(null);
+  const showRef = useRef(show);
+  selectedIdRef.current = selectedId;
+  showRef.current = show;
 
-  function actionLabel(kind: StudioExtractMode | "push", idle: string): string {
+  function actionLabel(kind: StudioExtractMode, idle: string): string {
     return busyKind === kind && busy ? busy : idle;
   }
 
@@ -119,6 +127,51 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
   }, [available, show]);
 
   useEffect(() => {
+    if (available !== true) return;
+    let cancelled = false;
+    async function tick() {
+      try {
+        const job = await fetchStudioPushStatus();
+        if (cancelled) return;
+        setPushJob(job);
+        if (!job || job.status === "running") return;
+        const key = `${job.titleId}:${job.status}:${job.uploaded ?? 0}:${job.error ?? ""}`;
+        if (seenPushRef.current === key) return;
+        seenPushRef.current = key;
+        if (job.status === "ok") {
+          setNotice(
+            `Pushed ${job.uploaded ?? job.done} stills to R2 from ${job.previewDir ?? "preview"}. Live after the next Pages deploy.`,
+          );
+          try {
+            const next = await fetchStudioQueue(showRef.current);
+            if (cancelled) return;
+            setQueue(next);
+            if (selectedIdRef.current === job.titleId) {
+              const data = await fetchStudioEpisode(job.titleId);
+              if (cancelled) return;
+              setEpisode(data.episode);
+              setFrames(data.frames);
+            }
+          } catch {
+            /* queue refresh is best-effort after a background push */
+          }
+        } else if (job.status === "error") {
+          setError(job.error ?? "R2 push failed.");
+        }
+      } catch (err) {
+        if (cancelled) return;
+        if (err instanceof StudioUnavailableError) setAvailable(false);
+      }
+    }
+    void tick();
+    const timer = window.setInterval(() => void tick(), 1000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
+  }, [available]);
+
+  useEffect(() => {
     setShow(initialShow);
   }, [initialShow]);
 
@@ -151,6 +204,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
       .filter((row): row is StudioMethod => Boolean(row));
   }, [selected, show]);
   const liveRecipeId = describeStudioMethod(show, { offsetMs, timeScale, seek }).id;
+  const pushingThis = pushJob?.status === "running" && pushJob.titleId === selectedId;
+  const pushRunning = pushJob?.status === "running";
+  const extractLocked = Boolean(busy) || Boolean(pushingThis);
 
   const counts = useMemo(() => {
     const tallies = { "no-file": 0, ready: 0, review: 0, approved: 0, batched: 0, pushed: 0 };
@@ -207,7 +263,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
   }, [available, initialTitleId, queue, show]);
 
   async function runExtract(mode: StudioExtractMode, applied?: AppliedMethod) {
-    if (!selectedId || busyRef.current) return;
+    if (!selectedId || busyRef.current || (pushJob?.status === "running" && pushJob.titleId === selectedId)) return;
     busyRef.current = true;
     const nextOffset = applied?.offsetMs ?? offsetMs;
     const nextScale = applied?.timeScale ?? timeScale;
@@ -279,22 +335,14 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
   }
 
   async function pushApproved() {
-    if (!selectedId || busyRef.current) return;
-    busyRef.current = true;
-    setBusyKind("push");
-    setBusy("Pushing to R2…");
+    if (!selectedId || pushJob?.status === "running") return;
     setError(null);
     try {
-      const result = await pushStudioEpisode(selectedId);
-      setEpisode(result.episode);
-      await refreshQueue();
-      setNotice(`Pushed ${result.uploaded} stills to R2 from ${result.previewDir}. Live after the next Pages deploy.`);
+      const job = await startStudioPush(selectedId);
+      seenPushRef.current = null;
+      setPushJob(job);
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
-    } finally {
-      busyRef.current = false;
-      setBusy(null);
-      setBusyKind(null);
     }
   }
 
@@ -341,7 +389,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                   key={recipe.id}
                   type="button"
                   className={knobClass(active)}
-                  disabled={Boolean(busy)}
+                  disabled={extractLocked}
                   aria-pressed={active}
                   aria-busy={pending}
                   title={recipe.why}
@@ -383,7 +431,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
               <button
                 type="button"
                 className="button primary"
-                disabled={Boolean(busy)}
+                disabled={extractLocked}
                 aria-busy={busyKind === "smart"}
                 onClick={() => void runExtract("smart")}
               >
@@ -393,7 +441,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
             <button
               type="button"
               className="button"
-              disabled={Boolean(busy)}
+              disabled={extractLocked}
               aria-busy={busyKind === "shuffle"}
               onClick={() => void runExtract("shuffle")}
             >
@@ -466,7 +514,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
           <button
             type="button"
             className="button"
-            disabled={Boolean(busy)}
+            disabled={extractLocked}
             aria-busy={busyKind === "retry"}
             onClick={() => void runExtract("retry")}
           >
@@ -523,6 +571,12 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
       {queue?.starError ? <p className="muted">D1 stars unavailable: {queue.starError}</p> : null}
       {error ? <p className="feedback wrong">{error}</p> : null}
       {notice ? <p className="feedback correct">{notice}</p> : null}
+      {pushJob?.status === "running" ? (
+        <p className="stills-studio-busy" role="status" aria-live="polite">
+          Pushing {pushJob.label} to R2… {pushJob.done} / {pushJob.total}. You can switch titles
+          or leave this tab; keep npm run dev running.
+        </p>
+      ) : null}
 
       {selected ? (
         <section className="stills-review">
@@ -540,7 +594,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
               <button
                 type="button"
                 className="button primary"
-                disabled={Boolean(busy) || selected.status === "no-file"}
+                disabled={extractLocked || selected.status === "no-file"}
                 aria-busy={busyKind === "handful"}
                 onClick={() => void runExtract("handful")}
               >
@@ -582,7 +636,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                             <button
                               type="button"
                               className={`button ghost${vote === "up" ? " is-active" : ""}`}
-                              disabled={Boolean(busy)}
+                              disabled={extractLocked}
                               onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "up" }))}
                             >
                               👍
@@ -590,7 +644,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                             <button
                               type="button"
                               className={`button ghost${vote === "down" ? " is-active" : ""}`}
-                              disabled={Boolean(busy)}
+                              disabled={extractLocked}
                               onClick={() => setVotes((prev) => ({ ...prev, [frame.lineIndex]: "down" }))}
                             >
                               👎
@@ -622,7 +676,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                   <p className="muted">
                     {selected.status === "pushed"
                       ? "On R2. Next Pages deploy still required for live /stills."
-                      : "All D1 stars are on disk. Open the folder to skim, or push to R2."}
+                      : pushingThis
+                        ? `Uploading ${pushJob?.done ?? 0} / ${pushJob?.total ?? 0}. Safe to switch titles or leave this tab.`
+                        : "All D1 stars are on disk. Open the folder to skim, or push to R2."}
                   </p>
                   <div className="row">
                     <button type="button" className="button" onClick={() => void openPreviewFolder()}>
@@ -631,18 +687,19 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                     <button
                       type="button"
                       className="button primary"
-                      disabled={Boolean(busy) || selected.status === "pushed"}
-                      aria-busy={busyKind === "push"}
+                      disabled={Boolean(busy) || selected.status === "pushed" || pushRunning}
+                      aria-busy={pushingThis}
                       onClick={() => void pushApproved()}
                     >
-                      {selected.status === "pushed" ? "Pushed to R2" : actionLabel("push", "Push approved")}
+                      {selected.status === "pushed"
+                        ? "Pushed to R2"
+                        : pushingThis
+                          ? `Pushing to R2… ${pushJob?.done ?? 0} / ${pushJob?.total ?? 0}`
+                          : pushRunning
+                            ? `Wait — pushing ${pushJob?.label ?? "stills"}`
+                            : "Push approved"}
                     </button>
                   </div>
-                  {busyKind === "push" && busy ? (
-                    <p className="stills-studio-busy" role="status" aria-live="polite">
-                      {busy}
-                    </p>
-                  ) : null}
                   {renderRetryTools("gallery")}
                 </div>
               ) : null}
@@ -654,7 +711,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                     <button
                       type="button"
                       className="button primary"
-                      disabled={Boolean(busy) || selected.starCount === 0}
+                      disabled={extractLocked || selected.starCount === 0}
                       aria-busy={busyKind === "batch"}
                       onClick={() => void runExtract("batch")}
                     >
