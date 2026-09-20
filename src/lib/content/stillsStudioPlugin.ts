@@ -10,6 +10,7 @@ import {
   studioExtract,
   studioHealth,
   parseStudioVotes,
+  studioCoverage,
   studioOpenPreview,
   startStudioPush,
   studioPushStatus,
@@ -57,6 +58,10 @@ export function stillsStudioPlugin() {
     try {
       if (req.method === "GET" && path === "/health") {
         sendJson(res, 200, studioHealth());
+        return;
+      }
+      if (req.method === "GET" && path === "/coverage") {
+        sendJson(res, 200, studioCoverage(ctx));
         return;
       }
       if (req.method === "GET" && path === "/shows") {
@@ -173,6 +178,12 @@ export function stillsPreviewPlugin() {
     const file = normalize(join(previewRoot, rel));
     const inside = relative(previewRoot, file);
     if (inside.startsWith("..") || isAbsolute(inside) || !existsSync(file) || !statSync(file).isFile()) {
+      if (/^[a-z0-9-]+\/\d+\.jpe?g$/i.test(rel)) {
+        res.statusCode = 404;
+        res.setHeader("Cache-Control", "no-store");
+        res.end();
+        return;
+      }
       next();
       return;
     }

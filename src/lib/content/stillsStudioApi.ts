@@ -48,6 +48,12 @@ async function readJson<T>(response: Response): Promise<T> {
   return data;
 }
 
+export async function fetchStudioCoverage(): Promise<Record<string, number>> {
+  const response = await studioFetch("/coverage");
+  const data = await readJson<{ titles?: Record<string, number> }>(response);
+  return data.titles ?? {};
+}
+
 export async function studioHealth(): Promise<boolean> {
   try {
     const response = await studioFetch("/health");

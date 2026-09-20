@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { extname, join } from "node:path";
 import type { CatalogEntry } from "../../types/content.js";
 import { foldNumberWords, normalizeTitle, parseTitleYear, pickBestTitleMatch } from "./titleMatch.js";
@@ -179,6 +179,42 @@ export function scanStillsPreview(previewRoot: string): StillsPreviewScan {
 
 export function countStillsByTitle(previewRoot: string): Record<string, number> {
   return scanStillsPreview(previewRoot).titles;
+}
+
+/** Keep catalog coverage in sync after a studio batch so missing-star counts stay honest. */
+export function upsertStillsCoverageTitle(coveragePath: string, titleId: string, destDir: string): void {
+  let file: StillsCoverageFile = { updatedAt: new Date().toISOString(), titles: {}, covers: {} };
+  if (existsSync(coveragePath)) {
+    try {
+      const raw = JSON.parse(readFileSync(coveragePath, "utf8")) as StillsCoverageFile;
+      if (raw && typeof raw === "object") {
+        file = {
+          updatedAt: typeof raw.updatedAt === "string" ? raw.updatedAt : file.updatedAt,
+          titles: raw.titles && typeof raw.titles === "object" ? { ...raw.titles } : {},
+          covers: raw.covers && typeof raw.covers === "object" ? { ...raw.covers } : {},
+        };
+      }
+    } catch {
+      /* rewrite a valid file */
+    }
+  }
+  const indices: number[] = [];
+  if (existsSync(destDir) && statSync(destDir).isDirectory()) {
+    for (const name of readdirSync(destDir)) {
+      const match = name.match(STILL_JPEG);
+      if (match) indices.push(Number(match[1]));
+    }
+  }
+  file.updatedAt = new Date().toISOString();
+  file.covers = file.covers ?? {};
+  if (indices.length === 0) {
+    delete file.titles[titleId];
+    delete file.covers[titleId];
+  } else {
+    file.titles[titleId] = indices.length;
+    file.covers[titleId] = Math.min(...indices);
+  }
+  writeFileSync(coveragePath, `${JSON.stringify(file, null, 2)}\n`);
 }
 
 export function formatUploadsMarkdown(snapshot: UploadsSnapshot): string {

@@ -3,9 +3,9 @@ import { spawn } from "node:child_process";
 import { join } from "node:path";
 import type { CatalogEntry, Title } from "../../types/content.js";
 import { loadCatalog, loadTitle, titlePath } from "./load.js";
-import type { CueSeek } from "./extractStills.js";
+import type { CueSeek, StillsSyncFile } from "./extractStills.js";
 import { loadStillsSyncFile, seekModeForTitle } from "./extractStills.js";
-import { countStillsByTitle } from "./mediaUploads.js";
+import { countStillsByTitle, upsertStillsCoverageTitle } from "./mediaUploads.js";
 import { fetchOwnerStarMap, starCountsFromMap, type OwnerStarMap } from "./stillsD1.js";
 import { listPreviewStillFiles, pushPreviewStills } from "./stillsPush.js";
 import {
@@ -98,6 +98,10 @@ export function studioHealth(): { ok: true } {
   return { ok: true };
 }
 
+export function studioCoverage(ctx: StudioContext): { titles: Record<string, number> } {
+  return { titles: countStillsByTitle(ctx.previewRoot) };
+}
+
 export function listStudioShows(ctx: StudioContext): { shows: { show: string; directory: string; directoryExists: boolean }[] } {
   const catalog = loadCatalog();
   return {
@@ -172,6 +176,14 @@ function framesForEpisode(
     lineOffsets: episode.lineOffsets,
     seek: seekModeForTitle(sync, title.id),
   });
+}
+
+function upsertCoverageForTitle(ctx: StudioContext, titleId: string): void {
+  upsertStillsCoverageTitle(
+    join(ctx.packageRoot, "content", "stills-coverage.json"),
+    titleId,
+    join(ctx.previewRoot, titleId),
+  );
 }
 
 function openLocalFolder(folder: string): void {
@@ -303,6 +315,7 @@ export function studioExtract(
         triedMethods: previous?.triedMethods,
       });
       writeStillsSyncFile(ctx.syncPath, sync);
+      upsertCoverageForTitle(ctx, id);
       const refreshed = findEpisode(ctx, id);
       return {
         episode: refreshed.episode,
@@ -369,6 +382,7 @@ export function studioExtract(
           : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
   });
   writeStillsSyncFile(ctx.syncPath, sync);
+  if (opts.mode === "batch") upsertCoverageForTitle(ctx, id);
 
   const refreshed = findEpisode(ctx, id);
   return {

@@ -149,8 +149,11 @@ export function studioVoteHint(
   votes: Record<number, StudioVote> | Record<string, StudioVote> | undefined,
 ): StudioVoteHint {
   if (!votes || frameOrder.length === 0) return "unknown";
-  const get = (lineIndex: number): StudioVote | undefined =>
-    votes[lineIndex] ?? votes[String(lineIndex)];
+  const byLine: Record<string, StudioVote> = {};
+  for (const [key, value] of Object.entries(votes)) {
+    if (value === "up" || value === "down") byLine[key] = value;
+  }
+  const get = (lineIndex: number): StudioVote | undefined => byLine[String(lineIndex)];
   const downs = frameOrder.filter((line) => get(line) === "down");
   if (downs.length === 0) return "unknown";
   const split = Math.ceil(frameOrder.length / 2);

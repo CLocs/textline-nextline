@@ -16,9 +16,15 @@ export type CatalogOpsRow = {
   starCount: number;
   playCount: number;
   stillCount: number;
+  missingCount: number;
   media: CatalogOpsMedia;
   mediaFiles: string[];
 };
+
+export function missingStills(starCount: number, stillCount: number): number {
+  if (starCount <= 0) return 0;
+  return Math.max(0, starCount - stillCount);
+}
 
 export function coveragePct(have: number, total: number): number {
   if (total <= 0) return 0;
@@ -57,6 +63,7 @@ export function buildCatalogOpsRows(input: {
       starCount: input.starCounts[entry.id] ?? 0,
       playCount: input.playCounts[entry.id] ?? 0,
       stillCount: input.stillCounts[entry.id] ?? 0,
+      missingCount: missingStills(input.starCounts[entry.id] ?? 0, input.stillCounts[entry.id] ?? 0),
       media: upload?.status ?? "missing",
       mediaFiles: upload?.files ?? [],
     });
@@ -64,6 +71,8 @@ export function buildCatalogOpsRows(input: {
 
   for (const show of groups.shows) {
     const episodes = [...show.seasons.values()].flat();
+    const starCount = episodes.reduce((sum, entry) => sum + (input.starCounts[entry.id] ?? 0), 0);
+    const stillCount = episodes.reduce((sum, entry) => sum + (input.stillCounts[entry.id] ?? 0), 0);
     rows.push({
       key: `show:${show.show}`,
       label: show.show,
@@ -71,9 +80,10 @@ export function buildCatalogOpsRows(input: {
       episodeCount: show.episodeCount,
       curated: episodes.some((entry) => protectedSet.has(entry.id)),
       lineCount: episodes.reduce((sum, entry) => sum + entry.lineCount, 0),
-      starCount: episodes.reduce((sum, entry) => sum + (input.starCounts[entry.id] ?? 0), 0),
+      starCount,
       playCount: episodes.reduce((sum, entry) => sum + (input.playCounts[entry.id] ?? 0), 0),
-      stillCount: episodes.reduce((sum, entry) => sum + (input.stillCounts[entry.id] ?? 0), 0),
+      stillCount,
+      missingCount: missingStills(starCount, stillCount),
       media: "n/a",
       mediaFiles: [],
     });
@@ -92,6 +102,7 @@ export type CatalogOpsSortKey =
   | "stars"
   | "plays"
   | "stills"
+  | "missing"
   | "stillPct"
   | "media";
 
@@ -118,6 +129,8 @@ function compareOps(a: CatalogOpsRow, b: CatalogOpsRow, key: CatalogOpsSortKey):
       return a.playCount - b.playCount;
     case "stills":
       return a.stillCount - b.stillCount;
+    case "missing":
+      return a.missingCount - b.missingCount;
     case "stillPct":
       return coveragePct(a.stillCount, a.lineCount) - coveragePct(b.stillCount, b.lineCount);
     case "media":

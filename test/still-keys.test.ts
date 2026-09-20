@@ -21,6 +21,7 @@ describe("stillKeyFromPathname", () => {
     expect(stillKeyFromPathname("/stills/oceans-thirteen-2007/40.jpg")).toBe(
       "oceans-thirteen-2007/40.jpg",
     );
+    expect(stillKeyFromPathname("/stills/friday-1995/199.jpg?r=1")).toBe("friday-1995/199.jpg");
   });
 
   it("rejects extra segments", () => {

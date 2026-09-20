@@ -24,6 +24,7 @@ const SIMPSONS_OFFSET_MS = -57_000;
 type Props = {
   initialShow?: string;
   initialTitleId?: string | null;
+  initialAutoBatch?: boolean;
 };
 
 function statusLabel(status: StudioEpisode["status"]): string {
@@ -55,7 +56,11 @@ type AppliedMethod = {
   id?: string;
 };
 
-export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId = null }: Props) {
+export function StillsStudioPanel({
+  initialShow = "The Simpsons",
+  initialTitleId = null,
+  initialAutoBatch = false,
+}: Props) {
   const [available, setAvailable] = useState<boolean | null>(null);
   const [shows, setShows] = useState<{ show: string; directory: string; directoryExists: boolean }[]>([]);
   const [show, setShow] = useState(initialShow);
@@ -74,6 +79,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
   const [busyMethodId, setBusyMethodId] = useState<string | null>(null);
   const busyRef = useRef(false);
   const openedTitleRef = useRef<string | null>(null);
+  const autoBatchRef = useRef(initialAutoBatch);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [pushJob, setPushJob] = useState<StudioPushJob | null>(null);
@@ -140,7 +146,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
         seenPushRef.current = key;
         if (job.status === "ok") {
           setNotice(
-            `Pushed ${job.uploaded ?? job.done} stills to R2 from ${job.previewDir ?? "preview"}. Live after the next Pages deploy.`,
+            `Pushed ${job.uploaded ?? job.done} stills to R2 from ${job.previewDir ?? "preview"}. Quote stills are live at /stills. Library covers need a Pages deploy.`,
           );
           try {
             const next = await fetchStudioQueue(showRef.current);
@@ -234,7 +240,9 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
     setLineOffsets(row.lineOffsets);
     setVotes({});
     if (row.status === "pushed") {
-      setNotice(`Pushed ${data.frames.length} stills to R2 from ${data.previewDir}. Live after the next Pages deploy.`);
+      setNotice(
+        `Pushed ${data.frames.length} stills to R2 from ${data.previewDir}. Quote stills are live at /stills. Library covers need a Pages deploy.`,
+      );
     } else if (row.status === "batched") {
       setNotice(`Batched ${data.frames.length} stills in ${data.previewDir}. Push to R2 when you mean it.`);
     } else {
@@ -333,6 +341,17 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
       setBusyMethodId(null);
     }
   }
+
+  useEffect(() => {
+    if (!autoBatchRef.current || !selectedId || selectedId !== initialTitleId || !episode) return;
+    if (busyRef.current) return;
+    autoBatchRef.current = false;
+    if (episode.status === "batched" || episode.status === "pushed" || episode.status === "approved") {
+      void runExtract("batch");
+      return;
+    }
+    setNotice("Thumb the six frames first, then batch remaining stars.");
+  }, [episode, selectedId, initialTitleId]);
 
   async function pushApproved() {
     if (!selectedId || pushJob?.status === "running") return;
@@ -675,7 +694,7 @@ export function StillsStudioPanel({ initialShow = "The Simpsons", initialTitleId
                 <div className="stills-sync-controls">
                   <p className="muted">
                     {selected.status === "pushed"
-                      ? "On R2. Next Pages deploy still required for live /stills. If you changed a D1 star, batch remaining then push again."
+                      ? "On R2. Quote stills are live at /stills. Library covers need a Pages deploy. If you changed a D1 star, batch remaining then push again."
                       : pushingThis
                         ? `Uploading ${pushJob?.done ?? 0} / ${pushJob?.total ?? 0}. Safe to switch titles or leave this tab.`
                         : "All D1 stars are on disk. Open the folder to skim, or push to R2. Changed a star? Batch remaining pulls the current D1 list."}

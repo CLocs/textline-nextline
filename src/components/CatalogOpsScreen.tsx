@@ -16,6 +16,7 @@ import {
   loadUploadsSnapshot,
 } from "../lib/content/catalogOpsData";
 import { fetchOpsCatalog } from "../lib/ops/api";
+import { fetchStudioCoverage, studioHealth } from "../lib/content/stillsStudioApi";
 import { StillsStudioPanel } from "./StillsStudioPanel";
 
 type Props = {
@@ -31,6 +32,7 @@ const COLUMNS: { key: CatalogOpsSortKey; label: string }[] = [
   { key: "stars", label: "Stars" },
   { key: "plays", label: "Plays" },
   { key: "stills", label: "Stills" },
+  { key: "missing", label: "Missing" },
   { key: "stillPct", label: "% lines" },
   { key: "media", label: "Media" },
 ];
@@ -56,6 +58,8 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   const [tab, setTab] = useState<"catalog" | "stills">("catalog");
   const [stillsShow, setStillsShow] = useState("The Simpsons");
   const [stillsTitleId, setStillsTitleId] = useState<string | null>(null);
+  const [stillsAutoBatch, setStillsAutoBatch] = useState(false);
+  const [stillCounts, setStillCounts] = useState<Record<string, number>>(() => loadStillsCoverage());
 
   useEffect(() => {
     let cancelled = false;
@@ -76,17 +80,33 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
     };
   }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+    void studioHealth().then(async (ok) => {
+      if (!ok || cancelled) return;
+      try {
+        const titles = await fetchStudioCoverage();
+        if (!cancelled && Object.keys(titles).length > 0) setStillCounts(titles);
+      } catch {
+        /* bundled stills-coverage.json remains */
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const rows = useMemo(() => {
     const built = buildCatalogOpsRows({
       entries,
       protectedIds: loadProtectedTitleIdsBrowser(),
-      stillCounts: loadStillsCoverage(),
+      stillCounts,
       starCounts,
       playCounts,
       uploads: loadUploadsSnapshot(),
     });
     return sortCatalogOpsRows(built, sortKey, sortDir);
-  }, [entries, starCounts, playCounts, sortKey, sortDir]);
+  }, [entries, starCounts, playCounts, stillCounts, sortKey, sortDir]);
 
   const movies = rows.filter((row) => row.kind === "movie");
   const onDisk = movies.filter((row) => row.media === "ok" || row.media === "split").length;
@@ -99,6 +119,18 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
     }
     setSortKey(key);
     setSortDir(defaultOpsSortDir(key));
+  }
+
+  function openStills(row: CatalogOpsRow, autoBatch = false) {
+    if (row.kind === "movie") {
+      setStillsShow("Movies");
+      setStillsTitleId(row.key);
+    } else {
+      setStillsShow(row.label);
+      setStillsTitleId(null);
+    }
+    setStillsAutoBatch(autoBatch && row.kind === "movie");
+    setTab("stills");
   }
 
   return (
@@ -127,6 +159,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
           className={`button ghost${tab === "stills" ? " is-active" : ""}`}
           onClick={() => {
             setStillsTitleId(null);
+            setStillsAutoBatch(false);
             setTab("stills");
           }}
         >
@@ -136,9 +169,10 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
 
       {tab === "stills" ? (
         <StillsStudioPanel
-          key={`${stillsShow}:${stillsTitleId ?? ""}`}
+          key={`${stillsShow}:${stillsTitleId ?? ""}:${stillsAutoBatch ? "batch" : ""}`}
           initialShow={stillsShow}
           initialTitleId={stillsTitleId}
+          initialAutoBatch={stillsAutoBatch}
         />
       ) : null}
 
@@ -180,16 +214,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
                       <button
                         type="button"
                         className="button ghost ops-review-stills"
-                        onClick={() => {
-                          if (row.kind === "movie") {
-                            setStillsShow("Movies");
-                            setStillsTitleId(row.key);
-                          } else {
-                            setStillsShow(row.label);
-                            setStillsTitleId(null);
-                          }
-                          setTab("stills");
-                        }}
+                        onClick={() => openStills(row)}
                       >
                         Review stills
                       </button>
@@ -204,6 +229,21 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
                   {row.stillCount || ""}
                   {row.starCount > 0 && row.stillCount > 0 ? (
                     <span className="muted"> · {formatCoveragePct(row.stillCount, row.starCount)} stars</span>
+                  ) : null}
+                </td>
+                <td>
+                  {row.missingCount > 0 ? row.missingCount : ""}
+                  {row.missingCount > 0 && row.kind === "movie" ? (
+                    <>
+                      {" "}
+                      <button
+                        type="button"
+                        className="button ghost ops-review-stills"
+                        onClick={() => openStills(row, true)}
+                      >
+                        Extract missing
+                      </button>
+                    </>
                   ) : null}
                 </td>
                 <td>{row.stillCount > 0 ? formatCoveragePct(row.stillCount, row.lineCount) : ""}</td>

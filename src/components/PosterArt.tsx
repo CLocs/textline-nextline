@@ -19,11 +19,16 @@ export function PosterArt({
   className,
 }: Props) {
   const poster = posterUrl(titleId);
-  const still = lineIndex != null ? stillUrl(titleId, lineIndex) : null;
   const hidePoster = fallback === "hide";
+  const [stillBust, setStillBust] = useState<number | null>(null);
+  const still = lineIndex != null ? stillUrl(titleId, lineIndex, stillBust ?? undefined) : null;
   const initial = still ?? (hidePoster ? null : poster);
   const [src, setSrc] = useState<string | null>(initial);
   const [hidden, setHidden] = useState(!initial);
+
+  useEffect(() => {
+    setStillBust(null);
+  }, [titleId, lineIndex]);
 
   useEffect(() => {
     const next = still ?? (hidePoster ? null : poster);
@@ -40,6 +45,10 @@ export function PosterArt({
       src={src}
       alt={usingStill ? `${title} still` : `${title} poster`}
       onError={() => {
+        if (still && src === still && stillBust == null) {
+          setStillBust(Date.now());
+          return;
+        }
         if (!hidePoster && still && src === still) setSrc(poster);
         else setHidden(true);
       }}
