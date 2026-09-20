@@ -163,6 +163,7 @@ export function ChatThreadScreen({
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const [showJumpLatest, setShowJumpLatest] = useState(false);
+  const [quotesOnly, setQuotesOnly] = useState(false);
 
   const endRef = useRef<HTMLDivElement>(null);
   const stickToBottomRef = useRef(true);
@@ -265,6 +266,7 @@ export function ChatThreadScreen({
     }
     setDraft("");
     stickToBottomRef.current = true;
+    setQuotesOnly(false);
     if (mode === "dm") {
       setDmMessages((prev) => [...prev, result.message]);
     } else {
@@ -272,11 +274,25 @@ export function ChatThreadScreen({
     }
   }
 
+  const visibleDm = quotesOnly
+    ? dmMessages.filter((message) => message.kind === "quote")
+    : dmMessages;
+  const visibleGroup = quotesOnly
+    ? groupMessages.filter((message) => message.kind === "quote")
+    : groupMessages;
+
   const empty =
     !loading &&
     !error &&
     ((mode === "dm" && dmMessages.length === 0) ||
       (mode === "group" && groupMessages.length === 0));
+  const emptyQuotes =
+    !loading &&
+    !error &&
+    !empty &&
+    quotesOnly &&
+    ((mode === "dm" && visibleDm.length === 0) ||
+      (mode === "group" && visibleGroup.length === 0));
 
   return (
     <section className="panel chats-thread-panel">
@@ -284,13 +300,33 @@ export function ChatThreadScreen({
         <button type="button" className="button ghost back-link" onClick={onBack}>
           ← Chats
         </button>
-        <div className="section-header">
-          <h2>{title}</h2>
-          <p className="muted">
-            {mode === "group"
-              ? "Shared group chat — type here or send lines from Curate."
-              : "Direct chat — type here or send lines from Curate."}
-          </p>
+        <div className="section-header chats-thread-heading">
+          <div>
+            <h2>{title}</h2>
+            <p className="muted">
+              {mode === "group"
+                ? "Shared group chat — type here or send lines from Curate."
+                : "Direct chat — type here or send lines from Curate."}
+            </p>
+          </div>
+          <div className="chats-thread-filter" role="group" aria-label="Show messages">
+            <button
+              type="button"
+              className={`button${quotesOnly ? " ghost" : " primary"}`}
+              aria-pressed={!quotesOnly}
+              onClick={() => setQuotesOnly(false)}
+            >
+              All
+            </button>
+            <button
+              type="button"
+              className={`button${quotesOnly ? " primary" : " ghost"}`}
+              aria-pressed={quotesOnly}
+              onClick={() => setQuotesOnly(true)}
+            >
+              Quotes
+            </button>
+          </div>
         </div>
       </div>
 
@@ -303,10 +339,13 @@ export function ChatThreadScreen({
             {empty ? (
               <p className="muted">No messages yet. Say hello or send a line from Curate.</p>
             ) : null}
+            {emptyQuotes ? (
+              <p className="muted">No quotes in this thread yet. Switch to All to see chat.</p>
+            ) : null}
 
             {mode === "dm" ? (
               <ul className="inbox-line-list chats-message-list">
-                {dmMessages.map((message) =>
+                {visibleDm.map((message) =>
                   message.kind === "text" ? (
                     <li key={`t-${message.id}`}>
                       <TextBubble
@@ -338,7 +377,7 @@ export function ChatThreadScreen({
               </ul>
             ) : (
               <ul className="inbox-line-list chats-message-list">
-                {groupMessages.map((message) => {
+                {visibleGroup.map((message) => {
                   if (message.kind === "text") {
                     return (
                       <li key={`t-${message.id}`}>

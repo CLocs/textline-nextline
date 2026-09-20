@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-19T21:03:07.969Z",
+  "updatedAt": "2026-09-20T06:02:29.868Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -110,6 +110,2178 @@
       "importedAt": "2026-09-13T03:32:08.022Z",
       "meta": {
         "year": 2009
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x01---the-gang-beats-boggs",
+      "title": "It's Always Sunny in Philadelphia - 10x01 - The Gang Beats Boggs",
+      "lineCount": 373,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x01 - The Gang Beats Boggs.en.srt",
+      "importedAt": "2026-09-20T06:02:00.796Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x02---the-gang-group-dates",
+      "title": "It's Always Sunny in Philadelphia - 10x02 - The Gang Group Dates",
+      "lineCount": 478,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x02 - The Gang Group Dates.en.srt",
+      "importedAt": "2026-09-20T06:02:00.802Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x03---psycho-pete-returns",
+      "title": "It's Always Sunny in Philadelphia - 10x03 - Psycho Pete Returns",
+      "lineCount": 467,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x03 - Psycho Pete Returns.en.srt",
+      "importedAt": "2026-09-20T06:02:00.806Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x04---charlie-work",
+      "title": "It's Always Sunny in Philadelphia - 10x04 - Charlie Work",
+      "lineCount": 435,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x04 - Charlie Work.en.srt",
+      "importedAt": "2026-09-20T06:02:00.808Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x05---the-gang-spies-like-usa",
+      "title": "It's Always Sunny in Philadelphia - 10x05 - The Gang Spies Like USA",
+      "lineCount": 451,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x05 - The Gang Spies Like USA.en.srt",
+      "importedAt": "2026-09-20T06:02:00.810Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x06---the-gang-misses-the-boat",
+      "title": "It's Always Sunny in Philadelphia - 10x06 - The Gang Misses the Boat",
+      "lineCount": 455,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x06 - The Gang Misses the Boat.en.srt",
+      "importedAt": "2026-09-20T06:02:00.814Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x07---mac-kills-his-dad",
+      "title": "It's Always Sunny in Philadelphia - 10x07 - Mac Kills His Dad",
+      "lineCount": 408,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x07 - Mac Kills His Dad.en.srt",
+      "importedAt": "2026-09-20T06:02:00.816Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x08---the-gang-goes-on-family-fight",
+      "title": "It's Always Sunny in Philadelphia - 10x08 - The Gang Goes on Family Fight",
+      "lineCount": 462,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x08 - The Gang Goes on Family Fight.en.srt",
+      "importedAt": "2026-09-20T06:02:00.818Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x09---frank-retires",
+      "title": "It's Always Sunny in Philadelphia - 10x09 - Frank Retires",
+      "lineCount": 422,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x09 - Frank Retires.en.srt",
+      "importedAt": "2026-09-20T06:02:00.821Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---10x10---ass-kickers-united-mac-and-charlie-join-a-cult",
+      "title": "It's Always Sunny in Philadelphia - 10x10 - Ass Kickers United — Mac and Charlie Join a Cult",
+      "lineCount": 443,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 10x10 - Ass Kickers United — Mac and Charlie Join a Cult.en.srt",
+      "importedAt": "2026-09-20T06:02:00.823Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 10,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x01---chardee-macdennis-2-electric-boogaloo",
+      "title": "It's Always Sunny in Philadelphia - 11x01 - Chardee MacDennis 2 — Electric Boogaloo",
+      "lineCount": 483,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x01 - Chardee MacDennis 2 — Electric Boogaloo.en.srt",
+      "importedAt": "2026-09-20T06:02:00.826Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x02---frank-falls-out-the-window",
+      "title": "It's Always Sunny in Philadelphia - 11x02 - Frank Falls Out the Window",
+      "lineCount": 602,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x02 - Frank Falls Out the Window.en.srt",
+      "importedAt": "2026-09-20T06:02:00.828Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x03---the-gang-hits-the-slopes",
+      "title": "It's Always Sunny in Philadelphia - 11x03 - The Gang Hits the Slopes",
+      "lineCount": 482,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x03 - The Gang Hits the Slopes.en.srt",
+      "importedAt": "2026-09-20T06:02:00.829Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x04---dee-made-a-smut-film",
+      "title": "It's Always Sunny in Philadelphia - 11x04 - Dee Made a Smut Film",
+      "lineCount": 458,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x04 - Dee Made a Smut Film.en.srt",
+      "importedAt": "2026-09-20T06:02:00.832Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x05---mac-dennis-move-to-the-suburbs",
+      "title": "It's Always Sunny in Philadelphia - 11x05 - Mac & Dennis Move to the Suburbs",
+      "lineCount": 573,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x05 - Mac & Dennis Move to the Suburbs.en.srt",
+      "importedAt": "2026-09-20T06:02:00.834Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x06---being-frank",
+      "title": "It's Always Sunny in Philadelphia - 11x06 - Being Frank",
+      "lineCount": 463,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x06 - Being Frank.en.srt",
+      "importedAt": "2026-09-20T06:02:00.837Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x07---mcpoyle-vs-ponderosa-the-trial-of-the-century",
+      "title": "It's Always Sunny in Philadelphia - 11x07 - McPoyle vs Ponderosa — The Trial of the Century",
+      "lineCount": 464,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x07 - McPoyle vs. Ponderosa — The Trial of the Century.en.srt",
+      "importedAt": "2026-09-20T06:02:00.839Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x08---charlie-catches-a-leprechaun",
+      "title": "It's Always Sunny in Philadelphia - 11x08 - Charlie Catches a Leprechaun",
+      "lineCount": 493,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x08 - Charlie Catches a Leprechaun.en.srt",
+      "importedAt": "2026-09-20T06:02:00.840Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x09---the-gang-goes-to-hell-part-one",
+      "title": "It's Always Sunny in Philadelphia - 11x09 - The Gang Goes to Hell Part One",
+      "lineCount": 548,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x09 - The Gang Goes to Hell Part One.en.srt",
+      "importedAt": "2026-09-20T06:02:00.843Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---11x10---the-gang-goes-to-hell-part-two",
+      "title": "It's Always Sunny in Philadelphia - 11x10 - The Gang Goes to Hell Part Two",
+      "lineCount": 587,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 11x10 - The Gang Goes to Hell Part Two.en.srt",
+      "importedAt": "2026-09-20T06:02:00.847Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 11,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x01---the-gang-turns-black",
+      "title": "It's Always Sunny in Philadelphia - 12x01 - The Gang Turns Black",
+      "lineCount": 380,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x01 - The Gang Turns Black.en.srt",
+      "importedAt": "2026-09-20T06:02:00.851Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x02---the-gang-goes-to-a-water-park",
+      "title": "It's Always Sunny in Philadelphia - 12x02 - The Gang Goes to a Water Park",
+      "lineCount": 444,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x02 - The Gang Goes to a Water Park.en.srt",
+      "importedAt": "2026-09-20T06:02:00.854Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x03---old-lady-house-a-situation-comedy",
+      "title": "It's Always Sunny in Philadelphia - 12x03 - Old Lady House — A Situation Comedy",
+      "lineCount": 474,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x03 - Old Lady House — A Situation Comedy.en.srt",
+      "importedAt": "2026-09-20T06:02:00.856Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x04---wolf-cola-a-public-relations-nightmare",
+      "title": "It's Always Sunny in Philadelphia - 12x04 - Wolf Cola — A Public Relations Nightmare",
+      "lineCount": 414,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x04 - Wolf Cola — A Public Relations Nightmare.en.srt",
+      "importedAt": "2026-09-20T06:02:00.858Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x05---making-dennis-reynolds-a-murderer",
+      "title": "It's Always Sunny in Philadelphia - 12x05 - Making Dennis Reynolds a Murderer",
+      "lineCount": 272,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x05 - Making Dennis Reynolds a Murderer.en.srt",
+      "importedAt": "2026-09-20T06:02:00.860Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x06---hero-or-hate-crime",
+      "title": "It's Always Sunny in Philadelphia - 12x06 - Hero or Hate Crime",
+      "lineCount": 519,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x06 - Hero or Hate Crime.en.srt",
+      "importedAt": "2026-09-20T06:02:00.862Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x07---ptsdee",
+      "title": "It's Always Sunny in Philadelphia - 12x07 - PTSDee",
+      "lineCount": 496,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x07 - PTSDee.en.srt",
+      "importedAt": "2026-09-20T06:02:00.864Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x08---the-gang-tends-bar",
+      "title": "It's Always Sunny in Philadelphia - 12x08 - The Gang Tends Bar",
+      "lineCount": 506,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x08 - The Gang Tends Bar.en.srt",
+      "importedAt": "2026-09-20T06:02:00.866Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x09---a-crickets-tale",
+      "title": "It's Always Sunny in Philadelphia - 12x09 - A Cricket's Tale",
+      "lineCount": 358,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x09 - A Cricket's Tale.en.srt",
+      "importedAt": "2026-09-20T06:02:00.868Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---12x10---dennis-double-life",
+      "title": "It's Always Sunny in Philadelphia - 12x10 - Dennis' Double Life",
+      "lineCount": 497,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 12x10 - Dennis' Double Life.en.srt",
+      "importedAt": "2026-09-20T06:02:00.871Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 12,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x01---the-gang-makes-paddys-great-again",
+      "title": "It's Always Sunny in Philadelphia - 13x01 - The Gang Makes Paddy's Great Again",
+      "lineCount": 493,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x01 - The Gang Makes Paddy's Great Again.en.srt",
+      "importedAt": "2026-09-20T06:02:00.873Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x02---the-gang-escapes",
+      "title": "It's Always Sunny in Philadelphia - 13x02 - The Gang Escapes",
+      "lineCount": 477,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x02 - The Gang Escapes.en.srt",
+      "importedAt": "2026-09-20T06:02:00.875Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x03---the-gang-beats-boggs-ladies-reboot",
+      "title": "It's Always Sunny in Philadelphia - 13x03 - The Gang Beats Boggs — Ladies Reboot",
+      "lineCount": 410,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x03 - The Gang Beats Boggs — Ladies Reboot.en.srt",
+      "importedAt": "2026-09-20T06:02:00.877Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x04---times-up-for-the-gang",
+      "title": "It's Always Sunny in Philadelphia - 13x04 - Time's Up for the Gang",
+      "lineCount": 446,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x04 - Time's Up for the Gang.en.srt",
+      "importedAt": "2026-09-20T06:02:00.879Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x05---the-gang-gets-new-wheels",
+      "title": "It's Always Sunny in Philadelphia - 13x05 - The Gang Gets New Wheels",
+      "lineCount": 534,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x05 - The Gang Gets New Wheels.en.srt",
+      "importedAt": "2026-09-20T06:02:00.882Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x06---the-gang-solves-the-bathroom-problem",
+      "title": "It's Always Sunny in Philadelphia - 13x06 - The Gang Solves the Bathroom Problem",
+      "lineCount": 507,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x06 - The Gang Solves the Bathroom Problem.en.srt",
+      "importedAt": "2026-09-20T06:02:00.884Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x07---the-gang-does-a-clip-show",
+      "title": "It's Always Sunny in Philadelphia - 13x07 - The Gang Does a Clip Show",
+      "lineCount": 458,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x07 - The Gang Does a Clip Show.en.srt",
+      "importedAt": "2026-09-20T06:02:00.887Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x08---charlies-home-alone",
+      "title": "It's Always Sunny in Philadelphia - 13x08 - Charlie's Home Alone",
+      "lineCount": 290,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x08 - Charlie's Home Alone.en.srt",
+      "importedAt": "2026-09-20T06:02:01.587Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x09---the-gang-wins-the-big-game",
+      "title": "It's Always Sunny in Philadelphia - 13x09 - The Gang Wins the Big Game",
+      "lineCount": 396,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x09 - The Gang Wins the Big Game.en.srt",
+      "importedAt": "2026-09-20T06:02:01.592Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---13x10---mac-finds-his-pride",
+      "title": "It's Always Sunny in Philadelphia - 13x10 - Mac Finds His Pride",
+      "lineCount": 350,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 13x10 - Mac Finds His Pride.en.srt",
+      "importedAt": "2026-09-20T06:02:01.595Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 13,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x01---the-gang-gets-romantic",
+      "title": "It's Always Sunny in Philadelphia - 14x01 - The Gang Gets Romantic",
+      "lineCount": 521,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x01 - The Gang Gets Romantic.en.srt",
+      "importedAt": "2026-09-20T06:02:01.597Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x02---thunder-gun-4-maximum-cool",
+      "title": "It's Always Sunny in Philadelphia - 14x02 - Thunder Gun 4 — Maximum Cool",
+      "lineCount": 452,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x02 - Thunder Gun 4 — Maximum Cool.en.srt",
+      "importedAt": "2026-09-20T06:02:01.600Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x03---dee-day",
+      "title": "It's Always Sunny in Philadelphia - 14x03 - Dee Day",
+      "lineCount": 544,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x03 - Dee Day.en.srt",
+      "importedAt": "2026-09-20T06:02:01.603Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x04---the-gang-chokes",
+      "title": "It's Always Sunny in Philadelphia - 14x04 - The Gang Chokes",
+      "lineCount": 509,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x04 - The Gang Chokes.en.srt",
+      "importedAt": "2026-09-20T06:02:01.607Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x05---the-gang-texts",
+      "title": "It's Always Sunny in Philadelphia - 14x05 - The Gang Texts",
+      "lineCount": 485,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x05 - The Gang Texts.en.srt",
+      "importedAt": "2026-09-20T06:02:01.609Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x06---the-janitor-always-mops-twice",
+      "title": "It's Always Sunny in Philadelphia - 14x06 - The Janitor Always Mops Twice",
+      "lineCount": 418,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x06 - The Janitor Always Mops Twice.en.srt",
+      "importedAt": "2026-09-20T06:02:01.612Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x07---the-gang-solves-global-warming",
+      "title": "It's Always Sunny in Philadelphia - 14x07 - The Gang Solves Global Warming",
+      "lineCount": 403,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x07 - The Gang Solves Global Warming.en.srt",
+      "importedAt": "2026-09-20T06:02:01.614Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x08---paddys-has-a-jumper",
+      "title": "It's Always Sunny in Philadelphia - 14x08 - Paddy's Has a Jumper",
+      "lineCount": 498,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x08 - Paddy's Has a Jumper.en.srt",
+      "importedAt": "2026-09-20T06:02:01.617Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x09---a-womans-right-to-chop",
+      "title": "It's Always Sunny in Philadelphia - 14x09 - A Woman's Right to Chop",
+      "lineCount": 460,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x09 - A Woman's Right to Chop.en.srt",
+      "importedAt": "2026-09-20T06:02:01.619Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---14x10---waiting-for-big-mo",
+      "title": "It's Always Sunny in Philadelphia - 14x10 - Waiting for Big Mo",
+      "lineCount": 475,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 14x10 - Waiting for Big Mo.en.srt",
+      "importedAt": "2026-09-20T06:02:01.622Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 14,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x01---2020-a-year-in-review",
+      "title": "It's Always Sunny in Philadelphia - 15x01 - 2020 — A Year in Review",
+      "lineCount": 456,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x01 - 2020 — A Year in Review.en.srt",
+      "importedAt": "2026-09-20T06:02:01.624Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x02---the-gang-makes-lethal-weapon-7",
+      "title": "It's Always Sunny in Philadelphia - 15x02 - The Gang Makes Lethal Weapon 7",
+      "lineCount": 476,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x02 - The Gang Makes Lethal Weapon 7.en.srt",
+      "importedAt": "2026-09-20T06:02:01.626Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x03---the-gang-buys-a-roller-rink",
+      "title": "It's Always Sunny in Philadelphia - 15x03 - The Gang Buys a Roller Rink",
+      "lineCount": 493,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x03 - The Gang Buys a Roller Rink.en.srt",
+      "importedAt": "2026-09-20T06:02:01.628Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x04---the-gang-replaces-dee-with-a-monkey",
+      "title": "It's Always Sunny in Philadelphia - 15x04 - The Gang Replaces Dee with a Monkey",
+      "lineCount": 449,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x04 - The Gang Replaces Dee with a Monkey.en.srt",
+      "importedAt": "2026-09-20T06:02:01.630Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x05---the-gang-goes-to-ireland",
+      "title": "It's Always Sunny in Philadelphia - 15x05 - The Gang Goes to Ireland",
+      "lineCount": 468,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x05 - The Gang Goes to Ireland.en.srt",
+      "importedAt": "2026-09-20T06:02:01.632Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x06---the-gangs-still-in-ireland",
+      "title": "It's Always Sunny in Philadelphia - 15x06 - The Gang's Still in Ireland",
+      "lineCount": 401,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x06 - The Gang's Still in Ireland.en.srt",
+      "importedAt": "2026-09-20T06:02:01.633Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x07---dee-sinks-in-a-bog",
+      "title": "It's Always Sunny in Philadelphia - 15x07 - Dee Sinks in a Bog",
+      "lineCount": 424,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x07 - Dee Sinks in a Bog.en.srt",
+      "importedAt": "2026-09-20T06:02:01.635Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---15x08---the-gang-carries-a-corpse-up-a-mountain",
+      "title": "It's Always Sunny in Philadelphia - 15x08 - The Gang Carries a Corpse Up a Mountain",
+      "lineCount": 423,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 15x08 - The Gang Carries a Corpse Up a Mountain.en.srt",
+      "importedAt": "2026-09-20T06:02:01.637Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 15,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x01---the-gang-inflates",
+      "title": "It's Always Sunny in Philadelphia - 16x01 - The Gang Inflates",
+      "lineCount": 528,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x01 - The Gang Inflates.en.srt",
+      "importedAt": "2026-09-20T06:02:01.640Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x02---frank-shoots-every-member-of-the-gang",
+      "title": "It's Always Sunny in Philadelphia - 16x02 - Frank Shoots Every Member of the Gang",
+      "lineCount": 552,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x02 - Frank Shoots Every Member of the Gang.en.srt",
+      "importedAt": "2026-09-20T06:02:01.643Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x03---the-gang-gets-cursed",
+      "title": "It's Always Sunny in Philadelphia - 16x03 - The Gang Gets Cursed",
+      "lineCount": 525,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x03 - The Gang Gets Cursed.en.srt",
+      "importedAt": "2026-09-20T06:02:01.646Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x04---frank-vs-russia",
+      "title": "It's Always Sunny in Philadelphia - 16x04 - Frank vs Russia",
+      "lineCount": 441,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x04 - Frank vs. Russia.en.srt",
+      "importedAt": "2026-09-20T06:02:01.648Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x05---celebrity-booze-the-ultimate-cash-grab",
+      "title": "It's Always Sunny in Philadelphia - 16x05 - Celebrity Booze — The Ultimate Cash Grab",
+      "lineCount": 515,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x05 - Celebrity Booze — The Ultimate Cash Grab.en.srt",
+      "importedAt": "2026-09-20T06:02:01.651Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x06---risk-e-rats-pizza-and-amusement-center",
+      "title": "It's Always Sunny in Philadelphia - 16x06 - Risk E Rat's Pizza and Amusement Center",
+      "lineCount": 525,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x06 - Risk E. Rat's Pizza and Amusement Center.en.srt",
+      "importedAt": "2026-09-20T06:02:01.653Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x07---the-gang-goes-bowling",
+      "title": "It's Always Sunny in Philadelphia - 16x07 - The Gang Goes Bowling",
+      "lineCount": 519,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x07 - The Gang Goes Bowling.en.srt",
+      "importedAt": "2026-09-20T06:02:01.656Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---16x08---dennis-takes-a-mental-health-day",
+      "title": "It's Always Sunny in Philadelphia - 16x08 - Dennis Takes a Mental Health Day",
+      "lineCount": 427,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 16x08 - Dennis Takes a Mental Health Day.en.srt",
+      "importedAt": "2026-09-20T06:02:01.659Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 16,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x01---the-gang-fs-up-abbott-elementary",
+      "title": "It's Always Sunny in Philadelphia - 17x01 - The Gang F's Up Abbott Elementary",
+      "lineCount": 502,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x01 - The Gang F's Up Abbott Elementary.en.srt",
+      "importedAt": "2026-09-20T06:02:01.661Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x02---frank-is-in-a-coma",
+      "title": "It's Always Sunny in Philadelphia - 17x02 - Frank Is in a Coma",
+      "lineCount": 484,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x02 - Frank Is in a Coma.en.srt",
+      "importedAt": "2026-09-20T06:02:01.663Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x03---mac-and-dennis-become-emts",
+      "title": "It's Always Sunny in Philadelphia - 17x03 - Mac and Dennis Become EMTs",
+      "lineCount": 467,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x03 - Mac and Dennis Become EMTs.en.srt",
+      "importedAt": "2026-09-20T06:02:01.665Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x04---thought-leadership-a-corporate-conversation",
+      "title": "It's Always Sunny in Philadelphia - 17x04 - Thought Leadership — A Corporate Conversation",
+      "lineCount": 385,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x04 - Thought Leadership — A Corporate Conversation.en.srt",
+      "importedAt": "2026-09-20T06:02:01.666Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x05---the-gang-goes-to-a-dog-track",
+      "title": "It's Always Sunny in Philadelphia - 17x05 - The Gang Goes to a Dog Track",
+      "lineCount": 479,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x05 - The Gang Goes to a Dog Track.en.srt",
+      "importedAt": "2026-09-20T06:02:01.668Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x06---overage-drinking-a-national-concern",
+      "title": "It's Always Sunny in Philadelphia - 17x06 - Overage Drinking — A National Concern",
+      "lineCount": 458,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x06 - Overage Drinking — A National Concern.en.srt",
+      "importedAt": "2026-09-20T06:02:01.671Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x07---the-gang-gets-ready-for-prime-time",
+      "title": "It's Always Sunny in Philadelphia - 17x07 - The Gang Gets Ready for Prime Time",
+      "lineCount": 475,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x07 - The Gang Gets Ready for Prime Time.en.srt",
+      "importedAt": "2026-09-20T06:02:01.673Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---17x08---the-golden-bachelor-live",
+      "title": "It's Always Sunny in Philadelphia - 17x08 - The Golden Bachelor Live",
+      "lineCount": 451,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 17x08 - The Golden Bachelor Live.en.srt",
+      "importedAt": "2026-09-20T06:02:01.675Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 17,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---18x01---frank-marries-a-corpse",
+      "title": "It's Always Sunny in Philadelphia - 18x01 - Frank Marries a Corpse",
+      "lineCount": 481,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 18x01 - Frank Marries a Corpse.en.srt",
+      "importedAt": "2026-09-20T06:02:01.677Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 18,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---18x02---dennis-and-dee-dont-get-rich",
+      "title": "It's Always Sunny in Philadelphia - 18x02 - Dennis and Dee Don't Get Rich",
+      "lineCount": 448,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 18x02 - Dennis and Dee Don't Get Rich.en.srt",
+      "importedAt": "2026-09-20T06:02:01.680Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 18,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---18x03---the-gang-gets-tested",
+      "title": "It's Always Sunny in Philadelphia - 18x03 - The Gang Gets Tested",
+      "lineCount": 465,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 18x03 - The Gang Gets Tested.en.srt",
+      "importedAt": "2026-09-20T06:02:01.682Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 18,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---18x04---2026-a-virtual-insanity",
+      "title": "It's Always Sunny in Philadelphia - 18x04 - 2026 — A Virtual Insanity",
+      "lineCount": 466,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 18x04 - 2026 — A Virtual Insanity.en.srt",
+      "importedAt": "2026-09-20T06:02:02.338Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 18,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---1x01---the-gang-gets-racist",
+      "title": "It's Always Sunny in Philadelphia - 1x01 - The Gang Gets Racist",
+      "lineCount": 374,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 1x01 - The Gang Gets Racist.en.srt",
+      "importedAt": "2026-09-20T06:02:02.345Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 1,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---1x02---charlie-wants-an-abortion",
+      "title": "It's Always Sunny in Philadelphia - 1x02 - Charlie Wants an Abortion",
+      "lineCount": 410,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 1x02 - Charlie Wants an Abortion.en.srt",
+      "importedAt": "2026-09-20T06:02:02.347Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 1,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---1x03---underage-drinking-a-national-concern",
+      "title": "It's Always Sunny in Philadelphia - 1x03 - Underage Drinking — A National Concern",
+      "lineCount": 359,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 1x03 - Underage Drinking — A National Concern.en.srt",
+      "importedAt": "2026-09-20T06:02:02.349Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 1,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---1x04---charlie-has-cancer",
+      "title": "It's Always Sunny in Philadelphia - 1x04 - Charlie Has Cancer",
+      "lineCount": 344,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 1x04 - Charlie Has Cancer.en.srt",
+      "importedAt": "2026-09-20T06:02:02.351Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 1,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---1x05---gun-fever",
+      "title": "It's Always Sunny in Philadelphia - 1x05 - Gun Fever",
+      "lineCount": 375,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 1x05 - Gun Fever.en.srt",
+      "importedAt": "2026-09-20T06:02:02.354Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 1,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---1x06---the-gang-finds-a-dead-guy",
+      "title": "It's Always Sunny in Philadelphia - 1x06 - The Gang Finds a Dead Guy",
+      "lineCount": 335,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 1x06 - The Gang Finds a Dead Guy.en.srt",
+      "importedAt": "2026-09-20T06:02:02.356Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 1,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---1x07---charlie-got-molested",
+      "title": "It's Always Sunny in Philadelphia - 1x07 - Charlie Got Molested",
+      "lineCount": 301,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 1x07 - Charlie Got Molested.en.srt",
+      "importedAt": "2026-09-20T06:02:02.358Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 1,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x01---charlie-gets-crippled",
+      "title": "It's Always Sunny in Philadelphia - 2x01 - Charlie Gets Crippled",
+      "lineCount": 410,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x01 - Charlie Gets Crippled.en.srt",
+      "importedAt": "2026-09-20T06:02:02.361Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x02---the-gang-goes-jihad",
+      "title": "It's Always Sunny in Philadelphia - 2x02 - The Gang Goes Jihad",
+      "lineCount": 405,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x02 - The Gang Goes Jihad.en.srt",
+      "importedAt": "2026-09-20T06:02:02.364Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x03---dennis-and-dee-go-on-welfare",
+      "title": "It's Always Sunny in Philadelphia - 2x03 - Dennis and Dee Go on Welfare",
+      "lineCount": 377,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x03 - Dennis and Dee Go on Welfare.en.srt",
+      "importedAt": "2026-09-20T06:02:02.366Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x04---mac-bangs-dennis-mom",
+      "title": "It's Always Sunny in Philadelphia - 2x04 - Mac Bangs Dennis' Mom",
+      "lineCount": 401,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x04 - Mac Bangs Dennis' Mom.en.srt",
+      "importedAt": "2026-09-20T06:02:02.368Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x05---hundred-dollar-baby",
+      "title": "It's Always Sunny in Philadelphia - 2x05 - Hundred Dollar Baby",
+      "lineCount": 386,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x05 - Hundred Dollar Baby.en.srt",
+      "importedAt": "2026-09-20T06:02:02.370Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x06---the-gang-gives-back",
+      "title": "It's Always Sunny in Philadelphia - 2x06 - The Gang Gives Back",
+      "lineCount": 363,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x06 - The Gang Gives Back.en.srt",
+      "importedAt": "2026-09-20T06:02:02.372Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x07---the-gang-exploits-a-miracle",
+      "title": "It's Always Sunny in Philadelphia - 2x07 - The Gang Exploits A Miracle",
+      "lineCount": 395,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x07 - The Gang Exploits A Miracle.en.srt",
+      "importedAt": "2026-09-20T06:02:02.374Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x08---the-gang-runs-for-office",
+      "title": "It's Always Sunny in Philadelphia - 2x08 - The Gang Runs for Office",
+      "lineCount": 426,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x08 - The Gang Runs for Office.en.srt",
+      "importedAt": "2026-09-20T06:02:02.376Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x09---charlie-goes-america-all-over-everybodys-ass",
+      "title": "It's Always Sunny in Philadelphia - 2x09 - Charlie Goes America All Over Everybody's Ass",
+      "lineCount": 364,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x09 - Charlie Goes America All Over Everybody's Ass.en.srt",
+      "importedAt": "2026-09-20T06:02:02.378Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---2x10---dennis-and-dee-get-a-new-dad",
+      "title": "It's Always Sunny in Philadelphia - 2x10 - Dennis and Dee Get a New Dad",
+      "lineCount": 388,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 2x10 - Dennis and Dee Get a New Dad.en.srt",
+      "importedAt": "2026-09-20T06:02:02.381Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 2,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x01---the-gang-finds-a-dumpster-baby",
+      "title": "It's Always Sunny in Philadelphia - 3x01 - The Gang Finds a Dumpster Baby",
+      "lineCount": 337,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x01 - The Gang Finds a Dumpster Baby.en.srt",
+      "importedAt": "2026-09-20T06:02:02.383Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x02---the-gang-gets-invincible",
+      "title": "It's Always Sunny in Philadelphia - 3x02 - The Gang Gets Invincible",
+      "lineCount": 395,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x02 - The Gang Gets Invincible.en.srt",
+      "importedAt": "2026-09-20T06:02:02.385Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x03---dennis-and-dees-mom-is-dead",
+      "title": "It's Always Sunny in Philadelphia - 3x03 - Dennis and Dee's Mom is Dead",
+      "lineCount": 444,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x03 - Dennis and Dee's Mom is Dead.en.srt",
+      "importedAt": "2026-09-20T06:02:02.388Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x04---the-gang-gets-held-hostage",
+      "title": "It's Always Sunny in Philadelphia - 3x04 - The Gang Gets Held Hostage",
+      "lineCount": 387,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x04 - The Gang Gets Held Hostage.en.srt",
+      "importedAt": "2026-09-20T06:02:02.391Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x05---the-aluminum-monster-vs-fatty-mcgoo",
+      "title": "It's Always Sunny in Philadelphia - 3x05 - The Aluminum Monster vs Fatty McGoo",
+      "lineCount": 402,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x05 - The Aluminum Monster vs. Fatty McGoo.en.srt",
+      "importedAt": "2026-09-20T06:02:02.393Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x06---the-gang-solves-the-north-korea-situation",
+      "title": "It's Always Sunny in Philadelphia - 3x06 - The Gang Solves the North Korea Situation",
+      "lineCount": 419,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x06 - The Gang Solves the North Korea Situation.en.srt",
+      "importedAt": "2026-09-20T06:02:02.395Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x07---the-gang-sells-out",
+      "title": "It's Always Sunny in Philadelphia - 3x07 - The Gang Sells Out",
+      "lineCount": 400,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x07 - The Gang Sells Out.en.srt",
+      "importedAt": "2026-09-20T06:02:02.398Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x08---frank-sets-sweet-dee-on-fire",
+      "title": "It's Always Sunny in Philadelphia - 3x08 - Frank Sets Sweet Dee On Fire",
+      "lineCount": 387,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x08 - Frank Sets Sweet Dee On Fire.en.srt",
+      "importedAt": "2026-09-20T06:02:02.399Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x09---sweet-dees-dating-a-retarded-person",
+      "title": "It's Always Sunny in Philadelphia - 3x09 - Sweet Dee's Dating a Retarded Person",
+      "lineCount": 306,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x09 - Sweet Dee's Dating a Retarded Person.en.srt",
+      "importedAt": "2026-09-20T06:02:02.401Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x10---mac-is-a-serial-killer",
+      "title": "It's Always Sunny in Philadelphia - 3x10 - Mac is a Serial Killer",
+      "lineCount": 391,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x10 - Mac is a Serial Killer.en.srt",
+      "importedAt": "2026-09-20T06:02:02.402Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x11---dennis-looks-like-a-registered-sex-offender",
+      "title": "It's Always Sunny in Philadelphia - 3x11 - Dennis Looks Like a Registered Sex Offender",
+      "lineCount": 374,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x11 - Dennis Looks Like a Registered Sex Offender.en.srt",
+      "importedAt": "2026-09-20T06:02:02.405Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 11
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x12---the-gang-gets-whacked-part-one",
+      "title": "It's Always Sunny in Philadelphia - 3x12 - The Gang Gets Whacked Part One",
+      "lineCount": 442,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x12 - The Gang Gets Whacked Part One.en.srt",
+      "importedAt": "2026-09-20T06:02:02.407Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 12
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x13---the-gang-gets-whacked-part-two",
+      "title": "It's Always Sunny in Philadelphia - 3x13 - The Gang Gets Whacked Part Two",
+      "lineCount": 432,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x13 - The Gang Gets Whacked Part Two.en.srt",
+      "importedAt": "2026-09-20T06:02:02.408Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 13
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x14---bums-making-a-mess-all-over-the-city",
+      "title": "It's Always Sunny in Philadelphia - 3x14 - Bums — Making a Mess All Over the City",
+      "lineCount": 352,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x14 - Bums — Making a Mess All Over the City.en.srt",
+      "importedAt": "2026-09-20T06:02:02.411Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 14
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---3x15---the-gang-dances-their-asses-off",
+      "title": "It's Always Sunny in Philadelphia - 3x15 - The Gang Dances Their Asses Off",
+      "lineCount": 383,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 3x15 - The Gang Dances Their Asses Off.en.srt",
+      "importedAt": "2026-09-20T06:02:02.413Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 3,
+        "episode": 15
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x01---mac-and-dennis-manhunters",
+      "title": "It's Always Sunny in Philadelphia - 4x01 - Mac and Dennis — Manhunters",
+      "lineCount": 484,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x01 - Mac and Dennis — Manhunters.en.srt",
+      "importedAt": "2026-09-20T06:02:02.416Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x02---the-gang-solves-the-gas-crisis",
+      "title": "It's Always Sunny in Philadelphia - 4x02 - The Gang Solves the Gas Crisis",
+      "lineCount": 409,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x02 - The Gang Solves the Gas Crisis.en.srt",
+      "importedAt": "2026-09-20T06:02:02.418Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x03---americas-next-top-paddys-billboard-model-contest",
+      "title": "It's Always Sunny in Philadelphia - 4x03 - America's Next Top Paddy's Billboard Model Contest",
+      "lineCount": 412,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x03 - America's Next Top Paddy's Billboard Model Contest.en.srt",
+      "importedAt": "2026-09-20T06:02:02.420Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x04---macs-banging-the-waitress",
+      "title": "It's Always Sunny in Philadelphia - 4x04 - Mac's Banging the Waitress",
+      "lineCount": 418,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x04 - Mac's Banging the Waitress.en.srt",
+      "importedAt": "2026-09-20T06:02:02.422Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x05---mac-and-charlie-die-part-one",
+      "title": "It's Always Sunny in Philadelphia - 4x05 - Mac and Charlie Die — Part One",
+      "lineCount": 434,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x05 - Mac and Charlie Die — Part One.en.srt",
+      "importedAt": "2026-09-20T06:02:02.424Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x06---mac-and-charlie-die-part-two",
+      "title": "It's Always Sunny in Philadelphia - 4x06 - Mac and Charlie Die — Part Two",
+      "lineCount": 854,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x06 - Mac and Charlie Die — Part Two.en.srt",
+      "importedAt": "2026-09-20T06:02:02.427Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x07---who-pooped-the-bed",
+      "title": "It's Always Sunny in Philadelphia - 4x07 - Who Pooped the Bed",
+      "lineCount": 434,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x07 - Who Pooped the Bed.en.srt",
+      "importedAt": "2026-09-20T06:02:02.430Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x08---paddys-pub-the-worst-bar-in-philadelphia",
+      "title": "It's Always Sunny in Philadelphia - 4x08 - Paddy's Pub — The Worst Bar in Philadelphia",
+      "lineCount": 425,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x08 - Paddy's Pub — The Worst Bar in Philadelphia.en.srt",
+      "importedAt": "2026-09-20T06:02:03.041Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x09---dennis-reynolds-an-erotic-life",
+      "title": "It's Always Sunny in Philadelphia - 4x09 - Dennis Reynolds — An Erotic Life",
+      "lineCount": 433,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x09 - Dennis Reynolds — An Erotic Life.en.srt",
+      "importedAt": "2026-09-20T06:02:03.048Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x10---sweet-dee-has-a-heart-attack",
+      "title": "It's Always Sunny in Philadelphia - 4x10 - Sweet Dee Has a Heart Attack",
+      "lineCount": 433,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x10 - Sweet Dee Has a Heart Attack.en.srt",
+      "importedAt": "2026-09-20T06:02:03.050Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x11---the-gang-cracks-the-liberty-bell",
+      "title": "It's Always Sunny in Philadelphia - 4x11 - The Gang Cracks the Liberty Bell",
+      "lineCount": 396,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x11 - The Gang Cracks the Liberty Bell.en.srt",
+      "importedAt": "2026-09-20T06:02:03.053Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 11
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x12---the-gang-gets-extreme-home-makeover",
+      "title": "It's Always Sunny in Philadelphia - 4x12 - The Gang Gets Extreme — Home Makeover",
+      "lineCount": 452,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x12 - The Gang Gets Extreme — Home Makeover Edition.en.srt",
+      "importedAt": "2026-09-20T06:02:03.055Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 12
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---4x13---the-nightman-cometh",
+      "title": "It's Always Sunny in Philadelphia - 4x13 - The Nightman Cometh",
+      "lineCount": 377,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 4x13 - The Nightman Cometh.en.srt",
+      "importedAt": "2026-09-20T06:02:03.058Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 4,
+        "episode": 13
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x01---the-gang-exploits-the-mortgage-crisis",
+      "title": "It's Always Sunny in Philadelphia - 5x01 - The Gang Exploits the Mortgage Crisis",
+      "lineCount": 365,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x01 - The Gang Exploits the Mortgage Crisis.en.srt",
+      "importedAt": "2026-09-20T06:02:03.059Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x02---the-gang-hits-the-road",
+      "title": "It's Always Sunny in Philadelphia - 5x02 - The Gang Hits the Road",
+      "lineCount": 419,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x02 - The Gang Hits the Road.en.srt",
+      "importedAt": "2026-09-20T06:02:03.061Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x03---the-great-recession",
+      "title": "It's Always Sunny in Philadelphia - 5x03 - The Great Recession",
+      "lineCount": 392,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x03 - The Great Recession.en.srt",
+      "importedAt": "2026-09-20T06:02:03.063Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x04---the-gang-gives-frank-an-intervention",
+      "title": "It's Always Sunny in Philadelphia - 5x04 - The Gang Gives Frank an Intervention",
+      "lineCount": 29,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x04 - The Gang Gives Frank an Intervention.en.srt",
+      "importedAt": "2026-09-20T06:02:03.065Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x05---the-waitress-is-getting-married",
+      "title": "It's Always Sunny in Philadelphia - 5x05 - The Waitress Is Getting Married",
+      "lineCount": 390,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x05 - The Waitress Is Getting Married.en.srt",
+      "importedAt": "2026-09-20T06:02:03.067Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x06---the-world-series-defense",
+      "title": "It's Always Sunny in Philadelphia - 5x06 - The World Series Defense",
+      "lineCount": 389,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x06 - The World Series Defense.en.srt",
+      "importedAt": "2026-09-20T06:02:03.069Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x07---the-gang-wrestles-for-the-troops",
+      "title": "It's Always Sunny in Philadelphia - 5x07 - The Gang Wrestles for the Troops",
+      "lineCount": 424,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x07 - The Gang Wrestles for the Troops.en.srt",
+      "importedAt": "2026-09-20T06:02:03.072Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x08---paddys-pub-home-of-the-original-kitten-mittens",
+      "title": "It's Always Sunny in Philadelphia - 5x08 - Paddy's Pub — Home of the Original Kitten Mittens",
+      "lineCount": 542,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x08 - Paddy's Pub — Home of the Original Kitten Mittens.en.srt",
+      "importedAt": "2026-09-20T06:02:03.074Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x09---mac-and-dennis-break-up",
+      "title": "It's Always Sunny in Philadelphia - 5x09 - Mac and Dennis Break Up",
+      "lineCount": 678,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x09 - Mac and Dennis Break Up.en.srt",
+      "importedAt": "2026-09-20T06:02:03.076Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x10---the-dennis-system",
+      "title": "It's Always Sunny in Philadelphia - 5x10 - The DENNIS System",
+      "lineCount": 564,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x10 - The DENNIS System.en.srt",
+      "importedAt": "2026-09-20T06:02:03.079Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x11---mac-and-charlie-write-a-movie",
+      "title": "It's Always Sunny in Philadelphia - 5x11 - Mac and Charlie Write a Movie",
+      "lineCount": 643,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x11 - Mac and Charlie Write a Movie.en.srt",
+      "importedAt": "2026-09-20T06:02:03.081Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 11
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x12---the-gang-reignites-the-rivalry",
+      "title": "It's Always Sunny in Philadelphia - 5x12 - The Gang Reignites the Rivalry",
+      "lineCount": 668,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x12 - The Gang Reignites the Rivalry.en.srt",
+      "importedAt": "2026-09-20T06:02:03.084Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 12
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---5x13---a-very-sunny-christmas",
+      "title": "It's Always Sunny in Philadelphia - 5x13 - A Very Sunny Christmas",
+      "lineCount": 731,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 5x13 - A Very Sunny Christmas.en.srt",
+      "importedAt": "2026-09-20T06:02:03.087Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 5,
+        "episode": 13
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x01---mac-fights-gay-marriage",
+      "title": "It's Always Sunny in Philadelphia - 6x01 - Mac Fights Gay Marriage",
+      "lineCount": 384,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x01 - Mac Fights Gay Marriage.en.srt",
+      "importedAt": "2026-09-20T06:02:03.090Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x02---dennis-gets-divorced",
+      "title": "It's Always Sunny in Philadelphia - 6x02 - Dennis Gets Divorced",
+      "lineCount": 398,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x02 - Dennis Gets Divorced.en.srt",
+      "importedAt": "2026-09-20T06:02:03.092Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x03---the-gang-buys-a-boat",
+      "title": "It's Always Sunny in Philadelphia - 6x03 - The Gang Buys a Boat",
+      "lineCount": 436,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x03 - The Gang Buys a Boat.en.srt",
+      "importedAt": "2026-09-20T06:02:03.094Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x04---macs-big-break",
+      "title": "It's Always Sunny in Philadelphia - 6x04 - Mac's Big Break",
+      "lineCount": 408,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x04 - Mac's Big Break.en.srt",
+      "importedAt": "2026-09-20T06:02:03.097Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x05---mac-and-charlie-white-trash",
+      "title": "It's Always Sunny in Philadelphia - 6x05 - Mac and Charlie — White Trash",
+      "lineCount": 446,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x05 - Mac and Charlie — White Trash.en.srt",
+      "importedAt": "2026-09-20T06:02:03.099Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x06---macs-mom-burns-her-house-down",
+      "title": "It's Always Sunny in Philadelphia - 6x06 - Mac's Mom Burns Her House Down",
+      "lineCount": 407,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x06 - Mac's Mom Burns Her House Down.en.srt",
+      "importedAt": "2026-09-20T06:02:03.101Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x07---who-got-dee-pregnant",
+      "title": "It's Always Sunny in Philadelphia - 6x07 - Who Got Dee Pregnant",
+      "lineCount": 410,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x07 - Who Got Dee Pregnant.en.srt",
+      "importedAt": "2026-09-20T06:02:03.104Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x08---the-gang-gets-a-new-member",
+      "title": "It's Always Sunny in Philadelphia - 6x08 - The Gang Gets a New Member",
+      "lineCount": 445,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x08 - The Gang Gets a New Member.en.srt",
+      "importedAt": "2026-09-20T06:02:03.106Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x09---dee-reynolds-shaping-americas-youth",
+      "title": "It's Always Sunny in Philadelphia - 6x09 - Dee Reynolds — Shaping America's Youth",
+      "lineCount": 348,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x09 - Dee Reynolds — Shaping America's Youth.en.srt",
+      "importedAt": "2026-09-20T06:02:03.108Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x10---charlie-kelly-king-of-the-rats",
+      "title": "It's Always Sunny in Philadelphia - 6x10 - Charlie Kelly — King of the Rats",
+      "lineCount": 420,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x10 - Charlie Kelly — King of the Rats.en.srt",
+      "importedAt": "2026-09-20T06:02:03.110Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x11---the-gang-gets-stranded-in-the-woods",
+      "title": "It's Always Sunny in Philadelphia - 6x11 - The Gang Gets Stranded in the Woods",
+      "lineCount": 463,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x11 - The Gang Gets Stranded in the Woods.en.srt",
+      "importedAt": "2026-09-20T06:02:03.112Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 11
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---6x12---dee-gives-birth",
+      "title": "It's Always Sunny in Philadelphia - 6x12 - Dee Gives Birth",
+      "lineCount": 415,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 6x12 - Dee Gives Birth.en.srt",
+      "importedAt": "2026-09-20T06:02:03.116Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 6,
+        "episode": 12
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x01---franks-pretty-woman",
+      "title": "It's Always Sunny in Philadelphia - 7x01 - Frank's Pretty Woman",
+      "lineCount": 457,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x01 - Frank's Pretty Woman.en.srt",
+      "importedAt": "2026-09-20T06:02:03.118Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x02---the-gang-goes-to-the-jersey-shore",
+      "title": "It's Always Sunny in Philadelphia - 7x02 - The Gang Goes to the Jersey Shore",
+      "lineCount": 409,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x02 - The Gang Goes to the Jersey Shore.en.srt",
+      "importedAt": "2026-09-20T06:02:03.120Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x03---frank-reynolds-little-beauties",
+      "title": "It's Always Sunny in Philadelphia - 7x03 - Frank Reynolds' Little Beauties",
+      "lineCount": 447,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x03 - Frank Reynolds' Little Beauties.en.srt",
+      "importedAt": "2026-09-20T06:02:03.124Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x04---sweet-dee-gets-audited",
+      "title": "It's Always Sunny in Philadelphia - 7x04 - Sweet Dee Gets Audited",
+      "lineCount": 413,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x04 - Sweet Dee Gets Audited.en.srt",
+      "importedAt": "2026-09-20T06:02:03.126Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x05---franks-brother",
+      "title": "It's Always Sunny in Philadelphia - 7x05 - Frank's Brother",
+      "lineCount": 406,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x05 - Frank's Brother.en.srt",
+      "importedAt": "2026-09-20T06:02:03.129Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x06---the-storm-of-the-century",
+      "title": "It's Always Sunny in Philadelphia - 7x06 - The Storm of the Century",
+      "lineCount": 404,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x06 - The Storm of the Century.en.srt",
+      "importedAt": "2026-09-20T06:02:03.132Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x07---chardee-macdennis-the-game-of-games",
+      "title": "It's Always Sunny in Philadelphia - 7x07 - Chardee MacDennis — The Game of Games",
+      "lineCount": 397,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x07 - Chardee MacDennis — The Game of Games.en.srt",
+      "importedAt": "2026-09-20T06:02:03.134Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x08---the-anti-social-network",
+      "title": "It's Always Sunny in Philadelphia - 7x08 - The ANTI-Social Network",
+      "lineCount": 411,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x08 - The ANTI-Social Network.en.srt",
+      "importedAt": "2026-09-20T06:02:03.138Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x09---the-gang-gets-trapped",
+      "title": "It's Always Sunny in Philadelphia - 7x09 - The Gang Gets Trapped",
+      "lineCount": 389,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x09 - The Gang Gets Trapped.en.srt",
+      "importedAt": "2026-09-20T06:02:03.141Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x10---how-mac-got-fat",
+      "title": "It's Always Sunny in Philadelphia - 7x10 - How Mac Got Fat",
+      "lineCount": 366,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x10 - How Mac Got Fat.en.srt",
+      "importedAt": "2026-09-20T06:02:03.796Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x11---thunder-gun-express",
+      "title": "It's Always Sunny in Philadelphia - 7x11 - Thunder Gun Express",
+      "lineCount": 420,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x11 - Thunder Gun Express.en.srt",
+      "importedAt": "2026-09-20T06:02:03.804Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 11
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x12---high-school-reunion",
+      "title": "It's Always Sunny in Philadelphia - 7x12 - High School Reunion",
+      "lineCount": 427,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x12 - High School Reunion.en.srt",
+      "importedAt": "2026-09-20T06:02:03.809Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 12
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---7x13---the-high-school-reunion-part-2-the-gangs-revenge",
+      "title": "It's Always Sunny in Philadelphia - 7x13 - The High School Reunion Part 2 — The Gang's Revenge",
+      "lineCount": 413,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 7x13 - The High School Reunion Part 2 — The Gang's Revenge.en.srt",
+      "importedAt": "2026-09-20T06:02:03.814Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 7,
+        "episode": 13
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x01---pop-pop-the-final-solution",
+      "title": "It's Always Sunny in Philadelphia - 8x01 - Pop-Pop — The Final Solution",
+      "lineCount": 383,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x01 - Pop-Pop — The Final Solution.en.srt",
+      "importedAt": "2026-09-20T06:02:03.818Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x02---the-gang-recycles-their-trash",
+      "title": "It's Always Sunny in Philadelphia - 8x02 - The Gang Recycles Their Trash",
+      "lineCount": 368,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x02 - The Gang Recycles Their Trash.en.srt",
+      "importedAt": "2026-09-20T06:02:03.823Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x03---the-maureen-ponderosa-wedding-massacre",
+      "title": "It's Always Sunny in Philadelphia - 8x03 - The Maureen Ponderosa Wedding Massacre",
+      "lineCount": 434,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x03 - The Maureen Ponderosa Wedding Massacre.en.srt",
+      "importedAt": "2026-09-20T06:02:03.825Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x04---charlie-and-dee-find-love",
+      "title": "It's Always Sunny in Philadelphia - 8x04 - Charlie and Dee Find Love",
+      "lineCount": 420,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x04 - Charlie and Dee Find Love.en.srt",
+      "importedAt": "2026-09-20T06:02:03.828Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x05---the-gang-gets-analyzed",
+      "title": "It's Always Sunny in Philadelphia - 8x05 - The Gang Gets Analyzed",
+      "lineCount": 391,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x05 - The Gang Gets Analyzed.en.srt",
+      "importedAt": "2026-09-20T06:02:03.831Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x06---charlies-mom-has-cancer",
+      "title": "It's Always Sunny in Philadelphia - 8x06 - Charlie's Mom Has Cancer",
+      "lineCount": 441,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x06 - Charlie's Mom Has Cancer.en.srt",
+      "importedAt": "2026-09-20T06:02:03.833Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x07---franks-back-in-business",
+      "title": "It's Always Sunny in Philadelphia - 8x07 - Frank's Back in Business",
+      "lineCount": 404,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x07 - Frank's Back in Business.en.srt",
+      "importedAt": "2026-09-20T06:02:03.837Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x08---charlie-rules-the-world",
+      "title": "It's Always Sunny in Philadelphia - 8x08 - Charlie Rules the World",
+      "lineCount": 426,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x08 - Charlie Rules the World.en.srt",
+      "importedAt": "2026-09-20T06:02:03.840Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x09---the-gang-dines-out",
+      "title": "It's Always Sunny in Philadelphia - 8x09 - The Gang Dines Out",
+      "lineCount": 369,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x09 - The Gang Dines Out.en.srt",
+      "importedAt": "2026-09-20T06:02:03.842Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---8x10---reynolds-vs-reynolds-the-cereal-defense",
+      "title": "It's Always Sunny in Philadelphia - 8x10 - Reynolds vs Reynolds — The Cereal Defense",
+      "lineCount": 334,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 8x10 - Reynolds vs. Reynolds — The Cereal Defense.en.srt",
+      "importedAt": "2026-09-20T06:02:03.843Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 8,
+        "episode": 10
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x01---the-gang-broke-dee",
+      "title": "It's Always Sunny in Philadelphia - 9x01 - The Gang Broke Dee",
+      "lineCount": 435,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x01 - The Gang Broke Dee.en.srt",
+      "importedAt": "2026-09-20T06:02:03.845Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 1
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x02---gun-fever-too-still-hot",
+      "title": "It's Always Sunny in Philadelphia - 9x02 - Gun Fever Too — Still Hot",
+      "lineCount": 448,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x02 - Gun Fever Too — Still Hot.en.srt",
+      "importedAt": "2026-09-20T06:02:03.848Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 2
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x03---the-gang-tries-desperately-to-win-an-award",
+      "title": "It's Always Sunny in Philadelphia - 9x03 - The Gang Tries Desperately to Win an Award",
+      "lineCount": 437,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x03 - The Gang Tries Desperately to Win an Award.en.srt",
+      "importedAt": "2026-09-20T06:02:03.850Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 3
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x04---mac-and-dennis-buy-a-timeshare",
+      "title": "It's Always Sunny in Philadelphia - 9x04 - Mac and Dennis Buy a Timeshare",
+      "lineCount": 454,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x04 - Mac and Dennis Buy a Timeshare.en.srt",
+      "importedAt": "2026-09-20T06:02:03.852Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 4
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x05---mac-day",
+      "title": "It's Always Sunny in Philadelphia - 9x05 - Mac Day",
+      "lineCount": 400,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x05 - Mac Day.en.srt",
+      "importedAt": "2026-09-20T06:02:03.855Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 5
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x06---the-gang-saves-the-day",
+      "title": "It's Always Sunny in Philadelphia - 9x06 - The Gang Saves the Day",
+      "lineCount": 272,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x06 - The Gang Saves the Day.en.srt",
+      "importedAt": "2026-09-20T06:02:03.856Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 6
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x07---the-gang-gets-quarantined",
+      "title": "It's Always Sunny in Philadelphia - 9x07 - The Gang Gets Quarantined",
+      "lineCount": 403,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x07 - The Gang Gets Quarantined.en.srt",
+      "importedAt": "2026-09-20T06:02:03.858Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 7
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x08---flowers-for-charlie",
+      "title": "It's Always Sunny in Philadelphia - 9x08 - Flowers for Charlie",
+      "lineCount": 335,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x08 - Flowers for Charlie.en.srt",
+      "importedAt": "2026-09-20T06:02:03.860Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 8
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x09---the-gang-makes-lethal-weapon-6",
+      "title": "It's Always Sunny in Philadelphia - 9x09 - The Gang Makes Lethal Weapon 6",
+      "lineCount": 272,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x09 - The Gang Makes Lethal Weapon 6.en.srt",
+      "importedAt": "2026-09-20T06:02:03.862Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 9
+      }
+    },
+    {
+      "id": "its-always-sunny-in-philadelphia---9x10---the-gang-squashes-their-beefs",
+      "title": "It's Always Sunny in Philadelphia - 9x10 - The Gang Squashes Their Beefs",
+      "lineCount": 390,
+      "sourceFilename": "It's Always Sunny in Philadelphia - 9x10 - The Gang Squashes Their Beefs.en.srt",
+      "importedAt": "2026-09-20T06:02:03.863Z",
+      "meta": {
+        "show": "It's Always Sunny in Philadelphia",
+        "season": 9,
+        "episode": 10
       }
     },
     {

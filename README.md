@@ -539,8 +539,9 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 5. **Text messages** — composer in-thread; `chat_messages` one row per DM/group message; quotes and text share one timeline (`kind: quote | text`).
 6. **Thread scroll UX** — message list scrolls inside the panel; composer stays put; open/send land on latest; **↓ Latest** when scrolled up.
 7. **Richer quote cards** — outgoing + solved incoming show lead-in; outgoing next line behind **Reveal next line**.
+8. **Quotes-only filter** — All / Quotes toggle in the thread header (client-side; sending text returns you to All).
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); **quotes-only filter**; **emoji reactions**.
+**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); **emoji reactions**.
 
 ### Chats → cross-title mini-games
 
