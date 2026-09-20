@@ -4,6 +4,7 @@ import { getCatalog, getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
 import { getNextPlayableLine } from "../lib/content/playable";
+import { leadInForPrompt } from "../lib/game/promptContext";
 import { loadQuoteBackdrop } from "../lib/quoteImage/loadQuoteImage";
 import {
   loadQuoteImagePrefs,
@@ -11,6 +12,7 @@ import {
   type QuoteImageAspect,
   type QuoteImageFormat,
   type QuoteImagePalette,
+  type QuoteImageTextAlign,
 } from "../lib/quoteImage/prefs";
 import { canvasToPngBlob, renderQuoteImageCanvas } from "../lib/quoteImage/renderQuoteImage";
 
@@ -36,6 +38,12 @@ const PALETTE_OPTIONS: { id: QuoteImagePalette; label: string }[] = [
   { id: "none", label: "None" },
 ];
 
+const TEXT_ALIGN_OPTIONS: { id: QuoteImageTextAlign; label: string }[] = [
+  { id: "top", label: "Top" },
+  { id: "center", label: "Center" },
+  { id: "bottom", label: "Bottom" },
+];
+
 function canShareFiles(): boolean {
   try {
     const file = new File(["x"], "t.txt", { type: "text/plain" });
@@ -55,12 +63,18 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
   const resolvedNext = title
     ? (getNextPlayableLine(title, lineIndex)?.text ?? "").trim() || null
     : null;
+  const availableLeadIn = useMemo(
+    () => (title ? leadInForPrompt(title, lineIndex).map((lead) => lead.text) : []),
+    [title, lineIndex],
+  );
   const titleLabel = entry ? catalogLabel(entry) : titleId;
 
   const initialPrefs = useMemo(() => loadQuoteImagePrefs(), []);
   const [format, setFormat] = useState<QuoteImageFormat>(initialPrefs.format);
   const [aspect, setAspect] = useState<QuoteImageAspect>(initialPrefs.aspect);
   const [palette, setPalette] = useState<QuoteImagePalette>(initialPrefs.palette);
+  const [textAlign, setTextAlign] = useState<QuoteImageTextAlign>(initialPrefs.textAlign);
+  const [includeLeadIn, setIncludeLeadIn] = useState(initialPrefs.includeLeadIn);
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -78,6 +92,8 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     }
   }, []);
 
+  const leadInTexts = includeLeadIn && availableLeadIn.length > 0 ? availableLeadIn : [];
+
   function updateFormat(next: QuoteImageFormat) {
     setFormat(next);
     saveQuoteImagePrefs({ format: next });
@@ -91,6 +107,16 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
   function updatePalette(next: QuoteImagePalette) {
     setPalette(next);
     saveQuoteImagePrefs({ palette: next });
+  }
+
+  function updateTextAlign(next: QuoteImageTextAlign) {
+    setTextAlign(next);
+    saveQuoteImagePrefs({ textAlign: next });
+  }
+
+  function updateIncludeLeadIn(next: boolean) {
+    setIncludeLeadIn(next);
+    saveQuoteImagePrefs({ includeLeadIn: next });
   }
 
   useEffect(() => {
@@ -110,8 +136,10 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
         format,
         aspect,
         palette,
+        textAlign,
         quoteText: resolvedQuote,
         nextText: resolvedNext,
+        leadInTexts,
         titleLabel,
         image,
       });
@@ -125,7 +153,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     return () => {
       void objectUrl;
     };
-  }, [format, aspect, palette, resolvedQuote, resolvedNext, titleLabel, image]);
+  }, [format, aspect, palette, textAlign, leadInTexts, resolvedQuote, resolvedNext, titleLabel, image]);
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -140,8 +168,10 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       format,
       aspect,
       palette,
+      textAlign,
       quoteText: resolvedQuote,
       nextText: resolvedNext,
+      leadInTexts,
       titleLabel,
       image,
     });
@@ -301,6 +331,47 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
             ))}
           </div>
         </div>
+
+        <div className="quote-image-controls">
+          <p className="quote-image-row-label" id="quote-image-align-label">
+            Text position
+          </p>
+          <div
+            className="quote-image-row"
+            role="radiogroup"
+            aria-labelledby="quote-image-align-label"
+          >
+            {TEXT_ALIGN_OPTIONS.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                className={`quote-image-chip${textAlign === option.id ? " is-active" : ""}`}
+                role="radio"
+                aria-checked={textAlign === option.id}
+                onClick={() => updateTextAlign(option.id)}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <label
+          className={`quote-image-leadin${availableLeadIn.length === 0 ? " is-disabled" : ""}`}
+          title={
+            availableLeadIn.length === 0
+              ? "No previous lines in this beat"
+              : "Same lead-in cues as Play / Chat (up to 4)"
+          }
+        >
+          <input
+            type="checkbox"
+            checked={includeLeadIn && availableLeadIn.length > 0}
+            disabled={availableLeadIn.length === 0}
+            onChange={(event) => updateIncludeLeadIn(event.target.checked)}
+          />
+          <span>Include previous lines</span>
+        </label>
 
         <div className="quote-image-preview-wrap">
           {previewUrl ? (

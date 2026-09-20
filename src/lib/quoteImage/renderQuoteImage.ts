@@ -5,17 +5,21 @@ import {
   type QuoteImageAspect,
   type QuoteImageFormat,
   type QuoteImagePalette,
+  type QuoteImageTextAlign,
 } from "./prefs";
 
-export type { QuoteImageAspect, QuoteImageFormat, QuoteImagePalette };
+export type { QuoteImageAspect, QuoteImageFormat, QuoteImagePalette, QuoteImageTextAlign };
 
 export type RenderQuoteImageInput = {
   format: QuoteImageFormat;
   aspect: QuoteImageAspect;
   palette: QuoteImagePalette;
+  textAlign?: QuoteImageTextAlign;
   quoteText: string;
   /** Correct next line; omitted when missing from the transcript. */
   nextText?: string | null;
+  /** Previous cues above the textline (lead-in). */
+  leadInTexts?: string[];
   titleLabel: string;
   image: HTMLImageElement | null;
 };
@@ -257,6 +261,32 @@ function canvasSizeFor(
   return sizeForAspect(aspect);
 }
 
+/** Top of first line (top baseline) inside [regionTop, regionBottom]. */
+function blockTopY(
+  align: QuoteImageTextAlign,
+  regionTop: number,
+  regionBottom: number,
+  blockH: number,
+): number {
+  const available = Math.max(0, regionBottom - regionTop);
+  const h = Math.min(blockH, available);
+  if (align === "top") return regionTop;
+  if (align === "bottom") return regionBottom - h;
+  return regionTop + (available - h) / 2;
+}
+
+/** Center Y of first line (middle baseline) inside [regionTop, regionBottom]. */
+function blockFirstMiddleY(
+  align: QuoteImageTextAlign,
+  regionTop: number,
+  regionBottom: number,
+  blockH: number,
+  firstLineH: number,
+): number {
+  const top = blockTopY(align, regionTop, regionBottom, blockH);
+  return top + firstLineH / 2;
+}
+
 function renderCaptionBelow(
   ctx: CanvasRenderingContext2D,
   input: RenderQuoteImageInput,
@@ -268,18 +298,25 @@ function renderCaptionBelow(
   const imageH = Math.round(height * imageBandRatio(input.aspect));
   const pad = Math.round(72 * scale);
   const textMax = width - pad * 2;
+  const leadIn = (input.leadInTexts ?? []).map((t) => t.trim()).filter(Boolean);
+  const hasLead = leadIn.length > 0;
   const hasNext = Boolean(input.nextText?.trim());
+  const align = input.textAlign ?? "center";
+  const leadSize = Math.round(32 * scale);
   const promptSize = Math.round(42 * scale);
   const nextSize = Math.round(52 * scale);
   const metaSize = Math.round(28 * scale);
   const brandSize = Math.round(24 * scale);
+  const leadStep = Math.round(42 * scale);
   const promptStep = Math.round(54 * scale);
   const nextStep = Math.round(64 * scale);
   const contain = input.aspect === "original";
+  const footerReserve = Math.round(120 * scale);
+  const regionTop = imageH + Math.round(48 * scale);
+  const regionBottom = height - footerReserve;
 
   ctx.fillStyle = tokens.captionBand;
   ctx.fillRect(0, 0, width, height);
-  // Letterbox fill behind contain draws
   if (contain) {
     ctx.fillStyle = tokens.canvasBg;
     ctx.fillRect(0, 0, width, imageH);
@@ -292,10 +329,45 @@ function renderCaptionBelow(
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
 
+  const leadWrapped: string[][] = [];
+  if (hasLead) {
+    ctx.font = `500 ${leadSize}px ${SERIF}`;
+    for (const cue of leadIn) {
+      leadWrapped.push(wrapLines(ctx, cue, textMax, 2));
+    }
+  }
+
+  ctx.font = `500 ${promptSize}px ${SERIF}`;
+  const promptMax = hasLead ? (hasNext ? 3 : 4) : hasNext ? 4 : 6;
+  const promptLines = wrapLines(ctx, input.quoteText, textMax, promptMax);
+  ctx.font = `600 ${nextSize}px ${SERIF}`;
+  const nextLines = hasNext ? wrapLines(ctx, input.nextText!.trim(), textMax, hasLead ? 3 : 4) : [];
+
+  let blockH = 0;
+  for (const lines of leadWrapped) {
+    blockH += lines.length * leadStep + Math.round(6 * scale);
+  }
+  if (hasLead) blockH += Math.round(8 * scale);
+  blockH += promptLines.length * promptStep;
+  if (hasNext) blockH += Math.round(18 * scale) + nextLines.length * nextStep;
+
+  let y = blockTopY(align, regionTop, regionBottom, blockH);
+
+  if (hasLead) {
+    ctx.fillStyle = tokens.meta;
+    ctx.font = `500 ${leadSize}px ${SERIF}`;
+    for (const lines of leadWrapped) {
+      for (const line of lines) {
+        ctx.fillText(line, pad, y);
+        y += leadStep;
+      }
+      y += Math.round(6 * scale);
+    }
+    y += Math.round(8 * scale);
+  }
+
   ctx.fillStyle = tokens.prompt;
   ctx.font = `500 ${promptSize}px ${SERIF}`;
-  const promptLines = wrapLines(ctx, input.quoteText, textMax, hasNext ? 4 : 6);
-  let y = imageH + Math.round(56 * scale);
   for (const line of promptLines) {
     ctx.fillText(line, pad, y);
     y += promptStep;
@@ -305,17 +377,15 @@ function renderCaptionBelow(
     y += Math.round(18 * scale);
     ctx.fillStyle = tokens.next;
     ctx.font = `600 ${nextSize}px ${SERIF}`;
-    const nextLines = wrapLines(ctx, input.nextText!.trim(), textMax, 4);
     for (const line of nextLines) {
       ctx.fillText(line, pad, y);
       y += nextStep;
     }
   }
 
-  const footerY = Math.min(y + Math.round(36 * scale), height - Math.round(120 * scale));
   ctx.font = `500 ${metaSize}px ${SERIF}`;
   ctx.fillStyle = tokens.meta;
-  ctx.fillText(input.titleLabel, pad, footerY);
+  ctx.fillText(input.titleLabel, pad, height - Math.round(100 * scale));
 
   ctx.font = `600 ${brandSize}px ${SERIF}`;
   ctx.fillStyle = tokens.brand;
@@ -332,15 +402,23 @@ function renderOnImage(
   const scale = layoutScale(width, height);
   const pad = Math.round(80 * scale);
   const textMax = width - pad * 2;
+  const leadIn = (input.leadInTexts ?? []).map((t) => t.trim()).filter(Boolean);
+  const hasLead = leadIn.length > 0;
   const hasNext = Boolean(input.nextText?.trim());
+  const align = input.textAlign ?? "center";
+  const leadSize = Math.round(34 * scale);
   const promptSize = Math.round(44 * scale);
   const nextSize = Math.round(54 * scale);
   const metaSize = Math.round(26 * scale);
   const brandSize = Math.round(24 * scale);
+  const leadH = Math.round(44 * scale);
   const promptH = Math.round(56 * scale);
   const nextH = Math.round(68 * scale);
   const gap = hasNext ? Math.round(28 * scale) : 0;
+  const leadGap = hasLead ? Math.round(16 * scale) : 0;
   const contain = input.aspect === "original";
+  const regionTop = pad;
+  const regionBottom = height - Math.round(120 * scale);
 
   if (contain) {
     ctx.fillStyle = tokens.canvasBg;
@@ -361,15 +439,39 @@ function renderOnImage(
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 
-  ctx.font = `500 ${promptSize}px ${SERIF}`;
-  const promptLines = wrapLines(ctx, input.quoteText, textMax, hasNext ? 4 : 6);
-  ctx.font = `600 ${nextSize}px ${SERIF}`;
-  const nextLines = hasNext ? wrapLines(ctx, input.nextText!.trim(), textMax, 4) : [];
+  const leadWrapped: string[][] = [];
+  if (hasLead) {
+    ctx.font = `500 ${leadSize}px ${SERIF}`;
+    for (const cue of leadIn) {
+      leadWrapped.push(wrapLines(ctx, cue, textMax, 2));
+    }
+  }
 
-  const blockH = promptLines.length * promptH + gap + nextLines.length * nextH;
-  let y = height / 2 - blockH / 2 + promptH / 2;
+  ctx.font = `500 ${promptSize}px ${SERIF}`;
+  const promptLines = wrapLines(ctx, input.quoteText, textMax, hasLead ? (hasNext ? 3 : 4) : hasNext ? 4 : 6);
+  ctx.font = `600 ${nextSize}px ${SERIF}`;
+  const nextLines = hasNext ? wrapLines(ctx, input.nextText!.trim(), textMax, hasLead ? 3 : 4) : [];
+
+  const leadBlockH = leadWrapped.reduce((sum, lines) => sum + lines.length * leadH + Math.round(4 * scale), 0);
+  const blockH =
+    leadBlockH + leadGap + promptLines.length * promptH + gap + nextLines.length * nextH;
+  const firstLineH = hasLead ? leadH : promptH;
+  let y = blockFirstMiddleY(align, regionTop, regionBottom, blockH, firstLineH);
 
   withTextShadow(ctx, tokens.textShadow, () => {
+    if (hasLead) {
+      ctx.fillStyle = tokens.onMeta;
+      ctx.font = `500 ${leadSize}px ${SERIF}`;
+      for (const lines of leadWrapped) {
+        for (const line of lines) {
+          ctx.fillText(line, width / 2, y);
+          y += leadH;
+        }
+        y += Math.round(4 * scale);
+      }
+      y += leadGap - leadH / 2 + promptH / 2;
+    }
+
     ctx.fillStyle = tokens.onPrompt;
     ctx.font = `500 ${promptSize}px ${SERIF}`;
     for (const line of promptLines) {

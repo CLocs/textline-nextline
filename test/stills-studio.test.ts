@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import type { Title } from "../src/types/content.js";
-import { pickHandfulIndices } from "../src/lib/content/stillsHandful.js";
+import { pickHandfulIndices, shuffleHandfulIndices } from "../src/lib/content/stillsHandful.js";
 import {
   buildShowQueue,
   durationPastEof,
@@ -43,6 +43,40 @@ describe("pickHandfulIndices", () => {
   it("picks six distinctive cues when there are no stars", () => {
     expect(pickHandfulIndices(title, [])).toEqual([0, 2, 4, 6, 8, 10]);
   });
+
+  it("skips opening and closing cues when there are enough lines", () => {
+    const long: Title = {
+      ...title,
+      lineCount: 40,
+      lines: Array.from({ length: 40 }, (_, i) =>
+        line(i, `Distinctive dialogue line number ${i} here`),
+      ),
+    };
+    const picked = pickHandfulIndices(long, []);
+    expect(picked).toHaveLength(6);
+    expect(picked[0]).toBeGreaterThan(0);
+    expect(picked[picked.length - 1]!).toBeLessThan(39);
+  });
+
+  it("shuffles a different inner six", () => {
+    const long: Title = {
+      ...title,
+      lineCount: 40,
+      lines: Array.from({ length: 40 }, (_, i) =>
+        line(i, `Distinctive dialogue line number ${i} here`),
+      ),
+    };
+    const first = pickHandfulIndices(long, []);
+    let n = 0;
+    const rng = () => {
+      n += 1;
+      return (n * 0.37) % 1;
+    };
+    const shuffled = shuffleHandfulIndices(long, [], first, rng);
+    expect(shuffled).toHaveLength(6);
+    expect(shuffled[0]).toBeGreaterThan(0);
+    expect(shuffled.join(",")).not.toBe(first.join(","));
+  });
 });
 
 describe("episodeStatus", () => {
@@ -50,6 +84,7 @@ describe("episodeStatus", () => {
     expect(episodeStatus({ hasFile: true, stillCount: 10, handful: [1], pushedAt: "x" })).toBe("pushed");
     expect(episodeStatus({ hasFile: true, stillCount: 10, handful: [1], batchedAt: "x" })).toBe("batched");
     expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [1, 2] })).toBe("review");
+    expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [] })).toBe("review");
     expect(episodeStatus({ hasFile: true, stillCount: 0, handful: [] })).toBe("ready");
     expect(episodeStatus({ hasFile: false, stillCount: 0, handful: [] })).toBe("no-file");
   });
@@ -65,6 +100,10 @@ describe("durationPastEof", () => {
 describe("videoDirForShow", () => {
   it("maps The Simpsons to the local rip folder", () => {
     expect(videoDirForShow("The Simpsons").replaceAll("\\", "/")).toBe("G:/videos/shows/Simpsons");
+  });
+
+  it("maps Movies to the local movie folder", () => {
+    expect(videoDirForShow("Movies").replaceAll("\\", "/")).toBe("G:/videos/movies");
   });
 });
 
@@ -101,6 +140,32 @@ describe("buildShowQueue", () => {
     expect(queue.episodes.map((ep) => ep.titleId)).toEqual(["the-simpsons---4x03---homer-the-hereticen"]);
     expect(queue.episodes[0]?.status).toBe("no-file");
     expect(queue.episodes[0]?.offsetMs).toBe(-57000);
+  });
+
+  it("lists movies with stills even when the video folder is missing", () => {
+    const queue = buildShowQueue({
+      show: "Movies",
+      directory: "/missing-movies",
+      entries: [
+        {
+          id: "payback-1999",
+          title: "Payback (1999)",
+          lineCount: 906,
+          sourceFilename: "payback.srt",
+          importedAt: "",
+          meta: { year: 1999 },
+        },
+      ],
+      titlesById: new Map(),
+      sync: {
+        "payback-1999": { offsetMs: 0, durationSec: 6081, handful: [77, 187] },
+      },
+      stillCounts: { "payback-1999": 6 },
+      starCounts: { "payback-1999": 78 },
+    });
+    expect(queue.episodes.map((ep) => ep.titleId)).toEqual(["payback-1999"]);
+    expect(queue.episodes[0]?.status).toBe("no-file");
+    expect(queue.episodes[0]?.offsetMs).toBe(0);
   });
 });
 

@@ -13,6 +13,7 @@ import {
   durationPastEof,
   extractTitleStills,
   handfulFromStars,
+  shuffleHandfulFromStars,
   lastCueStartMsOf,
   listHandfulFrames,
   listPreviewStillIndices,
@@ -24,6 +25,8 @@ import {
   STUDIO_SKIP_TITLE_IDS,
   videoDirForShow,
   writeStillsSyncFile,
+  MOVIES_STUDIO_SHOW,
+  isMoviesStudioShow,
 } from "./stillsStudio.js";
 import {
   describeStudioMethod,
@@ -67,15 +70,23 @@ function catalogShows(entries: CatalogEntry[]): string[] {
     const show = entry.meta?.show?.trim();
     if (show) names.add(show);
   }
+  if (entries.some((entry) => !entry.meta?.show && entry.id !== "sample-episode")) {
+    names.add(MOVIES_STUDIO_SHOW);
+  }
   return [...names].sort((a, b) => a.localeCompare(b));
 }
 
 function titlesNeeded(entries: CatalogEntry[], show: string, sync: StillsSyncFile): Map<string, Title> {
   const map = new Map<string, Title>();
+  const movies = isMoviesStudioShow(show);
   for (const entry of entries) {
-    if (entry.meta?.show !== show) continue;
+    if (movies) {
+      if (entry.meta?.show || entry.id === "sample-episode") continue;
+    } else if (entry.meta?.show !== show) {
+      continue;
+    }
     if (STUDIO_SKIP_TITLE_IDS.includes(entry.id)) continue;
-    if (!sync[entry.id]?.durationSec) continue;
+    if (!movies && !sync[entry.id]?.durationSec) continue;
     if (!existsSync(titlePath(entry.id))) continue;
     map.set(entry.id, loadTitle(entry.id));
   }
@@ -127,7 +138,7 @@ function findEpisode(ctx: StudioContext, titleId: string) {
   const title = loadTitle(titleId);
   const catalog = loadCatalog();
   const entry = catalog.titles.find((row) => row.id === titleId);
-  const show = entry?.meta?.show?.trim() || "";
+  const show = entry?.meta?.show?.trim() || MOVIES_STUDIO_SHOW;
   const queue = studioQueue(ctx, show);
   const episode = queue.episodes.find((row) => row.titleId === titleId);
   if (!episode) {
@@ -144,8 +155,13 @@ function framesForEpisode(
   const sync = loadStillsSyncFile(ctx.syncPath);
   const destDir = join(ctx.previewRoot, title.id);
   const showAll = episode.status === "batched" || episode.status === "pushed";
-  const fromDisk = showAll ? listPreviewStillIndices(destDir) : [];
-  const indices = fromDisk.length > 0 ? fromDisk : episode.handful;
+  const fromDisk = listPreviewStillIndices(destDir);
+  const indices =
+    showAll && fromDisk.length > 0
+      ? fromDisk
+      : episode.handful.length > 0
+        ? episode.handful
+        : fromDisk;
   return listHandfulFrames({
     packageRoot: ctx.packageRoot,
     title,
@@ -292,6 +308,11 @@ export function studioExtract(
         method,
       };
     }
+  } else if (opts.mode === "shuffle") {
+    indices = shuffleHandfulFromStars(title, starIndices, episode.handful);
+    if (indices.length === 0) {
+      throw new Error("Could not pick another handful of frames.");
+    }
   } else {
     indices =
       (opts.mode === "retry" || opts.mode === "smart") && episode.handful.length > 0
@@ -315,7 +336,7 @@ export function studioExtract(
   const handful = opts.mode === "batch" ? (previous?.handful ?? episode.handful) : indices;
   const clearingReview = opts.mode !== "batch";
   const triedMethods =
-    opts.mode === "batch"
+    opts.mode === "batch" || opts.mode === "shuffle"
       ? previous?.triedMethods
       : recordTriedMethodIds(previous?.triedMethods, episode.methodId, method.id);
   sync[id] = mergeSyncEntry(previous, {
@@ -330,12 +351,14 @@ export function studioExtract(
     approvedAt: opts.mode === "batch" ? previous?.approvedAt ?? now : undefined,
     batchedAt: opts.mode === "batch" ? now : undefined,
     pushedAt: clearingReview ? undefined : previous?.pushedAt,
-    methodId: opts.mode === "batch" ? previous?.methodId ?? method.id : method.id,
+    methodId: opts.mode === "batch" || opts.mode === "shuffle" ? previous?.methodId ?? method.id : method.id,
     triedMethods,
     note:
       opts.mode === "batch"
         ? `Studio batch ${results.filter((row) => row.ok).length} stills.`
-        : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
+        : opts.mode === "shuffle"
+          ? `Studio shuffle (${handful.join(",")}).`
+          : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
   });
   writeStillsSyncFile(ctx.syncPath, sync);
 

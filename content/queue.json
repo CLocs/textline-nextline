@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-20T21:33:33.724Z",
+  "updatedAt": "2026-09-20T22:15:33.996Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -1315,9 +1315,9 @@
       "playCount": 1,
       "highlightCount": 0,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Casino Royale",

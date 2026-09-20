@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-20T21:32:44.677Z",
+  "updatedAt": "2026-09-20T22:13:34.539Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -4546,6 +4546,16 @@
       "importedAt": "2026-09-13T03:48:43.497Z",
       "meta": {
         "year": 2013
+      }
+    },
+    {
+      "id": "wedding-crashers-2005",
+      "title": "Wedding Crashers (2005)",
+      "lineCount": 2086,
+      "sourceFilename": "Wedding.Crashers.2005.eng.srt",
+      "importedAt": "2026-09-20T22:13:34.528Z",
+      "meta": {
+        "year": 2005
       }
     },
     {

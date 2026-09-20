@@ -164,14 +164,14 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
                   {row.episodeCount != null ? (
                     <span className="muted"> · {row.episodeCount} eps</span>
                   ) : null}
-                  {row.kind === "show" ? (
+                  {row.kind === "show" || row.kind === "movie" ? (
                     <>
                       {" "}
                       <button
                         type="button"
                         className="button ghost ops-review-stills"
                         onClick={() => {
-                          setStillsShow(row.label);
+                          setStillsShow(row.kind === "movie" ? "Movies" : row.label);
                           setTab("stills");
                         }}
                       >

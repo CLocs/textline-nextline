@@ -1,11 +1,16 @@
 export type QuoteImageFormat = "caption-below" | "on-image";
 export type QuoteImageAspect = "portrait" | "square" | "story" | "original";
 export type QuoteImagePalette = "clean" | "ink" | "lime" | "none";
+export type QuoteImageTextAlign = "top" | "center" | "bottom";
 
 export type QuoteImagePrefs = {
   format: QuoteImageFormat;
   aspect: QuoteImageAspect;
   palette: QuoteImagePalette;
+  /** Show Play/Chat-style lead-in cues above the textline. */
+  includeLeadIn: boolean;
+  /** Vertical placement of the quote block (On image + caption band). */
+  textAlign: QuoteImageTextAlign;
 };
 
 const STORAGE_KEY = "tlnl.quoteImagePrefs";
@@ -14,13 +19,20 @@ export const DEFAULT_QUOTE_IMAGE_PREFS: QuoteImagePrefs = {
   format: "caption-below",
   aspect: "portrait",
   palette: "clean",
+  includeLeadIn: false,
+  textAlign: "center",
 };
 
 const ASPECTS = new Set<QuoteImageAspect>(["portrait", "square", "story", "original"]);
 const PALETTES = new Set<QuoteImagePalette>(["clean", "ink", "lime", "none"]);
 const FORMATS = new Set<QuoteImageFormat>(["caption-below", "on-image"]);
+const TEXT_ALIGNS = new Set<QuoteImageTextAlign>(["top", "center", "bottom"]);
 
-function isPrefs(value: unknown): value is QuoteImagePrefs {
+function isPrefsShape(value: unknown): value is Partial<QuoteImagePrefs> & {
+  format: QuoteImageFormat;
+  aspect: QuoteImageAspect;
+  palette: QuoteImagePalette;
+} {
   if (!value || typeof value !== "object") return false;
   const record = value as Record<string, unknown>;
   return (
@@ -35,8 +47,19 @@ export function loadQuoteImagePrefs(): QuoteImagePrefs {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return { ...DEFAULT_QUOTE_IMAGE_PREFS };
     const parsed: unknown = JSON.parse(raw);
-    if (!isPrefs(parsed)) return { ...DEFAULT_QUOTE_IMAGE_PREFS };
-    return parsed;
+    if (!isPrefsShape(parsed)) return { ...DEFAULT_QUOTE_IMAGE_PREFS };
+    const record = parsed as Partial<QuoteImagePrefs>;
+    return {
+      ...DEFAULT_QUOTE_IMAGE_PREFS,
+      ...parsed,
+      includeLeadIn:
+        typeof record.includeLeadIn === "boolean"
+          ? record.includeLeadIn
+          : DEFAULT_QUOTE_IMAGE_PREFS.includeLeadIn,
+      textAlign: TEXT_ALIGNS.has(record.textAlign as QuoteImageTextAlign)
+        ? (record.textAlign as QuoteImageTextAlign)
+        : DEFAULT_QUOTE_IMAGE_PREFS.textAlign,
+    };
   } catch {
     return { ...DEFAULT_QUOTE_IMAGE_PREFS };
   }

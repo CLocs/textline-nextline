@@ -83,11 +83,25 @@
   },
   "payback-1999": {
     "offsetMs": 0,
+    "timeScale": 1,
     "encode": "mp4-h264-23976-dc",
-    "source": "G:/videos/movies/Payback (1999).mp4",
+    "source": "G:\\videos\\movies\\Payback (1999).mp4",
     "fps": 23.976,
-    "durationSec": 6081.02,
-    "note": "1080p 23.976 ~1:41:21 (DC longer than theatrical). Handful of 6/78 D1 stars at scale 1. Do not batch/R2 until eyeball."
+    "durationSec": 6081.024,
+    "handful": [
+      77,
+      187,
+      336,
+      486,
+      635,
+      805
+    ],
+    "note": "Studio batch 78 stills.",
+    "approvedAt": "2026-09-20T22:19:55.410Z",
+    "seek": "start",
+    "lineOffsets": {},
+    "batchedAt": "2026-09-20T22:20:08.827Z",
+    "methodId": "zero"
   },
   "inglourious-basterds-2009": {
     "offsetMs": 0,
@@ -160,8 +174,8 @@
     "pushedAt": "2026-09-20T21:48:54.644Z"
   },
   "the-simpsons---4x04---lisa-the-beauty-queenen": {
-    "offsetMs": -55000,
-    "timeScale": 0.96,
+    "offsetMs": -62000,
+    "timeScale": 1,
     "lineOffsets": {},
     "durationSec": 1226.762,
     "source": "G:\\videos\\shows\\Simpsons\\S04E04 - The Simpsons - Lisa The Beauty Queen (English).Avi",
@@ -173,6 +187,38 @@
       260,
       323
     ],
-    "note": "Studio handful (0,72,133,193,260,323); inherit offset -55000ms."
+    "note": "Studio smart Theme skip −62s (0,72,133,193,260,323).",
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "methodId": "theme-62",
+    "triedMethods": [
+      "custom:-55000:0.96:start",
+      "theme-57",
+      "theme-52",
+      "theme-62"
+    ]
+  },
+  "the-simpsons---4x05---treehouse-of-horror-iiien": {
+    "offsetMs": -52000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "lineOffsets": {},
+    "durationSec": 1221.949,
+    "source": "G:\\videos\\shows\\Simpsons\\S04E05 - The Simpsons - Treehouse Of Horror Iii (English).Avi",
+    "handful": [
+      1,
+      54,
+      79,
+      115,
+      235,
+      343
+    ],
+    "methodId": "theme-52",
+    "triedMethods": [
+      "theme-57",
+      "theme-52"
+    ],
+    "note": "Studio smart Theme skip −52s (1,54,79,115,235,343)."
   }
 }
