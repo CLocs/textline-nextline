@@ -2007,9 +2007,11 @@ code {
   grid-template-columns: 1fr auto;
   gap: 0.6rem;
   align-items: end;
-  margin-top: 1rem;
-  padding-top: 0.75rem;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.75rem 0 0;
   border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-raised) 92%, white);
 }
 
 .chats-composer textarea {
@@ -2030,8 +2032,54 @@ code {
   margin: 0;
 }
 
+.chats-thread-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 5.5rem);
+  min-height: min(28rem, calc(100dvh - 5.5rem));
+}
+
+.chats-thread-top {
+  flex-shrink: 0;
+}
+
+.chats-thread-top .back-link {
+  margin-bottom: 0.35rem;
+}
+
+.chats-thread-top .section-header {
+  margin-bottom: 0.75rem;
+}
+
+.chats-thread-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chats-thread-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.15rem;
+}
+
 .chats-message-list {
-  margin-top: 1rem;
+  margin: 0;
+}
+
+.chats-thread-end {
+  height: 1px;
+  width: 100%;
+}
+
+.chats-jump-latest {
+  align-self: center;
+  flex-shrink: 0;
+  font-size: 0.88rem;
 }
 
 .chats-outgoing-card {

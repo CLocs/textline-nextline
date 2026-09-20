@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent, type UIEvent } from "react";
 import { getTitle } from "../lib/content/browser";
 import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
@@ -18,6 +18,8 @@ import type { CatalogEntry } from "../types/content";
 import { InboxLineCard } from "./InboxLineCard";
 import { ChatQuoteActions } from "./ChatQuoteActions";
 import type { InboxItem } from "../lib/inbox/api";
+
+const NEAR_BOTTOM_PX = 96;
 
 type Props = {
   mode: "dm" | "group";
@@ -136,9 +138,29 @@ export function ChatThreadScreen({
   const [draft, setDraft] = useState("");
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
+  const [showJumpLatest, setShowJumpLatest] = useState(false);
+
+  const endRef = useRef<HTMLDivElement>(null);
+  const stickToBottomRef = useRef(true);
+
+  function scrollToLatest(behavior: ScrollBehavior = "smooth") {
+    stickToBottomRef.current = true;
+    setShowJumpLatest(false);
+    endRef.current?.scrollIntoView({ behavior, block: "end" });
+  }
+
+  function handleThreadScroll(event: UIEvent<HTMLDivElement>) {
+    const el = event.currentTarget;
+    const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
+    const nearBottom = distance <= NEAR_BOTTOM_PX;
+    stickToBottomRef.current = nearBottom;
+    setShowJumpLatest(!nearBottom);
+  }
 
   useEffect(() => {
     let cancelled = false;
+    stickToBottomRef.current = true;
+    setShowJumpLatest(false);
 
     async function load() {
       setLoading(true);
@@ -180,6 +202,21 @@ export function ChatThreadScreen({
     };
   }, [mode, peerUserId, peerName, groupId, groupName]);
 
+  const messageCount = mode === "dm" ? dmMessages.length : groupMessages.length;
+
+  useEffect(() => {
+    if (loading || error) return;
+    if (!stickToBottomRef.current) {
+      setShowJumpLatest(true);
+      return;
+    }
+    // Instant on first paint / when pinned so open lands on latest.
+    requestAnimationFrame(() => {
+      endRef.current?.scrollIntoView({ behavior: "auto", block: "end" });
+      setShowJumpLatest(false);
+    });
+  }, [loading, error, messageCount]);
+
   function entryLabel(titleId: string): string {
     const entry = entries.find((row) => row.id === titleId);
     return entry ? catalogLabel(entry) : titleId;
@@ -203,6 +240,7 @@ export function ChatThreadScreen({
       return;
     }
     setDraft("");
+    stickToBottomRef.current = true;
     if (mode === "dm") {
       setDmMessages((prev) => [...prev, result.message]);
     } else {
@@ -218,120 +256,141 @@ export function ChatThreadScreen({
 
   return (
     <section className="panel chats-thread-panel">
-      <button type="button" className="button ghost back-link" onClick={onBack}>
-        ← Chats
-      </button>
-      <div className="section-header">
-        <h2>{title}</h2>
-        <p className="muted">
-          {mode === "group"
-            ? "Shared group chat — type here or send lines from Curate."
-            : "Direct chat — type here or send lines from Curate."}
-        </p>
+      <div className="chats-thread-top">
+        <button type="button" className="button ghost back-link" onClick={onBack}>
+          ← Chats
+        </button>
+        <div className="section-header">
+          <h2>{title}</h2>
+          <p className="muted">
+            {mode === "group"
+              ? "Shared group chat — type here or send lines from Curate."
+              : "Direct chat — type here or send lines from Curate."}
+          </p>
+        </div>
       </div>
 
       {loading ? <p className="muted">Loading…</p> : null}
       {error ? <p className="share-message">{error}</p> : null}
 
-      {empty ? (
-        <p className="muted">No messages yet. Say hello or send a line from Curate.</p>
-      ) : null}
-
-      {mode === "dm" ? (
-        <ul className="inbox-line-list chats-message-list">
-          {dmMessages.map((message) =>
-            message.kind === "text" ? (
-              <li key={`t-${message.id}`}>
-                <TextBubble
-                  body={message.body}
-                  fromLabel={message.youSent ? "You" : message.from.displayName}
-                  youSent={message.youSent}
-                />
-              </li>
-            ) : (
-              <li key={`q-${message.id}`}>
-                {message.playable ? (
-                  <InboxLineCard item={dmToInboxItem(message)} entries={entries} showQuoteActions />
-                ) : (
-                  <OutgoingPreview
-                    titleId={message.titleId}
-                    lineIndex={message.lineIndex}
-                    label={entryLabel(message.titleId)}
-                    fromLabel="You sent"
-                    receiptLabel={dmReceiptLabel(message.receipt)}
-                  />
-                )}
-              </li>
-            ),
-          )}
-        </ul>
-      ) : (
-        <ul className="inbox-line-list chats-message-list">
-          {groupMessages.map((message) => {
-            if (message.kind === "text") {
-              return (
-                <li key={`t-${message.id}`}>
-                  <TextBubble
-                    body={message.body}
-                    fromLabel={message.youSent ? "You" : message.from.displayName}
-                    youSent={message.youSent}
-                  />
-                </li>
-              );
-            }
-            const playable = groupToInboxItem(message);
-            return (
-              <li key={`q-${message.shareId}`}>
-                {playable && message.playable ? (
-                  <InboxLineCard item={playable} entries={entries} showQuoteActions />
-                ) : (
-                  <OutgoingPreview
-                    titleId={message.titleId}
-                    lineIndex={message.lineIndex}
-                    label={entryLabel(message.titleId)}
-                    fromLabel={
-                      message.youSent
-                        ? `You sent · ${message.sentCount} received`
-                        : `${message.from.displayName} · ${message.sentCount} received`
-                    }
-                    receiptLabel={groupReceiptLabel(
-                      message.youSent,
-                      message.sentCount,
-                      message.readCount,
-                    )}
-                  />
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      )}
-
       {!loading && !error ? (
-        <form className="chats-composer" onSubmit={(event) => void handleSend(event)}>
-          <label className="sr-only" htmlFor="chat-composer-input">
-            Message
-          </label>
-          <textarea
-            id="chat-composer-input"
-            rows={2}
-            maxLength={1000}
-            value={draft}
-            placeholder="Write a message…"
-            disabled={sending}
-            onChange={(event) => setDraft(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" && !event.shiftKey) {
-                event.preventDefault();
-                void handleSend(event);
-              }
-            }}
-          />
-          <button type="submit" className="button primary" disabled={sending || !draft.trim()}>
-            {sending ? "Sending…" : "Send"}
-          </button>
-          {sendError ? <p className="share-message">{sendError}</p> : null}
-        </form>
+        <div className="chats-thread-body">
+          <div className="chats-thread-scroll" onScroll={handleThreadScroll}>
+            {empty ? (
+              <p className="muted">No messages yet. Say hello or send a line from Curate.</p>
+            ) : null}
+
+            {mode === "dm" ? (
+              <ul className="inbox-line-list chats-message-list">
+                {dmMessages.map((message) =>
+                  message.kind === "text" ? (
+                    <li key={`t-${message.id}`}>
+                      <TextBubble
+                        body={message.body}
+                        fromLabel={message.youSent ? "You" : message.from.displayName}
+                        youSent={message.youSent}
+                      />
+                    </li>
+                  ) : (
+                    <li key={`q-${message.id}`}>
+                      {message.playable ? (
+                        <InboxLineCard
+                          item={dmToInboxItem(message)}
+                          entries={entries}
+                          showQuoteActions
+                        />
+                      ) : (
+                        <OutgoingPreview
+                          titleId={message.titleId}
+                          lineIndex={message.lineIndex}
+                          label={entryLabel(message.titleId)}
+                          fromLabel="You sent"
+                          receiptLabel={dmReceiptLabel(message.receipt)}
+                        />
+                      )}
+                    </li>
+                  ),
+                )}
+              </ul>
+            ) : (
+              <ul className="inbox-line-list chats-message-list">
+                {groupMessages.map((message) => {
+                  if (message.kind === "text") {
+                    return (
+                      <li key={`t-${message.id}`}>
+                        <TextBubble
+                          body={message.body}
+                          fromLabel={message.youSent ? "You" : message.from.displayName}
+                          youSent={message.youSent}
+                        />
+                      </li>
+                    );
+                  }
+                  const playable = groupToInboxItem(message);
+                  return (
+                    <li key={`q-${message.shareId}`}>
+                      {playable && message.playable ? (
+                        <InboxLineCard item={playable} entries={entries} showQuoteActions />
+                      ) : (
+                        <OutgoingPreview
+                          titleId={message.titleId}
+                          lineIndex={message.lineIndex}
+                          label={entryLabel(message.titleId)}
+                          fromLabel={
+                            message.youSent
+                              ? `You sent · ${message.sentCount} received`
+                              : `${message.from.displayName} · ${message.sentCount} received`
+                          }
+                          receiptLabel={groupReceiptLabel(
+                            message.youSent,
+                            message.sentCount,
+                            message.readCount,
+                          )}
+                        />
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+            <div ref={endRef} className="chats-thread-end" aria-hidden="true" />
+          </div>
+
+          {showJumpLatest ? (
+            <button
+              type="button"
+              className="button ghost chats-jump-latest"
+              onClick={() => scrollToLatest("smooth")}
+            >
+              ↓ Latest
+            </button>
+          ) : null}
+
+          <form className="chats-composer" onSubmit={(event) => void handleSend(event)}>
+            <label className="sr-only" htmlFor="chat-composer-input">
+              Message
+            </label>
+            <textarea
+              id="chat-composer-input"
+              rows={2}
+              maxLength={1000}
+              value={draft}
+              placeholder="Write a message…"
+              disabled={sending}
+              onChange={(event) => setDraft(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" && !event.shiftKey) {
+                  event.preventDefault();
+                  void handleSend(event);
+                }
+              }}
+            />
+            <button type="submit" className="button primary" disabled={sending || !draft.trim()}>
+              {sending ? "Sending…" : "Send"}
+            </button>
+            {sendError ? <p className="share-message">{sendError}</p> : null}
+          </form>
+        </div>
       ) : null}
     </section>
   );

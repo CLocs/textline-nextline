@@ -535,8 +535,9 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 3. **Home + bell** — Chats rail; `#/chats` list; Profile tab **Chats** (old `#/profile/inbox` redirects). Dual unread: quote chips (`line_inbox.read_at`) and text chips (`chat_thread_reads` watermark).
 4. **Separation** — group sends appear only in the group thread, not also in each pair’s DM.
 5. **Text messages** — composer in-thread; `chat_messages` one row per DM/group message; quotes and text share one timeline (`kind: quote | text`).
+6. **Thread scroll UX** — message list scrolls inside the panel; composer stays put; open/send land on latest; **↓ Latest** when scrolled up.
 
-**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); richer outgoing cards (lead-in + next line / spoiler for the sender); emoji reactions; quotes-only filter.
+**Still later:** attempt-score icons in-thread; packs as chat messages; leave/invite links; [multi-select in a thread → cross-title mini-game](#chats--cross-title-mini-games); richer outgoing cards / rich quote cards (lead-in + next line / spoiler for the sender); emoji reactions; quotes-only filter.
 
 ### Chats → cross-title mini-games
 
