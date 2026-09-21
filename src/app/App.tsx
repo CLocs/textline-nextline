@@ -43,9 +43,10 @@ import { CatalogOpsScreen } from "../components/CatalogOpsScreen";
 import { FriendAcceptScreen } from "../components/FriendAcceptScreen";
 import { ChatsList } from "../components/ChatsList";
 import { ChatThreadScreen } from "../components/ChatThreadScreen";
+import { SearchScreen } from "../components/SearchScreen";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -87,6 +88,7 @@ export function App() {
   const [chatGroupId, setChatGroupId] = useState<string | null>(null);
   const [chatGroupName, setChatGroupName] = useState<string | undefined>();
   const [chatMode, setChatMode] = useState<"dm" | "group">("dm");
+  const [curateFocusLineIndex, setCurateFocusLineIndex] = useState<number | null>(null);
 
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
@@ -139,6 +141,14 @@ export function App() {
     }
     if (returnTo === "ops") {
       setHash("ops");
+      return;
+    }
+    if (returnTo === "chats" || returnTo === "search") {
+      setHash(returnTo);
+      return;
+    }
+    if (returnTo?.startsWith("chat/")) {
+      setHash(returnTo);
       return;
     }
     clearHash();
@@ -320,6 +330,16 @@ export function App() {
         setScreen("chats");
         return;
       }
+      if (route.kind === "search") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to search.");
+          captureLoginReturn("search");
+          setScreen("login");
+          return;
+        }
+        setScreen("search");
+        return;
+      }
       if (route.kind === "chat") {
         if (!user && !getStoredUser()) {
           setLoginMessage("Sign in to view this chat.");
@@ -414,8 +434,25 @@ export function App() {
 
   function handlePickEpisode(entry: CatalogEntry) {
     setPendingEntry(entry);
+    setCurateFocusLineIndex(null);
     setShareMessage(null);
     setScreen("setup");
+  }
+
+  function handleOpenSearchTitle(entry: CatalogEntry) {
+    setPendingEntry(entry);
+    setCurateFocusLineIndex(null);
+    setShareMessage(null);
+    setScreen("setup");
+    clearHash();
+  }
+
+  function handleOpenSearchLine(entry: CatalogEntry, lineIndex: number) {
+    setPendingEntry(entry);
+    setCurateFocusLineIndex(lineIndex);
+    setShareMessage(null);
+    setScreen("curate");
+    clearHash();
   }
 
   function handleChoice(lineIndex: number) {
@@ -614,6 +651,11 @@ export function App() {
     setHash("ops");
   }
 
+  function handleOpenSearch() {
+    setScreen("search");
+    setHash("search");
+  }
+
   const showCatalog = canViewCatalogOps(user?.email, import.meta.env.DEV);
 
   // Signed-out users only see the sign-in gate (plus auth deep links).
@@ -635,6 +677,7 @@ export function App() {
               user={user}
               onProfile={handleOpenProfile}
               onChats={handleOpenChats}
+              onSearch={handleOpenSearch}
               onCatalog={showCatalog ? handleOpenCatalog : undefined}
             />
           )}
@@ -678,6 +721,15 @@ export function App() {
           </div>
           <ChatsList onOpenDm={handleOpenDm} onOpenGroup={handleOpenGroupChat} />
         </section>
+      )}
+
+      {showApp && screen === "search" && (
+        <SearchScreen
+          entries={entries}
+          onBack={handleBackToLibrary}
+          onOpenTitle={handleOpenSearchTitle}
+          onOpenLine={handleOpenSearchLine}
+        />
       )}
 
       {showApp && screen === "chat" && (chatPeerId || chatGroupId) && (
@@ -744,7 +796,10 @@ export function App() {
         <SetupScreen
           entry={pendingEntry}
           onStart={(setup) => beginGame(pendingEntry, setup)}
-          onCurate={() => setScreen("curate")}
+          onCurate={() => {
+            setCurateFocusLineIndex(null);
+            setScreen("curate");
+          }}
           onShareMiniGame={() => void handleShareMiniGame()}
           shareBusy={shareBusy}
           shareMessage={shareMessage}
@@ -755,7 +810,11 @@ export function App() {
       {showApp && screen === "curate" && pendingEntry && (
         <CurateScreen
           entry={pendingEntry}
-          onBack={() => setScreen("setup")}
+          focusLineIndex={curateFocusLineIndex}
+          onBack={() => {
+            setCurateFocusLineIndex(null);
+            setScreen("setup");
+          }}
           onOpenParallel={(packId) => {
             setParallelPackId(packId);
             setScreen("parallel");

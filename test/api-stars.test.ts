@@ -4,6 +4,7 @@ import {
   deleteStar,
   fetchMyStars,
   fetchPopularStars,
+  fetchPopularStarsGlobal,
   isValidPlayerId,
   parseLoveBody,
   parseStarBody,
@@ -111,6 +112,32 @@ function createMockDb(initial: Row[] = []) {
                 return { results: results as T[] };
               }
 
+              if (sql.includes("GROUP BY title_id, line_index")) {
+                const [limit] = args as [number];
+                const counts = new Map<string, { title_id: string; line_index: number; count: number }>();
+                for (const row of rows) {
+                  const key = `${row.title_id}:${row.line_index}`;
+                  const existing = counts.get(key);
+                  if (existing) existing.count += 1;
+                  else {
+                    counts.set(key, {
+                      title_id: row.title_id,
+                      line_index: row.line_index,
+                      count: 1,
+                    });
+                  }
+                }
+                const results = [...counts.values()]
+                  .sort(
+                    (a, b) =>
+                      b.count - a.count ||
+                      a.title_id.localeCompare(b.title_id) ||
+                      a.line_index - b.line_index,
+                  )
+                  .slice(0, limit);
+                return { results: results as T[] };
+              }
+
               if (sql.includes("GROUP BY line_index")) {
                 const [titleId, limit] = args as [string, number];
                 const counts = new Map<number, number>();
@@ -189,6 +216,19 @@ describe("star helpers", () => {
       { lineIndex: 7, count: 1 },
     ]);
   });
+
+  it("aggregates popular stars across titles", async () => {
+    const { db } = createMockDb();
+    const otherPlayer = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
+    await putStar(db, PLAYER_ID, { titleId: "movie-a", lineIndex: 1 });
+    await putStar(db, otherPlayer, { titleId: "movie-a", lineIndex: 1 });
+    await putStar(db, PLAYER_ID, { titleId: "movie-b", lineIndex: 3 });
+
+    expect(await fetchPopularStarsGlobal(db, 10)).toEqual([
+      { titleId: "movie-a", lineIndex: 1, count: 2 },
+      { titleId: "movie-b", lineIndex: 3, count: 1 },
+    ]);
+  });
 });
 
 describe("cors", () => {
@@ -262,6 +302,23 @@ describe("handleRequest", () => {
 
     expect(await response.json()).toEqual({
       popular: [{ lineIndex: 1, count: 1 }],
+    });
+  });
+
+  it("returns global popular stars", async () => {
+    const { db } = createMockDb();
+    const env = { DB: db, ALLOWED_ORIGINS: "http://localhost:5173" };
+    await putStar(db, PLAYER_ID, { titleId: "movie-a", lineIndex: 2 });
+
+    const response = await handleRequest(
+      new Request("http://localhost/api/stars/popular-global?limit=5", {
+        headers: { Origin: "http://localhost:5173" },
+      }),
+      env,
+    );
+
+    expect(await response.json()).toEqual({
+      popular: [{ titleId: "movie-a", lineIndex: 2, count: 1 }],
     });
   });
 });

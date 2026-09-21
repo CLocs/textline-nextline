@@ -33,6 +33,7 @@ import {
   deleteStar,
   fetchMyStars,
   fetchPopularStars,
+  fetchPopularStarsGlobal,
   parseLoveBody,
   parseStarBody,
   putStar,
@@ -799,6 +800,16 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       origin,
       allowed,
     );
+  }
+
+  if (request.method === "GET" && pathname === "/api/stars/popular-global") {
+    const limitParam = url.searchParams.get("limit");
+    const limit = limitParam ? Number.parseInt(limitParam, 10) : 100;
+    if (!Number.isFinite(limit) || limit < 1 || limit > 500) {
+      return errorResponse("Invalid limit", 400, origin, allowed);
+    }
+    const popular = await fetchPopularStarsGlobal(env.DB, limit);
+    return jsonResponse({ popular }, 200, origin, allowed);
   }
 
   if (request.method === "GET" && pathname === "/api/stars/popular") {

@@ -421,7 +421,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [x] **Share quote as image** — caption-below + on-image; Original aspect; Clean/Ink/Lime/None; remembered prefs. See [Share quote as image](#share-quote-as-image).
 - [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). Builds on share cards. See [Daily quote email](#daily-quote-email).
-- [ ] **Global search** — lines across all movies/shows; sort by crowd stars or starred-by-me; also match movie + episode titles. See [Global search](#global-search).
+- [x] **Global search** — `#/search`; client-side over eager catalog; Popular / Starred by me; title + line hits. See [Global search](#global-search).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
 - [ ] **Mobile home screen (PWA-lite)** — Add to Home Screen + install helper; native store apps later. See [Later ideas](#mobile-home-screen-pwa-lite-before-native-apps).
@@ -504,7 +504,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, and **Chats** (DMs + shared groups on Home) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **global search**, **Chats quote replies**, **mobile home screen (PWA-lite)**, and **star-streak bias** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, **Chats** (DMs + shared groups on Home), and **global search** are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, **mobile home screen (PWA-lite)**, and **star-streak bias** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -736,20 +736,18 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 Not the same as **Daily challenge** (same public quiz for everyone). Depends on (or pairs with) [Share quote as image](#share-quote-as-image) for the full Readwise loop.
 
-### Global search
+### Global search ✅
 
-**Why:** Finding a line today means picking a title first, then filtering that transcript in Curate. Browse is Movies \| TV with no search. You already know the quote (“Let 'em watch”) or the episode name — you should not have to remember which film it is in.
+**Why:** Finding a line used to mean picking a title first, then filtering that transcript in Curate. Browse is Movies \| TV. You already know the quote (“Let 'em watch”) or the episode name — you should not have to remember which film it is in.
 
-**Shape *(parked)*:**
+**In:**
 
-1. **One search** — Home header or `#/search`. Query matches **line text** across every movie and episode in the catalog.
-2. **Sort / filter** — **Most popular** (crowd star `COUNT`, same signal as `/api/stars/popular`) and **Starred by me**. Default popular so unsigned / sparse-star users still get a useful ranking; a “mine” toggle pins personal stars first (or filters to them).
-3. **Titles too** — also match **movie names** and **episode titles** (show + `SxEE` + episode name). Title hits sit above or beside line hits so “Ocean’s 13” and “Homer the Heretic” work without a quote.
-4. **Open** — tap a line → that title at that index (Curate or Play); tap a title → library / play that title.
+1. **`#/search` + Search in the Home header** — query matches **line text** and **title labels** (movie name / show · episode) across the eager catalog.
+2. **Popular | Starred by me** — default Popular ranks by crowd counts from `GET /api/stars/popular-global`; Mine filters to personal stars (local + synced).
+3. **Results** — Titles section, then Lines (title + snip). Empty query browses popular / your stars.
+4. **Open** — tap a title → Setup for that title; tap a line → Curate scrolled to that index.
 
-**Not this (v1):** semantic / NLP search (same deferral as parallels Medium); OpenSubtitles / live SRT fetch; searching people (no user directory).
-
-**Gates:** Per-title client filter will not scale once the catalog is large. Need a Worker index (D1 FTS or a prebuilt search blob) plus a cross-title popular query — today’s `GET /api/stars/popular` is `titleId`-scoped. Personal stars are already per-account.
+**Not this (v1):** semantic / NLP search; OpenSubtitles / live SRT fetch; searching people; Worker FTS (revisit if the catalog outgrows the client bundle).
 
 ### Onboarding + play UX clarity ✅
 
@@ -828,7 +826,7 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
 | **Later — Share quote as image** | Caption-below + on-image; aspect + palettes + prefs | ✅ Export image in Share menu — see [Share quote as image](#share-quote-as-image) |
 | **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop after share cards — see [Daily quote email](#daily-quote-email) |
-| **Later — Global search** | Lines across all titles; sort crowd stars / starred-by-me; also movie + episode titles | Find a quote or title without picking a film first — see [Global search](#global-search) |
+| **Shipped — Global search** | `#/search`; client catalog scan; Popular / Mine; title + line hits | Find a quote or title without picking a film first — see [Global search](#global-search) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 | **Later — Mobile home screen** | Manifest + Add to Home Screen helper dialogue | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |
 | **Exploratory — Native apps** | Store apps after PWA-lite has been in the wild | iOS / Android if push, store, or offline become real needs |
@@ -928,7 +926,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - **Share quote as image** — ✅ Share → **Export image**; Caption below / On image; Portrait / Square / Story / Original; Clean / Ink / Lime / None; remembered prefs; Download PNG (+ Web Share when available). Daily email later. See [Share quote as image](#share-quote-as-image).
 - **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
-- **Global search** *(parked)* — one query over lines across all movies/shows; sort most popular (crowd stars) or starred-by-me; also match movie + episode titles. See [Global search](#global-search).
+- **Global search** — ✅ `#/search`; Popular / Starred by me; title + line hits over the eager catalog. See [Global search](#global-search).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).
 - **Mobile home screen (PWA-lite)** *(parked)* — Add to Home Screen + install helper before native iOS/Android. See [Later ideas](#mobile-home-screen-pwa-lite-before-native-apps).
 
