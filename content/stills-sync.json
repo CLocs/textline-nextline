@@ -28,10 +28,29 @@
   "goodfellas-1990": {
     "offsetMs": 0,
     "encode": "avi-divx-23976",
-    "source": "G:/videos/movies/Goodfellas (1990).avi",
+    "source": "G:\\videos\\movies\\Goodfellas (1990).avi",
     "fps": 23.976,
-    "durationSec": 8731.82,
-    "note": "23.98 fps ~2:25:32. Handful of all 5 D1 stars at scale 1. Do not batch/R2 until eyeball."
+    "durationSec": 8731.815,
+    "note": "Studio batch 5 stills.",
+    "timeScale": 1,
+    "seek": "start",
+    "lineOffsets": {},
+    "handful": [
+      138,
+      743,
+      748,
+      758,
+      776,
+      897
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "approvedAt": "2026-09-21T00:23:03.115Z",
+    "batchedAt": "2026-09-21T00:23:05.175Z",
+    "pushedAt": "2026-09-21T00:23:10.360Z"
   },
   "the-big-lebowski-1998": {
     "offsetMs": 0,
@@ -268,24 +287,53 @@
   },
   "lord-of-the-rings-the-two-towers-2002": {
     "offsetMs": 0,
-    "timeScale": 1,
+    "timeScale": 0.96,
     "seek": "start",
     "fps": 23.976023976023978,
     "lineOffsets": {},
     "durationSec": 14132.134,
     "source": "G:\\videos\\movies\\The Lord of the Rings The Two Towers Extended (2002).mkv",
     "handful": [
-      296,
-      712,
-      831,
-      1152,
-      1445,
-      1669
+      323,
+      684,
+      855,
+      1156,
+      1402,
+      1744
+    ],
+    "methodId": "pal",
+    "triedMethods": [
+      "zero",
+      "pal",
+      "mid"
+    ],
+    "note": "Studio retry PAL 0.96 (323,684,855,1156,1402,1744)."
+  },
+  "lord-of-the-rings-the-return-of-the-king-2003": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 15797.719,
+    "source": "G:\\videos\\movies\\The Lord of the Rings The Return of the King Extended (2003).mkv",
+    "handful": [
+      406,
+      458,
+      764,
+      1087,
+      1278,
+      1337
     ],
     "methodId": "zero",
     "triedMethods": [
-      "zero"
+      "zero",
+      "pal",
+      "mid"
     ],
-    "note": "Studio shuffle (296,712,831,1152,1445,1669)."
+    "note": "Studio batch 93 stills.",
+    "approvedAt": "2026-09-21T00:20:44.714Z",
+    "batchedAt": "2026-09-21T00:21:19.567Z",
+    "pushedAt": "2026-09-21T00:22:21.729Z"
   }
 }

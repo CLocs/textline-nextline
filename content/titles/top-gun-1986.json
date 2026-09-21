@@ -1,0 +1,5010 @@
+{
+  "id": "top-gun-1986",
+  "title": "Top Gun (1986)",
+  "sourceFilename": "Top.Gun.1986.eng.srt",
+  "importedAt": "2026-09-21T22:05:34.146Z",
+  "lineCount": 714,
+  "lines": [
+    {
+      "index": 0,
+      "text": "Morning, Scott. Morning, Wells.",
+      "kind": "dialogue",
+      "startMs": 248740,
+      "endMs": 253177
+    },
+    {
+      "index": 1,
+      "text": "Ghost Rider, we have an unknown aircraft. Vector 090 for bogey.",
+      "kind": "dialogue",
+      "startMs": 255980,
+      "endMs": 262283
+    },
+    {
+      "index": 2,
+      "text": "Who's up there? Cougar, Merlin, Maverick and Goose.",
+      "kind": "dialogue",
+      "startMs": 273264,
+      "endMs": 277428
+    },
+    {
+      "index": 3,
+      "text": "Great. Maverick and Goose.",
+      "kind": "dialogue",
+      "startMs": 277602,
+      "endMs": 280503
+    },
+    {
+      "index": 4,
+      "text": "Talk to me, Goose. Roger, I got them. 900 knots closure.",
+      "kind": "dialogue",
+      "startMs": 289814,
+      "endMs": 295480
+    },
+    {
+      "index": 5,
+      "text": "Cougar, you hear that? Roger.",
+      "kind": "dialogue",
+      "startMs": 295653,
+      "endMs": 299145
+    },
+    {
+      "index": 6,
+      "text": "Merlin, you got them? I've got radar contact.",
+      "kind": "dialogue",
+      "startMs": 299323,
+      "endMs": 302588
+    },
+    {
+      "index": 7,
+      "text": "I'll get a visual ID. You hook them. I'll clean them and fry them.",
+      "kind": "dialogue",
+      "startMs": 302760,
+      "endMs": 308221
+    },
+    {
+      "index": 8,
+      "text": "Ghost Rider, 203. I have them inbound, bogey heading 270 at 10 miles.",
+      "kind": "dialogue",
+      "startMs": 314806,
+      "endMs": 322508
+    },
+    {
+      "index": 9,
+      "text": "900 knots closure. Take angels 10, left, 3, 0.",
+      "kind": "dialogue",
+      "startMs": 322680,
+      "endMs": 327242
+    },
+    {
+      "index": 10,
+      "text": "Are we expecting visitors? Negative, sir.",
+      "kind": "dialogue",
+      "startMs": 327418,
+      "endMs": 330945
+    },
+    {
+      "index": 11,
+      "text": "Merlin, see if he's a single. Roger.",
+      "kind": "dialogue",
+      "startMs": 337895,
+      "endMs": 342059
+    },
+    {
+      "index": 12,
+      "text": "Do you see a trailer? Looks like he's a single.",
+      "kind": "dialogue",
+      "startMs": 342233,
+      "endMs": 347865
+    },
+    {
+      "index": 13,
+      "text": "I'm gonna go head-to-head with him. Take it easy. I'll see if he's really alone.",
+      "kind": "dialogue",
+      "startMs": 348039,
+      "endMs": 354706
+    },
+    {
+      "index": 14,
+      "text": "He's coming right at us, Mav. Okay, buddy. What's on your mind?",
+      "kind": "dialogue",
+      "startMs": 374499,
+      "endMs": 379436
+    },
+    {
+      "index": 15,
+      "text": "Shit, there's two of them. MiG-28s! What? What's their position?",
+      "kind": "dialogue",
+      "startMs": 382273,
+      "endMs": 389304
+    },
+    {
+      "index": 16,
+      "text": "250 miles out, sir. Get them out of here!",
+      "kind": "dialogue",
+      "startMs": 389480,
+      "endMs": 393348
+    },
+    {
+      "index": 17,
+      "text": "Cougar, you've got MiG one. I'm going after MiG two.",
+      "kind": "dialogue",
+      "startMs": 396053,
+      "endMs": 400012
+    },
+    {
+      "index": 18,
+      "text": "I lost him in the sun! Shit, what's he doing? You got him, Merlin?",
+      "kind": "dialogue",
+      "startMs": 400191,
+      "endMs": 406653
+    },
+    {
+      "index": 19,
+      "text": "He's coming around on our tail!",
+      "kind": "dialogue",
+      "startMs": 408699,
+      "endMs": 411759
+    },
+    {
+      "index": 20,
+      "text": "Goddamn it. This bogey's all over me.",
+      "kind": "dialogue",
+      "startMs": 411936,
+      "endMs": 415804
+    },
+    {
+      "index": 21,
+      "text": "What's their range now? If they break 150 miles, launch the alert five aircraft.",
+      "kind": "dialogue",
+      "startMs": 417942,
+      "endMs": 424370
+    },
+    {
+      "index": 22,
+      "text": "Airspeed 300. Go get them, Mav! I'm going for missile lock.",
+      "kind": "dialogue",
+      "startMs": 426884,
+      "endMs": 431753
+    },
+    {
+      "index": 23,
+      "text": "Let's see if we can scare him out of here. Lock up, baby.",
+      "kind": "dialogue",
+      "startMs": 431923,
+      "endMs": 438692
+    },
+    {
+      "index": 24,
+      "text": "I've got him locked. Bingo!",
+      "kind": "dialogue",
+      "startMs": 438863,
+      "endMs": 442731
+    },
+    {
+      "index": 25,
+      "text": "We got him, Mav. He's bugging out. Mustang, MiG two is headed home.",
+      "kind": "dialogue",
+      "startMs": 447071,
+      "endMs": 453567
+    },
+    {
+      "index": 26,
+      "text": "What's their position? 180 miles and bearing 010, sir.",
+      "kind": "dialogue",
+      "startMs": 453744,
+      "endMs": 457840
+    },
+    {
+      "index": 27,
+      "text": "He's got missile lock on us! He's engaging me.",
+      "kind": "dialogue",
+      "startMs": 461719,
+      "endMs": 466179
+    },
+    {
+      "index": 28,
+      "text": "Goddamn it. Mustang, this bogey's all over me.",
+      "kind": "dialogue",
+      "startMs": 468593,
+      "endMs": 472393
+    },
+    {
+      "index": 29,
+      "text": "Do I have permission to fire? Do not fire until fired upon.",
+      "kind": "dialogue",
+      "startMs": 472563,
+      "endMs": 476897
+    },
+    {
+      "index": 30,
+      "text": "There they are. The MiG's in perfect firing position.",
+      "kind": "dialogue",
+      "startMs": 479370,
+      "endMs": 484740
+    },
+    {
+      "index": 31,
+      "text": "No way. He would have fired by now. Maverick, get this asshole off me!",
+      "kind": "dialogue",
+      "startMs": 484909,
+      "endMs": 490472
+    },
+    {
+      "index": 32,
+      "text": "Easy, Cougar. Bring him back, hard right. Help me engage.",
+      "kind": "dialogue",
+      "startMs": 493184,
+      "endMs": 499453
+    },
+    {
+      "index": 33,
+      "text": "I'm on my way.",
+      "kind": "dialogue",
+      "startMs": 499624,
+      "endMs": 502252
+    },
+    {
+      "index": 34,
+      "text": "I can't shoot, so let's have a little fun.",
+      "kind": "dialogue",
+      "startMs": 518175,
+      "endMs": 521076
+    },
+    {
+      "index": 35,
+      "text": "Is this your idea of fun?",
+      "kind": "dialogue",
+      "startMs": 526817,
+      "endMs": 528808
+    },
+    {
+      "index": 36,
+      "text": "Greetings.",
+      "kind": "dialogue",
+      "startMs": 532256,
+      "endMs": 535555
+    },
+    {
+      "index": 37,
+      "text": "Watch the birdie.",
+      "kind": "dialogue",
+      "startMs": 536460,
+      "endMs": 539520
+    },
+    {
+      "index": 38,
+      "text": "Geez, I crack myself up.",
+      "kind": "dialogue",
+      "startMs": 539697,
+      "endMs": 542461
+    },
+    {
+      "index": 39,
+      "text": "Great shot. I should be a photographer.",
+      "kind": "dialogue",
+      "startMs": 548539,
+      "endMs": 552100
+    },
+    {
+      "index": 40,
+      "text": "Cougar, your tail is clear. MiG one has bugged out.",
+      "kind": "dialogue",
+      "startMs": 552276,
+      "endMs": 555370
+    },
+    {
+      "index": 41,
+      "text": "Cougar, we've had enough fun for one day, don't you think?",
+      "kind": "dialogue",
+      "startMs": 566657,
+      "endMs": 571458
+    },
+    {
+      "index": 42,
+      "text": "I'm getting low on fuel, so we're heading home.",
+      "kind": "dialogue",
+      "startMs": 571629,
+      "endMs": 575463
+    },
+    {
+      "index": 43,
+      "text": "We'll see you on deck.",
+      "kind": "dialogue",
+      "startMs": 578035,
+      "endMs": 581198
+    },
+    {
+      "index": 44,
+      "text": "We're running low on gas.",
+      "kind": "dialogue",
+      "startMs": 588646,
+      "endMs": 591877
+    },
+    {
+      "index": 45,
+      "text": "Cougar?",
+      "kind": "dialogue",
+      "startMs": 593784,
+      "endMs": 597379
+    },
+    {
+      "index": 46,
+      "text": "We're on vapour. Let's do it.",
+      "kind": "dialogue",
+      "startMs": 597555,
+      "endMs": 601286
+    },
+    {
+      "index": 47,
+      "text": "Cougar, come on!",
+      "kind": "dialogue",
+      "startMs": 603327,
+      "endMs": 606125
+    },
+    {
+      "index": 48,
+      "text": "Let's take it back to the ship, man. Get him on deck as soon as possible.",
+      "kind": "dialogue",
+      "startMs": 614105,
+      "endMs": 620874
+    },
+    {
+      "index": 49,
+      "text": "Cougar, we've got to land this thing. We are way low on gas.",
+      "kind": "dialogue",
+      "startMs": 623147,
+      "endMs": 628483
+    },
+    {
+      "index": 50,
+      "text": "Are you all right?",
+      "kind": "dialogue",
+      "startMs": 628652,
+      "endMs": 630347
+    },
+    {
+      "index": 51,
+      "text": "Maverick, call the ball. Roger. Maverick has the ball.",
+      "kind": "dialogue",
+      "startMs": 637027,
+      "endMs": 641964
+    },
+    {
+      "index": 52,
+      "text": "Cougar's in trouble. Come on, we're getting low on gas.",
+      "kind": "dialogue",
+      "startMs": 645102,
+      "endMs": 649368
+    },
+    {
+      "index": 53,
+      "text": "Let's land this sucker. Cougar!",
+      "kind": "dialogue",
+      "startMs": 649540,
+      "endMs": 653374
+    },
+    {
+      "index": 54,
+      "text": "Goddamn it! We've got no fuel for this.",
+      "kind": "dialogue",
+      "startMs": 660851,
+      "endMs": 664150
+    },
+    {
+      "index": 55,
+      "text": "We're going after Cougar.",
+      "kind": "dialogue",
+      "startMs": 664321,
+      "endMs": 667051
+    },
+    {
+      "index": 56,
+      "text": "Tell him to land. That's an order! You're instructed to land immediately.",
+      "kind": "dialogue",
+      "startMs": 667224,
+      "endMs": 674392
+    },
+    {
+      "index": 57,
+      "text": "Have you boys seen an aircraft carrier?",
+      "kind": "dialogue",
+      "startMs": 679036,
+      "endMs": 682062
+    },
+    {
+      "index": 58,
+      "text": "That MiG really screwed him up. I don't think he can make it back.",
+      "kind": "dialogue",
+      "startMs": 682239,
+      "endMs": 688576
+    },
+    {
+      "index": 59,
+      "text": "You're okay, Cougar. Just stay on my wing. I'll take you all the way in.",
+      "kind": "dialogue",
+      "startMs": 691482,
+      "endMs": 698115
+    },
+    {
+      "index": 60,
+      "text": "Easy, Cougar. Just a walk in the park, buddy.",
+      "kind": "dialogue",
+      "startMs": 712736,
+      "endMs": 717173
+    },
+    {
+      "index": 61,
+      "text": "You're a little low. You're a little low. Come on, buddy, pull up.",
+      "kind": "dialogue",
+      "startMs": 717341,
+      "endMs": 723371
+    },
+    {
+      "index": 62,
+      "text": "Pull up, Cougar.",
+      "kind": "dialogue",
+      "startMs": 723547,
+      "endMs": 726175
+    },
+    {
+      "index": 63,
+      "text": "That's it. Almost there.",
+      "kind": "dialogue",
+      "startMs": 727651,
+      "endMs": 731280
+    },
+    {
+      "index": 64,
+      "text": "A little below glide path. Call the ball.",
+      "kind": "dialogue",
+      "startMs": 731455,
+      "endMs": 735516
+    },
+    {
+      "index": 65,
+      "text": "Roger ball.",
+      "kind": "dialogue",
+      "startMs": 736627,
+      "endMs": 739824
+    },
+    {
+      "index": 66,
+      "text": "You're too low. Increase power!",
+      "kind": "dialogue",
+      "startMs": 748706,
+      "endMs": 754042
+    },
+    {
+      "index": 67,
+      "text": "Come in.",
+      "kind": "dialogue",
+      "startMs": 766790,
+      "endMs": 768223
+    },
+    {
+      "index": 68,
+      "text": "What's on your mind? My wife and kid, sir.",
+      "kind": "dialogue",
+      "startMs": 772730,
+      "endMs": 777633
+    },
+    {
+      "index": 69,
+      "text": "I almost orphaned him today. I've never even seen him.",
+      "kind": "dialogue",
+      "startMs": 777801,
+      "endMs": 782670
+    },
+    {
+      "index": 70,
+      "text": "I was so scared. We've seen this before.",
+      "kind": "dialogue",
+      "startMs": 782840,
+      "endMs": 787243
+    },
+    {
+      "index": 71,
+      "text": "No, sir.",
+      "kind": "dialogue",
+      "startMs": 787411,
+      "endMs": 789936
+    },
+    {
+      "index": 72,
+      "text": "I'm holding on too tight. I've lost the edge. I'm sorry, sir.",
+      "kind": "dialogue",
+      "startMs": 790114,
+      "endMs": 796212
+    },
+    {
+      "index": 73,
+      "text": "Cougar?",
+      "kind": "dialogue",
+      "startMs": 806230,
+      "endMs": 808858
+    },
+    {
+      "index": 74,
+      "text": "Thanks, Maverick.",
+      "kind": "dialogue",
+      "startMs": 810334,
+      "endMs": 813929
+    },
+    {
+      "index": 75,
+      "text": "Maverick, Goose, come in here. What the hell's going on?",
+      "kind": "dialogue",
+      "startMs": 814104,
+      "endMs": 818768
+    },
+    {
+      "index": 76,
+      "text": "I don't know. Shit.",
+      "kind": "dialogue",
+      "startMs": 818943,
+      "endMs": 822606
+    },
+    {
+      "index": 77,
+      "text": "Maverick, you just did an incredibly brave thing.",
+      "kind": "dialogue",
+      "startMs": 826317,
+      "endMs": 830481
+    },
+    {
+      "index": 78,
+      "text": "What you should have done was land your plane. It belongs to the taxpayers!",
+      "kind": "dialogue",
+      "startMs": 832356,
+      "endMs": 837817
+    },
+    {
+      "index": 79,
+      "text": "Your ego's writing cheques your body can't cash.",
+      "kind": "dialogue",
+      "startMs": 837995,
+      "endMs": 841089
+    },
+    {
+      "index": 80,
+      "text": "You've lost your qualifications as section leader three times.",
+      "kind": "dialogue",
+      "startMs": 841265,
+      "endMs": 846066
+    },
+    {
+      "index": 81,
+      "text": "Put in hack twice by me with a history of high-speed passes -",
+      "kind": "dialogue",
+      "startMs": 846236,
+      "endMs": 850605
+    },
+    {
+      "index": 82,
+      "text": "over five air control towers and one admiral's daughter!",
+      "kind": "dialogue",
+      "startMs": 850774,
+      "endMs": 854801
+    },
+    {
+      "index": 83,
+      "text": "Penny Benjamin? You, asshole, you're lucky to be here.",
+      "kind": "dialogue",
+      "startMs": 854979,
+      "endMs": 861578
+    },
+    {
+      "index": 84,
+      "text": "Let's not bullshit. Your family name ain't the best in the Navy.",
+      "kind": "dialogue",
+      "startMs": 861752,
+      "endMs": 866086
+    },
+    {
+      "index": 85,
+      "text": "You need to be doing it better and cleaner than the other guy.",
+      "kind": "dialogue",
+      "startMs": 866256,
+      "endMs": 870852
+    },
+    {
+      "index": 86,
+      "text": "Just want to serve my country, sir. Don't screw around with me.",
+      "kind": "dialogue",
+      "startMs": 871028,
+      "endMs": 875829
+    },
+    {
+      "index": 87,
+      "text": "You're a hell of a pilot. Maybe too good. I'd like to bust your butt -",
+      "kind": "dialogue",
+      "startMs": 876000,
+      "endMs": 880596
+    },
+    {
+      "index": 88,
+      "text": "but I have another problem here. I have to send somebody to Miramar.",
+      "kind": "dialogue",
+      "startMs": 880771,
+      "endMs": 886903
+    },
+    {
+      "index": 89,
+      "text": "I've got to do something. I can't believe it. I have to give you your dream shot.",
+      "kind": "dialogue",
+      "startMs": 887077,
+      "endMs": 893016
+    },
+    {
+      "index": 90,
+      "text": "I have to send you up against the best. You characters are going to Top Gun.",
+      "kind": "dialogue",
+      "startMs": 893183,
+      "endMs": 898780
+    },
+    {
+      "index": 91,
+      "text": "For five weeks, you're going to fly against the best.",
+      "kind": "dialogue",
+      "startMs": 900624,
+      "endMs": 903991
+    },
+    {
+      "index": 92,
+      "text": "You were number two. Cougar was number one. He turned in his wings.",
+      "kind": "dialogue",
+      "startMs": 904161,
+      "endMs": 909531
+    },
+    {
+      "index": 93,
+      "text": "You guys are number one. But you remember one thing: You screw up, you'll be flying a cargo plane full of rubber dog shit.",
+      "kind": "dialogue",
+      "startMs": 909700,
+      "endMs": 921035
+    },
+    {
+      "index": 94,
+      "text": "Yes, sir!",
+      "kind": "dialogue",
+      "startMs": 921211,
+      "endMs": 924237
+    },
+    {
+      "index": 95,
+      "text": "That is all.",
+      "kind": "dialogue",
+      "startMs": 925849,
+      "endMs": 927976
+    },
+    {
+      "index": 96,
+      "text": "Tell me about the MiG some other time. Gentlemen?",
+      "kind": "dialogue",
+      "startMs": 928152,
+      "endMs": 932452
+    },
+    {
+      "index": 97,
+      "text": "Good luck, gentlemen. Thank you, sir.",
+      "kind": "dialogue",
+      "startMs": 932623,
+      "endMs": 937185
+    },
+    {
+      "index": 98,
+      "text": "During Korea, we shot down 12 of their jets for every one of ours.",
+      "kind": "dialogue",
+      "startMs": 978168,
+      "endMs": 984073
+    },
+    {
+      "index": 99,
+      "text": "During Vietnam, that ratio fell to 3-1. Our pilots were dependant on missiles.",
+      "kind": "dialogue",
+      "startMs": 984241,
+      "endMs": 991409
+    },
+    {
+      "index": 100,
+      "text": "Top Gun was created to teach ACM. Air Combat Manoeuvring. Dogfighting.",
+      "kind": "dialogue",
+      "startMs": 991582,
+      "endMs": 997020
+    },
+    {
+      "index": 101,
+      "text": "This gives me a hard-on. By the end of Vietnam, it was 12-1.",
+      "kind": "dialogue",
+      "startMs": 997187,
+      "endMs": 1001556
+    },
+    {
+      "index": 102,
+      "text": "Don't tease me. Blinds, please.",
+      "kind": "dialogue",
+      "startMs": 1001725,
+      "endMs": 1004888
+    },
+    {
+      "index": 103,
+      "text": "Our commanding officer was the very first man to win the Top Gun trophy.",
+      "kind": "dialogue",
+      "startMs": 1005062,
+      "endMs": 1010967
+    },
+    {
+      "index": 104,
+      "text": "You won't find a finer fighter pilot anywhere. Commander Mike Metcalf.",
+      "kind": "dialogue",
+      "startMs": 1011135,
+      "endMs": 1016402
+    },
+    {
+      "index": 105,
+      "text": "Call sign, Viper. Gentlemen...",
+      "kind": "dialogue",
+      "startMs": 1016573,
+      "endMs": 1020669
+    },
+    {
+      "index": 106,
+      "text": "You're the top one percent of all naval aviators.",
+      "kind": "dialogue",
+      "startMs": 1020844,
+      "endMs": 1025178
+    },
+    {
+      "index": 107,
+      "text": "The elite. The best of the best. We'll make you better.",
+      "kind": "dialogue",
+      "startMs": 1027251,
+      "endMs": 1032314
+    },
+    {
+      "index": 108,
+      "text": "You fly at least two combat missions a day, attend classes and evaluations.",
+      "kind": "dialogue",
+      "startMs": 1034091,
+      "endMs": 1039654
+    },
+    {
+      "index": 109,
+      "text": "On each combat sequence you're gonna meet a different challenge.",
+      "kind": "dialogue",
+      "startMs": 1039830,
+      "endMs": 1047066
+    },
+    {
+      "index": 110,
+      "text": "We'll teach you to fly the F-14 faster than you've ever flown before.",
+      "kind": "dialogue",
+      "startMs": 1047237,
+      "endMs": 1054234
+    },
+    {
+      "index": 111,
+      "text": "Now, we don't make policy here. Elected officials, civilians, do that.",
+      "kind": "dialogue",
+      "startMs": 1054411,
+      "endMs": 1060680
+    },
+    {
+      "index": 112,
+      "text": "We are their instruments and must always act as though we are at war.",
+      "kind": "dialogue",
+      "startMs": 1060851,
+      "endMs": 1068690
+    },
+    {
+      "index": 113,
+      "text": "What are you doing? Just wondering who's the best.",
+      "kind": "dialogue",
+      "startMs": 1068859,
+      "endMs": 1074024
+    },
+    {
+      "index": 114,
+      "text": "In case some of you wonder who the best is, they're on this plaque.",
+      "kind": "dialogue",
+      "startMs": 1074198,
+      "endMs": 1079363
+    },
+    {
+      "index": 115,
+      "text": "The best driver and his RIO from each class has his name on it.",
+      "kind": "dialogue",
+      "startMs": 1079536,
+      "endMs": 1084564
+    },
+    {
+      "index": 116,
+      "text": "They have the option to come back here and be Top Gun instructors.",
+      "kind": "dialogue",
+      "startMs": 1084741,
+      "endMs": 1090543
+    },
+    {
+      "index": 117,
+      "text": "You think you will be on the plaque? Yes, sir.",
+      "kind": "dialogue",
+      "startMs": 1090714,
+      "endMs": 1096152
+    },
+    {
+      "index": 118,
+      "text": "That's pretty arrogant, considering the company you're in.",
+      "kind": "dialogue",
+      "startMs": 1096320,
+      "endMs": 1101223
+    },
+    {
+      "index": 119,
+      "text": "Yes, sir. I like that in a pilot.",
+      "kind": "dialogue",
+      "startMs": 1103227,
+      "endMs": 1107425
+    },
+    {
+      "index": 120,
+      "text": "Remember, when it's over out there, we're all on the same team.",
+      "kind": "dialogue",
+      "startMs": 1109132,
+      "endMs": 1114502
+    },
+    {
+      "index": 121,
+      "text": "This school is about combat. There are no points for second place.",
+      "kind": "dialogue",
+      "startMs": 1115839,
+      "endMs": 1122335
+    },
+    {
+      "index": 122,
+      "text": "Dismissed. Nice going.",
+      "kind": "dialogue",
+      "startMs": 1122512,
+      "endMs": 1126175
+    },
+    {
+      "index": 123,
+      "text": "The plaque for the alternates is down in the ladies' room.",
+      "kind": "dialogue",
+      "startMs": 1127918,
+      "endMs": 1133652
+    },
+    {
+      "index": 124,
+      "text": "Jesus... You kill me.",
+      "kind": "dialogue",
+      "startMs": 1134825,
+      "endMs": 1137350
+    },
+    {
+      "index": 125,
+      "text": "You really do... There's two O's in Goose, boys.",
+      "kind": "dialogue",
+      "startMs": 1137527,
+      "endMs": 1142624
+    },
+    {
+      "index": 126,
+      "text": "This I call a target-rich environment. You live your life between your legs.",
+      "kind": "dialogue",
+      "startMs": 1157714,
+      "endMs": 1163175
+    },
+    {
+      "index": 127,
+      "text": "Even you could get laid in here.",
+      "kind": "dialogue",
+      "startMs": 1163353,
+      "endMs": 1166413
+    },
+    {
+      "index": 128,
+      "text": "I'd be happy to find a girl who'd talk dirty to me.",
+      "kind": "dialogue",
+      "startMs": 1166590,
+      "endMs": 1170185
+    },
+    {
+      "index": 129,
+      "text": "You wanted to know who the best is? That's him. Iceman.",
+      "kind": "dialogue",
+      "startMs": 1173664,
+      "endMs": 1178863
+    },
+    {
+      "index": 130,
+      "text": "He flies ice-cold. No mistakes.",
+      "kind": "dialogue",
+      "startMs": 1180604,
+      "endMs": 1183129
+    },
+    {
+      "index": 131,
+      "text": "Wears you down. You get bored, do something stupid, and he's got you.",
+      "kind": "dialogue",
+      "startMs": 1183307,
+      "endMs": 1189246
+    },
+    {
+      "index": 132,
+      "text": "I thought you wanted to be a pilot. Whose butt did you kiss to get here?",
+      "kind": "dialogue",
+      "startMs": 1189413,
+      "endMs": 1196876
+    },
+    {
+      "index": 133,
+      "text": "The list is long but distinguished. So is my johnson.",
+      "kind": "dialogue",
+      "startMs": 1197054,
+      "endMs": 1200717
+    },
+    {
+      "index": 134,
+      "text": "So you're flying with Iceman? Hey, Mother Goose, how's it going?",
+      "kind": "dialogue",
+      "startMs": 1200891,
+      "endMs": 1205419
+    },
+    {
+      "index": 135,
+      "text": "Tom, this is Pete Mitchell. Tom Kazansky.",
+      "kind": "dialogue",
+      "startMs": 1205595,
+      "endMs": 1209759
+    },
+    {
+      "index": 136,
+      "text": "Congratulations on Top Gun. Sorry to hear about Cougar. He was a good man.",
+      "kind": "dialogue",
+      "startMs": 1209933,
+      "endMs": 1215997
+    },
+    {
+      "index": 137,
+      "text": "Still is a good man. Yeah, that's what I meant.",
+      "kind": "dialogue",
+      "startMs": 1216173,
+      "endMs": 1220974
+    },
+    {
+      "index": 138,
+      "text": "You need any help? You figured it out yet?",
+      "kind": "dialogue",
+      "startMs": 1221144,
+      "endMs": 1227276
+    },
+    {
+      "index": 139,
+      "text": "What's that? Who's the best pilot.",
+      "kind": "dialogue",
+      "startMs": 1227451,
+      "endMs": 1232479
+    },
+    {
+      "index": 140,
+      "text": "I can figure that one out on my own. I heard that about you.",
+      "kind": "dialogue",
+      "startMs": 1232656,
+      "endMs": 1237218
+    },
+    {
+      "index": 141,
+      "text": "You like to work alone.",
+      "kind": "dialogue",
+      "startMs": 1237394,
+      "endMs": 1241455
+    },
+    {
+      "index": 142,
+      "text": "You're lucky. First the MiG and then you slide into Cougar's spot.",
+      "kind": "dialogue",
+      "startMs": 1241631,
+      "endMs": 1246193
+    },
+    {
+      "index": 143,
+      "text": "We didn't slide into Cougar's spot.",
+      "kind": "dialogue",
+      "startMs": 1246370,
+      "endMs": 1248998
+    },
+    {
+      "index": 144,
+      "text": "Some pilots wait a whole career to see a MiG up close. Lucky and famous?",
+      "kind": "dialogue",
+      "startMs": 1249172,
+      "endMs": 1254337
+    },
+    {
+      "index": 145,
+      "text": "You mean notorious. See you later. You can count on it.",
+      "kind": "dialogue",
+      "startMs": 1254511,
+      "endMs": 1261110
+    },
+    {
+      "index": 146,
+      "text": "They were abused children. We're gonna have a good time.",
+      "kind": "dialogue",
+      "startMs": 1261284,
+      "endMs": 1266847
+    },
+    {
+      "index": 147,
+      "text": "Okay, I guess it's my turn, isn't it? All right, the bet is 20 dollars.",
+      "kind": "dialogue",
+      "startMs": 1270861,
+      "endMs": 1276527
+    },
+    {
+      "index": 148,
+      "text": "You have to have carnal knowledge, of a lady this time, on the premises.",
+      "kind": "dialogue",
+      "startMs": 1276700,
+      "endMs": 1282263
+    },
+    {
+      "index": 149,
+      "text": "On the premises. Come on, a bet's a bet.",
+      "kind": "dialogue",
+      "startMs": 1282439,
+      "endMs": 1286739
+    },
+    {
+      "index": 150,
+      "text": "I don't know, it just doesn't seem fair... for you, I mean. But...",
+      "kind": "dialogue",
+      "startMs": 1286910,
+      "endMs": 1293042
+    },
+    {
+      "index": 151,
+      "text": "She's lost that loving feeling.",
+      "kind": "dialogue",
+      "startMs": 1293216,
+      "endMs": 1296617
+    },
+    {
+      "index": 152,
+      "text": "No, she hasn't. She has not lost...",
+      "kind": "dialogue",
+      "startMs": 1296787,
+      "endMs": 1300120
+    },
+    {
+      "index": 153,
+      "text": "She's lost it, man. Come on. I hate it when she does that.",
+      "kind": "dialogue",
+      "startMs": 1300290,
+      "endMs": 1304727
+    },
+    {
+      "index": 154,
+      "text": "Excuse me, miss. Don't worry. I'll take care of this.",
+      "kind": "dialogue",
+      "startMs": 1310834,
+      "endMs": 1315396
+    },
+    {
+      "index": 155,
+      "text": "Sit down. Thank you.",
+      "kind": "dialogue",
+      "startMs": 1364187,
+      "endMs": 1367748
+    },
+    {
+      "index": 156,
+      "text": "I love that song. That's a new approach. How long have you been doing this act?",
+      "kind": "dialogue",
+      "startMs": 1375499,
+      "endMs": 1382166
+    },
+    {
+      "index": 157,
+      "text": "I don't know. Since... Puberty?",
+      "kind": "dialogue",
+      "startMs": 1382339,
+      "endMs": 1386799
+    },
+    {
+      "index": 158,
+      "text": "I'm Charlotte Blackwood. I'm Maverick.",
+      "kind": "dialogue",
+      "startMs": 1386977,
+      "endMs": 1390504
+    },
+    {
+      "index": 159,
+      "text": "Did your mother not like you? No, it's my call sign.",
+      "kind": "dialogue",
+      "startMs": 1390680,
+      "endMs": 1396312
+    },
+    {
+      "index": 160,
+      "text": "You're a pilot? That's right. A naval aviator.",
+      "kind": "dialogue",
+      "startMs": 1396486,
+      "endMs": 1401423
+    },
+    {
+      "index": 161,
+      "text": "Actually, we've only done this twice. How did you do?",
+      "kind": "dialogue",
+      "startMs": 1401591,
+      "endMs": 1406927
+    },
+    {
+      "index": 162,
+      "text": "Crashed and burned on the first one. And the second?",
+      "kind": "dialogue",
+      "startMs": 1407097,
+      "endMs": 1411796
+    },
+    {
+      "index": 163,
+      "text": "I'll tell you tomorrow. But it's looking good so far.",
+      "kind": "dialogue",
+      "startMs": 1411968,
+      "endMs": 1416837
+    },
+    {
+      "index": 164,
+      "text": "Well, Maverick. My friend just arrived, so it's been great talking to you. Perry.",
+      "kind": "dialogue",
+      "startMs": 1418508,
+      "endMs": 1426176
+    },
+    {
+      "index": 165,
+      "text": "I'll be with you in just a second.",
+      "kind": "dialogue",
+      "startMs": 1426349,
+      "endMs": 1430376
+    },
+    {
+      "index": 166,
+      "text": "Can I ask you a personal question? That depends.",
+      "kind": "dialogue",
+      "startMs": 1431421,
+      "endMs": 1437951
+    },
+    {
+      "index": 167,
+      "text": "Are you a good pilot? I can hold my own.",
+      "kind": "dialogue",
+      "startMs": 1438128,
+      "endMs": 1444158
+    },
+    {
+      "index": 168,
+      "text": "Great. Then I won't have to worry about you making your living as a singer.",
+      "kind": "dialogue",
+      "startMs": 1444334,
+      "endMs": 1451206
+    },
+    {
+      "index": 169,
+      "text": "I'm gonna need a beer to put these flames out. Great, Mav. Real slick.",
+      "kind": "dialogue",
+      "startMs": 1457013,
+      "endMs": 1463680
+    },
+    {
+      "index": 170,
+      "text": "A long cruise, was it, sailor? Too long.",
+      "kind": "dialogue",
+      "startMs": 1487577,
+      "endMs": 1491911
+    },
+    {
+      "index": 171,
+      "text": "You want to just drop down on the tile and go for it?",
+      "kind": "dialogue",
+      "startMs": 1492082,
+      "endMs": 1495950
+    },
+    {
+      "index": 172,
+      "text": "I actually had this counter in mind.",
+      "kind": "dialogue",
+      "startMs": 1496119,
+      "endMs": 1499953
+    },
+    {
+      "index": 173,
+      "text": "That would be very comfortable, yeah. It could be.",
+      "kind": "dialogue",
+      "startMs": 1500123,
+      "endMs": 1505891
+    },
+    {
+      "index": 174,
+      "text": "I came in here to save you from making a big mistake with that older guy.",
+      "kind": "dialogue",
+      "startMs": 1507464,
+      "endMs": 1514131
+    },
+    {
+      "index": 175,
+      "text": "Really? So I could go on to a bigger one with a young guy like yourself?",
+      "kind": "dialogue",
+      "startMs": 1514304,
+      "endMs": 1520868
+    },
+    {
+      "index": 176,
+      "text": "Maybe.",
+      "kind": "dialogue",
+      "startMs": 1521044,
+      "endMs": 1524377
+    },
+    {
+      "index": 177,
+      "text": "I have to get up early in the morning. What are you doing?",
+      "kind": "dialogue",
+      "startMs": 1525849,
+      "endMs": 1530081
+    },
+    {
+      "index": 178,
+      "text": "Your friend was magnificent.",
+      "kind": "dialogue",
+      "startMs": 1531755,
+      "endMs": 1536158
+    },
+    {
+      "index": 179,
+      "text": "You'll also be trained and evaluated by civilian specialists.",
+      "kind": "dialogue",
+      "startMs": 1542432,
+      "endMs": 1546198
+    },
+    {
+      "index": 180,
+      "text": "They are our best source of information on enemy aircraft.",
+      "kind": "dialogue",
+      "startMs": 1546369,
+      "endMs": 1551329
+    },
+    {
+      "index": 181,
+      "text": "One of the most qualified is call sign Charlie, with a Ph.D. In astrophysics.",
+      "kind": "dialogue",
+      "startMs": 1551508,
+      "endMs": 1557071
+    },
+    {
+      "index": 182,
+      "text": "Listen to her, because the Pentagon listens to her about your proficiency.",
+      "kind": "dialogue",
+      "startMs": 1557247,
+      "endMs": 1564278
+    },
+    {
+      "index": 183,
+      "text": "All yours, Charlie.",
+      "kind": "dialogue",
+      "startMs": 1564454,
+      "endMs": 1567981
+    },
+    {
+      "index": 184,
+      "text": "Hello. We will be dealing with F-5s and A-4s as our MiG simulators.",
+      "kind": "dialogue",
+      "startMs": 1568158,
+      "endMs": 1574620
+    },
+    {
+      "index": 185,
+      "text": "As you know, the F-5 doesn't have the thrust-to-weight ratio of the MiG-28.",
+      "kind": "dialogue",
+      "startMs": 1574798,
+      "endMs": 1580828
+    },
+    {
+      "index": 186,
+      "text": "And it doesn't bleed energy below 300 knots like the MiG-28.",
+      "kind": "dialogue",
+      "startMs": 1581004,
+      "endMs": 1585634
+    },
+    {
+      "index": 187,
+      "text": "However, the MiG-28 does have a problem with its inverted flight tanks.",
+      "kind": "dialogue",
+      "startMs": 1585809,
+      "endMs": 1591509
+    },
+    {
+      "index": 188,
+      "text": "It won't do a negative G push-over.",
+      "kind": "dialogue",
+      "startMs": 1591681,
+      "endMs": 1595014
+    },
+    {
+      "index": 189,
+      "text": "The latest intelligence tells us the most it will do is...",
+      "kind": "dialogue",
+      "startMs": 1595185,
+      "endMs": 1600817
+    },
+    {
+      "index": 190,
+      "text": "Excuse me, Lieutenant. Is there something wrong?",
+      "kind": "dialogue",
+      "startMs": 1600990,
+      "endMs": 1604551
+    },
+    {
+      "index": 191,
+      "text": "The data on the MiG is inaccurate. How's that?",
+      "kind": "dialogue",
+      "startMs": 1604728,
+      "endMs": 1610098
+    },
+    {
+      "index": 192,
+      "text": "Well, I just happened to see a MiG-28... Sorry, Goose.",
+      "kind": "dialogue",
+      "startMs": 1610266,
+      "endMs": 1615431
+    },
+    {
+      "index": 193,
+      "text": "We happened to see a MiG-28 do a four G negative dive.",
+      "kind": "dialogue",
+      "startMs": 1615605,
+      "endMs": 1621373
+    },
+    {
+      "index": 194,
+      "text": "Where did you see this?",
+      "kind": "dialogue",
+      "startMs": 1621544,
+      "endMs": 1624274
+    },
+    {
+      "index": 195,
+      "text": "That's classified. I could tell you, but then I'd have to kill you.",
+      "kind": "dialogue",
+      "startMs": 1624447,
+      "endMs": 1630716
+    },
+    {
+      "index": 196,
+      "text": "I have Top Secret clearance.",
+      "kind": "dialogue",
+      "startMs": 1630887,
+      "endMs": 1633981
+    },
+    {
+      "index": 197,
+      "text": "The Pentagon sees to it that I know more than you.",
+      "kind": "dialogue",
+      "startMs": 1634157,
+      "endMs": 1638651
+    },
+    {
+      "index": 198,
+      "text": "Well, it doesn't seem to be the case. So, where exactly were you?",
+      "kind": "dialogue",
+      "startMs": 1638828,
+      "endMs": 1646792
+    },
+    {
+      "index": 199,
+      "text": "We started up on his six when he pulled through the clouds. I went above him.",
+      "kind": "dialogue",
+      "startMs": 1646970,
+      "endMs": 1653876
+    },
+    {
+      "index": 200,
+      "text": "If you were directly above him, how could you see him?",
+      "kind": "dialogue",
+      "startMs": 1654043,
+      "endMs": 1658377
+    },
+    {
+      "index": 201,
+      "text": "Because I was inverted. Bullshit.",
+      "kind": "dialogue",
+      "startMs": 1658548,
+      "endMs": 1662348
+    },
+    {
+      "index": 202,
+      "text": "No, he was, man. It was a really great move.",
+      "kind": "dialogue",
+      "startMs": 1662519,
+      "endMs": 1666011
+    },
+    {
+      "index": 203,
+      "text": "You were in a four G inverted dive with a MiG-28?",
+      "kind": "dialogue",
+      "startMs": 1666189,
+      "endMs": 1671491
+    },
+    {
+      "index": 204,
+      "text": "Yes, ma'am. At what range?",
+      "kind": "dialogue",
+      "startMs": 1671661,
+      "endMs": 1674630
+    },
+    {
+      "index": 205,
+      "text": "About two metres? 1 1/2. I have a great Polaroid of it.",
+      "kind": "dialogue",
+      "startMs": 1674798,
+      "endMs": 1680703
+    },
+    {
+      "index": 206,
+      "text": "It was a nice picture. Lieutenant?",
+      "kind": "dialogue",
+      "startMs": 1680870,
+      "endMs": 1684306
+    },
+    {
+      "index": 207,
+      "text": "What were you doing there? Communicating.",
+      "kind": "dialogue",
+      "startMs": 1686643,
+      "endMs": 1691774
+    },
+    {
+      "index": 208,
+      "text": "Keeping up foreign relations.",
+      "kind": "dialogue",
+      "startMs": 1691948,
+      "endMs": 1695645
+    },
+    {
+      "index": 209,
+      "text": "I was, you know, giving him the bird. You know, the finger.",
+      "kind": "dialogue",
+      "startMs": 1695819,
+      "endMs": 1699880
+    },
+    {
+      "index": 210,
+      "text": "I know the finger. I hate it when it does that. I'm sorry.",
+      "kind": "dialogue",
+      "startMs": 1700056,
+      "endMs": 1705756
+    },
+    {
+      "index": 211,
+      "text": "Excuse me. So you're the one?",
+      "kind": "dialogue",
+      "startMs": 1705929,
+      "endMs": 1709763
+    },
+    {
+      "index": 212,
+      "text": "Yes, ma'am. All right, we have a hop to take.",
+      "kind": "dialogue",
+      "startMs": 1709933,
+      "endMs": 1714768
+    },
+    {
+      "index": 213,
+      "text": "The hard-deck on this is 10,000 feet. There'll be no engagement below that.",
+      "kind": "dialogue",
+      "startMs": 1714938,
+      "endMs": 1720376
+    },
+    {
+      "index": 214,
+      "text": "Move it!",
+      "kind": "dialogue",
+      "startMs": 1720543,
+      "endMs": 1722306
+    },
+    {
+      "index": 215,
+      "text": "Lieutenant!",
+      "kind": "dialogue",
+      "startMs": 1726649,
+      "endMs": 1730050
+    },
+    {
+      "index": 216,
+      "text": "Don't be late again. You look great, honey.",
+      "kind": "dialogue",
+      "startMs": 1730220,
+      "endMs": 1735157
+    },
+    {
+      "index": 217,
+      "text": "Why didn't you tell me you were the famous MiG Insulter?",
+      "kind": "dialogue",
+      "startMs": 1735325,
+      "endMs": 1739659
+    },
+    {
+      "index": 218,
+      "text": "Would it have made any difference? Not in the ladies' room.",
+      "kind": "dialogue",
+      "startMs": 1739829,
+      "endMs": 1745028
+    },
+    {
+      "index": 219,
+      "text": "I see 20 new hotshots every eight weeks. I'm sure you can figure that out.",
+      "kind": "dialogue",
+      "startMs": 1745201,
+      "endMs": 1752198
+    },
+    {
+      "index": 220,
+      "text": "I'd just really like to hear about the MiG sometime.",
+      "kind": "dialogue",
+      "startMs": 1752375,
+      "endMs": 1758712
+    },
+    {
+      "index": 221,
+      "text": "You've got security clearance. You can read about it.",
+      "kind": "dialogue",
+      "startMs": 1758882,
+      "endMs": 1764115
+    },
+    {
+      "index": 222,
+      "text": "Maverick? I'm curious.",
+      "kind": "dialogue",
+      "startMs": 1768825,
+      "endMs": 1773785
+    },
+    {
+      "index": 223,
+      "text": "Who was covering Cougar while you were showboating with his MiG?",
+      "kind": "dialogue",
+      "startMs": 1773963,
+      "endMs": 1780994
+    },
+    {
+      "index": 224,
+      "text": "Cougar was doing just fine.",
+      "kind": "dialogue",
+      "startMs": 1781170,
+      "endMs": 1783502
+    },
+    {
+      "index": 225,
+      "text": "This is your first hop. The jets you're flying against are smaller and faster, -",
+      "kind": "dialogue",
+      "startMs": 1788044,
+      "endMs": 1790877
+    },
+    {
+      "index": 226,
+      "text": "just like the enemy MiGs. As of now we are keeping score.",
+      "kind": "dialogue",
+      "startMs": 1791047,
+      "endMs": 1796075
+    },
+    {
+      "index": 227,
+      "text": "I lost him, Goose. Show me what you've got, kid.",
+      "kind": "dialogue",
+      "startMs": 1796252,
+      "endMs": 1800712
+    },
+    {
+      "index": 228,
+      "text": "I lost him. I'm looking.",
+      "kind": "dialogue",
+      "startMs": 1801991,
+      "endMs": 1805552
+    },
+    {
+      "index": 229,
+      "text": "He's on our tail, coming hard. I got him. Here we go.",
+      "kind": "dialogue",
+      "startMs": 1806996,
+      "endMs": 1811262
+    },
+    {
+      "index": 230,
+      "text": "Talk to me, Goose. He's still back there. Closing in on us.",
+      "kind": "dialogue",
+      "startMs": 1824447,
+      "endMs": 1829180
+    },
+    {
+      "index": 231,
+      "text": "You can run, kid, but you can't hide.",
+      "kind": "dialogue",
+      "startMs": 1829352,
+      "endMs": 1833846
+    },
+    {
+      "index": 232,
+      "text": "All right, Jester, I'll give you a run for your money here.",
+      "kind": "dialogue",
+      "startMs": 1835825,
+      "endMs": 1840819
+    },
+    {
+      "index": 233,
+      "text": "Watch the mountains!",
+      "kind": "dialogue",
+      "startMs": 1844968,
+      "endMs": 1847493
+    },
+    {
+      "index": 234,
+      "text": "He's still back there. Come on, Mav, do some of that pilot shit.",
+      "kind": "dialogue",
+      "startMs": 1857046,
+      "endMs": 1862416
+    },
+    {
+      "index": 235,
+      "text": "Come on, bring it right. I've had about enough of this shit.",
+      "kind": "dialogue",
+      "startMs": 1872795,
+      "endMs": 1877255
+    },
+    {
+      "index": 236,
+      "text": "I'll hit the brakes, he'll fly right by. You're mine.",
+      "kind": "dialogue",
+      "startMs": 1879402,
+      "endMs": 1882565
+    },
+    {
+      "index": 237,
+      "text": "Jesus Christ!",
+      "kind": "dialogue",
+      "startMs": 1890246,
+      "endMs": 1892271
+    },
+    {
+      "index": 238,
+      "text": "Let's see what you've got now, Jester. Let's turn and burn.",
+      "kind": "dialogue",
+      "startMs": 1895952,
+      "endMs": 1899683
+    },
+    {
+      "index": 239,
+      "text": "He's going vertical. So am I. We're going ballistic. Go get him!",
+      "kind": "dialogue",
+      "startMs": 1918041,
+      "endMs": 1922501
+    },
+    {
+      "index": 240,
+      "text": "He's going for the hard-deck. Let's nail him.",
+      "kind": "dialogue",
+      "startMs": 1931687,
+      "endMs": 1934986
+    },
+    {
+      "index": 241,
+      "text": "No way, Jester. You're mine.",
+      "kind": "dialogue",
+      "startMs": 1935158,
+      "endMs": 1939686
+    },
+    {
+      "index": 242,
+      "text": "I've got you now!",
+      "kind": "dialogue",
+      "startMs": 1953976,
+      "endMs": 1956001
+    },
+    {
+      "index": 243,
+      "text": "Jester's dead. Jester's dead.",
+      "kind": "dialogue",
+      "startMs": 1958347,
+      "endMs": 1963410
+    },
+    {
+      "index": 244,
+      "text": "Get your butts above the hard-deck and return to base.",
+      "kind": "dialogue",
+      "startMs": 1965054,
+      "endMs": 1969354
+    },
+    {
+      "index": 245,
+      "text": "Yes, sir!",
+      "kind": "dialogue",
+      "startMs": 1972128,
+      "endMs": 1975393
+    },
+    {
+      "index": 246,
+      "text": "This is Ghost Rider requesting a fly-by. Negative. The pattern is full.",
+      "kind": "dialogue",
+      "startMs": 1980002,
+      "endMs": 1986430
+    },
+    {
+      "index": 247,
+      "text": "No, Mav. This is not a good idea. Sorry, but it's time to buzz the tower.",
+      "kind": "dialogue",
+      "startMs": 1986609,
+      "endMs": 1992104
+    },
+    {
+      "index": 248,
+      "text": "Goddamn son of a bitch!",
+      "kind": "dialogue",
+      "startMs": 2003459,
+      "endMs": 2006360
+    },
+    {
+      "index": 249,
+      "text": "Great balls of fire.",
+      "kind": "dialogue",
+      "startMs": 2009899,
+      "endMs": 2012424
+    },
+    {
+      "index": 250,
+      "text": "Jester's dead. You won? Bullshit.",
+      "kind": "dialogue",
+      "startMs": 2016105,
+      "endMs": 2018938
+    },
+    {
+      "index": 251,
+      "text": "Didn't everybody? We got our butts kicked.",
+      "kind": "dialogue",
+      "startMs": 2019108,
+      "endMs": 2024842
+    },
+    {
+      "index": 252,
+      "text": "I said to Hollywood, \"Where did he go?\" He said, \"Where did who go?\"",
+      "kind": "dialogue",
+      "startMs": 2025014,
+      "endMs": 2030281
+    },
+    {
+      "index": 253,
+      "text": "And he's laughing at us on the radio. That was me, dickhead. We won.",
+      "kind": "dialogue",
+      "startMs": 2030453,
+      "endMs": 2035618
+    },
+    {
+      "index": 254,
+      "text": "All right! They won too, man.",
+      "kind": "dialogue",
+      "startMs": 2035791,
+      "endMs": 2040023
+    },
+    {
+      "index": 255,
+      "text": "That's not what I heard. We got Jester.",
+      "kind": "dialogue",
+      "startMs": 2040196,
+      "endMs": 2043962
+    },
+    {
+      "index": 256,
+      "text": "Below the hard-deck doesn't count. We nailed that son of a bitch.",
+      "kind": "dialogue",
+      "startMs": 2044133,
+      "endMs": 2048661
+    },
+    {
+      "index": 257,
+      "text": "You guys really are cowboys. What's your problem, Kazansky?",
+      "kind": "dialogue",
+      "startMs": 2048838,
+      "endMs": 2053673
+    },
+    {
+      "index": 258,
+      "text": "You're everyone's problem. Every time you fly, you're unsafe.",
+      "kind": "dialogue",
+      "startMs": 2053843,
+      "endMs": 2058473
+    },
+    {
+      "index": 259,
+      "text": "I don't like you. You're dangerous. That's right, Iceman.",
+      "kind": "dialogue",
+      "startMs": 2058648,
+      "endMs": 2064177
+    },
+    {
+      "index": 260,
+      "text": "I am dangerous.",
+      "kind": "dialogue",
+      "startMs": 2064353,
+      "endMs": 2068449
+    },
+    {
+      "index": 261,
+      "text": "Maverick? You and Goose get your butts up to Viper's office, now!",
+      "kind": "dialogue",
+      "startMs": 2069859,
+      "endMs": 2074626
+    },
+    {
+      "index": 262,
+      "text": "Remember, no points for second place.",
+      "kind": "dialogue",
+      "startMs": 2078568,
+      "endMs": 2082834
+    },
+    {
+      "index": 263,
+      "text": "You're a lot brighter than you look. You shut up.",
+      "kind": "dialogue",
+      "startMs": 2083005,
+      "endMs": 2087533
+    },
+    {
+      "index": 264,
+      "text": "Two of your snot-nosed jockeys flew by by at over 400 knots. I want their butts!",
+      "kind": "dialogue",
+      "startMs": 2087710,
+      "endMs": 2095583
+    },
+    {
+      "index": 265,
+      "text": "Damn it, that's twice. I want some butts!",
+      "kind": "dialogue",
+      "startMs": 2097386,
+      "endMs": 2102187
+    },
+    {
+      "index": 266,
+      "text": "That just about covers the fly-bys. Follow me.",
+      "kind": "dialogue",
+      "startMs": 2102992,
+      "endMs": 2108453
+    },
+    {
+      "index": 267,
+      "text": "Gentlemen. You had a hell of a first day.",
+      "kind": "dialogue",
+      "startMs": 2112835,
+      "endMs": 2118296
+    },
+    {
+      "index": 268,
+      "text": "The hard-deck for this hop was 10,000 feet. You knew it. You broke it.",
+      "kind": "dialogue",
+      "startMs": 2121644,
+      "endMs": 2127412
+    },
+    {
+      "index": 269,
+      "text": "You followed Commander Heatherly below after he lost sight of you. Why?",
+      "kind": "dialogue",
+      "startMs": 2127583,
+      "endMs": 2134887
+    },
+    {
+      "index": 270,
+      "text": "Sir, I had him in my sights. He saw me move in for the kill.",
+      "kind": "dialogue",
+      "startMs": 2135057,
+      "endMs": 2141724
+    },
+    {
+      "index": 271,
+      "text": "He proceeded below the hard-deck. We were below for just a few seconds.",
+      "kind": "dialogue",
+      "startMs": 2141897,
+      "endMs": 2148735
+    },
+    {
+      "index": 272,
+      "text": "I had the shot. There was no danger, so I took it.",
+      "kind": "dialogue",
+      "startMs": 2148904,
+      "endMs": 2152533
+    },
+    {
+      "index": 273,
+      "text": "You took it, and broke a major rule of engagement.",
+      "kind": "dialogue",
+      "startMs": 2154010,
+      "endMs": 2158709
+    },
+    {
+      "index": 274,
+      "text": "Then you broke another one with that circus stunt fly-by.",
+      "kind": "dialogue",
+      "startMs": 2158881,
+      "endMs": 2164945
+    },
+    {
+      "index": 275,
+      "text": "Top Gun rules of engagement exist for your safety and for that of your team.",
+      "kind": "dialogue",
+      "startMs": 2165121,
+      "endMs": 2170081
+    },
+    {
+      "index": 276,
+      "text": "They're not flexible, nor am I. Obey them or you're history. Is that clear?",
+      "kind": "dialogue",
+      "startMs": 2170259,
+      "endMs": 2176858
+    },
+    {
+      "index": 277,
+      "text": "Yes, sir!",
+      "kind": "dialogue",
+      "startMs": 2179035,
+      "endMs": 2182266
+    },
+    {
+      "index": 278,
+      "text": "Dismissed.",
+      "kind": "dialogue",
+      "startMs": 2189312,
+      "endMs": 2191940
+    },
+    {
+      "index": 279,
+      "text": "I really enjoyed that, Mav, thanks a lot. Holy shit.",
+      "kind": "dialogue",
+      "startMs": 2196018,
+      "endMs": 2201456
+    },
+    {
+      "index": 280,
+      "text": "Maybe I could be a truck driver. You got the number of that truck-driving school?",
+      "kind": "dialogue",
+      "startMs": 2204827,
+      "endMs": 2212131
+    },
+    {
+      "index": 281,
+      "text": "Fitness report says it all. He's a wild card.",
+      "kind": "dialogue",
+      "startMs": 2212301,
+      "endMs": 2217329
+    },
+    {
+      "index": 282,
+      "text": "Completely unpredictable.",
+      "kind": "dialogue",
+      "startMs": 2217506,
+      "endMs": 2221306
+    },
+    {
+      "index": 283,
+      "text": "He got you, didn't he? Yeah.",
+      "kind": "dialogue",
+      "startMs": 2221477,
+      "endMs": 2225743
+    },
+    {
+      "index": 284,
+      "text": "Maverick. I flew with his old man.",
+      "kind": "dialogue",
+      "startMs": 2225915,
+      "endMs": 2230852
+    },
+    {
+      "index": 285,
+      "text": "Tell me, if you had to go into battle, would you want him with you?",
+      "kind": "dialogue",
+      "startMs": 2234724,
+      "endMs": 2241459
+    },
+    {
+      "index": 286,
+      "text": "I just don't know.",
+      "kind": "dialogue",
+      "startMs": 2241630,
+      "endMs": 2245396
+    },
+    {
+      "index": 287,
+      "text": "Still awake? Yeah.",
+      "kind": "dialogue",
+      "startMs": 2255478,
+      "endMs": 2258675
+    },
+    {
+      "index": 288,
+      "text": "What's up? I can't sleep.",
+      "kind": "dialogue",
+      "startMs": 2261283,
+      "endMs": 2264810
+    },
+    {
+      "index": 289,
+      "text": "When I realised we were off to Top Gun, all I could think about was that trophy.",
+      "kind": "dialogue",
+      "startMs": 2266856,
+      "endMs": 2273284
+    },
+    {
+      "index": 290,
+      "text": "I've got to be straight with you, Mav. Right now, I just hope we graduate.",
+      "kind": "dialogue",
+      "startMs": 2273462,
+      "endMs": 2279059
+    },
+    {
+      "index": 291,
+      "text": "I got a family to think about. I can't afford to blow this.",
+      "kind": "dialogue",
+      "startMs": 2281270,
+      "endMs": 2286264
+    },
+    {
+      "index": 292,
+      "text": "I guess that fly-by wasn't such a big hit, huh?",
+      "kind": "dialogue",
+      "startMs": 2288444,
+      "endMs": 2293313
+    },
+    {
+      "index": 293,
+      "text": "I know it's tough. The Academy rejected you because you're Duke Mitchell's kid.",
+      "kind": "dialogue",
+      "startMs": 2296118,
+      "endMs": 2301852
+    },
+    {
+      "index": 294,
+      "text": "You have to live with that reputation. But it's like you're flying against a ghost.",
+      "kind": "dialogue",
+      "startMs": 2302024,
+      "endMs": 2310261
+    },
+    {
+      "index": 295,
+      "text": "It makes me nervous.",
+      "kind": "dialogue",
+      "startMs": 2310433,
+      "endMs": 2314392
+    },
+    {
+      "index": 296,
+      "text": "You're the only family I've got. I'm not gonna let you down. I promise.",
+      "kind": "dialogue",
+      "startMs": 2317773,
+      "endMs": 2324008
+    },
+    {
+      "index": 297,
+      "text": "Get out of here.",
+      "kind": "dialogue",
+      "startMs": 2332755,
+      "endMs": 2337192
+    },
+    {
+      "index": 298,
+      "text": "A rolling reversal would work well in that situation.",
+      "kind": "dialogue",
+      "startMs": 2350906,
+      "endMs": 2355866
+    },
+    {
+      "index": 299,
+      "text": "If I reversed on a hard cross, I could go to guns on him.",
+      "kind": "dialogue",
+      "startMs": 2356045,
+      "endMs": 2360038
+    },
+    {
+      "index": 300,
+      "text": "But at that speed, it's too fast. It's a little bit too aggressive.",
+      "kind": "dialogue",
+      "startMs": 2360216,
+      "endMs": 2365313
+    },
+    {
+      "index": 301,
+      "text": "Too aggressive?",
+      "kind": "dialogue",
+      "startMs": 2365488,
+      "endMs": 2369948
+    },
+    {
+      "index": 302,
+      "text": "I guess when I see something, I go right after it.",
+      "kind": "dialogue",
+      "startMs": 2370125,
+      "endMs": 2374926
+    },
+    {
+      "index": 303,
+      "text": "You didn't tell me who you were. I didn't get a chance. You deserved it.",
+      "kind": "dialogue",
+      "startMs": 2375097,
+      "endMs": 2381468
+    },
+    {
+      "index": 304,
+      "text": "I know... but you were tempted to ask me out for dinner.",
+      "kind": "dialogue",
+      "startMs": 2382638,
+      "endMs": 2391205
+    },
+    {
+      "index": 305,
+      "text": "No. I don't date students.",
+      "kind": "dialogue",
+      "startMs": 2391380,
+      "endMs": 2396079
+    },
+    {
+      "index": 306,
+      "text": "I can see it's dangerous for you. But if the government trusts me...",
+      "kind": "dialogue",
+      "startMs": 2405794,
+      "endMs": 2411596
+    },
+    {
+      "index": 307,
+      "text": "...maybe you could.",
+      "kind": "dialogue",
+      "startMs": 2411767,
+      "endMs": 2415669
+    },
+    {
+      "index": 308,
+      "text": "It takes a lot more than just fancy flying.",
+      "kind": "dialogue",
+      "startMs": 2420376,
+      "endMs": 2424870
+    },
+    {
+      "index": 309,
+      "text": "Crash and burn, huh, Mav?",
+      "kind": "dialogue",
+      "startMs": 2437626,
+      "endMs": 2441960
+    },
+    {
+      "index": 310,
+      "text": "Slider...",
+      "kind": "dialogue",
+      "startMs": 2443799,
+      "endMs": 2446393
+    },
+    {
+      "index": 311,
+      "text": "You stink.",
+      "kind": "dialogue",
+      "startMs": 2448070,
+      "endMs": 2451233
+    },
+    {
+      "index": 312,
+      "text": "Let's go!",
+      "kind": "dialogue",
+      "startMs": 2459882,
+      "endMs": 2462009
+    },
+    {
+      "index": 313,
+      "text": "Come on, Mav. Just one more game. That evens it up.",
+      "kind": "dialogue",
+      "startMs": 2542031,
+      "endMs": 2546525
+    },
+    {
+      "index": 314,
+      "text": "I got some things to take care of. Just one more game.",
+      "kind": "dialogue",
+      "startMs": 2546702,
+      "endMs": 2551139
+    },
+    {
+      "index": 315,
+      "text": "Please? For me? Come on... For me?",
+      "kind": "dialogue",
+      "startMs": 2551306,
+      "endMs": 2555936
+    },
+    {
+      "index": 316,
+      "text": "Damn it.",
+      "kind": "dialogue",
+      "startMs": 2590012,
+      "endMs": 2593379
+    },
+    {
+      "index": 317,
+      "text": "Lieutenant?",
+      "kind": "dialogue",
+      "startMs": 2603726,
+      "endMs": 2606695
+    },
+    {
+      "index": 318,
+      "text": "What? No singing? Look, I'm...",
+      "kind": "dialogue",
+      "startMs": 2611066,
+      "endMs": 2616163
+    },
+    {
+      "index": 319,
+      "text": "No apologies.",
+      "kind": "dialogue",
+      "startMs": 2616338,
+      "endMs": 2619899
+    },
+    {
+      "index": 320,
+      "text": "If you don't mind, I'll just take a quick shower while you're finishing up here.",
+      "kind": "dialogue",
+      "startMs": 2625914,
+      "endMs": 2631216
+    },
+    {
+      "index": 321,
+      "text": "I do mind. I'm hungry.",
+      "kind": "dialogue",
+      "startMs": 2633222,
+      "endMs": 2637921
+    },
+    {
+      "index": 322,
+      "text": "And then I thought about it.",
+      "kind": "dialogue",
+      "startMs": 2640996,
+      "endMs": 2644762
+    },
+    {
+      "index": 323,
+      "text": "I thought, \"You know, he's a smart guy.\"",
+      "kind": "dialogue",
+      "startMs": 2644933,
+      "endMs": 2649495
+    },
+    {
+      "index": 324,
+      "text": "\"Why don't you just tell him why you've got him here?\"",
+      "kind": "dialogue",
+      "startMs": 2649671,
+      "endMs": 2655667
+    },
+    {
+      "index": 325,
+      "text": "It's the MiG.",
+      "kind": "dialogue",
+      "startMs": 2657446,
+      "endMs": 2660904
+    },
+    {
+      "index": 326,
+      "text": "The MiG. You're the only pilot who's been up against a MiG-28.",
+      "kind": "dialogue",
+      "startMs": 2663118,
+      "endMs": 2669921
+    },
+    {
+      "index": 327,
+      "text": "I'm trying for this big promotion. If I get it, I won't be here much longer.",
+      "kind": "dialogue",
+      "startMs": 2671260,
+      "endMs": 2676823
+    },
+    {
+      "index": 328,
+      "text": "Seems to me you've got it all figured out.",
+      "kind": "dialogue",
+      "startMs": 2676999,
+      "endMs": 2681060
+    },
+    {
+      "index": 329,
+      "text": "Except you did forget the wine.",
+      "kind": "dialogue",
+      "startMs": 2682838,
+      "endMs": 2688037
+    },
+    {
+      "index": 330,
+      "text": "Sorry.",
+      "kind": "dialogue",
+      "startMs": 2688210,
+      "endMs": 2690610
+    },
+    {
+      "index": 331,
+      "text": "You always get what you want? No, not always. Yeah, maybe.",
+      "kind": "dialogue",
+      "startMs": 2690779,
+      "endMs": 2696240
+    },
+    {
+      "index": 332,
+      "text": "Then relax about the MiG.",
+      "kind": "dialogue",
+      "startMs": 2696418,
+      "endMs": 2700878
+    },
+    {
+      "index": 333,
+      "text": "This music...",
+      "kind": "dialogue",
+      "startMs": 2713902,
+      "endMs": 2717736
+    },
+    {
+      "index": 334,
+      "text": "An old friend?",
+      "kind": "dialogue",
+      "startMs": 2717906,
+      "endMs": 2721342
+    },
+    {
+      "index": 335,
+      "text": "My folks loved it. I haven't heard this in years.",
+      "kind": "dialogue",
+      "startMs": 2721510,
+      "endMs": 2727506
+    },
+    {
+      "index": 336,
+      "text": "My mother used to call from her room and have me play this over and over.",
+      "kind": "dialogue",
+      "startMs": 2727683,
+      "endMs": 2732814
+    },
+    {
+      "index": 337,
+      "text": "I got so sick of it.",
+      "kind": "dialogue",
+      "startMs": 2732988,
+      "endMs": 2737482
+    },
+    {
+      "index": 338,
+      "text": "But not her. She'd sit up there alone, just listening for hours.",
+      "kind": "dialogue",
+      "startMs": 2737659,
+      "endMs": 2744258
+    },
+    {
+      "index": 339,
+      "text": "Just listening. She died shortly after him.",
+      "kind": "dialogue",
+      "startMs": 2744433,
+      "endMs": 2750531
+    },
+    {
+      "index": 340,
+      "text": "What happened to your father?",
+      "kind": "dialogue",
+      "startMs": 2751874,
+      "endMs": 2755810
+    },
+    {
+      "index": 341,
+      "text": "I figured with your security clearance you'd know more about it than I do.",
+      "kind": "dialogue",
+      "startMs": 2759114,
+      "endMs": 2765883
+    },
+    {
+      "index": 342,
+      "text": "Well, I didn't get that far.",
+      "kind": "dialogue",
+      "startMs": 2766054,
+      "endMs": 2771424
+    },
+    {
+      "index": 343,
+      "text": "It's a big mystery.",
+      "kind": "dialogue",
+      "startMs": 2771593,
+      "endMs": 2774926
+    },
+    {
+      "index": 344,
+      "text": "He disappeared in an F-4, November 5th, 1965.",
+      "kind": "dialogue",
+      "startMs": 2775097,
+      "endMs": 2779898
+    },
+    {
+      "index": 345,
+      "text": "The stink of it was... he screwed up.",
+      "kind": "dialogue",
+      "startMs": 2782404,
+      "endMs": 2787740
+    },
+    {
+      "index": 346,
+      "text": "No way. My old man was a great fighter pilot.",
+      "kind": "dialogue",
+      "startMs": 2787910,
+      "endMs": 2793348
+    },
+    {
+      "index": 347,
+      "text": "But who the hell knows? It's all classified.",
+      "kind": "dialogue",
+      "startMs": 2796151,
+      "endMs": 2802147
+    },
+    {
+      "index": 348,
+      "text": "Somebody must know. Yeah, somebody knows everything.",
+      "kind": "dialogue",
+      "startMs": 2802324,
+      "endMs": 2806886
+    },
+    {
+      "index": 349,
+      "text": "Is that why you're always second best up there?",
+      "kind": "dialogue",
+      "startMs": 2807062,
+      "endMs": 2812090
+    },
+    {
+      "index": 350,
+      "text": "You are direct, aren't you.",
+      "kind": "dialogue",
+      "startMs": 2812267,
+      "endMs": 2816761
+    },
+    {
+      "index": 351,
+      "text": "I'm sorry I was late.",
+      "kind": "dialogue",
+      "startMs": 2822744,
+      "endMs": 2826874
+    },
+    {
+      "index": 352,
+      "text": "I'm sorry for being direct. No apologies.",
+      "kind": "dialogue",
+      "startMs": 2827049,
+      "endMs": 2833318
+    },
+    {
+      "index": 353,
+      "text": "This is going to be complicated.",
+      "kind": "dialogue",
+      "startMs": 2833488,
+      "endMs": 2838755
+    },
+    {
+      "index": 354,
+      "text": "Where are you going? I'm gonna take a shower.",
+      "kind": "dialogue",
+      "startMs": 2848337,
+      "endMs": 2852933
+    },
+    {
+      "index": 355,
+      "text": "Thank you. I enjoyed being here.",
+      "kind": "dialogue",
+      "startMs": 2857079,
+      "endMs": 2862346
+    },
+    {
+      "index": 356,
+      "text": "It looks like you need another shower.",
+      "kind": "dialogue",
+      "startMs": 2899087,
+      "endMs": 2904047
+    },
+    {
+      "index": 357,
+      "text": "Right.",
+      "kind": "dialogue",
+      "startMs": 2904226,
+      "endMs": 2907718
+    },
+    {
+      "index": 358,
+      "text": "I'm gonna be honest with you.",
+      "kind": "dialogue",
+      "startMs": 2911633,
+      "endMs": 2915364
+    },
+    {
+      "index": 359,
+      "text": "Your MiG sighting is really important to my work, but...",
+      "kind": "dialogue",
+      "startMs": 2915537,
+      "endMs": 2920702
+    },
+    {
+      "index": 360,
+      "text": "I don't normally invite students to my house. You're...",
+      "kind": "dialogue",
+      "startMs": 2924646,
+      "endMs": 2929845
+    },
+    {
+      "index": 361,
+      "text": "But please understand, I still have a job to do.",
+      "kind": "dialogue",
+      "startMs": 2937993,
+      "endMs": 2941622
+    },
+    {
+      "index": 362,
+      "text": "I'm glad we got that straight.",
+      "kind": "dialogue",
+      "startMs": 2967556,
+      "endMs": 2973119
+    },
+    {
+      "index": 363,
+      "text": "I told her how tough it is here. My ass dragging like an old tired dog.",
+      "kind": "dialogue",
+      "startMs": 2988610,
+      "endMs": 2993570
+    },
+    {
+      "index": 364,
+      "text": "I told her you didn't even have a woman.",
+      "kind": "dialogue",
+      "startMs": 2993748,
+      "endMs": 2996979
+    },
+    {
+      "index": 365,
+      "text": "She said, \"He probably doesn't have one, but eight.\"",
+      "kind": "dialogue",
+      "startMs": 2997152,
+      "endMs": 3001088
+    },
+    {
+      "index": 366,
+      "text": "Hi! Daddy.",
+      "kind": "dialogue",
+      "startMs": 3005861,
+      "endMs": 3011629
+    },
+    {
+      "index": 367,
+      "text": "Goose tells me you're in love with one of your instructors.",
+      "kind": "dialogue",
+      "startMs": 3017072,
+      "endMs": 3023011
+    },
+    {
+      "index": 368,
+      "text": "I didn't tell her that. I can't believe you said that. That was a secret.",
+      "kind": "dialogue",
+      "startMs": 3023178,
+      "endMs": 3028639
+    },
+    {
+      "index": 369,
+      "text": "The bogey has good position right here. Freeze frame. A moment of choice.",
+      "kind": "dialogue",
+      "startMs": 3036057,
+      "endMs": 3041552
+    },
+    {
+      "index": 370,
+      "text": "The F-14 is defensive. He has a chance to bug out right here.",
+      "kind": "dialogue",
+      "startMs": 3041730,
+      "endMs": 3046099
+    },
+    {
+      "index": 371,
+      "text": "Better to retire and save your aircraft than push a bad position.",
+      "kind": "dialogue",
+      "startMs": 3046268,
+      "endMs": 3052798
+    },
+    {
+      "index": 372,
+      "text": "Charlie, jump in here any time. You stay in that diamond another three seconds, -",
+      "kind": "dialogue",
+      "startMs": 3052974,
+      "endMs": 3058241
+    },
+    {
+      "index": 373,
+      "text": "the bogey's gonna blow you away. You take a hard right, select zone five...",
+      "kind": "dialogue",
+      "startMs": 3058413,
+      "endMs": 3063316
+    },
+    {
+      "index": 374,
+      "text": "You can extend an escape. You made a bad choice.",
+      "kind": "dialogue",
+      "startMs": 3063485,
+      "endMs": 3068479
+    },
+    {
+      "index": 375,
+      "text": "Charlie? Aircraft one performs a split S?",
+      "kind": "dialogue",
+      "startMs": 3068657,
+      "endMs": 3075927
+    },
+    {
+      "index": 376,
+      "text": "That's the last thing you should do. The MiG's right on your tail.",
+      "kind": "dialogue",
+      "startMs": 3076097,
+      "endMs": 3080329
+    },
+    {
+      "index": 377,
+      "text": "Freeze there. The MiG has you in his gunsight. What were you thinking?",
+      "kind": "dialogue",
+      "startMs": 3080502,
+      "endMs": 3087101
+    },
+    {
+      "index": 378,
+      "text": "You don't have time to think up there. If you think, you're dead.",
+      "kind": "dialogue",
+      "startMs": 3087275,
+      "endMs": 3091939
+    },
+    {
+      "index": 379,
+      "text": "That's a big gamble with a $30 million plane.",
+      "kind": "dialogue",
+      "startMs": 3092113,
+      "endMs": 3097949
+    },
+    {
+      "index": 380,
+      "text": "Unfortunately, it worked. The MiG never got a clean shot.",
+      "kind": "dialogue",
+      "startMs": 3103058,
+      "endMs": 3108360
+    },
+    {
+      "index": 381,
+      "text": "Maverick makes an aggressive vertical move and defeats him with a missile.",
+      "kind": "dialogue",
+      "startMs": 3108530,
+      "endMs": 3115299
+    },
+    {
+      "index": 382,
+      "text": "The encounter was a victory, but we show it as an example of what not to do.",
+      "kind": "dialogue",
+      "startMs": 3115470,
+      "endMs": 3120908
+    },
+    {
+      "index": 383,
+      "text": "Next.",
+      "kind": "dialogue",
+      "startMs": 3122677,
+      "endMs": 3125077
+    },
+    {
+      "index": 384,
+      "text": "Gutsiest move I ever saw, man.",
+      "kind": "dialogue",
+      "startMs": 3125247,
+      "endMs": 3128774
+    },
+    {
+      "index": 385,
+      "text": "Now then, this is a perfect example of a textbook manoeuvre.",
+      "kind": "dialogue",
+      "startMs": 3131253,
+      "endMs": 3136714
+    },
+    {
+      "index": 386,
+      "text": "Lieutenant?",
+      "kind": "dialogue",
+      "startMs": 3148603,
+      "endMs": 3150503
+    },
+    {
+      "index": 387,
+      "text": "My review of your performance was right on, in my professional opinion.",
+      "kind": "dialogue",
+      "startMs": 3163184,
+      "endMs": 3168212
+    },
+    {
+      "index": 388,
+      "text": "I can't hear you.",
+      "kind": "dialogue",
+      "startMs": 3168390,
+      "endMs": 3172417
+    },
+    {
+      "index": 389,
+      "text": "Jesus! And you call me reckless? When I fly, my crew and my plane come first.",
+      "kind": "dialogue",
+      "startMs": 3190578,
+      "endMs": 3196983
+    },
+    {
+      "index": 390,
+      "text": "I'm gonna finish my sentence. My review of your performance was right on.",
+      "kind": "dialogue",
+      "startMs": 3197152,
+      "endMs": 3203819
+    },
+    {
+      "index": 391,
+      "text": "I see some real genius in your flying, but I can't say that in there.",
+      "kind": "dialogue",
+      "startMs": 3203992,
+      "endMs": 3209726
+    },
+    {
+      "index": 392,
+      "text": "I was afraid they'd see right through me.",
+      "kind": "dialogue",
+      "startMs": 3209898,
+      "endMs": 3213595
+    },
+    {
+      "index": 393,
+      "text": "I don't want anyone to know that I've fallen for you.",
+      "kind": "dialogue",
+      "startMs": 3213768,
+      "endMs": 3219536
+    },
+    {
+      "index": 394,
+      "text": "Hey, Maverick? Hear about Ice? What's that?",
+      "kind": "dialogue",
+      "startMs": 3324412,
+      "endMs": 3327848
+    },
+    {
+      "index": 395,
+      "text": "He won another one. Really?",
+      "kind": "dialogue",
+      "startMs": 3328016,
+      "endMs": 3332248
+    },
+    {
+      "index": 396,
+      "text": "I fell the need... the need for speed.",
+      "kind": "dialogue",
+      "startMs": 3332420,
+      "endMs": 3338086
+    },
+    {
+      "index": 397,
+      "text": "This is hop 19. Multiple aircraft, multiple bogeys. Your training is half over.",
+      "kind": "dialogue",
+      "startMs": 3341229,
+      "endMs": 3346861
+    },
+    {
+      "index": 398,
+      "text": "The competition for the trophy remains tight. First place, Iceman.",
+      "kind": "dialogue",
+      "startMs": 3347035,
+      "endMs": 3351904
+    },
+    {
+      "index": 399,
+      "text": "Second, Maverick, two points behind.",
+      "kind": "dialogue",
+      "startMs": 3352073,
+      "endMs": 3355406
+    },
+    {
+      "index": 400,
+      "text": "There they are. Three miles, 10 o'clock.",
+      "kind": "dialogue",
+      "startMs": 3355577,
+      "endMs": 3359172
+    },
+    {
+      "index": 401,
+      "text": "I see them. Two A-4s. Left 10 o'clock level. Continue left turn.",
+      "kind": "dialogue",
+      "startMs": 3359347,
+      "endMs": 3364216
+    },
+    {
+      "index": 402,
+      "text": "Good morning. The temperature is 110. Viper's up here? Great. Oh, shit.",
+      "kind": "dialogue",
+      "startMs": 3373228,
+      "endMs": 3380964
+    },
+    {
+      "index": 403,
+      "text": "He's probably saying, \"Holy shit, it's Maverick and Goose.\"",
+      "kind": "dialogue",
+      "startMs": 3381135,
+      "endMs": 3386471
+    },
+    {
+      "index": 404,
+      "text": "I've got my eye on the northern bogey. Roger, I've got the southern guy.",
+      "kind": "dialogue",
+      "startMs": 3390545,
+      "endMs": 3396313
+    },
+    {
+      "index": 405,
+      "text": "Hollywood, you lead. I'll cover you.",
+      "kind": "dialogue",
+      "startMs": 3396484,
+      "endMs": 3400443
+    },
+    {
+      "index": 406,
+      "text": "Break now, Jester.",
+      "kind": "dialogue",
+      "startMs": 3411199,
+      "endMs": 3413599
+    },
+    {
+      "index": 407,
+      "text": "We're losing Viper. Let's just stay on Jester.",
+      "kind": "dialogue",
+      "startMs": 3417539,
+      "endMs": 3420770
+    },
+    {
+      "index": 408,
+      "text": "Goose, find Viper. He's out there. Stay with Hollywood.",
+      "kind": "dialogue",
+      "startMs": 3425146,
+      "endMs": 3432552
+    },
+    {
+      "index": 409,
+      "text": "There's Viper. Three o'clock low. We're Hollywood's cover.",
+      "kind": "dialogue",
+      "startMs": 3432720,
+      "endMs": 3437487
+    },
+    {
+      "index": 410,
+      "text": "Don't you leave me. Hollywood, you're looking good.",
+      "kind": "dialogue",
+      "startMs": 3437659,
+      "endMs": 3441857
+    },
+    {
+      "index": 411,
+      "text": "I'm going after Viper.",
+      "kind": "dialogue",
+      "startMs": 3442030,
+      "endMs": 3444123
+    },
+    {
+      "index": 412,
+      "text": "Goddamn you! Don't leave him.",
+      "kind": "dialogue",
+      "startMs": 3446634,
+      "endMs": 3449694
+    },
+    {
+      "index": 413,
+      "text": "Hollywood's okay. I want Viper.",
+      "kind": "dialogue",
+      "startMs": 3449871,
+      "endMs": 3453967
+    },
+    {
+      "index": 414,
+      "text": "Viper's coming down.",
+      "kind": "dialogue",
+      "startMs": 3456277,
+      "endMs": 3459178
+    },
+    {
+      "index": 415,
+      "text": "Holy shit. We're head-to-head.",
+      "kind": "dialogue",
+      "startMs": 3465286,
+      "endMs": 3468813
+    },
+    {
+      "index": 416,
+      "text": "Rock and roll! Here's our big chance.",
+      "kind": "dialogue",
+      "startMs": 3482837,
+      "endMs": 3486329
+    },
+    {
+      "index": 417,
+      "text": "Come on, goddamn it.",
+      "kind": "dialogue",
+      "startMs": 3488943,
+      "endMs": 3492106
+    },
+    {
+      "index": 418,
+      "text": "Come on, keep coming.",
+      "kind": "dialogue",
+      "startMs": 3494215,
+      "endMs": 3497150
+    },
+    {
+      "index": 419,
+      "text": "Okay, sidewinder missile selected. Come on, baby.",
+      "kind": "dialogue",
+      "startMs": 3500121,
+      "endMs": 3504023
+    },
+    {
+      "index": 420,
+      "text": "Come around. That's it.",
+      "kind": "dialogue",
+      "startMs": 3504192,
+      "endMs": 3506990
+    },
+    {
+      "index": 421,
+      "text": "Jesus, he's good. Where's he going? Come on, come on. Keep coming.",
+      "kind": "dialogue",
+      "startMs": 3512934,
+      "endMs": 3520602
+    },
+    {
+      "index": 422,
+      "text": "Come on, baby.",
+      "kind": "dialogue",
+      "startMs": 3523411,
+      "endMs": 3527040
+    },
+    {
+      "index": 423,
+      "text": "Damn, this kid's good.",
+      "kind": "dialogue",
+      "startMs": 3530184,
+      "endMs": 3533085
+    },
+    {
+      "index": 424,
+      "text": "He's too close for missiles. I'm switching to guns.",
+      "kind": "dialogue",
+      "startMs": 3533254,
+      "endMs": 3536917
+    },
+    {
+      "index": 425,
+      "text": "Come on, come on.",
+      "kind": "dialogue",
+      "startMs": 3539060,
+      "endMs": 3542496
+    },
+    {
+      "index": 426,
+      "text": "Stick with it...",
+      "kind": "dialogue",
+      "startMs": 3543231,
+      "endMs": 3546257
+    },
+    {
+      "index": 427,
+      "text": "Hold it. Check our tail. Shit, there's Jester!",
+      "kind": "dialogue",
+      "startMs": 3549103,
+      "endMs": 3553267
+    },
+    {
+      "index": 428,
+      "text": "Bingo, Maverick's dead. You're out of there, kid.",
+      "kind": "dialogue",
+      "startMs": 3553441,
+      "endMs": 3558344
+    },
+    {
+      "index": 429,
+      "text": "The Defence Department regrets to inform you your sons died of stupidity.",
+      "kind": "dialogue",
+      "startMs": 3558513,
+      "endMs": 3565681
+    },
+    {
+      "index": 430,
+      "text": "Knock it off, gentlemen. Let's go home. Viper has the lead.",
+      "kind": "dialogue",
+      "startMs": 3565853,
+      "endMs": 3569914
+    },
+    {
+      "index": 431,
+      "text": "30 seconds, Wolfman. I'm coming in. Shut up!",
+      "kind": "dialogue",
+      "startMs": 3576531,
+      "endMs": 3580729
+    },
+    {
+      "index": 432,
+      "text": "That was some of the best flying I've seen yet. Until you got killed.",
+      "kind": "dialogue",
+      "startMs": 3581836,
+      "endMs": 3586671
+    },
+    {
+      "index": 433,
+      "text": "You never, never leave your wingman.",
+      "kind": "dialogue",
+      "startMs": 3586841,
+      "endMs": 3591574
+    },
+    {
+      "index": 434,
+      "text": "Maverick... It's not your flying, it's your attitude.",
+      "kind": "dialogue",
+      "startMs": 3596551,
+      "endMs": 3602547
+    },
+    {
+      "index": 435,
+      "text": "The enemy's dangerous, but right now you're worse. Dangerous and foolish.",
+      "kind": "dialogue",
+      "startMs": 3603725,
+      "endMs": 3611257
+    },
+    {
+      "index": 436,
+      "text": "You may not like who's flying with you, but whose side are you on?",
+      "kind": "dialogue",
+      "startMs": 3611432,
+      "endMs": 3618565
+    },
+    {
+      "index": 437,
+      "text": "At least Viper got Iceman before he got us. We've still got a shot at it.",
+      "kind": "dialogue",
+      "startMs": 3626180,
+      "endMs": 3632710
+    },
+    {
+      "index": 438,
+      "text": "That was stupid, I know better than that. That will never happen again.",
+      "kind": "dialogue",
+      "startMs": 3632887,
+      "endMs": 3639053
+    },
+    {
+      "index": 439,
+      "text": "I know...",
+      "kind": "dialogue",
+      "startMs": 3641796,
+      "endMs": 3645197
+    },
+    {
+      "index": 440,
+      "text": "I know.",
+      "kind": "dialogue",
+      "startMs": 3648469,
+      "endMs": 3652235
+    },
+    {
+      "index": 441,
+      "text": "Go fetch him. Doesn't he ever embarrass you?",
+      "kind": "dialogue",
+      "startMs": 3700254,
+      "endMs": 3704588
+    },
+    {
+      "index": 442,
+      "text": "Hell no. Well, there was the time... Admiral's daughter.",
+      "kind": "dialogue",
+      "startMs": 3704759,
+      "endMs": 3711028
+    },
+    {
+      "index": 443,
+      "text": "He told me all about the time you went ballistic with Penny Benjamin.",
+      "kind": "dialogue",
+      "startMs": 3711199,
+      "endMs": 3716364
+    },
+    {
+      "index": 444,
+      "text": "Did he? Great.",
+      "kind": "dialogue",
+      "startMs": 3716537,
+      "endMs": 3719097
+    },
+    {
+      "index": 445,
+      "text": "He tells me about all of them. My angel Goose goes home early for church.",
+      "kind": "dialogue",
+      "startMs": 3719207,
+      "endMs": 3724736
+    },
+    {
+      "index": 446,
+      "text": "You go home with the hot women. Thank you, Carole.",
+      "kind": "dialogue",
+      "startMs": 3724912,
+      "endMs": 3729542
+    },
+    {
+      "index": 447,
+      "text": "I'm gonna go embarrass myself with Goose for a while.",
+      "kind": "dialogue",
+      "startMs": 3729717,
+      "endMs": 3735155
+    },
+    {
+      "index": 448,
+      "text": "I'd love to be able to warn you off about Maverick, but I just love him to death.",
+      "kind": "dialogue",
+      "startMs": 3750438,
+      "endMs": 3756434
+    },
+    {
+      "index": 449,
+      "text": "I've known Pete for a lot of years. One thing's for certain.",
+      "kind": "dialogue",
+      "startMs": 3757578,
+      "endMs": 3762675
+    },
+    {
+      "index": 450,
+      "text": "There are hearts breaking wide open all over the world tonight.",
+      "kind": "dialogue",
+      "startMs": 3762850,
+      "endMs": 3768254
+    },
+    {
+      "index": 451,
+      "text": "Unless you are a fool, that boy is off the market.",
+      "kind": "dialogue",
+      "startMs": 3768422,
+      "endMs": 3772882
+    },
+    {
+      "index": 452,
+      "text": "He is 100% prime time in love with you.",
+      "kind": "dialogue",
+      "startMs": 3773060,
+      "endMs": 3778464
+    },
+    {
+      "index": 453,
+      "text": "Hey, Goose, you big stud. Take me to bed or lose me forever.",
+      "kind": "dialogue",
+      "startMs": 3778633,
+      "endMs": 3784367
+    },
+    {
+      "index": 454,
+      "text": "Show me the way home, honey.",
+      "kind": "dialogue",
+      "startMs": 3784538,
+      "endMs": 3788235
+    },
+    {
+      "index": 455,
+      "text": "Come on, brother, sing with the family.",
+      "kind": "dialogue",
+      "startMs": 3788409,
+      "endMs": 3791310
+    },
+    {
+      "index": 456,
+      "text": "Maverick, you big stud...",
+      "kind": "dialogue",
+      "startMs": 3823010,
+      "endMs": 3827572
+    },
+    {
+      "index": 457,
+      "text": "Take me to bed or lose me forever.",
+      "kind": "dialogue",
+      "startMs": 3827748,
+      "endMs": 3832185
+    },
+    {
+      "index": 458,
+      "text": "This is hop 31. Two weeks to graduation.",
+      "kind": "dialogue",
+      "startMs": 3844699,
+      "endMs": 3847793
+    },
+    {
+      "index": 459,
+      "text": "The Top Gun trophy is still up for grabs.",
+      "kind": "dialogue",
+      "startMs": 3847969,
+      "endMs": 3851803
+    },
+    {
+      "index": 460,
+      "text": "The score is tied. Time for the big one.",
+      "kind": "dialogue",
+      "startMs": 3895149,
+      "endMs": 3898846
+    },
+    {
+      "index": 461,
+      "text": "Are you up for this one, Maverick? Just a walk in the park.",
+      "kind": "dialogue",
+      "startMs": 3899020,
+      "endMs": 3905152
+    },
+    {
+      "index": 462,
+      "text": "Contact. Multiple bogeys. Two miles. Looks like they're going away from us.",
+      "kind": "dialogue",
+      "startMs": 3906994,
+      "endMs": 3911761
+    },
+    {
+      "index": 463,
+      "text": "I see them. Right, two o'clock. I'm in. I'm in.",
+      "kind": "dialogue",
+      "startMs": 3911932,
+      "endMs": 3915959
+    },
+    {
+      "index": 464,
+      "text": "That son of a bitch cut me off.",
+      "kind": "dialogue",
+      "startMs": 3935990,
+      "endMs": 3939585
+    },
+    {
+      "index": 465,
+      "text": "Come on. Jesus Christ, Ice. Take the shot. Get the hell out of there.",
+      "kind": "dialogue",
+      "startMs": 3946467,
+      "endMs": 3952463
+    },
+    {
+      "index": 466,
+      "text": "I can't get the angle. I'm too close. I'm switching to guns.",
+      "kind": "dialogue",
+      "startMs": 3952640,
+      "endMs": 3956508
+    },
+    {
+      "index": 467,
+      "text": "Fire or clear!",
+      "kind": "dialogue",
+      "startMs": 3956677,
+      "endMs": 3959874
+    },
+    {
+      "index": 468,
+      "text": "Christ, I can take a shot right here. 20 seconds and I've got him.",
+      "kind": "dialogue",
+      "startMs": 3964385,
+      "endMs": 3970483
+    },
+    {
+      "index": 469,
+      "text": "I'm moving in. I've got the shot. Come on, Mav.",
+      "kind": "dialogue",
+      "startMs": 3976397,
+      "endMs": 3980561
+    },
+    {
+      "index": 470,
+      "text": "He's getting impatient. Take the shot. 10 more seconds.",
+      "kind": "dialogue",
+      "startMs": 3982203,
+      "endMs": 3985900
+    },
+    {
+      "index": 471,
+      "text": "Get the hell out of there. Come off my right. I'm in.",
+      "kind": "dialogue",
+      "startMs": 3987942,
+      "endMs": 3992743
+    },
+    {
+      "index": 472,
+      "text": "Five more seconds. I'm in.",
+      "kind": "dialogue",
+      "startMs": 3992913,
+      "endMs": 3995905
+    },
+    {
+      "index": 473,
+      "text": "I'm off. Shit.",
+      "kind": "dialogue",
+      "startMs": 3996083,
+      "endMs": 3998779
+    },
+    {
+      "index": 474,
+      "text": "We're in a jetwash. Shit!",
+      "kind": "dialogue",
+      "startMs": 4000788,
+      "endMs": 4003586
+    },
+    {
+      "index": 475,
+      "text": "This is not good. We've got a flame-out. Engine one is out... Engine two is out.",
+      "kind": "dialogue",
+      "startMs": 4006627,
+      "endMs": 4012532
+    },
+    {
+      "index": 476,
+      "text": "I'm losing control. I can't control it!",
+      "kind": "dialogue",
+      "startMs": 4012700,
+      "endMs": 4015794
+    },
+    {
+      "index": 477,
+      "text": "It's coupling up. This is not good!",
+      "kind": "dialogue",
+      "startMs": 4019940,
+      "endMs": 4023842
+    },
+    {
+      "index": 478,
+      "text": "Mayday, mayday. Mav's in trouble. He's in a flat spin heading out to sea!",
+      "kind": "dialogue",
+      "startMs": 4024011,
+      "endMs": 4029540
+    },
+    {
+      "index": 479,
+      "text": "Altitude 8,000... 7,000...",
+      "kind": "dialogue",
+      "startMs": 4031352,
+      "endMs": 4034947
+    },
+    {
+      "index": 480,
+      "text": "We're at 6,000!",
+      "kind": "dialogue",
+      "startMs": 4035122,
+      "endMs": 4037955
+    },
+    {
+      "index": 481,
+      "text": "I can't reach the ejection handle!",
+      "kind": "dialogue",
+      "startMs": 4039960,
+      "endMs": 4042656
+    },
+    {
+      "index": 482,
+      "text": "You're gonna have to punch us out. I can't reach the ejection handle!",
+      "kind": "dialogue",
+      "startMs": 4044732,
+      "endMs": 4050728
+    },
+    {
+      "index": 483,
+      "text": "Eject... Watch the canopy!",
+      "kind": "dialogue",
+      "startMs": 4050905,
+      "endMs": 4055239
+    },
+    {
+      "index": 484,
+      "text": "Goose... Oh, no!",
+      "kind": "dialogue",
+      "startMs": 4071692,
+      "endMs": 4074217
+    },
+    {
+      "index": 485,
+      "text": "Oh, God.",
+      "kind": "dialogue",
+      "startMs": 4077765,
+      "endMs": 4080529
+    },
+    {
+      "index": 486,
+      "text": "Sir, let go of him. You've got to let him go, sir.",
+      "kind": "dialogue",
+      "startMs": 4127748,
+      "endMs": 4131411
+    },
+    {
+      "index": 487,
+      "text": "How are you doing? I'm all right.",
+      "kind": "dialogue",
+      "startMs": 4174662,
+      "endMs": 4180532
+    },
+    {
+      "index": 488,
+      "text": "Goose is dead. I know.",
+      "kind": "dialogue",
+      "startMs": 4180701,
+      "endMs": 4184831
+    },
+    {
+      "index": 489,
+      "text": "You fly jets long enough, something like this happens.",
+      "kind": "dialogue",
+      "startMs": 4187875,
+      "endMs": 4192608
+    },
+    {
+      "index": 490,
+      "text": "He was my RIO, my responsibility.",
+      "kind": "dialogue",
+      "startMs": 4192780,
+      "endMs": 4197183
+    },
+    {
+      "index": 491,
+      "text": "In my squadron in Vietnam, we lost 8 of 18 aircraft. 10 men.",
+      "kind": "dialogue",
+      "startMs": 4199253,
+      "endMs": 4205249
+    },
+    {
+      "index": 492,
+      "text": "The first one dies, you die too. But there will be others.",
+      "kind": "dialogue",
+      "startMs": 4205459,
+      "endMs": 4211796
+    },
+    {
+      "index": 493,
+      "text": "You can count on it.",
+      "kind": "dialogue",
+      "startMs": 4211965,
+      "endMs": 4215492
+    },
+    {
+      "index": 494,
+      "text": "You've got to let him go.",
+      "kind": "dialogue",
+      "startMs": 4215669,
+      "endMs": 4219503
+    },
+    {
+      "index": 495,
+      "text": "You've got to let him go.",
+      "kind": "dialogue",
+      "startMs": 4220674,
+      "endMs": 4224474
+    },
+    {
+      "index": 496,
+      "text": "I think maybe it was my fault.",
+      "kind": "dialogue",
+      "startMs": 4240494,
+      "endMs": 4244624
+    },
+    {
+      "index": 497,
+      "text": "I don't know.",
+      "kind": "dialogue",
+      "startMs": 4244798,
+      "endMs": 4248199
+    },
+    {
+      "index": 498,
+      "text": "I don't know what the hell went wrong.",
+      "kind": "dialogue",
+      "startMs": 4248369,
+      "endMs": 4252328
+    },
+    {
+      "index": 499,
+      "text": "I'd like to help. I know it's difficult.",
+      "kind": "dialogue",
+      "startMs": 4252506,
+      "endMs": 4257569
+    },
+    {
+      "index": 500,
+      "text": "God, I want him back.",
+      "kind": "dialogue",
+      "startMs": 4263083,
+      "endMs": 4267247
+    },
+    {
+      "index": 501,
+      "text": "I'll be here if you need me, okay?",
+      "kind": "dialogue",
+      "startMs": 4271392,
+      "endMs": 4275988
+    },
+    {
+      "index": 502,
+      "text": "God, he loved flying with you, Maverick.",
+      "kind": "dialogue",
+      "startMs": 4387207,
+      "endMs": 4391200
+    },
+    {
+      "index": 503,
+      "text": "He would have flown anyway... without you.",
+      "kind": "dialogue",
+      "startMs": 4408428,
+      "endMs": 4414162
+    },
+    {
+      "index": 504,
+      "text": "He'd have hated it, but he would have done it.",
+      "kind": "dialogue",
+      "startMs": 4414334,
+      "endMs": 4419966
+    },
+    {
+      "index": 505,
+      "text": "The spin was induced by the disruption of air flow into the starboard engine.",
+      "kind": "dialogue",
+      "startMs": 4439092,
+      "endMs": 4445520
+    },
+    {
+      "index": 506,
+      "text": "This disruption stalled the engine, -",
+      "kind": "dialogue",
+      "startMs": 4445699,
+      "endMs": 4449692
+    },
+    {
+      "index": 507,
+      "text": "which produced enough yaw rate to induce a spin -",
+      "kind": "dialogue",
+      "startMs": 4449870,
+      "endMs": 4454364
+    },
+    {
+      "index": 508,
+      "text": "which was unrecoverable.",
+      "kind": "dialogue",
+      "startMs": 4454541,
+      "endMs": 4457977
+    },
+    {
+      "index": 509,
+      "text": "There was no way Lieutenant Mitchell could see or avoid the jetwash.",
+      "kind": "dialogue",
+      "startMs": 4458145,
+      "endMs": 4463777
+    },
+    {
+      "index": 510,
+      "text": "The Board of Inquiry finds that he was not at fault in the accident of 29 July.",
+      "kind": "dialogue",
+      "startMs": 4463951,
+      "endMs": 4469116
+    },
+    {
+      "index": 511,
+      "text": "His record will be cleared. He's restored to flight status without further delay.",
+      "kind": "dialogue",
+      "startMs": 4469289,
+      "endMs": 4476058
+    },
+    {
+      "index": 512,
+      "text": "These proceedings are closed.",
+      "kind": "dialogue",
+      "startMs": 4477130,
+      "endMs": 4480657
+    },
+    {
+      "index": 513,
+      "text": "Get him up flying, soon.",
+      "kind": "dialogue",
+      "startMs": 4488108,
+      "endMs": 4491635
+    },
+    {
+      "index": 514,
+      "text": "Come on, kid. Get in there. Engage. You've got a bogey at two o'clock.",
+      "kind": "dialogue",
+      "startMs": 4517104,
+      "endMs": 4522940
+    },
+    {
+      "index": 515,
+      "text": "Take the shot, kid.",
+      "kind": "dialogue",
+      "startMs": 4527414,
+      "endMs": 4531043
+    },
+    {
+      "index": 516,
+      "text": "You can engage any time, Maverick.",
+      "kind": "dialogue",
+      "startMs": 4531218,
+      "endMs": 4534779
+    },
+    {
+      "index": 517,
+      "text": "Where the hell are you going? It doesn't look good.",
+      "kind": "dialogue",
+      "startMs": 4543263,
+      "endMs": 4548030
+    },
+    {
+      "index": 518,
+      "text": "What do you mean? It doesn't get to look any better than that.",
+      "kind": "dialogue",
+      "startMs": 4548201,
+      "endMs": 4553571
+    },
+    {
+      "index": 519,
+      "text": "Hey, man. We could have had him...",
+      "kind": "dialogue",
+      "startMs": 4564084,
+      "endMs": 4568214
+    },
+    {
+      "index": 520,
+      "text": "I'll fire when I'm goddamn good and ready. You got that?",
+      "kind": "dialogue",
+      "startMs": 4570323,
+      "endMs": 4576057
+    },
+    {
+      "index": 521,
+      "text": "He won't engage. It's only been a few days.",
+      "kind": "dialogue",
+      "startMs": 4593814,
+      "endMs": 4599150
+    },
+    {
+      "index": 522,
+      "text": "He just might not make it back. Keep sending him up.",
+      "kind": "dialogue",
+      "startMs": 4599319,
+      "endMs": 4605781
+    },
+    {
+      "index": 523,
+      "text": "Mitchell?",
+      "kind": "dialogue",
+      "startMs": 4625946,
+      "endMs": 4628676
+    },
+    {
+      "index": 524,
+      "text": "I'm sorry about Goose.",
+      "kind": "dialogue",
+      "startMs": 4628849,
+      "endMs": 4633343
+    },
+    {
+      "index": 525,
+      "text": "Everybody liked him.",
+      "kind": "dialogue",
+      "startMs": 4634621,
+      "endMs": 4638182
+    },
+    {
+      "index": 526,
+      "text": "I'm sorry.",
+      "kind": "dialogue",
+      "startMs": 4642095,
+      "endMs": 4645531
+    },
+    {
+      "index": 527,
+      "text": "Hi, it's Wolfman.",
+      "kind": "dialogue",
+      "startMs": 4663250,
+      "endMs": 4667550
+    },
+    {
+      "index": 528,
+      "text": "Maverick just quit.",
+      "kind": "dialogue",
+      "startMs": 4667721,
+      "endMs": 4669655
+    },
+    {
+      "index": 529,
+      "text": "Excuse me...",
+      "kind": "dialogue",
+      "startMs": 4692879,
+      "endMs": 4696042
+    },
+    {
+      "index": 530,
+      "text": "May I? Please.",
+      "kind": "dialogue",
+      "startMs": 4697384,
+      "endMs": 4700319
+    },
+    {
+      "index": 531,
+      "text": "I'll have what he's having. Hemlock, is it?",
+      "kind": "dialogue",
+      "startMs": 4709329,
+      "endMs": 4714824
+    },
+    {
+      "index": 532,
+      "text": "Ice water.",
+      "kind": "dialogue",
+      "startMs": 4715001,
+      "endMs": 4719665
+    },
+    {
+      "index": 533,
+      "text": "You weren't gonna say goodbye?",
+      "kind": "dialogue",
+      "startMs": 4721341,
+      "endMs": 4725300
+    },
+    {
+      "index": 534,
+      "text": "I heard you got that job in Washington. Congratulations.",
+      "kind": "dialogue",
+      "startMs": 4725478,
+      "endMs": 4730347
+    },
+    {
+      "index": 535,
+      "text": "Thanks. But I wasn't gonna leave without saying goodbye.",
+      "kind": "dialogue",
+      "startMs": 4730517,
+      "endMs": 4737389
+    },
+    {
+      "index": 536,
+      "text": "It's good to see you. Thanks.",
+      "kind": "dialogue",
+      "startMs": 4741194,
+      "endMs": 4745790
+    },
+    {
+      "index": 537,
+      "text": "Where are you going? You don't even have a ticket, do you?",
+      "kind": "dialogue",
+      "startMs": 4747367,
+      "endMs": 4753636
+    },
+    {
+      "index": 538,
+      "text": "I've seen all the evidence, and it's not your responsibility. It's not your fault.",
+      "kind": "dialogue",
+      "startMs": 4753807,
+      "endMs": 4760975
+    },
+    {
+      "index": 539,
+      "text": "You're one of the best pilots in the Navy.",
+      "kind": "dialogue",
+      "startMs": 4762048,
+      "endMs": 4765882
+    },
+    {
+      "index": 540,
+      "text": "What you do up there... It's dangerous.",
+      "kind": "dialogue",
+      "startMs": 4766052,
+      "endMs": 4770546
+    },
+    {
+      "index": 541,
+      "text": "But you've got to go on. You don't understand.",
+      "kind": "dialogue",
+      "startMs": 4770724,
+      "endMs": 4775684
+    },
+    {
+      "index": 542,
+      "text": "When I first met you, you were larger than life.",
+      "kind": "dialogue",
+      "startMs": 4776863,
+      "endMs": 4782324
+    },
+    {
+      "index": 543,
+      "text": "Look at you.",
+      "kind": "dialogue",
+      "startMs": 4784170,
+      "endMs": 4787162
+    },
+    {
+      "index": 544,
+      "text": "You're not gonna be happy unless you're going Mach 2 with your hair on fire.",
+      "kind": "dialogue",
+      "startMs": 4787340,
+      "endMs": 4792471
+    },
+    {
+      "index": 545,
+      "text": "No, that's over. It's just over.",
+      "kind": "dialogue",
+      "startMs": 4792646,
+      "endMs": 4795581
+    },
+    {
+      "index": 546,
+      "text": "To be the best of the best means you make mistakes and then you go on.",
+      "kind": "dialogue",
+      "startMs": 4795749,
+      "endMs": 4802086
+    },
+    {
+      "index": 547,
+      "text": "You don't think I know that?",
+      "kind": "dialogue",
+      "startMs": 4802255,
+      "endMs": 4806089
+    },
+    {
+      "index": 548,
+      "text": "I'm here to help.",
+      "kind": "dialogue",
+      "startMs": 4806259,
+      "endMs": 4809490
+    },
+    {
+      "index": 549,
+      "text": "Look, thank you. If I'd wanted help, I would have asked for it.",
+      "kind": "dialogue",
+      "startMs": 4809663,
+      "endMs": 4817627
+    },
+    {
+      "index": 550,
+      "text": "So, I'm too late.",
+      "kind": "dialogue",
+      "startMs": 4823777,
+      "endMs": 4827611
+    },
+    {
+      "index": 551,
+      "text": "You've already left.",
+      "kind": "dialogue",
+      "startMs": 4827781,
+      "endMs": 4831444
+    },
+    {
+      "index": 552,
+      "text": "You didn't learn a damn thing, did you? Except to quit.",
+      "kind": "dialogue",
+      "startMs": 4831618,
+      "endMs": 4838649
+    },
+    {
+      "index": 553,
+      "text": "You've got that manoeuvre down real well.",
+      "kind": "dialogue",
+      "startMs": 4840160,
+      "endMs": 4845097
+    },
+    {
+      "index": 554,
+      "text": "So long, Pete Mitchell.",
+      "kind": "dialogue",
+      "startMs": 4850570,
+      "endMs": 4854028
+    },
+    {
+      "index": 555,
+      "text": "Hi, Maverick, come on in. How are you? Sure you're feeling okay?",
+      "kind": "dialogue",
+      "startMs": 4878631,
+      "endMs": 4884866
+    },
+    {
+      "index": 556,
+      "text": "Great. Jamie, come on. Can I get you a drink?",
+      "kind": "dialogue",
+      "startMs": 4885038,
+      "endMs": 4889566
+    },
+    {
+      "index": 557,
+      "text": "Make yourself comfortable. Mike will be right down.",
+      "kind": "dialogue",
+      "startMs": 4889743,
+      "endMs": 4894806
+    },
+    {
+      "index": 558,
+      "text": "I flew with your old man. VF-51, the Oriskany.",
+      "kind": "dialogue",
+      "startMs": 4914134,
+      "endMs": 4920073
+    },
+    {
+      "index": 559,
+      "text": "You're a lot like he was. Only better... and worse.",
+      "kind": "dialogue",
+      "startMs": 4921408,
+      "endMs": 4928007
+    },
+    {
+      "index": 560,
+      "text": "He was a natural heroic son of a bitch.",
+      "kind": "dialogue",
+      "startMs": 4929949,
+      "endMs": 4934079
+    },
+    {
+      "index": 561,
+      "text": "So he did do it right.",
+      "kind": "dialogue",
+      "startMs": 4937557,
+      "endMs": 4941550
+    },
+    {
+      "index": 562,
+      "text": "Yeah, he did it right.",
+      "kind": "dialogue",
+      "startMs": 4943596,
+      "endMs": 4947896
+    },
+    {
+      "index": 563,
+      "text": "Is that why you fly the way you do? Trying to prove something?",
+      "kind": "dialogue",
+      "startMs": 4955742,
+      "endMs": 4960907
+    },
+    {
+      "index": 564,
+      "text": "Yeah, your old man did it right.",
+      "kind": "dialogue",
+      "startMs": 4962282,
+      "endMs": 4966082
+    },
+    {
+      "index": 565,
+      "text": "What I'm about to tell you is classified. It could end my career.",
+      "kind": "dialogue",
+      "startMs": 4966252,
+      "endMs": 4970450
+    },
+    {
+      "index": 566,
+      "text": "We were in the worst dogfight ever.",
+      "kind": "dialogue",
+      "startMs": 4970623,
+      "endMs": 4973888
+    },
+    {
+      "index": 567,
+      "text": "Bogeys like fireflies all over the sky. His F-4 was hit, -",
+      "kind": "dialogue",
+      "startMs": 4974060,
+      "endMs": 4980056
+    },
+    {
+      "index": 568,
+      "text": "he was wounded, but he stayed.",
+      "kind": "dialogue",
+      "startMs": 4980233,
+      "endMs": 4983259
+    },
+    {
+      "index": 569,
+      "text": "Saved three planes before he bought it. How come I never heard that before?",
+      "kind": "dialogue",
+      "startMs": 4983436,
+      "endMs": 4990171
+    },
+    {
+      "index": 570,
+      "text": "The battle occurred over the wrong line on some map.",
+      "kind": "dialogue",
+      "startMs": 4990343,
+      "endMs": 4997408
+    },
+    {
+      "index": 571,
+      "text": "So you were there? I was there.",
+      "kind": "dialogue",
+      "startMs": 4997584,
+      "endMs": 5001418
+    },
+    {
+      "index": 572,
+      "text": "What's on your mind? My options, sir.",
+      "kind": "dialogue",
+      "startMs": 5001588,
+      "endMs": 5007959
+    },
+    {
+      "index": 573,
+      "text": "Simple. You've acquired enough points -",
+      "kind": "dialogue",
+      "startMs": 5008128,
+      "endMs": 5012588
+    },
+    {
+      "index": 574,
+      "text": "to show up tomorrow and graduate with your class. Or you could quit.",
+      "kind": "dialogue",
+      "startMs": 5012765,
+      "endMs": 5017964
+    },
+    {
+      "index": 575,
+      "text": "There'll be no disgrace. That spin was hell.",
+      "kind": "dialogue",
+      "startMs": 5019973,
+      "endMs": 5024273
+    },
+    {
+      "index": 576,
+      "text": "So you think I should quit? I didn't say that.",
+      "kind": "dialogue",
+      "startMs": 5024444,
+      "endMs": 5029313
+    },
+    {
+      "index": 577,
+      "text": "You feel responsible for Goose. And you have a confidence problem.",
+      "kind": "dialogue",
+      "startMs": 5029482,
+      "endMs": 5034647
+    },
+    {
+      "index": 578,
+      "text": "I won't blow sunshine up your ass.",
+      "kind": "dialogue",
+      "startMs": 5036389,
+      "endMs": 5039722
+    },
+    {
+      "index": 579,
+      "text": "A good pilot is compelled to evaluate what's happened -",
+      "kind": "dialogue",
+      "startMs": 5039893,
+      "endMs": 5044262
+    },
+    {
+      "index": 580,
+      "text": "and apply what he's learned. Up there, we've got to push it. That's our job.",
+      "kind": "dialogue",
+      "startMs": 5044430,
+      "endMs": 5052360
+    },
+    {
+      "index": 581,
+      "text": "It's your option, Lieutenant. All yours.",
+      "kind": "dialogue",
+      "startMs": 5055074,
+      "endMs": 5059602
+    },
+    {
+      "index": 582,
+      "text": "Sorry to bother you on a Sunday, sir. Thank you for your time.",
+      "kind": "dialogue",
+      "startMs": 5070790,
+      "endMs": 5074783
+    },
+    {
+      "index": 583,
+      "text": "No problem. Good luck.",
+      "kind": "dialogue",
+      "startMs": 5074961,
+      "endMs": 5078897
+    },
+    {
+      "index": 584,
+      "text": "Gentlemen... Where's Maverick?",
+      "kind": "dialogue",
+      "startMs": 5126613,
+      "endMs": 5131107
+    },
+    {
+      "index": 585,
+      "text": "I don't know where he is. You know what he's planning to do?",
+      "kind": "dialogue",
+      "startMs": 5131284,
+      "endMs": 5137018
+    },
+    {
+      "index": 586,
+      "text": "It's got to be hard on the guy though.",
+      "kind": "dialogue",
+      "startMs": 5138091,
+      "endMs": 5143085
+    },
+    {
+      "index": 587,
+      "text": "Congratulations. Thank you.",
+      "kind": "dialogue",
+      "startMs": 5171991,
+      "endMs": 5175427
+    },
+    {
+      "index": 588,
+      "text": "Congratulations. Thanks, Mav.",
+      "kind": "dialogue",
+      "startMs": 5176496,
+      "endMs": 5180262
+    },
+    {
+      "index": 589,
+      "text": "Gentlemen, I hate to break up the party before it gets out of hand...",
+      "kind": "dialogue",
+      "startMs": 5182769,
+      "endMs": 5189265
+    },
+    {
+      "index": 590,
+      "text": "Some of you have to depart immediately. We have a crisis situation.",
+      "kind": "dialogue",
+      "startMs": 5189442,
+      "endMs": 5194607
+    },
+    {
+      "index": 591,
+      "text": "Ice, Slider... Hollywood, Wolfman.",
+      "kind": "dialogue",
+      "startMs": 5194781,
+      "endMs": 5198649
+    },
+    {
+      "index": 592,
+      "text": "Maverick. Sir.",
+      "kind": "dialogue",
+      "startMs": 5200887,
+      "endMs": 5205449
+    },
+    {
+      "index": 593,
+      "text": "Maverick, you'll get your RIO when you get to the ship. If you don't...",
+      "kind": "dialogue",
+      "startMs": 5207026,
+      "endMs": 5212589
+    },
+    {
+      "index": 594,
+      "text": "...give me a call. I'll fly with you.",
+      "kind": "dialogue",
+      "startMs": 5212765,
+      "endMs": 5216326
+    },
+    {
+      "index": 595,
+      "text": "The SS Layton has become disabled and has wandered into foreign territory.",
+      "kind": "dialogue",
+      "startMs": 5231150,
+      "endMs": 5236816
+    },
+    {
+      "index": 596,
+      "text": "A rescue operation will soon begin. Your mission is to give it air support.",
+      "kind": "dialogue",
+      "startMs": 5236989,
+      "endMs": 5242825
+    },
+    {
+      "index": 597,
+      "text": "There are MiGs in the area. If you witness a hostile act, return fire.",
+      "kind": "dialogue",
+      "startMs": 5242995,
+      "endMs": 5249867
+    },
+    {
+      "index": 598,
+      "text": "They carry the Exocet anti-ship missile. They can fire it from 100 miles away.",
+      "kind": "dialogue",
+      "startMs": 5250937,
+      "endMs": 5256534
+    },
+    {
+      "index": 599,
+      "text": "This is the real thing. This is what you've been trained for.",
+      "kind": "dialogue",
+      "startMs": 5256709,
+      "endMs": 5263012
+    },
+    {
+      "index": 600,
+      "text": "Make us proud. Ice... Hollywood, sector two.",
+      "kind": "dialogue",
+      "startMs": 5263182,
+      "endMs": 5268176
+    },
+    {
+      "index": 601,
+      "text": "Maverick, you back them up with Merlin on ready five.",
+      "kind": "dialogue",
+      "startMs": 5268354,
+      "endMs": 5272586
+    },
+    {
+      "index": 602,
+      "text": "Yes, sir. Rise.",
+      "kind": "dialogue",
+      "startMs": 5272759,
+      "endMs": 5276024
+    },
+    {
+      "index": 603,
+      "text": "Excuse me, sir. This is not personal.",
+      "kind": "dialogue",
+      "startMs": 5277964,
+      "endMs": 5281058
+    },
+    {
+      "index": 604,
+      "text": "But is Maverick the best pilot to? I know what's on your mind. Get on it.",
+      "kind": "dialogue",
+      "startMs": 5281234,
+      "endMs": 5287298
+    },
+    {
+      "index": 605,
+      "text": "You've got a pair of bogeys, 12 o'clock, 15 miles.",
+      "kind": "dialogue",
+      "startMs": 5366219,
+      "endMs": 5369677
+    },
+    {
+      "index": 606,
+      "text": "Voodoo One, 090, radar contact 15 miles. They're doing 500 knots.",
+      "kind": "dialogue",
+      "startMs": 5369856,
+      "endMs": 5375658
+    },
+    {
+      "index": 607,
+      "text": "Roger, that's your bogey.",
+      "kind": "dialogue",
+      "startMs": 5375828,
+      "endMs": 5378729
+    },
+    {
+      "index": 608,
+      "text": "Dead ahead, 15 miles, 600 knots.",
+      "kind": "dialogue",
+      "startMs": 5380600,
+      "endMs": 5383398
+    },
+    {
+      "index": 609,
+      "text": "They're at 15,000 feet now, 10 miles.",
+      "kind": "dialogue",
+      "startMs": 5392278,
+      "endMs": 5396339
+    },
+    {
+      "index": 610,
+      "text": "800 knots. Dead ahead now, eight miles.",
+      "kind": "dialogue",
+      "startMs": 5396516,
+      "endMs": 5400816
+    },
+    {
+      "index": 611,
+      "text": "Wood, you got them? They must be close. I'm getting a hard-on.",
+      "kind": "dialogue",
+      "startMs": 5400987,
+      "endMs": 5405424
+    },
+    {
+      "index": 612,
+      "text": "I'm taking the lead. Let's identify them. Roger. I'm on your left side, a little low.",
+      "kind": "dialogue",
+      "startMs": 5412665,
+      "endMs": 5419901
+    },
+    {
+      "index": 613,
+      "text": "Maverick's up and ready in alert five.",
+      "kind": "dialogue",
+      "startMs": 5420072,
+      "endMs": 5423064
+    },
+    {
+      "index": 614,
+      "text": "My bogey's still locked up. He's drifting to the left.",
+      "kind": "dialogue",
+      "startMs": 5425811,
+      "endMs": 5430612
+    },
+    {
+      "index": 615,
+      "text": "Still manoeuvring, course 090. Let's bring it to the right.",
+      "kind": "dialogue",
+      "startMs": 5430783,
+      "endMs": 5437086
+    },
+    {
+      "index": 616,
+      "text": "Ice, we've got a problem. I have four aircraft on radar. Four bogeys.",
+      "kind": "dialogue",
+      "startMs": 5446766,
+      "endMs": 5452068
+    },
+    {
+      "index": 617,
+      "text": "Wood, we've got four bogeys.",
+      "kind": "dialogue",
+      "startMs": 5452238,
+      "endMs": 5455105
+    },
+    {
+      "index": 618,
+      "text": "Wrong, make that five! There's five, sir.",
+      "kind": "dialogue",
+      "startMs": 5456709,
+      "endMs": 5460873
+    },
+    {
+      "index": 619,
+      "text": "Oh, shit! He's got a radar lock on us.",
+      "kind": "dialogue",
+      "startMs": 5462982,
+      "endMs": 5466315
+    },
+    {
+      "index": 620,
+      "text": "Get out of there, Hollywood!",
+      "kind": "dialogue",
+      "startMs": 5468688,
+      "endMs": 5472920
+    },
+    {
+      "index": 621,
+      "text": "I'm hit. We're coming apart. I can't control it! We're going down.",
+      "kind": "dialogue",
+      "startMs": 5480266,
+      "endMs": 5485727
+    },
+    {
+      "index": 622,
+      "text": "Wood's been hit. Wood's been hit!",
+      "kind": "dialogue",
+      "startMs": 5485905,
+      "endMs": 5488897
+    },
+    {
+      "index": 623,
+      "text": "Voodoo One, Wood's been hit. We've lost Hollywood!",
+      "kind": "dialogue",
+      "startMs": 5489075,
+      "endMs": 5492408
+    },
+    {
+      "index": 624,
+      "text": "We've lost Hollywood. Launch Maverick.",
+      "kind": "dialogue",
+      "startMs": 5492578,
+      "endMs": 5495809
+    },
+    {
+      "index": 625,
+      "text": "Get a bearing on Hollywood and Wolfman. Launch the rescue helicopter.",
+      "kind": "dialogue",
+      "startMs": 5495982,
+      "endMs": 5501113
+    },
+    {
+      "index": 626,
+      "text": "Iceman, what's your position? 090 at 180 miles.",
+      "kind": "dialogue",
+      "startMs": 5526812,
+      "endMs": 5531442
+    },
+    {
+      "index": 627,
+      "text": "They're coming in left. Three MiGs dead ahead.",
+      "kind": "dialogue",
+      "startMs": 5531617,
+      "endMs": 5536213
+    },
+    {
+      "index": 628,
+      "text": "I'm going after them. I'm bringing it around to the left.",
+      "kind": "dialogue",
+      "startMs": 5538324,
+      "endMs": 5543159
+    },
+    {
+      "index": 629,
+      "text": "We have four on our tail. That makes six of them!",
+      "kind": "dialogue",
+      "startMs": 5543329,
+      "endMs": 5547823
+    },
+    {
+      "index": 630,
+      "text": "He's firing. Break right. This is Voodoo One. We are defensive.",
+      "kind": "dialogue",
+      "startMs": 5552238,
+      "endMs": 5558234
+    },
+    {
+      "index": 631,
+      "text": "Launch the alert fighters! 160 miles and closing in fast, sir.",
+      "kind": "dialogue",
+      "startMs": 5558411,
+      "endMs": 5563041
+    },
+    {
+      "index": 632,
+      "text": "Ready Willard and Simkin.",
+      "kind": "dialogue",
+      "startMs": 5563215,
+      "endMs": 5564978
+    },
+    {
+      "index": 633,
+      "text": "I'll be there in 30 seconds. I'm engaged with five. I'm in deep shit.",
+      "kind": "dialogue",
+      "startMs": 5567987,
+      "endMs": 5573721
+    },
+    {
+      "index": 634,
+      "text": "Willard and Simkin? We can't launch any aircraft yet, sir.",
+      "kind": "dialogue",
+      "startMs": 5576429,
+      "endMs": 5581628
+    },
+    {
+      "index": 635,
+      "text": "How long? 10 minutes? It's over in two minutes!",
+      "kind": "dialogue",
+      "startMs": 5581801,
+      "endMs": 5586238
+    },
+    {
+      "index": 636,
+      "text": "One MiG 12 o'clock high... Watch your back!",
+      "kind": "dialogue",
+      "startMs": 5588774,
+      "endMs": 5592870
+    },
+    {
+      "index": 637,
+      "text": "Break right! Shit, that was close.",
+      "kind": "dialogue",
+      "startMs": 5598718,
+      "endMs": 5603382
+    },
+    {
+      "index": 638,
+      "text": "Maverick, get your butt down here! Hang in there.",
+      "kind": "dialogue",
+      "startMs": 5603556,
+      "endMs": 5607253
+    },
+    {
+      "index": 639,
+      "text": "Jesus Christ!",
+      "kind": "dialogue",
+      "startMs": 5609361,
+      "endMs": 5612956
+    },
+    {
+      "index": 640,
+      "text": "How about some help? Engage!",
+      "kind": "dialogue",
+      "startMs": 5613132,
+      "endMs": 5617296
+    },
+    {
+      "index": 641,
+      "text": "We've got a MiG on our tail.",
+      "kind": "dialogue",
+      "startMs": 5617470,
+      "endMs": 5621406
+    },
+    {
+      "index": 642,
+      "text": "Watch out!",
+      "kind": "dialogue",
+      "startMs": 5621574,
+      "endMs": 5624975
+    },
+    {
+      "index": 643,
+      "text": "We just flew right through his jetwash!",
+      "kind": "dialogue",
+      "startMs": 5626345,
+      "endMs": 5630714
+    },
+    {
+      "index": 644,
+      "text": "Get control!",
+      "kind": "dialogue",
+      "startMs": 5630883,
+      "endMs": 5633750
+    },
+    {
+      "index": 645,
+      "text": "Good recovery. Let's get in there and help Ice.",
+      "kind": "dialogue",
+      "startMs": 5640192,
+      "endMs": 5645926
+    },
+    {
+      "index": 646,
+      "text": "Let's get back in the game. No, it's no good.",
+      "kind": "dialogue",
+      "startMs": 5646098,
+      "endMs": 5650899
+    },
+    {
+      "index": 647,
+      "text": "Goddamn it. Maverick's disengaging. I knew it. Shit!",
+      "kind": "dialogue",
+      "startMs": 5653839,
+      "endMs": 5659004
+    },
+    {
+      "index": 648,
+      "text": "Get in there, come on. What the hell are you doing?",
+      "kind": "dialogue",
+      "startMs": 5662181,
+      "endMs": 5667778
+    },
+    {
+      "index": 649,
+      "text": "Ice won't last down there alone... Talk to me, Goose.",
+      "kind": "dialogue",
+      "startMs": 5667953,
+      "endMs": 5673823
+    },
+    {
+      "index": 650,
+      "text": "Maverick!",
+      "kind": "dialogue",
+      "startMs": 5673993,
+      "endMs": 5677622
+    },
+    {
+      "index": 651,
+      "text": "Maverick's re-engaging, sir.",
+      "kind": "dialogue",
+      "startMs": 5679532,
+      "endMs": 5682194
+    },
+    {
+      "index": 652,
+      "text": "I can't get him off my tail. I've got your MiG dead ahead.",
+      "kind": "dialogue",
+      "startMs": 5686972,
+      "endMs": 5691602
+    },
+    {
+      "index": 653,
+      "text": "I got tone. Firing!",
+      "kind": "dialogue",
+      "startMs": 5693078,
+      "endMs": 5696878
+    },
+    {
+      "index": 654,
+      "text": "Where are they? 155 miles.",
+      "kind": "dialogue",
+      "startMs": 5707293,
+      "endMs": 5710729
+    },
+    {
+      "index": 655,
+      "text": "Two MiGs dead ahead. I see them. I'll take it left.",
+      "kind": "dialogue",
+      "startMs": 5710896,
+      "endMs": 5716300
+    },
+    {
+      "index": 656,
+      "text": "Oh, my God.",
+      "kind": "dialogue",
+      "startMs": 5717403,
+      "endMs": 5719735
+    },
+    {
+      "index": 657,
+      "text": "Ice is right below with a MiG on his tail.",
+      "kind": "dialogue",
+      "startMs": 5722074,
+      "endMs": 5726841
+    },
+    {
+      "index": 658,
+      "text": "He's firing. Break left!",
+      "kind": "dialogue",
+      "startMs": 5727012,
+      "endMs": 5729708
+    },
+    {
+      "index": 659,
+      "text": "He overshot!",
+      "kind": "dialogue",
+      "startMs": 5731951,
+      "endMs": 5734920
+    },
+    {
+      "index": 660,
+      "text": "Coming in, Ice. I got two MiGs, dead ahead.",
+      "kind": "dialogue",
+      "startMs": 5735087,
+      "endMs": 5740582
+    },
+    {
+      "index": 661,
+      "text": "One MiG passing between us.",
+      "kind": "dialogue",
+      "startMs": 5742361,
+      "endMs": 5745159
+    },
+    {
+      "index": 662,
+      "text": "You've got a MiG on your left. He's gonna fire!",
+      "kind": "dialogue",
+      "startMs": 5748434,
+      "endMs": 5752336
+    },
+    {
+      "index": 663,
+      "text": "Check the guy to the north!",
+      "kind": "dialogue",
+      "startMs": 5760212,
+      "endMs": 5763306
+    },
+    {
+      "index": 664,
+      "text": "Banking left.",
+      "kind": "dialogue",
+      "startMs": 5765651,
+      "endMs": 5768882
+    },
+    {
+      "index": 665,
+      "text": "There he is. Get him, Ice! Okay, you guys, I'm coming in.",
+      "kind": "dialogue",
+      "startMs": 5770089,
+      "endMs": 5775721
+    },
+    {
+      "index": 666,
+      "text": "A MiG's coming round on our tail. I can't leave Ice.",
+      "kind": "dialogue",
+      "startMs": 5779031,
+      "endMs": 5783195
+    },
+    {
+      "index": 667,
+      "text": "He's gonna get behind us! I'm not leaving my wingman.",
+      "kind": "dialogue",
+      "startMs": 5783369,
+      "endMs": 5788238
+    },
+    {
+      "index": 668,
+      "text": "I'm on his tail. I'm going for the shot right now. Roger, engaged!",
+      "kind": "dialogue",
+      "startMs": 5791010,
+      "endMs": 5796038
+    },
+    {
+      "index": 669,
+      "text": "I've got radar lock. I'm taking the shot. Fire!",
+      "kind": "dialogue",
+      "startMs": 5799051,
+      "endMs": 5803545
+    },
+    {
+      "index": 670,
+      "text": "Bingo! Watch out, there's a MiG to your right.",
+      "kind": "dialogue",
+      "startMs": 5808327,
+      "endMs": 5811922
+    },
+    {
+      "index": 671,
+      "text": "He's firing!",
+      "kind": "dialogue",
+      "startMs": 5812097,
+      "endMs": 5814930
+    },
+    {
+      "index": 672,
+      "text": "I'm hit. We're hit in the right engine. I'm shutting it down.",
+      "kind": "dialogue",
+      "startMs": 5815100,
+      "endMs": 5821369
+    },
+    {
+      "index": 673,
+      "text": "Coming in, Ice.",
+      "kind": "dialogue",
+      "startMs": 5826245,
+      "endMs": 5829772
+    },
+    {
+      "index": 674,
+      "text": "That bogey's still behind you. I'm manoeuvring for a shot.",
+      "kind": "dialogue",
+      "startMs": 5831617,
+      "endMs": 5836486
+    },
+    {
+      "index": 675,
+      "text": "Take the shot. I can't get a tone.",
+      "kind": "dialogue",
+      "startMs": 5836655,
+      "endMs": 5839749
+    },
+    {
+      "index": 676,
+      "text": "Shoot. I can't get him off my tail.",
+      "kind": "dialogue",
+      "startMs": 5839925,
+      "endMs": 5843224
+    },
+    {
+      "index": 677,
+      "text": "We're hit again. We're okay.",
+      "kind": "dialogue",
+      "startMs": 5846632,
+      "endMs": 5850159
+    },
+    {
+      "index": 678,
+      "text": "On the count of three, break hard right.",
+      "kind": "dialogue",
+      "startMs": 5850336,
+      "endMs": 5853203
+    },
+    {
+      "index": 679,
+      "text": "Three... two... one... break right!",
+      "kind": "dialogue",
+      "startMs": 5853372,
+      "endMs": 5857775
+    },
+    {
+      "index": 680,
+      "text": "Firing!",
+      "kind": "dialogue",
+      "startMs": 5860212,
+      "endMs": 5863511
+    },
+    {
+      "index": 681,
+      "text": "Damn it, I missed. Don't let him go.",
+      "kind": "dialogue",
+      "startMs": 5865751,
+      "endMs": 5869380
+    },
+    {
+      "index": 682,
+      "text": "I got him. Here comes the shot.",
+      "kind": "dialogue",
+      "startMs": 5869555,
+      "endMs": 5873651
+    },
+    {
+      "index": 683,
+      "text": "Strike three.",
+      "kind": "dialogue",
+      "startMs": 5879665,
+      "endMs": 5882828
+    },
+    {
+      "index": 684,
+      "text": "There's a MiG on your tail. We've only got one missile left.",
+      "kind": "dialogue",
+      "startMs": 5883002,
+      "endMs": 5887837
+    },
+    {
+      "index": 685,
+      "text": "110 miles, sir.",
+      "kind": "dialogue",
+      "startMs": 5888007,
+      "endMs": 5890874
+    },
+    {
+      "index": 686,
+      "text": "I got him. He's on our tail.",
+      "kind": "dialogue",
+      "startMs": 5891043,
+      "endMs": 5893807
+    },
+    {
+      "index": 687,
+      "text": "He's still with us.",
+      "kind": "dialogue",
+      "startMs": 5901153,
+      "endMs": 5905146
+    },
+    {
+      "index": 688,
+      "text": "You're slowing down. I'm bringing him in closer.",
+      "kind": "dialogue",
+      "startMs": 5907459,
+      "endMs": 5912419
+    },
+    {
+      "index": 689,
+      "text": "This is it. I'll hit the brakes. He'll fly right by us.",
+      "kind": "dialogue",
+      "startMs": 5917703,
+      "endMs": 5922333
+    },
+    {
+      "index": 690,
+      "text": "Now!",
+      "kind": "dialogue",
+      "startMs": 5926178,
+      "endMs": 5928578
+    },
+    {
+      "index": 691,
+      "text": "I've got a good lock. Firing.",
+      "kind": "dialogue",
+      "startMs": 5932484,
+      "endMs": 5935112
+    },
+    {
+      "index": 692,
+      "text": "Strike four!",
+      "kind": "dialogue",
+      "startMs": 5938724,
+      "endMs": 5941192
+    },
+    {
+      "index": 693,
+      "text": "This is Voodoo Three. Remaining MiGs are bugging out.",
+      "kind": "dialogue",
+      "startMs": 5944797,
+      "endMs": 5950258
+    },
+    {
+      "index": 694,
+      "text": "This is Maverick, requesting fly-by. Negative, the pattern is full.",
+      "kind": "dialogue",
+      "startMs": 5963515,
+      "endMs": 5969215
+    },
+    {
+      "index": 695,
+      "text": "Is there something I should know about?",
+      "kind": "dialogue",
+      "startMs": 5971824,
+      "endMs": 5974793
+    },
+    {
+      "index": 696,
+      "text": "Goddamn that guy.",
+      "kind": "dialogue",
+      "startMs": 5993245,
+      "endMs": 5996009
+    },
+    {
+      "index": 697,
+      "text": "You!",
+      "kind": "dialogue",
+      "startMs": 6050836,
+      "endMs": 6053999
+    },
+    {
+      "index": 698,
+      "text": "You are still dangerous.",
+      "kind": "dialogue",
+      "startMs": 6055274,
+      "endMs": 6059267
+    },
+    {
+      "index": 699,
+      "text": "But you can be my wingman anytime.",
+      "kind": "dialogue",
+      "startMs": 6061346,
+      "endMs": 6064782
+    },
+    {
+      "index": 700,
+      "text": "Bullshit. You can be mine.",
+      "kind": "dialogue",
+      "startMs": 6064950,
+      "endMs": 6069853
+    },
+    {
+      "index": 701,
+      "text": "Maverick? You're on the front pages of all the English-speaking world.",
+      "kind": "dialogue",
+      "startMs": 6120072,
+      "endMs": 6125374
+    },
+    {
+      "index": 702,
+      "text": "Even though the other side denies the incident, congratulations.",
+      "kind": "dialogue",
+      "startMs": 6125544,
+      "endMs": 6129537
+    },
+    {
+      "index": 703,
+      "text": "They gave you your choice of duty, son. Where do you think you want to go?",
+      "kind": "dialogue",
+      "startMs": 6129715,
+      "endMs": 6136211
+    },
+    {
+      "index": 704,
+      "text": "I thought of being an instructor, sir. Top Gun?",
+      "kind": "dialogue",
+      "startMs": 6136388,
+      "endMs": 6140984
+    },
+    {
+      "index": 705,
+      "text": "Yes, sir. God help us.",
+      "kind": "dialogue",
+      "startMs": 6141159,
+      "endMs": 6144788
+    },
+    {
+      "index": 706,
+      "text": "Hello, Pete Mitchell.",
+      "kind": "dialogue",
+      "startMs": 6225177,
+      "endMs": 6228237
+    },
+    {
+      "index": 707,
+      "text": "I heard the best of the best were gonna be back here, so...",
+      "kind": "dialogue",
+      "startMs": 6231350,
+      "endMs": 6237084
+    },
+    {
+      "index": 708,
+      "text": "This could be complicated.",
+      "kind": "dialogue",
+      "startMs": 6240759,
+      "endMs": 6244217
+    },
+    {
+      "index": 709,
+      "text": "You know, on the first one, I crashed and burned.",
+      "kind": "dialogue",
+      "startMs": 6244396,
+      "endMs": 6248696
+    },
+    {
+      "index": 710,
+      "text": "And the second?",
+      "kind": "dialogue",
+      "startMs": 6248867,
+      "endMs": 6253031
+    },
+    {
+      "index": 711,
+      "text": "I don't know.",
+      "kind": "dialogue",
+      "startMs": 6258610,
+      "endMs": 6262876
+    },
+    {
+      "index": 712,
+      "text": "But it's looking good so far.",
+      "kind": "dialogue",
+      "startMs": 6262948,
+      "endMs": 6267214
+    },
+    {
+      "index": 713,
+      "text": "Done by (c) dCd / May 2010",
+      "kind": "dialogue",
+      "startMs": 6561312,
+      "endMs": 6566301
+    }
+  ],
+  "meta": {
+    "year": 1986
+  }
+}
