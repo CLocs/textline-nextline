@@ -145,3 +145,31 @@ export async function fetchPopularStars(
     count: row.count,
   }));
 }
+
+export type GlobalPopularStar = {
+  titleId: string;
+  lineIndex: number;
+  count: number;
+};
+
+export async function fetchPopularStarsGlobal(
+  db: D1Database,
+  limit: number,
+): Promise<GlobalPopularStar[]> {
+  const result = await db
+    .prepare(
+      `SELECT title_id, line_index, COUNT(*) AS count
+       FROM stars
+       GROUP BY title_id, line_index
+       ORDER BY count DESC, title_id ASC, line_index ASC
+       LIMIT ?`,
+    )
+    .bind(limit)
+    .all<{ title_id: string; line_index: number; count: number }>();
+
+  return (result.results ?? []).map((row) => ({
+    titleId: row.title_id,
+    lineIndex: row.line_index,
+    count: row.count,
+  }));
+}

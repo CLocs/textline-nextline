@@ -27,9 +27,11 @@ type Props = {
   entry: CatalogEntry;
   onBack: () => void;
   onOpenParallel: (packId: string) => void;
+  /** Scroll / highlight this line when opening from global search. */
+  focusLineIndex?: number | null;
 };
 
-export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
+export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: Props) {
   const title = getTitle(entry.id);
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
   const [starredOnly, setStarredOnly] = useState(false);
@@ -40,10 +42,14 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   const [packName, setPackName] = useState("");
   const [packBusy, setPackBusy] = useState(false);
   const [packMsg, setPackMsg] = useState<string | null>(null);
+  const [highlightLine, setHighlightLine] = useState<number | null>(
+    typeof focusLineIndex === "number" ? focusLineIndex : null,
+  );
   /** Anchor for Shift+click range select (line index). */
   const packSelectAnchorRef = useRef<number | null>(null);
   /** Skip the change event that can follow a Shift+click we already handled. */
   const skipPackChangeRef = useRef(false);
+  const didFocusRef = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -131,10 +137,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   }, [showPreviousLines, entry.id]);
 
   useEffect(() => {
+    // Keep scroll position free for focusLineIndex jump from global search.
+    if (typeof focusLineIndex === "number" && !didFocusRef.current) return;
     const el = listRef.current;
     if (el) el.scrollTop = 0;
     setScrollTop(0);
-  }, [query, starredOnly, entry.id]);
+  }, [query, starredOnly, entry.id, focusLineIndex]);
 
   useEffect(() => {
     return () => {
@@ -162,6 +170,23 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
   const totalSize = offsets[filteredIndices.length] ?? 0;
   const windowRange = visibleWindow(offsets, scrollTop, viewportHeight, ROW_OVERSCAN);
   const visibleIndices = filteredIndices.slice(windowRange.start, windowRange.end);
+
+  useEffect(() => {
+    didFocusRef.current = false;
+    setHighlightLine(typeof focusLineIndex === "number" ? focusLineIndex : null);
+  }, [entry.id, focusLineIndex]);
+
+  useLayoutEffect(() => {
+    if (didFocusRef.current) return;
+    if (typeof focusLineIndex !== "number") return;
+    const pos = filteredIndices.indexOf(focusLineIndex);
+    if (pos < 0) return;
+    const top = offsets[pos] ?? 0;
+    const el = listRef.current;
+    if (el) el.scrollTop = top;
+    setScrollTop(top);
+    didFocusRef.current = true;
+  }, [focusLineIndex, filteredIndices, offsets]);
 
   async function handleToggle(lineIndex: number, text: string) {
     await toggleStar(entry.id, lineIndex, text);
@@ -365,6 +390,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
               const starred = starSets.starred.has(lineIndex);
               const loved = starSets.loved.has(lineIndex);
               const isSelected = selectedSet.has(lineIndex);
+              const isFocused = highlightLine === lineIndex;
               const rowIndex = windowRange.start + visibleOffset;
 
               return (
@@ -374,7 +400,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel }: Props) {
                   rowIndex={rowIndex}
                   setSize={filteredIndices.length}
                   offset={offsets[rowIndex] ?? 0}
-                  className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${isSelected ? " selected" : ""}`}
+                  className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${isSelected ? " selected" : ""}${isFocused ? " focused" : ""}`}
                   onHeight={handleRowHeight}
                 >
                   <div className="curate-controls">

@@ -28,6 +28,9 @@ export const DEFAULT_PROTECTED_TITLE_IDS = [
   "the-simpsons---4x02---a-streetcar-named-margeen",
   "star-wars-1977",
   "the-ministry-of-ungentlemanly-warfare-2024",
+  "friday-1995",
+  "the-simpsons---4x06---itchy-scratchy-the-movieen",
+  "oceans-eleven-2001",
 ];
 
 export function loadProtectedTitleIds(path: string): string[] {

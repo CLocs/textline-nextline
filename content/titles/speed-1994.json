@@ -1,0 +1,8181 @@
+{
+  "id": "speed-1994",
+  "title": "Speed (1994)",
+  "sourceFilename": "Speed.1994.eng.srt",
+  "importedAt": "2026-09-21T22:05:33.564Z",
+  "lineCount": 1167,
+  "lines": [
+    {
+      "index": 0,
+      "text": "Hey, this area's restricted.",
+      "kind": "dialogue",
+      "startMs": 235000,
+      "endMs": 237000
+    },
+    {
+      "index": 1,
+      "text": "Oh, hi. Yeah, I know. They called me down here.",
+      "kind": "dialogue",
+      "startMs": 237100,
+      "endMs": 239600
+    },
+    {
+      "index": 2,
+      "text": "Some of this wiring got screwed up.",
+      "kind": "dialogue",
+      "startMs": 239700,
+      "endMs": 241700
+    },
+    {
+      "index": 3,
+      "text": "Nobody called it down to me. I'm gonna have to see a work order.",
+      "kind": "dialogue",
+      "startMs": 241800,
+      "endMs": 244700
+    },
+    {
+      "index": 4,
+      "text": "Yeah. Just a second.",
+      "kind": "dialogue",
+      "startMs": 244800,
+      "endMs": 246700
+    },
+    {
+      "index": 5,
+      "text": "There you are.",
+      "kind": "dialogue",
+      "startMs": 250200,
+      "endMs": 252900
+    },
+    {
+      "index": 6,
+      "text": "Nothing personal.",
+      "kind": "dialogue",
+      "startMs": 253000,
+      "endMs": 256200
+    },
+    {
+      "index": 7,
+      "text": "I guess that wraps it up. Good work, everybody.",
+      "kind": "dialogue",
+      "startMs": 258800,
+      "endMs": 262100
+    },
+    {
+      "index": 8,
+      "text": "Marty, I couldn't be happier with the way this worked out.",
+      "kind": "dialogue",
+      "startMs": 262200,
+      "endMs": 266600
+    },
+    {
+      "index": 9,
+      "text": "Congratulations. Good for you.",
+      "kind": "dialogue",
+      "startMs": 270900,
+      "endMs": 273300
+    },
+    {
+      "index": 10,
+      "text": "Oh, hold that.",
+      "kind": "dialogue",
+      "startMs": 275400,
+      "endMs": 278200
+    },
+    {
+      "index": 11,
+      "text": "Whoa.",
+      "kind": "dialogue",
+      "startMs": 278300,
+      "endMs": 280600
+    },
+    {
+      "index": 12,
+      "text": "Gee, thanks.",
+      "kind": "dialogue",
+      "startMs": 280700,
+      "endMs": 283000
+    },
+    {
+      "index": 13,
+      "text": "Thanks for pushing that, Bob. The light's on.",
+      "kind": "dialogue",
+      "startMs": 290300,
+      "endMs": 293200
+    },
+    {
+      "index": 14,
+      "text": "But you never know. It really might be broken. Shut up.",
+      "kind": "dialogue",
+      "startMs": 293300,
+      "endMs": 297000
+    },
+    {
+      "index": 15,
+      "text": "So remember, honey...",
+      "kind": "dialogue",
+      "startMs": 311310,
+      "endMs": 314110
+    },
+    {
+      "index": 16,
+      "text": "No! Please!",
+      "kind": "dialogue",
+      "startMs": 335910,
+      "endMs": 339810
+    },
+    {
+      "index": 17,
+      "text": "Jesus. Bob, what button did you push?",
+      "kind": "dialogue",
+      "startMs": 352910,
+      "endMs": 356210
+    },
+    {
+      "index": 18,
+      "text": "Peter! Come on!",
+      "kind": "dialogue",
+      "startMs": 401020,
+      "endMs": 402920
+    },
+    {
+      "index": 19,
+      "text": "Mr. Bagwell, make sure these other elevators remain locked down and empty.",
+      "kind": "dialogue",
+      "startMs": 403020,
+      "endMs": 407120
+    },
+    {
+      "index": 20,
+      "text": "Yes, sir. Now, there's no other way, no doors... no other way in or out except through access panels.",
+      "kind": "dialogue",
+      "startMs": 407220,
+      "endMs": 411820
+    },
+    {
+      "index": 21,
+      "text": "Is that correct? Yes, sir.",
+      "kind": "dialogue",
+      "startMs": 411920,
+      "endMs": 413820
+    },
+    {
+      "index": 22,
+      "text": "What we have here are 13 passengers in an express elevator below floor 30.",
+      "kind": "dialogue",
+      "startMs": 413920,
+      "endMs": 418420
+    },
+    {
+      "index": 23,
+      "text": "Bomb's already taken out cables. Bomber wants $3 million, or he blows the emergency brakes.",
+      "kind": "dialogue",
+      "startMs": 418520,
+      "endMs": 423220
+    },
+    {
+      "index": 24,
+      "text": "What's our clock? He gave one hour.",
+      "kind": "dialogue",
+      "startMs": 423320,
+      "endMs": 426720
+    },
+    {
+      "index": 25,
+      "text": "That leaves 23 minutes exactly. Anything else that'll keep this elevator from falling?",
+      "kind": "dialogue",
+      "startMs": 426820,
+      "endMs": 431420
+    },
+    {
+      "index": 26,
+      "text": "The basement. The city would like to avoid that event, Officer Traven.",
+      "kind": "dialogue",
+      "startMs": 431520,
+      "endMs": 434520
+    },
+    {
+      "index": 27,
+      "text": "We can't just unload the passengers? This is an express elevator.",
+      "kind": "dialogue",
+      "startMs": 434620,
+      "endMs": 438520
+    },
+    {
+      "index": 28,
+      "text": "The only way in or out is through access panels.",
+      "kind": "dialogue",
+      "startMs": 438620,
+      "endMs": 440820
+    },
+    {
+      "index": 29,
+      "text": "The bomber's also wired the hatch to trigger the bomb, which seats him in the crazy but not stupid section.",
+      "kind": "dialogue",
+      "startMs": 440920,
+      "endMs": 446120
+    },
+    {
+      "index": 30,
+      "text": "Sir, Harry volunteers to examine the device.",
+      "kind": "dialogue",
+      "startMs": 446220,
+      "endMs": 448720
+    },
+    {
+      "index": 31,
+      "text": "Yeah, right.",
+      "kind": "dialogue",
+      "startMs": 448820,
+      "endMs": 450730
+    },
+    {
+      "index": 32,
+      "text": "Fine. The two of you check it out.",
+      "kind": "dialogue",
+      "startMs": 450830,
+      "endMs": 453530
+    },
+    {
+      "index": 33,
+      "text": "The nearest access panel's on the 32nd floor in the lobby.",
+      "kind": "dialogue",
+      "startMs": 453630,
+      "endMs": 456730
+    },
+    {
+      "index": 34,
+      "text": "I want reports only. We're in a holding pattern.",
+      "kind": "dialogue",
+      "startMs": 456830,
+      "endMs": 458730
+    },
+    {
+      "index": 35,
+      "text": "Worthy and Briggs, I want you to secure the base area. No one in or out.",
+      "kind": "dialogue",
+      "startMs": 458830,
+      "endMs": 461730
+    },
+    {
+      "index": 36,
+      "text": "Everyone else, I want you to affirm building evac. Move!",
+      "kind": "dialogue",
+      "startMs": 461830,
+      "endMs": 464430
+    },
+    {
+      "index": 37,
+      "text": "Looks like we're walkin'.",
+      "kind": "dialogue",
+      "startMs": 464530,
+      "endMs": 467430
+    },
+    {
+      "index": 38,
+      "text": "Hurry, folks, but watch your step. - Twenty-nine!",
+      "kind": "dialogue",
+      "startMs": 467530,
+      "endMs": 471030
+    },
+    {
+      "index": 39,
+      "text": "All the way down to the lobby! Let's go, folks!",
+      "kind": "dialogue",
+      "startMs": 471130,
+      "endMs": 474030
+    },
+    {
+      "index": 40,
+      "text": "Thirty!",
+      "kind": "dialogue",
+      "startMs": 474130,
+      "endMs": 477530
+    },
+    {
+      "index": 41,
+      "text": "Thirty-one!",
+      "kind": "dialogue",
+      "startMs": 477630,
+      "endMs": 479330
+    },
+    {
+      "index": 42,
+      "text": "Thirty-two.",
+      "kind": "dialogue",
+      "startMs": 482030,
+      "endMs": 484530
+    },
+    {
+      "index": 43,
+      "text": "Hello? What's going on?",
+      "kind": "dialogue",
+      "startMs": 504730,
+      "endMs": 506230
+    },
+    {
+      "index": 44,
+      "text": "Come on, man. Get us out of here! Hello?",
+      "kind": "dialogue",
+      "startMs": 506330,
+      "endMs": 509230
+    },
+    {
+      "index": 45,
+      "text": "What's that? Hello!",
+      "kind": "dialogue",
+      "startMs": 509330,
+      "endMs": 511930
+    },
+    {
+      "index": 46,
+      "text": "Please help us!",
+      "kind": "dialogue",
+      "startMs": 514130,
+      "endMs": 517730
+    },
+    {
+      "index": 47,
+      "text": "Help! Please! Get us out of here!",
+      "kind": "dialogue",
+      "startMs": 544140,
+      "endMs": 548440
+    },
+    {
+      "index": 48,
+      "text": "Please!",
+      "kind": "dialogue",
+      "startMs": 548540,
+      "endMs": 550640
+    },
+    {
+      "index": 49,
+      "text": "Please, get us out of here!",
+      "kind": "dialogue",
+      "startMs": 573040,
+      "endMs": 576040
+    },
+    {
+      "index": 50,
+      "text": "Who's up there?",
+      "kind": "dialogue",
+      "startMs": 577740,
+      "endMs": 580040
+    },
+    {
+      "index": 51,
+      "text": "Who's up there? What's going on?",
+      "kind": "dialogue",
+      "startMs": 580140,
+      "endMs": 582840
+    },
+    {
+      "index": 52,
+      "text": "Ladies and gentlemen, this is the L.A.P.D.",
+      "kind": "dialogue",
+      "startMs": 582940,
+      "endMs": 586040
+    },
+    {
+      "index": 53,
+      "text": "Thank God! What are you doing up there?",
+      "kind": "dialogue",
+      "startMs": 586140,
+      "endMs": 588140
+    },
+    {
+      "index": 54,
+      "text": "There has been an elevator malfunction, so just relax.",
+      "kind": "dialogue",
+      "startMs": 588240,
+      "endMs": 592650
+    },
+    {
+      "index": 55,
+      "text": "Hey, come on! What are you guys waiting for?",
+      "kind": "dialogue",
+      "startMs": 592750,
+      "endMs": 596650
+    },
+    {
+      "index": 56,
+      "text": "We'll have you out of there as soon as possible.",
+      "kind": "dialogue",
+      "startMs": 596750,
+      "endMs": 599050
+    },
+    {
+      "index": 57,
+      "text": "Am I lying?",
+      "kind": "dialogue",
+      "startMs": 599150,
+      "endMs": 601050
+    },
+    {
+      "index": 58,
+      "text": "How come they sent cops here?",
+      "kind": "dialogue",
+      "startMs": 602350,
+      "endMs": 604350
+    },
+    {
+      "index": 59,
+      "text": "Shouldn't they send repair guys?",
+      "kind": "dialogue",
+      "startMs": 604550,
+      "endMs": 606750
+    },
+    {
+      "index": 60,
+      "text": "Yeah. Doesn't make any sense.",
+      "kind": "dialogue",
+      "startMs": 606850,
+      "endMs": 609850
+    },
+    {
+      "index": 61,
+      "text": "What do you think?",
+      "kind": "dialogue",
+      "startMs": 613650,
+      "endMs": 616350
+    },
+    {
+      "index": 62,
+      "text": "You're the expert. I just work here. Looks pretty solid.",
+      "kind": "dialogue",
+      "startMs": 618250,
+      "endMs": 622050
+    },
+    {
+      "index": 63,
+      "text": "Anyone we know? I don't recognize the work, but he's a pro.",
+      "kind": "dialogue",
+      "startMs": 622150,
+      "endMs": 626850
+    },
+    {
+      "index": 64,
+      "text": "Oh, he's cuttin' it close.",
+      "kind": "dialogue",
+      "startMs": 626950,
+      "endMs": 629250
+    },
+    {
+      "index": 65,
+      "text": "I don't like it.",
+      "kind": "dialogue",
+      "startMs": 629350,
+      "endMs": 631250
+    },
+    {
+      "index": 66,
+      "text": "Yeah, well, what's to like? Mac said we hold, so we hold.",
+      "kind": "dialogue",
+      "startMs": 631350,
+      "endMs": 634250
+    },
+    {
+      "index": 67,
+      "text": "All right, pop quiz. The airport.",
+      "kind": "dialogue",
+      "startMs": 643550,
+      "endMs": 647050
+    },
+    {
+      "index": 68,
+      "text": "Gunman with one hostage. He's usin' her for cover.",
+      "kind": "dialogue",
+      "startMs": 647150,
+      "endMs": 649550
+    },
+    {
+      "index": 69,
+      "text": "He's almost to a plane. You're a hundred feet away.",
+      "kind": "dialogue",
+      "startMs": 649650,
+      "endMs": 654250
+    },
+    {
+      "index": 70,
+      "text": "Jack.",
+      "kind": "dialogue",
+      "startMs": 659050,
+      "endMs": 661850
+    },
+    {
+      "index": 71,
+      "text": "Shoot the hostage.",
+      "kind": "dialogue",
+      "startMs": 661950,
+      "endMs": 663860
+    },
+    {
+      "index": 72,
+      "text": "What?",
+      "kind": "dialogue",
+      "startMs": 663960,
+      "endMs": 665860
+    },
+    {
+      "index": 73,
+      "text": "Take her out of the equation.",
+      "kind": "dialogue",
+      "startMs": 665960,
+      "endMs": 667960
+    },
+    {
+      "index": 74,
+      "text": "Go for the good wound, and he can't get to the plane with her.",
+      "kind": "dialogue",
+      "startMs": 668060,
+      "endMs": 671260
+    },
+    {
+      "index": 75,
+      "text": "Clear shot. You're deeply nuts. You know that?",
+      "kind": "dialogue",
+      "startMs": 671360,
+      "endMs": 674060
+    },
+    {
+      "index": 76,
+      "text": "\"Shoot the hostage. \" Geez.",
+      "kind": "dialogue",
+      "startMs": 674160,
+      "endMs": 677060
+    },
+    {
+      "index": 77,
+      "text": "Harry, this is wrong. He's gonna blow it anyway.",
+      "kind": "dialogue",
+      "startMs": 679160,
+      "endMs": 683660
+    },
+    {
+      "index": 78,
+      "text": "Why?",
+      "kind": "dialogue",
+      "startMs": 683760,
+      "endMs": 685660
+    },
+    {
+      "index": 79,
+      "text": "I don't know. Gut feeling.",
+      "kind": "dialogue",
+      "startMs": 685760,
+      "endMs": 687860
+    },
+    {
+      "index": 80,
+      "text": "Well, right now Mac outranks your gut, so we sit.",
+      "kind": "dialogue",
+      "startMs": 687960,
+      "endMs": 691160
+    },
+    {
+      "index": 81,
+      "text": "This is taking way too long.",
+      "kind": "dialogue",
+      "startMs": 691260,
+      "endMs": 693760
+    },
+    {
+      "index": 82,
+      "text": "How much you think that elevator weighs?",
+      "kind": "dialogue",
+      "startMs": 695160,
+      "endMs": 697960
+    },
+    {
+      "index": 83,
+      "text": "Jack, come on.",
+      "kind": "dialogue",
+      "startMs": 698060,
+      "endMs": 700360
+    },
+    {
+      "index": 84,
+      "text": "Maybe we can do something about those hostages.",
+      "kind": "dialogue",
+      "startMs": 702160,
+      "endMs": 704560
+    },
+    {
+      "index": 85,
+      "text": "We're not gonna shoot 'em, right?",
+      "kind": "dialogue",
+      "startMs": 706360,
+      "endMs": 708560
+    },
+    {
+      "index": 86,
+      "text": "Hey, where are you going? What's going on?",
+      "kind": "dialogue",
+      "startMs": 710160,
+      "endMs": 713260
+    },
+    {
+      "index": 87,
+      "text": "Don't go! Don't leave us here!",
+      "kind": "dialogue",
+      "startMs": 714960,
+      "endMs": 718860
+    },
+    {
+      "index": 88,
+      "text": "No, we just take them out of the equation.",
+      "kind": "dialogue",
+      "startMs": 732060,
+      "endMs": 734970
+    },
+    {
+      "index": 89,
+      "text": "You sure it'll hold? It'll hold.",
+      "kind": "dialogue",
+      "startMs": 768170,
+      "endMs": 772270
+    },
+    {
+      "index": 90,
+      "text": "Six minutes.",
+      "kind": "dialogue",
+      "startMs": 773670,
+      "endMs": 775670
+    },
+    {
+      "index": 91,
+      "text": "I can't get any more time. He's not talkin'!",
+      "kind": "dialogue",
+      "startMs": 775770,
+      "endMs": 778770
+    },
+    {
+      "index": 92,
+      "text": "I need the goddamn money now!",
+      "kind": "dialogue",
+      "startMs": 778870,
+      "endMs": 781470
+    },
+    {
+      "index": 93,
+      "text": "Tell me again, Harry. Why did I take this job?",
+      "kind": "dialogue",
+      "startMs": 791670,
+      "endMs": 794670
+    },
+    {
+      "index": 94,
+      "text": "Aw, come on. Thirty more years of this, you get a tiny pension and a cheap gold watch.",
+      "kind": "dialogue",
+      "startMs": 794770,
+      "endMs": 799170
+    },
+    {
+      "index": 95,
+      "text": "Cool. Whoa!",
+      "kind": "dialogue",
+      "startMs": 799270,
+      "endMs": 802570
+    },
+    {
+      "index": 96,
+      "text": "God, it's hot in here. There's no air.",
+      "kind": "dialogue",
+      "startMs": 832980,
+      "endMs": 836380
+    },
+    {
+      "index": 97,
+      "text": "Can't they just pry the doors open? I can't breathe.",
+      "kind": "dialogue",
+      "startMs": 836480,
+      "endMs": 839680
+    },
+    {
+      "index": 98,
+      "text": "Don't fuck with Daddy.",
+      "kind": "dialogue",
+      "startMs": 844980,
+      "endMs": 847380
+    },
+    {
+      "index": 99,
+      "text": "Oh, my God! Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 859780,
+      "endMs": 862380
+    },
+    {
+      "index": 100,
+      "text": "Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 869380,
+      "endMs": 871980
+    },
+    {
+      "index": 101,
+      "text": "Oh, my God! What's happening? Grab her hand!",
+      "kind": "dialogue",
+      "startMs": 876890,
+      "endMs": 879790
+    },
+    {
+      "index": 102,
+      "text": "Usually they fall down now.",
+      "kind": "dialogue",
+      "startMs": 879890,
+      "endMs": 883690
+    },
+    {
+      "index": 103,
+      "text": "Get her up!",
+      "kind": "dialogue",
+      "startMs": 889990,
+      "endMs": 891890
+    },
+    {
+      "index": 104,
+      "text": "He's early. The son of a bitch is early.",
+      "kind": "dialogue",
+      "startMs": 891990,
+      "endMs": 895390
+    },
+    {
+      "index": 105,
+      "text": "Mac, we need more help up here now!",
+      "kind": "dialogue",
+      "startMs": 914590,
+      "endMs": 917890
+    },
+    {
+      "index": 106,
+      "text": "Oh, please open the door! I don't wanna die! Please!",
+      "kind": "dialogue",
+      "startMs": 917990,
+      "endMs": 922890
+    },
+    {
+      "index": 107,
+      "text": "Save me! I wanna get out! Open the door!",
+      "kind": "dialogue",
+      "startMs": 932090,
+      "endMs": 935190
+    },
+    {
+      "index": 108,
+      "text": "Please help me! Joan, get back! We'll get you out!",
+      "kind": "dialogue",
+      "startMs": 935290,
+      "endMs": 939290
+    },
+    {
+      "index": 109,
+      "text": "Give me your hands!",
+      "kind": "dialogue",
+      "startMs": 939390,
+      "endMs": 941490
+    },
+    {
+      "index": 110,
+      "text": "It's okay. Give me your hands. Pull me through!",
+      "kind": "dialogue",
+      "startMs": 941590,
+      "endMs": 944490
+    },
+    {
+      "index": 111,
+      "text": "Oh, God! Watch your head. Watch your head.",
+      "kind": "dialogue",
+      "startMs": 951400,
+      "endMs": 954400
+    },
+    {
+      "index": 112,
+      "text": "Help me! Okay, I've got you. I've got you.",
+      "kind": "dialogue",
+      "startMs": 954500,
+      "endMs": 957200
+    },
+    {
+      "index": 113,
+      "text": "Take it easy! You're fine.",
+      "kind": "dialogue",
+      "startMs": 957300,
+      "endMs": 959300
+    },
+    {
+      "index": 114,
+      "text": "Oh, thank you! You're fine.",
+      "kind": "dialogue",
+      "startMs": 959400,
+      "endMs": 961200
+    },
+    {
+      "index": 115,
+      "text": "Take her. Okay, let's go! Next! Okay, lady, come on.",
+      "kind": "dialogue",
+      "startMs": 961300,
+      "endMs": 963900
+    },
+    {
+      "index": 116,
+      "text": "Thank you. Oh. I've got you, ma'am.",
+      "kind": "dialogue",
+      "startMs": 966300,
+      "endMs": 969300
+    },
+    {
+      "index": 117,
+      "text": "Just move back, please.",
+      "kind": "dialogue",
+      "startMs": 971600,
+      "endMs": 974800
+    },
+    {
+      "index": 118,
+      "text": "What the hell is all this?",
+      "kind": "dialogue",
+      "startMs": 974900,
+      "endMs": 978300
+    },
+    {
+      "index": 119,
+      "text": "Help us! Hurry!",
+      "kind": "dialogue",
+      "startMs": 978400,
+      "endMs": 981300
+    },
+    {
+      "index": 120,
+      "text": "Hurry! Hurry! Let's go! Go! Go! Let's go!",
+      "kind": "dialogue",
+      "startMs": 981400,
+      "endMs": 986100
+    },
+    {
+      "index": 121,
+      "text": "Let's go! Let's go! Come on! Come on!",
+      "kind": "dialogue",
+      "startMs": 986200,
+      "endMs": 989400
+    },
+    {
+      "index": 122,
+      "text": "Oh, my God! Oh, my God! Come on.",
+      "kind": "dialogue",
+      "startMs": 991900,
+      "endMs": 995500
+    },
+    {
+      "index": 123,
+      "text": "Help me out! Please help me out! Watch your head.",
+      "kind": "dialogue",
+      "startMs": 995600,
+      "endMs": 997900
+    },
+    {
+      "index": 124,
+      "text": "Come on, lady! Come on! No.",
+      "kind": "dialogue",
+      "startMs": 1000000,
+      "endMs": 1002500
+    },
+    {
+      "index": 125,
+      "text": "Come on, lady! Come on! Grab my hand! Come on!",
+      "kind": "dialogue",
+      "startMs": 1002700,
+      "endMs": 1006200
+    },
+    {
+      "index": 126,
+      "text": "Go! - There's one more. Can you get her out?",
+      "kind": "dialogue",
+      "startMs": 1006400,
+      "endMs": 1009800
+    },
+    {
+      "index": 127,
+      "text": "Come on. Come on, let's go!",
+      "kind": "dialogue",
+      "startMs": 1009900,
+      "endMs": 1011900
+    },
+    {
+      "index": 128,
+      "text": "No. No, I can't! It's going to fall.",
+      "kind": "dialogue",
+      "startMs": 1012000,
+      "endMs": 1014600
+    },
+    {
+      "index": 129,
+      "text": "Just take one step, reach out and take my hand.",
+      "kind": "dialogue",
+      "startMs": 1014700,
+      "endMs": 1017700
+    },
+    {
+      "index": 130,
+      "text": "Come on! Hurry!",
+      "kind": "dialogue",
+      "startMs": 1017800,
+      "endMs": 1019710
+    },
+    {
+      "index": 131,
+      "text": "Come on!",
+      "kind": "dialogue",
+      "startMs": 1019810,
+      "endMs": 1022210
+    },
+    {
+      "index": 132,
+      "text": "Oh, God! Don't let go of me!",
+      "kind": "dialogue",
+      "startMs": 1022310,
+      "endMs": 1027110
+    },
+    {
+      "index": 133,
+      "text": "You're okay.",
+      "kind": "dialogue",
+      "startMs": 1027210,
+      "endMs": 1030310
+    },
+    {
+      "index": 134,
+      "text": "Great God! Oh, my shoe!",
+      "kind": "dialogue",
+      "startMs": 1041610,
+      "endMs": 1045510
+    },
+    {
+      "index": 135,
+      "text": "Let's go, let's go!",
+      "kind": "dialogue",
+      "startMs": 1045610,
+      "endMs": 1048010
+    },
+    {
+      "index": 136,
+      "text": "Was it good for you?",
+      "kind": "dialogue",
+      "startMs": 1048110,
+      "endMs": 1050210
+    },
+    {
+      "index": 137,
+      "text": "Oh, it was great for me. How was it for you, honey?",
+      "kind": "dialogue",
+      "startMs": 1050310,
+      "endMs": 1053210
+    },
+    {
+      "index": 138,
+      "text": "Elevator dropped. Oh, good. That's good to know.",
+      "kind": "dialogue",
+      "startMs": 1053310,
+      "endMs": 1056410
+    },
+    {
+      "index": 139,
+      "text": "Is your watch slow? Uh-uh. No, no. He jumped the gun.",
+      "kind": "dialogue",
+      "startMs": 1062610,
+      "endMs": 1065510
+    },
+    {
+      "index": 140,
+      "text": "We had three minutes left. Why does he do that?",
+      "kind": "dialogue",
+      "startMs": 1065610,
+      "endMs": 1069210
+    },
+    {
+      "index": 141,
+      "text": "He's losing his three million.",
+      "kind": "dialogue",
+      "startMs": 1069410,
+      "endMs": 1071310
+    },
+    {
+      "index": 142,
+      "text": "I don't know. Maybe he couldn't hold his wad long enough.",
+      "kind": "dialogue",
+      "startMs": 1071410,
+      "endMs": 1073910
+    },
+    {
+      "index": 143,
+      "text": "It's a common problem among middle-aged men. So I'm told.",
+      "kind": "dialogue",
+      "startMs": 1074010,
+      "endMs": 1078410
+    },
+    {
+      "index": 144,
+      "text": "He's here.",
+      "kind": "dialogue",
+      "startMs": 1083310,
+      "endMs": 1085210
+    },
+    {
+      "index": 145,
+      "text": "He could've blown that thing from Pacoima.",
+      "kind": "dialogue",
+      "startMs": 1085310,
+      "endMs": 1088110
+    },
+    {
+      "index": 146,
+      "text": "No. He knew we were up to something. He's close by.",
+      "kind": "dialogue",
+      "startMs": 1088210,
+      "endMs": 1093120
+    },
+    {
+      "index": 147,
+      "text": "He's not gonna corner himself in a building.",
+      "kind": "dialogue",
+      "startMs": 1093220,
+      "endMs": 1095420
+    },
+    {
+      "index": 148,
+      "text": "We evacuated anyway. Come on.",
+      "kind": "dialogue",
+      "startMs": 1095520,
+      "endMs": 1098120
+    },
+    {
+      "index": 149,
+      "text": "All right. He'd want to be here, but he'd want to stay mobile, right?",
+      "kind": "dialogue",
+      "startMs": 1104020,
+      "endMs": 1109420
+    },
+    {
+      "index": 150,
+      "text": "The elevators.",
+      "kind": "dialogue",
+      "startMs": 1112720,
+      "endMs": 1114620
+    },
+    {
+      "index": 151,
+      "text": "The passenger cars were stopped. They checked them out.",
+      "kind": "dialogue",
+      "startMs": 1114720,
+      "endMs": 1117320
+    },
+    {
+      "index": 152,
+      "text": "What about the freight elevators?",
+      "kind": "dialogue",
+      "startMs": 1117420,
+      "endMs": 1120520
+    },
+    {
+      "index": 153,
+      "text": "Will the mystery guest please sign in?",
+      "kind": "dialogue",
+      "startMs": 1143720,
+      "endMs": 1146620
+    },
+    {
+      "index": 154,
+      "text": "What?",
+      "kind": "dialogue",
+      "startMs": 1146720,
+      "endMs": 1148720
+    },
+    {
+      "index": 155,
+      "text": "Jack. Damn it!",
+      "kind": "dialogue",
+      "startMs": 1150120,
+      "endMs": 1153520
+    },
+    {
+      "index": 156,
+      "text": "Get to the floor!",
+      "kind": "dialogue",
+      "startMs": 1194730,
+      "endMs": 1196630
+    },
+    {
+      "index": 157,
+      "text": "Shit! Shit! Shit!",
+      "kind": "dialogue",
+      "startMs": 1212230,
+      "endMs": 1215930
+    },
+    {
+      "index": 158,
+      "text": "Up! Get your ass up!",
+      "kind": "dialogue",
+      "startMs": 1217430,
+      "endMs": 1219530
+    },
+    {
+      "index": 159,
+      "text": "I don't suppose anybody'll give me three million just for you.",
+      "kind": "dialogue",
+      "startMs": 1262540,
+      "endMs": 1267740
+    },
+    {
+      "index": 160,
+      "text": "Hold it!",
+      "kind": "dialogue",
+      "startMs": 1273240,
+      "endMs": 1275640
+    },
+    {
+      "index": 161,
+      "text": "Pop quiz, hot shot. Terrorist holding a police hostage.",
+      "kind": "dialogue",
+      "startMs": 1275740,
+      "endMs": 1280540
+    },
+    {
+      "index": 162,
+      "text": "Got enough dynamite strapped to his chest to blow a building in half.",
+      "kind": "dialogue",
+      "startMs": 1280640,
+      "endMs": 1284140
+    },
+    {
+      "index": 163,
+      "text": "Now, what do you do?",
+      "kind": "dialogue",
+      "startMs": 1284240,
+      "endMs": 1286140
+    },
+    {
+      "index": 164,
+      "text": "There's gonna be 50 cops waiting for you in the basement.",
+      "kind": "dialogue",
+      "startMs": 1286240,
+      "endMs": 1289040
+    },
+    {
+      "index": 165,
+      "text": "Oh, standard flanking deployment, right?",
+      "kind": "dialogue",
+      "startMs": 1289140,
+      "endMs": 1291940
+    },
+    {
+      "index": 166,
+      "text": "Well, maybe we'll get off on the third floor, huh?",
+      "kind": "dialogue",
+      "startMs": 1292040,
+      "endMs": 1294440
+    },
+    {
+      "index": 167,
+      "text": "At least that's what they'll think.",
+      "kind": "dialogue",
+      "startMs": 1297140,
+      "endMs": 1299440
+    },
+    {
+      "index": 168,
+      "text": "I want location of those goddamn shots!",
+      "kind": "dialogue",
+      "startMs": 1299540,
+      "endMs": 1301840
+    },
+    {
+      "index": 169,
+      "text": "Briggs, where's Jack and Harry?",
+      "kind": "dialogue",
+      "startMs": 1301940,
+      "endMs": 1303840
+    },
+    {
+      "index": 170,
+      "text": "Lieutenant, we've got movement on the freight elevator.",
+      "kind": "dialogue",
+      "startMs": 1303940,
+      "endMs": 1306750
+    },
+    {
+      "index": 171,
+      "text": "It's on three. Let's move!",
+      "kind": "dialogue",
+      "startMs": 1313450,
+      "endMs": 1315650
+    },
+    {
+      "index": 172,
+      "text": "End of the line. This day has been real disappointing, I don't mind saying.",
+      "kind": "dialogue",
+      "startMs": 1318950,
+      "endMs": 1323850
+    },
+    {
+      "index": 173,
+      "text": "Why, because you didn't get to kill everyone?",
+      "kind": "dialogue",
+      "startMs": 1323950,
+      "endMs": 1326350
+    },
+    {
+      "index": 174,
+      "text": "There will come a time, boy, when you'll wish you'd never met me.",
+      "kind": "dialogue",
+      "startMs": 1326450,
+      "endMs": 1329050
+    },
+    {
+      "index": 175,
+      "text": "Mister, I'm already there.",
+      "kind": "dialogue",
+      "startMs": 1329150,
+      "endMs": 1331450
+    },
+    {
+      "index": 176,
+      "text": "But, you see, I'm in charge here. I drop this stick, huh, and they pick your friend up with a sponge.",
+      "kind": "dialogue",
+      "startMs": 1331550,
+      "endMs": 1337850
+    },
+    {
+      "index": 177,
+      "text": "Are you ready to die, friend? Fuck you.",
+      "kind": "dialogue",
+      "startMs": 1337950,
+      "endMs": 1341350
+    },
+    {
+      "index": 178,
+      "text": "Oh! In 200 years, we've come from...",
+      "kind": "dialogue",
+      "startMs": 1341450,
+      "endMs": 1344250
+    },
+    {
+      "index": 179,
+      "text": "\"I regret but I have one life to give for my country\" to \"Fuck you\"?",
+      "kind": "dialogue",
+      "startMs": 1344350,
+      "endMs": 1348250
+    },
+    {
+      "index": 180,
+      "text": "Go ahead, drop the stick. Do it. Shut up, Harry.",
+      "kind": "dialogue",
+      "startMs": 1348350,
+      "endMs": 1351450
+    },
+    {
+      "index": 181,
+      "text": "Aw, we've got all the balls in the world right here, man!",
+      "kind": "dialogue",
+      "startMs": 1351550,
+      "endMs": 1354750
+    },
+    {
+      "index": 182,
+      "text": "Give it up! You got nowhere to go!",
+      "kind": "dialogue",
+      "startMs": 1354850,
+      "endMs": 1356950
+    },
+    {
+      "index": 183,
+      "text": "Shoot the hostage.",
+      "kind": "dialogue",
+      "startMs": 1357050,
+      "endMs": 1359650
+    },
+    {
+      "index": 184,
+      "text": "Say good-bye, Harry.",
+      "kind": "dialogue",
+      "startMs": 1361050,
+      "endMs": 1364050
+    },
+    {
+      "index": 185,
+      "text": "You fuck!",
+      "kind": "dialogue",
+      "startMs": 1368850,
+      "endMs": 1370750
+    },
+    {
+      "index": 186,
+      "text": "Freeze!",
+      "kind": "dialogue",
+      "startMs": 1373450,
+      "endMs": 1376260
+    },
+    {
+      "index": 187,
+      "text": "Freeze! Give it up! You're out of options!",
+      "kind": "dialogue",
+      "startMs": 1376360,
+      "endMs": 1379960
+    },
+    {
+      "index": 188,
+      "text": "Through dedication and bravery, these next two officers... effected the rescue of 13 citizens of this city.",
+      "kind": "dialogue",
+      "startMs": 1404060,
+      "endMs": 1411460
+    },
+    {
+      "index": 189,
+      "text": "Thanks to them, the only life taken by the terrorist's bomb was his own.",
+      "kind": "dialogue",
+      "startMs": 1411560,
+      "endMs": 1416060
+    },
+    {
+      "index": 190,
+      "text": "You shot me. I can't believe it.",
+      "kind": "dialogue",
+      "startMs": 1416160,
+      "endMs": 1419060
+    },
+    {
+      "index": 191,
+      "text": "They're giving you a medal for shooting me, you little prick.",
+      "kind": "dialogue",
+      "startMs": 1419160,
+      "endMs": 1422360
+    },
+    {
+      "index": 192,
+      "text": "Harry, you told me to.",
+      "kind": "dialogue",
+      "startMs": 1422460,
+      "endMs": 1426160
+    },
+    {
+      "index": 193,
+      "text": "The Medal of Valor is the highest honor for a member of Los Angeles Police Department.",
+      "kind": "dialogue",
+      "startMs": 1426260,
+      "endMs": 1430260
+    },
+    {
+      "index": 194,
+      "text": "Officer Harry Temple.",
+      "kind": "dialogue",
+      "startMs": 1430360,
+      "endMs": 1432560
+    },
+    {
+      "index": 195,
+      "text": "Congratulations.",
+      "kind": "dialogue",
+      "startMs": 1441660,
+      "endMs": 1443560
+    },
+    {
+      "index": 196,
+      "text": "Officer Jack Traven.",
+      "kind": "dialogue",
+      "startMs": 1447160,
+      "endMs": 1449070
+    },
+    {
+      "index": 197,
+      "text": "Way to go, Jack. Way to go.",
+      "kind": "dialogue",
+      "startMs": 1466570,
+      "endMs": 1469070
+    },
+    {
+      "index": 198,
+      "text": "There we go. There we go. Harry, my man.",
+      "kind": "dialogue",
+      "startMs": 1469270,
+      "endMs": 1472270
+    },
+    {
+      "index": 199,
+      "text": "Oh, beautiful. A toast to me.",
+      "kind": "dialogue",
+      "startMs": 1472470,
+      "endMs": 1474370
+    },
+    {
+      "index": 200,
+      "text": "Make me feel good about myself. There you go.",
+      "kind": "dialogue",
+      "startMs": 1474470,
+      "endMs": 1476370
+    },
+    {
+      "index": 201,
+      "text": "Hey, Sandy! Here we go! Okay, so how we do...",
+      "kind": "dialogue",
+      "startMs": 1476470,
+      "endMs": 1480370
+    },
+    {
+      "index": 202,
+      "text": "Oh, whoa, whoa, whoa!",
+      "kind": "dialogue",
+      "startMs": 1480470,
+      "endMs": 1482470
+    },
+    {
+      "index": 203,
+      "text": "I need a bib!",
+      "kind": "dialogue",
+      "startMs": 1482570,
+      "endMs": 1484570
+    },
+    {
+      "index": 204,
+      "text": "Here we go. All right.",
+      "kind": "dialogue",
+      "startMs": 1484670,
+      "endMs": 1487570
+    },
+    {
+      "index": 205,
+      "text": "You can't take me anywhere. That's mine.",
+      "kind": "dialogue",
+      "startMs": 1487670,
+      "endMs": 1490470
+    },
+    {
+      "index": 206,
+      "text": "And here is to Harry.",
+      "kind": "dialogue",
+      "startMs": 1490570,
+      "endMs": 1493070
+    },
+    {
+      "index": 207,
+      "text": "For his quick thinking, for his grace under pressure... and for his brave and selfless act.",
+      "kind": "dialogue",
+      "startMs": 1493170,
+      "endMs": 1501470
+    },
+    {
+      "index": 208,
+      "text": "Hear, hear! Hear, hear!",
+      "kind": "dialogue",
+      "startMs": 1501570,
+      "endMs": 1504870
+    },
+    {
+      "index": 209,
+      "text": "And to Jack... for shooting Harry.",
+      "kind": "dialogue",
+      "startMs": 1504970,
+      "endMs": 1508970
+    },
+    {
+      "index": 210,
+      "text": "Something we've all wanted to do for a very long time.",
+      "kind": "dialogue",
+      "startMs": 1509070,
+      "endMs": 1512970
+    },
+    {
+      "index": 211,
+      "text": "Hey, hey, hey!",
+      "kind": "dialogue",
+      "startMs": 1513070,
+      "endMs": 1515270
+    },
+    {
+      "index": 212,
+      "text": "Okay, no, no. Here it is. Here it is.",
+      "kind": "dialogue",
+      "startMs": 1515370,
+      "endMs": 1517870
+    },
+    {
+      "index": 213,
+      "text": "Here's to you guys for doing your job and for not getting dead.",
+      "kind": "dialogue",
+      "startMs": 1517970,
+      "endMs": 1522480
+    },
+    {
+      "index": 214,
+      "text": "Mazel tov. Mazel tov.",
+      "kind": "dialogue",
+      "startMs": 1522580,
+      "endMs": 1525380
+    },
+    {
+      "index": 215,
+      "text": "I can't do that.",
+      "kind": "dialogue",
+      "startMs": 1532680,
+      "endMs": 1534680
+    },
+    {
+      "index": 216,
+      "text": "We are the two luckiest guys in the world, you know that?",
+      "kind": "dialogue",
+      "startMs": 1534780,
+      "endMs": 1537380
+    },
+    {
+      "index": 217,
+      "text": "We got the bad guy, and we didn't lose any civilians. Yeah, we're good.",
+      "kind": "dialogue",
+      "startMs": 1537580,
+      "endMs": 1541180
+    },
+    {
+      "index": 218,
+      "text": "No, you were lucky. No, we were lucky.",
+      "kind": "dialogue",
+      "startMs": 1541280,
+      "endMs": 1544180
+    },
+    {
+      "index": 219,
+      "text": "You'd better understand it. We were dealing with a total psycho.",
+      "kind": "dialogue",
+      "startMs": 1544280,
+      "endMs": 1548980
+    },
+    {
+      "index": 220,
+      "text": "This guy could've blown us up at any time. Whew.",
+      "kind": "dialogue",
+      "startMs": 1549080,
+      "endMs": 1553180
+    },
+    {
+      "index": 221,
+      "text": "And I got a bullet in me.",
+      "kind": "dialogue",
+      "startMs": 1553280,
+      "endMs": 1555580
+    },
+    {
+      "index": 222,
+      "text": "Six inches off the mark, and they're giving the medal to my wife.",
+      "kind": "dialogue",
+      "startMs": 1555680,
+      "endMs": 1560180
+    },
+    {
+      "index": 223,
+      "text": "Harry, come on, man. I mean, we won, we got him.",
+      "kind": "dialogue",
+      "startMs": 1560280,
+      "endMs": 1563880
+    },
+    {
+      "index": 224,
+      "text": "Do you listen? Do you ever...",
+      "kind": "dialogue",
+      "startMs": 1563980,
+      "endMs": 1566880
+    },
+    {
+      "index": 225,
+      "text": "Because I am not gonna be around to back you up, so you'd better start thinking.",
+      "kind": "dialogue",
+      "startMs": 1566980,
+      "endMs": 1572880
+    },
+    {
+      "index": 226,
+      "text": "Guts will get you so far, and then they'll get you killed.",
+      "kind": "dialogue",
+      "startMs": 1572980,
+      "endMs": 1576680
+    },
+    {
+      "index": 227,
+      "text": "Luck runs out, sooner or later.",
+      "kind": "dialogue",
+      "startMs": 1580580,
+      "endMs": 1582680
+    },
+    {
+      "index": 228,
+      "text": "Right, chief? That's right.",
+      "kind": "dialogue",
+      "startMs": 1582780,
+      "endMs": 1585180
+    },
+    {
+      "index": 229,
+      "text": "Ho! I'm all right. I'm all right.",
+      "kind": "dialogue",
+      "startMs": 1586880,
+      "endMs": 1589880
+    },
+    {
+      "index": 230,
+      "text": "I'm gonna go home, have some sex.",
+      "kind": "dialogue",
+      "startMs": 1589990,
+      "endMs": 1592990
+    },
+    {
+      "index": 231,
+      "text": "Harry, you're gonna go home and puke.",
+      "kind": "dialogue",
+      "startMs": 1593090,
+      "endMs": 1596290
+    },
+    {
+      "index": 232,
+      "text": "Yeah, well, that'll be fun too.",
+      "kind": "dialogue",
+      "startMs": 1596390,
+      "endMs": 1600290
+    },
+    {
+      "index": 233,
+      "text": "Come on, you gimp.",
+      "kind": "dialogue",
+      "startMs": 1600390,
+      "endMs": 1603090
+    },
+    {
+      "index": 234,
+      "text": "Hey, Jack, I saw you on TV. Congratulations.",
+      "kind": "dialogue",
+      "startMs": 1624990,
+      "endMs": 1628390
+    },
+    {
+      "index": 235,
+      "text": "Thanks, Bob. Yeah, you looked fat.",
+      "kind": "dialogue",
+      "startMs": 1628490,
+      "endMs": 1630490
+    },
+    {
+      "index": 236,
+      "text": "Be easy on him, Bob. The boy was up late last night partying.",
+      "kind": "dialogue",
+      "startMs": 1630590,
+      "endMs": 1633490
+    },
+    {
+      "index": 237,
+      "text": "A wild party, huh? Yeah, well, I don't remember it that well.",
+      "kind": "dialogue",
+      "startMs": 1633590,
+      "endMs": 1636990
+    },
+    {
+      "index": 238,
+      "text": "Couldn't have been too great. I woke up alone.",
+      "kind": "dialogue",
+      "startMs": 1637090,
+      "endMs": 1639590
+    },
+    {
+      "index": 239,
+      "text": "Yeah? Well, you know, the last time I partied like that, I woke up married, huh, Vinnie?",
+      "kind": "dialogue",
+      "startMs": 1639690,
+      "endMs": 1644390
+    },
+    {
+      "index": 240,
+      "text": "Hey, Jack, you forgot your muffins.",
+      "kind": "dialogue",
+      "startMs": 1644490,
+      "endMs": 1647190
+    },
+    {
+      "index": 241,
+      "text": "Have a good one, Bob. Thanks, Jack. Take care, huh?",
+      "kind": "dialogue",
+      "startMs": 1647290,
+      "endMs": 1650490
+    },
+    {
+      "index": 242,
+      "text": "Thanks.",
+      "kind": "dialogue",
+      "startMs": 1650590,
+      "endMs": 1653390
+    },
+    {
+      "index": 243,
+      "text": "See you tomorrow.",
+      "kind": "dialogue",
+      "startMs": 1664600,
+      "endMs": 1666700
+    },
+    {
+      "index": 244,
+      "text": "Call 9-1-1!",
+      "kind": "dialogue",
+      "startMs": 1685600,
+      "endMs": 1688000
+    },
+    {
+      "index": 245,
+      "text": "What do you think, Jack?",
+      "kind": "dialogue",
+      "startMs": 1743510,
+      "endMs": 1745410
+    },
+    {
+      "index": 246,
+      "text": "You think if you pick up all the bus driver's teeth, they'll give you another medal?",
+      "kind": "dialogue",
+      "startMs": 1745510,
+      "endMs": 1750610
+    },
+    {
+      "index": 247,
+      "text": "Jesus! You think I wouldn't have been prepared?",
+      "kind": "dialogue",
+      "startMs": 1750710,
+      "endMs": 1753810
+    },
+    {
+      "index": 248,
+      "text": "Two years I spent setting up that elevator job.",
+      "kind": "dialogue",
+      "startMs": 1753910,
+      "endMs": 1757910
+    },
+    {
+      "index": 249,
+      "text": "Two years I invested myself in it.",
+      "kind": "dialogue",
+      "startMs": 1758010,
+      "endMs": 1760010
+    },
+    {
+      "index": 250,
+      "text": "You couldn't understand the kind of commitment that I have.",
+      "kind": "dialogue",
+      "startMs": 1760110,
+      "endMs": 1763810
+    },
+    {
+      "index": 251,
+      "text": "You ruin a man's life's work, and you think you can walk away.",
+      "kind": "dialogue",
+      "startMs": 1763910,
+      "endMs": 1767510
+    },
+    {
+      "index": 252,
+      "text": "You got blinders on to the world.",
+      "kind": "dialogue",
+      "startMs": 1767610,
+      "endMs": 1769710
+    },
+    {
+      "index": 253,
+      "text": "But I got your attention now, didn't I, Jack?",
+      "kind": "dialogue",
+      "startMs": 1769810,
+      "endMs": 1772610
+    },
+    {
+      "index": 254,
+      "text": "Why didn't you just come after me? No, this is about me.",
+      "kind": "dialogue",
+      "startMs": 1772710,
+      "endMs": 1775710
+    },
+    {
+      "index": 255,
+      "text": "This is about my money. This is about money due me.",
+      "kind": "dialogue",
+      "startMs": 1775810,
+      "endMs": 1779310
+    },
+    {
+      "index": 256,
+      "text": "Which I will collect. $3.7 million.",
+      "kind": "dialogue",
+      "startMs": 1779410,
+      "endMs": 1783710
+    },
+    {
+      "index": 257,
+      "text": "It's my nest egg, Jack. At my age, you gotta think ahead.",
+      "kind": "dialogue",
+      "startMs": 1783810,
+      "endMs": 1787910
+    },
+    {
+      "index": 258,
+      "text": "When I find you... Pop quiz, hot shot.",
+      "kind": "dialogue",
+      "startMs": 1788010,
+      "endMs": 1791310
+    },
+    {
+      "index": 259,
+      "text": "There's a bomb on a bus.",
+      "kind": "dialogue",
+      "startMs": 1791410,
+      "endMs": 1793510
+    },
+    {
+      "index": 260,
+      "text": "Once the bus goes 50 miles an hour, the bomb is armed.",
+      "kind": "dialogue",
+      "startMs": 1793610,
+      "endMs": 1798210
+    },
+    {
+      "index": 261,
+      "text": "If it drops below 50, it blows up.",
+      "kind": "dialogue",
+      "startMs": 1798310,
+      "endMs": 1802510
+    },
+    {
+      "index": 262,
+      "text": "What do you do? What do you do!",
+      "kind": "dialogue",
+      "startMs": 1802610,
+      "endMs": 1806020
+    },
+    {
+      "index": 263,
+      "text": "I'd wanna know what bus it was.",
+      "kind": "dialogue",
+      "startMs": 1806120,
+      "endMs": 1808620
+    },
+    {
+      "index": 264,
+      "text": "You think I'm gonna tell you that?",
+      "kind": "dialogue",
+      "startMs": 1808720,
+      "endMs": 1811920
+    },
+    {
+      "index": 265,
+      "text": "Yes. Very good.",
+      "kind": "dialogue",
+      "startMs": 1812020,
+      "endMs": 1814120
+    },
+    {
+      "index": 266,
+      "text": "There are rules, Jack, and I want you to get this right.",
+      "kind": "dialogue",
+      "startMs": 1814220,
+      "endMs": 1817720
+    },
+    {
+      "index": 267,
+      "text": "No one goes off the bus.",
+      "kind": "dialogue",
+      "startMs": 1817820,
+      "endMs": 1820020
+    },
+    {
+      "index": 268,
+      "text": "You try to take any passengers off the bus, I will detonate it.",
+      "kind": "dialogue",
+      "startMs": 1820120,
+      "endMs": 1824220
+    },
+    {
+      "index": 269,
+      "text": "I want my money by 11:00 a. m.",
+      "kind": "dialogue",
+      "startMs": 1824320,
+      "endMs": 1827320
+    },
+    {
+      "index": 270,
+      "text": "We can't pull that kind of money in time. Focus, Jack!",
+      "kind": "dialogue",
+      "startMs": 1829120,
+      "endMs": 1832620
+    },
+    {
+      "index": 271,
+      "text": "Your concern is the bus. And don't try to call.",
+      "kind": "dialogue",
+      "startMs": 1832720,
+      "endMs": 1836120
+    },
+    {
+      "index": 272,
+      "text": "The radio's down. Now, the number of the bus is 2525.",
+      "kind": "dialogue",
+      "startMs": 1836320,
+      "endMs": 1841620
+    },
+    {
+      "index": 273,
+      "text": "It's running downtown from Venice.",
+      "kind": "dialogue",
+      "startMs": 1841720,
+      "endMs": 1844020
+    },
+    {
+      "index": 274,
+      "text": "It is at the corner of Ocean Park and Main.",
+      "kind": "dialogue",
+      "startMs": 1844120,
+      "endMs": 1849120
+    },
+    {
+      "index": 275,
+      "text": "Sam! Sam!",
+      "kind": "dialogue",
+      "startMs": 1862420,
+      "endMs": 1865520
+    },
+    {
+      "index": 276,
+      "text": "Annie. Sam!",
+      "kind": "dialogue",
+      "startMs": 1865620,
+      "endMs": 1868320
+    },
+    {
+      "index": 277,
+      "text": "Tell him to stop! Shit! Excuse me! Comin' through.",
+      "kind": "dialogue",
+      "startMs": 1868520,
+      "endMs": 1870920
+    },
+    {
+      "index": 278,
+      "text": "Sam! God... Shit.",
+      "kind": "dialogue",
+      "startMs": 1871020,
+      "endMs": 1873920
+    },
+    {
+      "index": 279,
+      "text": "Whoa! Stop!",
+      "kind": "dialogue",
+      "startMs": 1874020,
+      "endMs": 1876230
+    },
+    {
+      "index": 280,
+      "text": "This ain't no bus stop. Oh, Sam!",
+      "kind": "dialogue",
+      "startMs": 1876330,
+      "endMs": 1878930
+    },
+    {
+      "index": 281,
+      "text": "Get rid of your butt, Annie. Okay, it's gone, it's gone.",
+      "kind": "dialogue",
+      "startMs": 1879030,
+      "endMs": 1882230
+    },
+    {
+      "index": 282,
+      "text": "You are a good, kind man.",
+      "kind": "dialogue",
+      "startMs": 1882330,
+      "endMs": 1885030
+    },
+    {
+      "index": 283,
+      "text": "One day people will write songs about you.",
+      "kind": "dialogue",
+      "startMs": 1885130,
+      "endMs": 1887630
+    },
+    {
+      "index": 284,
+      "text": "Hi. Hi.",
+      "kind": "dialogue",
+      "startMs": 1896230,
+      "endMs": 1898130
+    },
+    {
+      "index": 285,
+      "text": "First time in L.A.",
+      "kind": "dialogue",
+      "startMs": 1906630,
+      "endMs": 1909730
+    },
+    {
+      "index": 286,
+      "text": "Oh, no, I live here. No, I mean mine.",
+      "kind": "dialogue",
+      "startMs": 1909830,
+      "endMs": 1912930
+    },
+    {
+      "index": 287,
+      "text": "Oh, that's just funny. You heard me wrong.",
+      "kind": "dialogue",
+      "startMs": 1913030,
+      "endMs": 1916130
+    },
+    {
+      "index": 288,
+      "text": "No, I'm sightseein'. Oh, really?",
+      "kind": "dialogue",
+      "startMs": 1916230,
+      "endMs": 1918330
+    },
+    {
+      "index": 289,
+      "text": "Yeah, I hate to use the word \"tourist,\" but it's not like I can hide it.",
+      "kind": "dialogue",
+      "startMs": 1918430,
+      "endMs": 1922530
+    },
+    {
+      "index": 290,
+      "text": "Not really.",
+      "kind": "dialogue",
+      "startMs": 1922630,
+      "endMs": 1925030
+    },
+    {
+      "index": 291,
+      "text": "Aw, geez, you know, it took me three hours just to get here from the airport.",
+      "kind": "dialogue",
+      "startMs": 1927130,
+      "endMs": 1931830
+    },
+    {
+      "index": 292,
+      "text": "I got so lost. L.A. Is one large place.",
+      "kind": "dialogue",
+      "startMs": 1931930,
+      "endMs": 1935330
+    },
+    {
+      "index": 293,
+      "text": "Of course, you live here, you probably don't notice.",
+      "kind": "dialogue",
+      "startMs": 1935430,
+      "endMs": 1938030
+    },
+    {
+      "index": 294,
+      "text": "I'm such a yokel. There, I said it. Geez.",
+      "kind": "dialogue",
+      "startMs": 1938130,
+      "endMs": 1941530
+    },
+    {
+      "index": 295,
+      "text": "You know what? I got gum on my seat.",
+      "kind": "dialogue",
+      "startMs": 1941630,
+      "endMs": 1944930
+    },
+    {
+      "index": 296,
+      "text": "Gum!",
+      "kind": "dialogue",
+      "startMs": 1945030,
+      "endMs": 1947340
+    },
+    {
+      "index": 297,
+      "text": "Excuse me.",
+      "kind": "dialogue",
+      "startMs": 1947440,
+      "endMs": 1949340
+    },
+    {
+      "index": 298,
+      "text": "Morning. Hi.",
+      "kind": "dialogue",
+      "startMs": 1951540,
+      "endMs": 1953440
+    },
+    {
+      "index": 299,
+      "text": "Hey! Watch it!",
+      "kind": "dialogue",
+      "startMs": 1981640,
+      "endMs": 1984740
+    },
+    {
+      "index": 300,
+      "text": "I just couldn't handle the freeways anymore.",
+      "kind": "dialogue",
+      "startMs": 2016940,
+      "endMs": 2020050
+    },
+    {
+      "index": 301,
+      "text": "I got so tense.",
+      "kind": "dialogue",
+      "startMs": 2020150,
+      "endMs": 2022050
+    },
+    {
+      "index": 302,
+      "text": "This way I can just relax all the way to work.",
+      "kind": "dialogue",
+      "startMs": 2022150,
+      "endMs": 2025250
+    },
+    {
+      "index": 303,
+      "text": "Yeah, well, I love my car. I miss my car.",
+      "kind": "dialogue",
+      "startMs": 2025350,
+      "endMs": 2028950
+    },
+    {
+      "index": 304,
+      "text": "Oh, God, look at that.",
+      "kind": "dialogue",
+      "startMs": 2041050,
+      "endMs": 2044950
+    },
+    {
+      "index": 305,
+      "text": "Hey, Sam! Shit!",
+      "kind": "dialogue",
+      "startMs": 2045050,
+      "endMs": 2047750
+    },
+    {
+      "index": 306,
+      "text": "Sam! What?",
+      "kind": "dialogue",
+      "startMs": 2047850,
+      "endMs": 2049750
+    },
+    {
+      "index": 307,
+      "text": "Why don't you just drive over these people or something?",
+      "kind": "dialogue",
+      "startMs": 2049850,
+      "endMs": 2052450
+    },
+    {
+      "index": 308,
+      "text": "Don't spit on my bus, Annie. Such a mess.",
+      "kind": "dialogue",
+      "startMs": 2052550,
+      "endMs": 2056750
+    },
+    {
+      "index": 309,
+      "text": "Stop!",
+      "kind": "dialogue",
+      "startMs": 2072750,
+      "endMs": 2074250
+    },
+    {
+      "index": 310,
+      "text": "Open up! Get off the door, man! This ain't no bus stop!",
+      "kind": "dialogue",
+      "startMs": 2079450,
+      "endMs": 2083150
+    },
+    {
+      "index": 311,
+      "text": "That guy really wants to get on the bus. Open up! Stop!",
+      "kind": "dialogue",
+      "startMs": 2083250,
+      "endMs": 2086250
+    },
+    {
+      "index": 312,
+      "text": "Don't, Sam! Don't let him on!",
+      "kind": "dialogue",
+      "startMs": 2086350,
+      "endMs": 2088950
+    },
+    {
+      "index": 313,
+      "text": "L.A.P.D.! I can't hear you.",
+      "kind": "dialogue",
+      "startMs": 2089050,
+      "endMs": 2090960
+    },
+    {
+      "index": 314,
+      "text": "Stop this bus! What?",
+      "kind": "dialogue",
+      "startMs": 2091060,
+      "endMs": 2093560
+    },
+    {
+      "index": 315,
+      "text": "L.A.P.D.! Stop the bus!",
+      "kind": "dialogue",
+      "startMs": 2093660,
+      "endMs": 2096560
+    },
+    {
+      "index": 316,
+      "text": "L.A.P.D.!",
+      "kind": "dialogue",
+      "startMs": 2096660,
+      "endMs": 2099260
+    },
+    {
+      "index": 317,
+      "text": "Stop! Stop!",
+      "kind": "dialogue",
+      "startMs": 2101560,
+      "endMs": 2104860
+    },
+    {
+      "index": 318,
+      "text": "Stop! L.A.P.D.! Get out of the car!",
+      "kind": "dialogue",
+      "startMs": 2104960,
+      "endMs": 2108360
+    },
+    {
+      "index": 319,
+      "text": "Jesus, not again. This is my car.",
+      "kind": "dialogue",
+      "startMs": 2108460,
+      "endMs": 2110360
+    },
+    {
+      "index": 320,
+      "text": "I own this car. It's not stolen.",
+      "kind": "dialogue",
+      "startMs": 2110460,
+      "endMs": 2112460
+    },
+    {
+      "index": 321,
+      "text": "It is now. Move over. Fuck! Oh, man.",
+      "kind": "dialogue",
+      "startMs": 2112560,
+      "endMs": 2116260
+    },
+    {
+      "index": 322,
+      "text": "You scratch this puppy, and me and you are gonna have words, you understand?",
+      "kind": "dialogue",
+      "startMs": 2116360,
+      "endMs": 2120960
+    },
+    {
+      "index": 323,
+      "text": "Okay, look, man, we don't have to go so fast, all right?",
+      "kind": "dialogue",
+      "startMs": 2139260,
+      "endMs": 2141560
+    },
+    {
+      "index": 324,
+      "text": "Just slow down a little bit, all right, man? Just slow do...",
+      "kind": "dialogue",
+      "startMs": 2141660,
+      "endMs": 2144760
+    },
+    {
+      "index": 325,
+      "text": "Oh, shit! Oh, come on, man!",
+      "kind": "dialogue",
+      "startMs": 2144860,
+      "endMs": 2148960
+    },
+    {
+      "index": 326,
+      "text": "Just don't tear up my car, all right? Okay, okay, okay.",
+      "kind": "dialogue",
+      "startMs": 2149060,
+      "endMs": 2153260
+    },
+    {
+      "index": 327,
+      "text": "Just slow down just a bit, all right?",
+      "kind": "dialogue",
+      "startMs": 2153360,
+      "endMs": 2155860
+    },
+    {
+      "index": 328,
+      "text": "We don't have to go so fast, do we? I mean, we don't... we don't have to go...",
+      "kind": "dialogue",
+      "startMs": 2155960,
+      "endMs": 2159860
+    },
+    {
+      "index": 329,
+      "text": "That was a nice move, man. Whoo!",
+      "kind": "dialogue",
+      "startMs": 2161870,
+      "endMs": 2166670
+    },
+    {
+      "index": 330,
+      "text": "Shit, shit, shit, shit! Oh, shit!",
+      "kind": "dialogue",
+      "startMs": 2176770,
+      "endMs": 2179070
+    },
+    {
+      "index": 331,
+      "text": "The least you could do is slow down! Come on!",
+      "kind": "dialogue",
+      "startMs": 2179170,
+      "endMs": 2181770
+    },
+    {
+      "index": 332,
+      "text": "Holy shit! Oh, shit!",
+      "kind": "dialogue",
+      "startMs": 2181870,
+      "endMs": 2184470
+    },
+    {
+      "index": 333,
+      "text": "Oh, shit! What the...",
+      "kind": "dialogue",
+      "startMs": 2184570,
+      "endMs": 2188870
+    },
+    {
+      "index": 334,
+      "text": "Move, move!",
+      "kind": "dialogue",
+      "startMs": 2188970,
+      "endMs": 2191070
+    },
+    {
+      "index": 335,
+      "text": "Is that that guy?",
+      "kind": "dialogue",
+      "startMs": 2191170,
+      "endMs": 2194270
+    },
+    {
+      "index": 336,
+      "text": "Man sure has a hard-on for this bus.",
+      "kind": "dialogue",
+      "startMs": 2194370,
+      "endMs": 2197770
+    },
+    {
+      "index": 337,
+      "text": "Hey! I'm a cop!",
+      "kind": "dialogue",
+      "startMs": 2212570,
+      "endMs": 2215870
+    },
+    {
+      "index": 338,
+      "text": "What? I'm a cop!",
+      "kind": "dialogue",
+      "startMs": 2215970,
+      "endMs": 2219870
+    },
+    {
+      "index": 339,
+      "text": "L.A.P.D.! There's a bomb on your bus!",
+      "kind": "dialogue",
+      "startMs": 2219970,
+      "endMs": 2223970
+    },
+    {
+      "index": 340,
+      "text": "There's a bomb on your bus! What?",
+      "kind": "dialogue",
+      "startMs": 2224070,
+      "endMs": 2227470
+    },
+    {
+      "index": 341,
+      "text": "There's a... What? Fuck!",
+      "kind": "dialogue",
+      "startMs": 2227570,
+      "endMs": 2230070
+    },
+    {
+      "index": 342,
+      "text": "There's a bomb on your bus! Watch the road!",
+      "kind": "dialogue",
+      "startMs": 2230170,
+      "endMs": 2234180
+    },
+    {
+      "index": 343,
+      "text": "Grab that, will ya? I want you to write on it.",
+      "kind": "dialogue",
+      "startMs": 2234280,
+      "endMs": 2237280
+    },
+    {
+      "index": 344,
+      "text": "I want you to write on the back, \"Bomb on bus. \"",
+      "kind": "dialogue",
+      "startMs": 2237380,
+      "endMs": 2240280
+    },
+    {
+      "index": 345,
+      "text": "Write it, write it, write it!",
+      "kind": "dialogue",
+      "startMs": 2242080,
+      "endMs": 2244580
+    },
+    {
+      "index": 346,
+      "text": "Watch the road! Oh, shit!",
+      "kind": "dialogue",
+      "startMs": 2259380,
+      "endMs": 2263080
+    },
+    {
+      "index": 347,
+      "text": "Oh, shit! No!",
+      "kind": "dialogue",
+      "startMs": 2274380,
+      "endMs": 2277380
+    },
+    {
+      "index": 348,
+      "text": "Don't slow down!",
+      "kind": "dialogue",
+      "startMs": 2277480,
+      "endMs": 2279580
+    },
+    {
+      "index": 349,
+      "text": "No, no! No, no, no, no, no!",
+      "kind": "dialogue",
+      "startMs": 2283680,
+      "endMs": 2286580
+    },
+    {
+      "index": 350,
+      "text": "Speed up!",
+      "kind": "dialogue",
+      "startMs": 2286680,
+      "endMs": 2289080
+    },
+    {
+      "index": 351,
+      "text": "Op... Open your door!",
+      "kind": "dialogue",
+      "startMs": 2289180,
+      "endMs": 2293180
+    },
+    {
+      "index": 352,
+      "text": "Open the doors!",
+      "kind": "dialogue",
+      "startMs": 2293280,
+      "endMs": 2295580
+    },
+    {
+      "index": 353,
+      "text": "Fifty! Stay above 50!",
+      "kind": "dialogue",
+      "startMs": 2298280,
+      "endMs": 2300680
+    },
+    {
+      "index": 354,
+      "text": "Okay. All right?",
+      "kind": "dialogue",
+      "startMs": 2300780,
+      "endMs": 2303390
+    },
+    {
+      "index": 355,
+      "text": "470-8000. Ask for Detective Harry Temple.",
+      "kind": "dialogue",
+      "startMs": 2306490,
+      "endMs": 2311090
+    },
+    {
+      "index": 356,
+      "text": "Harry. Harry, it's Jack.",
+      "kind": "dialogue",
+      "startMs": 2313490,
+      "endMs": 2316890
+    },
+    {
+      "index": 357,
+      "text": "Yeah.",
+      "kind": "dialogue",
+      "startMs": 2318390,
+      "endMs": 2321090
+    },
+    {
+      "index": 358,
+      "text": "You'd better not be calling in sick, 'cause I dragged my ass out of...",
+      "kind": "dialogue",
+      "startMs": 2321190,
+      "endMs": 2324990
+    },
+    {
+      "index": 359,
+      "text": "Harry, he's alive. What?",
+      "kind": "dialogue",
+      "startMs": 2325090,
+      "endMs": 2327390
+    },
+    {
+      "index": 360,
+      "text": "The bomber. He's back.",
+      "kind": "dialogue",
+      "startMs": 2327490,
+      "endMs": 2329790
+    },
+    {
+      "index": 361,
+      "text": "He hit one in Venice already. Fire chief said there's nothin' left.",
+      "kind": "dialogue",
+      "startMs": 2329890,
+      "endMs": 2333190
+    },
+    {
+      "index": 362,
+      "text": "Temple, we just got a ransom demand from your dead terrorist.",
+      "kind": "dialogue",
+      "startMs": 2333290,
+      "endMs": 2335890
+    },
+    {
+      "index": 363,
+      "text": "Says he's rigged a city bus. Where's Jack? Where do you think?",
+      "kind": "dialogue",
+      "startMs": 2335990,
+      "endMs": 2338990
+    },
+    {
+      "index": 364,
+      "text": "I gotta get on that bus. You gotta get...",
+      "kind": "dialogue",
+      "startMs": 2339090,
+      "endMs": 2341990
+    },
+    {
+      "index": 365,
+      "text": "Yeah, yeah, you get on the bus.",
+      "kind": "dialogue",
+      "startMs": 2342090,
+      "endMs": 2344090
+    },
+    {
+      "index": 366,
+      "text": "Drive straight! Stay in this lane!",
+      "kind": "dialogue",
+      "startMs": 2344190,
+      "endMs": 2349090
+    },
+    {
+      "index": 367,
+      "text": "Watch the road.",
+      "kind": "dialogue",
+      "startMs": 2349190,
+      "endMs": 2350690
+    },
+    {
+      "index": 368,
+      "text": "Wait a minute. What are you doin'?",
+      "kind": "dialogue",
+      "startMs": 2353790,
+      "endMs": 2356090
+    },
+    {
+      "index": 369,
+      "text": "Are you insured? Yeah. Why?",
+      "kind": "dialogue",
+      "startMs": 2356190,
+      "endMs": 2359390
+    },
+    {
+      "index": 370,
+      "text": "No! No!",
+      "kind": "dialogue",
+      "startMs": 2359490,
+      "endMs": 2362290
+    },
+    {
+      "index": 371,
+      "text": "Ah! Broke my-my door.",
+      "kind": "dialogue",
+      "startMs": 2364790,
+      "endMs": 2368590
+    },
+    {
+      "index": 372,
+      "text": "Sir, I need to take your phone.",
+      "kind": "dialogue",
+      "startMs": 2368690,
+      "endMs": 2371690
+    },
+    {
+      "index": 373,
+      "text": "Take the phone. Take the wheel.",
+      "kind": "dialogue",
+      "startMs": 2371790,
+      "endMs": 2375000
+    },
+    {
+      "index": 374,
+      "text": "What are you... What? Oh! Oh, shit! Oh, shit!",
+      "kind": "dialogue",
+      "startMs": 2375100,
+      "endMs": 2380600
+    },
+    {
+      "index": 375,
+      "text": "Drive straight!",
+      "kind": "dialogue",
+      "startMs": 2386000,
+      "endMs": 2387700
+    },
+    {
+      "index": 376,
+      "text": "Oh, shit. Whoa, shit!",
+      "kind": "dialogue",
+      "startMs": 2393600,
+      "endMs": 2395800
+    },
+    {
+      "index": 377,
+      "text": "Whoa, shit!",
+      "kind": "dialogue",
+      "startMs": 2399000,
+      "endMs": 2402000
+    },
+    {
+      "index": 378,
+      "text": "Whoa, shit!",
+      "kind": "dialogue",
+      "startMs": 2405200,
+      "endMs": 2407600
+    },
+    {
+      "index": 379,
+      "text": "This guy's out of his mind.",
+      "kind": "dialogue",
+      "startMs": 2421300,
+      "endMs": 2422600
+    },
+    {
+      "index": 380,
+      "text": "This guy's out of his mind.",
+      "kind": "dialogue",
+      "startMs": 2422700,
+      "endMs": 2424000
+    },
+    {
+      "index": 381,
+      "text": "Okay, listen. You gotta stay above 50.",
+      "kind": "dialogue",
+      "startMs": 2424100,
+      "endMs": 2426700
+    },
+    {
+      "index": 382,
+      "text": "Excuse me. Are you out of your mind?",
+      "kind": "dialogue",
+      "startMs": 2426800,
+      "endMs": 2429700
+    },
+    {
+      "index": 383,
+      "text": "Whatever it takes. Hello!",
+      "kind": "dialogue",
+      "startMs": 2429800,
+      "endMs": 2432400
+    },
+    {
+      "index": 384,
+      "text": "Everybody, I'm Jack Traven, L.A.P.D.",
+      "kind": "dialogue",
+      "startMs": 2432500,
+      "endMs": 2435900
+    },
+    {
+      "index": 385,
+      "text": "We have a slight situation on the bus here. Ma'am, if you'll please sit down...",
+      "kind": "dialogue",
+      "startMs": 2436000,
+      "endMs": 2439000
+    },
+    {
+      "index": 386,
+      "text": "No, I won't sit down. You're scaring the shit out of these people.",
+      "kind": "dialogue",
+      "startMs": 2439200,
+      "endMs": 2442400
+    },
+    {
+      "index": 387,
+      "text": "Ma'am, please!",
+      "kind": "dialogue",
+      "startMs": 2442500,
+      "endMs": 2444400
+    },
+    {
+      "index": 388,
+      "text": "If everybody will stay in your seats and remain calm, we should be able to diffuse the problem.",
+      "kind": "dialogue",
+      "startMs": 2446710,
+      "endMs": 2452810
+    },
+    {
+      "index": 389,
+      "text": "So sit tight and... Get away from me!",
+      "kind": "dialogue",
+      "startMs": 2452910,
+      "endMs": 2456310
+    },
+    {
+      "index": 390,
+      "text": "I don't know you, man. I'm not here for you. Let's not do this.",
+      "kind": "dialogue",
+      "startMs": 2460610,
+      "endMs": 2464210
+    },
+    {
+      "index": 391,
+      "text": "Stop the bus! Sit down! He can't! Listen...",
+      "kind": "dialogue",
+      "startMs": 2464310,
+      "endMs": 2467410
+    },
+    {
+      "index": 392,
+      "text": "Stop the bus! Stop it! Look, look! Listen!",
+      "kind": "dialogue",
+      "startMs": 2467510,
+      "endMs": 2472010
+    },
+    {
+      "index": 393,
+      "text": "Look, I'm putting my gun away, okay?",
+      "kind": "dialogue",
+      "startMs": 2472210,
+      "endMs": 2475010
+    },
+    {
+      "index": 394,
+      "text": "Okay?",
+      "kind": "dialogue",
+      "startMs": 2476910,
+      "endMs": 2478810
+    },
+    {
+      "index": 395,
+      "text": "Now, listen. I don't care about your crime.",
+      "kind": "dialogue",
+      "startMs": 2481310,
+      "endMs": 2485610
+    },
+    {
+      "index": 396,
+      "text": "Whatever you did, I'm sure that you're sorry.",
+      "kind": "dialogue",
+      "startMs": 2485710,
+      "endMs": 2490010
+    },
+    {
+      "index": 397,
+      "text": "So it's cool now. It's over.",
+      "kind": "dialogue",
+      "startMs": 2490110,
+      "endMs": 2492510
+    },
+    {
+      "index": 398,
+      "text": "And I'm not a cop right now.",
+      "kind": "dialogue",
+      "startMs": 2497510,
+      "endMs": 2499810
+    },
+    {
+      "index": 399,
+      "text": "See? We're just two cool guys just hangin' out...",
+      "kind": "dialogue",
+      "startMs": 2501610,
+      "endMs": 2505610
+    },
+    {
+      "index": 400,
+      "text": "No, don't!",
+      "kind": "dialogue",
+      "startMs": 2505710,
+      "endMs": 2508710
+    },
+    {
+      "index": 401,
+      "text": "Sam!",
+      "kind": "dialogue",
+      "startMs": 2508910,
+      "endMs": 2511410
+    },
+    {
+      "index": 402,
+      "text": "I've got the wheel! I've got it! I've got it!",
+      "kind": "dialogue",
+      "startMs": 2515810,
+      "endMs": 2518720
+    },
+    {
+      "index": 403,
+      "text": "Sam! Oh, God, Sam!",
+      "kind": "dialogue",
+      "startMs": 2518820,
+      "endMs": 2522220
+    },
+    {
+      "index": 404,
+      "text": "Sam, come on, you gotta move your legs.",
+      "kind": "dialogue",
+      "startMs": 2524520,
+      "endMs": 2527120
+    },
+    {
+      "index": 405,
+      "text": "Somebody move his legs!",
+      "kind": "dialogue",
+      "startMs": 2527220,
+      "endMs": 2529320
+    },
+    {
+      "index": 406,
+      "text": "Sam, get your foot... Sam, get your foot off the pedal!",
+      "kind": "dialogue",
+      "startMs": 2530920,
+      "endMs": 2534220
+    },
+    {
+      "index": 407,
+      "text": "We gotta stop this thing!",
+      "kind": "dialogue",
+      "startMs": 2534320,
+      "endMs": 2536320
+    },
+    {
+      "index": 408,
+      "text": "No! Don't! Stay above 50!",
+      "kind": "dialogue",
+      "startMs": 2536420,
+      "endMs": 2538520
+    },
+    {
+      "index": 409,
+      "text": "But Sam's been shot! We gotta get him off!",
+      "kind": "dialogue",
+      "startMs": 2538620,
+      "endMs": 2541120
+    },
+    {
+      "index": 410,
+      "text": "You slow down, and this bus'll explode!",
+      "kind": "dialogue",
+      "startMs": 2541320,
+      "endMs": 2544720
+    },
+    {
+      "index": 411,
+      "text": "There is a bomb on this bus.",
+      "kind": "dialogue",
+      "startMs": 2549720,
+      "endMs": 2551820
+    },
+    {
+      "index": 412,
+      "text": "If we slow down, it'll blow.",
+      "kind": "dialogue",
+      "startMs": 2551920,
+      "endMs": 2555220
+    },
+    {
+      "index": 413,
+      "text": "If anyone tries to get off, it'll explode.",
+      "kind": "dialogue",
+      "startMs": 2555320,
+      "endMs": 2560420
+    },
+    {
+      "index": 414,
+      "text": "Bullshit! Yeah, there's a bomb. Some funny joke, man!",
+      "kind": "dialogue",
+      "startMs": 2560520,
+      "endMs": 2564520
+    },
+    {
+      "index": 415,
+      "text": "Are we gonna have a problem now?",
+      "kind": "dialogue",
+      "startMs": 2564620,
+      "endMs": 2566720
+    },
+    {
+      "index": 416,
+      "text": "He's bleeding so much, I don't know what to do. There's so much blood!",
+      "kind": "dialogue",
+      "startMs": 2566820,
+      "endMs": 2570320
+    },
+    {
+      "index": 417,
+      "text": "Put pressure front and back, keep his legs up and put this under his head.",
+      "kind": "dialogue",
+      "startMs": 2570520,
+      "endMs": 2575320
+    },
+    {
+      "index": 418,
+      "text": "Hold on, man. Hold on. Sam, lift your head.",
+      "kind": "dialogue",
+      "startMs": 2575420,
+      "endMs": 2578320
+    },
+    {
+      "index": 419,
+      "text": "Miss, can you handle this bus? Oh, sure. It's just like driving a really big Pinto.",
+      "kind": "dialogue",
+      "startMs": 2578420,
+      "endMs": 2582020
+    },
+    {
+      "index": 420,
+      "text": "I need to know, can you handle this bus? I'm fine, I'm fine.",
+      "kind": "dialogue",
+      "startMs": 2582120,
+      "endMs": 2585020
+    },
+    {
+      "index": 421,
+      "text": "Just tell me what the plan is. Is there a plan? Just for you to drive.",
+      "kind": "dialogue",
+      "startMs": 2585120,
+      "endMs": 2589730
+    },
+    {
+      "index": 422,
+      "text": "We're okay for now. Just keep us above 50. Good plan.",
+      "kind": "dialogue",
+      "startMs": 2589830,
+      "endMs": 2592830
+    },
+    {
+      "index": 423,
+      "text": "So, you're a cop, right? That's right.",
+      "kind": "dialogue",
+      "startMs": 2595630,
+      "endMs": 2598730
+    },
+    {
+      "index": 424,
+      "text": "Well, I should probably tell you that I'm taking the bus... because I had my driver's license revoked.",
+      "kind": "dialogue",
+      "startMs": 2598830,
+      "endMs": 2603430
+    },
+    {
+      "index": 425,
+      "text": "What for? Speeding.",
+      "kind": "dialogue",
+      "startMs": 2603530,
+      "endMs": 2606730
+    },
+    {
+      "index": 426,
+      "text": "Harry, we're on our way to the chopper.",
+      "kind": "dialogue",
+      "startMs": 2609730,
+      "endMs": 2612430
+    },
+    {
+      "index": 427,
+      "text": "If anything changes, let us know.",
+      "kind": "dialogue",
+      "startMs": 2612530,
+      "endMs": 2614930
+    },
+    {
+      "index": 428,
+      "text": "Anything we haven't seen should be in here.",
+      "kind": "dialogue",
+      "startMs": 2615030,
+      "endMs": 2619230
+    },
+    {
+      "index": 429,
+      "text": "Something wrong with the driver, that at least one car, a Jaguar, has been driven off the road by the speeding bus.",
+      "kind": "dialogue",
+      "startMs": 2648130,
+      "endMs": 2654830
+    },
+    {
+      "index": 430,
+      "text": "It appears it is somewhere between Los Angeles...",
+      "kind": "dialogue",
+      "startMs": 2654930,
+      "endMs": 2657130
+    },
+    {
+      "index": 431,
+      "text": "The bus apparently came onto the freeway at the Lincoln on-ramp.",
+      "kind": "dialogue",
+      "startMs": 2657230,
+      "endMs": 2660240
+    },
+    {
+      "index": 432,
+      "text": "It began picking up speed, swerving and hasn't slowed down since.",
+      "kind": "dialogue",
+      "startMs": 2660340,
+      "endMs": 2663840
+    },
+    {
+      "index": 433,
+      "text": "Minutes ago, a Los Angeles police officer boarded the bus... by jumping onto it from a moving car.",
+      "kind": "dialogue",
+      "startMs": 2663940,
+      "endMs": 2669640
+    },
+    {
+      "index": 434,
+      "text": "Oh, would that be you, Jack? He doesn't seem to have been able to stop the bus...",
+      "kind": "dialogue",
+      "startMs": 2669840,
+      "endMs": 2672240
+    },
+    {
+      "index": 435,
+      "text": "Where do we start? Check the speedometer.",
+      "kind": "dialogue",
+      "startMs": 2672340,
+      "endMs": 2674740
+    },
+    {
+      "index": 436,
+      "text": "Has it been fucked with or loosened or any wires...",
+      "kind": "dialogue",
+      "startMs": 2674940,
+      "endMs": 2677940
+    },
+    {
+      "index": 437,
+      "text": "See any wires or anything? Excuse me, ma'am.",
+      "kind": "dialogue",
+      "startMs": 2678040,
+      "endMs": 2680740
+    },
+    {
+      "index": 438,
+      "text": "No, it's clean. Huh?",
+      "kind": "dialogue",
+      "startMs": 2680840,
+      "endMs": 2683540
+    },
+    {
+      "index": 439,
+      "text": "Then it's gonna be under the bus. Probably it was rigged to one of the axles.",
+      "kind": "dialogue",
+      "startMs": 2683640,
+      "endMs": 2687140
+    },
+    {
+      "index": 440,
+      "text": "I can't get under the bus right now, Harry. It's kind of in motion.",
+      "kind": "dialogue",
+      "startMs": 2687240,
+      "endMs": 2690440
+    },
+    {
+      "index": 441,
+      "text": "Excuse me. Excuse me!",
+      "kind": "dialogue",
+      "startMs": 2690540,
+      "endMs": 2692840
+    },
+    {
+      "index": 442,
+      "text": "Hold on.",
+      "kind": "dialogue",
+      "startMs": 2692940,
+      "endMs": 2695040
+    },
+    {
+      "index": 443,
+      "text": "There's an access panel in the floor.",
+      "kind": "dialogue",
+      "startMs": 2695140,
+      "endMs": 2697840
+    },
+    {
+      "index": 444,
+      "text": "Underneath you, man.",
+      "kind": "dialogue",
+      "startMs": 2697940,
+      "endMs": 2700640
+    },
+    {
+      "index": 445,
+      "text": "All right, Harry, we're in. Passenger relay. Sir!",
+      "kind": "dialogue",
+      "startMs": 2703140,
+      "endMs": 2706040
+    },
+    {
+      "index": 446,
+      "text": "Take this. I want you to tell him what I see.",
+      "kind": "dialogue",
+      "startMs": 2706140,
+      "endMs": 2709440
+    },
+    {
+      "index": 447,
+      "text": "Okay! We got a wad! Pretty big!",
+      "kind": "dialogue",
+      "startMs": 2711240,
+      "endMs": 2715640
+    },
+    {
+      "index": 448,
+      "text": "There's a pretty big wad.",
+      "kind": "dialogue",
+      "startMs": 2715740,
+      "endMs": 2717840
+    },
+    {
+      "index": 449,
+      "text": "Brass fittings! Brass fittings.",
+      "kind": "dialogue",
+      "startMs": 2717940,
+      "endMs": 2720040
+    },
+    {
+      "index": 450,
+      "text": "I think I can reach the circuit wire. He can reach the circuit wire.",
+      "kind": "dialogue",
+      "startMs": 2720140,
+      "endMs": 2723540
+    },
+    {
+      "index": 451,
+      "text": "No! No, no! D-Don't! Don't do that!",
+      "kind": "dialogue",
+      "startMs": 2723640,
+      "endMs": 2725540
+    },
+    {
+      "index": 452,
+      "text": "That's a decoy. Classic. That's a classic decoy.",
+      "kind": "dialogue",
+      "startMs": 2725640,
+      "endMs": 2728140
+    },
+    {
+      "index": 453,
+      "text": "What else? What else?",
+      "kind": "dialogue",
+      "startMs": 2728240,
+      "endMs": 2730440
+    },
+    {
+      "index": 454,
+      "text": "Hold on. Hold on.",
+      "kind": "dialogue",
+      "startMs": 2730540,
+      "endMs": 2733150
+    },
+    {
+      "index": 455,
+      "text": "Fuck me!",
+      "kind": "dialogue",
+      "startMs": 2741450,
+      "endMs": 2743350
+    },
+    {
+      "index": 456,
+      "text": "Oh, darn.",
+      "kind": "dialogue",
+      "startMs": 2744950,
+      "endMs": 2746950
+    },
+    {
+      "index": 457,
+      "text": "Harry, there's enough C-4 on this thing to put a hole in the world.",
+      "kind": "dialogue",
+      "startMs": 2749150,
+      "endMs": 2753650
+    },
+    {
+      "index": 458,
+      "text": "Okay. All right. Just stay calm.",
+      "kind": "dialogue",
+      "startMs": 2753750,
+      "endMs": 2755650
+    },
+    {
+      "index": 459,
+      "text": "What else? Three triggers.",
+      "kind": "dialogue",
+      "startMs": 2755750,
+      "endMs": 2757650
+    },
+    {
+      "index": 460,
+      "text": "One on the axle I can't really see, a cellular remote... Officer.",
+      "kind": "dialogue",
+      "startMs": 2757750,
+      "endMs": 2760750
+    },
+    {
+      "index": 461,
+      "text": "And a timer running off a wristwatch.",
+      "kind": "dialogue",
+      "startMs": 2760850,
+      "endMs": 2763450
+    },
+    {
+      "index": 462,
+      "text": "A watch? What kind of watch? Gold.",
+      "kind": "dialogue",
+      "startMs": 2763550,
+      "endMs": 2766650
+    },
+    {
+      "index": 463,
+      "text": "Gold band, fairly cheesy.",
+      "kind": "dialogue",
+      "startMs": 2766750,
+      "endMs": 2768650
+    },
+    {
+      "index": 464,
+      "text": "Officer. Officer!",
+      "kind": "dialogue",
+      "startMs": 2768750,
+      "endMs": 2771750
+    },
+    {
+      "index": 465,
+      "text": "What's on your mind, Harry?",
+      "kind": "dialogue",
+      "startMs": 2771850,
+      "endMs": 2773850
+    },
+    {
+      "index": 466,
+      "text": "Shit, what do I do? Officer!",
+      "kind": "dialogue",
+      "startMs": 2773950,
+      "endMs": 2776950
+    },
+    {
+      "index": 467,
+      "text": "What do I do? What do I... Which way? Aw, shit!",
+      "kind": "dialogue",
+      "startMs": 2777050,
+      "endMs": 2779350
+    },
+    {
+      "index": 468,
+      "text": "Get on the shoulder. Okay.",
+      "kind": "dialogue",
+      "startMs": 2779450,
+      "endMs": 2782250
+    },
+    {
+      "index": 469,
+      "text": "Watch it, watch it!",
+      "kind": "dialogue",
+      "startMs": 2794450,
+      "endMs": 2797450
+    },
+    {
+      "index": 470,
+      "text": "Um, stay on or get off?",
+      "kind": "dialogue",
+      "startMs": 2803160,
+      "endMs": 2805160
+    },
+    {
+      "index": 471,
+      "text": "Stay on or get off? Off! Off! Hold on!",
+      "kind": "dialogue",
+      "startMs": 2805260,
+      "endMs": 2809560
+    },
+    {
+      "index": 472,
+      "text": "Oh, God.",
+      "kind": "dialogue",
+      "startMs": 2828160,
+      "endMs": 2829760
+    },
+    {
+      "index": 473,
+      "text": "Keep going. It's red!",
+      "kind": "dialogue",
+      "startMs": 2835460,
+      "endMs": 2837760
+    },
+    {
+      "index": 474,
+      "text": "Go! Go! Wh-What? Ow! My foot!",
+      "kind": "dialogue",
+      "startMs": 2837860,
+      "endMs": 2841460
+    },
+    {
+      "index": 475,
+      "text": "This is much better.",
+      "kind": "dialogue",
+      "startMs": 2854560,
+      "endMs": 2856660
+    },
+    {
+      "index": 476,
+      "text": "The bus is on Western, heading in a southbound direction.",
+      "kind": "dialogue",
+      "startMs": 2859260,
+      "endMs": 2864060
+    },
+    {
+      "index": 477,
+      "text": "Now, when the bus did exit here, it had a couple of close calls... with a few cars on the Century Freeway.",
+      "kind": "dialogue",
+      "startMs": 2864160,
+      "endMs": 2868960
+    },
+    {
+      "index": 478,
+      "text": "Yeah, yeah! All right! Oh.",
+      "kind": "dialogue",
+      "startMs": 2869060,
+      "endMs": 2871160
+    },
+    {
+      "index": 479,
+      "text": "We don't know what authorities are planning to do, but we can...",
+      "kind": "dialogue",
+      "startMs": 2871260,
+      "endMs": 2874370
+    },
+    {
+      "index": 480,
+      "text": "I don't get it.",
+      "kind": "dialogue",
+      "startMs": 2883670,
+      "endMs": 2886070
+    },
+    {
+      "index": 481,
+      "text": "The watch is a shitty timer. Why use it? What's he sayin'?",
+      "kind": "dialogue",
+      "startMs": 2886170,
+      "endMs": 2889170
+    },
+    {
+      "index": 482,
+      "text": "Lots of people have watches, Harry. This guy has no M.O.",
+      "kind": "dialogue",
+      "startMs": 2889270,
+      "endMs": 2892770
+    },
+    {
+      "index": 483,
+      "text": "A bomber falls in love with one kind of bomb, and they're very monogamous.",
+      "kind": "dialogue",
+      "startMs": 2892870,
+      "endMs": 2896570
+    },
+    {
+      "index": 484,
+      "text": "This guy uses C-4, dynamite, different trigger every time, and now he throws in this watch.",
+      "kind": "dialogue",
+      "startMs": 2896670,
+      "endMs": 2902270
+    },
+    {
+      "index": 485,
+      "text": "He's an encyclopedia of bombs. He knows every kind.",
+      "kind": "dialogue",
+      "startMs": 2902370,
+      "endMs": 2905370
+    },
+    {
+      "index": 486,
+      "text": "Yeah, and everything we do to dismantle it.",
+      "kind": "dialogue",
+      "startMs": 2905470,
+      "endMs": 2908170
+    },
+    {
+      "index": 487,
+      "text": "Wait a minute.",
+      "kind": "dialogue",
+      "startMs": 2910770,
+      "endMs": 2913170
+    },
+    {
+      "index": 488,
+      "text": "I want to look at the files for the last ten years.",
+      "kind": "dialogue",
+      "startMs": 2913270,
+      "endMs": 2916670
+    },
+    {
+      "index": 489,
+      "text": "We did the mug shots already. That's not gonna help.",
+      "kind": "dialogue",
+      "startMs": 2916770,
+      "endMs": 2919470
+    },
+    {
+      "index": 490,
+      "text": "No. I wanna look at cops. Come on. Let's go.",
+      "kind": "dialogue",
+      "startMs": 2919570,
+      "endMs": 2922970
+    },
+    {
+      "index": 491,
+      "text": "Yeah. Mac, where have you been?",
+      "kind": "dialogue",
+      "startMs": 2928270,
+      "endMs": 2932470
+    },
+    {
+      "index": 492,
+      "text": "I had to bail on the freeway. We're in the city.",
+      "kind": "dialogue",
+      "startMs": 2932570,
+      "endMs": 2935570
+    },
+    {
+      "index": 493,
+      "text": "I can see you. Just keep going straight.",
+      "kind": "dialogue",
+      "startMs": 2935670,
+      "endMs": 2938770
+    },
+    {
+      "index": 494,
+      "text": "I'm gonna try to clear the roads for you.",
+      "kind": "dialogue",
+      "startMs": 2938870,
+      "endMs": 2941270
+    },
+    {
+      "index": 495,
+      "text": "Just stay on line.",
+      "kind": "dialogue",
+      "startMs": 2941370,
+      "endMs": 2944070
+    },
+    {
+      "index": 496,
+      "text": "Shit! Oh, Jesus! God! No!",
+      "kind": "dialogue",
+      "startMs": 2946480,
+      "endMs": 2948880
+    },
+    {
+      "index": 497,
+      "text": "Go left!",
+      "kind": "dialogue",
+      "startMs": 2948980,
+      "endMs": 2951580
+    },
+    {
+      "index": 498,
+      "text": "Sorry. Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 2951680,
+      "endMs": 2953980
+    },
+    {
+      "index": 499,
+      "text": "Oh, geez!",
+      "kind": "dialogue",
+      "startMs": 2962380,
+      "endMs": 2964480
+    },
+    {
+      "index": 500,
+      "text": "People, stay out of my way! Stay out of my way!",
+      "kind": "dialogue",
+      "startMs": 2965880,
+      "endMs": 2969380
+    },
+    {
+      "index": 501,
+      "text": "Ma'am, up to the right. Okay, okay, okay. I see it, I see it, I see it!",
+      "kind": "dialogue",
+      "startMs": 2969480,
+      "endMs": 2973280
+    },
+    {
+      "index": 502,
+      "text": "Mac. Mac, you gotta get me out of here! Oh, God!",
+      "kind": "dialogue",
+      "startMs": 2979780,
+      "endMs": 2983280
+    },
+    {
+      "index": 503,
+      "text": "A few more blocks, you're gonna come up to a soft turn, right.",
+      "kind": "dialogue",
+      "startMs": 2986580,
+      "endMs": 2990780
+    },
+    {
+      "index": 504,
+      "text": "Then hold straight. I've got some units waiting for you there.",
+      "kind": "dialogue",
+      "startMs": 2990880,
+      "endMs": 2994380
+    },
+    {
+      "index": 505,
+      "text": "They're gonna lead you to the 105 Freeway. It's not in use.",
+      "kind": "dialogue",
+      "startMs": 2994480,
+      "endMs": 2997980
+    },
+    {
+      "index": 506,
+      "text": "It'll be empty. You'll be totally clear.",
+      "kind": "dialogue",
+      "startMs": 2998080,
+      "endMs": 3001080
+    },
+    {
+      "index": 507,
+      "text": "Got it.",
+      "kind": "dialogue",
+      "startMs": 3001180,
+      "endMs": 3003180
+    },
+    {
+      "index": 508,
+      "text": "In a few blocks, we take a soft turn to the right.",
+      "kind": "dialogue",
+      "startMs": 3005480,
+      "endMs": 3007580
+    },
+    {
+      "index": 509,
+      "text": "I'll find you. Okay.",
+      "kind": "dialogue",
+      "startMs": 3007780,
+      "endMs": 3010780
+    },
+    {
+      "index": 510,
+      "text": "Okay. Wait a minute. Escort to where?",
+      "kind": "dialogue",
+      "startMs": 3012380,
+      "endMs": 3014680
+    },
+    {
+      "index": 511,
+      "text": "Where do we get an escort to? Watch out!",
+      "kind": "dialogue",
+      "startMs": 3014780,
+      "endMs": 3017590
+    },
+    {
+      "index": 512,
+      "text": "Where? Where?",
+      "kind": "dialogue",
+      "startMs": 3017690,
+      "endMs": 3019890
+    },
+    {
+      "index": 513,
+      "text": "Oh, God!",
+      "kind": "dialogue",
+      "startMs": 3019990,
+      "endMs": 3022990
+    },
+    {
+      "index": 514,
+      "text": "Goddamn it! Son of a bitch!",
+      "kind": "dialogue",
+      "startMs": 3023090,
+      "endMs": 3028290
+    },
+    {
+      "index": 515,
+      "text": "Oh, Jesus! Oh, no!",
+      "kind": "dialogue",
+      "startMs": 3028390,
+      "endMs": 3030890
+    },
+    {
+      "index": 516,
+      "text": "My God! My God! I just hit the baby!",
+      "kind": "dialogue",
+      "startMs": 3030990,
+      "endMs": 3034090
+    },
+    {
+      "index": 517,
+      "text": "Cans! Cans! I just hit the baby! Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 3034190,
+      "endMs": 3036990
+    },
+    {
+      "index": 518,
+      "text": "There was no baby. It was full of cans. Are you sure?",
+      "kind": "dialogue",
+      "startMs": 3037190,
+      "endMs": 3039690
+    },
+    {
+      "index": 519,
+      "text": "Yes. Yes. Oh, my God!",
+      "kind": "dialogue",
+      "startMs": 3039790,
+      "endMs": 3041790
+    },
+    {
+      "index": 520,
+      "text": "Okay, let's go.",
+      "kind": "dialogue",
+      "startMs": 3057490,
+      "endMs": 3059590
+    },
+    {
+      "index": 521,
+      "text": "Oh, Jesus! No! No! Don't!",
+      "kind": "dialogue",
+      "startMs": 3059690,
+      "endMs": 3063890
+    },
+    {
+      "index": 522,
+      "text": "Get back!",
+      "kind": "dialogue",
+      "startMs": 3063990,
+      "endMs": 3066890
+    },
+    {
+      "index": 523,
+      "text": "Why aren't they in school? Why aren't you in school?",
+      "kind": "dialogue",
+      "startMs": 3071190,
+      "endMs": 3073790
+    },
+    {
+      "index": 524,
+      "text": "Mac, we're boned. I'll get you out, Jack.",
+      "kind": "dialogue",
+      "startMs": 3073990,
+      "endMs": 3077190
+    },
+    {
+      "index": 525,
+      "text": "All right, listen. We got an entrance coming up, Jack.",
+      "kind": "dialogue",
+      "startMs": 3086090,
+      "endMs": 3089100
+    },
+    {
+      "index": 526,
+      "text": "It's gonna be a real ugly turn, though.",
+      "kind": "dialogue",
+      "startMs": 3089200,
+      "endMs": 3092600
+    },
+    {
+      "index": 527,
+      "text": "How ugly? What's ugly?",
+      "kind": "dialogue",
+      "startMs": 3092700,
+      "endMs": 3094900
+    },
+    {
+      "index": 528,
+      "text": "Okay, we got a hard right comin' up at the construction site.",
+      "kind": "dialogue",
+      "startMs": 3095000,
+      "endMs": 3098900
+    },
+    {
+      "index": 529,
+      "text": "This should be it.",
+      "kind": "dialogue",
+      "startMs": 3099000,
+      "endMs": 3100700
+    },
+    {
+      "index": 530,
+      "text": "That is a dead end. There's a turn.",
+      "kind": "dialogue",
+      "startMs": 3100800,
+      "endMs": 3103300
+    },
+    {
+      "index": 531,
+      "text": "I can't make that turn. No. You can make it. Keep left. You can make it wide.",
+      "kind": "dialogue",
+      "startMs": 3103400,
+      "endMs": 3106500
+    },
+    {
+      "index": 532,
+      "text": "Oh, God, we're gonna tip over. We're gonna tip over.",
+      "kind": "dialogue",
+      "startMs": 3106600,
+      "endMs": 3109700
+    },
+    {
+      "index": 533,
+      "text": "You're right. We're gonna tip over. Everyone on this side of the bus now!",
+      "kind": "dialogue",
+      "startMs": 3109900,
+      "endMs": 3114100
+    },
+    {
+      "index": 534,
+      "text": "On this side of the bus, as far as you can, please!",
+      "kind": "dialogue",
+      "startMs": 3114200,
+      "endMs": 3117200
+    },
+    {
+      "index": 535,
+      "text": "Hold on!",
+      "kind": "dialogue",
+      "startMs": 3117300,
+      "endMs": 3118400
+    },
+    {
+      "index": 536,
+      "text": "Hold on!",
+      "kind": "dialogue",
+      "startMs": 3118400,
+      "endMs": 3119400
+    },
+    {
+      "index": 537,
+      "text": "Over here, over here! As far as you can, now!",
+      "kind": "dialogue",
+      "startMs": 3119500,
+      "endMs": 3122900
+    },
+    {
+      "index": 538,
+      "text": "Mac, you'd better clear this site out.",
+      "kind": "dialogue",
+      "startMs": 3123000,
+      "endMs": 3125800
+    },
+    {
+      "index": 539,
+      "text": "Everybody hold on! This side of the bus!",
+      "kind": "dialogue",
+      "startMs": 3132200,
+      "endMs": 3134600
+    },
+    {
+      "index": 540,
+      "text": "Hold on!",
+      "kind": "dialogue",
+      "startMs": 3134700,
+      "endMs": 3136600
+    },
+    {
+      "index": 541,
+      "text": "Hold on! Oh, God! Here we go! Here we go!",
+      "kind": "dialogue",
+      "startMs": 3138000,
+      "endMs": 3142400
+    },
+    {
+      "index": 542,
+      "text": "Here we go!",
+      "kind": "dialogue",
+      "startMs": 3145600,
+      "endMs": 3147100
+    },
+    {
+      "index": 543,
+      "text": "Whoo! Oh, my God! Oh, God! Is everybody all right?",
+      "kind": "dialogue",
+      "startMs": 3160110,
+      "endMs": 3165010
+    },
+    {
+      "index": 544,
+      "text": "Yes!",
+      "kind": "dialogue",
+      "startMs": 3165110,
+      "endMs": 3167310
+    },
+    {
+      "index": 545,
+      "text": "Take me to that interchange at the 105!",
+      "kind": "dialogue",
+      "startMs": 3167410,
+      "endMs": 3170010
+    },
+    {
+      "index": 546,
+      "text": "Oh, my God! We might have died. I can't think.",
+      "kind": "dialogue",
+      "startMs": 3180310,
+      "endMs": 3184310
+    },
+    {
+      "index": 547,
+      "text": "It's okay. If you need to, you go right ahead and vomit.",
+      "kind": "dialogue",
+      "startMs": 3184410,
+      "endMs": 3188710
+    },
+    {
+      "index": 548,
+      "text": "Hold it right there!",
+      "kind": "dialogue",
+      "startMs": 3191710,
+      "endMs": 3193910
+    },
+    {
+      "index": 549,
+      "text": "Mac, I got 'em patched through! Right.",
+      "kind": "dialogue",
+      "startMs": 3204810,
+      "endMs": 3207310
+    },
+    {
+      "index": 550,
+      "text": "Get rid of that scaffolding and replace it with webbing.",
+      "kind": "dialogue",
+      "startMs": 3207510,
+      "endMs": 3210210
+    },
+    {
+      "index": 551,
+      "text": "Okay. Norwood, I want aerial units up ahead.",
+      "kind": "dialogue",
+      "startMs": 3210310,
+      "endMs": 3213710
+    },
+    {
+      "index": 552,
+      "text": "No obstructions in the freeway. We have a window here. I wanna make sure it stays open.",
+      "kind": "dialogue",
+      "startMs": 3213910,
+      "endMs": 3217610
+    },
+    {
+      "index": 553,
+      "text": "Right. You, sir. This gentleman's gonna drive you...",
+      "kind": "dialogue",
+      "startMs": 3217710,
+      "endMs": 3220610
+    },
+    {
+      "index": 554,
+      "text": "Thank goodness for this freeway.",
+      "kind": "dialogue",
+      "startMs": 3228910,
+      "endMs": 3232020
+    },
+    {
+      "index": 555,
+      "text": "Shoot.",
+      "kind": "dialogue",
+      "startMs": 3239420,
+      "endMs": 3241320
+    },
+    {
+      "index": 556,
+      "text": "Could you do me a favor and hold the wheel for me for a second?",
+      "kind": "dialogue",
+      "startMs": 3241420,
+      "endMs": 3246020
+    },
+    {
+      "index": 557,
+      "text": "Hold the wheel? Thank you.",
+      "kind": "dialogue",
+      "startMs": 3246120,
+      "endMs": 3248620
+    },
+    {
+      "index": 558,
+      "text": "Ma'am, you did very well.",
+      "kind": "dialogue",
+      "startMs": 3248720,
+      "endMs": 3250920
+    },
+    {
+      "index": 559,
+      "text": "Actually, you were incredible. I've never seen driving like that.",
+      "kind": "dialogue",
+      "startMs": 3251020,
+      "endMs": 3254120
+    },
+    {
+      "index": 560,
+      "text": "Annie. What?",
+      "kind": "dialogue",
+      "startMs": 3254220,
+      "endMs": 3256620
+    },
+    {
+      "index": 561,
+      "text": "It's my name. Annie.",
+      "kind": "dialogue",
+      "startMs": 3256720,
+      "endMs": 3258620
+    },
+    {
+      "index": 562,
+      "text": "Annie. As opposed to \"ma'am. \" Okay.",
+      "kind": "dialogue",
+      "startMs": 3258720,
+      "endMs": 3264020
+    },
+    {
+      "index": 563,
+      "text": "So, why is all this happening?",
+      "kind": "dialogue",
+      "startMs": 3267520,
+      "endMs": 3271320
+    },
+    {
+      "index": 564,
+      "text": "I mean, what did we do, bomb the guy's country or something?",
+      "kind": "dialogue",
+      "startMs": 3271520,
+      "endMs": 3275820
+    },
+    {
+      "index": 565,
+      "text": "No, it's just a guy who wants money.",
+      "kind": "dialogue",
+      "startMs": 3275920,
+      "endMs": 3278520
+    },
+    {
+      "index": 566,
+      "text": "I don't buy that. It's not a very good way to make money.",
+      "kind": "dialogue",
+      "startMs": 3280120,
+      "endMs": 3283320
+    },
+    {
+      "index": 567,
+      "text": "So, um, what is this guy's deal?",
+      "kind": "dialogue",
+      "startMs": 3284720,
+      "endMs": 3288120
+    },
+    {
+      "index": 568,
+      "text": "A while back he held some people for ransom.",
+      "kind": "dialogue",
+      "startMs": 3289720,
+      "endMs": 3292120
+    },
+    {
+      "index": 569,
+      "text": "It went sour, and now he's a little pissed at me.",
+      "kind": "dialogue",
+      "startMs": 3292220,
+      "endMs": 3295320
+    },
+    {
+      "index": 570,
+      "text": "What does that have to do with us?",
+      "kind": "dialogue",
+      "startMs": 3295420,
+      "endMs": 3297920
+    },
+    {
+      "index": 571,
+      "text": "Nothing. It's a game. If he gets the money, he wins.",
+      "kind": "dialogue",
+      "startMs": 3298020,
+      "endMs": 3301320
+    },
+    {
+      "index": 572,
+      "text": "If the bus blows up, he wins.",
+      "kind": "dialogue",
+      "startMs": 3301430,
+      "endMs": 3303330
+    },
+    {
+      "index": 573,
+      "text": "What if you win? Then tomorrow we'll play another one.",
+      "kind": "dialogue",
+      "startMs": 3303430,
+      "endMs": 3306630
+    },
+    {
+      "index": 574,
+      "text": "But I'm not available to drive tomorrow. Busy.",
+      "kind": "dialogue",
+      "startMs": 3306730,
+      "endMs": 3309730
+    },
+    {
+      "index": 575,
+      "text": "We got no match for that description.",
+      "kind": "dialogue",
+      "startMs": 3314330,
+      "endMs": 3316730
+    },
+    {
+      "index": 576,
+      "text": "No one's lost a thumb for at least the last ten years.",
+      "kind": "dialogue",
+      "startMs": 3316830,
+      "endMs": 3319230
+    },
+    {
+      "index": 577,
+      "text": "He could be from anywhere. I can't access all that.",
+      "kind": "dialogue",
+      "startMs": 3319330,
+      "endMs": 3322130
+    },
+    {
+      "index": 578,
+      "text": "Forget the files. I want you to start going through the pension fund.",
+      "kind": "dialogue",
+      "startMs": 3322230,
+      "endMs": 3325830
+    },
+    {
+      "index": 579,
+      "text": "This guy's drawin' disability. He may not be L.A.P.D., but he's livin' here now.",
+      "kind": "dialogue",
+      "startMs": 3325930,
+      "endMs": 3329730
+    },
+    {
+      "index": 580,
+      "text": "I want pictures! I've seen this asshole.",
+      "kind": "dialogue",
+      "startMs": 3329830,
+      "endMs": 3333130
+    },
+    {
+      "index": 581,
+      "text": "Hey! Hey, Mac!",
+      "kind": "dialogue",
+      "startMs": 3347330,
+      "endMs": 3349230
+    },
+    {
+      "index": 582,
+      "text": "Let's get these passengers off the bus!",
+      "kind": "dialogue",
+      "startMs": 3349330,
+      "endMs": 3351330
+    },
+    {
+      "index": 583,
+      "text": "We can't do it, sir. There's no time for any stunts, Traven.",
+      "kind": "dialogue",
+      "startMs": 3351430,
+      "endMs": 3354330
+    },
+    {
+      "index": 584,
+      "text": "We gotta get these people out of harm's way. I got orders!",
+      "kind": "dialogue",
+      "startMs": 3354430,
+      "endMs": 3357030
+    },
+    {
+      "index": 585,
+      "text": "We move these people, he'll see.",
+      "kind": "dialogue",
+      "startMs": 3357130,
+      "endMs": 3359230
+    },
+    {
+      "index": 586,
+      "text": "Remember... crazy, not stupid.",
+      "kind": "dialogue",
+      "startMs": 3361630,
+      "endMs": 3364230
+    },
+    {
+      "index": 587,
+      "text": "All right, look. Harry's tryin' to find out who this guy is.",
+      "kind": "dialogue",
+      "startMs": 3364330,
+      "endMs": 3367230
+    },
+    {
+      "index": 588,
+      "text": "We think maybe he's a cop. Lieutenant!",
+      "kind": "dialogue",
+      "startMs": 3367330,
+      "endMs": 3370030
+    },
+    {
+      "index": 589,
+      "text": "It's him. He wants to talk to Jack.",
+      "kind": "dialogue",
+      "startMs": 3370130,
+      "endMs": 3373640
+    },
+    {
+      "index": 590,
+      "text": "He's on the line for you. Okay, give him the number.",
+      "kind": "dialogue",
+      "startMs": 3373840,
+      "endMs": 3376940
+    },
+    {
+      "index": 591,
+      "text": "Give him the number!",
+      "kind": "dialogue",
+      "startMs": 3377040,
+      "endMs": 3378940
+    },
+    {
+      "index": 592,
+      "text": "How's he doing? The bleeding is less, but...",
+      "kind": "dialogue",
+      "startMs": 3381240,
+      "endMs": 3384040
+    },
+    {
+      "index": 593,
+      "text": "Are they going to help us? Sure they are. They're the police.",
+      "kind": "dialogue",
+      "startMs": 3384140,
+      "endMs": 3388140
+    },
+    {
+      "index": 594,
+      "text": "Hey, your taxes are payin' their salary. If we die, they gotta take a pay cut.",
+      "kind": "dialogue",
+      "startMs": 3388240,
+      "endMs": 3392640
+    },
+    {
+      "index": 595,
+      "text": "I mean, you know...",
+      "kind": "dialogue",
+      "startMs": 3394040,
+      "endMs": 3396740
+    },
+    {
+      "index": 596,
+      "text": "Yeah. I think we have trust.",
+      "kind": "dialogue",
+      "startMs": 3400640,
+      "endMs": 3402840
+    },
+    {
+      "index": 597,
+      "text": "But it looks on TV like you're tryin' to get those passengers off the bus.",
+      "kind": "dialogue",
+      "startMs": 3402940,
+      "endMs": 3406440
+    },
+    {
+      "index": 598,
+      "text": "Look, you gotta let me have one.",
+      "kind": "dialogue",
+      "startMs": 3406640,
+      "endMs": 3409140
+    },
+    {
+      "index": 599,
+      "text": "Now, we went over the rules. As an act of faith.",
+      "kind": "dialogue",
+      "startMs": 3409340,
+      "endMs": 3412140
+    },
+    {
+      "index": 600,
+      "text": "We have an injured man here. The driver's been shot.",
+      "kind": "dialogue",
+      "startMs": 3412240,
+      "endMs": 3414640
+    },
+    {
+      "index": 601,
+      "text": "Jack, now tell me that you haven't been shooting the passengers.",
+      "kind": "dialogue",
+      "startMs": 3414840,
+      "endMs": 3417440
+    },
+    {
+      "index": 602,
+      "text": "I thought it was customary for a police officer... to, you know, shoot the bad guys, huh?",
+      "kind": "dialogue",
+      "startMs": 3417540,
+      "endMs": 3422840
+    },
+    {
+      "index": 603,
+      "text": "This man has no time. No one gets off!",
+      "kind": "dialogue",
+      "startMs": 3422940,
+      "endMs": 3426840
+    },
+    {
+      "index": 604,
+      "text": "It'll grease the wheels with the money men if you show a little charity.",
+      "kind": "dialogue",
+      "startMs": 3426940,
+      "endMs": 3430040
+    },
+    {
+      "index": 605,
+      "text": "There's still gonna be plenty of us to kill.",
+      "kind": "dialogue",
+      "startMs": 3430140,
+      "endMs": 3433540
+    },
+    {
+      "index": 606,
+      "text": "Okay, son, you can try and unload the driver.",
+      "kind": "dialogue",
+      "startMs": 3433640,
+      "endMs": 3436640
+    },
+    {
+      "index": 607,
+      "text": "You tell that wildcat behind the wheel not to slow down, though, or he won't even get a chance to bleed to death.",
+      "kind": "dialogue",
+      "startMs": 3436740,
+      "endMs": 3443140
+    },
+    {
+      "index": 608,
+      "text": "And Jack? Don't slip.",
+      "kind": "dialogue",
+      "startMs": 3443240,
+      "endMs": 3446450
+    },
+    {
+      "index": 609,
+      "text": "He's letting us unload the driver. Norwood, get us closer!",
+      "kind": "dialogue",
+      "startMs": 3446550,
+      "endMs": 3451150
+    },
+    {
+      "index": 610,
+      "text": "We're gonna get the bus driver off the bus! We're gonna get the driver off.",
+      "kind": "dialogue",
+      "startMs": 3451250,
+      "endMs": 3453750
+    },
+    {
+      "index": 611,
+      "text": "Just him? For now. Gigantor!",
+      "kind": "dialogue",
+      "startMs": 3453850,
+      "endMs": 3456050
+    },
+    {
+      "index": 612,
+      "text": "Ortiz. Ortiz. I'm gonna need your help.",
+      "kind": "dialogue",
+      "startMs": 3456150,
+      "endMs": 3459150
+    },
+    {
+      "index": 613,
+      "text": "Okay. Okay, I need you to pass him to me.",
+      "kind": "dialogue",
+      "startMs": 3459250,
+      "endMs": 3461550
+    },
+    {
+      "index": 614,
+      "text": "You have to keep him straight, or I think the wound will tear.",
+      "kind": "dialogue",
+      "startMs": 3461650,
+      "endMs": 3464350
+    },
+    {
+      "index": 615,
+      "text": "What about the rest of us? What about the rest of us? Hey, hey! Lady!",
+      "kind": "dialogue",
+      "startMs": 3464450,
+      "endMs": 3467550
+    },
+    {
+      "index": 616,
+      "text": "Come on, Sam. I got you. I can't stay! I can't...",
+      "kind": "dialogue",
+      "startMs": 3467650,
+      "endMs": 3472050
+    },
+    {
+      "index": 617,
+      "text": "How you feelin'? Like I've been shot.",
+      "kind": "dialogue",
+      "startMs": 3472150,
+      "endMs": 3475050
+    },
+    {
+      "index": 618,
+      "text": "Take care, Sam. Okay, Annie.",
+      "kind": "dialogue",
+      "startMs": 3475150,
+      "endMs": 3479050
+    },
+    {
+      "index": 619,
+      "text": "Drive straight! Keep it straight!",
+      "kind": "dialogue",
+      "startMs": 3479150,
+      "endMs": 3481250
+    },
+    {
+      "index": 620,
+      "text": "Okay, Annie, get as close as you can, okay? All right.",
+      "kind": "dialogue",
+      "startMs": 3483950,
+      "endMs": 3488750
+    },
+    {
+      "index": 621,
+      "text": "Closer! A little closer, Annie!",
+      "kind": "dialogue",
+      "startMs": 3488850,
+      "endMs": 3492050
+    },
+    {
+      "index": 622,
+      "text": "Annie, a little closer! Okay.",
+      "kind": "dialogue",
+      "startMs": 3493750,
+      "endMs": 3495750
+    },
+    {
+      "index": 623,
+      "text": "Okay, how's this?",
+      "kind": "dialogue",
+      "startMs": 3495850,
+      "endMs": 3499050
+    },
+    {
+      "index": 624,
+      "text": "Sorry! Sorry. Okay, Annie, no problem. Let's try it one more time.",
+      "kind": "dialogue",
+      "startMs": 3502150,
+      "endMs": 3506950
+    },
+    {
+      "index": 625,
+      "text": "A little more! Okay! Okay! Right there! Steady!",
+      "kind": "dialogue",
+      "startMs": 3508850,
+      "endMs": 3512650
+    },
+    {
+      "index": 626,
+      "text": "Hold it steady!",
+      "kind": "dialogue",
+      "startMs": 3512750,
+      "endMs": 3514750
+    },
+    {
+      "index": 627,
+      "text": "You got him? You got him?",
+      "kind": "dialogue",
+      "startMs": 3514850,
+      "endMs": 3517660
+    },
+    {
+      "index": 628,
+      "text": "Hold him! I got him! We're clear!",
+      "kind": "dialogue",
+      "startMs": 3517760,
+      "endMs": 3520760
+    },
+    {
+      "index": 629,
+      "text": "All right! Oh. I'm all right. Thanks.",
+      "kind": "dialogue",
+      "startMs": 3522460,
+      "endMs": 3525860
+    },
+    {
+      "index": 630,
+      "text": "Oh, my God.",
+      "kind": "dialogue",
+      "startMs": 3525960,
+      "endMs": 3527960
+    },
+    {
+      "index": 631,
+      "text": "Yes! Oh!",
+      "kind": "dialogue",
+      "startMs": 3528060,
+      "endMs": 3531160
+    },
+    {
+      "index": 632,
+      "text": "It's gonna be okay.",
+      "kind": "dialogue",
+      "startMs": 3539260,
+      "endMs": 3541460
+    },
+    {
+      "index": 633,
+      "text": "Come on! Come on, lady, give me your hand!",
+      "kind": "dialogue",
+      "startMs": 3544360,
+      "endMs": 3546460
+    },
+    {
+      "index": 634,
+      "text": "I have to, Annie. No, Helen! No, Helen, no!",
+      "kind": "dialogue",
+      "startMs": 3546560,
+      "endMs": 3550560
+    },
+    {
+      "index": 635,
+      "text": "Come on! Right there! Over there! Helen, no! No!",
+      "kind": "dialogue",
+      "startMs": 3550660,
+      "endMs": 3552760
+    },
+    {
+      "index": 636,
+      "text": "Here at the 105 Freeway where the police have successfully led...",
+      "kind": "dialogue",
+      "startMs": 3552860,
+      "endMs": 3557060
+    },
+    {
+      "index": 637,
+      "text": "the runaway bus...",
+      "kind": "dialogue",
+      "startMs": 3557160,
+      "endMs": 3559460
+    },
+    {
+      "index": 638,
+      "text": "No, Helen!",
+      "kind": "dialogue",
+      "startMs": 3561060,
+      "endMs": 3563360
+    },
+    {
+      "index": 639,
+      "text": "Goddamn it, Mac! We gotta get those fuckin' choppers out of here!",
+      "kind": "dialogue",
+      "startMs": 3577860,
+      "endMs": 3581260
+    },
+    {
+      "index": 640,
+      "text": "...was driving the bus. Well, I couldn't tell how old...",
+      "kind": "dialogue",
+      "startMs": 3581360,
+      "endMs": 3584660
+    },
+    {
+      "index": 641,
+      "text": "An explosion. Some kind of an explosion.",
+      "kind": "dialogue",
+      "startMs": 3584760,
+      "endMs": 3587170
+    },
+    {
+      "index": 642,
+      "text": "The bus hasn't exploded, but... Oh, my God.",
+      "kind": "dialogue",
+      "startMs": 3587270,
+      "endMs": 3590770
+    },
+    {
+      "index": 643,
+      "text": "A woman caught in the blast fell.",
+      "kind": "dialogue",
+      "startMs": 3590870,
+      "endMs": 3592670
+    },
+    {
+      "index": 644,
+      "text": "She was pulled under the wheels. This is terrible.",
+      "kind": "dialogue",
+      "startMs": 3592770,
+      "endMs": 3595270
+    },
+    {
+      "index": 645,
+      "text": "Interactive TV, Jack. Wave of the future! Huh?",
+      "kind": "dialogue",
+      "startMs": 3595370,
+      "endMs": 3599470
+    },
+    {
+      "index": 646,
+      "text": "I can't be here.",
+      "kind": "dialogue",
+      "startMs": 3621370,
+      "endMs": 3623570
+    },
+    {
+      "index": 647,
+      "text": "I can't, you know.",
+      "kind": "dialogue",
+      "startMs": 3625070,
+      "endMs": 3627070
+    },
+    {
+      "index": 648,
+      "text": "This is the wrong bus.",
+      "kind": "dialogue",
+      "startMs": 3627170,
+      "endMs": 3630270
+    },
+    {
+      "index": 649,
+      "text": "I mean, for me to...",
+      "kind": "dialogue",
+      "startMs": 3630370,
+      "endMs": 3632370
+    },
+    {
+      "index": 650,
+      "text": "I can't die here.",
+      "kind": "dialogue",
+      "startMs": 3633470,
+      "endMs": 3635270
+    },
+    {
+      "index": 651,
+      "text": "Hey, shut up, man.",
+      "kind": "dialogue",
+      "startMs": 3636370,
+      "endMs": 3639170
+    },
+    {
+      "index": 652,
+      "text": "I got a wife. Oh, you do?",
+      "kind": "dialogue",
+      "startMs": 3639270,
+      "endMs": 3641770
+    },
+    {
+      "index": 653,
+      "text": "Hey! So if you have a wife... and I don't, does that mean I'm expendable?",
+      "kind": "dialogue",
+      "startMs": 3641870,
+      "endMs": 3646570
+    },
+    {
+      "index": 654,
+      "text": "Hey, what are you talkin' about, man?",
+      "kind": "dialogue",
+      "startMs": 3646670,
+      "endMs": 3648970
+    },
+    {
+      "index": 655,
+      "text": "The guy's just talkin' crazy. It gets on my nerves.",
+      "kind": "dialogue",
+      "startMs": 3649070,
+      "endMs": 3651970
+    },
+    {
+      "index": 656,
+      "text": "Gets on everybody's nerves. Oh, yeah?",
+      "kind": "dialogue",
+      "startMs": 3652070,
+      "endMs": 3654870
+    },
+    {
+      "index": 657,
+      "text": "I think I have the right to be a little bit upset... What are you staring at anyway?",
+      "kind": "dialogue",
+      "startMs": 3654970,
+      "endMs": 3657370
+    },
+    {
+      "index": 658,
+      "text": "After all that we've...",
+      "kind": "dialogue",
+      "startMs": 3657470,
+      "endMs": 3659880
+    },
+    {
+      "index": 659,
+      "text": "Why don't you just let everybody die in peace, if that's what's gonna happen, huh?",
+      "kind": "dialogue",
+      "startMs": 3659980,
+      "endMs": 3662980
+    },
+    {
+      "index": 660,
+      "text": "So you're a tough guy, huh? I got a right to be upset.",
+      "kind": "dialogue",
+      "startMs": 3663080,
+      "endMs": 3664980
+    },
+    {
+      "index": 661,
+      "text": "You're really tough, huh, Gigantor? Why don't we just step outside?",
+      "kind": "dialogue",
+      "startMs": 3665080,
+      "endMs": 3668180
+    },
+    {
+      "index": 662,
+      "text": "Hey!",
+      "kind": "dialogue",
+      "startMs": 3668280,
+      "endMs": 3670580
+    },
+    {
+      "index": 663,
+      "text": "How are you doing? You all right? Mm-mm.",
+      "kind": "dialogue",
+      "startMs": 3683980,
+      "endMs": 3687280
+    },
+    {
+      "index": 664,
+      "text": "What can I do?",
+      "kind": "dialogue",
+      "startMs": 3687380,
+      "endMs": 3689580
+    },
+    {
+      "index": 665,
+      "text": "When that bomb went off...",
+      "kind": "dialogue",
+      "startMs": 3691080,
+      "endMs": 3693680
+    },
+    {
+      "index": 666,
+      "text": "I know.",
+      "kind": "dialogue",
+      "startMs": 3693780,
+      "endMs": 3695680
+    },
+    {
+      "index": 667,
+      "text": "I thought that was it. I thought that was the bomb and I was dead.",
+      "kind": "dialogue",
+      "startMs": 3695780,
+      "endMs": 3699580
+    },
+    {
+      "index": 668,
+      "text": "And then when I saw her body fall under the bus, it was like...",
+      "kind": "dialogue",
+      "startMs": 3699680,
+      "endMs": 3703280
+    },
+    {
+      "index": 669,
+      "text": "You were glad you were still alive. Mm-hmm.",
+      "kind": "dialogue",
+      "startMs": 3704980,
+      "endMs": 3707980
+    },
+    {
+      "index": 670,
+      "text": "I'm so sorry. Don't be.",
+      "kind": "dialogue",
+      "startMs": 3709480,
+      "endMs": 3712380
+    },
+    {
+      "index": 671,
+      "text": "You should be glad. We all are.",
+      "kind": "dialogue",
+      "startMs": 3712480,
+      "endMs": 3714980
+    },
+    {
+      "index": 672,
+      "text": "It doesn't mean you don't care. I know, but she was so scared.",
+      "kind": "dialogue",
+      "startMs": 3717080,
+      "endMs": 3720280
+    },
+    {
+      "index": 673,
+      "text": "She was scared. She was a nice lady who didn't deserve to get killed.",
+      "kind": "dialogue",
+      "startMs": 3720380,
+      "endMs": 3723380
+    },
+    {
+      "index": 674,
+      "text": "But, Annie, if she'd gotten off, it would've killed us all.",
+      "kind": "dialogue",
+      "startMs": 3723480,
+      "endMs": 3726780
+    },
+    {
+      "index": 675,
+      "text": "He's the asshole, Annie, the guy who put us here. Remember that, okay?",
+      "kind": "dialogue",
+      "startMs": 3726880,
+      "endMs": 3730690
+    },
+    {
+      "index": 676,
+      "text": "Big asshole.",
+      "kind": "dialogue",
+      "startMs": 3730790,
+      "endMs": 3732990
+    },
+    {
+      "index": 677,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 3734290,
+      "endMs": 3736190
+    },
+    {
+      "index": 678,
+      "text": "Are you sure?",
+      "kind": "dialogue",
+      "startMs": 3739090,
+      "endMs": 3741290
+    },
+    {
+      "index": 679,
+      "text": "Well, how far?",
+      "kind": "dialogue",
+      "startMs": 3741490,
+      "endMs": 3743390
+    },
+    {
+      "index": 680,
+      "text": "Sir, uh, we have a serious problem.",
+      "kind": "dialogue",
+      "startMs": 3746390,
+      "endMs": 3748690
+    },
+    {
+      "index": 681,
+      "text": "What? This freeway isn't finished.",
+      "kind": "dialogue",
+      "startMs": 3749890,
+      "endMs": 3754390
+    },
+    {
+      "index": 682,
+      "text": "What are you talking about? The aerial unit caught it about three miles ahead.",
+      "kind": "dialogue",
+      "startMs": 3754490,
+      "endMs": 3758090
+    },
+    {
+      "index": 683,
+      "text": "There's a section missing.",
+      "kind": "dialogue",
+      "startMs": 3758190,
+      "endMs": 3760790
+    },
+    {
+      "index": 684,
+      "text": "Section missing?",
+      "kind": "dialogue",
+      "startMs": 3760890,
+      "endMs": 3762890
+    },
+    {
+      "index": 685,
+      "text": "But it's on the map. It's finished on the goddamn map!",
+      "kind": "dialogue",
+      "startMs": 3767690,
+      "endMs": 3770690
+    },
+    {
+      "index": 686,
+      "text": "I guess they fell behind.",
+      "kind": "dialogue",
+      "startMs": 3771990,
+      "endMs": 3773990
+    },
+    {
+      "index": 687,
+      "text": "Fuck. You're fired! Everybody's fuckin' fired!",
+      "kind": "dialogue",
+      "startMs": 3775490,
+      "endMs": 3778790
+    },
+    {
+      "index": 688,
+      "text": "Get me closer!",
+      "kind": "dialogue",
+      "startMs": 3780090,
+      "endMs": 3781990
+    },
+    {
+      "index": 689,
+      "text": "Hey, get closer. Watch him in the mirror.",
+      "kind": "dialogue",
+      "startMs": 3782090,
+      "endMs": 3785790
+    },
+    {
+      "index": 690,
+      "text": "Jack!",
+      "kind": "dialogue",
+      "startMs": 3785890,
+      "endMs": 3787390
+    },
+    {
+      "index": 691,
+      "text": "How big is the section? Fifty feet. At least.",
+      "kind": "dialogue",
+      "startMs": 3790790,
+      "endMs": 3794490
+    },
+    {
+      "index": 692,
+      "text": "There's a gap in the road up ahead. It's big.",
+      "kind": "dialogue",
+      "startMs": 3799790,
+      "endMs": 3803000
+    },
+    {
+      "index": 693,
+      "text": "You're kidding. How big?",
+      "kind": "dialogue",
+      "startMs": 3803100,
+      "endMs": 3805500
+    },
+    {
+      "index": 694,
+      "text": "Fifty feet. Jack. What?",
+      "kind": "dialogue",
+      "startMs": 3805600,
+      "endMs": 3808700
+    },
+    {
+      "index": 695,
+      "text": "We gotta get these people off the bus somehow.",
+      "kind": "dialogue",
+      "startMs": 3808800,
+      "endMs": 3811700
+    },
+    {
+      "index": 696,
+      "text": "You know I can't.",
+      "kind": "dialogue",
+      "startMs": 3811800,
+      "endMs": 3814800
+    },
+    {
+      "index": 697,
+      "text": "What did... What did he say? Jack?",
+      "kind": "dialogue",
+      "startMs": 3814900,
+      "endMs": 3818400
+    },
+    {
+      "index": 698,
+      "text": "Jack, what'd he say?",
+      "kind": "dialogue",
+      "startMs": 3818500,
+      "endMs": 3821200
+    },
+    {
+      "index": 699,
+      "text": "What's the matter?",
+      "kind": "dialogue",
+      "startMs": 3822800,
+      "endMs": 3825000
+    },
+    {
+      "index": 700,
+      "text": "There's a gap in the freeway. What?",
+      "kind": "dialogue",
+      "startMs": 3829700,
+      "endMs": 3832100
+    },
+    {
+      "index": 701,
+      "text": "What do you mean? How big is a gap?",
+      "kind": "dialogue",
+      "startMs": 3834100,
+      "endMs": 3837000
+    },
+    {
+      "index": 702,
+      "text": "Fifty feet. A couple of miles ahead.",
+      "kind": "dialogue",
+      "startMs": 3837100,
+      "endMs": 3839400
+    },
+    {
+      "index": 703,
+      "text": "This is crazy. Right along up there?",
+      "kind": "dialogue",
+      "startMs": 3839500,
+      "endMs": 3843400
+    },
+    {
+      "index": 704,
+      "text": "What is this? Geez.",
+      "kind": "dialogue",
+      "startMs": 3845900,
+      "endMs": 3847800
+    },
+    {
+      "index": 705,
+      "text": "Jack! Jack!",
+      "kind": "dialogue",
+      "startMs": 3847900,
+      "endMs": 3850500
+    },
+    {
+      "index": 706,
+      "text": "What if I shift into neutral and just keep the engine revving?",
+      "kind": "dialogue",
+      "startMs": 3850600,
+      "endMs": 3853200
+    },
+    {
+      "index": 707,
+      "text": "No, he'd have thought of that. Then what then? What? What?",
+      "kind": "dialogue",
+      "startMs": 3853300,
+      "endMs": 3856900
+    },
+    {
+      "index": 708,
+      "text": "What? Jack! Floor it.",
+      "kind": "dialogue",
+      "startMs": 3857000,
+      "endMs": 3860600
+    },
+    {
+      "index": 709,
+      "text": "What? Floor it!",
+      "kind": "dialogue",
+      "startMs": 3860700,
+      "endMs": 3862700
+    },
+    {
+      "index": 710,
+      "text": "It's an interchange. Might be an incline. Floor it! - Fine.",
+      "kind": "dialogue",
+      "startMs": 3862800,
+      "endMs": 3866200
+    },
+    {
+      "index": 711,
+      "text": "Everybody, hold onto your seats or whatever you can.",
+      "kind": "dialogue",
+      "startMs": 3870000,
+      "endMs": 3873710
+    },
+    {
+      "index": 712,
+      "text": "When we hit the gap, heads down.",
+      "kind": "dialogue",
+      "startMs": 3873810,
+      "endMs": 3876710
+    },
+    {
+      "index": 713,
+      "text": "That's it? That's it?",
+      "kind": "dialogue",
+      "startMs": 3876810,
+      "endMs": 3879310
+    },
+    {
+      "index": 714,
+      "text": "That's all we can do. Let's put these underneath your seat, all right?",
+      "kind": "dialogue",
+      "startMs": 3879410,
+      "endMs": 3883510
+    },
+    {
+      "index": 715,
+      "text": "Put your bags underneath the seat.",
+      "kind": "dialogue",
+      "startMs": 3883610,
+      "endMs": 3886910
+    },
+    {
+      "index": 716,
+      "text": "Hey, I didn't mean to shoot the guy.",
+      "kind": "dialogue",
+      "startMs": 3891510,
+      "endMs": 3893910
+    },
+    {
+      "index": 717,
+      "text": "Hold on.",
+      "kind": "dialogue",
+      "startMs": 3894010,
+      "endMs": 3896410
+    },
+    {
+      "index": 718,
+      "text": "Is this really gonna work?",
+      "kind": "dialogue",
+      "startMs": 3896510,
+      "endMs": 3899310
+    },
+    {
+      "index": 719,
+      "text": "Jack!",
+      "kind": "dialogue",
+      "startMs": 3899410,
+      "endMs": 3901710
+    },
+    {
+      "index": 720,
+      "text": "Yeah. Jack.",
+      "kind": "dialogue",
+      "startMs": 3901810,
+      "endMs": 3905910
+    },
+    {
+      "index": 721,
+      "text": "Come on, come on, come on, come on. Oh, God.",
+      "kind": "dialogue",
+      "startMs": 3927610,
+      "endMs": 3929510
+    },
+    {
+      "index": 722,
+      "text": "Come on, come on. Come on! God.",
+      "kind": "dialogue",
+      "startMs": 3929610,
+      "endMs": 3932210
+    },
+    {
+      "index": 723,
+      "text": "Oh, God.",
+      "kind": "dialogue",
+      "startMs": 3932310,
+      "endMs": 3934110
+    },
+    {
+      "index": 724,
+      "text": "Oh, shit.",
+      "kind": "dialogue",
+      "startMs": 3941610,
+      "endMs": 3943920
+    },
+    {
+      "index": 725,
+      "text": "Everybody, hold on!",
+      "kind": "dialogue",
+      "startMs": 3956720,
+      "endMs": 3960120
+    },
+    {
+      "index": 726,
+      "text": "I wanna see our baby.",
+      "kind": "dialogue",
+      "startMs": 3971620,
+      "endMs": 3974820
+    },
+    {
+      "index": 727,
+      "text": "Oh, God. Jack.",
+      "kind": "dialogue",
+      "startMs": 3976620,
+      "endMs": 3979420
+    },
+    {
+      "index": 728,
+      "text": "Shit!",
+      "kind": "dialogue",
+      "startMs": 3985320,
+      "endMs": 3987320
+    },
+    {
+      "index": 729,
+      "text": "Okay. Okay.",
+      "kind": "dialogue",
+      "startMs": 4006420,
+      "endMs": 4008820
+    },
+    {
+      "index": 730,
+      "text": "Yes!",
+      "kind": "dialogue",
+      "startMs": 4008920,
+      "endMs": 4010920
+    },
+    {
+      "index": 731,
+      "text": "We are way out of control! We made it!",
+      "kind": "dialogue",
+      "startMs": 4011120,
+      "endMs": 4014120
+    },
+    {
+      "index": 732,
+      "text": "You okay? You okay? Yeah. I'm okay. I'm okay.",
+      "kind": "dialogue",
+      "startMs": 4021230,
+      "endMs": 4024130
+    },
+    {
+      "index": 733,
+      "text": "All right! All right! Let's go!",
+      "kind": "dialogue",
+      "startMs": 4024230,
+      "endMs": 4027430
+    },
+    {
+      "index": 734,
+      "text": "Is everybody okay? Yes! Yes!",
+      "kind": "dialogue",
+      "startMs": 4027530,
+      "endMs": 4030330
+    },
+    {
+      "index": 735,
+      "text": "We made it! We made it.",
+      "kind": "dialogue",
+      "startMs": 4033530,
+      "endMs": 4036230
+    },
+    {
+      "index": 736,
+      "text": "You are the man. You are the man!",
+      "kind": "dialogue",
+      "startMs": 4037830,
+      "endMs": 4040530
+    },
+    {
+      "index": 737,
+      "text": "Thank you. Thank you very much. Goddamn! Yes!",
+      "kind": "dialogue",
+      "startMs": 4040630,
+      "endMs": 4044230
+    },
+    {
+      "index": 738,
+      "text": "Oh, shit. I think you missed your calling.",
+      "kind": "dialogue",
+      "startMs": 4045830,
+      "endMs": 4047930
+    },
+    {
+      "index": 739,
+      "text": "Yeah? What was it?",
+      "kind": "dialogue",
+      "startMs": 4048030,
+      "endMs": 4050930
+    },
+    {
+      "index": 740,
+      "text": "Watch the road. You should've been a pilot.",
+      "kind": "dialogue",
+      "startMs": 4051030,
+      "endMs": 4053830
+    },
+    {
+      "index": 741,
+      "text": "Ow.",
+      "kind": "dialogue",
+      "startMs": 4053930,
+      "endMs": 4057930
+    },
+    {
+      "index": 742,
+      "text": "Jesus. Get off!",
+      "kind": "dialogue",
+      "startMs": 4059930,
+      "endMs": 4062330
+    },
+    {
+      "index": 743,
+      "text": "What? Get off this.",
+      "kind": "dialogue",
+      "startMs": 4062430,
+      "endMs": 4064530
+    },
+    {
+      "index": 744,
+      "text": "Now, now! Get off this!",
+      "kind": "dialogue",
+      "startMs": 4064630,
+      "endMs": 4067030
+    },
+    {
+      "index": 745,
+      "text": "In there.",
+      "kind": "dialogue",
+      "startMs": 4071330,
+      "endMs": 4073230
+    },
+    {
+      "index": 746,
+      "text": "Where, right here? Right here? Yeah. Yeah.",
+      "kind": "dialogue",
+      "startMs": 4073330,
+      "endMs": 4076530
+    },
+    {
+      "index": 747,
+      "text": "Hey. Hey, hey, stop! Stop!",
+      "kind": "dialogue",
+      "startMs": 4080530,
+      "endMs": 4083230
+    },
+    {
+      "index": 748,
+      "text": "He's just entered the airport. All right!",
+      "kind": "dialogue",
+      "startMs": 4092640,
+      "endMs": 4094740
+    },
+    {
+      "index": 749,
+      "text": "There's thousands of people there. That's my boy, Jack.",
+      "kind": "dialogue",
+      "startMs": 4094840,
+      "endMs": 4097240
+    },
+    {
+      "index": 750,
+      "text": "He should be able to circle the runways and buy us some time.",
+      "kind": "dialogue",
+      "startMs": 4097340,
+      "endMs": 4099640
+    },
+    {
+      "index": 751,
+      "text": "The choppers can't fly in there. It's restricted airspace.",
+      "kind": "dialogue",
+      "startMs": 4099740,
+      "endMs": 4102440
+    },
+    {
+      "index": 752,
+      "text": "He's headed for the end of the field.",
+      "kind": "dialogue",
+      "startMs": 4102540,
+      "endMs": 4104940
+    },
+    {
+      "index": 753,
+      "text": "That must be Bravo Tango, an emergency runway.",
+      "kind": "dialogue",
+      "startMs": 4105040,
+      "endMs": 4107240
+    },
+    {
+      "index": 754,
+      "text": "Yeah, let's hope it's built. Let's move!",
+      "kind": "dialogue",
+      "startMs": 4107340,
+      "endMs": 4109840
+    },
+    {
+      "index": 755,
+      "text": "We're at the airport.",
+      "kind": "dialogue",
+      "startMs": 4122040,
+      "endMs": 4124740
+    },
+    {
+      "index": 756,
+      "text": "Yeah. So?",
+      "kind": "dialogue",
+      "startMs": 4124840,
+      "endMs": 4127840
+    },
+    {
+      "index": 757,
+      "text": "I already seen the airport.",
+      "kind": "dialogue",
+      "startMs": 4127940,
+      "endMs": 4130440
+    },
+    {
+      "index": 758,
+      "text": "Yeah?",
+      "kind": "dialogue",
+      "startMs": 4149940,
+      "endMs": 4151840
+    },
+    {
+      "index": 759,
+      "text": "Very, very exciting, Jack.",
+      "kind": "dialogue",
+      "startMs": 4151940,
+      "endMs": 4154840
+    },
+    {
+      "index": 760,
+      "text": "Some close calls, huh?",
+      "kind": "dialogue",
+      "startMs": 4154940,
+      "endMs": 4156940
+    },
+    {
+      "index": 761,
+      "text": "But you've done all right for yourself. What do you want?",
+      "kind": "dialogue",
+      "startMs": 4157040,
+      "endMs": 4160250
+    },
+    {
+      "index": 762,
+      "text": "I want money, Jack.",
+      "kind": "dialogue",
+      "startMs": 4160350,
+      "endMs": 4162250
+    },
+    {
+      "index": 763,
+      "text": "I wish, uh, that I had some loftier purpose, but, um, I'm afraid in the end it's just the money, Jack.",
+      "kind": "dialogue",
+      "startMs": 4162350,
+      "endMs": 4168650
+    },
+    {
+      "index": 764,
+      "text": "I would like, uh, large, uh, nonsequential bills... in two clear plastic bags, unmarked.",
+      "kind": "dialogue",
+      "startMs": 4168750,
+      "endMs": 4175950
+    },
+    {
+      "index": 765,
+      "text": "Can you remember all that? What are you telling me for?",
+      "kind": "dialogue",
+      "startMs": 4176050,
+      "endMs": 4179950
+    },
+    {
+      "index": 766,
+      "text": "Because I want you to help me to get it before it gets too late.",
+      "kind": "dialogue",
+      "startMs": 4180050,
+      "endMs": 4183150
+    },
+    {
+      "index": 767,
+      "text": "I hate negotiators, Jack. They talk to you like they're your best friend, and they don't even know ya.",
+      "kind": "dialogue",
+      "startMs": 4183250,
+      "endMs": 4189050
+    },
+    {
+      "index": 768,
+      "text": "Why are they messing with me, huh?",
+      "kind": "dialogue",
+      "startMs": 4189150,
+      "endMs": 4191650
+    },
+    {
+      "index": 769,
+      "text": "Do they think I'm doin' this for fun?",
+      "kind": "dialogue",
+      "startMs": 4191750,
+      "endMs": 4193950
+    },
+    {
+      "index": 770,
+      "text": "Aren't you? Oh, that's unfair, Jack.",
+      "kind": "dialogue",
+      "startMs": 4194050,
+      "endMs": 4197450
+    },
+    {
+      "index": 771,
+      "text": "You don't know how I feel about this. You don't even know me.",
+      "kind": "dialogue",
+      "startMs": 4197550,
+      "endMs": 4201950
+    },
+    {
+      "index": 772,
+      "text": "I know you want a shitload of money you didn't earn.",
+      "kind": "dialogue",
+      "startMs": 4202050,
+      "endMs": 4204450
+    },
+    {
+      "index": 773,
+      "text": "Oh, I earned it.",
+      "kind": "dialogue",
+      "startMs": 4204550,
+      "endMs": 4206550
+    },
+    {
+      "index": 774,
+      "text": "I spent my life earning it.",
+      "kind": "dialogue",
+      "startMs": 4206650,
+      "endMs": 4209050
+    },
+    {
+      "index": 775,
+      "text": "I got a medal, too, Jack. A medal and a pink slip and a \"sorry about your hand. \"",
+      "kind": "dialogue",
+      "startMs": 4209150,
+      "endMs": 4214750
+    },
+    {
+      "index": 776,
+      "text": "You have to let me off. Oh, no! That's not good.",
+      "kind": "dialogue",
+      "startMs": 4214850,
+      "endMs": 4219650
+    },
+    {
+      "index": 777,
+      "text": "You want me to help you? I need to talk to these people face-to-face.",
+      "kind": "dialogue",
+      "startMs": 4219750,
+      "endMs": 4222550
+    },
+    {
+      "index": 778,
+      "text": "They think you're bullshit.",
+      "kind": "dialogue",
+      "startMs": 4222650,
+      "endMs": 4224950
+    },
+    {
+      "index": 779,
+      "text": "They don't think that.",
+      "kind": "dialogue",
+      "startMs": 4225050,
+      "endMs": 4226950
+    },
+    {
+      "index": 780,
+      "text": "Look, you want the money, I don't want anyone else to die. Let me get on the ground.",
+      "kind": "dialogue",
+      "startMs": 4227050,
+      "endMs": 4231660
+    },
+    {
+      "index": 781,
+      "text": "Just me. That's not against the rules.",
+      "kind": "dialogue",
+      "startMs": 4231760,
+      "endMs": 4234960
+    },
+    {
+      "index": 782,
+      "text": "All right. I want you back real fast. Fine.",
+      "kind": "dialogue",
+      "startMs": 4235060,
+      "endMs": 4239760
+    },
+    {
+      "index": 783,
+      "text": "Jack, nothing tricky now. You know that I'm on top of you.",
+      "kind": "dialogue",
+      "startMs": 4239860,
+      "endMs": 4243760
+    },
+    {
+      "index": 784,
+      "text": "Do not attempt to grow a brain.",
+      "kind": "dialogue",
+      "startMs": 4243860,
+      "endMs": 4247660
+    },
+    {
+      "index": 785,
+      "text": "It could encourage other terrorists...",
+      "kind": "dialogue",
+      "startMs": 4247760,
+      "endMs": 4250260
+    },
+    {
+      "index": 786,
+      "text": "So I guess there's a plan now?",
+      "kind": "dialogue",
+      "startMs": 4255660,
+      "endMs": 4257660
+    },
+    {
+      "index": 787,
+      "text": "Could be.",
+      "kind": "dialogue",
+      "startMs": 4257760,
+      "endMs": 4259660
+    },
+    {
+      "index": 788,
+      "text": "Yeah? He's letting me off.",
+      "kind": "dialogue",
+      "startMs": 4259760,
+      "endMs": 4261660
+    },
+    {
+      "index": 789,
+      "text": "What? Just keep circling. You'll be fine.",
+      "kind": "dialogue",
+      "startMs": 4261760,
+      "endMs": 4265260
+    },
+    {
+      "index": 790,
+      "text": "Everybody, sit tight. I'm getting off for a minute.",
+      "kind": "dialogue",
+      "startMs": 4266960,
+      "endMs": 4269460
+    },
+    {
+      "index": 791,
+      "text": "Do you think that's a good idea? It'll be okay.",
+      "kind": "dialogue",
+      "startMs": 4269560,
+      "endMs": 4271860
+    },
+    {
+      "index": 792,
+      "text": "What, are you just gonna leave us here? I would.",
+      "kind": "dialogue",
+      "startMs": 4271960,
+      "endMs": 4274760
+    },
+    {
+      "index": 793,
+      "text": "Don't worry. I won't go far.",
+      "kind": "dialogue",
+      "startMs": 4274960,
+      "endMs": 4276960
+    },
+    {
+      "index": 794,
+      "text": "Hey. Don't forget about us.",
+      "kind": "dialogue",
+      "startMs": 4277060,
+      "endMs": 4280660
+    },
+    {
+      "index": 795,
+      "text": "The choppers are gone, Jack. Let's dump the passengers now. No way. He's ready for that.",
+      "kind": "dialogue",
+      "startMs": 4295860,
+      "endMs": 4299870
+    },
+    {
+      "index": 796,
+      "text": "How is that possible? I don't know how, Mac. I just know he is.",
+      "kind": "dialogue",
+      "startMs": 4299970,
+      "endMs": 4303270
+    },
+    {
+      "index": 797,
+      "text": "He's been a step ahead every time. If we unload, he'll take them out, I guarantee.",
+      "kind": "dialogue",
+      "startMs": 4303370,
+      "endMs": 4307070
+    },
+    {
+      "index": 798,
+      "text": "So where does that put us? I have to try and dismantle that bomb.",
+      "kind": "dialogue",
+      "startMs": 4307170,
+      "endMs": 4311170
+    },
+    {
+      "index": 799,
+      "text": "That's an incredible ride... the 10 Freeway... leaving Los Angeles to the 105 Freeway, this Santa Monica bus has ended up here at Los Angeles International Airport... circling the runway.",
+      "kind": "dialogue",
+      "startMs": 4311270,
+      "endMs": 4322170
+    },
+    {
+      "index": 800,
+      "text": "I'm tellin' ya, honey, he's somewhere jerkin' off.",
+      "kind": "dialogue",
+      "startMs": 4334070,
+      "endMs": 4336770
+    },
+    {
+      "index": 801,
+      "text": "He didn't have to get on the bus in the first place, Ortiz.",
+      "kind": "dialogue",
+      "startMs": 4336870,
+      "endMs": 4340570
+    },
+    {
+      "index": 802,
+      "text": "Hey, get your ass behind the yellow line.",
+      "kind": "dialogue",
+      "startMs": 4340670,
+      "endMs": 4343070
+    },
+    {
+      "index": 803,
+      "text": "What is that?",
+      "kind": "dialogue",
+      "startMs": 4345070,
+      "endMs": 4347770
+    },
+    {
+      "index": 804,
+      "text": "I have no idea.",
+      "kind": "dialogue",
+      "startMs": 4352270,
+      "endMs": 4354170
+    },
+    {
+      "index": 805,
+      "text": "We won't be able to hold this thing steady for very long.",
+      "kind": "dialogue",
+      "startMs": 4357370,
+      "endMs": 4359970
+    },
+    {
+      "index": 806,
+      "text": "I just need a few minutes. If I can't do it by then, I can't do it at all.",
+      "kind": "dialogue",
+      "startMs": 4360070,
+      "endMs": 4364670
+    },
+    {
+      "index": 807,
+      "text": "Harry, you with me? Yeah. You be careful, Jack.",
+      "kind": "dialogue",
+      "startMs": 4364770,
+      "endMs": 4368270
+    },
+    {
+      "index": 808,
+      "text": "What is he doing? Oh, my God, he is insane.",
+      "kind": "dialogue",
+      "startMs": 4372680,
+      "endMs": 4376680
+    },
+    {
+      "index": 809,
+      "text": "Okay, Jack, this is it. Don't get dead.",
+      "kind": "dialogue",
+      "startMs": 4382680,
+      "endMs": 4386580
+    },
+    {
+      "index": 810,
+      "text": "This is not a very good plan. Have faith, sister.",
+      "kind": "dialogue",
+      "startMs": 4400680,
+      "endMs": 4403480
+    },
+    {
+      "index": 811,
+      "text": "Oh, Christ.",
+      "kind": "dialogue",
+      "startMs": 4403580,
+      "endMs": 4405680
+    },
+    {
+      "index": 812,
+      "text": "Just keep it steady.",
+      "kind": "dialogue",
+      "startMs": 4415280,
+      "endMs": 4417380
+    },
+    {
+      "index": 813,
+      "text": "Oh, thank you for the tip, Ortiz.",
+      "kind": "dialogue",
+      "startMs": 4417480,
+      "endMs": 4419780
+    },
+    {
+      "index": 814,
+      "text": "This guy is nuts! Gosh darn.",
+      "kind": "dialogue",
+      "startMs": 4431380,
+      "endMs": 4434580
+    },
+    {
+      "index": 815,
+      "text": "We're gonna have to try to bypass the remote current with the battery.",
+      "kind": "dialogue",
+      "startMs": 4434680,
+      "endMs": 4437880
+    },
+    {
+      "index": 816,
+      "text": "Can you find the trip wire for the remote?",
+      "kind": "dialogue",
+      "startMs": 4437980,
+      "endMs": 4439980
+    },
+    {
+      "index": 817,
+      "text": "I don't know. I got a few choices here.",
+      "kind": "dialogue",
+      "startMs": 4440080,
+      "endMs": 4442590
+    },
+    {
+      "index": 818,
+      "text": "Black and red? And green.",
+      "kind": "dialogue",
+      "startMs": 4442690,
+      "endMs": 4445590
+    },
+    {
+      "index": 819,
+      "text": "Okay. All right. I'm gonna guess he's not gonna go with standard copper for the remote.",
+      "kind": "dialogue",
+      "startMs": 4445690,
+      "endMs": 4450090
+    },
+    {
+      "index": 820,
+      "text": "That'd be too weak. I'd use a fiber alloy.",
+      "kind": "dialogue",
+      "startMs": 4450190,
+      "endMs": 4452490
+    },
+    {
+      "index": 821,
+      "text": "Jack, I'm gonna need you to look at the wire.",
+      "kind": "dialogue",
+      "startMs": 4452590,
+      "endMs": 4455690
+    },
+    {
+      "index": 822,
+      "text": "Harry, it's covered. Yeah, I know.",
+      "kind": "dialogue",
+      "startMs": 4457690,
+      "endMs": 4460290
+    },
+    {
+      "index": 823,
+      "text": "You're gonna have to cut off the sheath. But don't cut the wire.",
+      "kind": "dialogue",
+      "startMs": 4460390,
+      "endMs": 4463190
+    },
+    {
+      "index": 824,
+      "text": "Right.",
+      "kind": "dialogue",
+      "startMs": 4463290,
+      "endMs": 4465190
+    },
+    {
+      "index": 825,
+      "text": "Fuck me!",
+      "kind": "dialogue",
+      "startMs": 4477890,
+      "endMs": 4479790
+    },
+    {
+      "index": 826,
+      "text": "Shit!",
+      "kind": "dialogue",
+      "startMs": 4481390,
+      "endMs": 4483790
+    },
+    {
+      "index": 827,
+      "text": "Bull's-eye! - Great. Okay, I want you to clip on the battery...",
+      "kind": "dialogue",
+      "startMs": 4488390,
+      "endMs": 4491590
+    },
+    {
+      "index": 828,
+      "text": "and then run it to the lead wire. Copy.",
+      "kind": "dialogue",
+      "startMs": 4491690,
+      "endMs": 4494590
+    },
+    {
+      "index": 829,
+      "text": "I can't bypass. It'll fire.",
+      "kind": "dialogue",
+      "startMs": 4511490,
+      "endMs": 4513900
+    },
+    {
+      "index": 830,
+      "text": "Oh, shit! It's a collapsible circuit.",
+      "kind": "dialogue",
+      "startMs": 4514000,
+      "endMs": 4516400
+    },
+    {
+      "index": 831,
+      "text": "\"Howard Payne, Atlanta P.D. Bomb squad.",
+      "kind": "dialogue",
+      "startMs": 4517800,
+      "endMs": 4521400
+    },
+    {
+      "index": 832,
+      "text": "\"Retired in Sun Valley in 1989... when a small charge left him with fingers numbering nine. \" That's our scumbag! We got him, Jack. We found him.",
+      "kind": "dialogue",
+      "startMs": 4521500,
+      "endMs": 4529800
+    },
+    {
+      "index": 833,
+      "text": "We can get to his place inside of 15 minutes. Great.",
+      "kind": "dialogue",
+      "startMs": 4529900,
+      "endMs": 4532900
+    },
+    {
+      "index": 834,
+      "text": "Get out of there and sit tight. We're gonna go after the source.",
+      "kind": "dialogue",
+      "startMs": 4533000,
+      "endMs": 4535800
+    },
+    {
+      "index": 835,
+      "text": "Watch your back. Wait, wait, wait for me!",
+      "kind": "dialogue",
+      "startMs": 4535900,
+      "endMs": 4540200
+    },
+    {
+      "index": 836,
+      "text": "Mac, get me out of here.",
+      "kind": "dialogue",
+      "startMs": 4540300,
+      "endMs": 4542300
+    },
+    {
+      "index": 837,
+      "text": "Somebody go to the back and check and see if he came out the back! Go!",
+      "kind": "dialogue",
+      "startMs": 4555700,
+      "endMs": 4559500
+    },
+    {
+      "index": 838,
+      "text": "Can you see him? He's not behind us!",
+      "kind": "dialogue",
+      "startMs": 4571000,
+      "endMs": 4573400
+    },
+    {
+      "index": 839,
+      "text": "What? He's not back here!",
+      "kind": "dialogue",
+      "startMs": 4573500,
+      "endMs": 4575600
+    },
+    {
+      "index": 840,
+      "text": "Oh, my God! Go look! Lay down and look under the bus and see if you can see him.",
+      "kind": "dialogue",
+      "startMs": 4575800,
+      "endMs": 4580300
+    },
+    {
+      "index": 841,
+      "text": "Can you see him? No!",
+      "kind": "dialogue",
+      "startMs": 4581400,
+      "endMs": 4583900
+    },
+    {
+      "index": 842,
+      "text": "You don't see him, like, back by the tires?",
+      "kind": "dialogue",
+      "startMs": 4584000,
+      "endMs": 4587410
+    },
+    {
+      "index": 843,
+      "text": "I can't see him! Are you sure?",
+      "kind": "dialogue",
+      "startMs": 4587510,
+      "endMs": 4589410
+    },
+    {
+      "index": 844,
+      "text": "I can't see him!",
+      "kind": "dialogue",
+      "startMs": 4589510,
+      "endMs": 4591110
+    },
+    {
+      "index": 845,
+      "text": "Oh, I hit him! What the hell was that?",
+      "kind": "dialogue",
+      "startMs": 4613610,
+      "endMs": 4615310
+    },
+    {
+      "index": 846,
+      "text": "Oh, my God! Do you see him? Did we hit him?",
+      "kind": "dialogue",
+      "startMs": 4615410,
+      "endMs": 4617710
+    },
+    {
+      "index": 847,
+      "text": "Look out the side of the window and see the other side!",
+      "kind": "dialogue",
+      "startMs": 4617810,
+      "endMs": 4621810
+    },
+    {
+      "index": 848,
+      "text": "My tools! Will somebody get him his tools?",
+      "kind": "dialogue",
+      "startMs": 4627110,
+      "endMs": 4630210
+    },
+    {
+      "index": 849,
+      "text": "Please help him! Hurry!",
+      "kind": "dialogue",
+      "startMs": 4642510,
+      "endMs": 4645610
+    },
+    {
+      "index": 850,
+      "text": "Oh, God. We're dragging him. Do you see him?",
+      "kind": "dialogue",
+      "startMs": 4645710,
+      "endMs": 4648810
+    },
+    {
+      "index": 851,
+      "text": "Where is he? Is he there?",
+      "kind": "dialogue",
+      "startMs": 4648910,
+      "endMs": 4651810
+    },
+    {
+      "index": 852,
+      "text": "Do you see him? Jack!",
+      "kind": "dialogue",
+      "startMs": 4653210,
+      "endMs": 4657220
+    },
+    {
+      "index": 853,
+      "text": "I see him! What?",
+      "kind": "dialogue",
+      "startMs": 4657320,
+      "endMs": 4660020
+    },
+    {
+      "index": 854,
+      "text": "I see him! You do? Is he okay?",
+      "kind": "dialogue",
+      "startMs": 4660120,
+      "endMs": 4662120
+    },
+    {
+      "index": 855,
+      "text": "He's all right! Yeah! Whoo!",
+      "kind": "dialogue",
+      "startMs": 4662220,
+      "endMs": 4665820
+    },
+    {
+      "index": 856,
+      "text": "Hold my legs! Hold my legs! Somebody, hold my legs!",
+      "kind": "dialogue",
+      "startMs": 4665920,
+      "endMs": 4669020
+    },
+    {
+      "index": 857,
+      "text": "Hold his legs! Hold his legs!",
+      "kind": "dialogue",
+      "startMs": 4669120,
+      "endMs": 4672520
+    },
+    {
+      "index": 858,
+      "text": "Come on!",
+      "kind": "dialogue",
+      "startMs": 4672620,
+      "endMs": 4675520
+    },
+    {
+      "index": 859,
+      "text": "Come on! I got ya!",
+      "kind": "dialogue",
+      "startMs": 4675620,
+      "endMs": 4678020
+    },
+    {
+      "index": 860,
+      "text": "Is he hurt? Is he okay? Pull! Pull!",
+      "kind": "dialogue",
+      "startMs": 4682520,
+      "endMs": 4687120
+    },
+    {
+      "index": 861,
+      "text": "Come on! Come on!",
+      "kind": "dialogue",
+      "startMs": 4687220,
+      "endMs": 4689320
+    },
+    {
+      "index": 862,
+      "text": "We got him now! Come on, pull!",
+      "kind": "dialogue",
+      "startMs": 4689420,
+      "endMs": 4691720
+    },
+    {
+      "index": 863,
+      "text": "Jesus, I can't believe it.",
+      "kind": "dialogue",
+      "startMs": 4692820,
+      "endMs": 4694720
+    },
+    {
+      "index": 864,
+      "text": "You are a complete jerk! You know that? Oh, thank God!",
+      "kind": "dialogue",
+      "startMs": 4697420,
+      "endMs": 4701820
+    },
+    {
+      "index": 865,
+      "text": "Did ya have any luck with the bomb? Yeah. It didn't go off.",
+      "kind": "dialogue",
+      "startMs": 4701920,
+      "endMs": 4705520
+    },
+    {
+      "index": 866,
+      "text": "Ortiz, thanks. How many lives you got, man?",
+      "kind": "dialogue",
+      "startMs": 4707020,
+      "endMs": 4710420
+    },
+    {
+      "index": 867,
+      "text": "You're not too bright, man, but you got some big, round, hairy cojones.",
+      "kind": "dialogue",
+      "startMs": 4711620,
+      "endMs": 4717820
+    },
+    {
+      "index": 868,
+      "text": "That's... very gross, Ortiz.",
+      "kind": "dialogue",
+      "startMs": 4718920,
+      "endMs": 4723420
+    },
+    {
+      "index": 869,
+      "text": "Can't even pay him a compliment.",
+      "kind": "dialogue",
+      "startMs": 4723520,
+      "endMs": 4725720
+    },
+    {
+      "index": 870,
+      "text": "How you doin'? You scared the shit out of me, Jack! Ow.",
+      "kind": "dialogue",
+      "startMs": 4727630,
+      "endMs": 4730830
+    },
+    {
+      "index": 871,
+      "text": "Other than that, I'm fine.",
+      "kind": "dialogue",
+      "startMs": 4730930,
+      "endMs": 4733230
+    },
+    {
+      "index": 872,
+      "text": "What is that smell?",
+      "kind": "dialogue",
+      "startMs": 4733330,
+      "endMs": 4735330
+    },
+    {
+      "index": 873,
+      "text": "It's gas. We're leaking gas?",
+      "kind": "dialogue",
+      "startMs": 4735430,
+      "endMs": 4737930
+    },
+    {
+      "index": 874,
+      "text": "We are now.",
+      "kind": "dialogue",
+      "startMs": 4738030,
+      "endMs": 4739530
+    },
+    {
+      "index": 875,
+      "text": "What, you thought you needed another challenge or something?",
+      "kind": "dialogue",
+      "startMs": 4743330,
+      "endMs": 4745930
+    },
+    {
+      "index": 876,
+      "text": "Mac. Mac here. Go ahead.",
+      "kind": "dialogue",
+      "startMs": 4746030,
+      "endMs": 4749630
+    },
+    {
+      "index": 877,
+      "text": "Can you get a fuel truck to pace us here? We're losing gas.",
+      "kind": "dialogue",
+      "startMs": 4749730,
+      "endMs": 4752530
+    },
+    {
+      "index": 878,
+      "text": "I'll see what I can find. How much time? I don't know. Ten minutes.",
+      "kind": "dialogue",
+      "startMs": 4752630,
+      "endMs": 4755930
+    },
+    {
+      "index": 879,
+      "text": "It doesn't look good. Got ya.",
+      "kind": "dialogue",
+      "startMs": 4756030,
+      "endMs": 4759230
+    },
+    {
+      "index": 880,
+      "text": "Norwood, get a fuel car out here on the double. Right.",
+      "kind": "dialogue",
+      "startMs": 4759330,
+      "endMs": 4762330
+    },
+    {
+      "index": 881,
+      "text": "Is that gonna work?",
+      "kind": "dialogue",
+      "startMs": 4762430,
+      "endMs": 4765230
+    },
+    {
+      "index": 882,
+      "text": "I don't know.",
+      "kind": "dialogue",
+      "startMs": 4765330,
+      "endMs": 4767730
+    },
+    {
+      "index": 883,
+      "text": "Come on, Harry. Save my life.",
+      "kind": "dialogue",
+      "startMs": 4770030,
+      "endMs": 4773230
+    },
+    {
+      "index": 884,
+      "text": "Harry, tell me good news, man.",
+      "kind": "dialogue",
+      "startMs": 4865540,
+      "endMs": 4868340
+    },
+    {
+      "index": 885,
+      "text": "Oh, I'm sorry, Jack. He didn't make it.",
+      "kind": "dialogue",
+      "startMs": 4868440,
+      "endMs": 4871250
+    },
+    {
+      "index": 886,
+      "text": "You fuck!",
+      "kind": "dialogue",
+      "startMs": 4873150,
+      "endMs": 4875250
+    },
+    {
+      "index": 887,
+      "text": "It was the watch that led him to me, wasn't it?",
+      "kind": "dialogue",
+      "startMs": 4876750,
+      "endMs": 4880350
+    },
+    {
+      "index": 888,
+      "text": "Huh? It seemed a little hammy to me to build the bomb... out of my precious retirement gift.",
+      "kind": "dialogue",
+      "startMs": 4880450,
+      "endMs": 4885950
+    },
+    {
+      "index": 889,
+      "text": "But, you know, I figured a sign that said Howard Payne... would be pushing it.",
+      "kind": "dialogue",
+      "startMs": 4886050,
+      "endMs": 4892450
+    },
+    {
+      "index": 890,
+      "text": "I'm gonna rip your fuckin' spine out, I swear to God.",
+      "kind": "dialogue",
+      "startMs": 4893950,
+      "endMs": 4897250
+    },
+    {
+      "index": 891,
+      "text": "You're gonna do exactly as you're told.",
+      "kind": "dialogue",
+      "startMs": 4897350,
+      "endMs": 4899450
+    },
+    {
+      "index": 892,
+      "text": "Jack, we both know that he was the brains of your particular operation.",
+      "kind": "dialogue",
+      "startMs": 4899550,
+      "endMs": 4904350
+    },
+    {
+      "index": 893,
+      "text": "You can't beat me. You're gonna pay me every dollar.",
+      "kind": "dialogue",
+      "startMs": 4904450,
+      "endMs": 4907350
+    },
+    {
+      "index": 894,
+      "text": "Otherwise, you, the wildcat and every innocent person on that bus... are gonna end up just like your friend.",
+      "kind": "dialogue",
+      "startMs": 4907450,
+      "endMs": 4915950
+    },
+    {
+      "index": 895,
+      "text": "Are you paying attention? Jack, are you listening to me?",
+      "kind": "dialogue",
+      "startMs": 4916050,
+      "endMs": 4919850
+    },
+    {
+      "index": 896,
+      "text": "Jack? Jack! Yeah.",
+      "kind": "dialogue",
+      "startMs": 4921550,
+      "endMs": 4924350
+    },
+    {
+      "index": 897,
+      "text": "Good. Now, you tell them... that the drop point is Pershing Square.",
+      "kind": "dialogue",
+      "startMs": 4924450,
+      "endMs": 4929450
+    },
+    {
+      "index": 898,
+      "text": "There's a garbage can on the northeast corner.",
+      "kind": "dialogue",
+      "startMs": 4930750,
+      "endMs": 4934050
+    },
+    {
+      "index": 899,
+      "text": "You drop the bags and leave.",
+      "kind": "dialogue",
+      "startMs": 4934150,
+      "endMs": 4936550
+    },
+    {
+      "index": 900,
+      "text": "I don't show until all your people are gone.",
+      "kind": "dialogue",
+      "startMs": 4936650,
+      "endMs": 4939550
+    },
+    {
+      "index": 901,
+      "text": "It's gettin' on to 11:00 a. m., Jack, and I think it's gonna be a very pretty day.",
+      "kind": "dialogue",
+      "startMs": 4939650,
+      "endMs": 4947960
+    },
+    {
+      "index": 902,
+      "text": "Jack! Damn it!",
+      "kind": "dialogue",
+      "startMs": 4956960,
+      "endMs": 4959260
+    },
+    {
+      "index": 903,
+      "text": "Jack. Come on, Jack.",
+      "kind": "dialogue",
+      "startMs": 4959360,
+      "endMs": 4961560
+    },
+    {
+      "index": 904,
+      "text": "Don't give up on me, Jack. Come on, please. Jack, stop it!",
+      "kind": "dialogue",
+      "startMs": 4961660,
+      "endMs": 4965160
+    },
+    {
+      "index": 905,
+      "text": "Jack, come on! Stop it, okay? Don't give up on me right now, all right?",
+      "kind": "dialogue",
+      "startMs": 4965260,
+      "endMs": 4969460
+    },
+    {
+      "index": 906,
+      "text": "Hey, we're really scared, and we need you right now.",
+      "kind": "dialogue",
+      "startMs": 4969560,
+      "endMs": 4974560
+    },
+    {
+      "index": 907,
+      "text": "I can't do this by myself. Please? Jack, please.",
+      "kind": "dialogue",
+      "startMs": 4974660,
+      "endMs": 4978560
+    },
+    {
+      "index": 908,
+      "text": "Okay? Please. All right?",
+      "kind": "dialogue",
+      "startMs": 4983760,
+      "endMs": 4987060
+    },
+    {
+      "index": 909,
+      "text": "We're gonna die. No, we're not. We got this far, okay?",
+      "kind": "dialogue",
+      "startMs": 4992860,
+      "endMs": 4996660
+    },
+    {
+      "index": 910,
+      "text": "I'll be damned.",
+      "kind": "dialogue",
+      "startMs": 5019070,
+      "endMs": 5021470
+    },
+    {
+      "index": 911,
+      "text": "You go to the University of Arizona?",
+      "kind": "dialogue",
+      "startMs": 5024670,
+      "endMs": 5028370
+    },
+    {
+      "index": 912,
+      "text": "Yeah. So? Good football team.",
+      "kind": "dialogue",
+      "startMs": 5028470,
+      "endMs": 5030770
+    },
+    {
+      "index": 913,
+      "text": "Yeah, I guess so. I don't really know.",
+      "kind": "dialogue",
+      "startMs": 5030870,
+      "endMs": 5034470
+    },
+    {
+      "index": 914,
+      "text": "Arizona Wildcats.",
+      "kind": "dialogue",
+      "startMs": 5034570,
+      "endMs": 5036470
+    },
+    {
+      "index": 915,
+      "text": "Right. He can see you.",
+      "kind": "dialogue",
+      "startMs": 5038270,
+      "endMs": 5041070
+    },
+    {
+      "index": 916,
+      "text": "What? He can see you.",
+      "kind": "dialogue",
+      "startMs": 5041170,
+      "endMs": 5044670
+    },
+    {
+      "index": 917,
+      "text": "He can see me... Just keep looking straight ahead.",
+      "kind": "dialogue",
+      "startMs": 5044770,
+      "endMs": 5047170
+    },
+    {
+      "index": 918,
+      "text": "He called you a wildcat before. I didn't even pick up on it.",
+      "kind": "dialogue",
+      "startMs": 5062570,
+      "endMs": 5065870
+    },
+    {
+      "index": 919,
+      "text": "The bastard's got a camera right in your face. He can see the whole bus.",
+      "kind": "dialogue",
+      "startMs": 5065970,
+      "endMs": 5069070
+    },
+    {
+      "index": 920,
+      "text": "He's been playing me from minute one.",
+      "kind": "dialogue",
+      "startMs": 5069170,
+      "endMs": 5071070
+    },
+    {
+      "index": 921,
+      "text": "He can see me, but can he hear me?",
+      "kind": "dialogue",
+      "startMs": 5071170,
+      "endMs": 5073170
+    },
+    {
+      "index": 922,
+      "text": "It doesn't look like it. He's just watching you.",
+      "kind": "dialogue",
+      "startMs": 5073270,
+      "endMs": 5075470
+    },
+    {
+      "index": 923,
+      "text": "This is a special news bulletin. We are following the progress... of what is turning out to be a harrowing and amazing story... as a city bus, rigged to explode if it slows down, races around literally in circles at the Los Angeles airport.",
+      "kind": "dialogue",
+      "startMs": 5075570,
+      "endMs": 5087280
+    },
+    {
+      "index": 924,
+      "text": "The two dead are a female passenger and the driver of another bus, both blown up by the bomber.",
+      "kind": "dialogue",
+      "startMs": 5087380,
+      "endMs": 5092480
+    },
+    {
+      "index": 925,
+      "text": "The other people in jeopardy are the passengers of the bus... held hostage at the whim of a madman.",
+      "kind": "dialogue",
+      "startMs": 5092580,
+      "endMs": 5097280
+    },
+    {
+      "index": 926,
+      "text": "\"The whim of a madman. \" I like that.",
+      "kind": "dialogue",
+      "startMs": 5099880,
+      "endMs": 5104480
+    },
+    {
+      "index": 927,
+      "text": "There's a camera on the bus just over my left shoulder.",
+      "kind": "dialogue",
+      "startMs": 5104580,
+      "endMs": 5108480
+    },
+    {
+      "index": 928,
+      "text": "I want you to stare straight ahead.",
+      "kind": "dialogue",
+      "startMs": 5108680,
+      "endMs": 5111480
+    },
+    {
+      "index": 929,
+      "text": "Don't make any big movements. Okay?",
+      "kind": "dialogue",
+      "startMs": 5111580,
+      "endMs": 5115180
+    },
+    {
+      "index": 930,
+      "text": "It's Jack. Yeah, I know about Harry.",
+      "kind": "dialogue",
+      "startMs": 5116780,
+      "endMs": 5120180
+    },
+    {
+      "index": 931,
+      "text": "Is that news van still around?",
+      "kind": "dialogue",
+      "startMs": 5122780,
+      "endMs": 5125280
+    },
+    {
+      "index": 932,
+      "text": "Get those cameras to stop taping. Right.",
+      "kind": "dialogue",
+      "startMs": 5125380,
+      "endMs": 5129080
+    },
+    {
+      "index": 933,
+      "text": "L.A.P.D. I need this unit. You can broadcast U.H.F.? Yeah, sure.",
+      "kind": "dialogue",
+      "startMs": 5129180,
+      "endMs": 5132980
+    },
+    {
+      "index": 934,
+      "text": "There's a signal going to that bus. I want you to find it.",
+      "kind": "dialogue",
+      "startMs": 5133080,
+      "endMs": 5136980
+    },
+    {
+      "index": 935,
+      "text": "We're gonna have to take you off the air temporarily.",
+      "kind": "dialogue",
+      "startMs": 5137080,
+      "endMs": 5139480
+    },
+    {
+      "index": 936,
+      "text": "Please, sir, stop taping. Come on. Come on.",
+      "kind": "dialogue",
+      "startMs": 5139580,
+      "endMs": 5142280
+    },
+    {
+      "index": 937,
+      "text": "Hurry up. Good! Tape off of that.",
+      "kind": "dialogue",
+      "startMs": 5142380,
+      "endMs": 5145280
+    },
+    {
+      "index": 938,
+      "text": "Remember, no big movements. Just look whipped.",
+      "kind": "dialogue",
+      "startMs": 5148280,
+      "endMs": 5152380
+    },
+    {
+      "index": 939,
+      "text": "That ain't gonna be too hard.",
+      "kind": "dialogue",
+      "startMs": 5152480,
+      "endMs": 5154980
+    },
+    {
+      "index": 940,
+      "text": "Tape it. Good. Come on, tape it! It's taping!",
+      "kind": "dialogue",
+      "startMs": 5166590,
+      "endMs": 5169590
+    },
+    {
+      "index": 941,
+      "text": "Jack. Yeah.",
+      "kind": "dialogue",
+      "startMs": 5179390,
+      "endMs": 5181290
+    },
+    {
+      "index": 942,
+      "text": "Look.",
+      "kind": "dialogue",
+      "startMs": 5181490,
+      "endMs": 5183390
+    },
+    {
+      "index": 943,
+      "text": "Mac. Fuel. Yeah. Jack, five minutes.",
+      "kind": "dialogue",
+      "startMs": 5186590,
+      "endMs": 5190090
+    },
+    {
+      "index": 944,
+      "text": "Not enough time. Run the tape. We have to unload. I...",
+      "kind": "dialogue",
+      "startMs": 5190190,
+      "endMs": 5193090
+    },
+    {
+      "index": 945,
+      "text": "I only have a minute of tape. Do it now!",
+      "kind": "dialogue",
+      "startMs": 5193190,
+      "endMs": 5195990
+    },
+    {
+      "index": 946,
+      "text": "I want you to make a tape and loop it so that it runs over and over.",
+      "kind": "dialogue",
+      "startMs": 5196090,
+      "endMs": 5199890
+    },
+    {
+      "index": 947,
+      "text": "All right, run it. Run it! All right. Tape's rolling.",
+      "kind": "dialogue",
+      "startMs": 5202790,
+      "endMs": 5207490
+    },
+    {
+      "index": 948,
+      "text": "We still have no live picture, But reports are that the bus continues to circle inside L.A. X... and that everyone is safe for the moment.",
+      "kind": "dialogue",
+      "startMs": 5207590,
+      "endMs": 5218090
+    },
+    {
+      "index": 949,
+      "text": "Hard to imagine what's going through their thoughts at this time.",
+      "kind": "dialogue",
+      "startMs": 5218190,
+      "endMs": 5221790
+    },
+    {
+      "index": 950,
+      "text": "Certainly, a sense of community...",
+      "kind": "dialogue",
+      "startMs": 5221890,
+      "endMs": 5224390
+    },
+    {
+      "index": 951,
+      "text": "Rig the steering wheel and the gas pedal.",
+      "kind": "dialogue",
+      "startMs": 5242100,
+      "endMs": 5245700
+    },
+    {
+      "index": 952,
+      "text": "All right, let's get 'em off. Just step and walk.",
+      "kind": "dialogue",
+      "startMs": 5248200,
+      "endMs": 5250900
+    },
+    {
+      "index": 953,
+      "text": "Okay, you, you and you.",
+      "kind": "dialogue",
+      "startMs": 5251000,
+      "endMs": 5254200
+    },
+    {
+      "index": 954,
+      "text": "Police have just issued a general statement, which really doesn't tell us much more than all the previous statements.",
+      "kind": "dialogue",
+      "startMs": 5254300,
+      "endMs": 5259400
+    },
+    {
+      "index": 955,
+      "text": "Grab my wrist. That's it. Good.",
+      "kind": "dialogue",
+      "startMs": 5259500,
+      "endMs": 5262900
+    },
+    {
+      "index": 956,
+      "text": "Come on. Look straight ahead.",
+      "kind": "dialogue",
+      "startMs": 5263000,
+      "endMs": 5265500
+    },
+    {
+      "index": 957,
+      "text": "Watch your head, ma'am.",
+      "kind": "dialogue",
+      "startMs": 5268600,
+      "endMs": 5270900
+    },
+    {
+      "index": 958,
+      "text": "Come on.",
+      "kind": "dialogue",
+      "startMs": 5275000,
+      "endMs": 5277300
+    },
+    {
+      "index": 959,
+      "text": "It's okay.",
+      "kind": "dialogue",
+      "startMs": 5282100,
+      "endMs": 5284300
+    },
+    {
+      "index": 960,
+      "text": "That's good. That's good. Grab my wrist and come across.",
+      "kind": "dialogue",
+      "startMs": 5284400,
+      "endMs": 5288000
+    },
+    {
+      "index": 961,
+      "text": "Put your hand out. Take his hand. Don't look down.",
+      "kind": "dialogue",
+      "startMs": 5288100,
+      "endMs": 5290300
+    },
+    {
+      "index": 962,
+      "text": "Good. That's it. Come on. That's it.",
+      "kind": "dialogue",
+      "startMs": 5290400,
+      "endMs": 5292400
+    },
+    {
+      "index": 963,
+      "text": "You got it. Come on. Come on.",
+      "kind": "dialogue",
+      "startMs": 5292500,
+      "endMs": 5296500
+    },
+    {
+      "index": 964,
+      "text": "Let's go.",
+      "kind": "dialogue",
+      "startMs": 5296600,
+      "endMs": 5299210
+    },
+    {
+      "index": 965,
+      "text": "Come on, buddy! I got ya. Give me your hand.",
+      "kind": "dialogue",
+      "startMs": 5302710,
+      "endMs": 5304810
+    },
+    {
+      "index": 966,
+      "text": "Give me your hand. The hand. Come on.",
+      "kind": "dialogue",
+      "startMs": 5304910,
+      "endMs": 5307710
+    },
+    {
+      "index": 967,
+      "text": "Hold on now. I got ya. Just grab my hand.",
+      "kind": "dialogue",
+      "startMs": 5307810,
+      "endMs": 5311510
+    },
+    {
+      "index": 968,
+      "text": "Come on.",
+      "kind": "dialogue",
+      "startMs": 5311610,
+      "endMs": 5313410
+    },
+    {
+      "index": 969,
+      "text": "Shit. Hold on! Hold on!",
+      "kind": "dialogue",
+      "startMs": 5315210,
+      "endMs": 5317110
+    },
+    {
+      "index": 970,
+      "text": "Jack!",
+      "kind": "dialogue",
+      "startMs": 5317210,
+      "endMs": 5319810
+    },
+    {
+      "index": 971,
+      "text": "Grab my hand! My hand! Grab my hand!",
+      "kind": "dialogue",
+      "startMs": 5321810,
+      "endMs": 5324710
+    },
+    {
+      "index": 972,
+      "text": "All right. All right!",
+      "kind": "dialogue",
+      "startMs": 5324810,
+      "endMs": 5328410
+    },
+    {
+      "index": 973,
+      "text": "Jack! Jack, I can't hold this anymore.",
+      "kind": "dialogue",
+      "startMs": 5332210,
+      "endMs": 5335010
+    },
+    {
+      "index": 974,
+      "text": "Annie. Hold on!",
+      "kind": "dialogue",
+      "startMs": 5335110,
+      "endMs": 5338810
+    },
+    {
+      "index": 975,
+      "text": "Jesus, Jack! No, no.",
+      "kind": "dialogue",
+      "startMs": 5340410,
+      "endMs": 5343710
+    },
+    {
+      "index": 976,
+      "text": "No.",
+      "kind": "dialogue",
+      "startMs": 5343810,
+      "endMs": 5346510
+    },
+    {
+      "index": 977,
+      "text": "Hold it. Jack.",
+      "kind": "dialogue",
+      "startMs": 5346610,
+      "endMs": 5350610
+    },
+    {
+      "index": 978,
+      "text": "Oh, God. Wedge down the gas pedal.",
+      "kind": "dialogue",
+      "startMs": 5355310,
+      "endMs": 5357610
+    },
+    {
+      "index": 979,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 5357710,
+      "endMs": 5360010
+    },
+    {
+      "index": 980,
+      "text": "Okay, I got it.",
+      "kind": "dialogue",
+      "startMs": 5361410,
+      "endMs": 5363310
+    },
+    {
+      "index": 981,
+      "text": "You got it? Yeah, I got it.",
+      "kind": "dialogue",
+      "startMs": 5374420,
+      "endMs": 5376820
+    },
+    {
+      "index": 982,
+      "text": "I got it. Okay.",
+      "kind": "dialogue",
+      "startMs": 5384020,
+      "endMs": 5386520
+    },
+    {
+      "index": 983,
+      "text": "Okay, Annie, get on. God, I can't do this. Jack, I can't do this.",
+      "kind": "dialogue",
+      "startMs": 5386620,
+      "endMs": 5389620
+    },
+    {
+      "index": 984,
+      "text": "Let's go, let's go! Shit. Shit.",
+      "kind": "dialogue",
+      "startMs": 5390820,
+      "endMs": 5394220
+    },
+    {
+      "index": 985,
+      "text": "Jack. Shit!",
+      "kind": "dialogue",
+      "startMs": 5395820,
+      "endMs": 5397720
+    },
+    {
+      "index": 986,
+      "text": "Hold on! Okay. Okay.",
+      "kind": "dialogue",
+      "startMs": 5399420,
+      "endMs": 5402520
+    },
+    {
+      "index": 987,
+      "text": "Shit!",
+      "kind": "dialogue",
+      "startMs": 5486030,
+      "endMs": 5487930
+    },
+    {
+      "index": 988,
+      "text": "Are you all right?",
+      "kind": "dialogue",
+      "startMs": 5495030,
+      "endMs": 5497330
+    },
+    {
+      "index": 989,
+      "text": "No.",
+      "kind": "dialogue",
+      "startMs": 5498430,
+      "endMs": 5500730
+    },
+    {
+      "index": 990,
+      "text": "It's okay. It's okay. It's over.",
+      "kind": "dialogue",
+      "startMs": 5500830,
+      "endMs": 5504130
+    },
+    {
+      "index": 991,
+      "text": "It's over, Annie. You did it. You did it.",
+      "kind": "dialogue",
+      "startMs": 5504230,
+      "endMs": 5508730
+    },
+    {
+      "index": 992,
+      "text": "Oh, fuck.",
+      "kind": "dialogue",
+      "startMs": 5510230,
+      "endMs": 5512040
+    },
+    {
+      "index": 993,
+      "text": "Oh, I hate the airport.",
+      "kind": "dialogue",
+      "startMs": 5513440,
+      "endMs": 5515340
+    },
+    {
+      "index": 994,
+      "text": "Yeah.",
+      "kind": "dialogue",
+      "startMs": 5517240,
+      "endMs": 5519540
+    },
+    {
+      "index": 995,
+      "text": "You're not gonna get mushy on me, are ya?",
+      "kind": "dialogue",
+      "startMs": 5521140,
+      "endMs": 5523940
+    },
+    {
+      "index": 996,
+      "text": "Maybe. I might.",
+      "kind": "dialogue",
+      "startMs": 5525440,
+      "endMs": 5528940
+    },
+    {
+      "index": 997,
+      "text": "Hope not, 'cause, you know, relationships that start under intense circumstances, they never last.",
+      "kind": "dialogue",
+      "startMs": 5531240,
+      "endMs": 5535940
+    },
+    {
+      "index": 998,
+      "text": "Oh, yeah? Yeah. I've done extensive studying on this.",
+      "kind": "dialogue",
+      "startMs": 5536040,
+      "endMs": 5540040
+    },
+    {
+      "index": 999,
+      "text": "Here comes the cavalry.",
+      "kind": "dialogue",
+      "startMs": 5540140,
+      "endMs": 5542240
+    },
+    {
+      "index": 1000,
+      "text": "How you doin'?",
+      "kind": "dialogue",
+      "startMs": 5557940,
+      "endMs": 5559840
+    },
+    {
+      "index": 1001,
+      "text": "We're okay. We're okay.",
+      "kind": "dialogue",
+      "startMs": 5559940,
+      "endMs": 5561940
+    },
+    {
+      "index": 1002,
+      "text": "Well, I just might be a nice guy and let you have the rest of the day off.",
+      "kind": "dialogue",
+      "startMs": 5562040,
+      "endMs": 5565340
+    },
+    {
+      "index": 1003,
+      "text": "Oh, boy.",
+      "kind": "dialogue",
+      "startMs": 5565440,
+      "endMs": 5567540
+    },
+    {
+      "index": 1004,
+      "text": "Mac, this is Annie.",
+      "kind": "dialogue",
+      "startMs": 5568740,
+      "endMs": 5571340
+    },
+    {
+      "index": 1005,
+      "text": "Annie, meet Lieutenant McMahon.",
+      "kind": "dialogue",
+      "startMs": 5571440,
+      "endMs": 5574440
+    },
+    {
+      "index": 1006,
+      "text": "How're you doing? Okay.",
+      "kind": "dialogue",
+      "startMs": 5574540,
+      "endMs": 5576940
+    },
+    {
+      "index": 1007,
+      "text": "This should take care of it. Ow!",
+      "kind": "dialogue",
+      "startMs": 5577140,
+      "endMs": 5580340
+    },
+    {
+      "index": 1008,
+      "text": "Watch it. I'm sorry.",
+      "kind": "dialogue",
+      "startMs": 5580440,
+      "endMs": 5583350
+    },
+    {
+      "index": 1009,
+      "text": "We're gonna take you guys back and have you checked out.",
+      "kind": "dialogue",
+      "startMs": 5583450,
+      "endMs": 5585950
+    },
+    {
+      "index": 1010,
+      "text": "Lieutenant!",
+      "kind": "dialogue",
+      "startMs": 5586150,
+      "endMs": 5588550
+    },
+    {
+      "index": 1011,
+      "text": "It's him. He wants to know when he's gonna get his money.",
+      "kind": "dialogue",
+      "startMs": 5588650,
+      "endMs": 5591550
+    },
+    {
+      "index": 1012,
+      "text": "Son of a bitch. I can tell him what to do with his goddamn money.",
+      "kind": "dialogue",
+      "startMs": 5591650,
+      "endMs": 5594550
+    },
+    {
+      "index": 1013,
+      "text": "He doesn't know it blew up.",
+      "kind": "dialogue",
+      "startMs": 5594650,
+      "endMs": 5596950
+    },
+    {
+      "index": 1014,
+      "text": "Thirty minutes.",
+      "kind": "dialogue",
+      "startMs": 5599850,
+      "endMs": 5601850
+    },
+    {
+      "index": 1015,
+      "text": "I'll be right back.",
+      "kind": "dialogue",
+      "startMs": 5641750,
+      "endMs": 5644050
+    },
+    {
+      "index": 1016,
+      "text": "All right, here's our target. Fox? Yes, sir.",
+      "kind": "dialogue",
+      "startMs": 5647050,
+      "endMs": 5649150
+    },
+    {
+      "index": 1017,
+      "text": "I want you in four-one, you in one-two, and you're in three. Let's move it.",
+      "kind": "dialogue",
+      "startMs": 5649350,
+      "endMs": 5652950
+    },
+    {
+      "index": 1018,
+      "text": "Norwood, are you sure the paint bomb is in with the money? - It's done, sir.",
+      "kind": "dialogue",
+      "startMs": 5653050,
+      "endMs": 5656260
+    },
+    {
+      "index": 1019,
+      "text": "Too bad, Jack. You could've made a good cop.",
+      "kind": "dialogue",
+      "startMs": 5715460,
+      "endMs": 5719560
+    },
+    {
+      "index": 1020,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 5722160,
+      "endMs": 5724960
+    },
+    {
+      "index": 1021,
+      "text": "We still have no live picture, but reports are that the bus continues to circle inside L.A.X.",
+      "kind": "dialogue",
+      "startMs": 5725060,
+      "endMs": 5732370
+    },
+    {
+      "index": 1022,
+      "text": "Potentially a disastrous situation, and it's been defused to some extent.",
+      "kind": "dialogue",
+      "startMs": 5732470,
+      "endMs": 5735770
+    },
+    {
+      "index": 1023,
+      "text": "However, there are still a number of...",
+      "kind": "dialogue",
+      "startMs": 5735870,
+      "endMs": 5740070
+    },
+    {
+      "index": 1024,
+      "text": "No! No!",
+      "kind": "dialogue",
+      "startMs": 5740170,
+      "endMs": 5742870
+    },
+    {
+      "index": 1025,
+      "text": "Miss. You can't be this close.",
+      "kind": "dialogue",
+      "startMs": 5766670,
+      "endMs": 5768570
+    },
+    {
+      "index": 1026,
+      "text": "You need to move back. Oh, no. Jack Traven said that...",
+      "kind": "dialogue",
+      "startMs": 5768670,
+      "endMs": 5771270
+    },
+    {
+      "index": 1027,
+      "text": "Jack Traven, yes, he asked that you be brought out of harm's way. Just move right over here.",
+      "kind": "dialogue",
+      "startMs": 5771370,
+      "endMs": 5775870
+    },
+    {
+      "index": 1028,
+      "text": "He's running a little late.",
+      "kind": "dialogue",
+      "startMs": 5776070,
+      "endMs": 5778170
+    },
+    {
+      "index": 1029,
+      "text": "He's not late.",
+      "kind": "dialogue",
+      "startMs": 5778270,
+      "endMs": 5780170
+    },
+    {
+      "index": 1030,
+      "text": "What? He's never late.",
+      "kind": "dialogue",
+      "startMs": 5781370,
+      "endMs": 5783970
+    },
+    {
+      "index": 1031,
+      "text": "Well, that money hasn't moved.",
+      "kind": "dialogue",
+      "startMs": 5784070,
+      "endMs": 5786270
+    },
+    {
+      "index": 1032,
+      "text": "We got 200 eyes on that can and a bird dog in the bag.",
+      "kind": "dialogue",
+      "startMs": 5786370,
+      "endMs": 5789770
+    },
+    {
+      "index": 1033,
+      "text": "I'd say he's covered.",
+      "kind": "dialogue",
+      "startMs": 5789870,
+      "endMs": 5792170
+    },
+    {
+      "index": 1034,
+      "text": "Turn it on. What for? It hasn't moved.",
+      "kind": "dialogue",
+      "startMs": 5796570,
+      "endMs": 5798880
+    },
+    {
+      "index": 1035,
+      "text": "Just do it!",
+      "kind": "dialogue",
+      "startMs": 5798980,
+      "endMs": 5800880
+    },
+    {
+      "index": 1036,
+      "text": "Shit, it's moving. He's got the money. Jack!",
+      "kind": "dialogue",
+      "startMs": 5808180,
+      "endMs": 5811880
+    },
+    {
+      "index": 1037,
+      "text": "Shit!",
+      "kind": "dialogue",
+      "startMs": 5821680,
+      "endMs": 5823580
+    },
+    {
+      "index": 1038,
+      "text": "Freeze!",
+      "kind": "dialogue",
+      "startMs": 5840580,
+      "endMs": 5842280
+    },
+    {
+      "index": 1039,
+      "text": "Pop quiz, asshole.",
+      "kind": "dialogue",
+      "startMs": 5842380,
+      "endMs": 5845980
+    },
+    {
+      "index": 1040,
+      "text": "You have a hair trigger aimed at your head. What do you do?",
+      "kind": "dialogue",
+      "startMs": 5846080,
+      "endMs": 5850080
+    },
+    {
+      "index": 1041,
+      "text": "What do you do?",
+      "kind": "dialogue",
+      "startMs": 5850180,
+      "endMs": 5852580
+    },
+    {
+      "index": 1042,
+      "text": "Turn around.",
+      "kind": "dialogue",
+      "startMs": 5852680,
+      "endMs": 5854980
+    },
+    {
+      "index": 1043,
+      "text": "Turn around!",
+      "kind": "dialogue",
+      "startMs": 5855080,
+      "endMs": 5856980
+    },
+    {
+      "index": 1044,
+      "text": "Oh, no.",
+      "kind": "dialogue",
+      "startMs": 5875090,
+      "endMs": 5876990
+    },
+    {
+      "index": 1045,
+      "text": "I'm sorry.",
+      "kind": "dialogue",
+      "startMs": 5877090,
+      "endMs": 5879490
+    },
+    {
+      "index": 1046,
+      "text": "Be prepared. It's the Boy Scout marching song.",
+      "kind": "dialogue",
+      "startMs": 5881090,
+      "endMs": 5885590
+    },
+    {
+      "index": 1047,
+      "text": "What are you gonna do, Jack? I don't think you can shoot her.",
+      "kind": "dialogue",
+      "startMs": 5885690,
+      "endMs": 5889390
+    },
+    {
+      "index": 1048,
+      "text": "Let her go.",
+      "kind": "dialogue",
+      "startMs": 5889490,
+      "endMs": 5891390
+    },
+    {
+      "index": 1049,
+      "text": "No, I don't think I'm gonna do that.",
+      "kind": "dialogue",
+      "startMs": 5892890,
+      "endMs": 5895490
+    },
+    {
+      "index": 1050,
+      "text": "Fill it.",
+      "kind": "dialogue",
+      "startMs": 5895590,
+      "endMs": 5897490
+    },
+    {
+      "index": 1051,
+      "text": "Now.",
+      "kind": "dialogue",
+      "startMs": 5897590,
+      "endMs": 5899590
+    },
+    {
+      "index": 1052,
+      "text": "Well, I think Harry would be very disappointed, feeling that we're right back where we started, huh?",
+      "kind": "dialogue",
+      "startMs": 5902190,
+      "endMs": 5907590
+    },
+    {
+      "index": 1053,
+      "text": "Let her go. You don't need her. You have the money. Take it and walk. Come on.",
+      "kind": "dialogue",
+      "startMs": 5907690,
+      "endMs": 5912290
+    },
+    {
+      "index": 1054,
+      "text": "Just take it and walk. You don't need her.",
+      "kind": "dialogue",
+      "startMs": 5912390,
+      "endMs": 5914990
+    },
+    {
+      "index": 1055,
+      "text": "Just take your goddamn money and walk! Hey, hey!",
+      "kind": "dialogue",
+      "startMs": 5915090,
+      "endMs": 5917190
+    },
+    {
+      "index": 1056,
+      "text": "Stay right there! Stay right there. I'll do it. I'll let go. I'll let go.",
+      "kind": "dialogue",
+      "startMs": 5917390,
+      "endMs": 5921590
+    },
+    {
+      "index": 1057,
+      "text": "Oh, yeah.",
+      "kind": "dialogue",
+      "startMs": 5921690,
+      "endMs": 5923590
+    },
+    {
+      "index": 1058,
+      "text": "You still don't get it, do you, Jack? Huh? The beauty of it.",
+      "kind": "dialogue",
+      "startMs": 5923690,
+      "endMs": 5928390
+    },
+    {
+      "index": 1059,
+      "text": "A bomb is made to explode.",
+      "kind": "dialogue",
+      "startMs": 5928490,
+      "endMs": 5932290
+    },
+    {
+      "index": 1060,
+      "text": "That's its meaning, its purpose. Your life is empty... because you spend it trying to stop the bomb... from becoming.",
+      "kind": "dialogue",
+      "startMs": 5932390,
+      "endMs": 5940600
+    },
+    {
+      "index": 1061,
+      "text": "And for who? For what?",
+      "kind": "dialogue",
+      "startMs": 5940700,
+      "endMs": 5944000
+    },
+    {
+      "index": 1062,
+      "text": "Do you know what a bomb is, Jack, that doesn't explode?",
+      "kind": "dialogue",
+      "startMs": 5944200,
+      "endMs": 5947800
+    },
+    {
+      "index": 1063,
+      "text": "It is a cheap gold watch, buddy.",
+      "kind": "dialogue",
+      "startMs": 5947900,
+      "endMs": 5952500
+    },
+    {
+      "index": 1064,
+      "text": "You're crazy. You're fuckin' crazy.",
+      "kind": "dialogue",
+      "startMs": 5952600,
+      "endMs": 5955600
+    },
+    {
+      "index": 1065,
+      "text": "Oh. No, poor people are crazy, Jack.",
+      "kind": "dialogue",
+      "startMs": 5955700,
+      "endMs": 5960000
+    },
+    {
+      "index": 1066,
+      "text": "I'm eccentric. Get the money. Let's go. Come on!",
+      "kind": "dialogue",
+      "startMs": 5960100,
+      "endMs": 5963500
+    },
+    {
+      "index": 1067,
+      "text": "Let's go! Move it! Move it!",
+      "kind": "dialogue",
+      "startMs": 5963600,
+      "endMs": 5965700
+    },
+    {
+      "index": 1068,
+      "text": "You stay! Move it! Move it!",
+      "kind": "dialogue",
+      "startMs": 5965800,
+      "endMs": 5968100
+    },
+    {
+      "index": 1069,
+      "text": "In the door! In that door, now!",
+      "kind": "dialogue",
+      "startMs": 5968200,
+      "endMs": 5971200
+    },
+    {
+      "index": 1070,
+      "text": "Bye, Jack. Punk.",
+      "kind": "dialogue",
+      "startMs": 5972400,
+      "endMs": 5975500
+    },
+    {
+      "index": 1071,
+      "text": "All right!",
+      "kind": "dialogue",
+      "startMs": 5979200,
+      "endMs": 5982600
+    },
+    {
+      "index": 1072,
+      "text": "Get in there. Go on.",
+      "kind": "dialogue",
+      "startMs": 5982700,
+      "endMs": 5984600
+    },
+    {
+      "index": 1073,
+      "text": "Get in. You get back in there!",
+      "kind": "dialogue",
+      "startMs": 5984800,
+      "endMs": 5988000
+    },
+    {
+      "index": 1074,
+      "text": "You get this train movin'! Go on!",
+      "kind": "dialogue",
+      "startMs": 5988100,
+      "endMs": 5990800
+    },
+    {
+      "index": 1075,
+      "text": "Are these seats taken? No. No.",
+      "kind": "dialogue",
+      "startMs": 5990900,
+      "endMs": 5994600
+    },
+    {
+      "index": 1076,
+      "text": "All aboard. Doors will be closing.",
+      "kind": "dialogue",
+      "startMs": 5994700,
+      "endMs": 5997500
+    },
+    {
+      "index": 1077,
+      "text": "Come on! Back over here! Hands around the pole.",
+      "kind": "dialogue",
+      "startMs": 5997600,
+      "endMs": 6000600
+    },
+    {
+      "index": 1078,
+      "text": "All aboard. Doors will be closing.",
+      "kind": "dialogue",
+      "startMs": 6000700,
+      "endMs": 6003200
+    },
+    {
+      "index": 1079,
+      "text": "Damn.",
+      "kind": "dialogue",
+      "startMs": 6022810,
+      "endMs": 6024710
+    },
+    {
+      "index": 1080,
+      "text": "Come on, come on, come on!",
+      "kind": "dialogue",
+      "startMs": 6043310,
+      "endMs": 6046210
+    },
+    {
+      "index": 1081,
+      "text": "Please report, westbound 501. What is your position?",
+      "kind": "dialogue",
+      "startMs": 6051210,
+      "endMs": 6054310
+    },
+    {
+      "index": 1082,
+      "text": "Westbound 501, please check in.",
+      "kind": "dialogue",
+      "startMs": 6059310,
+      "endMs": 6061410
+    },
+    {
+      "index": 1083,
+      "text": "You see? You're beginning to see how it works, huh? Westbound 501.",
+      "kind": "dialogue",
+      "startMs": 6061510,
+      "endMs": 6064510
+    },
+    {
+      "index": 1084,
+      "text": "You have police orders to return to the station, westbound 501. Do you copy?",
+      "kind": "dialogue",
+      "startMs": 6064610,
+      "endMs": 6068810
+    },
+    {
+      "index": 1085,
+      "text": "You have to hold this. It's like a grenade. You have to help me now.",
+      "kind": "dialogue",
+      "startMs": 6068910,
+      "endMs": 6072710
+    },
+    {
+      "index": 1086,
+      "text": "Come on, hold it. Don't let it go.",
+      "kind": "dialogue",
+      "startMs": 6072810,
+      "endMs": 6075110
+    },
+    {
+      "index": 1087,
+      "text": "Huh? Counting on you. Do you copy?",
+      "kind": "dialogue",
+      "startMs": 6075210,
+      "endMs": 6079010
+    },
+    {
+      "index": 1088,
+      "text": "Hey! I'll take it from here.",
+      "kind": "dialogue",
+      "startMs": 6079110,
+      "endMs": 6081810
+    },
+    {
+      "index": 1089,
+      "text": "No!",
+      "kind": "dialogue",
+      "startMs": 6081910,
+      "endMs": 6084120
+    },
+    {
+      "index": 1090,
+      "text": "No! No! No! No.",
+      "kind": "dialogue",
+      "startMs": 6087020,
+      "endMs": 6090320
+    },
+    {
+      "index": 1091,
+      "text": "Ho! Uh-oh! Wait, wait. No. No. No.",
+      "kind": "dialogue",
+      "startMs": 6090420,
+      "endMs": 6093720
+    },
+    {
+      "index": 1092,
+      "text": "Maybe you'd better let me have this after all.",
+      "kind": "dialogue",
+      "startMs": 6093820,
+      "endMs": 6096520
+    },
+    {
+      "index": 1093,
+      "text": "I'm afraid you're a bit hysterical, and you might let this go a mite early.",
+      "kind": "dialogue",
+      "startMs": 6096620,
+      "endMs": 6101220
+    },
+    {
+      "index": 1094,
+      "text": "Hey. Hey, buckaroo. It's not 'cause you're a woman, all right?",
+      "kind": "dialogue",
+      "startMs": 6104020,
+      "endMs": 6109520
+    },
+    {
+      "index": 1095,
+      "text": "Hey, it's all right. Looks like we're all alone.",
+      "kind": "dialogue",
+      "startMs": 6109620,
+      "endMs": 6114020
+    },
+    {
+      "index": 1096,
+      "text": "Look, you won. You beat Jack. You beat everybody.",
+      "kind": "dialogue",
+      "startMs": 6114120,
+      "endMs": 6116520
+    },
+    {
+      "index": 1097,
+      "text": "Just throw me off the train. I don't care. Okay?",
+      "kind": "dialogue",
+      "startMs": 6116620,
+      "endMs": 6119220
+    },
+    {
+      "index": 1098,
+      "text": "This stick, huh, works on a remote.",
+      "kind": "dialogue",
+      "startMs": 6119320,
+      "endMs": 6122720
+    },
+    {
+      "index": 1099,
+      "text": "When you explode, Yeah.",
+      "kind": "dialogue",
+      "startMs": 6122820,
+      "endMs": 6124920
+    },
+    {
+      "index": 1100,
+      "text": "That's where they'll come, but that's not where I'll be.",
+      "kind": "dialogue",
+      "startMs": 6125020,
+      "endMs": 6127520
+    },
+    {
+      "index": 1101,
+      "text": "I have a different plan. Mess like that, they don't even count body parts.",
+      "kind": "dialogue",
+      "startMs": 6127620,
+      "endMs": 6132320
+    },
+    {
+      "index": 1102,
+      "text": "Gives me more time.",
+      "kind": "dialogue",
+      "startMs": 6133420,
+      "endMs": 6136620
+    },
+    {
+      "index": 1103,
+      "text": "It's not gonna hurt, Annie.",
+      "kind": "dialogue",
+      "startMs": 6136720,
+      "endMs": 6139720
+    },
+    {
+      "index": 1104,
+      "text": "Hey, Jack! Is that you?",
+      "kind": "dialogue",
+      "startMs": 6150820,
+      "endMs": 6153420
+    },
+    {
+      "index": 1105,
+      "text": "He is so persistent. He always gets his man.",
+      "kind": "dialogue",
+      "startMs": 6156830,
+      "endMs": 6160030
+    },
+    {
+      "index": 1106,
+      "text": "Wouldn't be able to interest you in a bribe, would I?",
+      "kind": "dialogue",
+      "startMs": 6160130,
+      "endMs": 6163930
+    },
+    {
+      "index": 1107,
+      "text": "I've got, uh, plenty to go around!",
+      "kind": "dialogue",
+      "startMs": 6164030,
+      "endMs": 6167730
+    },
+    {
+      "index": 1108,
+      "text": "My money!",
+      "kind": "dialogue",
+      "startMs": 6171630,
+      "endMs": 6173530
+    },
+    {
+      "index": 1109,
+      "text": "You bastard! How does that feel?",
+      "kind": "dialogue",
+      "startMs": 6178230,
+      "endMs": 6181930
+    },
+    {
+      "index": 1110,
+      "text": "You like that, huh? You like it, you bastard?",
+      "kind": "dialogue",
+      "startMs": 6184030,
+      "endMs": 6187630
+    },
+    {
+      "index": 1111,
+      "text": "My money!",
+      "kind": "dialogue",
+      "startMs": 6191930,
+      "endMs": 6193830
+    },
+    {
+      "index": 1112,
+      "text": "Shit. You!",
+      "kind": "dialogue",
+      "startMs": 6200230,
+      "endMs": 6203630
+    },
+    {
+      "index": 1113,
+      "text": "I'm comin' for you, Jack!",
+      "kind": "dialogue",
+      "startMs": 6203730,
+      "endMs": 6206530
+    },
+    {
+      "index": 1114,
+      "text": "Hey, I'll drop this stick, boy. You want that?",
+      "kind": "dialogue",
+      "startMs": 6235640,
+      "endMs": 6238640
+    },
+    {
+      "index": 1115,
+      "text": "Huh? I'll get you. I'm gonna get you.",
+      "kind": "dialogue",
+      "startMs": 6238740,
+      "endMs": 6241340
+    },
+    {
+      "index": 1116,
+      "text": "Oh, yes! Yahoo!",
+      "kind": "dialogue",
+      "startMs": 6243040,
+      "endMs": 6245940
+    },
+    {
+      "index": 1117,
+      "text": "You...",
+      "kind": "dialogue",
+      "startMs": 6246040,
+      "endMs": 6247940
+    },
+    {
+      "index": 1118,
+      "text": "Yes!",
+      "kind": "dialogue",
+      "startMs": 6249340,
+      "endMs": 6251440
+    },
+    {
+      "index": 1119,
+      "text": "What do you do, Jack, huh? What do you do?",
+      "kind": "dialogue",
+      "startMs": 6256840,
+      "endMs": 6260040
+    },
+    {
+      "index": 1120,
+      "text": "You're so smart. Right, Jack? You piece of shit.",
+      "kind": "dialogue",
+      "startMs": 6260140,
+      "endMs": 6263440
+    },
+    {
+      "index": 1121,
+      "text": "I'm the guy with the plan 'cause I'm smarter than you.",
+      "kind": "dialogue",
+      "startMs": 6263540,
+      "endMs": 6266540
+    },
+    {
+      "index": 1122,
+      "text": "I'm smarter than you.",
+      "kind": "dialogue",
+      "startMs": 6266640,
+      "endMs": 6270140
+    },
+    {
+      "index": 1123,
+      "text": "You... You...",
+      "kind": "dialogue",
+      "startMs": 6270240,
+      "endMs": 6272140
+    },
+    {
+      "index": 1124,
+      "text": "Yeah?",
+      "kind": "dialogue",
+      "startMs": 6283240,
+      "endMs": 6285740
+    },
+    {
+      "index": 1125,
+      "text": "Well, I'm taller.",
+      "kind": "dialogue",
+      "startMs": 6285840,
+      "endMs": 6287840
+    },
+    {
+      "index": 1126,
+      "text": "Jack? Jack!",
+      "kind": "dialogue",
+      "startMs": 6289240,
+      "endMs": 6292540
+    },
+    {
+      "index": 1127,
+      "text": "Oh, God, I thought you were dead. Jack.",
+      "kind": "dialogue",
+      "startMs": 6292640,
+      "endMs": 6296240
+    },
+    {
+      "index": 1128,
+      "text": "Turn around. Where's Payne?",
+      "kind": "dialogue",
+      "startMs": 6296340,
+      "endMs": 6299750
+    },
+    {
+      "index": 1129,
+      "text": "He lost his head.",
+      "kind": "dialogue",
+      "startMs": 6299850,
+      "endMs": 6302850
+    },
+    {
+      "index": 1130,
+      "text": "Oh, God.",
+      "kind": "dialogue",
+      "startMs": 6305250,
+      "endMs": 6307550
+    },
+    {
+      "index": 1131,
+      "text": "Let's take this off, shall we? Yes, let's take this off.",
+      "kind": "dialogue",
+      "startMs": 6307650,
+      "endMs": 6310750
+    },
+    {
+      "index": 1132,
+      "text": "Take it off. Hello? Hello?",
+      "kind": "dialogue",
+      "startMs": 6314250,
+      "endMs": 6317450
+    },
+    {
+      "index": 1133,
+      "text": "Come in. Copy. Jack, this is Mac.",
+      "kind": "dialogue",
+      "startMs": 6317550,
+      "endMs": 6320950
+    },
+    {
+      "index": 1134,
+      "text": "Do you hear me? Jack, if you're there, you got to stop the train.",
+      "kind": "dialogue",
+      "startMs": 6321050,
+      "endMs": 6326150
+    },
+    {
+      "index": 1135,
+      "text": "The track isn't finished. I repeat, the track...  - Mac, I copy.",
+      "kind": "dialogue",
+      "startMs": 6326250,
+      "endMs": 6329950
+    },
+    {
+      "index": 1136,
+      "text": "Mac.",
+      "kind": "dialogue",
+      "startMs": 6330050,
+      "endMs": 6331950
+    },
+    {
+      "index": 1137,
+      "text": "Do you copy? Mac.",
+      "kind": "dialogue",
+      "startMs": 6332050,
+      "endMs": 6334050
+    },
+    {
+      "index": 1138,
+      "text": "Mac, can you hear me? Try the emergency brake.",
+      "kind": "dialogue",
+      "startMs": 6334150,
+      "endMs": 6337550
+    },
+    {
+      "index": 1139,
+      "text": "Jack, do you copy?",
+      "kind": "dialogue",
+      "startMs": 6337650,
+      "endMs": 6340450
+    },
+    {
+      "index": 1140,
+      "text": "Jack, can you...",
+      "kind": "dialogue",
+      "startMs": 6340550,
+      "endMs": 6342550
+    },
+    {
+      "index": 1141,
+      "text": "Nothing works! Annie, you won't believe this.",
+      "kind": "dialogue",
+      "startMs": 6342650,
+      "endMs": 6345550
+    },
+    {
+      "index": 1142,
+      "text": "Jack, this track can't... What?",
+      "kind": "dialogue",
+      "startMs": 6345650,
+      "endMs": 6348150
+    },
+    {
+      "index": 1143,
+      "text": "We have to jump. You can't stop it?",
+      "kind": "dialogue",
+      "startMs": 6348350,
+      "endMs": 6351450
+    },
+    {
+      "index": 1144,
+      "text": "Well, um... Okay, well, undo me and I'd love to go with you. Come on. Please.",
+      "kind": "dialogue",
+      "startMs": 6354150,
+      "endMs": 6359650
+    },
+    {
+      "index": 1145,
+      "text": "I don't have the key. What?",
+      "kind": "dialogue",
+      "startMs": 6361250,
+      "endMs": 6363450
+    },
+    {
+      "index": 1146,
+      "text": "I don't have the key.",
+      "kind": "dialogue",
+      "startMs": 6363550,
+      "endMs": 6365650
+    },
+    {
+      "index": 1147,
+      "text": "Shit.",
+      "kind": "dialogue",
+      "startMs": 6386060,
+      "endMs": 6390760
+    },
+    {
+      "index": 1148,
+      "text": "Ow!",
+      "kind": "dialogue",
+      "startMs": 6390860,
+      "endMs": 6392960
+    },
+    {
+      "index": 1149,
+      "text": "You gotta get off the... You gotta get off the train. Jack, please!",
+      "kind": "dialogue",
+      "startMs": 6404860,
+      "endMs": 6408860
+    },
+    {
+      "index": 1150,
+      "text": "This track dead-ends, Jack. You gotta get off this train. This is crazy.",
+      "kind": "dialogue",
+      "startMs": 6408960,
+      "endMs": 6412660
+    },
+    {
+      "index": 1151,
+      "text": "There's a curve ahead. I'm gonna speed it up, make it jump the track.",
+      "kind": "dialogue",
+      "startMs": 6412860,
+      "endMs": 6418460
+    },
+    {
+      "index": 1152,
+      "text": "This is really stupid. Jack. Jack, please. You can still jump.",
+      "kind": "dialogue",
+      "startMs": 6418560,
+      "endMs": 6422060
+    },
+    {
+      "index": 1153,
+      "text": "Jack, please. Please!",
+      "kind": "dialogue",
+      "startMs": 6422160,
+      "endMs": 6424760
+    },
+    {
+      "index": 1154,
+      "text": "Jack.",
+      "kind": "dialogue",
+      "startMs": 6424860,
+      "endMs": 6427460
+    },
+    {
+      "index": 1155,
+      "text": "Holy shit!",
+      "kind": "dialogue",
+      "startMs": 6504170,
+      "endMs": 6506570
+    },
+    {
+      "index": 1156,
+      "text": "I can't believe he hit my van. No, it's all right.",
+      "kind": "dialogue",
+      "startMs": 6585490,
+      "endMs": 6589690
+    },
+    {
+      "index": 1157,
+      "text": "Unreal.",
+      "kind": "dialogue",
+      "startMs": 6589790,
+      "endMs": 6591690
+    },
+    {
+      "index": 1158,
+      "text": "You didn't leave me. I can't believe it.",
+      "kind": "dialogue",
+      "startMs": 6594390,
+      "endMs": 6597790
+    },
+    {
+      "index": 1159,
+      "text": "You didn't leave me.",
+      "kind": "dialogue",
+      "startMs": 6601090,
+      "endMs": 6603590
+    },
+    {
+      "index": 1160,
+      "text": "Didn't have anywhere to be just then.",
+      "kind": "dialogue",
+      "startMs": 6603690,
+      "endMs": 6606190
+    },
+    {
+      "index": 1161,
+      "text": "Check it out.",
+      "kind": "dialogue",
+      "startMs": 6611490,
+      "endMs": 6613390
+    },
+    {
+      "index": 1162,
+      "text": "I have to warn you, I've heard relationships based on intense experiences never work.",
+      "kind": "dialogue",
+      "startMs": 6619690,
+      "endMs": 6625690
+    },
+    {
+      "index": 1163,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 6625790,
+      "endMs": 6627690
+    },
+    {
+      "index": 1164,
+      "text": "We'll have to base it on sex then.",
+      "kind": "dialogue",
+      "startMs": 6629090,
+      "endMs": 6632190
+    },
+    {
+      "index": 1165,
+      "text": "Whatever you say, ma'am.",
+      "kind": "dialogue",
+      "startMs": 6632290,
+      "endMs": 6635490
+    },
+    {
+      "index": 1166,
+      "text": "That's so romantic.",
+      "kind": "dialogue",
+      "startMs": 6653000,
+      "endMs": 6655400
+    }
+  ],
+  "meta": {
+    "year": 1994
+  }
+}

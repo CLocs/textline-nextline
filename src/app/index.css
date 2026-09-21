@@ -1350,6 +1350,120 @@ code {
   margin: 0;
 }
 
+.curate-item.focused {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.search-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search-query {
+  flex: 1 1 14rem;
+}
+
+.search-query input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.search-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.search-mode-active {
+  border-color: var(--ink);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.search-empty {
+  margin: 0.5rem 0 0;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.search-section-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.search-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.search-hit {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.search-hit:hover {
+  border-color: color-mix(in srgb, var(--ink) 35%, var(--line));
+}
+
+.search-hit-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.search-hit-label {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.search-hit-title .search-hit-label {
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.search-hit-count {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.search-hit-text {
+  color: var(--ink);
+  line-height: 1.35;
+}
+
 .curate-list {
   max-height: calc(100vh - 16rem);
   overflow: auto;

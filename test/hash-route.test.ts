@@ -51,6 +51,10 @@ describe("parseHash", () => {
     });
   });
 
+  it("parses the search route", () => {
+    expect(parseHash("#/search")).toEqual({ kind: "search" });
+  });
+
   it("parses parallel pack routes", () => {
     expect(parseHash("#/parallel/abc123")).toEqual({ kind: "parallel", packId: "abc123" });
   });
@@ -77,6 +81,7 @@ describe("isSafeLoginReturn", () => {
     expect(isSafeLoginReturn("chats")).toBe(true);
     expect(isSafeLoginReturn("chat/user-123")).toBe(true);
     expect(isSafeLoginReturn("chat/group/group-456")).toBe(true);
+    expect(isSafeLoginReturn("search")).toBe(true);
     expect(isSafeLoginReturn("friend/aabbccddeeff001122334455")).toBe(true);
     expect(isSafeLoginReturn("ops")).toBe(true);
     expect(isSafeLoginReturn("https://evil.example")).toBe(false);

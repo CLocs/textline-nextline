@@ -1,6 +1,7 @@
 import {
   fetchMyStars,
   fetchPopularStars,
+  fetchPopularStarsGlobal,
   isStarApiEnabled,
   loveLine,
   starLine,
@@ -34,6 +35,19 @@ export async function loadPopularStars(titleId: string, limit = 50): Promise<num
   const popular = await fetchPopularStars(titleId, limit);
   if (!popular) return [];
   return popular.map((entry) => entry.lineIndex);
+}
+
+export async function loadPopularStarsGlobal(
+  limit = 100,
+): Promise<Map<string, number>> {
+  const map = new Map<string, number>();
+  if (!isStarApiEnabled()) return map;
+  const popular = await fetchPopularStarsGlobal(limit);
+  if (!popular) return map;
+  for (const entry of popular) {
+    map.set(`${entry.titleId}:${entry.lineIndex}`, entry.count);
+  }
+  return map;
 }
 
 /** Toggle star locally first, then sync to API when available. */

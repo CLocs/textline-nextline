@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-20T22:52:26.619Z",
+  "updatedAt": "2026-09-21T22:12:05.049Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -60,6 +60,16 @@
       "importedAt": "2026-09-13T03:48:37.724Z",
       "meta": {
         "year": 2005
+      }
+    },
+    {
+      "id": "days-of-thunder-1990",
+      "title": "Days Of Thunder (1990)",
+      "lineCount": 749,
+      "sourceFilename": "Days.Of.Thunder.1990.eng.srt",
+      "importedAt": "2026-09-21T22:12:05.035Z",
+      "meta": {
+        "year": 1990
       }
     },
     {
@@ -956,6 +966,16 @@
         "show": "Game of Thrones",
         "season": 8,
         "episode": 6
+      }
+    },
+    {
+      "id": "goldeneye-1995",
+      "title": "GoldenEye (1995)",
+      "lineCount": 878,
+      "sourceFilename": "GoldenEye.1995.eng.srt",
+      "importedAt": "2026-09-21T22:12:05.047Z",
+      "meta": {
+        "year": 1995
       }
     },
     {
@@ -3301,6 +3321,16 @@
       }
     },
     {
+      "id": "speed-1994",
+      "title": "Speed (1994)",
+      "lineCount": 1167,
+      "sourceFilename": "Speed.1994.eng.srt",
+      "importedAt": "2026-09-21T22:05:33.564Z",
+      "meta": {
+        "year": 1994
+      }
+    },
+    {
       "id": "star-wars-1977",
       "title": "Star Wars (1977)",
       "lineCount": 1155,
@@ -4546,6 +4576,26 @@
       "importedAt": "2026-09-13T03:48:43.497Z",
       "meta": {
         "year": 2013
+      }
+    },
+    {
+      "id": "top-gun-1986",
+      "title": "Top Gun (1986)",
+      "lineCount": 714,
+      "sourceFilename": "Top.Gun.1986.eng.srt",
+      "importedAt": "2026-09-21T22:05:34.146Z",
+      "meta": {
+        "year": 1986
+      }
+    },
+    {
+      "id": "top-gun-maverick-2022",
+      "title": "Top Gun Maverick (2022)",
+      "lineCount": 1210,
+      "sourceFilename": "Top.Gun.Maverick.2022.eng.srt",
+      "importedAt": "2026-09-21T22:05:34.718Z",
+      "meta": {
+        "year": 2022
       }
     },
     {

@@ -112,3 +112,24 @@ export async function fetchPopularStars(
       typeof entry.lineIndex === "number" && typeof entry.count === "number",
   );
 }
+
+export type GlobalPopularStar = {
+  titleId: string;
+  lineIndex: number;
+  count: number;
+};
+
+export async function fetchPopularStarsGlobal(
+  limit = 100,
+): Promise<GlobalPopularStar[] | null> {
+  const response = await apiFetch(`/api/stars/popular-global?limit=${limit}`);
+  if (!response?.ok) return null;
+  const data = (await response.json()) as { popular?: GlobalPopularStar[] };
+  if (!Array.isArray(data.popular)) return [];
+  return data.popular.filter(
+    (entry) =>
+      typeof entry.titleId === "string" &&
+      typeof entry.lineIndex === "number" &&
+      typeof entry.count === "number",
+  );
+}

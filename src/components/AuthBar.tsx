@@ -5,6 +5,7 @@ type Props = {
   user: AuthUser;
   onProfile: () => void;
   onChats: () => void;
+  onSearch?: () => void;
   onCatalog?: () => void;
 };
 
@@ -19,12 +20,17 @@ function ChatsMessageIcon() {
   );
 }
 
-export function AuthBar({ user, onProfile, onChats, onCatalog }: Props) {
+export function AuthBar({ user, onProfile, onChats, onSearch, onCatalog }: Props) {
   const unread = useChatsUnreadCount();
   const chatsLabel = `Chats, ${unread} unread`;
 
   return (
     <div className="auth-bar">
+      {onSearch ? (
+        <button type="button" className="button ghost" onClick={onSearch}>
+          Search
+        </button>
+      ) : null}
       {onCatalog ? (
         <button type="button" className="button ghost" onClick={onCatalog}>
           Catalog

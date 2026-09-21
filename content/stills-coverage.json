@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-09-19T19:37:00.000Z",
+  "updatedAt": "2026-09-21T22:52:43.758Z",
   "titles": {
     "batman-begins-2005": 79,
     "django-unchained-2012": 44,
     "friday-1995": 47,
-    "goodfellas-1990": 5,
+    "goodfellas-1990": 6,
     "inglourious-basterds-2009": 115,
     "matrix-1999": 106,
     "oceans-thirteen-2007": 131,
-    "payback-1999": 6,
+    "payback-1999": 160,
     "rocknrolla-2008": 6,
     "star-wars-1977": 6,
     "star-wars-episode-vi-return-of-the-jedi-1983": 7,
@@ -18,17 +18,19 @@
     "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": 6,
     "the-simpsons---4x01---kamp-krustyen": 10,
     "the-simpsons---4x02---a-streetcar-named-margeen": 16,
-    "the-wolf-of-wall-street-2013": 67
+    "the-wolf-of-wall-street-2013": 67,
+    "lord-of-the-rings-the-return-of-the-king-2003": 93,
+    "oceans-eleven-2001": 138
   },
   "covers": {
     "batman-begins-2005": 15,
     "django-unchained-2012": 321,
     "friday-1995": 2,
-    "goodfellas-1990": 743,
+    "goodfellas-1990": 138,
     "inglourious-basterds-2009": 3,
     "matrix-1999": 34,
     "oceans-thirteen-2007": 0,
-    "payback-1999": 77,
+    "payback-1999": 24,
     "rocknrolla-2008": 74,
     "star-wars-1977": 62,
     "star-wars-episode-vi-return-of-the-jedi-1983": 438,
@@ -38,6 +40,8 @@
     "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": 80,
     "the-simpsons---4x01---kamp-krustyen": 11,
     "the-simpsons---4x02---a-streetcar-named-margeen": 43,
-    "the-wolf-of-wall-street-2013": 27
+    "the-wolf-of-wall-street-2013": 27,
+    "lord-of-the-rings-the-return-of-the-king-2003": 10,
+    "oceans-eleven-2001": 10
   }
 }

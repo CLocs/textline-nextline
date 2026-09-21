@@ -17,6 +17,7 @@ import {
 } from "../lib/content/catalogOpsData";
 import { fetchOpsCatalog } from "../lib/ops/api";
 import { fetchStudioCoverage, studioHealth } from "../lib/content/stillsStudioApi";
+import { DEFAULT_STUDIO_SHOW } from "../lib/content/stillsStudioTypes";
 import { StillsStudioPanel } from "./StillsStudioPanel";
 
 type Props = {
@@ -56,7 +57,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   const [sortKey, setSortKey] = useState<CatalogOpsSortKey>("label");
   const [sortDir, setSortDir] = useState<CatalogOpsSortDir>("asc");
   const [tab, setTab] = useState<"catalog" | "stills">("catalog");
-  const [stillsShow, setStillsShow] = useState("The Simpsons");
+  const [stillsShow, setStillsShow] = useState(DEFAULT_STUDIO_SHOW);
   const [stillsTitleId, setStillsTitleId] = useState<string | null>(null);
   const [stillsAutoBatch, setStillsAutoBatch] = useState(false);
   const [stillCounts, setStillCounts] = useState<Record<string, number>>(() => loadStillsCoverage());
@@ -158,6 +159,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
           type="button"
           className={`button ghost${tab === "stills" ? " is-active" : ""}`}
           onClick={() => {
+            setStillsShow(DEFAULT_STUDIO_SHOW);
             setStillsTitleId(null);
             setStillsAutoBatch(false);
             setTab("stills");

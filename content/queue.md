@@ -71,7 +71,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 1 | 0 | [The Departed](https://boxd.it/28MA) | 2006 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [The Housemaid](https://boxd.it/QFEO) | 2025 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [The Mask](https://boxd.it/29rS) | 1994 | 5 | yes | [ ] missing |
-| 1 | 1 | 0 | [Top Gun: Maverick](https://boxd.it/cjr4) | 2022 | 5 | yes | [ ] missing |
+| 1 | 1 | 0 | [Top Gun: Maverick](https://boxd.it/cjr4) | 2022 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Wedding Crashers](https://boxd.it/1Yte) | 2005 | 5 | yes | [x] |
 | 1 | 0 | 9 | [GoodFellas](https://boxd.it/29FA) | 1990 | 5 | yes | [x] |
 | 1 | 0 | 5 | [Casino](https://boxd.it/2ads) | 1995 | 5 | yes | [ ] missing |

@@ -74,7 +74,11 @@ function catalogShows(entries: CatalogEntry[]): string[] {
   if (entries.some((entry) => !entry.meta?.show && entry.id !== "sample-episode")) {
     names.add(MOVIES_STUDIO_SHOW);
   }
-  return [...names].sort((a, b) => a.localeCompare(b));
+  return [...names].sort((a, b) => {
+    if (a === MOVIES_STUDIO_SHOW) return -1;
+    if (b === MOVIES_STUDIO_SHOW) return 1;
+    return a.localeCompare(b);
+  });
 }
 
 function titlesNeeded(entries: CatalogEntry[], show: string, sync: StillsSyncFile): Map<string, Title> {
@@ -113,7 +117,7 @@ export function listStudioShows(ctx: StudioContext): { shows: { show: string; di
 }
 
 export function studioQueue(ctx: StudioContext, show: string): StudioQueue & { starError?: string; remoteStars: boolean } {
-  const name = show.trim() || "The Simpsons";
+  const name = show.trim() || MOVIES_STUDIO_SHOW;
   const catalog = loadCatalog();
   const sync = loadStillsSyncFile(ctx.syncPath);
   const { stars, remote, error } = loadStars(ctx);
