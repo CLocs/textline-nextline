@@ -31,6 +31,8 @@ type Props = {
   onOpenDm: (peerUserId: string, displayName: string) => void;
   onOpenGroup: (groupId: string, name: string) => void;
   onOpenChats: () => void;
+  /** Increment from the header to jump Home → full library browse. */
+  browseNonce?: number;
 };
 
 type View =
@@ -90,6 +92,7 @@ export function LibraryScreen({
   onOpenDm,
   onOpenGroup,
   onOpenChats,
+  browseNonce = 0,
 }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
@@ -100,6 +103,10 @@ export function LibraryScreen({
   const chatsUnread = useChatsUnreadBreakdown();
   const chatsApiReady = isAuthApiEnabled() && !isLocalDevSession();
   const groups = groupCatalogEntries(entries);
+
+  useEffect(() => {
+    if (browseNonce > 0) setView({ level: "browse" });
+  }, [browseNonce]);
 
   useEffect(() => {
     let cancelled = false;

@@ -6,8 +6,20 @@ type Props = {
   onProfile: () => void;
   onChats: () => void;
   onSearch?: () => void;
+  onBrowseLibrary?: () => void;
   onCatalog?: () => void;
 };
+
+function SearchIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M10.5 3a7.5 7.5 0 0 1 5.95 12.08l3.74 3.73a1 1 0 0 1-1.42 1.42l-3.73-3.74A7.5 7.5 0 1 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"
+      />
+    </svg>
+  );
+}
 
 function ChatsMessageIcon() {
   return (
@@ -20,32 +32,41 @@ function ChatsMessageIcon() {
   );
 }
 
-export function AuthBar({ user, onProfile, onChats, onSearch, onCatalog }: Props) {
+export function AuthBar({ user, onProfile, onChats, onSearch, onBrowseLibrary, onCatalog }: Props) {
   const unread = useChatsUnreadCount();
   const chatsLabel = `Chats, ${unread} unread`;
 
   return (
     <div className="auth-bar">
-      {onSearch ? (
-        <button type="button" className="button ghost" onClick={onSearch}>
-          Search
+      <div className="auth-bar-nav">
+        {onSearch ? (
+          <button type="button" className="button ghost auth-nav-button" onClick={onSearch}>
+            <SearchIcon />
+            Search
+          </button>
+        ) : null}
+        {onBrowseLibrary ? (
+          <button type="button" className="button ghost" onClick={onBrowseLibrary}>
+            Browse full library
+          </button>
+        ) : null}
+        {onCatalog ? (
+          <button type="button" className="button ghost" onClick={onCatalog}>
+            Catalog
+          </button>
+        ) : null}
+        <button
+          type="button"
+          className="button ghost auth-nav-button inbox-notify"
+          aria-label={chatsLabel}
+          title={chatsLabel}
+          onClick={onChats}
+        >
+          <ChatsMessageIcon />
+          Chats
+          {unread > 0 ? <span className="inbox-notify-badge">{unread}</span> : null}
         </button>
-      ) : null}
-      {onCatalog ? (
-        <button type="button" className="button ghost" onClick={onCatalog}>
-          Catalog
-        </button>
-      ) : null}
-      <button
-        type="button"
-        className="button ghost inbox-notify"
-        aria-label={chatsLabel}
-        title={chatsLabel}
-        onClick={onChats}
-      >
-        <ChatsMessageIcon />
-        {unread > 0 ? <span className="inbox-notify-badge">{unread}</span> : null}
-      </button>
+      </div>
       <button
         type="button"
         className="button ghost auth-user-button"

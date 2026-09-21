@@ -125,4 +125,51 @@ describe("searchCatalog", () => {
       }),
     ]);
   });
+
+  it("does not full-scan the catalog when popular data is missing", () => {
+    const result = searchCatalog({
+      query: "",
+      mode: "popular",
+      entries,
+      resolveTitle,
+    });
+    expect(result).toEqual({ titles: [], lines: [] });
+  });
+
+  it("searches a prebuilt index without live title walks", () => {
+    const index = {
+      titles: [
+        { titleId: "oceans", label: "Ocean's Thirteen (2007)", hay: "ocean's thirteen 2007" },
+        {
+          titleId: "homer",
+          label: "The Simpsons · 4x03 Homer the Heretic",
+          hay: "the simpsons 4x03 homer the heretic",
+        },
+      ],
+      lines: [
+        {
+          titleId: "oceans",
+          label: "Ocean's Thirteen (2007)",
+          lineIndex: 0,
+          text: "Let 'em watch.",
+          hay: "let 'em watch",
+        },
+        {
+          titleId: "homer",
+          label: "The Simpsons · 4x03 Homer the Heretic",
+          lineIndex: 2,
+          text: "Let 'em watch the game.",
+          hay: "let 'em watch the game",
+        },
+      ],
+    };
+    const result = searchCatalog({
+      query: "watch",
+      mode: "popular",
+      entries,
+      index,
+      popularCounts: new Map([[popularKey("homer", 2), 4]]),
+    });
+    expect(result.lines[0]).toMatchObject({ titleId: "homer", lineIndex: 2 });
+  });
 });
