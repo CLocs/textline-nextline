@@ -17,6 +17,7 @@ import {
   studioQueue,
 } from "./stillsStudioActions.js";
 import type { StudioExtractMode } from "./stillsStudioTypes.js";
+import { DEFAULT_STUDIO_SHOW } from "./stillsStudioTypes.js";
 
 const PREFIX = "/api/stills-studio";
 
@@ -69,7 +70,7 @@ export function stillsStudioPlugin() {
         return;
       }
       if (req.method === "GET" && path === "/queue") {
-        const show = url.searchParams.get("show") ?? "The Simpsons";
+        const show = url.searchParams.get("show") ?? DEFAULT_STUDIO_SHOW;
         sendJson(res, 200, studioQueue(ctx, show));
         return;
       }

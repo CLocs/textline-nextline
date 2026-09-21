@@ -17,7 +17,7 @@ import {
 } from "../lib/content/stillsStudioApi";
 
 import { describeStudioMethod, pickNextStudioMethod, recordTriedMethodIds, studioMethodFromId, type StudioMethod, type StudioVote } from "../lib/content/stillsStudioMethods";
-import type { StudioExtractMode } from "../lib/content/stillsStudioTypes";
+import { DEFAULT_STUDIO_SHOW, type StudioExtractMode } from "../lib/content/stillsStudioTypes";
 
 const SIMPSONS_OFFSET_MS = -57_000;
 
@@ -57,7 +57,7 @@ type AppliedMethod = {
 };
 
 export function StillsStudioPanel({
-  initialShow = "The Simpsons",
+  initialShow = DEFAULT_STUDIO_SHOW,
   initialTitleId = null,
   initialAutoBatch = false,
 }: Props) {
@@ -69,7 +69,7 @@ export function StillsStudioPanel({
   const [episode, setEpisode] = useState<StudioEpisode | null>(null);
   const [frames, setFrames] = useState<StudioFrame[]>([]);
   const [votes, setVotes] = useState<Record<number, StudioVote>>({});
-  const [offsetMs, setOffsetMs] = useState(SIMPSONS_OFFSET_MS);
+  const [offsetMs, setOffsetMs] = useState(0);
   const [timeScale, setTimeScale] = useState(1);
   const [seek, setSeek] = useState<"start" | "mid">("start");
   const [lineOffsets, setLineOffsets] = useState<Record<string, number>>({});

@@ -23,6 +23,7 @@ import { describeStudioMethod } from "./stillsStudioMethods.js";
 import type { StudioEpisode, StudioEpisodeStatus, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
 
 export type { StudioEpisode, StudioEpisodeStatus, StudioFrame, StudioQueue } from "./stillsStudioTypes.js";
+export { DEFAULT_STUDIO_SHOW } from "./stillsStudioTypes.js";
 
 export const STUDIO_SKIP_TITLE_IDS = [
   "the-simpsons---4x01---kamp-krustyen",

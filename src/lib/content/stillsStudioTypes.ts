@@ -1,3 +1,6 @@
+/** Catalog Ops Stills dropdown; movie files live in G:/videos/movies. */
+export const DEFAULT_STUDIO_SHOW = "Movies";
+
 export type StudioEpisodeStatus =
   | "no-file"
   | "ready"

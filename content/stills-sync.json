@@ -335,5 +335,26 @@
     "approvedAt": "2026-09-21T00:20:44.714Z",
     "batchedAt": "2026-09-21T00:21:19.567Z",
     "pushedAt": "2026-09-21T00:22:21.729Z"
+  },
+  "oceans-eleven-2001": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "lineOffsets": {},
+    "durationSec": 6994.293333,
+    "source": "G:\\videos\\movies\\Oceans.Eleven.2001.1080p.BluRay.H264.AAC-RARBG.mp4",
+    "handful": [
+      272,
+      414,
+      499,
+      648,
+      830,
+      965
+    ],
+    "methodId": "zero",
+    "note": "Studio batch 138 stills.",
+    "approvedAt": "2026-09-21T22:52:16.804Z",
+    "batchedAt": "2026-09-21T22:52:43.757Z"
   }
 }

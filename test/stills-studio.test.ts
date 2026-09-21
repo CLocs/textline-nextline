@@ -138,6 +138,12 @@ describe("videoDirForShow", () => {
   it("maps Movies to the local movie folder", () => {
     expect(videoDirForShow("Movies").replaceAll("\\", "/")).toBe("G:/videos/movies");
   });
+
+  it("defaults the stills studio to Movies", async () => {
+    const { DEFAULT_STUDIO_SHOW, MOVIES_STUDIO_SHOW } = await import("../src/lib/content/stillsStudio.js");
+    expect(DEFAULT_STUDIO_SHOW).toBe(MOVIES_STUDIO_SHOW);
+    expect(DEFAULT_STUDIO_SHOW).toBe("Movies");
+  });
 });
 
 describe("buildShowQueue", () => {
