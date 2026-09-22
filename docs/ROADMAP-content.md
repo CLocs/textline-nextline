@@ -2,6 +2,8 @@
 
 Grow the playable library in parallel with app phases (1.8 library browse, 2a auth, 2.5 reputation, 2.6 stills / catalog ops, 2 rooms, …). The game still does **not** fetch subtitles at play time. This workstream is how titles get into `content/`.
 
+Process diagrams, automation levels, and scale evolutions (E0–E4): [CONTENT-PIPELINE.md](CONTENT-PIPELINE.md).
+
 **Today:** Tier-1 movies plus Simpsons Seasons 4–5 (and a hidden sample) are already in `content/`. Sep 2026 ingest added Back to the Future 1–3, Gone in 60 Seconds, Goodfellas, O Brother, 40 Year Old Virgin, and Lebowski (Dune skipped — incomplete SRT). The Letterboxd likes ∪ 4.5★ queue tracks what to convert next — not every film.
 
 Full pipeline:
