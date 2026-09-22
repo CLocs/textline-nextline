@@ -23,6 +23,7 @@ import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCov
 import { PosterArt } from "./PosterArt";
 import { ParallelInboxCard } from "./ParallelInboxCard";
 import { ChatsList } from "./ChatsList";
+import { PwaInstallHelper } from "./PwaInstallHelper";
 import { useChatsUnreadBreakdown } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
@@ -290,6 +291,8 @@ export function LibraryScreen({
         <h2>Home</h2>
         <p className="muted">Your games, then what everyone else is playing.</p>
       </div>
+
+      <PwaInstallHelper />
 
       {entries.length === 0 ? (
         <p className="empty">
