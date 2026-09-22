@@ -89,6 +89,7 @@ export function App() {
   const [chatGroupName, setChatGroupName] = useState<string | undefined>();
   const [chatMode, setChatMode] = useState<"dm" | "group">("dm");
   const [curateFocusLineIndex, setCurateFocusLineIndex] = useState<number | null>(null);
+  const [libraryBrowseNonce, setLibraryBrowseNonce] = useState(0);
 
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
@@ -548,6 +549,7 @@ export function App() {
       clearHash();
       return;
     }
+    setLibraryBrowseNonce(0);
     setScreen("library");
     setPendingEntry(null);
     setActiveEntry(null);
@@ -656,6 +658,12 @@ export function App() {
     setHash("search");
   }
 
+  function handleBrowseLibrary() {
+    setLibraryBrowseNonce((value) => value + 1);
+    setScreen("library");
+    clearHash();
+  }
+
   const showCatalog = canViewCatalogOps(user?.email, import.meta.env.DEV);
 
   // Signed-out users only see the sign-in gate (plus auth deep links).
@@ -678,6 +686,7 @@ export function App() {
               onProfile={handleOpenProfile}
               onChats={handleOpenChats}
               onSearch={handleOpenSearch}
+              onBrowseLibrary={handleBrowseLibrary}
               onCatalog={showCatalog ? handleOpenCatalog : undefined}
             />
           )}
@@ -703,6 +712,7 @@ export function App() {
       {showApp && screen === "library" && (
         <LibraryScreen
           entries={entries}
+          browseNonce={libraryBrowseNonce}
           onSelect={handlePickEpisode}
           onOpenDm={handleOpenDm}
           onOpenGroup={handleOpenGroupChat}

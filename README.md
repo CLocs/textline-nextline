@@ -204,9 +204,16 @@ Keep the **login gate** (browse/play still require an account). Add one-click Go
   - **Medium:** last player standing, or highest score among survivors
   - **Hard:** team score = lines completed before the single miss
 
+- [ ] **Popular-line room** *(name open)* — a room length besides the full transcript
+  - Walk the title’s crowd-popular starred lines, in transcript order
+  - **All, or most** — long enough for a night with friends, not a 10-pack mini-game and not every cue
+  - Same turn rotation and shared board as the full-transcript room
+  - Name is unset; “popular-line room” is only a working label
+
 ### Open design questions (Phase 2)
 
 - **Reconnect:** Session token from Phase 2a auth?
+- **Popular-line room:** what to call it; whether the queue is every crowd-popular line or a long cap once star counts thin out
 
 ---
 
@@ -396,6 +403,7 @@ Open questions (spike only — no pack UI yet):
 
 - [x] **Loved / double-star quotes** — ♥ up to 5 golden lines per title; mini-games take loved first. See [Later ideas](#loved--double-star-quotes-next).
 - [ ] **Star-streak bias** — if sequential starred lines exist, mini-games include at least one streak and play those lines in order. See [Later ideas](#star-streaks-in-mini-games).
+- [ ] **Popular-line room** *(name open)* — turn-based room walks the crowd-popular starred lines (all or most). See [rooms](#features-rooms--later).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
 - [x] **Question inbox** — Curate send icon → friend’s inbox (or copy a 1-line `#/play` link). See [Later ideas](#later-ideas-parked).
@@ -424,7 +432,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **Global search** — `#/search`; client-side over eager catalog; Popular / Starred by me; title + line hits. See [Global search](#global-search).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
-- [ ] **Mobile home screen (PWA-lite)** — Add to Home Screen + install helper; native store apps later. See [Later ideas](#mobile-home-screen-pwa-lite-before-native-apps).
+- [x] **Mobile home screen (PWA-lite)** — Manifest + icons + Home install helper (Android / iOS); no SW. See [Later ideas](#mobile-home-screen-pwa-lite-before-native-apps).
 - [ ] **Daily challenge** — same title + start line for everyone
 - [ ] **Obsidian → TL pipeline** — see [Concept 3](#concept-3-obsidian--tls-textlines-backlog) below
 - [ ] **Online quote sources spike** — see [Spike: online quotes](#spike-online-quotes-eg-imdb-research) below
@@ -504,7 +512,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, **Chats** (DMs + shared groups on Home), and **global search** are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, **mobile home screen (PWA-lite)**, and **star-streak bias** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, **star-streak bias**, and a **popular-line room** (name open) stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -519,6 +527,12 @@ Today a mini-game fills 10 from your personal stars (shuffled), then crowd popul
 A **star streak** is two or more starred lines in a row (sequential prompts in the transcript). Today `buildMiniGameQueue` fills 10 from loved, then other personal stars, then crowd, then random, and sorts the pick so the run walks forward. Among a large star pool, a streak often misses the cut, so the chain never plays.
 
 When any streaks exist, **bias** the pick so at least one is included. Serve that streak **sequentially** — its lines in transcript order, one after another — so answering one starred line can set up the next.
+
+### Popular-line room *(name open)*
+
+A room mode for 2–4 players, turn-based, on the same board. Instead of the full transcript or a 10-line mini-game, the room walks the title’s **crowd-popular starred lines** — all of them, or most, if the popular set is long. Lines stay in transcript order. Same turn rotation as the [full-transcript room](#features-rooms--later).
+
+The name is unset. “Popular-line room” is a working label only.
 
 ### Friends + question inbox
 
@@ -761,23 +775,19 @@ First-time players who land on a **shared mini-game** often don’t know what to
 
 Complements Teach mode; this is first-impression chrome, not a new game mode.
 
-### Mobile home screen (PWA-lite, before native apps)
+### Mobile home screen (PWA-lite, before native apps) ✅
 
 Native iOS/Android store apps are an **ultimate** goal (App Store / Play, push, true offline). A much lighter step is making the existing web app sit on the phone home screen and open without browser chrome.
 
-**Why this first:** Same Cloudflare Pages site, no store review, no Capacitor/React Native wrap. On iOS, Safari still cannot be told to install — the path is **Share → Add to Home Screen** — so a **helper dialogue** is the product, not just a manifest file.
+**In:**
 
-**Shape *(parked)*:**
+1. **Web app manifest** — [`public/manifest.webmanifest`](public/manifest.webmanifest); name, icons, `display: standalone`, theme `#f3eee4`.
+2. **Install helper on Home** — one-shot, dismissable; skip if already standalone or dismissed.
+   - **Android Chrome:** `beforeinstallprompt` → Install CTA.
+   - **iOS Safari:** Share → **Add to Home Screen** steps (cannot trigger install in JS).
+3. **Home-screen icons** — 192 / 512 (+ apple-touch) brand tiles under [`public/icons/`](public/icons/).
 
-1. **Web app manifest** — name, icons, `display: standalone`, theme color (we already have `theme-color` in `index.html`).
-2. **Install helper dialogue** — one-shot, dismissable, mobile Safari/Chrome only; skip if already running standalone or already installed.
-   - **Android Chrome:** `beforeinstallprompt` when the browser offers it (“Add Textline to your home screen”).
-   - **iOS Safari:** illustrated steps — Share → **Add to Home Screen** (Apple never lets a site trigger this).
-3. **Home-screen icons** — a couple of PNG sizes so the tile isn’t a tab screenshot. Pairs with the parked **logo artwork** note.
-
-**Out of this slice:** App Store / Play listing, push notifications, service-worker offline cache, wrapping the SPA in Capacitor. Those stay **native-later**.
-
-**Open questions:** whether a service worker is worth it on v1 (probably not — standalone + helper is enough); whether the prompt lives on Home after first visit vs after first play; whether hash-router `#/…` URLs behave cleanly when launched from the home-screen icon.
+**Not this (v1):** service-worker offline cache, Web Push, Capacitor / store listings. Regenerate icons with `node scripts/generate-pwa-icons.mjs` if the mark changes.
 
 ### Native apps *(later, after PWA-lite)*
 
@@ -805,6 +815,7 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **Later — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | L0 checklist below; see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
+| **2 — Popular-line room** | Turn-based room walks the crowd-popular starred lines (all or most) | Name open — longer than a mini-game, shorter than the full transcript |
 | **3 — Social** | Quote sharing, async challenges | Send a line to a friend without a full room |
 | **Friends graph** | Invite link, accept, list, remove, block; hashed tokens; no directory | ✅ Mutual add-me links from Profile → Friends |
 | **Question inbox** | Curate send icon; friend inbox + optional 1-line `#/play` copy | ✅ Directed one-question play, not an anonymous 10-pack |
@@ -828,7 +839,7 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop after share cards — see [Daily quote email](#daily-quote-email) |
 | **Shipped — Global search** | `#/search`; client catalog scan; Popular / Mine; title + line hits | Find a quote or title without picking a film first — see [Global search](#global-search) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
-| **Later — Mobile home screen** | Manifest + Add to Home Screen helper dialogue | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |
+| **Shipped — Mobile home screen** | Manifest + Add to Home Screen helper (no SW) | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |
 | **Exploratory — Native apps** | Store apps after PWA-lite has been in the wild | iOS / Android if push, store, or offline become real needs |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
@@ -928,7 +939,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
 - **Global search** — ✅ `#/search`; Popular / Starred by me; title + line hits over the eager catalog. See [Global search](#global-search).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).
-- **Mobile home screen (PWA-lite)** *(parked)* — Add to Home Screen + install helper before native iOS/Android. See [Later ideas](#mobile-home-screen-pwa-lite-before-native-apps).
+- **Mobile home screen (PWA-lite)** — ✅ Manifest + icons; Home install helper (Android Install / iOS Share steps); no service worker. See [Later ideas](#mobile-home-screen-pwa-lite-before-native-apps).
 
 ---
 

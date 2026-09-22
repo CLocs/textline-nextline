@@ -309,6 +309,53 @@ button {
   margin: 0;
 }
 
+.pwa-install {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--lime) 18%, var(--surface));
+}
+
+.pwa-install-copy {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.pwa-install-title {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pwa-install-lede {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.pwa-install-steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.pwa-install-steps li + li {
+  margin-top: 0.2rem;
+}
+
+.pwa-install-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
 .library-group-heading {
   margin: 0 0 0.65rem;
   font-size: 0.78rem;
@@ -1036,10 +1083,32 @@ code {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-  justify-content: flex-end;
+  flex: 1 1 14rem;
+  justify-content: flex-start;
+}
+
+.auth-bar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.auth-nav-button svg {
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
 }
 
 .auth-user-button {
+  margin-left: auto;
   max-width: 16rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1048,8 +1117,7 @@ code {
 
 .inbox-notify {
   position: relative;
-  padding: 0.55rem 0.75rem;
-  line-height: 0;
+  line-height: 1.2;
 }
 
 .inbox-notify svg {

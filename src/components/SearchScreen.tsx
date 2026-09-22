@@ -1,7 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { startTransition, useEffect, useMemo, useState } from "react";
 import type { CatalogEntry } from "../types/content";
-import { searchCatalog, type GlobalSearchResult } from "../lib/content/globalSearch";
-import { isStarred, loadPopularStarsGlobal } from "../lib/stars/sync";
+import {
+  buildSearchIndexAsync,
+  popularKey,
+  searchCatalog,
+  type GlobalSearchResult,
+  type SearchIndex,
+} from "../lib/content/globalSearch";
+import { listStars, loadPopularStarsGlobal } from "../lib/stars/sync";
 
 type Props = {
   entries: CatalogEntry[];
@@ -12,7 +18,9 @@ type Props = {
 
 type Mode = "popular" | "mine";
 
-const DEBOUNCE_MS = 150;
+const DEBOUNCE_MS = 200;
+
+const EMPTY_RESULT: GlobalSearchResult = { titles: [], lines: [] };
 
 export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props) {
   const [query, setQuery] = useState("");
@@ -20,6 +28,17 @@ export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props
   const [mode, setMode] = useState<Mode>("popular");
   const [popularCounts, setPopularCounts] = useState<Map<string, number>>(() => new Map());
   const [popularReady, setPopularReady] = useState(false);
+  const [index, setIndex] = useState<SearchIndex | null>(null);
+  const [indexReady, setIndexReady] = useState(false);
+  const [results, setResults] = useState<GlobalSearchResult>(EMPTY_RESULT);
+
+  const starredKeys = useMemo(() => {
+    const keys = new Set<string>();
+    for (const star of listStars()) {
+      keys.add(popularKey(star.titleId, star.lineIndex));
+    }
+    return keys;
+  }, []);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setDebouncedQuery(query), DEBOUNCE_MS);
@@ -41,17 +60,41 @@ export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props
     };
   }, []);
 
-  const results: GlobalSearchResult = useMemo(
-    () =>
-      searchCatalog({
-        query: debouncedQuery,
-        mode,
-        entries,
-        popularCounts,
-        isStarred: (titleId, lineIndex) => isStarred(titleId, lineIndex),
-      }),
-    [debouncedQuery, mode, entries, popularCounts],
-  );
+  useEffect(() => {
+    let cancelled = false;
+    async function build() {
+      const built = await buildSearchIndexAsync(entries);
+      if (!cancelled) {
+        setIndex(built);
+        setIndexReady(true);
+      }
+    }
+    void build();
+    return () => {
+      cancelled = true;
+    };
+  }, [entries]);
+
+  useEffect(() => {
+    const emptyQuery = debouncedQuery.trim().length === 0;
+    // Empty Popular browse only needs the popular map (no full index).
+    // Typed search and Mine browse wait for the index so we never live-scan ~200k lines.
+    if (!emptyQuery && !index) return;
+    if (mode === "mine" && !index) return;
+
+    startTransition(() => {
+      setResults(
+        searchCatalog({
+          query: debouncedQuery,
+          mode,
+          entries,
+          popularCounts,
+          starredKeys,
+          index: index ?? undefined,
+        }),
+      );
+    });
+  }, [debouncedQuery, mode, entries, popularCounts, starredKeys, index]);
 
   const entryById = useMemo(() => {
     const map = new Map<string, CatalogEntry>();
@@ -60,7 +103,9 @@ export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props
   }, [entries]);
 
   const emptyQuery = debouncedQuery.trim().length === 0;
-  const noHits = results.titles.length === 0 && results.lines.length === 0;
+  const needsIndex = !emptyQuery || mode === "mine";
+  const searching = needsIndex && !indexReady;
+  const noHits = !searching && results.titles.length === 0 && results.lines.length === 0;
 
   return (
     <section className="panel search-panel">
@@ -107,6 +152,7 @@ export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props
       {mode === "popular" && !popularReady ? (
         <p className="muted">Loading popular lines…</p>
       ) : null}
+      {searching ? <p className="muted">Preparing catalog search…</p> : null}
 
       {noHits ? (
         <p className="muted search-empty">
@@ -116,7 +162,7 @@ export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props
               : "No popular lines yet — try a search."
             : "No matches."}
         </p>
-      ) : (
+      ) : !searching ? (
         <div className="search-results">
           {results.titles.length > 0 ? (
             <div className="search-section">
@@ -172,7 +218,7 @@ export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props
             </div>
           ) : null}
         </div>
-      )}
+      ) : null}
     </section>
   );
 }

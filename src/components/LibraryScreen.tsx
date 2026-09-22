@@ -23,6 +23,7 @@ import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCov
 import { PosterArt } from "./PosterArt";
 import { ParallelInboxCard } from "./ParallelInboxCard";
 import { ChatsList } from "./ChatsList";
+import { PwaInstallHelper } from "./PwaInstallHelper";
 import { useChatsUnreadBreakdown } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
@@ -31,6 +32,8 @@ type Props = {
   onOpenDm: (peerUserId: string, displayName: string) => void;
   onOpenGroup: (groupId: string, name: string) => void;
   onOpenChats: () => void;
+  /** Increment from the header to jump Home → full library browse. */
+  browseNonce?: number;
 };
 
 type View =
@@ -90,6 +93,7 @@ export function LibraryScreen({
   onOpenDm,
   onOpenGroup,
   onOpenChats,
+  browseNonce = 0,
 }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
@@ -100,6 +104,10 @@ export function LibraryScreen({
   const chatsUnread = useChatsUnreadBreakdown();
   const chatsApiReady = isAuthApiEnabled() && !isLocalDevSession();
   const groups = groupCatalogEntries(entries);
+
+  useEffect(() => {
+    if (browseNonce > 0) setView({ level: "browse" });
+  }, [browseNonce]);
 
   useEffect(() => {
     let cancelled = false;
@@ -283,6 +291,8 @@ export function LibraryScreen({
         <h2>Home</h2>
         <p className="muted">Your games, then what everyone else is playing.</p>
       </div>
+
+      <PwaInstallHelper />
 
       {entries.length === 0 ? (
         <p className="empty">
