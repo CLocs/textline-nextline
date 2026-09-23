@@ -402,7 +402,7 @@ Open questions (spike only — no pack UI yet):
 ## Phase 3+ — Social & polish *(backlog)*
 
 - [x] **Loved / double-star quotes** — ♥ up to 5 golden lines per title; mini-games take loved first. See [Later ideas](#loved--double-star-quotes-next).
-- [ ] **Star-streak bias** — if sequential starred lines exist, mini-games include at least one streak and play those lines in order. See [Later ideas](#star-streaks-in-mini-games).
+- [x] **Star-streak bias** — if sequential starred lines exist, mini-games include at least one streak and play those lines in order. See [Later ideas](#star-streaks-in-mini-games).
 - [ ] **Popular-line room** *(name open)* — turn-based room walks the crowd-popular starred lines (all or most). See [rooms](#features-rooms--later).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
@@ -512,7 +512,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, **star-streak bias**, and a **popular-line room** (name open) stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -522,11 +522,11 @@ Today a mini-game fills 10 from your personal stars (shuffled), then crowd popul
 
 **In:** `loved` flag on `(title_id, line_index, player_id)`; Cap **5** per title. `buildMiniGameQueue` takes loved first, then other personal stars. Curate + Play show ♥ when starred. `PUT /api/stars/love`. Library cover stills preferring a loved frame stays later.
 
-### Star streaks in mini-games
+### Star streaks in mini-games ✅
 
-A **star streak** is two or more starred lines in a row (sequential prompts in the transcript). Today `buildMiniGameQueue` fills 10 from loved, then other personal stars, then crowd, then random, and sorts the pick so the run walks forward. Among a large star pool, a streak often misses the cut, so the chain never plays.
+A **star streak** is two or more starred lines in a row (adjacent quiz prompts in the transcript). Among a large star pool, a streak often missed the cut, so the chain never played.
 
-When any streaks exist, **bias** the pick so at least one is included. Serve that streak **sequentially** — its lines in transcript order, one after another — so answering one starred line can set up the next.
+**In:** `buildMiniGameQueue` finds personal-star streaks (loved ∪ starred), prefers the longest, and seeds the queue with that run (trimmed to mini size if needed). Chronological sort keeps the streak sequential in play. Loved lines still fill remaining slots next.
 
 ### Popular-line room *(name open)*
 
@@ -812,7 +812,7 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
 | **2.6 — Quote stills & catalog ops** | Mini-game frames, R2, owner Catalog, protect curated stars | ✅ Ocean's 13 + Wolf + IB + Empire on R2 |
 | **Next — Loved quotes** | Double-star / love a few golden lines so they land in most mini-games | ✅ Cap 5; queue bias; Curate/Play ♥ |
-| **Later — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
+| **Shipped — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | L0 checklist below; see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **2 — Popular-line room** | Turn-based room walks the crowd-popular starred lines (all or most) | Name open — longer than a mini-game, shorter than the full transcript |

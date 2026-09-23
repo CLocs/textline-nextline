@@ -3,6 +3,7 @@ import type { Title } from "../src/types/content.js";
 import {
   buildMiniGameQueue,
   chronologicalPromptQueue,
+  findStarStreaks,
   getValidPromptIndices,
 } from "../src/lib/game/miniGame.js";
 
@@ -20,6 +21,24 @@ const title: Title = {
     { index: 4, text: "The end.", kind: "dialogue", startMs: 4000, endMs: 5000 },
   ],
 };
+
+function dialogueTitle(id: string, count: number): Title {
+  const lines = Array.from({ length: count }, (_, index) => ({
+    index,
+    text: `Line ${index}.`,
+    kind: "dialogue" as const,
+    startMs: index * 1000,
+    endMs: index * 1000 + 900,
+  }));
+  return {
+    id,
+    title: id,
+    sourceFilename: `${id}.srt`,
+    importedAt: "2026-01-01T00:00:00.000Z",
+    lineCount: count,
+    lines,
+  };
+}
 
 function fixedRng(values: number[]): () => number {
   let i = 0;
@@ -72,6 +91,7 @@ describe("buildMiniGameQueue", () => {
     });
     expect(queue).toEqual([1, 2, 3]);
   });
+
   it("puts loved prompts before other personal stars", () => {
     const queue = buildMiniGameQueue(title, {
       personalStarred: [1, 2, 3],
@@ -82,6 +102,29 @@ describe("buildMiniGameQueue", () => {
     expect(queue).toContain(3);
     expect(queue).toHaveLength(2);
     expect(queue).toEqual([...queue].sort((a, b) => a - b));
+  });
+
+  it("biases the queue to include a personal star streak", () => {
+    const long = dialogueTitle("streaky", 20);
+    // Valid prompts: 0..18. Stars: a streak 5-6-7 plus many scattered.
+    const personalStarred = [0, 2, 4, 5, 6, 7, 9, 11, 13, 15, 17];
+    const queue = buildMiniGameQueue(long, {
+      personalStarred,
+      size: 5,
+      rng: fixedRng([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
+    });
+    expect(queue).toEqual(expect.arrayContaining([5, 6, 7]));
+    const streakPos = queue.indexOf(5);
+    expect(queue[streakPos + 1]).toBe(6);
+    expect(queue[streakPos + 2]).toBe(7);
+  });
+});
+
+describe("findStarStreaks", () => {
+  it("finds adjacent valid-prompt runs of length 2+", () => {
+    expect(findStarStreaks([1, 2, 3, 4], [1, 2, 4])).toEqual([[1, 2]]);
+    expect(findStarStreaks([1, 2, 3, 4], [1, 2, 3])).toEqual([[1, 2, 3]]);
+    expect(findStarStreaks([1, 2, 3, 4], [1, 3])).toEqual([]);
   });
 });
 
