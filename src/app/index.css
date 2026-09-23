@@ -239,6 +239,7 @@ button {
 }
 
 .brand-lockup {
+  grid-area: brand;
   display: flex;
   align-items: flex-start;
   gap: 0.85rem;
@@ -275,8 +276,36 @@ button {
 }
 
 .lede {
-  margin: 0 0 1.5rem;
+  margin: 0;
   max-width: 38rem;
+}
+
+.app-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "brand account"
+    "tools tools";
+  gap: 0.75rem 1rem;
+  align-items: start;
+  margin-bottom: 0.75rem;
+}
+
+.auth-bar-account {
+  grid-area: account;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.auth-bar-tools {
+  grid-area: tools;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .panel {
@@ -1078,22 +1107,6 @@ code {
   margin-bottom: 0.5rem;
 }
 
-.auth-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1 1 14rem;
-  justify-content: flex-start;
-}
-
-.auth-bar-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .auth-nav-button {
   display: inline-flex;
   align-items: center;
@@ -1108,7 +1121,6 @@ code {
 }
 
 .auth-user-button {
-  margin-left: auto;
   max-width: 16rem;
   overflow: hidden;
   text-overflow: ellipsis;

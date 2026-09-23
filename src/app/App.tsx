@@ -672,25 +672,23 @@ export function App() {
   return (
     <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
       <header className="app-header">
-        <div className="app-header-row">
-          <div className="brand-lockup">
-            <div className="brand-mark" aria-hidden="true" />
-            <div className="brand-copy">
-              <h1>Textline → Nextline</h1>
-              <p className="lede">Here's a line — guess what comes next.</p>
-            </div>
+        <div className="brand-lockup">
+          <div className="brand-mark" aria-hidden="true" />
+          <div className="brand-copy">
+            <h1>Textline → Nextline</h1>
+            <p className="lede">Here's a line — guess what comes next.</p>
           </div>
-          {user && (
-            <AuthBar
-              user={user}
-              onProfile={handleOpenProfile}
-              onChats={handleOpenChats}
-              onSearch={handleOpenSearch}
-              onBrowseLibrary={handleBrowseLibrary}
-              onCatalog={showCatalog ? handleOpenCatalog : undefined}
-            />
-          )}
         </div>
+        {user && (
+          <AuthBar
+            user={user}
+            onProfile={handleOpenProfile}
+            onChats={handleOpenChats}
+            onSearch={handleOpenSearch}
+            onBrowseLibrary={handleBrowseLibrary}
+            onCatalog={showCatalog ? handleOpenCatalog : undefined}
+          />
+        )}
       </header>
 
       {routeError && (
