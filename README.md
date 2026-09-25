@@ -416,7 +416,10 @@ Open questions (spike only — no pack UI yet):
 - [x] **Teach mode** — Fun skip greens the correct choice and holds 2s; Teach skip opens this-line / next-line **Got it** card. See [Later ideas](#later-ideas-parked).
 - [x] **Scene / poster visuals (2.6)** — starred stills + posters + R2; leftover every-cue / video. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
 - [ ] **Curator reputation** — count (and weight) stars people lay down. See [Later ideas](#later-ideas-parked).
-- [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
+- [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked). Light search-and-request comes first.
+- [ ] **Title requests (light)** — search a light movie index; request adds the title to a queue you attend by hand. See [Title requests](#title-requests-light).
+- [ ] **SRT + video automation** — filling a request automatically is a hard later spike. See [SRT and video automation](#srt-and-video-automation).
+- [ ] **Steam** — paid store build. Copyright posture and whether a $5 game has enough features are open. See [Steam](#steam).
 - [ ] **UGC quotes (IG / YT)** — paste a link, infer or type **one** line into a personal library. See [Quotes from anywhere](#quotes-from-anywhere-lay-person).
 - [ ] **YouTube videos as titles** — paste a video URL → pull timed transcript → star / parallel packs → optional scene frames. See [YouTube videos as titles](#youtube-videos-as-titles).
 - [ ] **Chats → quote replies** — text replies under a quote card (thread-lite). See [Chats → quote replies](#chats--quote-replies).
@@ -512,7 +515,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)**, **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -619,6 +622,8 @@ How do we reward people who curate transcripts (stars), not only people who play
 ### Watch-list connections
 
 Connect **Letterboxd** (and maybe **Trakt**) to surface titles they might like — and let them **request** ones we don’t have yet. We already ingest a Letterboxd ZIP for the content queue; this is the player-facing version (OAuth / export, recommendations, request list). Trakt is optional if Letterboxd covers movies well; TV watch history may be the Trakt case.
+
+A lighter request path comes first: search a movie index, no watch-list login. See [Title requests](#title-requests-light).
 
 ### Quotes from anywhere (lay person)
 
@@ -793,6 +798,36 @@ Native iOS/Android store apps are an **ultimate** goal (App Store / Play, push, 
 
 Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence / iOS push / offline become real needs. Do not start this until Add to Home Screen has been in the wild.
 
+### Title requests *(light)*
+
+Players should be able to ask for a movie we don’t have. Letterboxd connect can do that later; the first slice is just search.
+
+**Light:** search a movie database we only **lightly index** — TMDB is already how transcript_maker finds a film. Cache enough to search and dedupe (id, title, year), not a full mirror. If the title is already in the catalog, open it. If not, **Request** adds it to a queue (who, tmdb id, when).
+
+**First cut:** that queue is the whole feature. You attend to it later by hand — find the subtitle, convert, import — the same way the content queue works today. Nothing is downloaded for you.
+
+**Not this:** OpenSubtitles, video pull, or auto-import. Those stay [SRT and video automation](#srt-and-video-automation).
+
+### SRT and video automation
+
+Once people can request titles, the tempting next step is to fetch the subtitle and the video for them. That is a different project, and it is not easy.
+
+**SRTs.** Manual drop and a paced OpenSubtitles path already exist ([C2](docs/ROADMAP-content.md)). A daily cap, match quality, and subtitle copyright sit between “requested” and “playable.” Turning player requests into automatic downloads would also republish those files.
+
+**Video.** Stills today come from a local file the owner already has. There is no equivalent licensed source, and matching a request to a file does not fall out of the SRT path. Bulk or scraped download is out of scope.
+
+Park this as a spike to think through after the light request queue exists. Rights, source, rate limit, and file match all have to be true at once. Do not treat it as the next build.
+
+### Steam
+
+A paid Steam listing is a later distribution idea, after the web app. Two gates before any store work.
+
+**Copyright.** Today the library is personal and curated; subtitles and stills may be copyrighted ([content roadmap](docs/ROADMAP-content.md)). Selling the game changes that posture: the playable text is other people’s dialogue, and stills are frames from the films. Open before a listing: what the build actually ships (lines, stills, or video); whether we can license that, or ship a client that does not bundle the transcripts; Steam’s third-party IP review. No listing until that is answered. This note is not a rights plan.
+
+**$5.** A five-dollar game is a comparison point, not a price decision. Buyers at that price expect a finished game. Rooms, a popular-line room, and a catalog people can request into are still parked — a few more features should land before a $5 listing is a fair offer. Price itself stays unset.
+
+**Not this yet:** Steamworks, a Windows build, or moving off the web app. Native iOS/Android stay their own later goal.
+
 ---
 
 ## Roadmap
@@ -841,6 +876,9 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 | **Shipped — Mobile home screen** | Manifest + Add to Home Screen helper (no SW) | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |
 | **Exploratory — Native apps** | Store apps after PWA-lite has been in the wild | iOS / Android if push, store, or offline become real needs |
+| **Later — Title requests** | Search a light movie index; request joins a queue you attend by hand | No download — see [Title requests](#title-requests-light) |
+| **Later — SRT + video automation** | Auto-fill a request with subtitle and video | Hard; rights, caps, and file match — see [SRT and video automation](#srt-and-video-automation) |
+| **Later — Steam** | Paid store build | Copyright open; $5 needs more features first — see [Steam](#steam) |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
 
@@ -948,7 +986,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Stack:** TypeScript + Vitest for content/import (Phase 0); Next.js (or similar) for the game UI in Phase 1.
 - **Transcript source:** Curated exports from **transcript_maker** — not runtime subtitle APIs for MVP.
 - **Content storage:** Git-tracked JSON for early episodes is fine; move to DB or object storage when the catalog grows.
-- **Legal:** Subtitles/transcripts may be subject to copyright; library is personal/curated (Letterboxd likes ∪ 4.5★, plus titles you already prepared in transcript_maker). See [docs/ROADMAP-content.md](docs/ROADMAP-content.md).
+- **Legal:** Subtitles/transcripts may be subject to copyright; library is personal/curated (Letterboxd likes ∪ 4.5★, plus titles you already prepared in transcript_maker). A paid Steam build is a later, separate question. See [docs/ROADMAP-content.md](docs/ROADMAP-content.md) and [Steam](#steam).
 
 ---
 

@@ -232,12 +232,17 @@ export function sortQueueByPriority(films: QueueFilm[]): QueueFilm[] {
   });
 }
 
-export function buildQueue(films: QueueFilm[], updatedAt = new Date()): ContentQueue {
+export function buildQueue(
+  films: QueueFilm[],
+  updatedAt = new Date(),
+  shows: ContentQueue["shows"] = [],
+): ContentQueue {
   return {
     version: 1,
     updatedAt: updatedAt.toISOString(),
     seed: SEED_LABEL,
     films: sortQueueStable(films),
+    shows,
   };
 }
 
@@ -248,6 +253,9 @@ export function parseQueueFile(raw: unknown): ContentQueue {
   const data = raw as ContentQueue;
   if (data.version !== 1 || !Array.isArray(data.films)) {
     throw new Error("Invalid content queue (need version 1 and films[]).");
+  }
+  if (data.shows != null && !Array.isArray(data.shows)) {
+    throw new Error("Invalid content queue (shows must be an array).");
   }
   return data;
 }
@@ -283,7 +291,10 @@ export function formatSrtCell(srt: QueueFilm["srt"]): string {
   return "[x]";
 }
 
-export function formatQueueMarkdown(films: QueueFilm[]): string {
+export function formatQueueMarkdown(
+  films: QueueFilm[],
+  shows: ContentQueue["shows"] = [],
+): string {
   const lines = [
     "# Content queue",
     "",
@@ -302,6 +313,26 @@ export function formatQueueMarkdown(films: QueueFilm[]): string {
     lines.push(
       `| ${film.priority} | ${film.playCount} | ${film.highlightCount} | [${escapeMd(film.title)}](${film.letterboxdUri}) | ${year} | ${rating} | ${liked} | ${formatSrtCell(film.srt)} |`,
     );
+  }
+
+  if (shows && shows.length > 0) {
+    lines.push("");
+    lines.push("## Shows");
+    lines.push("");
+    lines.push("Hand-queued seasons. Kept when the Letterboxd film seed is regenerated.");
+    lines.push("");
+    lines.push("| Show | Season | Year | SRT | Note |");
+    lines.push("|------|--------|------|-----|------|");
+    const ordered = [...shows].sort(
+      (a, b) => a.title.localeCompare(b.title) || a.season - b.season,
+    );
+    for (const show of ordered) {
+      const year = show.year ?? "";
+      const note = show.note ?? "";
+      lines.push(
+        `| ${escapeMd(show.title)} | ${show.season} | ${year} | ${formatSrtCell(show.srt)} | ${escapeMd(note)} |`,
+      );
+    }
   }
 
   lines.push("");

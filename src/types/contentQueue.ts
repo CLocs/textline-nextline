@@ -22,9 +22,20 @@ export type QueueFilm = {
   imported: boolean;
 };
 
+/** A TV season queued by hand (not from the Letterboxd film seed). */
+export type QueueShow = {
+  title: string;
+  season: number;
+  year: number | null;
+  srt: SrtStatus;
+  note?: string;
+};
+
 export type ContentQueue = {
   version: 1;
   updatedAt: string;
   seed: "likes ∪ ratings>=4.5";
   films: QueueFilm[];
+  /** Preserved across Letterboxd re-exports. */
+  shows?: QueueShow[];
 };
