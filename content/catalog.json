@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-21T22:12:05.049Z",
+  "updatedAt": "2026-09-25T22:21:24.746Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -3271,6 +3271,36 @@
       }
     },
     {
+      "id": "pirates-of-the-caribbean-at-worlds-end-2007",
+      "title": "Pirates of the Caribbean At World's End (2007)",
+      "lineCount": 1467,
+      "sourceFilename": "Pirates of the Caribbean At World's End.2007.eng.srt",
+      "importedAt": "2026-09-25T22:16:31.182Z",
+      "meta": {
+        "year": 2007
+      }
+    },
+    {
+      "id": "pirates-of-the-caribbean-dead-mans-chest-2006",
+      "title": "Pirates of the Caribbean Dead Man's Chest (2006)",
+      "lineCount": 1354,
+      "sourceFilename": "Pirates of the Caribbean Dead Man's Chest.2006.eng.srt",
+      "importedAt": "2026-09-25T22:16:30.659Z",
+      "meta": {
+        "year": 2006
+      }
+    },
+    {
+      "id": "pirates-of-the-caribbean-the-curse-of-the-black-pearl-2003",
+      "title": "Pirates of the Caribbean The Curse of the Black Pearl (2003)",
+      "lineCount": 1373,
+      "sourceFilename": "Pirates of the Caribbean The Curse of the Black Pearl.2003.eng.srt",
+      "importedAt": "2026-09-25T22:21:24.741Z",
+      "meta": {
+        "year": 2003
+      }
+    },
+    {
       "id": "pulp-fiction-1994",
       "title": "Pulp Fiction (1994)",
       "lineCount": 2073,
@@ -3328,6 +3358,246 @@
       "importedAt": "2026-09-21T22:05:33.564Z",
       "meta": {
         "year": 1994
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x01---help-wanted---reef-blower---tea-at-the-treedome",
+      "title": "SpongeBob SquarePants - 1x01 - Help Wanted - Reef Blower - Tea at the Treedome",
+      "lineCount": 299,
+      "sourceFilename": "SpongeBob SquarePants - 1x01 - Help Wanted - Reef Blower - Tea at the Treedome.en.srt",
+      "importedAt": "2026-09-25T22:16:31.691Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 1
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x04---bubblestand---ripped-pants",
+      "title": "SpongeBob SquarePants - 1x04 - Bubblestand - Ripped Pants",
+      "lineCount": 309,
+      "sourceFilename": "SpongeBob SquarePants - 1x04 - Bubblestand - Ripped Pants.en.srt",
+      "importedAt": "2026-09-25T22:16:32.195Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 4
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x06---jellyfishing---plankton",
+      "title": "SpongeBob SquarePants - 1x06 - Jellyfishing - Plankton!",
+      "lineCount": 316,
+      "sourceFilename": "SpongeBob SquarePants - 1x06 - Jellyfishing - Plankton!.en.srt",
+      "importedAt": "2026-09-25T22:16:32.702Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 6
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x08---naughty-nautical-neighbors---boating-school",
+      "title": "SpongeBob SquarePants - 1x08 - Naughty Nautical Neighbors - Boating School",
+      "lineCount": 386,
+      "sourceFilename": "SpongeBob SquarePants - 1x08 - Naughty Nautical Neighbors - Boating School.en.srt",
+      "importedAt": "2026-09-25T22:16:33.205Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 8
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x10---pizza-delivery---home-sweet-pineapple",
+      "title": "SpongeBob SquarePants - 1x10 - Pizza Delivery - Home Sweet Pineapple",
+      "lineCount": 375,
+      "sourceFilename": "SpongeBob SquarePants - 1x10 - Pizza Delivery - Home Sweet Pineapple.en.srt",
+      "importedAt": "2026-09-25T22:16:33.714Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 10
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x12---mermaid-man-and-barnacle-boy---pickles",
+      "title": "SpongeBob SquarePants - 1x12 - Mermaid Man and Barnacle Boy - Pickles",
+      "lineCount": 400,
+      "sourceFilename": "SpongeBob SquarePants - 1x12 - Mermaid Man and Barnacle Boy - Pickles.en.srt",
+      "importedAt": "2026-09-25T22:16:34.225Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 12
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x14---hall-monitor---jellyfish-jam",
+      "title": "SpongeBob SquarePants - 1x14 - Hall Monitor - Jellyfish Jam",
+      "lineCount": 296,
+      "sourceFilename": "SpongeBob SquarePants - 1x14 - Hall Monitor - Jellyfish Jam.en.srt",
+      "importedAt": "2026-09-25T22:16:34.737Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 14
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x16---sandys-rocket---squeaky-boots",
+      "title": "SpongeBob SquarePants - 1x16 - Sandy's Rocket - Squeaky Boots",
+      "lineCount": 383,
+      "sourceFilename": "SpongeBob SquarePants - 1x16 - Sandy's Rocket - Squeaky Boots.en.srt",
+      "importedAt": "2026-09-25T22:16:35.260Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 16
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x18---nature-pants---opposite-day",
+      "title": "SpongeBob SquarePants - 1x18 - Nature Pants - Opposite Day",
+      "lineCount": 354,
+      "sourceFilename": "SpongeBob SquarePants - 1x18 - Nature Pants - Opposite Day.en.srt",
+      "importedAt": "2026-09-25T22:16:35.765Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 18
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x20---culture-shock---f-u-n",
+      "title": "SpongeBob SquarePants - 1x20 - Culture Shock - F U N",
+      "lineCount": 353,
+      "sourceFilename": "SpongeBob SquarePants - 1x20 - Culture Shock - F.U.N..en.srt",
+      "importedAt": "2026-09-25T22:16:36.267Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 20
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x22---musclebob-buffpants---squidward-the-unfriendly-ghost",
+      "title": "SpongeBob SquarePants - 1x22 - MuscleBob BuffPants - Squidward the Unfriendly Ghost",
+      "lineCount": 424,
+      "sourceFilename": "SpongeBob SquarePants - 1x22 - MuscleBob BuffPants - Squidward the Unfriendly Ghost.en.srt",
+      "importedAt": "2026-09-25T22:16:36.761Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 22
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x24---the-chaperone---employee-of-the-month",
+      "title": "SpongeBob SquarePants - 1x24 - The Chaperone - Employee of the Month",
+      "lineCount": 340,
+      "sourceFilename": "SpongeBob SquarePants - 1x24 - The Chaperone - Employee of the Month.en.srt",
+      "importedAt": "2026-09-25T22:16:37.259Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 24
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x26---scaredy-pants---i-was-a-teenage-gary",
+      "title": "SpongeBob SquarePants - 1x26 - Scaredy Pants - I Was a Teenage Gary",
+      "lineCount": 392,
+      "sourceFilename": "SpongeBob SquarePants - 1x26 - Scaredy Pants - I Was a Teenage Gary.en.srt",
+      "importedAt": "2026-09-25T22:16:37.757Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 26
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x28---sb-129---karate-choppers",
+      "title": "SpongeBob SquarePants - 1x28 - SB-129 - Karate Choppers",
+      "lineCount": 395,
+      "sourceFilename": "SpongeBob SquarePants - 1x28 - SB-129 - Karate Choppers.en.srt",
+      "importedAt": "2026-09-25T22:16:38.263Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 28
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x30---sleepy-time---suds",
+      "title": "SpongeBob SquarePants - 1x30 - Sleepy Time - Suds",
+      "lineCount": 402,
+      "sourceFilename": "SpongeBob SquarePants - 1x30 - Sleepy Time - Suds.en.srt",
+      "importedAt": "2026-09-25T22:16:38.787Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 30
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x32---valentines-day---the-paper",
+      "title": "SpongeBob SquarePants - 1x32 - Valentine's Day - The Paper",
+      "lineCount": 403,
+      "sourceFilename": "SpongeBob SquarePants - 1x32 - Valentine's Day - The Paper.en.srt",
+      "importedAt": "2026-09-25T22:16:39.290Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 32
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x34---arrgh---rock-bottom",
+      "title": "SpongeBob SquarePants - 1x34 - Arrgh! - Rock Bottom",
+      "lineCount": 465,
+      "sourceFilename": "SpongeBob SquarePants - 1x34 - Arrgh! - Rock Bottom.en.srt",
+      "importedAt": "2026-09-25T22:16:39.788Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 34
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x36---texas---walking-small",
+      "title": "SpongeBob SquarePants - 1x36 - Texas - Walking Small",
+      "lineCount": 398,
+      "sourceFilename": "SpongeBob SquarePants - 1x36 - Texas - Walking Small.en.srt",
+      "importedAt": "2026-09-25T22:16:40.299Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 36
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x38---fools-in-april---neptunes-spatula",
+      "title": "SpongeBob SquarePants - 1x38 - Fools in April - Neptune's Spatula",
+      "lineCount": 403,
+      "sourceFilename": "SpongeBob SquarePants - 1x38 - Fools in April - Neptune's Spatula.en.srt",
+      "importedAt": "2026-09-25T22:16:40.796Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 38
+      }
+    },
+    {
+      "id": "spongebob-squarepants---1x40---hooky---mermaid-man-and-barnacle-boy-ii",
+      "title": "SpongeBob SquarePants - 1x40 - Hooky - Mermaid Man and Barnacle Boy II",
+      "lineCount": 450,
+      "sourceFilename": "SpongeBob SquarePants - 1x40 - Hooky - Mermaid Man and Barnacle Boy II.en.srt",
+      "importedAt": "2026-09-25T22:16:41.305Z",
+      "meta": {
+        "show": "SpongeBob SquarePants",
+        "season": 1,
+        "episode": 40
       }
     },
     {
