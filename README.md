@@ -403,6 +403,7 @@ Open questions (spike only — no pack UI yet):
 
 - [x] **Loved / double-star quotes** — ♥ up to 5 golden lines per title; mini-games take loved first. See [Later ideas](#loved--double-star-quotes-next).
 - [x] **Star-streak bias** — if sequential starred lines exist, mini-games include at least one streak and play those lines in order. See [Later ideas](#star-streaks-in-mini-games).
+- [ ] **Send streaks from Curate** *(next)* — send a star streak to a friend; they play those lines in order. See [Send streaks from Curate](#send-streaks-from-curate).
 - [ ] **Popular-line room** *(name open)* — turn-based room walks the crowd-popular starred lines (all or most). See [rooms](#features-rooms--later).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
@@ -515,7 +516,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)**, **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)**, **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -531,6 +532,10 @@ A **star streak** is two or more starred lines in a row (adjacent quiz prompts i
 
 **In:** `buildMiniGameQueue` finds personal-star streaks (loved ∪ starred), prefers the longest, and seeds the queue with that run (trimmed to mini size if needed). Chronological sort keeps the streak sequential in play. Loved lines still fill remaining slots next.
 
+### Send streaks from Curate *(next)*
+
+Curate **Send** is one line. Next: from Curate, send a **star streak** (two or more starred lines in a row) to a friend or a named group. The share is those lines in transcript order, the same way a streak plays in a mini-game. Same friend gate and Send overlay as the one-line send.
+
 ### Popular-line room *(name open)*
 
 A room mode for 2–4 players, turn-based, on the same board. Instead of the full transcript or a 10-line mini-game, the room walks the title’s **crowd-popular starred lines** — all of them, or most, if the popular set is long. Lines stay in transcript order. Same turn rotation as the [full-transcript room](#features-rooms--later).
@@ -543,7 +548,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Friends (gate) ✅.** Mutual friendship via an unguessable **friend link**. Profile → Friends copies `#/friend/{token}`; they sign in and tap Accept. One live link per account; **Rotate** invalidates the old URL (tokens stored as `token_hash` only). List is `{ userId, displayName }` — never email. No `GET /api/users`, no search-by-name, no “who’s online.” Cannot friend yourself. **Remove** drops the pair; **Block** drops it and rejects future accepts from that person even with a new link. Cap ~50. Must be signed in (local Vite “Continue without signing in” has no graph).
 
-**Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later. Same line to several friends reuses one share; 10s debounce only applies to **same line → same person**.
+**Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later. Same line to several friends reuses one share; 10s debounce only applies to **same line → same person**. Sending a whole star streak from Curate is [next](#send-streaks-from-curate).
 
 **Inbox ✅.** Home **From friends** and Profile → **Inbox** show a list of quiz cards (the line + choices). Guess right and the card compresses to textline + nextline. Group send is still one inbox row per person (same `shareId`).
 
@@ -848,6 +853,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **2.6 — Quote stills & catalog ops** | Mini-game frames, R2, owner Catalog, protect curated stars | ✅ Ocean's 13 + Wolf + IB + Empire on R2 |
 | **Next — Loved quotes** | Double-star / love a few golden lines so they land in most mini-games | ✅ Cap 5; queue bias; Curate/Play ♥ |
 | **Shipped — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
+| **Next — Send streaks** | Curate sends a star streak to a friend; they play it in order | Same Send as one line, but the whole run — see [Send streaks](#send-streaks-from-curate) |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | L0 checklist below; see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **2 — Popular-line room** | Turn-based room walks the crowd-popular starred lines (all or most) | Name open — longer than a mini-game, shorter than the full transcript |
@@ -965,6 +971,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Chats → quote replies** *(parked)* — Reply under a quote card (scoped to that share); lives under the card, not as a free-floating timeline peer. See [Chats → quote replies](#chats--quote-replies).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
+- **Send streaks from Curate** *(next)* — Send a star streak (sequential starred lines) to a friend; they play it in order. See [Send streaks from Curate](#send-streaks-from-curate).
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC single quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **YouTube videos as titles** *(parked)* — Paste URL → extract timed transcript → star / parallel packs; scene frames later. See [YouTube videos as titles](#youtube-videos-as-titles).
