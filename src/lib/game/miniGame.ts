@@ -37,6 +37,55 @@ export function chronologicalPromptQueue(indices: number[]): number[] {
   return [...indices].sort((a, b) => a - b);
 }
 
+export type SequencePlace = {
+  index: number;
+  total: number;
+};
+
+/**
+ * Where this prompt sits in a run of back-to-back questions.
+ * A run is 2+ queue items that are neighbors in the valid-prompt list.
+ */
+export function sequencePlace(
+  queue: number[],
+  promptLineIndex: number,
+  validPromptIndices: number[],
+): SequencePlace | null {
+  const validPos = new Map(validPromptIndices.map((index, pos) => [index, pos]));
+  const groups: number[][] = [];
+  let run: number[] = [];
+
+  for (const index of queue) {
+    const pos = validPos.get(index);
+    const prev = run[run.length - 1];
+    const prevPos = prev === undefined ? undefined : validPos.get(prev);
+    if (pos !== undefined && prevPos !== undefined && pos === prevPos + 1) {
+      run.push(index);
+      continue;
+    }
+    if (run.length > 0) groups.push(run);
+    run = pos === undefined ? [] : [index];
+  }
+  if (run.length > 0) groups.push(run);
+
+  for (const group of groups) {
+    if (group.length < 2) continue;
+    const at = group.indexOf(promptLineIndex);
+    if (at >= 0) return { index: at + 1, total: group.length };
+  }
+  return null;
+}
+
+export function sequenceLabel(
+  queue: number[],
+  promptLineIndex: number,
+  validPromptIndices: number[],
+): string | null {
+  const place = sequencePlace(queue, promptLineIndex, validPromptIndices);
+  if (!place) return null;
+  return `Sequence: ${place.index} of ${place.total}`;
+}
+
 /**
  * Runs of 2+ personal stars that are adjacent in the valid-prompt list
  * (no other quiz prompt between them).
