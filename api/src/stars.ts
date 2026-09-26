@@ -152,6 +152,27 @@ export type GlobalPopularStar = {
   count: number;
 };
 
+export async function fetchLovedStarsGlobal(
+  db: D1Database,
+  limit: number,
+): Promise<{ titleId: string; lineIndex: number }[]> {
+  const result = await db
+    .prepare(
+      `SELECT title_id, line_index
+       FROM stars
+       WHERE loved = 1
+       GROUP BY title_id, line_index
+       LIMIT ?`,
+    )
+    .bind(limit)
+    .all<{ title_id: string; line_index: number }>();
+
+  return (result.results ?? []).map((row) => ({
+    titleId: row.title_id,
+    lineIndex: row.line_index,
+  }));
+}
+
 export async function fetchPopularStarsGlobal(
   db: D1Database,
   limit: number,

@@ -109,6 +109,8 @@ Optional: paced OpenSubtitles download through transcript_maker’s existing pro
 
 **Done when:** you can fill the queue either by dropping files or by a rate-limited API path, then convert.
 
+Player **title requests** (search a light movie index; the request joins a queue you attend by hand) and automatic SRT/video fill are app roadmap items, not this phase. Automation stays a hard later spike — see the main README.
+
 ### C3 — Import + movie catalog hygiene *(this repo)* 🔄
 
 Existing `npm run import:all` is enough to publish. Movies and S4/S5 are already playable. Sep 2026 delta (2.6 branch): Back to the Future 1–3, Gone in 60 Seconds, Goodfellas, O Brother, 40 Year Old Virgin, Lebowski. Follow-on:
@@ -132,7 +134,7 @@ Re-drop a fresh Letterboxd export, diff the queue, convert only the delta. Spot-
 - Personal curated library only. Not every movie.
 - Gitignore the Letterboxd ZIP, SRT inbox, and any OpenSubtitles download cache. Keep committing normalized `content/` JSON the same way Simpsons is stored today.
 - OpenSubtitles stays TOS-compliant API use via the existing proxy — not a public relay.
-- Subtitles/transcripts may be copyrighted; treat the catalog as content you prepared for this personal game.
+- Subtitles/transcripts may be copyrighted; treat the catalog as content you prepared for this personal game. A paid Steam listing is a later question (what ships, and whether we have rights). See the main README.
 
 ---
 

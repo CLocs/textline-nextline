@@ -46,6 +46,27 @@ describe("buildMcq", () => {
     expect(question!.choices.length).toBeGreaterThanOrEqual(3);
   });
 
+  it("does not offer lead-in lines that are already on the card", () => {
+    const scene = titleFromLines([
+      "The door opened.",
+      "She looked back.",
+      "We should leave now.",
+      "The ship is ready.",
+      "I need the map.",
+      "The weather is terrible today.",
+      "Bring the horses around.",
+    ]);
+    const question = buildMcq(scene, 2, 4, fixedRng([0.1, 0.2, 0.3, 0.4, 0.5]));
+    expect(question).not.toBeNull();
+    expect(question!.leadIn.map((line) => line.lineIndex)).toEqual([0, 1]);
+    expect(question!.choices.every((choice) => choice.lineIndex !== 0 && choice.lineIndex !== 1)).toBe(
+      true,
+    );
+    expect(question!.choices.some((choice) => choice.lineIndex === question!.correctLineIndex)).toBe(
+      true,
+    );
+  });
+
   it("never includes the prompt line as a choice", () => {
     const question = buildMcq(title, 1, 4, fixedRng([0.9, 0.8, 0.7, 0.6, 0.5]));
     expect(question!.choices.every((choice) => choice.lineIndex !== 1)).toBe(true);

@@ -146,11 +146,12 @@ function main(): void {
       }
     }
 
-    const queue = buildQueue(films);
+    const shows = previous?.shows ?? [];
+    const queue = buildQueue(films, new Date(), shows);
     mkdirSync(dirname(out), { recursive: true });
     writeFileSync(out, `${JSON.stringify(queue, null, 2)}\n`, "utf8");
     const mdOut = markdownPath(out);
-    writeFileSync(mdOut, formatQueueMarkdown(films), "utf8");
+    writeFileSync(mdOut, formatQueueMarkdown(films, shows), "utf8");
 
     console.log(
       `Liked: ${stats.liked}  High-rated (≥4.5): ${stats.highRated}  Unique seed: ${stats.unique}  New vs previous: ${newCount}`,

@@ -68,6 +68,8 @@ describe("parseHash", () => {
 
   it("parses the owner catalog route", () => {
     expect(parseHash("#/ops")).toEqual({ kind: "ops" });
+    expect(parseHash("#/daily")).toEqual({ kind: "daily", start: 0 });
+    expect(parseHash("#/daily/2")).toEqual({ kind: "daily", start: 2 });
   });
 });
 
@@ -84,6 +86,8 @@ describe("isSafeLoginReturn", () => {
     expect(isSafeLoginReturn("search")).toBe(true);
     expect(isSafeLoginReturn("friend/aabbccddeeff001122334455")).toBe(true);
     expect(isSafeLoginReturn("ops")).toBe(true);
+    expect(isSafeLoginReturn("daily/1")).toBe(true);
+    expect(isSafeLoginReturn("daily/9")).toBe(false);
     expect(isSafeLoginReturn("https://evil.example")).toBe(false);
     expect(isSafeLoginReturn("play/../library")).toBe(false);
     expect(isSafeLoginReturn("friend/short")).toBe(false);

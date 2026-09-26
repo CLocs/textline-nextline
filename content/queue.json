@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-21T22:12:43.937Z",
+  "updatedAt": "2026-09-25T22:22:12.464Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -3922,6 +3922,15 @@
       "srt": "missing",
       "converted": false,
       "imported": false
+    }
+  ],
+  "shows": [
+    {
+      "title": "SpongeBob SquarePants",
+      "season": 1,
+      "year": 1999,
+      "srt": "missing",
+      "note": "Season 1"
     }
   ]
 }

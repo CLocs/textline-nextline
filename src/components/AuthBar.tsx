@@ -35,26 +35,11 @@ function ChatsMessageIcon() {
 export function AuthBar({ user, onProfile, onChats, onSearch, onBrowseLibrary, onCatalog }: Props) {
   const unread = useChatsUnreadCount();
   const chatsLabel = `Chats, ${unread} unread`;
+  const hasTools = Boolean(onSearch || onBrowseLibrary || onCatalog);
 
   return (
-    <div className="auth-bar">
-      <div className="auth-bar-nav">
-        {onSearch ? (
-          <button type="button" className="button ghost auth-nav-button" onClick={onSearch}>
-            <SearchIcon />
-            Search
-          </button>
-        ) : null}
-        {onBrowseLibrary ? (
-          <button type="button" className="button ghost" onClick={onBrowseLibrary}>
-            Browse full library
-          </button>
-        ) : null}
-        {onCatalog ? (
-          <button type="button" className="button ghost" onClick={onCatalog}>
-            Catalog
-          </button>
-        ) : null}
+    <>
+      <div className="auth-bar-account">
         <button
           type="button"
           className="button ghost auth-nav-button inbox-notify"
@@ -66,15 +51,35 @@ export function AuthBar({ user, onProfile, onChats, onSearch, onBrowseLibrary, o
           Chats
           {unread > 0 ? <span className="inbox-notify-badge">{unread}</span> : null}
         </button>
+        <button
+          type="button"
+          className="button ghost auth-user-button"
+          title={`${user.email} — open profile`}
+          onClick={onProfile}
+        >
+          {user.displayName ?? user.email}
+        </button>
       </div>
-      <button
-        type="button"
-        className="button ghost auth-user-button"
-        title={`${user.email} — open profile`}
-        onClick={onProfile}
-      >
-        {user.displayName ?? user.email}
-      </button>
-    </div>
+      {hasTools ? (
+        <nav className="auth-bar-tools" aria-label="Library">
+          {onSearch ? (
+            <button type="button" className="button ghost auth-nav-button" onClick={onSearch}>
+              <SearchIcon />
+              Search
+            </button>
+          ) : null}
+          {onBrowseLibrary ? (
+            <button type="button" className="button ghost" onClick={onBrowseLibrary}>
+              Browse full library
+            </button>
+          ) : null}
+          {onCatalog ? (
+            <button type="button" className="button ghost" onClick={onCatalog}>
+              Catalog
+            </button>
+          ) : null}
+        </nav>
+      ) : null}
+    </>
   );
 }

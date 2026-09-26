@@ -286,3 +286,11 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 4 | 1 | 0 | [The Way of the Gun](https://boxd.it/28t4) | 2000 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tom Segura: Sledgehammer](https://boxd.it/H6E2) | 2023 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tumbbad](https://boxd.it/jDZk) | 2018 | 4.5 |  | [ ] missing |
+
+## Shows
+
+Hand-queued seasons. Kept when the Letterboxd film seed is regenerated.
+
+| Show | Season | Year | SRT | Note |
+|------|--------|------|-----|------|
+| SpongeBob SquarePants | 1 | 1999 | [ ] missing | Season 1 |

@@ -43,11 +43,12 @@ function pickDistractors(
   correct: Line,
   count: number,
   rng: Rng,
+  exclude: Set<number>,
 ): Line[] {
   const promptPosition = linePosition(title, promptLineIndex);
   const playable = getPlayableLines(title);
   const candidates = playable.filter(
-    (line) => line.index !== correct.index && line.index !== promptLineIndex,
+    (line) => line.index !== correct.index && !exclude.has(line.index),
   );
 
   const ranked = [...candidates].sort((a, b) => {
@@ -80,11 +81,21 @@ export function buildMcq(
   const correct = getNextPlayableLine(title, promptLineIndex);
   if (!correct) return null;
 
+  const leadIn = leadInForPrompt(title, prompt.index);
+  const shown = new Set<number>([prompt.index, ...leadIn.map((line) => line.lineIndex)]);
+
   const playableCount = getPlayableLines(title).length;
   const distractorCount = Math.min(choiceCount - 1, playableCount - 2);
   if (distractorCount < 1) return null;
 
-  const distractors = pickDistractors(title, promptLineIndex, correct, distractorCount, rng);
+  const distractors = pickDistractors(
+    title,
+    promptLineIndex,
+    correct,
+    distractorCount,
+    rng,
+    shown,
+  );
   if (distractors.length < 1) return null;
 
   const choices = shuffle(
@@ -98,7 +109,7 @@ export function buildMcq(
   return {
     promptLineIndex: prompt.index,
     promptText: prompt.text,
-    leadIn: leadInForPrompt(title, prompt.index),
+    leadIn,
     correctLineIndex: correct.index,
     choices,
   };

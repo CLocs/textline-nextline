@@ -10,7 +10,7 @@ import { LineSendControl } from "./LineSendControl";
 
 /** Hold the illuminated correct choice before advancing (Fun skip + any correct). */
 export const CORRECT_HOLD_MS = 2000;
-const WRONG_HOLD_MS = 900;
+const WRONG_HOLD_MS = 1400;
 const SHARE_TIP_KEY = "textline-nextline-share-tip-seen";
 const CHOICE_LABELS = ["A", "B", "C", "D", "E", "F"] as const;
 
@@ -60,6 +60,8 @@ export function PlayScreen({
   const [pickedIndex, setPickedIndex] = useState<number | null>(null);
   const [scorePulse, setScorePulse] = useState<"up" | "down" | null>(null);
   const [showShareTip, setShowShareTip] = useState(false);
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const panelRef = useRef<HTMLElement>(null);
   const onFeedbackDoneRef = useRef(onFeedbackDone);
   onFeedbackDoneRef.current = onFeedbackDone;
 
@@ -67,6 +69,9 @@ export function PlayScreen({
     setStarred(isStarred(title.id, question.promptLineIndex));
     setLoved(isLoved(title.id, question.promptLineIndex));
     setPickedIndex(null);
+    if (window.matchMedia("(max-width: 860px)").matches) {
+      panelRef.current?.scrollIntoView({ block: "start" });
+    }
   }, [title.id, question.promptLineIndex]);
 
   useEffect(() => {
@@ -127,12 +132,30 @@ export function PlayScreen({
 
   return (
     <>
-    <div className="play-layout">
-      <section className="panel play-panel">
+    <div className={`play-layout${historyOpen ? " history-open" : ""}`}>
+      {historyOpen && (
+        <button
+          type="button"
+          className="history-backdrop"
+          aria-label="Close transcript"
+          onClick={() => setHistoryOpen(false)}
+        />
+      )}
+      <section className="panel play-panel" ref={panelRef}>
         <div className="play-toolbar">
-          <button type="button" className="button ghost" onClick={onQuit}>
-            ← Library
-          </button>
+          <div className="play-toolbar-actions">
+            <button type="button" className="button ghost" onClick={onQuit}>
+              ← Library
+            </button>
+            <button
+              type="button"
+              className="button ghost history-toggle"
+              aria-expanded={historyOpen}
+              onClick={() => setHistoryOpen((open) => !open)}
+            >
+              {historyOpen ? "Close transcript" : "Transcript"}
+            </button>
+          </div>
           <div className="play-stats">
             <span className="mode-badge">{modeLabel}</span>
             <span className="mode-badge length-badge">{lengthLabel}</span>
@@ -229,7 +252,7 @@ export function PlayScreen({
               const choiceClass = [
                 "choice-button",
                 showCorrect ? "is-correct" : "",
-                isPicked && feedback === "wrong" ? "is-wrong" : "",
+                isPicked && feedback === "wrong" ? "is-missed" : "",
               ]
                 .filter(Boolean)
                 .join(" ");
@@ -250,6 +273,9 @@ export function PlayScreen({
                     <span className="choice-text">{choice.text}</span>
                     {feedback === "correct" && showCorrect && (
                       <span className="choice-hit-tag">{correctPopLabel()}</span>
+                    )}
+                    {feedback === "wrong" && isPicked && (
+                      <span className="choice-miss-tag">Missed</span>
                     )}
                   </button>
                 </li>
@@ -282,8 +308,8 @@ export function PlayScreen({
         )}
 
         {feedback === "wrong" && (
-          <p className="feedback wrong" role="status">
-            Not quite — try again.
+          <p className="feedback missed" role="status">
+            Missed — try again.
           </p>
         )}
         {feedback === "correct" && (

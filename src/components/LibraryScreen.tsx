@@ -24,6 +24,7 @@ import { PosterArt } from "./PosterArt";
 import { ParallelInboxCard } from "./ParallelInboxCard";
 import { ChatsList } from "./ChatsList";
 import { PwaInstallHelper } from "./PwaInstallHelper";
+import { DailyHome } from "./DailyHome";
 import { useChatsUnreadBreakdown } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
@@ -32,6 +33,7 @@ type Props = {
   onOpenDm: (peerUserId: string, displayName: string) => void;
   onOpenGroup: (groupId: string, name: string) => void;
   onOpenChats: () => void;
+  onPlayDaily: (startIndex: number) => void;
   /** Increment from the header to jump Home → full library browse. */
   browseNonce?: number;
 };
@@ -93,6 +95,7 @@ export function LibraryScreen({
   onOpenDm,
   onOpenGroup,
   onOpenChats,
+  onPlayDaily,
   browseNonce = 0,
 }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
@@ -287,10 +290,7 @@ export function LibraryScreen({
 
   return (
     <section className="panel">
-      <div className="section-header">
-        <h2>Home</h2>
-        <p className="muted">Your games, then what everyone else is playing.</p>
-      </div>
+      <DailyHome onPlay={onPlayDaily} />
 
       <PwaInstallHelper />
 

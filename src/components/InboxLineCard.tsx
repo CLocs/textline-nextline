@@ -114,7 +114,7 @@ export function InboxLineCard({
               const choiceClass = [
                 "choice-button",
                 showCorrect ? "is-correct" : "",
-                isPicked && feedback === "wrong" ? "is-wrong" : "",
+                isPicked && feedback === "wrong" ? "is-missed" : "",
               ]
                 .filter(Boolean)
                 .join(" ");
@@ -127,6 +127,9 @@ export function InboxLineCard({
                     onClick={() => handleChoose(choice.lineIndex)}
                   >
                     {choice.text}
+                    {feedback === "wrong" && isPicked && (
+                      <span className="choice-miss-tag">Missed</span>
+                    )}
                   </button>
                 </li>
               );

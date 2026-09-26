@@ -32,6 +32,7 @@ import {
 import {
   deleteStar,
   fetchMyStars,
+  fetchLovedStarsGlobal,
   fetchPopularStars,
   fetchPopularStarsGlobal,
   parseLoveBody,
@@ -52,6 +53,11 @@ import {
   shareCompletedRun,
 } from "./runs.js";
 import { fetchOwnerCatalogStats, isOwnerEmail } from "./ops.js";
+import {
+  fetchDailyStreak,
+  isPlausibleCompletionDate,
+  recordDailyStreak,
+} from "./dailyStreak.js";
 import {
   acceptInvite,
   blockUser,
@@ -800,6 +806,37 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       origin,
       allowed,
     );
+  }
+
+  if (pathname === "/api/daily/streak" && (request.method === "GET" || request.method === "POST")) {
+    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+    if (!sessionUser) {
+      return errorResponse("Unauthorized", 401, origin, allowed);
+    }
+    if (request.method === "GET") {
+      const streak = await fetchDailyStreak(env.DB, sessionUser.id);
+      return jsonResponse(streak, 200, origin, allowed);
+    }
+    const body = await readJson(request);
+    const date =
+      body && typeof body === "object" && "date" in body && typeof body.date === "string"
+        ? body.date
+        : "";
+    if (!isPlausibleCompletionDate(date)) {
+      return errorResponse("Invalid date", 400, origin, allowed);
+    }
+    const streak = await recordDailyStreak(env.DB, sessionUser.id, date);
+    return jsonResponse(streak, 200, origin, allowed);
+  }
+
+  if (request.method === "GET" && pathname === "/api/stars/loved-global") {
+    const limitParam = url.searchParams.get("limit");
+    const limit = limitParam ? Number.parseInt(limitParam, 10) : 200;
+    if (!Number.isFinite(limit) || limit < 1 || limit > 500) {
+      return errorResponse("Invalid limit", 400, origin, allowed);
+    }
+    const loved = await fetchLovedStarsGlobal(env.DB, limit);
+    return jsonResponse({ loved }, 200, origin, allowed);
   }
 
   if (request.method === "GET" && pathname === "/api/stars/popular-global") {

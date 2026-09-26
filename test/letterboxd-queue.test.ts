@@ -212,6 +212,21 @@ describe("formatQueueMarkdown", () => {
       }),
     ]);
     expect(md).toContain("| [x] |");
-    expect(md).toContain("| [x] short |");
+    expect(md).toContain("[x] short");
+  });
+
+  it("appends hand-queued shows", () => {
+    const md = formatQueueMarkdown([], [
+      {
+        title: "SpongeBob SquarePants",
+        season: 1,
+        year: 1999,
+        srt: "missing",
+        note: "Season 1",
+      },
+    ]);
+    expect(md).toContain("## Shows");
+    expect(md).toContain("SpongeBob SquarePants");
+    expect(md).toContain("| 1 | 1999 |");
   });
 });

@@ -402,7 +402,8 @@ Open questions (spike only — no pack UI yet):
 ## Phase 3+ — Social & polish *(backlog)*
 
 - [x] **Loved / double-star quotes** — ♥ up to 5 golden lines per title; mini-games take loved first. See [Later ideas](#loved--double-star-quotes-next).
-- [ ] **Star-streak bias** — if sequential starred lines exist, mini-games include at least one streak and play those lines in order. See [Later ideas](#star-streaks-in-mini-games).
+- [x] **Star-streak bias** — if sequential starred lines exist, mini-games include at least one streak and play those lines in order. See [Later ideas](#star-streaks-in-mini-games).
+- [ ] **Send streaks from Curate** *(next)* — send a star streak to a friend; they play those lines in order. See [Send streaks from Curate](#send-streaks-from-curate).
 - [ ] **Popular-line room** *(name open)* — turn-based room walks the crowd-popular starred lines (all or most). See [rooms](#features-rooms--later).
 - [ ] **Quote challenges (Concept 2)** — share a single line + guess link
 - [x] **Friends graph (invite links)** — Profile → Friends copies `#/friend/{token}`; they sign in and accept. No directory. See [Later ideas](#later-ideas-parked).
@@ -416,7 +417,11 @@ Open questions (spike only — no pack UI yet):
 - [x] **Teach mode** — Fun skip greens the correct choice and holds 2s; Teach skip opens this-line / next-line **Got it** card. See [Later ideas](#later-ideas-parked).
 - [x] **Scene / poster visuals (2.6)** — starred stills + posters + R2; leftover every-cue / video. See [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25).
 - [ ] **Curator reputation** — count (and weight) stars people lay down. See [Later ideas](#later-ideas-parked).
-- [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked).
+- [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked). Light search-and-request comes first.
+- [ ] **Integrations** — Letterboxd, Flickchart, and a spike on Netflix / Amazon watch history. See [Integrations](#integrations).
+- [ ] **Title requests (light)** — search a light movie index; request adds the title to a queue you attend by hand. See [Title requests](#title-requests-light).
+- [ ] **SRT + video automation** — filling a request automatically is a hard later spike. See [SRT and video automation](#srt-and-video-automation).
+- [ ] **Steam** — paid store build. Copyright posture and whether a $5 game has enough features are open. See [Steam](#steam).
 - [ ] **UGC quotes (IG / YT)** — paste a link, infer or type **one** line into a personal library. See [Quotes from anywhere](#quotes-from-anywhere-lay-person).
 - [ ] **YouTube videos as titles** — paste a video URL → pull timed transcript → star / parallel packs → optional scene frames. See [YouTube videos as titles](#youtube-videos-as-titles).
 - [ ] **Chats → quote replies** — text replies under a quote card (thread-lite). See [Chats → quote replies](#chats--quote-replies).
@@ -428,7 +433,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [x] **Share quote as image** — caption-below + on-image; Original aspect; Clean/Ink/Lime/None; remembered prefs. See [Share quote as image](#share-quote-as-image).
-- [ ] **Daily quote email** — ~3 quote cards in email → open TLNL (Readwise-style). Builds on share cards. See [Daily quote email](#daily-quote-email).
+- [ ] **Daily quote email** — one mail, 3 framed cards (1 loved + 2 top-starred); click opens daily review on that card and wraps. See [Daily quote email](#daily-quote-email).
 - [x] **Global search** — `#/search`; client-side over eager catalog; Popular / Starred by me; title + line hits. See [Global search](#global-search).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
@@ -512,7 +517,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Daily quote email**, **Chats quote replies**, **star-streak bias**, and a **popular-line room** (name open) stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)**, **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -522,11 +527,15 @@ Today a mini-game fills 10 from your personal stars (shuffled), then crowd popul
 
 **In:** `loved` flag on `(title_id, line_index, player_id)`; Cap **5** per title. `buildMiniGameQueue` takes loved first, then other personal stars. Curate + Play show ♥ when starred. `PUT /api/stars/love`. Library cover stills preferring a loved frame stays later.
 
-### Star streaks in mini-games
+### Star streaks in mini-games ✅
 
-A **star streak** is two or more starred lines in a row (sequential prompts in the transcript). Today `buildMiniGameQueue` fills 10 from loved, then other personal stars, then crowd, then random, and sorts the pick so the run walks forward. Among a large star pool, a streak often misses the cut, so the chain never plays.
+A **star streak** is two or more starred lines in a row (adjacent quiz prompts in the transcript). Among a large star pool, a streak often missed the cut, so the chain never played.
 
-When any streaks exist, **bias** the pick so at least one is included. Serve that streak **sequentially** — its lines in transcript order, one after another — so answering one starred line can set up the next.
+**In:** `buildMiniGameQueue` finds personal-star streaks (loved ∪ starred), prefers the longest, and seeds the queue with that run (trimmed to mini size if needed). Chronological sort keeps the streak sequential in play. Loved lines still fill remaining slots next.
+
+### Send streaks from Curate *(next)*
+
+Curate **Send** is one line. Next: from Curate, send a **star streak** (two or more starred lines in a row) to a friend or a named group. The share is those lines in transcript order, the same way a streak plays in a mini-game. Same friend gate and Send overlay as the one-line send.
 
 ### Popular-line room *(name open)*
 
@@ -540,7 +549,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Friends (gate) ✅.** Mutual friendship via an unguessable **friend link**. Profile → Friends copies `#/friend/{token}`; they sign in and tap Accept. One live link per account; **Rotate** invalidates the old URL (tokens stored as `token_hash` only). List is `{ userId, displayName }` — never email. No `GET /api/users`, no search-by-name, no “who’s online.” Cannot friend yourself. **Remove** drops the pair; **Block** drops it and rejects future accepts from that person even with a new link. Cap ~50. Must be signed in (local Vite “Continue without signing in” has no graph).
 
-**Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later. Same line to several friends reuses one share; 10s debounce only applies to **same line → same person**.
+**Send ✅.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later. Same line to several friends reuses one share; 10s debounce only applies to **same line → same person**. Sending a whole star streak from Curate is [next](#send-streaks-from-curate).
 
 **Inbox ✅.** Home **From friends** and Profile → **Inbox** show a list of quiz cards (the line + choices). Guess right and the card compresses to textline + nextline. Group send is still one inbox row per person (same `shareId`).
 
@@ -619,6 +628,8 @@ How do we reward people who curate transcripts (stars), not only people who play
 ### Watch-list connections
 
 Connect **Letterboxd** (and maybe **Trakt**) to surface titles they might like — and let them **request** ones we don’t have yet. We already ingest a Letterboxd ZIP for the content queue; this is the player-facing version (OAuth / export, recommendations, request list). Trakt is optional if Letterboxd covers movies well; TV watch history may be the Trakt case.
+
+A lighter request path comes first: search a movie index, no watch-list login. See [Title requests](#title-requests-light). Letterboxd sits with the other services under [Integrations](#integrations).
 
 ### Quotes from anywhere (lay person)
 
@@ -740,15 +751,29 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 ### Daily quote email
 
-**Idea:** A Readwise-style daily: ~**3 quotes** as cards in an email. Clicking a card opens **TLNL** (deep link into play, a 1-line share, or a parallel pack — TBD), not a dead static page. Prefer landing on a surface that can **Export image** (Share menu).
+**Idea:** One email a day with **3 quote cards**. A mini-mini-game: three textline → nextline questions, then done.
 
-**Why:** Habit loop without opening the app cold; surfaces curated / loved / starred lines to the owner (and maybe friends later).
+**Why:** Habit loop without opening the app cold. Each card shows the choices, so a familiar answer is a reason to tap through and play.
 
-**Rough shape:** Worker cron or external mailer → pick 3 lines (loved first, then personal stars, then crowd) → HTML email with quote + title + CTA → `#/play/…` or `#/parallel/…`. Opt-in; unsubscribe; respect auth (signed-in deep links vs public frozen shares).
+**Pick (same 3 for everyone that day).** Almost no one has stars except the owner, so the pool is the starred lines that already have a scene frame. Remember what was sent; do not reuse a textline within **7 days**.
 
-**Open questions:** one digest vs three separate mails; personal only vs “from friends”; whether the card itself is playable inline (probably not — keep email thin, open the app).
+1. Keep only lines that have a scene frame.
+2. Slot 1: one **loved** line, pseudo-random among loved lines that have a frame and were not sent this week.
+3. Slots 2–3: pseudo-random among **top starred** lines (highest star counts) that have a frame, were not sent this week, and are not slot 1.
+4. If slot 1 has nothing left, fill it the same way as 2–3. If the framed top-starred pool is also used up for the week, send fewer than 3 rather than repeating.
+5. Each card’s choices are a normal MCQ for that prompt (correct next line + distractors). The email does **not** mark which choice is right.
 
-Not the same as **Daily challenge** (same public quiz for everyone). Depends on (or pairs with) [Share quote as image](#share-quote-as-image) for the full Readwise loop.
+**Email.** One message, three cards. Not three emails. Each card is the still, the textline, and the next-line choices. The card links to that day’s game at that card’s index. Tapping a choice in the mail is the same as tapping the card: it does not grade you inside the inbox.
+
+**Daily game.** Only those three questions. Open on the card they tapped, then the next, then wrap. Tap card 2 → question 2, question 3, question 1. Same MCQ as Fun (try again on a miss). Then a three-question result.
+
+**Mail.** Resend, the same sender as magic links. No SendGrid. Cron on the Worker. Opt-in and unsubscribe before the first real send.
+
+**In the app.** Home shows today’s three cards. Tap a card to start there, then the next, then wrap. Finishing the three records a day streak; the badge at the top of Home is how many days in a row. The frame list is `content/stills-lines.json`. The 7-day skip is computed from the date, so it stays the same for everyone without a send log.
+
+**Not built yet.** The daily HTML mail, the cron, and opt-in / unsubscribe. A stored send log if the star pool should not shift past days.
+
+Not the same as **Daily challenge** (one public quiz for everyone). Export image stays available from the review card via [Share quote as image](#share-quote-as-image).
 
 ### Global search ✅
 
@@ -793,6 +818,48 @@ Native iOS/Android store apps are an **ultimate** goal (App Store / Play, push, 
 
 Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence / iOS push / offline become real needs. Do not start this until Add to Home Screen has been in the wild.
 
+### Title requests *(light)*
+
+Players should be able to ask for a movie we don’t have. Letterboxd connect can do that later; the first slice is just search.
+
+**Light:** search a movie database we only **lightly index** — TMDB is already how transcript_maker finds a film. Cache enough to search and dedupe (id, title, year), not a full mirror. If the title is already in the catalog, open it. If not, **Request** adds it to a queue (who, tmdb id, when).
+
+**First cut:** that queue is the whole feature. You attend to it later by hand — find the subtitle, convert, import — the same way the content queue works today. Nothing is downloaded for you.
+
+**Not this:** OpenSubtitles, video pull, or auto-import. Those stay [SRT and video automation](#srt-and-video-automation).
+
+### SRT and video automation
+
+Once people can request titles, the tempting next step is to fetch the subtitle and the video for them. That is a different project, and it is not easy.
+
+**SRTs.** Manual drop and a paced OpenSubtitles path already exist ([C2](docs/ROADMAP-content.md)). A daily cap, match quality, and subtitle copyright sit between “requested” and “playable.” Turning player requests into automatic downloads would also republish those files.
+
+**Video.** Stills today come from a local file the owner already has. There is no equivalent licensed source, and matching a request to a file does not fall out of the SRT path. Bulk or scraped download is out of scope.
+
+Park this as a spike to think through after the light request queue exists. Rights, source, rate limit, and file match all have to be true at once. Do not treat it as the next build.
+
+### Integrations
+
+Outside services that can say what someone watches or ranks. None of these are a build yet. The owner Letterboxd ZIP already seeds the content queue; these are the player-facing and “can we even see it?” questions.
+
+**Letterboxd.** Diary, likes, and ratings. Owner path is the official export ZIP ([content queue](docs/ROADMAP-content.md)); Letterboxd has no public API we will call. Player-facing connect (export or OAuth, then “you might like” + requests) stays [Watch-list connections](#watch-list-connections). Light title search comes first.
+
+**Flickchart.** A personal ranking chart (best-to-worst), not a watch log. Use it the same way as Letterboxd likes: titles someone has already ranked high should rise on “play something I’d watch” and on requests. First look is an official export if they offer one (CSV or similar). No scraping the site. No API until a documented one exists and the terms allow a friends-and-family app.
+
+**Netflix / Amazon watch history** *(spike).* Time-box whether a signed-in player’s **viewing history** on Netflix or Prime Video can be read at all. Check, in order: a public API, an official data export, then stop. Logged-in page scraping and unofficial clients are out — those histories are private, and both services’ terms block that. Expected outcome is **no**: write down what (if anything) an export contains, then park it. Do not start a client on a maybe.
+
+**Not this:** syncing our stars back to those sites; building a watch tracker; Trakt until Letterboxd and Flickchart are the clearer movie signals (Trakt stays the maybe for TV, under watch-list connections).
+
+### Steam
+
+A paid Steam listing is a later distribution idea, after the web app. Two gates before any store work.
+
+**Copyright.** Today the library is personal and curated; subtitles and stills may be copyrighted ([content roadmap](docs/ROADMAP-content.md)). Selling the game changes that posture: the playable text is other people’s dialogue, and stills are frames from the films. Open before a listing: what the build actually ships (lines, stills, or video); whether we can license that, or ship a client that does not bundle the transcripts; Steam’s third-party IP review. No listing until that is answered. This note is not a rights plan.
+
+**$5.** A five-dollar game is a comparison point, not a price decision. Buyers at that price expect a finished game. Rooms, a popular-line room, and a catalog people can request into are still parked — a few more features should land before a $5 listing is a fair offer. Price itself stays unset.
+
+**Not this yet:** Steamworks, a Windows build, or moving off the web app. Native iOS/Android stay their own later goal.
+
 ---
 
 ## Roadmap
@@ -812,7 +879,8 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **2.5 — Reputation & profile** | Persist runs, profile, match history, library rails, thumbs, exact mini replay | ✅ Games tracked; history Share freezes the 10 prompts |
 | **2.6 — Quote stills & catalog ops** | Mini-game frames, R2, owner Catalog, protect curated stars | ✅ Ocean's 13 + Wolf + IB + Empire on R2 |
 | **Next — Loved quotes** | Double-star / love a few golden lines so they land in most mini-games | ✅ Cap 5; queue bias; Curate/Play ♥ |
-| **Later — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
+| **Shipped — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
+| **Next — Send streaks** | Curate sends a star streak to a friend; they play it in order | Same Send as one line, but the whole run — see [Send streaks](#send-streaks-from-curate) |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | L0 checklist below; see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **2 — Popular-line room** | Turn-based room walks the crowd-popular starred lines (all or most) | Name open — longer than a mini-game, shorter than the full transcript |
@@ -829,6 +897,7 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
 | **Later — Visuals leftovers** | Every-cue extract, git-lfs, shipping video | After 2.6 — see [Scene visuals](#scene-visuals-leftover-from-26) |
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
+| **Later — Integrations** | Letterboxd, Flickchart, Netflix/Amazon history spike | Taste signals for requests — see [Integrations](#integrations) |
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |
 | **Later — Line split** | Curator split of multi-sentence cues without reminting star indices | Star the punchy sentence inside a cue |
 | **Later — Line / still feedback** | Players report wrong still, request a still, or ask to split a line | Crowd queue for Catalog extract / split — see [Line / still feedback](#line--still-feedback) |
@@ -836,11 +905,14 @@ Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence
 | **Exploratory — YouTube titles** | Paste video URL → timed transcript → stars / packs; frames later | Whole videos as playable titles — see [YouTube videos as titles](#youtube-videos-as-titles) |
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
 | **Later — Share quote as image** | Caption-below + on-image; aspect + palettes + prefs | ✅ Export image in Share menu — see [Share quote as image](#share-quote-as-image) |
-| **Later — Daily quote email** | ~3 quote cards → open TLNL (Readwise-style) | Habit loop after share cards — see [Daily quote email](#daily-quote-email) |
+| **Later — Daily quote email** | One mail, 3 framed cards; click opens that day’s review and wraps | 1 loved + 2 top-starred; no repeat within 7 days — see [Daily quote email](#daily-quote-email) |
 | **Shipped — Global search** | `#/search`; client catalog scan; Popular / Mine; title + line hits | Find a quote or title without picking a film first — see [Global search](#global-search) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 | **Shipped — Mobile home screen** | Manifest + Add to Home Screen helper (no SW) | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |
 | **Exploratory — Native apps** | Store apps after PWA-lite has been in the wild | iOS / Android if push, store, or offline become real needs |
+| **Later — Title requests** | Search a light movie index; request joins a queue you attend by hand | No download — see [Title requests](#title-requests-light) |
+| **Later — SRT + video automation** | Auto-fill a request with subtitle and video | Hard; rights, caps, and file match — see [SRT and video automation](#srt-and-video-automation) |
+| **Later — Steam** | Paid store build | Copyright open; $5 needs more features first — see [Steam](#steam) |
 
 App phases above do **not** wait on new titles. Library growth is a [parallel content workstream](docs/ROADMAP-content.md) (C0–C4):
 
@@ -927,8 +999,10 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Chats → quote replies** *(parked)* — Reply under a quote card (scoped to that share); lives under the card, not as a free-floating timeline peer. See [Chats → quote replies](#chats--quote-replies).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
+- **Send streaks from Curate** *(next)* — Send a star streak (sequential starred lines) to a friend; they play it in order. See [Send streaks from Curate](#send-streaks-from-curate).
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC single quotes / songs** — parked in [Later ideas](#later-ideas-parked).
+- **Integrations** *(parked)* — Letterboxd, Flickchart, and a Netflix / Amazon watch-history spike. See [Integrations](#integrations).
 - **YouTube videos as titles** *(parked)* — Paste URL → extract timed transcript → star / parallel packs; scene frames later. See [YouTube videos as titles](#youtube-videos-as-titles).
 - **Chats → cross-title mini-games** *(parked)* — Multi-select thread lines across titles → frozen mini-game. See [Chats → cross-title mini-games](#chats--cross-title-mini-games).
 - **MCQ similar-answer guard** — ✅ Reject distractors ≥60% similar to the correct next line or each other (Wolf ~546–547 *Let 'em watch* pair). `SIMILARITY_THRESHOLD` is the retune point.
@@ -948,7 +1022,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Stack:** TypeScript + Vitest for content/import (Phase 0); Next.js (or similar) for the game UI in Phase 1.
 - **Transcript source:** Curated exports from **transcript_maker** — not runtime subtitle APIs for MVP.
 - **Content storage:** Git-tracked JSON for early episodes is fine; move to DB or object storage when the catalog grows.
-- **Legal:** Subtitles/transcripts may be subject to copyright; library is personal/curated (Letterboxd likes ∪ 4.5★, plus titles you already prepared in transcript_maker). See [docs/ROADMAP-content.md](docs/ROADMAP-content.md).
+- **Legal:** Subtitles/transcripts may be subject to copyright; library is personal/curated (Letterboxd likes ∪ 4.5★, plus titles you already prepared in transcript_maker). A paid Steam build is a later, separate question. See [docs/ROADMAP-content.md](docs/ROADMAP-content.md) and [Steam](#steam).
 
 ---
 
