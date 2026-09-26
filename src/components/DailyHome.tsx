@@ -5,6 +5,7 @@ import { lineKey, todayIso, type DailyLine } from "../lib/game/dailyPick";
 import { loadTodaysCards } from "../lib/game/dailyLoad";
 import { loadStreak, readLocalStreak } from "../lib/game/dailyClient";
 import { PosterArt } from "./PosterArt";
+import { LineSendControl } from "./LineSendControl";
 
 type Props = {
   onPlay: (startIndex: number) => void;
@@ -18,7 +19,11 @@ function snippet(text: string): string {
 export function DailyHome({ onPlay }: Props) {
   const [streak, setStreak] = useState(readLocalStreak);
   const [cards, setCards] = useState<DailyLine[] | null>(null);
+  const [quotesOpen, setQuotesOpen] = useState(
+    () => readLocalStreak().lastCompletedOn !== todayIso(),
+  );
   const doneToday = streak.lastCompletedOn === todayIso();
+  const showQuotes = !doneToday || quotesOpen;
   const badge =
     streak.streak > 0
       ? `${streak.streak}-day streak${doneToday ? " · done today" : ""}`
@@ -50,18 +55,30 @@ export function DailyHome({ onPlay }: Props) {
       </div>
 
       <section className="panel home-section">
-        <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
-        {cards === null ? (
+        <div className="daily-fold-header">
+          <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
+          {doneToday ? (
+            <button
+              type="button"
+              className="button ghost"
+              aria-expanded={quotesOpen}
+              onClick={() => setQuotesOpen((open) => !open)}
+            >
+              {quotesOpen ? "Hide" : "Show"}
+            </button>
+          ) : null}
+        </div>
+        {showQuotes && cards === null ? (
           <p className="muted">Loading today’s three…</p>
-        ) : cards.length === 0 ? (
+        ) : showQuotes && cards.length === 0 ? (
           <p className="muted">No framed quotes lined up for today.</p>
-        ) : (
+        ) : showQuotes ? (
           <ul className="title-list">
             {cards.map((card, index) => {
               const title = getTitle(card.titleId);
               const prompt = title ? getLine(title, card.lineIndex) : undefined;
               return (
-                <li key={lineKey(card)}>
+                <li key={lineKey(card)} className="daily-quote-row">
                   <button type="button" className="title-card daily-card" onClick={() => onPlay(index)}>
                     <PosterArt
                       titleId={card.titleId}
@@ -77,10 +94,13 @@ export function DailyHome({ onPlay }: Props) {
                       <span className="muted">{title?.title ?? `Question ${index + 1}`}</span>
                     </span>
                   </button>
+                  <LineSendControl titleId={card.titleId} lineIndex={card.lineIndex} />
                 </li>
               );
             })}
           </ul>
+        ) : (
+          <p className="muted daily-folded-note">Finished for today. Show the quotes to send one.</p>
         )}
       </section>
     </>

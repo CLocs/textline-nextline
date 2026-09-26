@@ -330,6 +330,38 @@ button {
   margin-top: 0;
 }
 
+.daily-fold-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.daily-fold-header .library-group-heading {
+  margin-bottom: 0;
+}
+
+.daily-folded-note,
+.daily-fold-header + .title-list,
+.daily-fold-header + .muted {
+  margin-top: 0.75rem;
+}
+
+.daily-folded-note {
+  margin-bottom: 0;
+}
+
+.daily-quote-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.daily-quote-row .title-card {
+  flex: 1;
+  min-width: 0;
+}
+
 .daily-play-title {
   margin: 0.1rem 0 0.85rem;
   font-size: 1.85rem;
