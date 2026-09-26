@@ -12,7 +12,8 @@ export type HashRoute =
   | { kind: "chatGroup"; groupId: string }
   | { kind: "search" }
   | { kind: "profile"; tab: ProfileTab }
-  | { kind: "ops" };
+  | { kind: "ops" }
+  | { kind: "daily"; start: number };
 
 const LOGIN_RETURN_KEY = "textline-nextline-login-return";
 
@@ -32,6 +33,7 @@ export function isSafeLoginReturn(value: string | null | undefined): value is st
     return true;
   }
   if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
+  if (/^daily\/[0-2]$/.test(value)) return true;
   if (/^parallel\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   if (/^chat\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   if (/^chat\/group\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
@@ -74,6 +76,7 @@ export function loginReturnFromRoute(route: HashRoute): string | undefined {
   if (route.kind === "chatGroup") return `chat/group/${route.groupId}`;
   if (route.kind === "profile") return profileHash(route.tab === "inbox" ? "chats" : route.tab);
   if (route.kind === "ops") return "ops";
+  if (route.kind === "daily") return `daily/${route.start}`;
   return undefined;
 }
 
@@ -149,6 +152,11 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
 
   if (path === "ops") {
     return { kind: "ops" };
+  }
+
+  const dailyMatch = path.match(/^daily(?:\/([0-2]))?$/);
+  if (dailyMatch) {
+    return { kind: "daily", start: dailyMatch[1] ? Number(dailyMatch[1]) : 0 };
   }
 
   const profileTab = parseProfileTab(path);

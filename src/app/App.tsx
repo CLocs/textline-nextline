@@ -31,6 +31,7 @@ import {
   type ProfileTab,
 } from "../lib/routing/hash";
 import { LibraryScreen } from "../components/LibraryScreen";
+import { DailyPlayScreen } from "../components/DailyPlayScreen";
 import { SetupScreen } from "../components/SetupScreen";
 import { PlayScreen } from "../components/PlayScreen";
 import { CompleteScreen } from "../components/CompleteScreen";
@@ -46,7 +47,7 @@ import { ChatThreadScreen } from "../components/ChatThreadScreen";
 import { SearchScreen } from "../components/SearchScreen";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily";
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
@@ -90,6 +91,7 @@ export function App() {
   const [chatMode, setChatMode] = useState<"dm" | "group">("dm");
   const [curateFocusLineIndex, setCurateFocusLineIndex] = useState<number | null>(null);
   const [libraryBrowseNonce, setLibraryBrowseNonce] = useState(0);
+  const [dailyStart, setDailyStart] = useState(0);
 
   const loginReturnRef = useRef(loginReturn);
   loginReturnRef.current = loginReturn;
@@ -149,6 +151,10 @@ export function App() {
       return;
     }
     if (returnTo?.startsWith("chat/")) {
+      setHash(returnTo);
+      return;
+    }
+    if (returnTo?.startsWith("daily/")) {
       setHash(returnTo);
       return;
     }
@@ -295,6 +301,18 @@ export function App() {
         }
         setParallelPackId(route.packId);
         setScreen("parallel");
+        return;
+      }
+      if (route.kind === "daily") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to play today’s three.");
+          captureLoginReturn(`daily/${route.start}`);
+          setScreen("login");
+          setHash(`login?return=${encodeURIComponent(`daily/${route.start}`)}`);
+          return;
+        }
+        setDailyStart(route.start);
+        setScreen("daily");
         return;
       }
       if (route.kind === "friend") {
@@ -670,7 +688,7 @@ export function App() {
   const showApp = Boolean(user);
 
   return (
-    <div className={`app-shell${screen === "play" || screen === "curate" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
+    <div className={`app-shell${screen === "play" || screen === "curate" || screen === "daily" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
       <header className="app-header">
         <div className="brand-lockup">
           <div className="brand-mark" aria-hidden="true" />
@@ -715,7 +733,16 @@ export function App() {
           onOpenDm={handleOpenDm}
           onOpenGroup={handleOpenGroupChat}
           onOpenChats={handleOpenChats}
+          onPlayDaily={(startIndex) => {
+            setDailyStart(startIndex);
+            setScreen("daily");
+            setHash(`daily/${startIndex}`);
+          }}
         />
+      )}
+
+      {showApp && screen === "daily" && (
+        <DailyPlayScreen startIndex={dailyStart} onQuit={handleBackToLibrary} />
       )}
 
       {showApp && screen === "chats" && (

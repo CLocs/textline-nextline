@@ -31,7 +31,9 @@
     "db:migrate:chat-messages:local": "wrangler d1 execute textline-stars --local --file=migrations/012_chat_messages.sql",
     "db:migrate:chat-messages:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/012_chat_messages.sql",
     "db:migrate:chat-reactions:local": "wrangler d1 execute textline-stars --local --file=migrations/013_chat_reactions.sql",
-    "db:migrate:chat-reactions:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/013_chat_reactions.sql"
+    "db:migrate:chat-reactions:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/013_chat_reactions.sql",
+    "db:migrate:daily-streaks:local": "wrangler d1 execute textline-stars --local --file=migrations/014_daily_streaks.sql",
+    "db:migrate:daily-streaks:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/014_daily_streaks.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",

@@ -119,6 +119,23 @@ export type GlobalPopularStar = {
   count: number;
 };
 
+export type GlobalLovedStar = {
+  titleId: string;
+  lineIndex: number;
+};
+
+export async function fetchLovedStarsGlobal(
+  limit = 200,
+): Promise<GlobalLovedStar[] | null> {
+  const response = await apiFetch(`/api/stars/loved-global?limit=${limit}`);
+  if (!response?.ok) return null;
+  const data = (await response.json()) as { loved?: GlobalLovedStar[] };
+  if (!Array.isArray(data.loved)) return [];
+  return data.loved.filter(
+    (entry) => typeof entry.titleId === "string" && typeof entry.lineIndex === "number",
+  );
+}
+
 export async function fetchPopularStarsGlobal(
   limit = 100,
 ): Promise<GlobalPopularStar[] | null> {

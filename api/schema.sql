@@ -221,6 +221,14 @@ CREATE TABLE IF NOT EXISTS chat_thread_reads (
   PRIMARY KEY (user_id, thread_key)
 );
 
+-- Consecutive days the three-question daily game was finished (also in migrations/014_daily_streaks.sql)
+CREATE TABLE IF NOT EXISTS daily_streaks (
+  user_id TEXT PRIMARY KEY,
+  last_completed_on TEXT NOT NULL,
+  streak INTEGER NOT NULL,
+  updated_at TEXT NOT NULL
+);
+
 -- Emoji reactions (also in migrations/013_chat_reactions.sql)
 CREATE TABLE IF NOT EXISTS chat_reactions (
   id TEXT PRIMARY KEY,
