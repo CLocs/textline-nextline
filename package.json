@@ -43,6 +43,7 @@
     "import:all": "tsx scripts/import.ts --all",
     "content:queue": "tsx scripts/letterboxd-queue.ts",
     "content:stars-push": "tsx scripts/stars-push.ts",
+    "content:wikiquote": "tsx scripts/wikiquote-seed.ts",
     "content:stills": "tsx scripts/extract-stills.ts",
     "content:stills:remux": "tsx scripts/remux-media.ts",
     "content:stills:push": "tsx scripts/push-stills.ts",

@@ -55,6 +55,58 @@ export function matchHighlightsToTitles(matches: ReadwiseMatch[], titles: Title[
   return seeds;
 }
 
+/** Match quote strings (Wikiquote, etc.) onto one catalog title. One seed per line. */
+export function matchQuotesToTitle(
+  title: Title,
+  quotes: { text: string; note: string | null }[],
+): StarSeed[] {
+  const seeds: StarSeed[] = [];
+  const used = new Set<string>();
+  for (const quote of quotes) {
+    const hit = findLine(title, quote.text);
+    if (!hit) continue;
+    const key = `${title.id}:${hit.lineIndex}`;
+    if (used.has(key)) continue;
+    used.add(key);
+    const line = title.lines[hit.lineIndex];
+    seeds.push({
+      titleId: title.id,
+      title: title.title,
+      lineIndex: hit.lineIndex,
+      text: line?.text ?? "",
+      prevText: title.lines[hit.lineIndex - 1]?.text ?? null,
+      nextText: title.lines[hit.lineIndex + 1]?.text ?? null,
+      highlight: quote.text,
+      note: quote.note,
+      score: hit.score,
+    });
+  }
+  return seeds;
+}
+
+/**
+ * Union by titleId + lineIndex. The first seed for a line is kept, except a
+ * Wikiquote note yields to a vault (or any other) note on the same line.
+ */
+export function mergeStarSeeds(base: StarSeed[], incoming: StarSeed[]): StarSeed[] {
+  const byKey = new Map<string, StarSeed>();
+  for (const star of base) byKey.set(seedKey(star), star);
+  for (const star of incoming) {
+    const key = seedKey(star);
+    const prev = byKey.get(key);
+    if (!prev) {
+      byKey.set(key, star);
+      continue;
+    }
+    if (prev.note === "wikiquote" && star.note !== "wikiquote") byKey.set(key, star);
+  }
+  return [...byKey.values()];
+}
+
+function seedKey(star: Pick<StarSeed, "titleId" | "lineIndex">): string {
+  return `${star.titleId}:${star.lineIndex}`;
+}
+
 function compactQuote(text: string): string {
   return text
     .replace(/\[view highlight\]\([^)]*\)/gi, "")

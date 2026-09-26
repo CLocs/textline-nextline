@@ -110,6 +110,27 @@ export function excludeTitleIds(
   return stars.filter((star) => !skip.has(star.titleId));
 }
 
+/**
+ * Titles a push must not write. Protected titles always stay untouched.
+ * Without --force or --merge, a title that already has any of your stars is
+ * skipped whole. --merge inserts missing lines on titles that already have
+ * stars (ON CONFLICT DO NOTHING); it does not delete or update rows.
+ */
+export function titleIdsToSkip(options: {
+  protectedIds: Iterable<string>;
+  existingIds: Iterable<string>;
+  excludeIds: Iterable<string>;
+  force: boolean;
+  merge: boolean;
+}): Set<string> {
+  const skip = new Set<string>(options.protectedIds);
+  for (const id of options.excludeIds) skip.add(id);
+  if (!options.force && !options.merge) {
+    for (const id of options.existingIds) skip.add(id);
+  }
+  return skip;
+}
+
 export function countByTitle(stars: Pick<StarSeed, "titleId" | "title">[]): Map<string, number> {
   const counts = new Map<string, number>();
   for (const star of stars) {

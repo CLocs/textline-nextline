@@ -1910,15 +1910,15 @@ code {
   }
 
   .app-shell.play-active {
-    padding: 0.65rem 0.65rem 1rem;
+    padding: 0.5rem 0.65rem 0.1rem;
   }
 
   .play-panel {
-    padding: 0.85rem;
+    padding: 0.65rem 0.7rem 0.2rem;
   }
 
   .play-toolbar {
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.4rem;
   }
 
   .history-toggle {
@@ -1962,7 +1962,7 @@ code {
   }
 
   .play-poster {
-    max-height: 5.5rem;
+    max-height: 7rem;
   }
 
   .prompt-text {

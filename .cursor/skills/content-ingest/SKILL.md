@@ -2,10 +2,11 @@
 name: content-ingest
 description: >-
   Converts new inbox/srt files (.srt/.sub/.vtt) via transcript_maker, imports
-  only new catalog titles, matches Readwise highlights, and pushes stars to D1
+  only new catalog titles, matches Readwise highlights, merges English
+  Wikiquote dialogue for thinly starred movies, and pushes stars to D1
   without overwriting curated titles. Use when the user says "run content
   ingest", "content ingest", "I added more movies to inbox/srt", convert/import
-  subtitles, match Readwise, "stars-push", "don't overwrite my stars",
+  subtitles, match Readwise, "wikiquote", "stars-push", "don't overwrite my stars",
   "protect curated stars", or "check my stars then push". A whole TV series
   (add show, Sunny, Simpsons season dump) is the add-show skill.
 ---
@@ -36,7 +37,17 @@ Run this whole pipeline in one go unless the user asks to stop after a step.
    npm run content:queue -- --from inbox/letterboxd --vault "C:\Users\dasco\Documents\clocs\Readwise"
    ```
 
-6. **Protect curated stars, then push** for `dascolin@gmail.com`. Never `--force`.
+6. **Wikiquote, movies only.** For a catalog movie that is not in `stars-protected.json` and has fewer than 5 live stars for `dascolin@gmail.com`, fetch the English film page and union it into the seed. Vault (and any earlier seed line) keeps the line when both sources hit the same `lineIndex`. Other titles already in `stars-seed.json` stay. TV stays out.
+   ```bash
+   npm run content:wikiquote -- --title the-big-lebowski-1998 --vault "C:\Users\dasco\Documents\clocs\Readwise"
+   ```
+   Then preview a merge push for that title only. `--merge` inserts missing lines and leaves existing rows (including loved). It does not delete. Protected titles are still skipped.
+   ```bash
+   npm run content:stars-push -- --email dascolin@gmail.com --title the-big-lebowski-1998 --merge --remote --dry-run
+   ```
+   **Stop.** Show how many lines would be inserted. Wait for the user to confirm, then drop `--dry-run`. After they finish unstarring misses in Curate, add that title id to `stars-protected.json`. A later `--merge` would put unstarred lines back, because a deleted row is not a conflict.
+
+7. **Protect curated stars, then push** for `dascolin@gmail.com`. Never `--force`.
    1. Query prod D1 star counts vs `content/stars-seed.json`.
    2. Add every title where live ≠ seed to `content/stars-protected.json` (and `DEFAULT_PROTECTED_TITLE_IDS`).
    3. Dry-run:
@@ -50,7 +61,7 @@ Run this whole pipeline in one go unless the user asks to stop after a step.
       ```
    Skips protected ids even with `--force`. Also skips any title that already has live stars. Current lock: Wolf, Empire, Ocean's 13, Payback, Inglourious, Batman Begins, Django, The Gentlemen.
 
-7. **Report.** New title ids, cue counts, Readwise hits, D1 skip vs insert, and that **Pages deploy** is still required for new movies to appear on the site. Transcripts live in git; D1 is stars only.
+8. **Report.** New title ids, cue counts, Readwise hits, Wikiquote matches, D1 skip vs insert, and that **Pages deploy** is still required for new movies to appear on the site. Transcripts live in git; D1 is stars only. Wikiquote stars are that email’s rows, so they show up in their Curate.
 
 ## Where things live
 
@@ -61,11 +72,13 @@ flowchart TD
   imports["imports/*.json"]
   titles["content/titles + catalog.json"]
   vault["Readwise vault"]
+  wiki["Wikiquote film page"]
   seed["stars-seed.json gitignored"]
   d1["D1 stars"]
   pages["Pages static site"]
   inbox --> maker --> imports --> titles --> pages
   vault --> seed
+  wiki --> seed
   titles --> seed --> d1
 ```
 
@@ -80,4 +93,4 @@ flowchart TD
 
 Protected titles skip the **whole film** so Curate unstars stay gone. Later: tombstones on unstar, then merge `seed − tombstones`.
 
-**Next time:** `@` this file. Add “just stars” (step 6 only: protect + dry-run + wait) or “full ingest” (steps 1–7). Phrases like `content ingest` / `stars-push` still auto-match if you do not `@` it. A whole TV series (Sunny, Simpsons dump, “add show”) is [add-show](../add-show/SKILL.md).
+**Next time:** `@` this file. Add “just stars” (step 7 only: protect + dry-run + wait), “wikiquote” (step 6 for one title), or “full ingest” (steps 1–8). Phrases like `content ingest` / `stars-push` still auto-match if you do not `@` it. A whole TV series (Sunny, Simpsons dump, “add show”) is [add-show](../add-show/SKILL.md).
