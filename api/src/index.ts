@@ -779,6 +779,27 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     return errorResponse("Not found", 404, origin, allowed);
   }
 
+  if (pathname === "/api/daily/streak" && (request.method === "GET" || request.method === "POST")) {
+    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+    if (!sessionUser) {
+      return errorResponse("Unauthorized", 401, origin, allowed);
+    }
+    if (request.method === "GET") {
+      const streak = await fetchDailyStreak(env.DB, sessionUser.id);
+      return jsonResponse(streak, 200, origin, allowed);
+    }
+    const body = await readJson(request);
+    const date =
+      body && typeof body === "object" && "date" in body && typeof body.date === "string"
+        ? body.date
+        : "";
+    if (!isPlausibleCompletionDate(date)) {
+      return errorResponse("Invalid date", 400, origin, allowed);
+    }
+    const streak = await recordDailyStreak(env.DB, sessionUser.id, date);
+    return jsonResponse(streak, 200, origin, allowed);
+  }
+
   // --- Stars ---
   if (!pathname.startsWith("/api/stars")) {
     return errorResponse("Not found", 404, origin, allowed);
@@ -806,27 +827,6 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       origin,
       allowed,
     );
-  }
-
-  if (pathname === "/api/daily/streak" && (request.method === "GET" || request.method === "POST")) {
-    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
-    if (!sessionUser) {
-      return errorResponse("Unauthorized", 401, origin, allowed);
-    }
-    if (request.method === "GET") {
-      const streak = await fetchDailyStreak(env.DB, sessionUser.id);
-      return jsonResponse(streak, 200, origin, allowed);
-    }
-    const body = await readJson(request);
-    const date =
-      body && typeof body === "object" && "date" in body && typeof body.date === "string"
-        ? body.date
-        : "";
-    if (!isPlausibleCompletionDate(date)) {
-      return errorResponse("Invalid date", 400, origin, allowed);
-    }
-    const streak = await recordDailyStreak(env.DB, sessionUser.id, date);
-    return jsonResponse(streak, 200, origin, allowed);
   }
 
   if (request.method === "GET" && pathname === "/api/stars/loved-global") {
