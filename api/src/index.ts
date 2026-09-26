@@ -822,6 +822,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         stars,
         lineIndices: stars.map((s) => s.lineIndex),
         lovedIndices: stars.filter((s) => s.loved).map((s) => s.lineIndex),
+        wikiquoteIndices: stars.filter((s) => s.origin === "wikiquote").map((s) => s.lineIndex),
       },
       200,
       origin,

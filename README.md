@@ -353,7 +353,7 @@ Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live coun
 
 ### Out of scope for 2.6
 
-- Every-cue extract, git-lfs, shipping video, random poster rotation
+- git-lfs, shipping video, random poster rotation
 - Player reports (wrong still / request still / split line) — see [Line / still feedback](#line--still-feedback)
 - Weighted popular (2.5 leftover)
 - Rooms / realtime (Phase 2)
@@ -618,11 +618,12 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 Starred stills, posters, R2, and the mini-game still→poster fallback shipped in [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25). Library/Home title cards show a small **cover still** (lowest line index in [`content/stills-coverage.json`](content/stills-coverage.json) `covers`; no poster fallback on the card). Still parked:
 
-- Every-cue extract (too heavy; starred landmarks first)
 - git-lfs / checking JPEGs into the repo
 - Shipping video, not stills
 - Random poster rotation
 - Player **wrong still** / **request still** reports (see [Line / still feedback](#line--still-feedback))
+
+**Every-cue extract** (after sync is eyeballed): dialogue stills for every playable line, skipping SDH/junk/lyrics. Movies first; TV when an episode is starred. CLI: `npm run content:stills -- --title TITLE_ID --playable`. See [stills-extract skill](.cursor/skills/stills-extract/SKILL.md).
 
 **Legal:** stills from your own files for a personal/curated app; don’t scrape streaming services.
 
@@ -906,7 +907,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
 | **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
-| **Later — Visuals leftovers** | Every-cue extract, git-lfs, shipping video | After 2.6 — see [Scene visuals](#scene-visuals-leftover-from-26) |
+| **Later — Visuals leftovers** | git-lfs, shipping video | After 2.6 — every-cue stills: [Scene visuals](#scene-visuals-leftover-from-26) |
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
 | **Later — Integrations** | Letterboxd, Flickchart, Netflix/Amazon history spike | Taste signals for requests — see [Integrations](#integrations) |
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |

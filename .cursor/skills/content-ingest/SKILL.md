@@ -45,7 +45,7 @@ Run this whole pipeline in one go unless the user asks to stop after a step.
    ```bash
    npm run content:stars-push -- --email dascolin@gmail.com --title the-big-lebowski-1998 --merge --remote --dry-run
    ```
-   **Stop.** Show how many lines would be inserted. Wait for the user to confirm, then drop `--dry-run`. After they finish unstarring misses in Curate, add that title id to `stars-protected.json`. A later `--merge` would put unstarred lines back, because a deleted row is not a conflict.
+   **Stop.** Show how many lines would be inserted. Wait for the user to confirm, then drop `--dry-run`. New rows with note `wikiquote` insert as `origin = wikiquote`. A line that was already starred stays `mine` (`ON CONFLICT DO NOTHING`). Loving a Wikiquote line in Curate flips it to `mine`. After they finish unstarring misses, add that title id to `stars-protected.json`. A later `--merge` would put unstarred lines back, because a deleted row is not a conflict.
 
 7. **Protect curated stars, then push** for `dascolin@gmail.com`. Never `--force`.
    1. Query prod D1 star counts vs `content/stars-seed.json`.

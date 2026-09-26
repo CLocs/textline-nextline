@@ -63,8 +63,12 @@ export function sqlString(value: string): string {
   return `'${value.replaceAll("'", "''")}'`;
 }
 
+export function starOrigin(note: string | null | undefined): "mine" | "wikiquote" {
+  return note === "wikiquote" ? "wikiquote" : "mine";
+}
+
 export function insertStarsSql(
-  stars: Pick<StarSeed, "titleId" | "lineIndex">[],
+  stars: Pick<StarSeed, "titleId" | "lineIndex" | "note">[],
   playerId: string,
   starredAt: string,
 ): string {
@@ -74,10 +78,10 @@ export function insertStarsSql(
   const values = stars
     .map(
       (star) =>
-        `(${sqlString(star.titleId)}, ${star.lineIndex}, ${sqlString(playerId)}, ${sqlString(starredAt)})`,
+        `(${sqlString(star.titleId)}, ${star.lineIndex}, ${sqlString(playerId)}, ${sqlString(starredAt)}, ${sqlString(starOrigin(star.note))})`,
     )
     .join(",\n");
-  return `INSERT INTO stars (title_id, line_index, player_id, starred_at)
+  return `INSERT INTO stars (title_id, line_index, player_id, starred_at, origin)
 VALUES
 ${values}
 ON CONFLICT(title_id, line_index, player_id) DO NOTHING;`;

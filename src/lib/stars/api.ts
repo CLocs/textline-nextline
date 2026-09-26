@@ -9,6 +9,7 @@ export type PopularStar = {
 export type MyStar = {
   lineIndex: number;
   loved: boolean;
+  origin?: "mine" | "wikiquote";
 };
 
 function apiBaseUrl(): string | null {
@@ -80,18 +81,30 @@ export async function fetchMyStars(titleId: string): Promise<MyStar[] | null> {
     stars?: MyStar[];
     lineIndices?: number[];
     lovedIndices?: number[];
+    wikiquoteIndices?: number[];
   };
   if (Array.isArray(data.stars)) {
-    return data.stars.filter(
+    const parsed = data.stars.filter(
       (s) => typeof s.lineIndex === "number" && typeof s.loved === "boolean",
     );
+    if (parsed.some((star) => star.origin === "mine" || star.origin === "wikiquote")) {
+      return parsed.map((star) => ({
+        ...star,
+        origin: star.origin === "wikiquote" ? "wikiquote" : "mine",
+      }));
+    }
   }
-  // Backward compat if an older Worker is still live
-  if (Array.isArray(data.lineIndices)) {
+  // Older Worker: stars or lineIndices, plus an optional wikiquote index list.
+  const lineIndices = Array.isArray(data.stars)
+    ? data.stars.map((star) => star.lineIndex)
+    : data.lineIndices;
+  if (Array.isArray(lineIndices)) {
     const loved = new Set(data.lovedIndices ?? []);
-    return data.lineIndices.map((lineIndex) => ({
+    const wiki = new Set(data.wikiquoteIndices ?? []);
+    return lineIndices.map((lineIndex) => ({
       lineIndex,
       loved: loved.has(lineIndex),
+      origin: wiki.has(lineIndex) ? ("wikiquote" as const) : ("mine" as const),
     }));
   }
   return [];

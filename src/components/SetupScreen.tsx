@@ -46,7 +46,9 @@ export function SetupScreen({
 
   const title = getTitle(entry.id);
   const questionCount = title ? countPlayableQuestions(title) : 0;
-  const personalStarred = getStarsForTitle(entry.id).map((star) => star.lineIndex);
+  const personalStarred = getStarsForTitle(entry.id)
+    .filter((star) => star.origin !== "wikiquote")
+    .map((star) => star.lineIndex);
   const miniCount = title
     ? Math.min(
         MINI_GAME_SIZE,

@@ -36,7 +36,7 @@ honors the protected file. --dry-run --remote previews prod skips.
 
   --email     Required. Must already have signed in on the live app once.
   --remote    Read/write production D1 (textline-stars). Default is local wrangler D1.
-  --title     Only this title id or name (e.g. payback-1999 or Payback).
+  --title     Only this title id or name. Repeat to merge several films.
   --exclude   Extra title id to skip (repeatable).
   --merge     Insert missing lines even when the title already has your stars.
   --force     Also insert into titles that already have stars (not protected).
@@ -51,7 +51,7 @@ function parseArgs(argv: string[]): {
   remote: boolean;
   seed: string;
   dryRun: boolean;
-  title: string;
+  titles: string[];
   force: boolean;
   merge: boolean;
   exclude: string[];
@@ -60,7 +60,7 @@ function parseArgs(argv: string[]): {
   let remote = false;
   let seed = defaultSeed;
   let dryRun = false;
-  let title = "";
+  const titles: string[] = [];
   let force = false;
   let merge = false;
   const exclude: string[] = [];
@@ -70,7 +70,7 @@ function parseArgs(argv: string[]): {
     else if (arg === "--remote") remote = true;
     else if (arg === "--dry-run") dryRun = true;
     else if (arg === "--seed") seed = argv[++i] ?? seed;
-    else if (arg === "--title") title = argv[++i] ?? "";
+    else if (arg === "--title") titles.push((argv[++i] ?? "").trim());
     else if (arg === "--exclude") exclude.push((argv[++i] ?? "").trim());
     else if (arg === "--force") force = true;
     else if (arg === "--merge") merge = true;
@@ -82,7 +82,7 @@ function parseArgs(argv: string[]): {
     remote,
     seed: resolve(seed),
     dryRun,
-    title: title.trim(),
+    titles: titles.filter(Boolean),
     force,
     merge,
     exclude: exclude.filter(Boolean),
@@ -174,21 +174,29 @@ function starCountsForTitles(
 }
 
 function main(): void {
-  const { email, remote, seed, dryRun, title, force, merge, exclude } = parseArgs(process.argv.slice(2));
+  const { email, remote, seed, dryRun, titles, force, merge, exclude } = parseArgs(
+    process.argv.slice(2),
+  );
   if (!existsSync(seed)) {
     console.error(`Seed not found: ${seed}`);
     process.exit(1);
   }
 
   let stars = loadStarSeedFile(seed);
-  if (title) {
-    stars = filterStarsByTitle(stars, title);
+  if (titles.length) {
+    const matched = new Map<string, (typeof stars)[number]>();
+    for (const title of titles) {
+      for (const star of filterStarsByTitle(stars, title)) {
+        matched.set(`${star.titleId}:${star.lineIndex}`, star);
+      }
+    }
+    stars = [...matched.values()];
     if (stars.length === 0) {
-      console.error(`No seed stars matched --title ${title}`);
+      console.error(`No seed stars matched --title ${titles.join(", ")}`);
       process.exit(1);
     }
   }
-  printCounts(stars, title ? `seed stars for --title ${title}` : "seed stars");
+  printCounts(stars, titles.length ? `seed stars for ${titles.length} title(s)` : "seed stars");
 
   if (dryRun && !remote) {
     console.log("Dry run (seed file only). Pass --remote --dry-run to preview prod skips.");

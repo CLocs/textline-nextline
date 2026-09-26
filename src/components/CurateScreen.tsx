@@ -82,11 +82,13 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     const stars = getStarsForTitle(entry.id);
     const starred = new Set<number>();
     const loved = new Set<number>();
+    const wikiquote = new Set<number>();
     for (const star of stars) {
       starred.add(star.lineIndex);
       if (star.loved) loved.add(star.lineIndex);
+      if (star.origin === "wikiquote") wikiquote.add(star.lineIndex);
     }
-    return { starred, loved };
+    return { starred, loved, wikiquote };
   }, [entry.id, revision]);
 
   const selectedSet = useMemo(() => new Set(selected), [selected]);
@@ -288,7 +290,9 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
       <div className="curate-header">
         <h2>Curate stars</h2>
         <p className="muted curate-meta">
-          {entry.title} · {starredCount} starred · {promptIndices.length} quiz lines
+          {entry.title} · {starredCount} starred
+          {starSets.wikiquote.size > 0 ? ` · ${starSets.wikiquote.size} from Wikiquote` : ""} ·{" "}
+          {promptIndices.length} quiz lines
         </p>
         <p className="curate-hint">
           Star lines for mini-games without playing through. Syncs to the cloud when the API is
@@ -389,6 +393,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
 
               const starred = starSets.starred.has(lineIndex);
               const loved = starSets.loved.has(lineIndex);
+              const fromWikiquote = starSets.wikiquote.has(lineIndex);
               const isSelected = selectedSet.has(lineIndex);
               const isFocused = highlightLine === lineIndex;
               const rowIndex = windowRange.start + visibleOffset;
@@ -460,6 +465,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                         </p>
                       ))}
                     <p className="curate-text">{line.text}</p>
+                    {fromWikiquote ? <span className="curate-origin">Wikiquote</span> : null}
                   </div>
                   <LazyLineSendControl titleId={entry.id} lineIndex={lineIndex} />
                 </CurateLineItem>
