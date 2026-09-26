@@ -95,6 +95,8 @@ describe("loadProtectedTitleIds", () => {
       "friday-1995",
       "the-simpsons---4x06---itchy-scratchy-the-movieen",
       "oceans-eleven-2001",
+      "rocknrolla-2008",
+      "the-lord-of-the-rings---the-fellowship-of-the-ring-2001",
     ]);
   });
 });

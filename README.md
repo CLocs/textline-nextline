@@ -497,19 +497,30 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 ### Spike: online quotes (e.g. IMDb) *(research)*
 
-**Idea:** Seed TLs from public quote pages (IMDb Quotes, Wikiquote, fan wikis, etc.) for titles we already have in `content/`, then fuzzy-match into `(titleId, lineIndex)` — same match step as Obsidian imports.
+**Idea:** Seed review lines from a **short allowlist** of quote pages, for catalog movies that are unstarred or have **fewer than 5 stars**, then fuzzy-match into `(titleId, lineIndex)` — same match step as Obsidian. A human still confirms before anything is starred. This is not an internet-wide search.
 
-**Why it might be hard:**
+**Allowlist (noise filter):**
 
-| Risk | Notes |
-|------|--------|
-| **ToS / scraping** | IMDb and similar sites generally disallow automated scraping; no friendly public quotes API for bulk use |
-| **Fragile HTML** | Selectors break; rate limits / bot detection |
-| **Quote ≠ transcript** | Online quotes are often cleaned, paraphrased, or misattributed — match rate to SRT lines may be low |
-| **Episode grain** | Movie quotes map cleaner than TV (which episode?) |
-| **Licensing** | Re-shipping scraped quote corpora in the product may be riskier than personal Obsidian notes |
+| Source | Use? | Why |
+|--------|------|-----|
+| **Wikiquote** (en) | Yes — first source | Film pages, public MediaWiki API, one page per title. Credits and taglines are easy to drop. |
+| **IMDb Quotes** | No for automation | Same idea as Wikiquote, but no quotes API. Their terms disallow scraping. Fine as a manual spot-check, not a client. |
+| Quote farms (BrainyQuote, AZQuotes, Goodreads quote lists, forum roundups) | No | Paraphrase, misattribution, and duplicate noise. |
+| Letterboxd / RT reviews | No | Opinion, not a line. |
 
-**Spike goal (time-box):** For 1–2 titles already in the library, manually or semi-automatically pull a small quote list → match against our lines → report hit rate and effort. Decide go / no-go before building a pipeline. Prefer sources with clearer reuse terms if any exist; treat IMDb as “interesting target,” not a committed dependency.
+**First look (Sep 2026):** Wikiquote `action=parse` for three catalog movies that are **not** in `content/stars-protected.json` (a local stand-in for “not already curated”; live “fewer than 5 stars” is a D1 count when this becomes a tool). Naive single-line contain, credits left in:
+
+| Film | Quote-ish lines | Hit a transcript line | Miss |
+|------|-----------------|------------------------|------|
+| Pulp Fiction | 387 | 38% | 240 |
+| Goodfellas | 204 | 38% | 127 |
+| The Big Lebowski | 342 | 43% | 195 |
+
+Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (“I always wanted to be a gangster”, “it really tied the room together”). Misses are credits, taglines, and quotes that stitch several subtitle cues into one sentence — the existing Readwise window match should pick up some of those. About two in five lines are usable **before** that, with a person dropping the rest.
+
+**Go, narrowly:** Wikiquote only, movies under 5 stars, match → Curate review, never auto-star or `stars-push`. Store our `lineIndex`, not a copy of their wording (pages are CC BY-SA if we republish the text). TV stays out until a page maps cleanly to one episode.
+
+**Not started:** a CLI, IMDb fetch, or applying seeds.
 
 **Fits with:** Obsidian → TL match pipeline (reuse fuzzy match + Curate review). Online sources are an alternate *input*, not a separate game feature.
 
@@ -891,7 +902,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Later — Chats quote replies** | Text replies under a quote card (thread-lite) | Parked — see [Chats → quote replies](#chats--quote-replies) |
 | **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
-| **3.6 — Online quotes spike** | Time-boxed pull from IMDb/Wikiquote/etc. → match hit-rate | Learn if external quotes are worth a real pipeline |
+| **3.6 — Online quotes spike** | Wikiquote only, movies under 5 stars, match then review | First look ~40% line hits on 3 films; IMDb not automated — see [spike](#spike-online-quotes-eg-imdb-research) |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
 | **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
