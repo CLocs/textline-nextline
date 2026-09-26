@@ -49,8 +49,8 @@ export function DailyHome({ onPlay }: Props) {
         </p>
       </div>
 
-      <div className="library-group">
-        <h3 className="library-group-heading">Today</h3>
+      <section className="panel home-section">
+        <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
         {cards === null ? (
           <p className="muted">Loading today’s three…</p>
         ) : cards.length === 0 ? (
@@ -82,7 +82,7 @@ export function DailyHome({ onPlay }: Props) {
             })}
           </ul>
         )}
-      </div>
+      </section>
     </>
   );
 }

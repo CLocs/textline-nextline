@@ -320,6 +320,23 @@ button {
   box-shadow: var(--shadow);
 }
 
+.home-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-section .library-group-heading:first-child,
+.home-section .library-groups > .library-group:first-child .library-group-heading {
+  margin-top: 0;
+}
+
+.daily-play-title {
+  margin: 0.1rem 0 0.85rem;
+  font-size: 1.85rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
 .home-top {
   display: flex;
   justify-content: space-between;

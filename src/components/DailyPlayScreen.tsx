@@ -155,10 +155,10 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
         <button type="button" className="button ghost back-link" onClick={onQuit}>
           ← Home
         </button>
-        <p className="muted">
-          Daily · {step + 1} of {cards.length}
-        </p>
       </div>
+      <h2 className="daily-play-title">
+        Daily · {step + 1} of {cards.length}
+      </h2>
 
       <p className="episode-label">{title.title}</p>
       <div className="play-prompt-row">
