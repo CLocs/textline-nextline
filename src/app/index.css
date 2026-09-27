@@ -320,6 +320,55 @@ button {
   box-shadow: var(--shadow);
 }
 
+.home-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-section .library-group-heading:first-child,
+.home-section .library-groups > .library-group:first-child .library-group-heading {
+  margin-top: 0;
+}
+
+.daily-fold-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.daily-fold-header .library-group-heading {
+  margin-bottom: 0;
+}
+
+.daily-folded-note,
+.daily-fold-header + .title-list,
+.daily-fold-header + .muted {
+  margin-top: 0.75rem;
+}
+
+.daily-folded-note {
+  margin-bottom: 0;
+}
+
+.daily-quote-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.daily-quote-row .title-card {
+  flex: 1;
+  min-width: 0;
+}
+
+.daily-play-title {
+  margin: 0.1rem 0 0.85rem;
+  font-size: 1.85rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
 .home-top {
   display: flex;
   justify-content: space-between;
@@ -580,6 +629,13 @@ button {
   100% {
     transform: scale(1) translateX(0);
   }
+}
+
+.sequence-label {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .episode-label {
@@ -1639,6 +1695,15 @@ code {
   gap: 0.35rem;
 }
 
+.curate-origin {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .curate-item.starred {
   border-color: var(--star-border);
   background: var(--star-bg);
@@ -1854,15 +1919,15 @@ code {
   }
 
   .app-shell.play-active {
-    padding: 0.65rem 0.65rem 1rem;
+    padding: 0.5rem 0.65rem 0.1rem;
   }
 
   .play-panel {
-    padding: 0.85rem;
+    padding: 0.65rem 0.7rem 0.2rem;
   }
 
   .play-toolbar {
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.4rem;
   }
 
   .history-toggle {
@@ -1906,7 +1971,7 @@ code {
   }
 
   .play-poster {
-    max-height: 5.5rem;
+    max-height: 7rem;
   }
 
   .prompt-text {

@@ -1,9 +1,13 @@
+export type StarOrigin = "mine" | "wikiquote";
+
 export type Star = {
   titleId: string;
   lineIndex: number;
   text: string;
   starredAt: string;
   loved: boolean;
+  /** mine = you starred it. wikiquote = imported for review. */
+  origin: StarOrigin;
 };
 
 type StarStore = {
@@ -25,6 +29,7 @@ function readStore(): StarStore {
       stars: parsed.stars.map((star) => ({
         ...star,
         loved: Boolean(star.loved),
+        origin: star.origin === "wikiquote" ? "wikiquote" : "mine",
       })),
     };
   } catch {
@@ -51,6 +56,13 @@ export function getStarsForTitle(titleId: string): Star[] {
 
 export function getStarredLineIndices(titleId: string): number[] {
   return getStarsForTitle(titleId).map((star) => star.lineIndex);
+}
+
+/** Stars you picked. Wikiquote imports stay out of the personal mini-game queue. */
+export function getMineLineIndices(titleId: string): number[] {
+  return getStarsForTitle(titleId)
+    .filter((star) => star.origin !== "wikiquote")
+    .map((star) => star.lineIndex);
 }
 
 export function getLovedLineIndices(titleId: string): number[] {
@@ -82,6 +94,7 @@ export function setStarLocal(titleId: string, lineIndex: number, text: string): 
     text,
     starredAt: new Date().toISOString(),
     loved: false,
+    origin: "mine",
   });
   writeStore(store);
 }
@@ -97,6 +110,7 @@ export function setLovedLocal(titleId: string, lineIndex: number, loved: boolean
   }
 
   star.loved = loved;
+  if (loved) star.origin = "mine";
   writeStore(store);
   return true;
 }
@@ -115,18 +129,20 @@ export function removeStarLocal(titleId: string, lineIndex: number): void {
 /** Merge server stars into local cache; sync loved flags for this title. */
 export function mergeRemoteStars(
   titleId: string,
-  remote: { lineIndex: number; loved: boolean }[],
+  remote: { lineIndex: number; loved: boolean; origin?: StarOrigin }[],
 ): void {
   const store = readStore();
-  const remoteMap = new Map(remote.map((s) => [s.lineIndex, s.loved]));
+  const remoteMap = new Map(remote.map((s) => [s.lineIndex, s]));
   const existing = new Set(
     store.stars.filter((star) => star.titleId === titleId).map((star) => star.lineIndex),
   );
 
   for (const star of store.stars) {
     if (star.titleId !== titleId) continue;
-    if (remoteMap.has(star.lineIndex)) {
-      star.loved = remoteMap.get(star.lineIndex)!;
+    const remoteStar = remoteMap.get(star.lineIndex);
+    if (remoteStar) {
+      star.loved = remoteStar.loved;
+      star.origin = remoteStar.origin === "wikiquote" ? "wikiquote" : "mine";
     }
   }
 
@@ -138,6 +154,7 @@ export function mergeRemoteStars(
       text: "",
       starredAt: new Date().toISOString(),
       loved: entry.loved,
+      origin: entry.origin === "wikiquote" ? "wikiquote" : "mine",
     });
     existing.add(entry.lineIndex);
   }

@@ -10,6 +10,7 @@ import {
 } from "./api.js";
 import {
   getLovedLineIndices,
+  getMineLineIndices,
   getStarredLineIndices,
   isLoved,
   isStarred,
@@ -104,6 +105,7 @@ export async function toggleLove(titleId: string, lineIndex: number): Promise<bo
 
 export {
   getLovedLineIndices,
+  getMineLineIndices,
   getStarredLineIndices,
   isLoved,
   isStarred,

@@ -1,12 +1,14 @@
 {
-  "updatedAt": "2026-09-18T23:44:21.712Z",
-  "directory": "G:\\videos\\movies",
+  "updatedAt": "2026-09-27T02:28:16.830Z",
+  "directory": "G:\\videos\\movies + H:\\videos\\movies",
   "matched": [
     {
       "titleId": "baby-driver-2017",
       "title": "Baby Driver",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Baby Driver (2017).mkv"
+      ]
     },
     {
       "titleId": "back-to-the-future-1985",
@@ -32,8 +34,10 @@
     {
       "titleId": "barbie-2023",
       "title": "Barbie",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Barbie (2023).mkv"
+      ]
     },
     {
       "titleId": "batman-begins-2005",
@@ -41,6 +45,14 @@
       "status": "ok",
       "files": [
         "Batman Begins (2005).mp4"
+      ]
+    },
+    {
+      "titleId": "days-of-thunder-1990",
+      "title": "Days Of Thunder",
+      "status": "ok",
+      "files": [
+        "Days Of Thunder (1990).mp4"
       ]
     },
     {
@@ -54,8 +66,18 @@
     {
       "titleId": "friday-1995",
       "title": "Friday",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Friday (1995).mp4"
+      ]
+    },
+    {
+      "titleId": "goldeneye-1995",
+      "title": "GoldenEye",
+      "status": "ok",
+      "files": [
+        "Golden Eye (1995).mp4"
+      ]
     },
     {
       "titleId": "gone-in-sixty-seconds-2000",
@@ -118,6 +140,14 @@
       ]
     },
     {
+      "titleId": "my-cousin-vinny-1992",
+      "title": "My Cousin Vinny",
+      "status": "ok",
+      "files": [
+        "My Cousin Vinny (1992).mkv"
+      ]
+    },
+    {
       "titleId": "o-brother-where-art-thou-2000",
       "title": "O Brother Where Art Thou",
       "status": "ok",
@@ -128,8 +158,10 @@
     {
       "titleId": "oceans-eleven-2001",
       "title": "Oceans Eleven",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Oceans.Eleven.2001.1080p.BluRay.H264.AAC-RARBG.mp4"
+      ]
     },
     {
       "titleId": "oceans-thirteen-2007",
@@ -146,6 +178,24 @@
       "files": [
         "Payback (1999).mp4"
       ]
+    },
+    {
+      "titleId": "pirates-of-the-caribbean-at-worlds-end-2007",
+      "title": "Pirates of the Caribbean At World's End",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "pirates-of-the-caribbean-dead-mans-chest-2006",
+      "title": "Pirates of the Caribbean Dead Man's Chest",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "pirates-of-the-caribbean-the-curse-of-the-black-pearl-2003",
+      "title": "Pirates of the Caribbean The Curse of the Black Pearl",
+      "status": "missing",
+      "files": []
     },
     {
       "titleId": "pulp-fiction-1994",
@@ -173,6 +223,12 @@
     {
       "titleId": "snatch-2000",
       "title": "Snatch",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "speed-1994",
+      "title": "Speed",
       "status": "missing",
       "files": []
     },
@@ -260,6 +316,27 @@
       "status": "ok",
       "files": [
         "The Wolf of Wall Street [2013] 1080p BluRay AAC x264-tomcat12[ETRG].mp4"
+      ]
+    },
+    {
+      "titleId": "top-gun-1986",
+      "title": "Top Gun",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "top-gun-maverick-2022",
+      "title": "Top Gun Maverick",
+      "status": "missing",
+      "files": []
+    },
+    {
+      "titleId": "wedding-crashers-2005",
+      "title": "Wedding Crashers",
+      "status": "split",
+      "files": [
+        "Wedding Crashers (2005) Part1.avi",
+        "Wedding Crashers (2005) Part2.avi"
       ]
     },
     {
@@ -470,12 +547,6 @@
     },
     {
       "name": "Total Recall (2012).avi"
-    },
-    {
-      "name": "Wedding Crashers (2005) Part1.avi"
-    },
-    {
-      "name": "Wedding Crashers (2005) Part2.avi"
     },
     {
       "name": "Wreck it Ralph (2012).mp4"

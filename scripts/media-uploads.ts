@@ -19,48 +19,65 @@ const defaultCoverage = join(packageRoot, "content", "stills-coverage.json");
 
 function usage(): never {
   console.log(`Usage:
-  npm run content:uploads -- [--dir G:\\videos\\movies] [--preview inbox/stills-preview]
+  npm run content:uploads -- [--dir G:\\videos\\movies] [--dir H:\\videos\\movies] [--preview inbox/stills-preview]
 
 Scans local movie files against content/catalog.json and counts quote stills
-in inbox/stills-preview. Writes content/uploads.json, content/uploads.md, and
-content/stills-coverage.json.`);
+in inbox/stills-preview. Repeat --dir to union folders (same filename once).
+Writes content/uploads.json, content/uploads.md, and content/stills-coverage.json.`);
   process.exit(1);
 }
 
 function parseArgs(argv: string[]): {
-  dir: string;
+  dirs: string[];
   preview: string;
   uploadsOut: string;
   coverageOut: string;
 } {
-  let dir = defaultDir;
+  const dirs: string[] = [];
   let preview = defaultPreview;
   let uploadsOut = defaultUploads;
   let coverageOut = defaultCoverage;
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
-    if (arg === "--dir") dir = argv[++i] ?? dir;
-    else if (arg === "--preview") preview = argv[++i] ?? preview;
+    if (arg === "--dir") {
+      const value = argv[++i];
+      if (value) dirs.push(value);
+    } else if (arg === "--preview") preview = argv[++i] ?? preview;
     else if (arg === "--out") uploadsOut = argv[++i] ?? uploadsOut;
     else if (arg === "--coverage-out") coverageOut = argv[++i] ?? coverageOut;
     else if (arg === "--help" || arg === "-h") usage();
   }
   return {
-    dir: resolve(dir),
+    dirs: (dirs.length ? dirs : [defaultDir]).map((dir) => resolve(dir)),
     preview: resolve(preview),
     uploadsOut: resolve(uploadsOut),
     coverageOut: resolve(coverageOut),
   };
 }
 
+function listUniqueFilenames(dirs: string[]): string[] {
+  const seen = new Set<string>();
+  const filenames: string[] = [];
+  for (const dir of dirs) {
+    for (const name of listVideoFilenames(dir)) {
+      const key = name.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      filenames.push(name);
+    }
+  }
+  filenames.sort((a, b) => a.localeCompare(b));
+  return filenames;
+}
+
 function main(): void {
   const args = parseArgs(process.argv.slice(2));
   const catalog = loadCatalog();
-  const filenames = listVideoFilenames(args.dir);
+  const filenames = listUniqueFilenames(args.dirs);
   const { matched, unmatched } = matchUploadsToCatalog(filenames, catalog.titles);
   const snapshot: UploadsSnapshot = {
     updatedAt: new Date().toISOString(),
-    directory: args.dir,
+    directory: args.dirs.join(" + "),
     matched,
     unmatched,
   };

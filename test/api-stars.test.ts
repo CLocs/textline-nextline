@@ -21,6 +21,7 @@ type Row = {
   player_id: string;
   starred_at: string;
   loved: number;
+  origin?: string;
 };
 
 function createMockDb(initial: Row[] = []) {
@@ -57,7 +58,8 @@ function createMockDb(initial: Row[] = []) {
                   });
                 }
               } else if (sql.includes("UPDATE stars SET loved")) {
-                const [loved, titleId, lineIndex, playerId] = args as [
+                const [loved, , titleId, lineIndex, playerId] = args as [
+                  number,
                   number,
                   string,
                   number,
@@ -69,7 +71,10 @@ function createMockDb(initial: Row[] = []) {
                     r.line_index === lineIndex &&
                     r.player_id === playerId,
                 );
-                if (row) row.loved = loved;
+                if (row) {
+                  row.loved = loved;
+                  if (loved === 1) row.origin = "mine";
+                }
               } else if (sql.includes("DELETE FROM stars")) {
                 const [titleId, lineIndex, playerId] = args as [string, number, string];
                 const index = rows.findIndex(
@@ -103,11 +108,15 @@ function createMockDb(initial: Row[] = []) {
               return null;
             },
             async all<T>() {
-              if (sql.includes("SELECT line_index, loved FROM stars") && sql.includes("player_id")) {
+              if (sql.includes("SELECT line_index, loved") && sql.includes("player_id")) {
                 const [titleId, playerId] = args as [string, string];
                 const results = rows
                   .filter((row) => row.title_id === titleId && row.player_id === playerId)
-                  .map((row) => ({ line_index: row.line_index, loved: row.loved }))
+                  .map((row) => ({
+                    line_index: row.line_index,
+                    loved: row.loved,
+                    origin: row.origin ?? "mine",
+                  }))
                   .sort((a, b) => a.line_index - b.line_index);
                 return { results: results as T[] };
               }
@@ -187,7 +196,9 @@ describe("star helpers", () => {
   it("stores and removes stars", async () => {
     const { db } = createMockDb();
     await putStar(db, PLAYER_ID, { titleId: "ep", lineIndex: 2 });
-    expect(await fetchMyStars(db, PLAYER_ID, "ep")).toEqual([{ lineIndex: 2, loved: false }]);
+    expect(await fetchMyStars(db, PLAYER_ID, "ep")).toEqual([
+      { lineIndex: 2, loved: false, origin: "mine" },
+    ]);
     await deleteStar(db, PLAYER_ID, { titleId: "ep", lineIndex: 2 });
     expect(await fetchMyStars(db, PLAYER_ID, "ep")).toEqual([]);
   });
@@ -268,9 +279,10 @@ describe("handleRequest", () => {
       env,
     );
     expect(await mine.json()).toEqual({
-      stars: [{ lineIndex: 4, loved: false }],
+      stars: [{ lineIndex: 4, loved: false, origin: "mine" }],
       lineIndices: [4],
       lovedIndices: [],
+      wikiquoteIndices: [],
     });
 
     const del = await handleRequest(

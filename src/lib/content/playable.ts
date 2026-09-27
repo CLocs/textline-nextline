@@ -22,6 +22,20 @@ export function isPlayableLine(line: Line): boolean {
   return !isJunkLine(line);
 }
 
+/** Karaoke / soundtrack captions — skip for stills (not for the quiz). */
+export function isLyricLine(line: Line): boolean {
+  return /[♪♫]/.test(line.text);
+}
+
+/** Cue worth a quote still: playable dialogue, not lyrics. */
+export function isStillCueLine(line: Line): boolean {
+  return isPlayableLine(line) && !isLyricLine(line);
+}
+
+export function stillCueIndices(source: LineSource): number[] {
+  return source.lines.filter(isStillCueLine).map((line) => line.index);
+}
+
 /** Dialogue remains after stripping bracketed SDH and hash markers. */
 export function substantiveText(text: string): string {
   return text

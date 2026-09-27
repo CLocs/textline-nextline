@@ -353,7 +353,7 @@ Live D1 vs `stars-seed.json` for `dascolin@gmail.com`. **Protected** = live coun
 
 ### Out of scope for 2.6
 
-- Every-cue extract, git-lfs, shipping video, random poster rotation
+- git-lfs, shipping video, random poster rotation
 - Player reports (wrong still / request still / split line) — see [Line / still feedback](#line--still-feedback)
 - Weighted popular (2.5 leftover)
 - Rooms / realtime (Phase 2)
@@ -518,9 +518,9 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (“I always wanted to be a gangster”, “it really tied the room together”). Misses are credits, taglines, and quotes that stitch several subtitle cues into one sentence — the existing Readwise window match should pick up some of those. About two in five lines are usable **before** that, with a person dropping the rest.
 
-**Go, narrowly:** Wikiquote only, movies under 5 stars, match → Curate review, never auto-star or `stars-push`. Store our `lineIndex`, not a copy of their wording (pages are CC BY-SA if we republish the text). TV stays out until a page maps cleanly to one episode.
+**Shipped, one film:** `npm run content:wikiquote -- --title <id> --vault <readwise-dir>` keeps Dialogue and character sections, drops taglines, cast, and “quotes about,” and matches with the same window matcher as Readwise. It unions into `content/stars-seed.json`. A vault line keeps the line when both sources hit it. `content:stars-push --title <id> --merge` inserts missing rows for that account only (`ON CONFLICT DO NOTHING`). Existing stars and loved flags stay. The lines show up starred in that account’s Curate, where misses get unstarred. After that review, add the title to `stars-protected.json` so a later merge does not put those lines back. Store our `lineIndex`, not a copy of their wording (pages are CC BY-SA if we republish the text). The Simpsons, SpongeBob, and It's Always Sunny use each season page, matched by episode title onto the catalog episodes we have.
 
-**Not started:** a CLI, IMDb fetch, or applying seeds.
+**Lebowski trial (Sep 2026):** 280 quotes considered, 211 matched (63 exact, 101 contains, 47 window). One vault line (`Shut the fuck up, Donny!`) was already a star and stayed. 210 new stars were inserted for `dascolin@gmail.com`. Live count went from 1 to 211. Nothing was deleted.
 
 **Fits with:** Obsidian → TL match pipeline (reuse fuzzy match + Curate review). Online sources are an alternate *input*, not a separate game feature.
 
@@ -618,11 +618,12 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 Starred stills, posters, R2, and the mini-game still→poster fallback shipped in [Phase 2.6](#phase-26--quote-stills-r2-catalog-ops-after-25). Library/Home title cards show a small **cover still** (lowest line index in [`content/stills-coverage.json`](content/stills-coverage.json) `covers`; no poster fallback on the card). Still parked:
 
-- Every-cue extract (too heavy; starred landmarks first)
 - git-lfs / checking JPEGs into the repo
 - Shipping video, not stills
 - Random poster rotation
 - Player **wrong still** / **request still** reports (see [Line / still feedback](#line--still-feedback))
+
+**Every-cue extract** (after sync is eyeballed): dialogue stills for every playable line, skipping SDH/junk/lyrics. Movies first; TV when an episode is starred. CLI: `npm run content:stills -- --title TITLE_ID --playable`. See [stills-extract skill](.cursor/skills/stills-extract/SKILL.md).
 
 **Legal:** stills from your own files for a personal/curated app; don’t scrape streaming services.
 
@@ -902,11 +903,11 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Later — Chats quote replies** | Text replies under a quote card (thread-lite) | Parked — see [Chats → quote replies](#chats--quote-replies) |
 | **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
-| **3.6 — Online quotes spike** | Wikiquote only, movies under 5 stars, match then review | First look ~40% line hits on 3 films; IMDb not automated — see [spike](#spike-online-quotes-eg-imdb-research) |
+| **3.6 — Online quotes** | Wikiquote dialogue merged into your stars, then Curate | Lebowski: 210 new lines, 1 existing star kept — see [spike](#spike-online-quotes-eg-imdb-research) |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
 | **4.5 — Group TLs** | Login (or durable identity) + pair/triple/group popularity | “Our” most-liked TLs among a watching set |
 | **Later — Teach + curator score** | ✅ Teach skip dialog + 2s illuminate; curator weighting still parked | Learning mode; reward curation without farming |
-| **Later — Visuals leftovers** | Every-cue extract, git-lfs, shipping video | After 2.6 — see [Scene visuals](#scene-visuals-leftover-from-26) |
+| **Later — Visuals leftovers** | git-lfs, shipping video | After 2.6 — every-cue stills: [Scene visuals](#scene-visuals-leftover-from-26) |
 | **Later — Watch-list connect** | Letterboxd / Trakt likes → suggestions + requests | “Play something I’d actually watch” |
 | **Later — Integrations** | Letterboxd, Flickchart, Netflix/Amazon history spike | Taste signals for requests — see [Integrations](#integrations) |
 | **Later — MCQ similarity** | ✅ Drop look-alike distractors (≥60% Dice/containment) | Wrong answers that aren’t the same joke twice |

@@ -4,6 +4,7 @@ import {
   buildMiniGameQueue,
   chronologicalPromptQueue,
   findStarStreaks,
+  sequenceLabel,
   getValidPromptIndices,
 } from "../src/lib/game/miniGame.js";
 
@@ -125,6 +126,23 @@ describe("findStarStreaks", () => {
     expect(findStarStreaks([1, 2, 3, 4], [1, 2, 4])).toEqual([[1, 2]]);
     expect(findStarStreaks([1, 2, 3, 4], [1, 2, 3])).toEqual([[1, 2, 3]]);
     expect(findStarStreaks([1, 2, 3, 4], [1, 3])).toEqual([]);
+  });
+});
+
+describe("sequenceLabel", () => {
+  const valid = [1, 2, 3, 4, 10];
+
+  it("numbers a back-to-back run and skips a lone question", () => {
+    const queue = [1, 2, 3, 10];
+    expect(sequenceLabel(queue, 1, valid)).toBe("Sequence: 1 of 3");
+    expect(sequenceLabel(queue, 2, valid)).toBe("Sequence: 2 of 3");
+    expect(sequenceLabel(queue, 3, valid)).toBe("Sequence: 3 of 3");
+    expect(sequenceLabel(queue, 10, valid)).toBeNull();
+  });
+
+  it("does not join lines that skip a prompt in between", () => {
+    expect(sequenceLabel([1, 2, 4], 2, valid)).toBe("Sequence: 2 of 2");
+    expect(sequenceLabel([1, 2, 4], 4, valid)).toBeNull();
   });
 });
 

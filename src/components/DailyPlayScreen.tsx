@@ -5,6 +5,7 @@ import { rotateCards, type DailyLine } from "../lib/game/dailyPick";
 import { loadTodaysCards } from "../lib/game/dailyLoad";
 import { completeDaily } from "../lib/game/dailyClient";
 import { PosterArt } from "./PosterArt";
+import { LineSendControl } from "./LineSendControl";
 
 const CHOICE_LABELS = ["A", "B", "C", "D"];
 const CORRECT_HOLD_MS = 2000;
@@ -155,10 +156,10 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
         <button type="button" className="button ghost back-link" onClick={onQuit}>
           ← Home
         </button>
-        <p className="muted">
-          Daily · {step + 1} of {cards.length}
-        </p>
       </div>
+      <h2 className="daily-play-title">
+        Daily · {step + 1} of {cards.length}
+      </h2>
 
       <p className="episode-label">{title.title}</p>
       <div className="play-prompt-row">
@@ -169,7 +170,12 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
           className="play-poster"
         />
         <div className="prompt-block">
-          <p className="prompt-label">Current line</p>
+          <div className="prompt-header">
+            <p className="prompt-label">Current line</p>
+            <div className="prompt-header-actions">
+              <LineSendControl titleId={title.id} lineIndex={question.promptLineIndex} />
+            </div>
+          </div>
           <blockquote className="prompt-text">
             {question.leadIn.map((line) => (
               <p key={line.lineIndex} className="prompt-lead-in">

@@ -3,9 +3,11 @@ name: stills-extract
 description: >-
   Remuxes a local movie or show file, extracts quote stills with ffmpeg at
   line startMs, records per-title offset/PAL timeScale, then batches D1
-  starred frames. Use when the user says "extract stills", "stills for",
-  "quote frames", "run stills", "stills extract", "stills studio", "review
-  stills", or points at a file on G:\videos\movies or G:\videos\shows.
+  starred frames or remaining playable cues (skip SDH/lyrics). Use when the
+  user says "extract stills", "stills for", "quote frames", "run stills",
+  "stills extract", "stills studio", "review stills", "every cue",
+  "all frames", "playable stills", or points at a file on G:\videos\movies
+  or G:\videos\shows.
 ---
 
 # Stills extract
@@ -60,9 +62,17 @@ CLI below remains the fallback for **movies** and for one-off show debugging.
 
 8. **Record** in `content/stills-sync.json` (`offsetMs`, optional `timeScale`, `fps`, `durationSec`, `source`, `note`). Re-extract the handful **without** `--offset-ms` / `--time-scale` so the file is the source of truth.
 
-9. **Batch** only after they confirm. Pass the full D1 index list as `--indices` (no `--email` on this command).
+9. **Batch starred** only after they confirm. Pass the full D1 index list as `--indices` (no `--email` on this command).
 
-10. **Push to R2** (production `/stills`). Skip titles that have not been eyeballed:
+10. **Every-cue (playable)** after sync is eyeballed — remaining dialogue frames so a later star already has a JPEG. Skip SDH, junk, and lyrics (`♪`). Do **not** every-cue TV unless the episode is already synced. Skip existing files:
+
+    ```bash
+    npm run content:stills -- --title TITLE_ID --playable
+    ```
+
+    Uses `stills-sync.json` `source` when that file is still on disk. Prefer this for movies the owner actually plays.
+
+11. **Push to R2** (production `/stills`). Skip titles that have not been eyeballed:
 
     ```bash
     npm run content:stills:push -- --title TITLE_ID
@@ -70,7 +80,7 @@ CLI below remains the fallback for **movies** and for one-off show debugging.
 
     Goes live on the next Pages deploy. See [docs/DEPLOY.md](../../../docs/DEPLOY.md).
 
-11. **Report.** Preview folder, fps, scale, star count, R2 upload count.
+12. **Report.** Preview folder, fps, scale, star count, R2 upload count.
 
 ## Where things live
 
@@ -82,9 +92,10 @@ flowchart TD
   handful[6_starred_stills]
   eyeball[User_review]
   sync[stills-sync.json]
-  batch[All_D1_stars]
+  batch[Starred_D1]
+  playable[Playable_cues]
   r2[R2_textline_stills]
-  movie --> remux --> probe --> handful --> eyeball --> sync --> batch --> r2
+  movie --> remux --> probe --> handful --> eyeball --> sync --> batch --> playable --> r2
 ```
 
 | Store | Commit? |
@@ -98,7 +109,7 @@ flowchart TD
 
 **Shows:** use Catalog Ops → Stills. Remaining Simpsons on disk (S4E3 onward, then S5–S7) inherit −57s. S4E1/E2 already on R2. Do not auto-R2 from chat.
 
-**Movies:** paused so the user can eyeball each handful vs the quote, then **batch that title** and R2-push. Do not batch/R2 a title until they confirm it. Work title-by-title.
+**Movies:** every-cue (`--playable`) for top-played titles that already have eyeballed sync. Skip existing JPEGs. Do not auto-R2 from chat until they ask.
 
 **Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81), Django (scale 1, 44), Batman Begins (scale 1, 79), The Gentlemen (mid-cue, 122), Matrix (scale 1, 106), Kamp Krusty S4E1 (offset −57s, 10), **Streetcar Named Marge S4E2 (offset −57s + late nudges, 16)**. Re-run Empire if early cues slip.
 

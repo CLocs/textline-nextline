@@ -61,6 +61,10 @@ const MEDIA_ALIASES: { catalogId: string; needles: RegExp[] }[] = [
     catalogId: "star-wars-episode-vi-return-of-the-jedi-1983",
     needles: [/\breturn of the jedi\b/i, /\bepisode\s*vi\b/i, /\bepisode\s*6\b/i],
   },
+  {
+    catalogId: "goldeneye-1995",
+    needles: [/\bgolden\s*eye\b/i],
+  },
 ];
 
 export function parseMediaFilename(name: string): MediaFileHint {

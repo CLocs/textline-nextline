@@ -3,9 +3,12 @@ export type StarBody = {
   lineIndex: number;
 };
 
+export type StarOrigin = "mine" | "wikiquote";
+
 export type MyStar = {
   lineIndex: number;
   loved: boolean;
+  origin: StarOrigin;
 };
 
 export type PopularStar = {
@@ -94,11 +97,13 @@ export async function setLoved(
     }
   }
 
+  const lovedFlag = body.loved ? 1 : 0;
   await db
     .prepare(
-      `UPDATE stars SET loved = ? WHERE title_id = ? AND line_index = ? AND player_id = ?`,
+      `UPDATE stars SET loved = ?, origin = CASE WHEN ? = 1 THEN 'mine' ELSE origin END
+       WHERE title_id = ? AND line_index = ? AND player_id = ?`,
     )
-    .bind(body.loved ? 1 : 0, body.titleId, body.lineIndex, playerId)
+    .bind(lovedFlag, lovedFlag, body.titleId, body.lineIndex, playerId)
     .run();
 
   return { ok: true };
@@ -111,16 +116,17 @@ export async function fetchMyStars(
 ): Promise<MyStar[]> {
   const result = await db
     .prepare(
-      `SELECT line_index, loved FROM stars
+      `SELECT line_index, loved, origin FROM stars
        WHERE title_id = ? AND player_id = ?
        ORDER BY line_index ASC`,
     )
     .bind(titleId, playerId)
-    .all<{ line_index: number; loved: number }>();
+    .all<{ line_index: number; loved: number; origin: string | null }>();
 
   return (result.results ?? []).map((row) => ({
     lineIndex: row.line_index,
     loved: Number(row.loved) === 1,
+    origin: row.origin === "wikiquote" ? "wikiquote" : "mine",
   }));
 }
 

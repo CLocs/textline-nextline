@@ -1,19 +1,21 @@
 # Local movie uploads
 
-Scanned `G:/videos/movies` against the catalog. Split encodes (Part1/Part2) are listed together. Unmatched files are on disk but not in `content/titles/`.
+Scanned `G:/videos/movies + H:/videos/movies` against the catalog. Split encodes (Part1/Part2) are listed together. Unmatched files are on disk but not in `content/titles/`.
 
-Updated: 2026-09-18
+Updated: 2026-09-27
 
 | Title | Catalog | Files |
 |-------|---------|-------|
-| Baby Driver | [ ] missing | — |
+| Baby Driver | [x] | Baby Driver (2017).mkv |
 | Back to the Future | [x] split | Back to the Future (1985) 1080p.mp4<br>Back to the Future I  (1985).mp4 |
 | Back to the Future Part II | [ ] missing | — |
 | Back to the Future Part III | [ ] missing | — |
-| Barbie | [ ] missing | — |
+| Barbie | [x] | Barbie (2023).mkv |
 | Batman Begins | [x] | Batman Begins (2005).mp4 |
+| Days Of Thunder | [x] | Days Of Thunder (1990).mp4 |
 | Django Unchained | [x] | Django Unchained (2012).mkv |
-| Friday | [ ] missing | — |
+| Friday | [x] | Friday (1995).mp4 |
+| GoldenEye | [x] | Golden Eye (1995).mp4 |
 | Gone in Sixty Seconds | [x] | Gone in Sixty Seconds (2000).avi |
 | Goodfellas | [x] | Goodfellas (1990).avi |
 | Inglourious Basterds | [x] | Inglourious Basterds (2009).mkv |
@@ -22,14 +24,19 @@ Updated: 2026-09-18
 | Lord of the Rings The Return of the King | [x] | The Lord of the Rings The Return of the King Extended (2003).mkv |
 | Lord Of The Rings The Two Towers | [x] | The Lord of the Rings The Two Towers Extended (2002).mkv |
 | Matrix | [x] | The Matrix (1999).mp4 |
+| My Cousin Vinny | [x] | My Cousin Vinny (1992).mkv |
 | O Brother Where Art Thou | [x] | O Brother, Where Art Thou (2000).avi |
-| Oceans Eleven | [ ] missing | — |
+| Oceans Eleven | [x] | Oceans.Eleven.2001.1080p.BluRay.H264.AAC-RARBG.mp4 |
 | Oceans Thirteen | [x] | Ocean's 13 (2007).avi |
 | Payback | [x] | Payback (1999).mp4 |
+| Pirates of the Caribbean At World's End | [ ] missing | — |
+| Pirates of the Caribbean Dead Man's Chest | [ ] missing | — |
+| Pirates of the Caribbean The Curse of the Black Pearl | [ ] missing | — |
 | Pulp Fiction | [x] split | Pulp Fiction (1994) Part1.avi<br>Pulp Fiction (1994) Part2.avi |
 | Reservoir Dogs | [ ] missing | — |
 | RocknRolla | [x] | RocknRolla (2008).avi |
 | Snatch | [ ] missing | — |
+| Speed | [ ] missing | — |
 | Star Wars | [x] | Star Wars Episode IV - A New Hope.avi |
 | Star Wars Episode VI Return of the Jedi | [x] | Star Wars Episode VI - Return Of The Jedi.avi |
 | Terminator 2 Judgment Day | [ ] missing | — |
@@ -42,6 +49,9 @@ Updated: 2026-09-18
 | The Man from UNCLE | [ ] missing | — |
 | The Ministry of Ungentlemanly Warfare | [ ] missing | — |
 | The Wolf of Wall Street | [x] | The Wolf of Wall Street [2013] 1080p BluRay AAC x264-tomcat12[ETRG].mp4 |
+| Top Gun | [ ] missing | — |
+| Top Gun Maverick | [ ] missing | — |
+| Wedding Crashers | [x] split | Wedding Crashers (2005) Part1.avi<br>Wedding Crashers (2005) Part2.avi |
 | You Got Served | [ ] missing | — |
 
 ## Unmatched files
@@ -115,6 +125,4 @@ Updated: 2026-09-18
 | Thor 2 The Dark World (2013).mp4 |
 | Tinker Tailor Soldier Spy (2011).avi |
 | Total Recall (2012).avi |
-| Wedding Crashers (2005) Part1.avi |
-| Wedding Crashers (2005) Part2.avi |
 | Wreck it Ralph (2012).mp4 |

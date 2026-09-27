@@ -288,8 +288,10 @@ export function LibraryScreen({
     );
   }
 
+  const chatsHasUnread = chatsUnread.quote > 0 || chatsUnread.text > 0;
+
   return (
-    <section className="panel">
+    <div className="home-stack">
       <DailyHome onPlay={onPlayDaily} />
 
       <PwaInstallHelper />
@@ -299,61 +301,57 @@ export function LibraryScreen({
           No titles imported yet. Run <code>npm run import:all</code>.
         </p>
       ) : (
-        <div className="library-groups">
-          <div className="library-group">
-            <div className="section-header chats-home-header">
-              <div className="chats-home-title">
-                <h3 className="library-group-heading">Chats</h3>
-                {chatsApiReady ? (
+        <>
+          {chatsApiReady && chatsHasUnread && (
+            <section className="panel home-section">
+              <div className="section-header chats-home-header">
+                <div className="chats-home-title">
+                  <h3 className="library-group-heading">Chats</h3>
                   <p className="chats-home-unread muted">
-                    {chatsUnread.quote > 0 || chatsUnread.text > 0 ? (
-                      <span className="chats-dual-unread chats-home-dual">
-                        {chatsUnread.quote > 0 ? (
-                          <span
-                            className="chats-unread-chip"
-                            title={`${chatsUnread.quote} unread quotes`}
-                          >
-                            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
-                              <path
-                                fill="currentColor"
-                                d="M3.5 3.5h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H3.5V3.5zm6 0h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H9.5V3.5z"
-                              />
-                            </svg>
-                            {chatsUnread.quote}
-                            <span className="sr-only"> unread quotes</span>
-                          </span>
-                        ) : null}
-                        {chatsUnread.text > 0 ? (
-                          <span
-                            className="chats-unread-chip is-text"
-                            title={`${chatsUnread.text} unread messages`}
-                          >
-                            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
-                              <path
-                                fill="currentColor"
-                                d="M1.5 3.2h13v9.6h-13V3.2zm1.2 1.3 5.3 3.6 5.3-3.6v-.1H2.7zm0 1.5v5.5h10.6V6l-5.3 3.5L2.7 6z"
-                              />
-                            </svg>
-                            {chatsUnread.text}
-                            <span className="sr-only"> unread messages</span>
-                          </span>
-                        ) : null}
-                      </span>
-                    ) : (
-                      "0 unread. You're up to date."
-                    )}
+                    <span className="chats-dual-unread chats-home-dual">
+                      {chatsUnread.quote > 0 ? (
+                        <span
+                          className="chats-unread-chip"
+                          title={`${chatsUnread.quote} unread quotes`}
+                        >
+                          <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                            <path
+                              fill="currentColor"
+                              d="M3.5 3.5h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H3.5V3.5zm6 0h3.2v4.2c0 2.1-1.1 3.4-3.2 3.9V9.8c.9-.3 1.4-.9 1.4-2H9.5V3.5z"
+                            />
+                          </svg>
+                          {chatsUnread.quote}
+                          <span className="sr-only"> unread quotes</span>
+                        </span>
+                      ) : null}
+                      {chatsUnread.text > 0 ? (
+                        <span
+                          className="chats-unread-chip is-text"
+                          title={`${chatsUnread.text} unread messages`}
+                        >
+                          <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                            <path
+                              fill="currentColor"
+                              d="M1.5 3.2h13v9.6h-13V3.2zm1.2 1.3 5.3 3.6 5.3-3.6v-.1H2.7zm0 1.5v5.5h10.6V6l-5.3 3.5L2.7 6z"
+                            />
+                          </svg>
+                          {chatsUnread.text}
+                          <span className="sr-only"> unread messages</span>
+                        </span>
+                      ) : null}
+                    </span>
                   </p>
-                ) : null}
+                </div>
+                <button type="button" className="button ghost" onClick={onOpenChats}>
+                  See all
+                </button>
               </div>
-              <button type="button" className="button ghost" onClick={onOpenChats}>
-                See all
-              </button>
-            </div>
-            <ChatsList compact onOpenDm={onOpenDm} onOpenGroup={onOpenGroup} />
-          </div>
+              <ChatsList compact onOpenDm={onOpenDm} onOpenGroup={onOpenGroup} />
+            </section>
+          )}
 
           {parallelInbox.length > 0 && (
-            <div className="library-group">
+            <section className="panel home-section">
               <h3 className="library-group-heading">Parallel rewrites</h3>
               <ul className="inbox-line-list">
                 {parallelInbox
@@ -366,12 +364,14 @@ export function LibraryScreen({
                     </li>
                   ))}
               </ul>
-            </div>
+            </section>
           )}
 
+          <section className="panel home-section">
+            <div className="library-groups">
           {recent.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">Your recent</h3>
+              <h3 className="library-group-heading">Your Recent</h3>
               <ul className="title-list">
                 {recent.map((entry) => (
                   <li key={entry.id}>
@@ -390,7 +390,7 @@ export function LibraryScreen({
 
           {yours.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">Your top played</h3>
+              <h3 className="library-group-heading">Your Top Played</h3>
               <ul className="title-list">
                 {yours.map(({ entry, playCount }) => (
                   <li key={entry.id}>
@@ -409,7 +409,7 @@ export function LibraryScreen({
 
           {playedMovies.length > 0 && (
             <div className="library-group">
-              <h3 className="library-group-heading">Top movies · everyone</h3>
+              <h3 className="library-group-heading">Top Movies - Everyone</h3>
               <ul className="title-list">
                 {playedMovies.map(({ entry, playCount }) => (
                   <li key={entry.id}>
@@ -456,6 +456,9 @@ export function LibraryScreen({
             </p>
           )}
 
+            </div>
+          </section>
+
           <div className="home-browse-row">
             <button
               type="button"
@@ -465,8 +468,8 @@ export function LibraryScreen({
               Browse full library
             </button>
           </div>
-        </div>
+        </>
       )}
-    </section>
+    </div>
   );
 }

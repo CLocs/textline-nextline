@@ -1,9 +1,16 @@
 import { describe, expect, it } from "vitest";
 import type { Line } from "../src/types/content.js";
-import { isJunkLine, isPlayableLine, substantiveText } from "../src/lib/content/playable.js";
+import {
+  isJunkLine,
+  isLyricLine,
+  isPlayableLine,
+  isStillCueLine,
+  stillCueIndices,
+  substantiveText,
+} from "../src/lib/content/playable.js";
 
-function line(text: string, kind: Line["kind"] = "dialogue"): Line {
-  return { index: 0, text, kind, startMs: 0, endMs: 1000 };
+function line(text: string, kind: Line["kind"] = "dialogue", index = 0): Line {
+  return { index, text, kind, startMs: 0, endMs: 1000 };
 }
 
 describe("isJunkLine", () => {
@@ -34,5 +41,27 @@ describe("isPlayableLine", () => {
   it("is the inverse of junk", () => {
     expect(isPlayableLine(line("Here are your grades."))).toBe(true);
     expect(isPlayableLine(line("[ Beeping ]", "sdh"))).toBe(false);
+  });
+});
+
+describe("still cues", () => {
+  it("skips lyrics and SDH, keeps spoken dialogue", () => {
+    expect(isLyricLine(line("♪ Get out on the highway"))).toBe(true);
+    expect(isStillCueLine(line("♪ Get out on the highway"))).toBe(false);
+    expect(isStillCueLine(line("[Bell Ringing]", "sdh"))).toBe(false);
+    expect(isStillCueLine(line("Two youths of dead-end ancestry."))).toBe(true);
+  });
+
+  it("lists still cue indices in order", () => {
+    expect(
+      stillCueIndices({
+        lines: [
+          line("♪ song", "dialogue", 0),
+          line("Hello.", "dialogue", 1),
+          line("[Boom]", "sdh", 2),
+          line("The next line.", "dialogue", 3),
+        ],
+      }),
+    ).toEqual([1, 3]);
   });
 });

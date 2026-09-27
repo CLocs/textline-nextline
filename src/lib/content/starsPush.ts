@@ -33,6 +33,7 @@ export const DEFAULT_PROTECTED_TITLE_IDS = [
   "oceans-eleven-2001",
   "rocknrolla-2008",
   "the-lord-of-the-rings---the-fellowship-of-the-ring-2001",
+  "the-big-lebowski-1998",
 ];
 
 export function loadProtectedTitleIds(path: string): string[] {
@@ -63,8 +64,12 @@ export function sqlString(value: string): string {
   return `'${value.replaceAll("'", "''")}'`;
 }
 
+export function starOrigin(note: string | null | undefined): "mine" | "wikiquote" {
+  return note === "wikiquote" ? "wikiquote" : "mine";
+}
+
 export function insertStarsSql(
-  stars: Pick<StarSeed, "titleId" | "lineIndex">[],
+  stars: Pick<StarSeed, "titleId" | "lineIndex" | "note">[],
   playerId: string,
   starredAt: string,
 ): string {
@@ -74,10 +79,10 @@ export function insertStarsSql(
   const values = stars
     .map(
       (star) =>
-        `(${sqlString(star.titleId)}, ${star.lineIndex}, ${sqlString(playerId)}, ${sqlString(starredAt)})`,
+        `(${sqlString(star.titleId)}, ${star.lineIndex}, ${sqlString(playerId)}, ${sqlString(starredAt)}, ${sqlString(starOrigin(star.note))})`,
     )
     .join(",\n");
-  return `INSERT INTO stars (title_id, line_index, player_id, starred_at)
+  return `INSERT INTO stars (title_id, line_index, player_id, starred_at, origin)
 VALUES
 ${values}
 ON CONFLICT(title_id, line_index, player_id) DO NOTHING;`;
@@ -108,6 +113,27 @@ export function excludeTitleIds(
 ): StarSeed[] {
   const skip = new Set(titleIds);
   return stars.filter((star) => !skip.has(star.titleId));
+}
+
+/**
+ * Titles a push must not write. Protected titles always stay untouched.
+ * Without --force or --merge, a title that already has any of your stars is
+ * skipped whole. --merge inserts missing lines on titles that already have
+ * stars (ON CONFLICT DO NOTHING); it does not delete or update rows.
+ */
+export function titleIdsToSkip(options: {
+  protectedIds: Iterable<string>;
+  existingIds: Iterable<string>;
+  excludeIds: Iterable<string>;
+  force: boolean;
+  merge: boolean;
+}): Set<string> {
+  const skip = new Set<string>(options.protectedIds);
+  for (const id of options.excludeIds) skip.add(id);
+  if (!options.force && !options.merge) {
+    for (const id of options.existingIds) skip.add(id);
+  }
+  return skip;
 }
 
 export function countByTitle(stars: Pick<StarSeed, "titleId" | "title">[]): Map<string, number> {

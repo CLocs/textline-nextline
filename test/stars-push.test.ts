@@ -10,6 +10,7 @@ import {
   insertStarsSql,
   loadProtectedTitleIds,
   sqlString,
+  titleIdsToSkip,
 } from "../src/lib/content/starsPush.js";
 import type { StarSeed } from "../src/lib/content/starSeed.js";
 
@@ -17,15 +18,17 @@ describe("insertStarsSql", () => {
   it("builds a conflict-safe insert", () => {
     const sql = insertStarsSql(
       [
-        { titleId: "friday-1995", lineIndex: 133 },
-        { titleId: "matrix-1999", lineIndex: 0 },
+        { titleId: "friday-1995", lineIndex: 133, note: null },
+        { titleId: "matrix-1999", lineIndex: 0, note: "wikiquote" },
       ],
       "11111111-1111-4111-8111-111111111111",
       "2026-01-01T00:00:00.000Z",
     );
     expect(sql).toContain("ON CONFLICT(title_id, line_index, player_id) DO NOTHING");
     expect(sql).toContain("'friday-1995', 133");
+    expect(sql).toContain("'mine'");
     expect(sql).toContain("'matrix-1999', 0");
+    expect(sql).toContain("'wikiquote'");
   });
 });
 
@@ -50,6 +53,32 @@ describe("filterStarsByTitle", () => {
   it("keeps Payback by id or name", () => {
     expect(filterStarsByTitle(seed as StarSeed[], "payback-1999")).toHaveLength(1);
     expect(filterStarsByTitle(seed as StarSeed[], "Payback")[0]?.titleId).toBe("payback-1999");
+  });
+});
+
+describe("titleIdsToSkip", () => {
+  it("skips protected titles even when merging", () => {
+    const skip = titleIdsToSkip({
+      protectedIds: ["payback-1999"],
+      existingIds: ["the-big-lebowski-1998"],
+      excludeIds: [],
+      force: false,
+      merge: true,
+    });
+    expect(skip.has("payback-1999")).toBe(true);
+    expect(skip.has("the-big-lebowski-1998")).toBe(false);
+  });
+
+  it("skips a title that already has stars unless merge or force", () => {
+    const base = {
+      protectedIds: [] as string[],
+      existingIds: ["the-big-lebowski-1998"],
+      excludeIds: [] as string[],
+      force: false,
+      merge: false,
+    };
+    expect(titleIdsToSkip(base).has("the-big-lebowski-1998")).toBe(true);
+    expect(titleIdsToSkip({ ...base, merge: true }).has("the-big-lebowski-1998")).toBe(false);
   });
 });
 
@@ -97,6 +126,7 @@ describe("loadProtectedTitleIds", () => {
       "oceans-eleven-2001",
       "rocknrolla-2008",
       "the-lord-of-the-rings---the-fellowship-of-the-ring-2001",
+      "the-big-lebowski-1998",
     ]);
   });
 });

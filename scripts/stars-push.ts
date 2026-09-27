@@ -11,6 +11,7 @@ import {
   loadProtectedTitleIds,
   loadStarSeedFile,
   sqlString,
+  titleIdsToSkip,
 } from "../src/lib/content/starsPush.js";
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -24,14 +25,21 @@ function usage(): never {
 
 Inserts Readwise-matched lines from stars-seed.json into Cloudflare D1 as YOUR stars.
 Does not delete or update existing rows (ON CONFLICT DO NOTHING).
+Inserts are insert-only: ON CONFLICT DO NOTHING. Existing rows stay, including
+loved. Nothing is deleted.
+
 Skips titles in content/stars-protected.json (curated — add an id when live
-stars diverge from seed) and any title that already has stars for you.
---force still honors the protected file. --dry-run --remote previews prod skips.
+stars diverge from seed). Without --merge or --force, also skips any title
+that already has stars for you. --merge inserts the missing lines on titles
+that already have stars, and still skips protected titles. --force still
+honors the protected file. --dry-run --remote previews prod skips.
 
   --email     Required. Must already have signed in on the live app once.
   --remote    Read/write production D1 (textline-stars). Default is local wrangler D1.
-  --title     Only this title id or name (e.g. payback-1999 or Payback).
+  --title     Only this title id or name. Repeat to merge several films.
+  --id-prefix Only title ids with this prefix (repeatable). Use for a show.
   --exclude   Extra title id to skip (repeatable).
+  --merge     Insert missing lines even when the title already has your stars.
   --force     Also insert into titles that already have stars (not protected).
   --seed      Path to stars-seed.json
   --dry-run   Print skip/insert counts; do not write. Pair with --remote to query prod.
@@ -44,16 +52,20 @@ function parseArgs(argv: string[]): {
   remote: boolean;
   seed: string;
   dryRun: boolean;
-  title: string;
+  titles: string[];
+  idPrefixes: string[];
   force: boolean;
+  merge: boolean;
   exclude: string[];
 } {
   let email = "";
   let remote = false;
   let seed = defaultSeed;
   let dryRun = false;
-  let title = "";
+  const titles: string[] = [];
+  const idPrefixes: string[] = [];
   let force = false;
+  let merge = false;
   const exclude: string[] = [];
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
@@ -61,9 +73,11 @@ function parseArgs(argv: string[]): {
     else if (arg === "--remote") remote = true;
     else if (arg === "--dry-run") dryRun = true;
     else if (arg === "--seed") seed = argv[++i] ?? seed;
-    else if (arg === "--title") title = argv[++i] ?? "";
+    else if (arg === "--title") titles.push((argv[++i] ?? "").trim());
+    else if (arg === "--id-prefix") idPrefixes.push((argv[++i] ?? "").trim());
     else if (arg === "--exclude") exclude.push((argv[++i] ?? "").trim());
     else if (arg === "--force") force = true;
+    else if (arg === "--merge") merge = true;
     else if (arg === "--help" || arg === "-h") usage();
   }
   if (!email.trim()) usage();
@@ -72,8 +86,10 @@ function parseArgs(argv: string[]): {
     remote,
     seed: resolve(seed),
     dryRun,
-    title: title.trim(),
+    titles: titles.filter(Boolean),
+    idPrefixes: idPrefixes.filter(Boolean),
     force,
+    merge,
     exclude: exclude.filter(Boolean),
   };
 }
@@ -163,21 +179,39 @@ function starCountsForTitles(
 }
 
 function main(): void {
-  const { email, remote, seed, dryRun, title, force, exclude } = parseArgs(process.argv.slice(2));
+  const { email, remote, seed, dryRun, titles, idPrefixes, force, merge, exclude } = parseArgs(
+    process.argv.slice(2),
+  );
   if (!existsSync(seed)) {
     console.error(`Seed not found: ${seed}`);
     process.exit(1);
   }
 
   let stars = loadStarSeedFile(seed);
-  if (title) {
-    stars = filterStarsByTitle(stars, title);
+  if (titles.length) {
+    const matched = new Map<string, (typeof stars)[number]>();
+    for (const title of titles) {
+      for (const star of filterStarsByTitle(stars, title)) {
+        matched.set(`${star.titleId}:${star.lineIndex}`, star);
+      }
+    }
+    stars = [...matched.values()];
     if (stars.length === 0) {
-      console.error(`No seed stars matched --title ${title}`);
+      console.error(`No seed stars matched --title ${titles.join(", ")}`);
       process.exit(1);
     }
   }
-  printCounts(stars, title ? `seed stars for --title ${title}` : "seed stars");
+  if (idPrefixes.length) {
+    stars = stars.filter((star) => idPrefixes.some((prefix) => star.titleId.startsWith(prefix)));
+    if (stars.length === 0) {
+      console.error(`No seed stars matched --id-prefix ${idPrefixes.join(", ")}`);
+      process.exit(1);
+    }
+  }
+  printCounts(
+    stars,
+    titles.length || idPrefixes.length ? `seed stars for the selected titles` : "seed stars",
+  );
 
   if (dryRun && !remote) {
     console.log("Dry run (seed file only). Pass --remote --dry-run to preview prod skips.");
@@ -187,12 +221,14 @@ function main(): void {
   const userId = lookupUserId(email, remote);
   console.log(`Attaching to user ${userId} (${remote ? "remote" : "local"} D1)`);
 
-  const protectedIds = new Set(loadProtectedTitleIds(defaultProtected));
-  const skipIds = new Set<string>(protectedIds);
-  for (const id of exclude) skipIds.add(id);
-  if (!force) {
-    for (const id of existingTitleIds(userId, remote)) skipIds.add(id);
-  }
+  const protectedIds = loadProtectedTitleIds(defaultProtected);
+  const skipIds = titleIdsToSkip({
+    protectedIds,
+    existingIds: existingTitleIds(userId, remote),
+    excludeIds: exclude,
+    force,
+    merge,
+  });
 
   const skipped = [...new Set(stars.map((star) => star.titleId).filter((id) => skipIds.has(id)))];
   if (skipped.length) {
@@ -200,7 +236,7 @@ function main(): void {
     console.log(`Leaving ${skipped.length} title(s) untouched:`);
     for (const id of skipped.sort()) {
       const n = liveCounts.get(id);
-      const protectedMark = protectedIds.has(id) ? " (protected)" : "";
+      const protectedMark = protectedIds.includes(id) ? " (protected)" : "";
       const live = n != null ? ` — ${n} live star(s)` : "";
       console.log(`  ${id}${protectedMark}${live}`);
     }
