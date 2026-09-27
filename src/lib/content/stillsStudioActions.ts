@@ -22,7 +22,7 @@ import {
   previewDirForTitle,
   probeDurationSec,
   probeFps,
-  remuxIfNeeded,
+  resolveStudioInput,
   STUDIO_SKIP_TITLE_IDS,
   videoDirForShow,
   writeStillsSyncFile,
@@ -260,14 +260,19 @@ export function studioExtract(
   if (pushJob?.status === "running" && pushJob.titleId === id) {
     throw new Error(`Still pushing ${pushJob.label} to R2. Switch titles or wait for the upload.`);
   }
-  if (!episode.videoPath) {
+  const sources = episode.sourcePaths?.length
+    ? episode.sourcePaths
+    : episode.videoPath
+      ? [episode.videoPath]
+      : [];
+  if (sources.length === 0) {
     throw new Error(`No video file for ${episode.label}.`);
   }
 
   const sync = loadStillsSyncFile(ctx.syncPath);
   const previous = sync[id];
   const accurateSeek = show === "The Simpsons";
-  const media = remuxIfNeeded(ctx.packageRoot, id, episode.videoPath);
+  const media = resolveStudioInput(ctx.packageRoot, id, sources);
   const durationSec = probeDurationSec(media);
   const fps = previous?.fps ?? probeFps(media) ?? episode.fps;
   const needsStars = opts.mode === "batch" || opts.mode === "handful" || opts.mode === "shuffle";
@@ -317,7 +322,7 @@ export function studioExtract(
         fps: fps ?? undefined,
         lineOffsets,
         durationSec: durationSec ?? previous?.durationSec,
-        source: episode.videoPath,
+        source: media,
         handful: previous?.handful ?? episode.handful,
         batchedAt: new Date().toISOString(),
         note:
@@ -381,7 +386,7 @@ export function studioExtract(
     fps: fps ?? undefined,
     lineOffsets,
     durationSec: durationSec ?? previous?.durationSec,
-    source: episode.videoPath,
+    source: media,
     handful,
     approvedAt: fillingLines ? previous?.approvedAt ?? now : undefined,
     // Handful/smart/retry after a batch must drop these so the six-frame review returns.

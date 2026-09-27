@@ -439,5 +439,52 @@
       "pal-mid"
     ],
     "note": "Studio retry No offset (576,577,776,803,919,1134)."
+  },
+  "o-brother-where-art-thou-2000": {
+    "offsetMs": 0,
+    "timeScale": 0.96,
+    "seek": "start",
+    "fps": 25,
+    "lineOffsets": {},
+    "durationSec": 6197,
+    "source": "G:\\videos\\movies\\O Brother, Where Art Thou (2000).avi",
+    "handful": [
+      319,
+      522,
+      743,
+      1001,
+      1184,
+      1340
+    ],
+    "methodId": "pal",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "note": "Studio lines 1168 stills (39 already on disk).",
+    "approvedAt": "2026-09-27T16:03:10.503Z",
+    "batchedAt": "2026-09-27T16:04:38.897Z"
+  },
+  "the-40-year-old-virgin-2005": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 25,
+    "lineOffsets": {},
+    "durationSec": 7628.44,
+    "source": "G:\\videos\\movies\\40 Year Old Virgin (2005).avi",
+    "handful": [
+      250,
+      710,
+      979,
+      1258,
+      1349,
+      1813
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio shuffle (250,710,979,1258,1349,1813)."
   }
 }

@@ -279,18 +279,20 @@ export function StillsStudioPanel({
     const nextSeek = applied?.seek ?? seek;
     setBusyKind(mode);
     setBusyMethodId(applied?.id ?? null);
+    const joining = (episode?.sourcePaths?.length ?? 0) > 1;
+    const joinPrefix = joining ? "Joining the parts, then " : "";
     setBusy(
       mode === "lines"
-        ? "Extracting remaining lines — this can take several minutes…"
+        ? `${joinPrefix}Extracting remaining lines — this can take several minutes…`
         : mode === "batch"
-          ? "Extracting remaining stars — this can take a minute…"
+          ? `${joinPrefix}Extracting remaining stars — this can take a minute…`
           : mode === "smart"
           ? `Trying ${nextMethod?.label ?? "next recipe"}…`
           : mode === "shuffle"
             ? "Picking six other frames…"
             : applied
-              ? `Trying ${applied.label}…`
-              : "Extracting frames…",
+              ? `${joinPrefix}Trying ${applied.label}…`
+              : `${joinPrefix}Extracting frames…`,
     );
     setError(null);
     setNotice(null);

@@ -18,6 +18,8 @@ export type StudioEpisode = {
   lineCount: number;
   status: StudioEpisodeStatus;
   videoPath: string | null;
+  /** Absolute paths. Two entries means Part 1 then Part 2, joined on the first extract. */
+  sourcePaths?: string[];
   videoName: string | null;
   offsetMs: number;
   timeScale: number;

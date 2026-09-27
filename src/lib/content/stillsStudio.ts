@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
-import { dirname, extname, join } from "node:path";
+import { basename, dirname, extname, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import type { CatalogEntry, Line, Title } from "../../types/content.js";
 import { episodeLabel } from "./libraryGroups.js";
@@ -16,7 +16,7 @@ import {
   stillFileName,
   timeScaleForTitle,
 } from "./extractStills.js";
-import { listVideoFilenames, matchUploadsToCatalog } from "./mediaUploads.js";
+import { isTemporalSplit, listVideoFilenames, matchUploadsToCatalog, parseMediaFilename } from "./mediaUploads.js";
 import { matchShowVideosToCatalog } from "./showMedia.js";
 import { pickHandfulIndices as pickHandful, shuffleHandfulIndices as shuffleHandful } from "./stillsHandful.js";
 import { describeStudioMethod } from "./stillsStudioMethods.js";
@@ -34,6 +34,11 @@ export const SHOW_VIDEO_DIRS: Record<string, string> = {
   "The Simpsons": "G:/videos/shows/Simpsons",
   Movies: "G:/videos/movies",
 };
+
+/** Movies live on either drive. G: wins when the same filename is on both. */
+export function movieVideoDirs(): string[] {
+  return ["G:/videos/movies", "H:/videos/movies"];
+}
 
 export const MOVIES_STUDIO_SHOW = "Movies";
 
@@ -97,7 +102,8 @@ export function buildShowQueue(opts: {
 }): StudioQueue {
   const directory = opts.directory ?? videoDirForShow(opts.show);
   if (isMoviesStudioShow(opts.show)) {
-    return buildMovieQueue({ ...opts, directory });
+    const directories = opts.directory ? [opts.directory] : movieVideoDirs();
+    return buildMovieQueue({ ...opts, directories });
   }
   const skip = new Set(opts.skipIds ?? STUDIO_SKIP_TITLE_IDS);
   const directoryExists = Boolean(directory && existsSync(directory));
@@ -164,6 +170,21 @@ export function buildShowQueue(opts: {
   return { show: opts.show, directory, directoryExists, episodes, unmatched };
 }
 
+function locateMovieFiles(directories: string[]): { name: string; path: string }[] {
+  const seen = new Set<string>();
+  const located: { name: string; path: string }[] = [];
+  for (const directory of directories) {
+    if (!existsSync(directory)) continue;
+    for (const name of listVideoFilenames(directory)) {
+      const key = name.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      located.push({ name, path: join(directory, name) });
+    }
+  }
+  return located;
+}
+
 function buildMovieQueue(opts: {
   show: string;
   entries: CatalogEntry[];
@@ -171,13 +192,19 @@ function buildMovieQueue(opts: {
   sync: StillsSyncFile;
   stillCounts: Record<string, number>;
   starCounts: Record<string, number>;
-  directory: string;
+  directories: string[];
   skipIds?: Iterable<string>;
 }): StudioQueue {
   const skip = new Set(opts.skipIds ?? STUDIO_SKIP_TITLE_IDS);
-  const directoryExists = Boolean(opts.directory && existsSync(opts.directory));
-  const { matched, unmatched } = directoryExists
-    ? matchUploadsToCatalog(listVideoFilenames(opts.directory), opts.entries)
+  const presentDirs = opts.directories.filter((directory) => existsSync(directory));
+  const directoryExists = presentDirs.length > 0;
+  const located = locateMovieFiles(opts.directories);
+  const pathByName = new Map(located.map((row) => [row.name, row.path]));
+  const { matched, unmatched } = located.length
+    ? matchUploadsToCatalog(
+        located.map((row) => row.name),
+        opts.entries,
+      )
     : { matched: [], unmatched: [] };
   const filesById = new Map(matched.map((row) => [row.titleId, row]));
 
@@ -187,7 +214,10 @@ function buildMovieQueue(opts: {
     if (entry.id === "sample-episode") continue;
     if (skip.has(entry.id)) continue;
     const upload = filesById.get(entry.id);
-    const hasFile = upload?.status === "ok" && Boolean(upload.files[0]);
+    const sourcePaths = (upload?.files ?? [])
+      .map((name) => pathByName.get(name))
+      .filter((path): path is string => Boolean(path));
+    const hasFile = sourcePaths.length > 0;
     const stillCount = opts.stillCounts[entry.id] ?? 0;
     const syncEntry = opts.sync[entry.id];
     if (!hasFile && stillCount === 0 && !syncEntry) continue;
@@ -203,7 +233,7 @@ function buildMovieQueue(opts: {
     const timeScale = timeScaleForTitle(opts.sync, entry.id);
     const seek = seekModeForTitle(opts.sync, entry.id);
     const method = describeStudioMethod(opts.show, { offsetMs, timeScale, seek });
-    const fileName = hasFile ? upload!.files[0]! : null;
+    const fileName = sourcePaths.length > 0 ? sourcePaths.map((path) => basename(path)).join(" + ") : null;
     episodes.push({
       titleId: entry.id,
       title: entry.title,
@@ -219,7 +249,8 @@ function buildMovieQueue(opts: {
         batchedAt: syncEntry?.batchedAt,
         pushedAt: syncEntry?.pushedAt,
       }),
-      videoPath: fileName ? join(opts.directory, fileName) : null,
+      videoPath: sourcePaths[0] ?? null,
+      sourcePaths,
       videoName: fileName,
       offsetMs,
       timeScale,
@@ -241,11 +272,61 @@ function buildMovieQueue(opts: {
   episodes.sort((a, b) => a.label.localeCompare(b.label));
   return {
     show: opts.show,
-    directory: opts.directory,
+    directory: presentDirs.join(" + ") || opts.directories.join(" + "),
     directoryExists,
     episodes,
     unmatched: unmatched.map((row) => row.name),
   };
+}
+
+function orderPartPaths(sources: string[]): string[] {
+  if (!isTemporalSplit(sources.map((path) => basename(path)))) return sources;
+  return [...sources].sort(
+    (a, b) => (parseMediaFilename(basename(a)).part ?? 0) - (parseMediaFilename(basename(b)).part ?? 0),
+  );
+}
+
+/** One file is remuxed when needed. Part1 + Part2 are joined once into inbox/media. */
+export function resolveStudioInput(packageRoot: string, titleId: string, sources: string[]): string {
+  const paths = sources.filter(Boolean);
+  if (paths.length === 0) {
+    throw new Error("No video file.");
+  }
+  if (paths.length === 1) return remuxIfNeeded(packageRoot, titleId, paths[0]!);
+  return concatPartsIfNeeded(packageRoot, titleId, orderPartPaths(paths));
+}
+
+function concatPartsIfNeeded(packageRoot: string, titleId: string, sources: string[]): string {
+  const output = mediaRemuxOutput(packageRoot, titleId);
+  if (existsSync(output)) return output;
+  const pieces = sources.map((source, index) => {
+    const ext = extname(source).toLowerCase();
+    if (ext === ".mp4" || ext === ".mkv" || ext === ".m4v") return source;
+    const partOut = join(dirname(output), `${titleId}-part${index + 1}.mkv`);
+    if (!existsSync(partOut)) {
+      mkdirSync(dirname(partOut), { recursive: true });
+      execFileSync("ffmpeg", ffmpegRemuxArgs({ input: source, output: partOut }), { stdio: "pipe" });
+    }
+    if (!existsSync(partOut)) {
+      throw new Error(`Remux failed: ${partOut}`);
+    }
+    return partOut;
+  });
+  mkdirSync(dirname(output), { recursive: true });
+  const listPath = join(dirname(output), `${titleId}-concat.txt`);
+  const body = pieces
+    .map((path) => `file '${path.replace(/\\/g, "/").replace(/'/g, "'\\''")}'`)
+    .join("\n");
+  writeFileSync(listPath, `${body}\n`, "utf8");
+  execFileSync(
+    "ffmpeg",
+    ["-hide_banner", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", listPath, "-c", "copy", "-y", output],
+    { stdio: "pipe" },
+  );
+  if (!existsSync(output)) {
+    throw new Error(`Could not join parts for ${titleId}.`);
+  }
+  return output;
 }
 
 export function remuxIfNeeded(packageRoot: string, titleId: string, sourcePath: string): string {

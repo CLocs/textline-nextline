@@ -18,6 +18,9 @@ const movies: CatalogEntry[] = [
   { id: "django-unchained-2012", title: "Django Unchained (2012)", lineCount: 1859, sourceFilename: "x.srt", importedAt: "", meta: { year: 2012 } },
   { id: "rocknrolla-2008", title: "RocknRolla (2008)", lineCount: 100, sourceFilename: "x.srt", importedAt: "", meta: { year: 2008 } },
   { id: "goldeneye-1995", title: "GoldenEye (1995)", lineCount: 878, sourceFilename: "x.srt", importedAt: "", meta: { year: 1995 } },
+  { id: "back-to-the-future-1985", title: "Back to the Future (1985)", lineCount: 1400, sourceFilename: "x.srt", importedAt: "", meta: { year: 1985 } },
+  { id: "back-to-the-future-part-ii-1989", title: "Back to the Future Part II (1989)", lineCount: 1400, sourceFilename: "x.srt", importedAt: "", meta: { year: 1989 } },
+  { id: "back-to-the-future-part-iii-1990", title: "Back to the Future Part III (1990)", lineCount: 1400, sourceFilename: "x.srt", importedAt: "", meta: { year: 1990 } },
 ];
 
 describe("parseMediaFilename", () => {
@@ -77,6 +80,32 @@ describe("matchUploadsToCatalog", () => {
       "Casino (1995).avi",
       "Star Wars Episode I - The Phantom Menace.avi",
     ]);
+  });
+
+  it("keeps one whole copy and associates Back to the Future sequels", () => {
+    const { matched, unmatched } = matchUploadsToCatalog(
+      [
+        "Back to the Future (1985) 1080p.mp4",
+        "Back to the Future I  (1985).mp4",
+        "Back To The Future II (1989).avi",
+        "Back to the Future III (1990).avi",
+      ],
+      movies,
+    );
+    const byId = Object.fromEntries(matched.map((row) => [row.titleId, row]));
+    expect(byId["back-to-the-future-1985"]).toMatchObject({
+      status: "ok",
+      files: ["Back to the Future (1985) 1080p.mp4"],
+    });
+    expect(byId["back-to-the-future-part-ii-1989"]).toMatchObject({
+      status: "ok",
+      files: ["Back To The Future II (1989).avi"],
+    });
+    expect(byId["back-to-the-future-part-iii-1990"]).toMatchObject({
+      status: "ok",
+      files: ["Back to the Future III (1990).avi"],
+    });
+    expect(unmatched).toEqual([]);
   });
 });
 
