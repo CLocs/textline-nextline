@@ -159,6 +159,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
       </div>
       <h2 className="daily-play-title">
         Daily · {step + 1} of {cards.length}
+        {card.slot === "global" ? " · Line of the day" : ""}
       </h2>
 
       <p className="episode-label">{title.title}</p>

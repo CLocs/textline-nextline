@@ -216,8 +216,10 @@
     {
       "titleId": "reservoir-dogs-1992",
       "title": "Reservoir Dogs",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Reservoir Dogs (1992).mp4"
+      ]
     },
     {
       "titleId": "rocknrolla-2008",

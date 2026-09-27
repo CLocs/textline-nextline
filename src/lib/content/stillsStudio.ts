@@ -16,7 +16,13 @@ import {
   stillFileName,
   timeScaleForTitle,
 } from "./extractStills.js";
-import { isTemporalSplit, listVideoFilenames, matchUploadsToCatalog, parseMediaFilename } from "./mediaUploads.js";
+import {
+  isTemporalSplit,
+  listVideoFilenames,
+  matchUploadsToCatalog,
+  parseMediaFilename,
+  preferMovieSource,
+} from "./mediaUploads.js";
 import { matchShowVideosToCatalog } from "./showMedia.js";
 import { pickHandfulIndices as pickHandful, shuffleHandfulIndices as shuffleHandful } from "./stillsHandful.js";
 import { describeStudioMethod } from "./stillsStudioMethods.js";
@@ -35,9 +41,9 @@ export const SHOW_VIDEO_DIRS: Record<string, string> = {
   Movies: "G:/videos/movies",
 };
 
-/** Movies live on either drive. G: wins when the same filename is on both. */
+/** Movies live on either drive. H: wins when the same filename is on both. */
 export function movieVideoDirs(): string[] {
-  return ["G:/videos/movies", "H:/videos/movies"];
+  return ["H:/videos/movies", "G:/videos/movies"];
 }
 
 export const MOVIES_STUDIO_SHOW = "Movies";
@@ -204,6 +210,7 @@ function buildMovieQueue(opts: {
     ? matchUploadsToCatalog(
         located.map((row) => row.name),
         opts.entries,
+        { collapseCopies: false },
       )
     : { matched: [], unmatched: [] };
   const filesById = new Map(matched.map((row) => [row.titleId, row]));
@@ -214,9 +221,17 @@ function buildMovieQueue(opts: {
     if (entry.id === "sample-episode") continue;
     if (skip.has(entry.id)) continue;
     const upload = filesById.get(entry.id);
-    const sourcePaths = (upload?.files ?? [])
-      .map((name) => pathByName.get(name))
-      .filter((path): path is string => Boolean(path));
+    const locatedFiles = (upload?.files ?? [])
+      .map((name) => {
+        const path = pathByName.get(name);
+        return path ? { name, path } : null;
+      })
+      .filter((row): row is { name: string; path: string } => Boolean(row));
+    const chosen =
+      locatedFiles.length > 1 && !isTemporalSplit(locatedFiles.map((row) => row.name))
+        ? [preferMovieSource(locatedFiles, opts.directories)]
+        : locatedFiles;
+    const sourcePaths = chosen.map((row) => row.path);
     const hasFile = sourcePaths.length > 0;
     const stillCount = opts.stillCounts[entry.id] ?? 0;
     const syncEntry = opts.sync[entry.id];

@@ -33,7 +33,7 @@ Updated: 2026-09-27
 | Pirates of the Caribbean Dead Man's Chest | [ ] missing | — |
 | Pirates of the Caribbean The Curse of the Black Pearl | [x] | Pirates of the Caribbean Curse of the Black Pearl (2003).mp4 |
 | Pulp Fiction | [x] split | Pulp Fiction (1994) Part1.avi<br>Pulp Fiction (1994) Part2.avi |
-| Reservoir Dogs | [ ] missing | — |
+| Reservoir Dogs | [x] | Reservoir Dogs (1992).mp4 |
 | RocknRolla | [x] | RocknRolla (2008).avi |
 | Snatch | [ ] missing | — |
 | Speed | [ ] missing | — |

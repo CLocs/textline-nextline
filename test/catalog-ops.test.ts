@@ -6,6 +6,7 @@ import {
   formatUploadsMarkdown,
   matchUploadsToCatalog,
   parseMediaFilename,
+  preferMovieSource,
 } from "../src/lib/content/mediaUploads.js";
 
 const movies: CatalogEntry[] = [
@@ -106,6 +107,17 @@ describe("matchUploadsToCatalog", () => {
       files: ["Back to the Future III (1990).avi"],
     });
     expect(unmatched).toEqual([]);
+  });
+
+  it("prefers an H: copy over a higher-scored G: file", () => {
+    const picked = preferMovieSource(
+      [
+        { name: "Back to the Future (1985) 1080p.mp4", path: "G:/videos/movies/Back to the Future (1985) 1080p.mp4" },
+        { name: "Back to the Future (1985).mp4", path: "H:/videos/movies/Back to the Future (1985).mp4" },
+      ],
+      ["H:/videos/movies", "G:/videos/movies"],
+    );
+    expect(picked.path).toBe("H:/videos/movies/Back to the Future (1985).mp4");
   });
 });
 

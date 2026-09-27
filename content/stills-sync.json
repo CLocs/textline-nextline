@@ -531,7 +531,231 @@
     "triedMethods": [
       "zero"
     ],
-    "note": "Studio shuffle (200,446,724,727,831,1023).",
-    "approvedAt": "2026-09-27T16:37:32.485Z"
+    "note": "Studio lines 1290 stills (12 already on disk).",
+    "approvedAt": "2026-09-27T16:37:32.485Z",
+    "batchedAt": "2026-09-27T16:42:21.238Z"
+  },
+  "back-to-the-future-part-ii-1989": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 25,
+    "lineOffsets": {},
+    "durationSec": 6472.426667,
+    "source": "H:\\videos\\movies\\Back to the Future II (1989).mp4",
+    "handful": [
+      487,
+      666,
+      675,
+      692,
+      779,
+      952
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1170 stills (10 already on disk).",
+    "approvedAt": "2026-09-27T17:12:45.857Z",
+    "batchedAt": "2026-09-27T17:17:03.254Z",
+    "pushedAt": "2026-09-27T17:28:35.653Z"
+  },
+  "back-to-the-future-part-iii-1990": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 25,
+    "lineOffsets": {},
+    "durationSec": 7104.938667,
+    "source": "H:\\videos\\movies\\Back to the Future III (1990).mp4",
+    "handful": [
+      224,
+      435,
+      442,
+      446,
+      630,
+      1125
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1269 stills (12 already on disk).",
+    "approvedAt": "2026-09-27T17:18:11.990Z",
+    "batchedAt": "2026-09-27T17:21:44.018Z",
+    "pushedAt": "2026-09-27T18:03:24.756Z"
+  },
+  "barbie-2023": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 6905.399,
+    "source": "H:\\videos\\movies\\Barbie (2023).mkv",
+    "handful": [
+      356,
+      763,
+      841,
+      1094,
+      1388,
+      1530
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "note": "Studio lines 1597 stills (15 already on disk).",
+    "approvedAt": "2026-09-27T16:46:55.641Z",
+    "batchedAt": "2026-09-27T16:59:14.145Z",
+    "pushedAt": "2026-09-27T17:27:52.916Z"
+  },
+  "goldeneye-1995": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 7800.125521,
+    "source": "H:\\videos\\movies\\Golden Eye (1995).mp4",
+    "handful": [
+      72,
+      205,
+      360,
+      503,
+      567,
+      643
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 783 stills (12 already on disk).",
+    "approvedAt": "2026-09-27T17:51:56.643Z",
+    "batchedAt": "2026-09-27T17:54:22.572Z"
+  },
+  "days-of-thunder-1990": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 6437.889791,
+    "source": "H:\\videos\\movies\\Days Of Thunder (1990).mp4",
+    "handful": [
+      85,
+      91,
+      110,
+      200,
+      519,
+      524
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 740 stills (7 already on disk).",
+    "approvedAt": "2026-09-27T17:58:32.286Z",
+    "batchedAt": "2026-09-27T18:01:14.570Z"
+  },
+  "reservoir-dogs-1992": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 5958.037333,
+    "source": "H:\\videos\\movies\\Reservoir Dogs (1992).mp4",
+    "handful": [
+      321,
+      591,
+      851,
+      930,
+      1132,
+      1287
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "note": "Studio lines 1422 stills (17 already on disk).",
+    "approvedAt": "2026-09-27T18:24:05.612Z",
+    "batchedAt": "2026-09-27T18:28:41.271Z",
+    "pushedAt": "2026-09-27T18:41:33.542Z"
+  },
+  "pulp-fiction-1994": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.97,
+    "lineOffsets": {},
+    "durationSec": 9261.961,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\pulp-fiction-1994.mkv",
+    "handful": [
+      291,
+      657,
+      902,
+      1236,
+      1471,
+      1843
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 2041 stills (17 already on disk).",
+    "approvedAt": "2026-09-27T18:31:27.060Z",
+    "batchedAt": "2026-09-27T18:38:22.707Z"
+  },
+  "lock-stock-and-two-smoking-barrels-1998": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 6443.370667,
+    "source": "H:\\videos\\movies\\Lock, Stock and Two Smoking Barrels (1998).mp4",
+    "handful": [
+      288,
+      443,
+      620,
+      933,
+      1100,
+      1122
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "note": "Studio lines 1367 stills (18 already on disk).",
+    "approvedAt": "2026-09-27T19:41:27.107Z",
+    "batchedAt": "2026-09-27T19:46:07.189Z"
+  },
+  "pirates-of-the-caribbean-the-curse-of-the-black-pearl-2003": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 8019.178667,
+    "source": "H:\\videos\\movies\\Pirates of the Caribbean Curse of the Black Pearl (2003).mp4",
+    "handful": [
+      393,
+      553,
+      805,
+      921,
+      1061,
+      1143
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1235 stills (12 already on disk).",
+    "approvedAt": "2026-09-27T20:27:34.781Z",
+    "batchedAt": "2026-09-27T20:31:05.690Z"
   }
 }

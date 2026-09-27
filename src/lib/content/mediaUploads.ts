@@ -147,6 +147,26 @@ export function preferWholeFile(filenames: string[]): string {
   )[0]!;
 }
 
+/** H: before G:, then 1080p / mkv / mp4 within that drive. */
+export function preferMovieSource(
+  files: { name: string; path: string }[],
+  directories: string[],
+): { name: string; path: string } {
+  const rank = (filePath: string) => {
+    const norm = filePath.replace(/\\/g, "/").toLowerCase();
+    const index = directories.findIndex((dir) => {
+      const root = dir.replace(/\\/g, "/").toLowerCase().replace(/\/$/, "");
+      return norm === root || norm.startsWith(`${root}/`);
+    });
+    return index === -1 ? directories.length : index;
+  };
+  return [...files].sort((a, b) => {
+    const drive = rank(a.path) - rank(b.path);
+    if (drive !== 0) return drive;
+    return wholeFileScore(b.name) - wholeFileScore(a.name) || a.name.localeCompare(b.name);
+  })[0]!;
+}
+
 function wholeFileScore(name: string): number {
   const lower = name.toLowerCase();
   let score = 0;
@@ -156,7 +176,10 @@ function wholeFileScore(name: string): number {
   return score;
 }
 
-function filesForTitle(filenames: string[]): { status: UploadStatus; files: string[] } {
+function filesForTitle(
+  filenames: string[],
+  collapseCopies: boolean,
+): { status: UploadStatus; files: string[] } {
   if (filenames.length === 0) return { status: "missing", files: [] };
   if (isTemporalSplit(filenames)) {
     const files = filenames
@@ -167,13 +190,14 @@ function filesForTitle(filenames: string[]): { status: UploadStatus; files: stri
       .sort((a, b) => (parseMediaFilename(a).part ?? 0) - (parseMediaFilename(b).part ?? 0));
     return { status: "split", files };
   }
-  if (filenames.length === 1) return { status: "ok", files: filenames };
+  if (filenames.length === 1 || !collapseCopies) return { status: "ok", files: filenames };
   return { status: "ok", files: [preferWholeFile(filenames)] };
 }
 
 export function matchUploadsToCatalog(
   filenames: string[],
   entries: CatalogEntry[],
+  opts?: { collapseCopies?: boolean },
 ): { matched: CatalogUploadRow[]; unmatched: UnmatchedUpload[] } {
   const movies = movieEntries(entries);
   const filesByTitle = new Map<string, string[]>();
@@ -195,7 +219,7 @@ export function matchUploadsToCatalog(
 
   const matched: CatalogUploadRow[] = movies
     .map((entry) => {
-      const grouped = filesForTitle(filesByTitle.get(entry.id) ?? []);
+      const grouped = filesForTitle(filesByTitle.get(entry.id) ?? [], opts?.collapseCopies !== false);
       return { titleId: entry.id, title: entry.title, status: grouped.status, files: grouped.files };
     })
     .sort((a, b) => a.title.localeCompare(b.title));
