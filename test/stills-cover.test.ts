@@ -8,6 +8,7 @@ import {
   coverStillForEntries,
   coverStillForShow,
   coverStillLineIndex,
+  pickCoverLineIndex,
 } from "../src/lib/content/stillsCover.js";
 import type { ShowGroup } from "../src/lib/content/libraryGroups.js";
 
@@ -27,15 +28,44 @@ const covers = {
   "inglourious-basterds-2009": 3,
 };
 
+describe("pickCoverLineIndex", () => {
+  it("prefers the earliest starred scene that has a JPEG", () => {
+    expect(pickCoverLineIndex([0, 1, 27, 40], [27, 40])).toBe(27);
+    expect(pickCoverLineIndex([0, 34, 100], [34, 100])).toBe(34);
+  });
+
+  it("falls back to the lowest JPEG when no starred scene is on disk", () => {
+    expect(pickCoverLineIndex([4, 1, 9], [27])).toBe(1);
+    expect(pickCoverLineIndex([8, 40], [])).toBe(8);
+  });
+});
+
 describe("coverStillLineIndex", () => {
   it("returns the lowest still index for a covered title", () => {
-    expect(coverStillLineIndex("oceans-thirteen-2007", covers)).toBe(0);
-    expect(coverStillLineIndex("the-wolf-of-wall-street-2013", covers)).toBe(27);
+    expect(coverStillLineIndex("oceans-thirteen-2007", covers, {})).toBe(0);
+    expect(coverStillLineIndex("the-wolf-of-wall-street-2013", covers, {})).toBe(27);
+  });
+
+  it("uses the earliest starred scene instead of an opening-frame cover", () => {
+    expect(
+      coverStillLineIndex(
+        "the-wolf-of-wall-street-2013",
+        { "the-wolf-of-wall-street-2013": 0 },
+        { "the-wolf-of-wall-street-2013": [27, 40] },
+      ),
+    ).toBe(27);
+    expect(
+      coverStillLineIndex(
+        "matrix-1999",
+        { "matrix-1999": 0 },
+        { "matrix-1999": [34, 100] },
+      ),
+    ).toBe(34);
   });
 
   it("returns undefined when the title has no cover", () => {
-    expect(coverStillLineIndex("sample-episode", covers)).toBeUndefined();
-    expect(coverStillLineIndex("the-simpsons---5x01---homers-barbershop-quartet", covers)).toBeUndefined();
+    expect(coverStillLineIndex("sample-episode", covers, {})).toBeUndefined();
+    expect(coverStillLineIndex("the-simpsons---5x01---homers-barbershop-quartet", covers, {})).toBeUndefined();
   });
 });
 
@@ -44,6 +74,7 @@ describe("coverStillForEntries", () => {
     const hit = coverStillForEntries(
       [entry("sample-episode"), entry("inglourious-basterds-2009")],
       covers,
+      {},
     );
     expect(hit).toEqual({ titleId: "inglourious-basterds-2009", lineIndex: 3 });
   });
@@ -60,7 +91,7 @@ describe("coverStillForShow", () => {
         [1, [entry("sample-episode")]],
       ]),
     };
-    expect(coverStillForShow(show, covers)).toEqual({
+    expect(coverStillForShow(show, covers, {})).toEqual({
       titleId: "oceans-thirteen-2007",
       lineIndex: 0,
     });
@@ -75,9 +106,21 @@ describe("scanStillsPreview", () => {
     writeFileSync(join(folder, "40.jpg"), "");
     writeFileSync(join(folder, "8.jpg"), "");
     writeFileSync(join(folder, "readme.txt"), "");
-    expect(scanStillsPreview(root)).toEqual({
+    expect(scanStillsPreview(root, {})).toEqual({
       titles: { "oceans-thirteen-2007": 2 },
       covers: { "oceans-thirteen-2007": 8 },
+    });
+  });
+
+  it("keeps the earliest starred scene when an opening frame is also on disk", () => {
+    const root = mkdtempSync(join(tmpdir(), "stills-preview-"));
+    const folder = join(root, "matrix-1999");
+    mkdirSync(folder);
+    writeFileSync(join(folder, "0.jpg"), "");
+    writeFileSync(join(folder, "34.jpg"), "");
+    writeFileSync(join(folder, "100.jpg"), "");
+    expect(scanStillsPreview(root, { "matrix-1999": [34, 100] }).covers).toEqual({
+      "matrix-1999": 34,
     });
   });
 
