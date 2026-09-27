@@ -239,12 +239,13 @@ export function StillsStudioPanel({
     setSeek(row.seek);
     setLineOffsets(row.lineOffsets);
     setVotes({});
+    const stills = Math.max(row.stillCount, data.frames.length);
     if (row.status === "pushed") {
       setNotice(
-        `Pushed ${data.frames.length} stills to R2 from ${data.previewDir}. Quote stills are live at /stills. Library covers need a Pages deploy.`,
+        `Pushed ${stills.toLocaleString()} stills to R2 from ${data.previewDir}. Quote stills are live at /stills. Library covers need a Pages deploy.`,
       );
     } else if (row.status === "batched") {
-      setNotice(`Batched ${data.frames.length} stills in ${data.previewDir}. Push to R2 when you mean it.`);
+      setNotice(`Batched ${stills.toLocaleString()} stills in ${data.previewDir}. Push to R2 when you mean it.`);
     } else {
       setNotice(null);
     }
@@ -279,9 +280,11 @@ export function StillsStudioPanel({
     setBusyKind(mode);
     setBusyMethodId(applied?.id ?? null);
     setBusy(
-      mode === "batch"
-        ? "Extracting remaining stars — this can take a minute…"
-        : mode === "smart"
+      mode === "lines"
+        ? "Extracting remaining lines — this can take several minutes…"
+        : mode === "batch"
+          ? "Extracting remaining stars — this can take a minute…"
+          : mode === "smart"
           ? `Trying ${nextMethod?.label ?? "next recipe"}…`
           : mode === "shuffle"
             ? "Picking six other frames…"
@@ -292,7 +295,7 @@ export function StillsStudioPanel({
     setError(null);
     setNotice(null);
     try {
-      if (mode === "batch") {
+      if (mode === "batch" || mode === "lines") {
         await approveStudioEpisode(selectedId);
       }
       const result = await runStudioExtract({
@@ -319,9 +322,11 @@ export function StillsStudioPanel({
       if (mode === "shuffle") {
         setNotice("Shuffled to six other cues. Tap a previous recipe to retry that timing.");
       }
-      if (mode === "batch") {
+      if (mode === "batch" || mode === "lines") {
+        const already = result.skipped > 0 ? ` · ${result.skipped} already on disk` : "";
         setNotice(
           `Batched ${result.extracted} stills in ${result.previewDir}` +
+            already +
             (result.failed > 0 ? ` · ${result.failed} failed` : "") +
             ".",
         );
@@ -694,14 +699,28 @@ export function StillsStudioPanel({
                 <div className="stills-sync-controls">
                   <p className="muted">
                     {selected.status === "pushed"
-                      ? "On R2. Quote stills are live at /stills. Library covers need a Pages deploy. If you changed a D1 star, batch remaining then push again."
+                      ? "On R2. Quote stills are live at /stills. Library covers need a Pages deploy. Changed a star or want every cue? Batch again, then push."
                       : pushingThis
                         ? `Uploading ${pushJob?.done ?? 0} / ${pushJob?.total ?? 0}. Safe to switch titles or leave this tab.`
-                        : "All D1 stars are on disk. Open the folder to skim, or push to R2. Changed a star? Batch remaining pulls the current D1 list."}
+                        : "Stills are on disk. Open the folder to skim, or push to R2. Batch remaining lines fills every playable cue. Batch remaining stars pulls the current D1 list."}
                   </p>
+                  {selected.stillCount > frames.length ? (
+                    <p className="muted">
+                      {selected.stillCount.toLocaleString()} stills on disk. This page keeps the review frames.
+                    </p>
+                  ) : null}
                   <div className="row">
                     <button type="button" className="button" onClick={() => void openPreviewFolder()}>
                       Open result folder
+                    </button>
+                    <button
+                      type="button"
+                      className="button primary"
+                      disabled={extractLocked}
+                      aria-busy={busyKind === "lines"}
+                      onClick={() => void runExtract("lines")}
+                    >
+                      {actionLabel("lines", "Batch remaining lines")}
                     </button>
                     <button
                       type="button"
@@ -730,7 +749,7 @@ export function StillsStudioPanel({
                             : "Push approved"}
                     </button>
                   </div>
-                  {busyKind === "batch" && busy ? (
+                  {(busyKind === "batch" || busyKind === "lines") && busy ? (
                     <p className="stills-studio-busy" role="status" aria-live="polite">
                       {busy}
                     </p>
@@ -741,11 +760,22 @@ export function StillsStudioPanel({
 
               {allUp ? (
                 <div className="stills-sync-controls">
-                  <p className="muted">All six match. Batch remaining D1 stars locally, then push to R2 when you mean it.</p>
+                  <p className="muted">
+                    All six match. Batch remaining lines for every playable cue, or just the D1 stars. Then push to R2 when you mean it.
+                  </p>
                   <div className="row">
                     <button
                       type="button"
                       className="button primary"
+                      disabled={extractLocked}
+                      aria-busy={busyKind === "lines"}
+                      onClick={() => void runExtract("lines")}
+                    >
+                      {actionLabel("lines", "Batch remaining lines")}
+                    </button>
+                    <button
+                      type="button"
+                      className="button"
                       disabled={extractLocked || selected.starCount === 0}
                       aria-busy={busyKind === "batch"}
                       onClick={() => void runExtract("batch")}
@@ -758,7 +788,7 @@ export function StillsStudioPanel({
                       Open folder
                     </button>
                   </div>
-                  {busyKind === "batch" && busy ? (
+                  {(busyKind === "batch" || busyKind === "lines") && busy ? (
                     <p className="stills-studio-busy" role="status" aria-live="polite">
                       {busy}
                     </p>

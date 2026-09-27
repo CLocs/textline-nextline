@@ -52,7 +52,7 @@ export type StudioFrame = {
   error?: string;
 };
 
-export type StudioExtractMode = "handful" | "retry" | "smart" | "shuffle" | "batch";
+export type StudioExtractMode = "handful" | "retry" | "smart" | "shuffle" | "batch" | "lines";
 
 export type StudioPushJob = {
   titleId: string;

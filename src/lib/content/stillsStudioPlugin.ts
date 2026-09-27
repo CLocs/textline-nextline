@@ -37,7 +37,14 @@ function readBody(req: IncomingMessage): Promise<string> {
 }
 
 function parseMode(raw: unknown): StudioExtractMode {
-  if (raw === "retry" || raw === "batch" || raw === "handful" || raw === "smart" || raw === "shuffle") {
+  if (
+    raw === "retry" ||
+    raw === "batch" ||
+    raw === "lines" ||
+    raw === "handful" ||
+    raw === "smart" ||
+    raw === "shuffle"
+  ) {
     return raw;
   }
   return "handful";
@@ -120,6 +127,10 @@ export function stillsStudioPlugin() {
             return;
           }
           const mode = path === "/batch" ? "batch" : parseMode(body.mode);
+          if (mode === "lines" || mode === "batch") {
+            req.socket?.setTimeout(0);
+            res.setTimeout(0);
+          }
           const lineOffsets =
             body.lineOffsets && typeof body.lineOffsets === "object" && !Array.isArray(body.lineOffsets)
               ? (body.lineOffsets as Record<string, number>)

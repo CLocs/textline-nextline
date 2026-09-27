@@ -101,6 +101,7 @@ export async function runStudioExtract(opts: {
   extracted: number;
   failed: number;
   durationWarn: boolean;
+  skipped: number;
   mode: StudioExtractMode;
   previewDir: string;
   method: { id: string; label: string; why: string };

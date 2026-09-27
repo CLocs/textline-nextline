@@ -6,6 +6,7 @@ import { loadCatalog, loadTitle, titlePath } from "./load.js";
 import type { CueSeek, StillsSyncFile } from "./extractStills.js";
 import { loadStillsSyncFile, seekModeForTitle } from "./extractStills.js";
 import { countStillsByTitle, upsertStillsCoverageTitle } from "./mediaUploads.js";
+import { stillCueIndices } from "./playable.js";
 import { fetchOwnerStarMap, starCountsFromMap, type OwnerStarMap } from "./stillsD1.js";
 import { listPreviewStillFiles, pushPreviewStills } from "./stillsPush.js";
 import {
@@ -165,12 +166,17 @@ function framesForEpisode(
   const destDir = join(ctx.previewRoot, title.id);
   const showAll = episode.status === "batched" || episode.status === "pushed";
   const fromDisk = listPreviewStillIndices(destDir);
-  const indices =
+  let indices =
     showAll && fromDisk.length > 0
       ? fromDisk
       : episode.handful.length > 0
         ? episode.handful
         : fromDisk;
+  // A full-line batch is hundreds of JPEGs. Keep the six review frames on the page.
+  const reviewCap = Math.max(episode.starCount + episode.handful.length, 48);
+  if (indices.length > reviewCap) {
+    indices = episode.handful.length > 0 ? episode.handful : indices.slice(0, 48);
+  }
   return listHandfulFrames({
     packageRoot: ctx.packageRoot,
     title,
@@ -217,6 +223,7 @@ export type ExtractResponse = {
   frames: StudioFrame[];
   extracted: number;
   failed: number;
+  skipped: number;
   durationWarn: boolean;
   mode: StudioExtractMode;
   previewDir: string;
@@ -263,11 +270,10 @@ export function studioExtract(
   const media = remuxIfNeeded(ctx.packageRoot, id, episode.videoPath);
   const durationSec = probeDurationSec(media);
   const fps = previous?.fps ?? probeFps(media) ?? episode.fps;
-  const { stars } = loadStars(
-    ctx,
-    opts.mode === "batch" || opts.mode === "handful" || opts.mode === "shuffle",
-  );
+  const needsStars = opts.mode === "batch" || opts.mode === "handful" || opts.mode === "shuffle";
+  const { stars } = loadStars(ctx, needsStars);
   const starIndices = stars[id] ?? [];
+  const fillingLines = opts.mode === "lines" || opts.mode === "batch";
 
   let offsetMs = Number.isFinite(opts.offsetMs) ? Number(opts.offsetMs) : episode.offsetMs;
   let timeScale =
@@ -298,11 +304,11 @@ export function studioExtract(
   }
 
   let indices: number[];
-  if (opts.mode === "batch") {
+  if (fillingLines) {
     if (!previous?.approvedAt) {
       throw new Error("Batch only after all six frames are thumbs-up.");
     }
-    indices = starIndices;
+    indices = opts.mode === "lines" ? stillCueIndices(title) : starIndices;
     if (indices.length === 0) {
       sync[id] = mergeSyncEntry(previous, {
         offsetMs,
@@ -314,7 +320,9 @@ export function studioExtract(
         source: episode.videoPath,
         handful: previous?.handful ?? episode.handful,
         batchedAt: new Date().toISOString(),
-        note: previous?.note ?? "Studio batch: no D1 stars yet.",
+        note:
+          previous?.note ??
+          (opts.mode === "lines" ? "Studio lines: no playable cues." : "Studio batch: no D1 stars yet."),
         methodId: previous?.methodId ?? method.id,
         triedMethods: previous?.triedMethods,
       });
@@ -326,8 +334,9 @@ export function studioExtract(
         frames: framesForEpisode(ctx, title, refreshed.episode),
         extracted: 0,
         failed: 0,
+        skipped: 0,
         durationWarn: durationPastEof(lastCueStartMsOf(title), durationSec ?? 0, offsetMs, timeScale),
-        mode: "batch",
+        mode: opts.mode,
         previewDir: previewDirForTitle(id),
         method,
       };
@@ -354,12 +363,15 @@ export function studioExtract(
     seek,
     lineOffsets,
     accurateSeek,
+    skipExisting: opts.mode === "lines",
   });
 
   const now = new Date().toISOString();
-  const handful = opts.mode === "batch" ? (previous?.handful ?? episode.handful) : indices;
+  const wrote = results.filter((row) => row.ok && !row.skipped).length;
+  const skipped = results.filter((row) => row.skipped).length;
+  const handful = fillingLines ? (previous?.handful ?? episode.handful) : indices;
   const triedMethods =
-    opts.mode === "batch" || opts.mode === "shuffle"
+    fillingLines || opts.mode === "shuffle"
       ? previous?.triedMethods
       : recordTriedMethodIds(previous?.triedMethods, episode.methodId, method.id);
   sync[id] = mergeSyncEntry(previous, {
@@ -371,29 +383,32 @@ export function studioExtract(
     durationSec: durationSec ?? previous?.durationSec,
     source: episode.videoPath,
     handful,
-    approvedAt: opts.mode === "batch" ? previous?.approvedAt ?? now : undefined,
+    approvedAt: fillingLines ? previous?.approvedAt ?? now : undefined,
     // Handful/smart/retry after a batch must drop these so the six-frame review returns.
     // Batch after a later star change must un-push so the new JPEGs can go to R2.
-    batchedAt: opts.mode === "batch" ? now : undefined,
+    batchedAt: fillingLines ? now : undefined,
     pushedAt: undefined,
-    methodId: opts.mode === "batch" || opts.mode === "shuffle" ? previous?.methodId ?? method.id : method.id,
+    methodId: fillingLines || opts.mode === "shuffle" ? previous?.methodId ?? method.id : method.id,
     triedMethods,
     note:
-      opts.mode === "batch"
-        ? `Studio batch ${results.filter((row) => row.ok).length} stills.`
-        : opts.mode === "shuffle"
-          ? `Studio shuffle (${handful.join(",")}).`
-          : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
+      opts.mode === "lines"
+        ? `Studio lines ${wrote} stills${skipped > 0 ? ` (${skipped} already on disk)` : ""}.`
+        : opts.mode === "batch"
+          ? `Studio batch ${wrote} stills.`
+          : opts.mode === "shuffle"
+            ? `Studio shuffle (${handful.join(",")}).`
+            : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
   });
   writeStillsSyncFile(ctx.syncPath, sync);
-  if (opts.mode === "batch") upsertCoverageForTitle(ctx, id);
+  if (fillingLines) upsertCoverageForTitle(ctx, id);
 
   const refreshed = findEpisode(ctx, id);
   return {
     episode: refreshed.episode,
     frames: framesForEpisode(ctx, title, refreshed.episode),
-    extracted: results.filter((row) => row.ok).length,
+    extracted: wrote,
     failed: results.filter((row) => !row.ok).length,
+    skipped,
     durationWarn: durationPastEof(lastCueStartMsOf(title), durationSec ?? 0, offsetMs, timeScale),
     mode: opts.mode,
     previewDir: previewDirForTitle(id),

@@ -321,27 +321,27 @@
   },
   "lord-of-the-rings-the-two-towers-2002": {
     "offsetMs": 0,
-    "timeScale": 0.96,
+    "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
     "lineOffsets": {},
     "durationSec": 14132.134,
     "source": "G:\\videos\\movies\\The Lord of the Rings The Two Towers Extended (2002).mkv",
     "handful": [
-      323,
-      684,
-      855,
-      1156,
-      1402,
-      1744
+      300,
+      722,
+      852,
+      1152,
+      1525,
+      1766
     ],
-    "methodId": "pal",
+    "methodId": "zero",
     "triedMethods": [
       "zero",
       "pal",
       "mid"
     ],
-    "note": "Studio retry PAL 0.96 (323,684,855,1156,1402,1744)."
+    "note": "Studio retry No offset (300,722,852,1152,1525,1766)."
   },
   "lord-of-the-rings-the-return-of-the-king-2003": {
     "offsetMs": 0,
@@ -410,5 +410,34 @@
     "note": "HEVC 1280x688 23.976 ~1:59:19. Embedded SRT matches catalog starts within ~0.3s. Playable 1606 extracted and pushed to R2.",
     "batchedAt": "2026-09-27T02:14:35.717Z",
     "pushedAt": "2026-09-27T02:27:22.718Z"
+  },
+  "gone-in-sixty-seconds-2000": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "lineOffsets": {},
+    "durationSec": 5663.373,
+    "source": "G:\\videos\\movies\\Gone in Sixty Seconds (2000).avi",
+    "handful": [
+      576,
+      577,
+      776,
+      803,
+      919,
+      1134
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal",
+      "mid",
+      "plus5",
+      "minus5",
+      "plus10",
+      "minus10",
+      "pal-mid"
+    ],
+    "note": "Studio retry No offset (576,577,776,803,919,1134)."
   }
 }

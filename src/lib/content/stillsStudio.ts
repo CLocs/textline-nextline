@@ -315,6 +315,7 @@ export type ExtractResult = {
   text: string;
   seekSec: number;
   ok: boolean;
+  skipped?: boolean;
   error?: string;
 };
 
@@ -328,6 +329,7 @@ export function extractTitleStills(opts: {
   seek?: CueSeek;
   lineOffsets?: Record<string, number>;
   accurateSeek?: boolean;
+  skipExisting?: boolean;
 }): ExtractResult[] {
   const destDir = join(opts.packageRoot, "inbox", "stills-preview", opts.title.id);
   mkdirSync(destDir, { recursive: true });
@@ -354,6 +356,10 @@ export function extractTitleStills(opts: {
       extra,
     );
     const output = join(destDir, stillFileName(lineIndex));
+    if (opts.skipExisting && existsSync(output)) {
+      results.push({ lineIndex, text: cue.text, seekSec, ok: true, skipped: true });
+      continue;
+    }
     try {
       execFileSync(
         "ffmpeg",
