@@ -21,24 +21,30 @@ function entry(id: string): CatalogEntry {
   };
 }
 
+const covers = {
+  "oceans-thirteen-2007": 0,
+  "the-wolf-of-wall-street-2013": 27,
+  "inglourious-basterds-2009": 3,
+};
+
 describe("coverStillLineIndex", () => {
   it("returns the lowest still index for a covered title", () => {
-    expect(coverStillLineIndex("oceans-thirteen-2007")).toBe(0);
-    expect(coverStillLineIndex("the-wolf-of-wall-street-2013")).toBe(27);
+    expect(coverStillLineIndex("oceans-thirteen-2007", covers)).toBe(0);
+    expect(coverStillLineIndex("the-wolf-of-wall-street-2013", covers)).toBe(27);
   });
 
   it("returns undefined when the title has no cover", () => {
-    expect(coverStillLineIndex("sample-episode")).toBeUndefined();
-    expect(coverStillLineIndex("the-simpsons---5x01---homers-barbershop-quartet")).toBeUndefined();
+    expect(coverStillLineIndex("sample-episode", covers)).toBeUndefined();
+    expect(coverStillLineIndex("the-simpsons---5x01---homers-barbershop-quartet", covers)).toBeUndefined();
   });
 });
 
 describe("coverStillForEntries", () => {
   it("picks the first entry that has a cover", () => {
-    const hit = coverStillForEntries([
-      entry("sample-episode"),
-      entry("inglourious-basterds-2009"),
-    ]);
+    const hit = coverStillForEntries(
+      [entry("sample-episode"), entry("inglourious-basterds-2009")],
+      covers,
+    );
     expect(hit).toEqual({ titleId: "inglourious-basterds-2009", lineIndex: 3 });
   });
 });
@@ -54,7 +60,7 @@ describe("coverStillForShow", () => {
         [1, [entry("sample-episode")]],
       ]),
     };
-    expect(coverStillForShow(show)).toEqual({
+    expect(coverStillForShow(show, covers)).toEqual({
       titleId: "oceans-thirteen-2007",
       lineIndex: 0,
     });
