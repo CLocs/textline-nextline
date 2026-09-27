@@ -9,18 +9,22 @@ function coversMap(): Record<string, number> {
   return raw.covers;
 }
 
-/** Library cover: lowest starred still for this title, if we extracted one. */
-export function coverStillLineIndex(titleId: string): number | undefined {
-  const n = coversMap()[titleId];
+/** Library cover: lowest extracted still for this title, if we have one. */
+export function coverStillLineIndex(
+  titleId: string,
+  covers: Record<string, number> = coversMap(),
+): number | undefined {
+  const n = covers[titleId];
   if (typeof n !== "number" || !Number.isInteger(n) || n < 0) return undefined;
   return n;
 }
 
 export function coverStillForEntries(
   entries: CatalogEntry[],
+  covers: Record<string, number> = coversMap(),
 ): { titleId: string; lineIndex: number } | undefined {
   for (const entry of entries) {
-    const lineIndex = coverStillLineIndex(entry.id);
+    const lineIndex = coverStillLineIndex(entry.id, covers);
     if (lineIndex != null) return { titleId: entry.id, lineIndex };
   }
   return undefined;
@@ -29,8 +33,9 @@ export function coverStillForEntries(
 /** First episode (season then episode order) that has a cover still. */
 export function coverStillForShow(
   show: ShowGroup,
+  covers: Record<string, number> = coversMap(),
 ): { titleId: string; lineIndex: number } | undefined {
   const seasons = [...show.seasons.keys()].sort((a, b) => a - b);
   const episodes = seasons.flatMap((season) => show.seasons.get(season) ?? []);
-  return coverStillForEntries(episodes);
+  return coverStillForEntries(episodes, covers);
 }
