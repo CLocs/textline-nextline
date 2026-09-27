@@ -68,11 +68,13 @@ export function DailyHome({ onPlay }: Props) {
             </button>
           ) : null}
         </div>
-        {showQuotes && cards === null ? (
+        {!showQuotes ? (
+          <p className="muted daily-folded-note">Finished for today. Show the quotes to send one.</p>
+        ) : cards === null ? (
           <p className="muted">Loading today’s three…</p>
-        ) : showQuotes && cards.length === 0 ? (
+        ) : cards.length === 0 ? (
           <p className="muted">No framed quotes lined up for today.</p>
-        ) : showQuotes ? (
+        ) : (
           <ul className="title-list">
             {cards.map((card, index) => {
               const title = getTitle(card.titleId);
@@ -99,8 +101,6 @@ export function DailyHome({ onPlay }: Props) {
               );
             })}
           </ul>
-        ) : (
-          <p className="muted daily-folded-note">Finished for today. Show the quotes to send one.</p>
         )}
       </section>
     </>
