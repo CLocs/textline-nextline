@@ -410,6 +410,8 @@ Open questions (spike only — no pack UI yet):
 - [x] **Question inbox** — Curate send icon → friend’s inbox (or copy a 1-line `#/play` link). See [Later ideas](#later-ideas-parked).
 - [x] **Chats (DMs + shared group threads on Home)** — `#/chats`, `#/chat/{userId}`, `#/chat/group/{groupId}`; Home rail; bell. See [Chats](#chats-dms--shared-group-threads).
 - [x] **Named friend groups** — Profile → Friends send-lists; one Send fans out the same 1-line share. Attempt-chat stays later.
+- [ ] **Friend icons + day-streak badges** — icon row at the top of Profile → Friends; badge is the daily day-streak. See [Friend faces](#friend-faces--friends-of-friends).
+- [ ] **Friends of friends** — tap a friend to see their friends, then request. See [Friend faces](#friend-faces--friends-of-friends).
 - [x] **Send cooldown: per recipient, not global** — Reuse one frozen share across friends; 10s debounce only for same line → same person. See [Recent feedback](#recent-feedback-parked).
 - [ ] **Difficulty modes** — Medium/Hard free text
 - [ ] **Leaderboards** — per title, global, friends (builds on the Phase 2.5 run log)
@@ -528,7 +530,7 @@ Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (�
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)**, **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Friend faces** (icon row + day-streak badge) and **friends of friends** (tap through, then request) stay parked. **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)**, **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -566,9 +568,23 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Groups ✅.** Owner-only lists on Profile → Friends (e.g. “Movie night”). Members must already be **your** friends. Cap ~10 groups / ~20 members. Unfriend or block drops that person from **your** groups. No shared clubs, no directory, no emails. Local Vite shortcut has no groups.
 
-**Not this:** rooms (Phase 2), 10-pack mini-game shares (2a), loved-cover stills, exposing emails on friend/share meta, Discord-style servers.
+**Friend faces** *(later).* Icon row and one-hop friends of friends. See [Friend faces](#friend-faces--friends-of-friends).
+
+**Not this:** rooms (Phase 2), 10-pack mini-game shares (2a), loved-cover stills, exposing emails on friend/share meta, Discord-style servers, a public user directory.
 
 **Attempt chat** *(later).* Person icons in a chat-like thread for who got that 1-line share **first try / second try / third try**. Not rooms. Belongs **inside** Chats threads next to that share.
+
+### Friend faces + friends of friends
+
+Profile → Friends is a name list (Remove / Block) under the invite link. Two additions, same screen.
+
+**Icons.** A small row at the top: one icon per friend. One badge, the [daily day-streak](#daily-quote-email) (`daily_streaks`). No badge at 0. The name list stays underneath for Remove and Block.
+
+**Friends of friends.** Tap an icon to open that friend’s friends (display name, same streak badge). **Request** from that card; they Accept. Mutual friendship, same as the invite link. One hop: you are already friends with the person whose list you opened.
+
+Click-through is the way in. The graph is small (cap ~50), and the point is who a specific friend knows. A ranked “people you may know” strip waits until a list is too long to scan; until then a mutual count on a long row is enough. Invite links stay for people outside the hop — a name alone still cannot start a friendship without Request or their link.
+
+**Still true:** no search-by-name, no `GET /api/users`, no emails, no “who’s online.” Block hides that person from the hop. The friend cap still applies when they accept. The streak number is visible to your friends and, on that screen, one hop further.
 
 ### Chats (DMs + shared group threads) ✅
 
@@ -902,6 +918,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Next — Chats** | Per-friend DMs + shared group threads on Home | ✅ See [Chats](#chats-dms--shared-group-threads) |
 | **Later — Chats quote replies** | Text replies under a quote card (thread-lite) | Parked — see [Chats → quote replies](#chats--quote-replies) |
 | **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
+| **Later — Friend faces** | Icon row on Friends with day-streak badges; tap through to friends of friends and request | One hop, display name only — see [Friend faces](#friend-faces--friends-of-friends) |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes** | Wikiquote dialogue merged into your stars, then Curate | Lebowski: 210 new lines, 1 existing star kept — see [spike](#spike-online-quotes-eg-imdb-research) |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
@@ -1010,6 +1027,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Chats (DMs + group threads on Home)** — ✅ `#/chats`, DM + shared group threads; Home rail; server unread. Quote replies + attempt scores still later. See [Chats](#chats-dms--shared-group-threads).
 - **Chats → quote replies** *(parked)* — Reply under a quote card (scoped to that share); lives under the card, not as a free-floating timeline peer. See [Chats → quote replies](#chats--quote-replies).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
+- **Friend faces + friends of friends** *(parked)* — Icon row at the top of Friends with a day-streak badge; tap a friend to see their friends and request. See [Friend faces](#friend-faces--friends-of-friends).
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
 - **Send streaks from Curate** *(next)* — Send a star streak (sequential starred lines) to a friend; they play it in order. See [Send streaks from Curate](#send-streaks-from-curate).
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
