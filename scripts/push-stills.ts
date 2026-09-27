@@ -1,27 +1,30 @@
 import { existsSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { execFile } from "node:child_process";
-import { STILLS_R2_BUCKET, stillObjectKey } from "../src/lib/content/stillKeys.js";
+import { STILLS_R2_BUCKET } from "../src/lib/content/stillKeys.js";
+import { pushPreviewStills } from "../src/lib/content/stillsPush.js";
 
 const packageRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
-const wranglerJs = join(packageRoot, "node_modules", "wrangler", "bin", "wrangler.js");
 const defaultPreview = join(packageRoot, "inbox", "stills-preview");
-const CONCURRENCY = 4;
 
 function usage(): never {
   console.log(`Usage:
-  npm run content:stills:push -- [--title oceans-thirteen-2007] [--preview inbox/stills-preview]
+  npm run content:stills:push -- [--title oceans-thirteen-2007] [--dry-run] [--force]
 
-Uploads gitignored preview JPEGs to the private R2 bucket ${STILLS_R2_BUCKET}.
-Repeat --title to limit folders (default: every folder). Pages serves them at
-/stills/{titleId}/{line}.jpg after the next Pages deploy.`);
+Syncs preview JPEGs to the private R2 bucket ${STILLS_R2_BUCKET}.
+Lists objects already in the bucket and uploads only missing keys or files
+whose size/MD5 changed. Same-size matches are hashed before skip.
+Repeat --title to limit folders (default: every preview folder).
+--dry-run prints the plan. --force re-uploads every local JPEG.
+Pages serves them at /stills/{titleId}/{line}.jpg. Remote-only objects are left in place.`);
   process.exit(1);
 }
 
-function parseArgs(argv: string[]): { titles: string[]; preview: string } {
+function parseArgs(argv: string[]): { titles: string[]; preview: string; dryRun: boolean; force: boolean } {
   const titles: string[] = [];
   let preview = defaultPreview;
+  let dryRun = false;
+  let force = false;
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === "--title") {
@@ -30,86 +33,67 @@ function parseArgs(argv: string[]): { titles: string[]; preview: string } {
         titles.push(id);
       }
     } else if (arg === "--preview") preview = argv[++i] ?? preview;
+    else if (arg === "--dry-run") dryRun = true;
+    else if (arg === "--force") force = true;
     else if (arg === "--help" || arg === "-h") usage();
   }
-  return { titles, preview: resolve(preview) };
+  return { titles, preview: resolve(preview), dryRun, force };
 }
 
-type StillFile = { titleId: string; file: string; key: string };
-
-function listStillFiles(previewRoot: string, titleFilter: string[]): StillFile[] {
+function previewTitleIds(previewRoot: string, titleFilter: string[]): string[] {
   if (!existsSync(previewRoot) || !statSync(previewRoot).isDirectory()) {
     throw new Error(`Preview folder not found: ${previewRoot}`);
   }
   const allow = new Set(titleFilter);
-  const files: StillFile[] = [];
-  for (const dirent of readdirSync(previewRoot, { withFileTypes: true })) {
-    if (!dirent.isDirectory()) continue;
-    if (allow.size > 0 && !allow.has(dirent.name)) continue;
-    const folder = join(previewRoot, dirent.name);
-    for (const name of readdirSync(folder)) {
-      const key = stillObjectKey(dirent.name, name);
-      if (!key) continue;
-      files.push({ titleId: dirent.name, file: join(folder, name), key });
-    }
+  const ids = readdirSync(previewRoot, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name)
+    .filter((name) => allow.size === 0 || allow.has(name))
+    .sort((a, b) => a.localeCompare(b));
+  for (const id of titleFilter) {
+    if (!ids.includes(id)) throw new Error(`No preview folder for ${id}.`);
   }
-  files.sort((a, b) => a.key.localeCompare(b.key));
-  return files;
-}
-
-function putObject(key: string, file: string): Promise<void> {
-  return new Promise((resolvePut, reject) => {
-    execFile(
-      process.execPath,
-      [
-        wranglerJs,
-        "r2",
-        "object",
-        "put",
-        `${STILLS_R2_BUCKET}/${key}`,
-        "--file",
-        file,
-        "--content-type",
-        "image/jpeg",
-        "--cache-control",
-        "public, max-age=31536000, immutable",
-        "--remote",
-        "-y",
-      ],
-      { cwd: packageRoot },
-      (error, _stdout, stderr) => {
-        if (error) {
-          reject(new Error(stderr || error.message));
-          return;
-        }
-        resolvePut();
-      },
-    );
-  });
+  return ids;
 }
 
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
-  const files = listStillFiles(args.preview, args.titles);
-  if (files.length === 0) {
-    console.error("No still JPEGs to upload.");
+  const titles = previewTitleIds(args.preview, args.titles);
+  if (titles.length === 0) {
+    console.error("No still folders to sync.");
     process.exit(1);
   }
-  console.log(`Uploading ${files.length} still(s) → R2 ${STILLS_R2_BUCKET}`);
-  let next = 0;
-  let done = 0;
-  async function worker(): Promise<void> {
-    while (next < files.length) {
-      const i = next;
-      next += 1;
-      const item = files[i]!;
-      console.log(`[${i + 1}/${files.length}] ${item.key}`);
-      await putObject(item.key, item.file);
-      done += 1;
-    }
+  console.log(
+    args.force
+      ? `Force upload of ${titles.length} title(s) → R2 ${STILLS_R2_BUCKET}`
+      : `Sync ${titles.length} title(s) → R2 ${STILLS_R2_BUCKET}${args.dryRun ? " (dry run)" : ""}`,
+  );
+  let uploaded = 0;
+  let unchanged = 0;
+  let planned = 0;
+  for (const titleId of titles) {
+    const result = await pushPreviewStills(packageRoot, titleId, {
+      previewRoot: args.preview,
+      force: args.force,
+      dryRun: args.dryRun,
+      onProgress(done, total) {
+        if (done === 0 || done === total || done % 25 === 0) {
+          console.log(`[${titleId}] ${done}/${total}`);
+        }
+      },
+    });
+    uploaded += result.uploaded;
+    unchanged += result.unchanged;
+    planned += result.planned;
+    console.log(
+      `${titleId}: ${args.dryRun ? "would upload" : "uploaded"} ${args.dryRun ? result.planned : result.uploaded}, unchanged ${result.unchanged}`,
+    );
   }
-  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, files.length) }, () => worker()));
-  console.log(`Uploaded ${done} still(s).`);
+  console.log(
+    args.dryRun
+      ? `Would upload ${planned}, unchanged ${unchanged}.`
+      : `Uploaded ${uploaded}, unchanged ${unchanged}.`,
+  );
 }
 
 void main().catch((error: unknown) => {
