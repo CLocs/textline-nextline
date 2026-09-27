@@ -11,6 +11,8 @@ import {
   studioHealth,
   parseStudioVotes,
   studioCoverage,
+  clearStudioExtractProgress,
+  studioExtractProgress,
   studioOpenPreview,
   startStudioPush,
   studioPushStatus,
@@ -90,6 +92,10 @@ export function stillsStudioPlugin() {
         sendJson(res, 200, { job: studioPushStatus() });
         return;
       }
+      if (req.method === "GET" && path === "/extract-status") {
+        sendJson(res, 200, { progress: studioExtractProgress() });
+        return;
+      }
       if (req.method === "POST" && path === "/open-preview") {
         const raw = await readBody(req);
         const body = raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
@@ -138,7 +144,7 @@ export function stillsStudioPlugin() {
           sendJson(
             res,
             200,
-            studioExtract(ctx, {
+            await studioExtract(ctx, {
               titleId,
               mode,
               offsetMs: typeof body.offsetMs === "number" ? body.offsetMs : undefined,
@@ -150,6 +156,7 @@ export function stillsStudioPlugin() {
           );
         } finally {
           busy = false;
+          clearStudioExtractProgress();
         }
         return;
       }
@@ -157,6 +164,7 @@ export function stillsStudioPlugin() {
       sendJson(res, 404, { error: "Unknown stills studio route." });
     } catch (error) {
       busy = false;
+      clearStudioExtractProgress();
       sendJson(res, 400, { error: error instanceof Error ? error.message : String(error) });
     }
   }

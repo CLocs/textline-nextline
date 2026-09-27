@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   approveStudioEpisode,
   fetchStudioEpisode,
+  fetchStudioExtractProgress,
   fetchStudioQueue,
   fetchStudioPushStatus,
   fetchStudioShows,
@@ -11,6 +12,7 @@ import {
   studioHealth,
   StudioUnavailableError,
   type StudioEpisode,
+  type StudioExtractProgress,
   type StudioFrame,
   type StudioPushJob,
   type StudioQueueResponse,
@@ -83,6 +85,7 @@ export function StillsStudioPanel({
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [pushJob, setPushJob] = useState<StudioPushJob | null>(null);
+  const [extractProgress, setExtractProgress] = useState<StudioExtractProgress | null>(null);
   const seenPushRef = useRef<string | null>(null);
   const selectedIdRef = useRef<string | null>(null);
   const showRef = useRef(show);
@@ -136,6 +139,12 @@ export function StillsStudioPanel({
     if (available !== true) return;
     let cancelled = false;
     async function tick() {
+      try {
+        const progress = await fetchStudioExtractProgress();
+        if (!cancelled) setExtractProgress(progress);
+      } catch {
+        /* counts are optional while a batch is running */
+      }
       try {
         const job = await fetchStudioPushStatus();
         if (cancelled) return;
@@ -213,6 +222,12 @@ export function StillsStudioPanel({
   const pushingThis = pushJob?.status === "running" && pushJob.titleId === selectedId;
   const pushRunning = pushJob?.status === "running";
   const extractLocked = Boolean(busy) || Boolean(pushingThis);
+  const linesBusy =
+    busyKind === "lines" &&
+    extractProgress?.titleId === selectedId &&
+    extractProgress.total > 0
+      ? `Extracting lines… ${extractProgress.done} / ${extractProgress.total}`
+      : null;
 
   const counts = useMemo(() => {
     const tallies = { "no-file": 0, ready: 0, review: 0, approved: 0, batched: 0, pushed: 0 };
@@ -722,7 +737,7 @@ export function StillsStudioPanel({
                       aria-busy={busyKind === "lines"}
                       onClick={() => void runExtract("lines")}
                     >
-                      {actionLabel("lines", "Batch remaining lines")}
+                      {linesBusy ?? actionLabel("lines", "Batch remaining lines")}
                     </button>
                     <button
                       type="button"
@@ -753,7 +768,7 @@ export function StillsStudioPanel({
                   </div>
                   {(busyKind === "batch" || busyKind === "lines") && busy ? (
                     <p className="stills-studio-busy" role="status" aria-live="polite">
-                      {busy}
+                      {linesBusy ?? busy}
                     </p>
                   ) : null}
                   {renderRetryTools("gallery")}
@@ -773,7 +788,7 @@ export function StillsStudioPanel({
                       aria-busy={busyKind === "lines"}
                       onClick={() => void runExtract("lines")}
                     >
-                      {actionLabel("lines", "Batch remaining lines")}
+                      {linesBusy ?? actionLabel("lines", "Batch remaining lines")}
                     </button>
                     <button
                       type="button"
@@ -792,7 +807,7 @@ export function StillsStudioPanel({
                   </div>
                   {(busyKind === "batch" || busyKind === "lines") && busy ? (
                     <p className="stills-studio-busy" role="status" aria-live="polite">
-                      {busy}
+                      {linesBusy ?? busy}
                     </p>
                   ) : null}
                 </div>

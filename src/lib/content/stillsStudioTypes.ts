@@ -56,6 +56,12 @@ export type StudioFrame = {
 
 export type StudioExtractMode = "handful" | "retry" | "smart" | "shuffle" | "batch" | "lines";
 
+export type StudioExtractProgress = {
+  titleId: string;
+  done: number;
+  total: number;
+};
+
 export type StudioPushJob = {
   titleId: string;
   label: string;

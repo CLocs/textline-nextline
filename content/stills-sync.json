@@ -486,5 +486,52 @@
       "zero"
     ],
     "note": "Studio shuffle (250,710,979,1258,1349,1813)."
+  },
+  "baby-driver-2017": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 6759.754,
+    "source": "H:\\videos\\movies\\Baby Driver (2017).mkv",
+    "handful": [
+      477,
+      619,
+      1061,
+      1281,
+      1379,
+      1537
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1344 stills (16 already on disk).",
+    "approvedAt": "2026-09-27T16:14:59.849Z",
+    "batchedAt": "2026-09-27T16:23:01.093Z"
+  },
+  "back-to-the-future-1985": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 24,
+    "lineOffsets": {},
+    "durationSec": 6949.226667,
+    "source": "G:\\videos\\movies\\Back to the Future (1985) 1080p.mp4",
+    "handful": [
+      200,
+      446,
+      724,
+      727,
+      831,
+      1023
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio shuffle (200,446,724,727,831,1023).",
+    "approvedAt": "2026-09-27T16:37:32.485Z"
   }
 }

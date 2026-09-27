@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, dirname, extname, join } from "node:path";
-import { execFileSync } from "node:child_process";
+import { execFile, execFileSync } from "node:child_process";
 import type { CatalogEntry, Line, Title } from "../../types/content.js";
 import { episodeLabel } from "./libraryGroups.js";
 import type { CueSeek, StillsSyncEntry, StillsSyncFile } from "./extractStills.js";
@@ -400,7 +400,16 @@ export type ExtractResult = {
   error?: string;
 };
 
-export function extractTitleStills(opts: {
+function ffmpegExtract(args: string[]): Promise<void> {
+  return new Promise((resolve, reject) => {
+    execFile("ffmpeg", args, { stdio: "pipe" }, (error) => {
+      if (error) reject(error);
+      else resolve();
+    });
+  });
+}
+
+export async function extractTitleStills(opts: {
   packageRoot: string;
   title: Title;
   input: string;
@@ -411,10 +420,13 @@ export function extractTitleStills(opts: {
   lineOffsets?: Record<string, number>;
   accurateSeek?: boolean;
   skipExisting?: boolean;
+  onProgress?: (done: number, total: number) => void;
 }): ExtractResult[] {
   const destDir = join(opts.packageRoot, "inbox", "stills-preview", opts.title.id);
   mkdirSync(destDir, { recursive: true });
   const results: ExtractResult[] = [];
+  const total = opts.indices.length;
+  opts.onProgress?.(0, total);
   for (const lineIndex of opts.indices) {
     let cue: Line;
     try {
@@ -427,6 +439,7 @@ export function extractTitleStills(opts: {
         ok: false,
         error: error instanceof Error ? error.message : String(error),
       });
+      opts.onProgress?.(results.length, total);
       continue;
     }
     const extra = opts.lineOffsets?.[String(lineIndex)] ?? 0;
@@ -439,18 +452,17 @@ export function extractTitleStills(opts: {
     const output = join(destDir, stillFileName(lineIndex));
     if (opts.skipExisting && existsSync(output)) {
       results.push({ lineIndex, text: cue.text, seekSec, ok: true, skipped: true });
+      opts.onProgress?.(results.length, total);
       continue;
     }
     try {
-      execFileSync(
-        "ffmpeg",
+      await ffmpegExtract(
         ffmpegExtractArgs({
           input: opts.input,
           seekSec,
           output,
           accurateSeek: opts.accurateSeek,
         }),
-        { stdio: "pipe" },
       );
       results.push({
         lineIndex,
@@ -468,6 +480,7 @@ export function extractTitleStills(opts: {
         error: "ffmpeg failed",
       });
     }
+    opts.onProgress?.(results.length, total);
   }
   return results;
 }

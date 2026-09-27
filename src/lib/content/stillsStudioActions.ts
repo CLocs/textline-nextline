@@ -35,7 +35,13 @@ import {
   recordTriedMethodIds,
   type StudioVote,
 } from "./stillsStudioMethods.js";
-import type { StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue } from "./stillsStudioTypes.js";
+import type {
+  StudioExtractMode,
+  StudioExtractProgress,
+  StudioFrame,
+  StudioPushJob,
+  StudioQueue,
+} from "./stillsStudioTypes.js";
 
 const TITLE_ID_RE = /^[a-z0-9-]+$/i;
 
@@ -55,6 +61,15 @@ export function createStudioContext(packageRoot: string): StudioContext {
 
 let starCache: { stars: OwnerStarMap; remote: boolean; error?: string; at: number } | null = null;
 let pushJob: StudioPushJob | null = null;
+let extractProgress: StudioExtractProgress | null = null;
+
+export function studioExtractProgress(): StudioExtractProgress | null {
+  return extractProgress ? { ...extractProgress } : null;
+}
+
+export function clearStudioExtractProgress(): void {
+  extractProgress = null;
+}
 const STAR_TTL_MS = 5 * 60 * 1000;
 
 function loadStars(ctx: StudioContext, force = false): { stars: OwnerStarMap; remote: boolean; error?: string } {
@@ -243,7 +258,7 @@ export function parseStudioVotes(raw: unknown): Record<string, StudioVote> | und
   return Object.keys(votes).length > 0 ? votes : undefined;
 }
 
-export function studioExtract(
+export async function studioExtract(
   ctx: StudioContext,
   opts: {
     titleId: string;
@@ -358,7 +373,7 @@ export function studioExtract(
         : handfulFromStars(title, starIndices);
   }
 
-  const results = extractTitleStills({
+  const results = await extractTitleStills({
     packageRoot: ctx.packageRoot,
     title,
     input: media,
@@ -369,6 +384,12 @@ export function studioExtract(
     lineOffsets,
     accurateSeek,
     skipExisting: opts.mode === "lines",
+    onProgress:
+      opts.mode === "lines"
+        ? (done, total) => {
+            extractProgress = { titleId: id, done, total };
+          }
+        : undefined,
   });
 
   const now = new Date().toISOString();

@@ -1,6 +1,20 @@
-import type { StudioEpisode, StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue } from "./stillsStudioTypes.js";
+import type {
+  StudioEpisode,
+  StudioExtractMode,
+  StudioExtractProgress,
+  StudioFrame,
+  StudioPushJob,
+  StudioQueue,
+} from "./stillsStudioTypes.js";
 
-export type { StudioEpisode, StudioExtractMode, StudioFrame, StudioPushJob, StudioQueue };
+export type {
+  StudioEpisode,
+  StudioExtractMode,
+  StudioExtractProgress,
+  StudioFrame,
+  StudioPushJob,
+  StudioQueue,
+};
 
 const PREFIX = "/api/stills-studio";
 
@@ -131,6 +145,12 @@ export async function startStudioPush(titleId: string): Promise<StudioPushJob> {
   });
   const data = await readJson<{ job: StudioPushJob }>(response);
   return data.job;
+}
+
+export async function fetchStudioExtractProgress(): Promise<StudioExtractProgress | null> {
+  const response = await studioFetch("/extract-status");
+  const data = await readJson<{ progress?: StudioExtractProgress | null }>(response);
+  return data.progress ?? null;
 }
 
 export async function fetchStudioPushStatus(): Promise<StudioPushJob | null> {
