@@ -1,11 +1,20 @@
-import { existsSync, readdirSync, statSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { execFile } from "node:child_process";
 import { STILLS_R2_BUCKET, stillObjectKey } from "./stillKeys.js";
+import { listRemoteStills } from "./stillsR2.js";
+import { stillNeedsUpload } from "./stillsSyncPlan.js";
 
 const CONCURRENCY = 4;
 
 export type StillPushFile = { titleId: string; file: string; key: string };
+
+export type StillPushResult = {
+  uploaded: number;
+  unchanged: number;
+  planned: number;
+};
 
 export function listPreviewStillFiles(previewRoot: string, titleId: string): StillPushFile[] {
   const folder = join(previewRoot, titleId);
@@ -18,6 +27,10 @@ export function listPreviewStillFiles(previewRoot: string, titleId: string): Sti
   }
   files.sort((a, b) => a.key.localeCompare(b.key));
   return files;
+}
+
+function fileMd5(file: string): string {
+  return createHash("md5").update(readFileSync(file)).digest("hex");
 }
 
 function putObject(packageRoot: string, key: string, file: string): Promise<void> {
@@ -55,26 +68,50 @@ function putObject(packageRoot: string, key: string, file: string): Promise<void
 export async function pushPreviewStills(
   packageRoot: string,
   titleId: string,
-  opts?: { onProgress?: (done: number, total: number) => void },
-): Promise<{ uploaded: number }> {
-  const previewRoot = join(packageRoot, "inbox", "stills-preview");
+  opts?: {
+    previewRoot?: string;
+    force?: boolean;
+    dryRun?: boolean;
+    onProgress?: (done: number, total: number) => void;
+  },
+): Promise<StillPushResult> {
+  const previewRoot = opts?.previewRoot ?? join(packageRoot, "inbox", "stills-preview");
   const files = listPreviewStillFiles(previewRoot, titleId);
   if (files.length === 0) {
     throw new Error(`No preview JPEGs for ${titleId}.`);
   }
+
+  const remote = opts?.force ? null : await listRemoteStills(packageRoot, `${titleId}/`);
+  const pending: StillPushFile[] = [];
+  let unchanged = 0;
+  for (const item of files) {
+    const size = statSync(item.file).size;
+    const current = remote?.get(item.key);
+    const md5 = current && current.size === size ? fileMd5(item.file) : undefined;
+    if (remote && !stillNeedsUpload({ size, md5 }, current)) {
+      unchanged += 1;
+      continue;
+    }
+    pending.push(item);
+  }
+
+  opts?.onProgress?.(0, pending.length);
+  if (opts?.dryRun || pending.length === 0) {
+    return { uploaded: 0, unchanged, planned: pending.length };
+  }
+
   let next = 0;
   let done = 0;
-  opts?.onProgress?.(0, files.length);
   async function worker(): Promise<void> {
-    while (next < files.length) {
+    while (next < pending.length) {
       const i = next;
       next += 1;
-      const item = files[i]!;
+      const item = pending[i]!;
       await putObject(packageRoot, item.key, item.file);
       done += 1;
-      opts?.onProgress?.(done, files.length);
+      opts?.onProgress?.(done, pending.length);
     }
   }
-  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, files.length) }, () => worker()));
-  return { uploaded: done };
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, pending.length) }, () => worker()));
+  return { uploaded: done, unchanged, planned: pending.length };
 }

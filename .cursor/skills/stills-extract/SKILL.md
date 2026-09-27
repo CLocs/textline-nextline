@@ -6,7 +6,8 @@ description: >-
   starred frames or remaining playable cues (skip SDH/lyrics). Use when the
   user says "extract stills", "stills for", "quote frames", "run stills",
   "stills extract", "stills studio", "review stills", "every cue",
-  "all frames", "playable stills", or points at a file on G:\videos\movies
+  "all frames", "playable stills", "push stills", "sync stills",
+  "batch push", "R2 sync", or points at a file on G:\videos\movies
   or G:\videos\shows.
 ---
 
@@ -72,13 +73,14 @@ CLI below remains the fallback for **movies** and for one-off show debugging.
 
     Uses `stills-sync.json` `source` when that file is still on disk. Prefer this for movies the owner actually plays.
 
-11. **Push to R2** (production `/stills`). Skip titles that have not been eyeballed:
+11. **Sync to R2** (production `/stills`) after the frames are eyeballed. The push lists objects already in `textline-stills` and uploads only missing keys, or files whose size changed (same size is checked as MD5 vs etag). Re-running the same command resumes. It does not delete remote objects that are absent locally. Skip titles that have not been eyeballed:
 
     ```bash
-    npm run content:stills:push -- --title TITLE_ID
+    npm run content:stills:push -- --dry-run --title TITLE_ID
+    npm run content:stills:push -- --title TITLE_ID --title TITLE_ID_2
     ```
 
-    Goes live on the next Pages deploy. See [docs/DEPLOY.md](../../../docs/DEPLOY.md).
+    Repeat `--title` for a batch. Omit `--title` only when every preview folder should sync (that includes unreviewed handfuls). `--force` re-uploads every local JPEG. Goes live on the next Pages deploy. See [docs/DEPLOY.md](../../../docs/DEPLOY.md).
 
 12. **Report.** Preview folder, fps, scale, star count, R2 upload count.
 
