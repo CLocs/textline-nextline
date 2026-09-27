@@ -26,6 +26,36 @@ export function wikiquotePageTitle(catalogTitle: string): string {
   return catalogTitle.replace(/\s*[\(\[]\d{4}[\)\]]\s*$/, "").trim();
 }
 
+export type WikiquoteEpisodeSlice = {
+  title: string;
+  quotes: string[];
+};
+
+/**
+ * Season pages split quotes under episode headings.
+ * SpongeBob segments such as `[1.1a]` stay separate slices; the caller groups them.
+ */
+export function extractSeasonEpisodes(wikitext: string): WikiquoteEpisodeSlice[] {
+  const slices: WikiquoteEpisodeSlice[] = [];
+  for (const section of splitSections(wikitext)) {
+    const title = parseWikiquoteEpisodeHeading(section.heading);
+    if (!title) continue;
+    const quotes = extractWikiquoteQuotes(section.body);
+    if (quotes.length === 0) continue;
+    slices.push({ title, quotes });
+  }
+  return slices;
+}
+
+/** Episode heading text, or null for cast, "Episode 1", and other non-quote sections. */
+export function parseWikiquoteEpisodeHeading(raw: string): string | null {
+  let text = replaceWikiLinks(raw).replace(/'{2,}/g, "");
+  text = text.replace(/\[[^\]]*\]/g, " ").replace(/\s+/g, " ").trim();
+  if (!text || SKIP_HEADING.test(text) || /^episode\s+\d+$/i.test(text)) return null;
+  if (normalizeQuote(text).length < 4) return null;
+  return text;
+}
+
 export function extractWikiquoteQuotes(wikitext: string): string[] {
   const quotes: string[] = [];
   const seen = new Set<string>();

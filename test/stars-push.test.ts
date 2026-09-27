@@ -126,6 +126,7 @@ describe("loadProtectedTitleIds", () => {
       "oceans-eleven-2001",
       "rocknrolla-2008",
       "the-lord-of-the-rings---the-fellowship-of-the-ring-2001",
+      "the-big-lebowski-1998",
     ]);
   });
 });

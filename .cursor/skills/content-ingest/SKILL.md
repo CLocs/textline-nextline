@@ -37,7 +37,7 @@ Run this whole pipeline in one go unless the user asks to stop after a step.
    npm run content:queue -- --from inbox/letterboxd --vault "C:\Users\dasco\Documents\clocs\Readwise"
    ```
 
-6. **Wikiquote, movies only.** For a catalog movie that is not in `stars-protected.json` and has fewer than 5 live stars for `dascolin@gmail.com`, fetch the English film page and union it into the seed. Vault (and any earlier seed line) keeps the line when both sources hit the same `lineIndex`. Other titles already in `stars-seed.json` stay. TV stays out.
+6. **Wikiquote.** For a catalog movie that is not in `stars-protected.json` and has fewer than 5 live stars for `dascolin@gmail.com`, fetch the English film page and union it into the seed. For The Simpsons, SpongeBob SquarePants, and It's Always Sunny, fetch each season page and match episode headings onto the catalog episodes we have (SpongeBob segments on one file share that file). Vault (and any earlier seed line) keeps the line when both sources hit the same `lineIndex`. Other titles already in `stars-seed.json` stay. Protected titles are skipped.
    ```bash
    npm run content:wikiquote -- --title the-big-lebowski-1998 --vault "C:\Users\dasco\Documents\clocs\Readwise"
    ```

@@ -37,6 +37,7 @@ honors the protected file. --dry-run --remote previews prod skips.
   --email     Required. Must already have signed in on the live app once.
   --remote    Read/write production D1 (textline-stars). Default is local wrangler D1.
   --title     Only this title id or name. Repeat to merge several films.
+  --id-prefix Only title ids with this prefix (repeatable). Use for a show.
   --exclude   Extra title id to skip (repeatable).
   --merge     Insert missing lines even when the title already has your stars.
   --force     Also insert into titles that already have stars (not protected).
@@ -52,6 +53,7 @@ function parseArgs(argv: string[]): {
   seed: string;
   dryRun: boolean;
   titles: string[];
+  idPrefixes: string[];
   force: boolean;
   merge: boolean;
   exclude: string[];
@@ -61,6 +63,7 @@ function parseArgs(argv: string[]): {
   let seed = defaultSeed;
   let dryRun = false;
   const titles: string[] = [];
+  const idPrefixes: string[] = [];
   let force = false;
   let merge = false;
   const exclude: string[] = [];
@@ -71,6 +74,7 @@ function parseArgs(argv: string[]): {
     else if (arg === "--dry-run") dryRun = true;
     else if (arg === "--seed") seed = argv[++i] ?? seed;
     else if (arg === "--title") titles.push((argv[++i] ?? "").trim());
+    else if (arg === "--id-prefix") idPrefixes.push((argv[++i] ?? "").trim());
     else if (arg === "--exclude") exclude.push((argv[++i] ?? "").trim());
     else if (arg === "--force") force = true;
     else if (arg === "--merge") merge = true;
@@ -83,6 +87,7 @@ function parseArgs(argv: string[]): {
     seed: resolve(seed),
     dryRun,
     titles: titles.filter(Boolean),
+    idPrefixes: idPrefixes.filter(Boolean),
     force,
     merge,
     exclude: exclude.filter(Boolean),
@@ -174,7 +179,7 @@ function starCountsForTitles(
 }
 
 function main(): void {
-  const { email, remote, seed, dryRun, titles, force, merge, exclude } = parseArgs(
+  const { email, remote, seed, dryRun, titles, idPrefixes, force, merge, exclude } = parseArgs(
     process.argv.slice(2),
   );
   if (!existsSync(seed)) {
@@ -196,7 +201,17 @@ function main(): void {
       process.exit(1);
     }
   }
-  printCounts(stars, titles.length ? `seed stars for ${titles.length} title(s)` : "seed stars");
+  if (idPrefixes.length) {
+    stars = stars.filter((star) => idPrefixes.some((prefix) => star.titleId.startsWith(prefix)));
+    if (stars.length === 0) {
+      console.error(`No seed stars matched --id-prefix ${idPrefixes.join(", ")}`);
+      process.exit(1);
+    }
+  }
+  printCounts(
+    stars,
+    titles.length || idPrefixes.length ? `seed stars for the selected titles` : "seed stars",
+  );
 
   if (dryRun && !remote) {
     console.log("Dry run (seed file only). Pass --remote --dry-run to preview prod skips.");

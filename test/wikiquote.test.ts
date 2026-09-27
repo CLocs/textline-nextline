@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { mergeStarSeeds, type StarSeed } from "../src/lib/content/starSeed.js";
-import { cleanWikiQuote, extractWikiquoteQuotes, wikiquotePageTitle } from "../src/lib/content/wikiquote.js";
+import {
+  cleanWikiQuote,
+  extractSeasonEpisodes,
+  extractWikiquoteQuotes,
+  parseWikiquoteEpisodeHeading,
+  wikiquotePageTitle,
+} from "../src/lib/content/wikiquote.js";
 
 const WIKITEXT = `== Walter Sobchak ==
 [[File:John Goodman.jpg|thumb|Smokey, this is not Nam, this is Bowling, there are rules.]]
@@ -45,6 +51,40 @@ describe("extractWikiquoteQuotes", () => {
   it("strips a stage direction and a short reply", () => {
     expect(quotes).toContain("Smokey, my friend. You're entering a world of pain.");
     expect(quotes).not.toContain("What?");
+  });
+});
+
+const SEASON = `== Season 1 ==
+=== ''[[w:Kamp Krusty|Kamp Krusty]]'' ===
+* Welcome to Kamp Krusty, where the children learn to kill.
+=== Cast ===
+* Dan Castellaneta as Homer
+
+== Episode 1 ==
+=== ''Help Wanted'' [1.1a] ===
+* The greatest fry cook in Bikini Bottom is ready.
+=== ''Reef Blower'' [1.1b] ===
+* That blower is broken again.
+=== ''The Gang Beats Boggs'' [10.1] ===
+* We are going to drink the whole flight.
+`;
+
+describe("extractSeasonEpisodes", () => {
+  const slices = extractSeasonEpisodes(SEASON);
+
+  it("reads an episode name out of a wikilink heading", () => {
+    expect(parseWikiquoteEpisodeHeading("''[[w:Kamp Krusty|Kamp Krusty]]''")).toBe("Kamp Krusty");
+    expect(parseWikiquoteEpisodeHeading("Episode 1")).toBeNull();
+  });
+
+  it("keeps each segment, including ones that share a half-hour", () => {
+    expect(slices.map((slice) => slice.title)).toEqual([
+      "Kamp Krusty",
+      "Help Wanted",
+      "Reef Blower",
+      "The Gang Beats Boggs",
+    ]);
+    expect(slices[0]?.quotes[0]).toMatch(/Kamp Krusty/);
   });
 });
 

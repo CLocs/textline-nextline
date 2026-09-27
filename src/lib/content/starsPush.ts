@@ -33,6 +33,7 @@ export const DEFAULT_PROTECTED_TITLE_IDS = [
   "oceans-eleven-2001",
   "rocknrolla-2008",
   "the-lord-of-the-rings---the-fellowship-of-the-ring-2001",
+  "the-big-lebowski-1998",
 ];
 
 export function loadProtectedTitleIds(path: string): string[] {
