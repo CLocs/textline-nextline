@@ -54,10 +54,30 @@
   "the-big-lebowski-1998": {
     "offsetMs": 0,
     "encode": "avi-divx-23976",
-    "source": "G:/videos/movies/The Big Lebowski (1998).avi",
+    "source": "G:\\videos\\movies\\The Big Lebowski (1998).avi",
     "fps": 23.976,
-    "durationSec": 7014.76,
-    "note": "23.98 fps ~1:56:55. Only 1 D1 star (412) at scale 1. Do not R2 until eyeball."
+    "durationSec": 7018.632,
+    "note": "Studio batch 98 stills.",
+    "timeScale": 1,
+    "seek": "mid",
+    "lineOffsets": {},
+    "handful": [
+      254,
+      387,
+      792,
+      879,
+      1060,
+      1332
+    ],
+    "methodId": "mid",
+    "triedMethods": [
+      "zero",
+      "pal",
+      "mid"
+    ],
+    "approvedAt": "2026-09-27T07:24:54.410Z",
+    "batchedAt": "2026-09-27T07:25:04.523Z",
+    "pushedAt": "2026-09-27T07:26:15.448Z"
   },
   "star-wars-1977": {
     "offsetMs": 0,

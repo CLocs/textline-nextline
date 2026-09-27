@@ -1,6 +1,8 @@
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { extname, join } from "node:path";
 import type { CatalogEntry } from "../../types/content.js";
+import { pickCoverLineIndex } from "./stillsCover.js";
+import { sceneLinesByTitle, sceneLinesFor } from "./stillsLines.js";
 import { foldNumberWords, normalizeTitle, parseTitleYear, pickBestTitleMatch } from "./titleMatch.js";
 
 export const VIDEO_EXTENSIONS = new Set([".avi", ".mkv", ".mp4", ".m4v", ".mov", ".wmv"]);
@@ -35,7 +37,7 @@ export type UploadsSnapshot = {
 export type StillsCoverageFile = {
   updatedAt: string;
   titles: Record<string, number>;
-  /** Lowest line index with a JPEG in inbox/stills-preview (library cover). */
+  /** Earliest starred scene with a JPEG, else the lowest JPEG (library cover). */
   covers?: Record<string, number>;
 };
 
@@ -158,8 +160,11 @@ export function matchUploadsToCatalog(
 
 const STILL_JPEG = /^(\d+)\.jpe?g$/i;
 
-/** Count preview JPEGs and pick the lowest line index as the library cover. */
-export function scanStillsPreview(previewRoot: string): StillsPreviewScan {
+/** Count preview JPEGs and pick a scene cover (earliest star on disk, else lowest JPEG). */
+export function scanStillsPreview(
+  previewRoot: string,
+  sceneLines: Record<string, readonly number[]> = sceneLinesByTitle(),
+): StillsPreviewScan {
   const titles: Record<string, number> = {};
   const covers: Record<string, number> = {};
   if (!existsSync(previewRoot) || !statSync(previewRoot).isDirectory()) {
@@ -175,8 +180,10 @@ export function scanStillsPreview(previewRoot: string): StillsPreviewScan {
       indices.push(Number(match[1]));
     }
     if (indices.length === 0) continue;
+    const cover = pickCoverLineIndex(indices, sceneLines[dirent.name] ?? []);
+    if (cover == null) continue;
     titles[dirent.name] = indices.length;
-    covers[dirent.name] = Math.min(...indices);
+    covers[dirent.name] = cover;
   }
   return { titles, covers };
 }
@@ -216,7 +223,9 @@ export function upsertStillsCoverageTitle(coveragePath: string, titleId: string,
     delete file.covers[titleId];
   } else {
     file.titles[titleId] = indices.length;
-    file.covers[titleId] = Math.min(...indices);
+    const cover = pickCoverLineIndex(indices, sceneLinesFor(titleId));
+    if (cover == null) delete file.covers[titleId];
+    else file.covers[titleId] = cover;
   }
   writeFileSync(coveragePath, `${JSON.stringify(file, null, 2)}\n`);
 }
