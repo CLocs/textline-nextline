@@ -17,6 +17,7 @@ const movies: CatalogEntry[] = [
   { id: "oceans-thirteen-2007", title: "Ocean's Thirteen (2007)", lineCount: 1341, sourceFilename: "x.srt", importedAt: "", meta: { year: 2007 } },
   { id: "django-unchained-2012", title: "Django Unchained (2012)", lineCount: 1859, sourceFilename: "x.srt", importedAt: "", meta: { year: 2012 } },
   { id: "rocknrolla-2008", title: "RocknRolla (2008)", lineCount: 100, sourceFilename: "x.srt", importedAt: "", meta: { year: 2008 } },
+  { id: "goldeneye-1995", title: "GoldenEye (1995)", lineCount: 878, sourceFilename: "x.srt", importedAt: "", meta: { year: 1995 } },
 ];
 
 describe("parseMediaFilename", () => {
@@ -53,6 +54,7 @@ describe("matchUploadsToCatalog", () => {
         "Star Wars Episode VI - Return Of The Jedi.avi",
         "The Wolf of Wall Street [2013] 1080p BluRay AAC x264-tomcat12[ETRG].mp4",
         "Django Unchained (2012).mkv",
+        "Golden Eye (1995).mp4",
         "Casino (1995).avi",
       ],
       movies,
@@ -68,6 +70,8 @@ describe("matchUploadsToCatalog", () => {
     expect(byId["star-wars-episode-vi-return-of-the-jedi-1983"]?.status).toBe("ok");
     expect(byId["the-wolf-of-wall-street-2013"]?.status).toBe("ok");
     expect(byId["django-unchained-2012"]?.status).toBe("ok");
+    expect(byId["goldeneye-1995"]?.status).toBe("ok");
+    expect(byId["goldeneye-1995"]?.files).toEqual(["Golden Eye (1995).mp4"]);
     expect(byId["rocknrolla-2008"]?.status).toBe("missing");
     expect(unmatched.map((row) => row.name)).toEqual([
       "Casino (1995).avi",

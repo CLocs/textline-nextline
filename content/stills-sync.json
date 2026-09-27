@@ -31,26 +31,25 @@
     "source": "G:\\videos\\movies\\Goodfellas (1990).avi",
     "fps": 23.976,
     "durationSec": 8731.815,
-    "note": "Studio batch 5 stills.",
+    "note": "Studio batch 116 stills.",
     "timeScale": 1,
     "seek": "start",
     "lineOffsets": {},
     "handful": [
-      138,
-      743,
-      748,
-      758,
-      776,
-      897
+      186,
+      630,
+      755,
+      1250,
+      1568,
+      1791
     ],
     "methodId": "zero",
     "triedMethods": [
       "zero",
       "pal"
     ],
-    "approvedAt": "2026-09-21T00:23:03.115Z",
-    "batchedAt": "2026-09-21T00:23:05.175Z",
-    "pushedAt": "2026-09-21T00:23:10.360Z"
+    "approvedAt": "2026-09-27T02:13:17.320Z",
+    "batchedAt": "2026-09-27T02:13:29.361Z"
   },
   "the-big-lebowski-1998": {
     "offsetMs": 0,
@@ -371,5 +370,25 @@
     "note": "Studio batch 138 stills.",
     "approvedAt": "2026-09-21T22:52:16.804Z",
     "batchedAt": "2026-09-21T22:52:43.757Z"
+  },
+  "my-cousin-vinny-1992": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "encode": "mkv-hevc-23976",
+    "source": "H:/videos/movies/My Cousin Vinny (1992).mkv",
+    "fps": 23.976,
+    "durationSec": 7158.592,
+    "seek": "start",
+    "handful": [
+      184,
+      756,
+      1085,
+      1250,
+      1273,
+      1643
+    ],
+    "note": "HEVC 1280x688 23.976 ~1:59:19. Embedded SRT matches catalog starts within ~0.3s. Playable 1606 extracted and pushed to R2.",
+    "batchedAt": "2026-09-27T02:14:35.717Z",
+    "pushedAt": "2026-09-27T02:27:22.718Z"
   }
 }
