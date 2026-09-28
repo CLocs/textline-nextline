@@ -269,7 +269,7 @@ export async function studioExtract(
     seek?: CueSeek;
     votes?: Record<string, StudioVote>;
   },
-): ExtractResponse {
+): Promise<ExtractResponse> {
   const id = requireTitleId(opts.titleId);
   const { title, episode, show } = findEpisode(ctx, id);
   if (pushJob?.status === "running" && pushJob.titleId === id) {

@@ -417,7 +417,7 @@ export type ExtractResult = {
 
 function ffmpegExtract(args: string[]): Promise<void> {
   return new Promise((resolve, reject) => {
-    execFile("ffmpeg", args, { stdio: "pipe" }, (error) => {
+    execFile("ffmpeg", args, { encoding: "utf8" }, (error) => {
       if (error) reject(error);
       else resolve();
     });
@@ -436,7 +436,7 @@ export async function extractTitleStills(opts: {
   accurateSeek?: boolean;
   skipExisting?: boolean;
   onProgress?: (done: number, total: number) => void;
-}): ExtractResult[] {
+}): Promise<ExtractResult[]> {
   const destDir = join(opts.packageRoot, "inbox", "stills-preview", opts.title.id);
   mkdirSync(destDir, { recursive: true });
   const results: ExtractResult[] = [];
