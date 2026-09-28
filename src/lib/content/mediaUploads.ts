@@ -67,6 +67,14 @@ const MEDIA_ALIASES: { catalogId: string; needles: RegExp[] }[] = [
     catalogId: "goldeneye-1995",
     needles: [/\bgolden\s*eye\b/i],
   },
+  {
+    catalogId: "back-to-the-future-part-ii-1989",
+    needles: [/\bback to (?:the )?future ii\b/i, /\bback to (?:the )?future 2\b/i],
+  },
+  {
+    catalogId: "back-to-the-future-part-iii-1990",
+    needles: [/\bback to (?:the )?future iii\b/i, /\bback to (?:the )?future 3\b/i],
+  },
 ];
 
 export function parseMediaFilename(name: string): MediaFileHint {
@@ -86,7 +94,9 @@ export function parseMediaFilename(name: string): MediaFileHint {
   const parsed = parseTitleYear(cleaned);
   let title = parsed.title.replace(SCENE_TAIL, " ");
   title = title.replace(/\b(1080p|720p|480p|2160p|4k)\b/gi, " ");
-  title = title.replace(/[\[\]()]/g, " ").replace(/\s+/g, " ").trim();
+  title = title.replace(/[\[\]()]/g, " ");
+  title = title.replace(/\b(?:[A-Za-z]\.){2,}[A-Za-z]\.?/g, (acronym) => acronym.replace(/\./g, ""));
+  title = title.replace(/\s+/g, " ").trim();
   return { name, title, year: parsed.year, part };
 }
 
@@ -122,9 +132,74 @@ function episodeToken(title: string): boolean {
   return /\bepisode\b/.test(foldNumberWords(normalizeTitle(title)));
 }
 
+/** Part1 + Part2 (or CD/disc) is one movie cut in half. Two full copies are not. */
+export function isTemporalSplit(filenames: string[]): boolean {
+  const parts = new Set(
+    filenames
+      .map((name) => parseMediaFilename(name).part)
+      .filter((part): part is number => part === 1 || part === 2),
+  );
+  return parts.has(1) && parts.has(2);
+}
+
+/** Prefer a 1080p file, then mkv, then mp4, when several whole copies match one title. */
+export function preferWholeFile(filenames: string[]): string {
+  return [...filenames].sort(
+    (a, b) => wholeFileScore(b) - wholeFileScore(a) || a.localeCompare(b),
+  )[0]!;
+}
+
+/** H: before G:, then 1080p / mkv / mp4 within that drive. */
+export function preferMovieSource(
+  files: { name: string; path: string }[],
+  directories: string[],
+): { name: string; path: string } {
+  const rank = (filePath: string) => {
+    const norm = filePath.replace(/\\/g, "/").toLowerCase();
+    const index = directories.findIndex((dir) => {
+      const root = dir.replace(/\\/g, "/").toLowerCase().replace(/\/$/, "");
+      return norm === root || norm.startsWith(`${root}/`);
+    });
+    return index === -1 ? directories.length : index;
+  };
+  return [...files].sort((a, b) => {
+    const drive = rank(a.path) - rank(b.path);
+    if (drive !== 0) return drive;
+    return wholeFileScore(b.name) - wholeFileScore(a.name) || a.name.localeCompare(b.name);
+  })[0]!;
+}
+
+function wholeFileScore(name: string): number {
+  const lower = name.toLowerCase();
+  let score = 0;
+  if (/\b1080p?\b/.test(lower)) score += 100;
+  if (lower.endsWith(".mkv")) score += 30;
+  else if (lower.endsWith(".mp4") || lower.endsWith(".m4v")) score += 20;
+  return score;
+}
+
+function filesForTitle(
+  filenames: string[],
+  collapseCopies: boolean,
+): { status: UploadStatus; files: string[] } {
+  if (filenames.length === 0) return { status: "missing", files: [] };
+  if (isTemporalSplit(filenames)) {
+    const files = filenames
+      .filter((name) => {
+        const part = parseMediaFilename(name).part;
+        return part === 1 || part === 2;
+      })
+      .sort((a, b) => (parseMediaFilename(a).part ?? 0) - (parseMediaFilename(b).part ?? 0));
+    return { status: "split", files };
+  }
+  if (filenames.length === 1 || !collapseCopies) return { status: "ok", files: filenames };
+  return { status: "ok", files: [preferWholeFile(filenames)] };
+}
+
 export function matchUploadsToCatalog(
   filenames: string[],
   entries: CatalogEntry[],
+  opts?: { collapseCopies?: boolean },
 ): { matched: CatalogUploadRow[]; unmatched: UnmatchedUpload[] } {
   const movies = movieEntries(entries);
   const filesByTitle = new Map<string, string[]>();
@@ -146,11 +221,8 @@ export function matchUploadsToCatalog(
 
   const matched: CatalogUploadRow[] = movies
     .map((entry) => {
-      const files = filesByTitle.get(entry.id) ?? [];
-      let status: UploadStatus = "missing";
-      if (files.length === 1) status = "ok";
-      else if (files.length > 1) status = "split";
-      return { titleId: entry.id, title: entry.title, status, files };
+      const grouped = filesForTitle(filesByTitle.get(entry.id) ?? [], opts?.collapseCopies !== false);
+      return { titleId: entry.id, title: entry.title, status: grouped.status, files: grouped.files };
     })
     .sort((a, b) => a.title.localeCompare(b.title));
 

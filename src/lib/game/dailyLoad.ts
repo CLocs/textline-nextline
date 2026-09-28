@@ -14,7 +14,12 @@ function canPrompt(titleId: string, lineIndex: number): boolean {
   return getNextPlayableLine(title, lineIndex) != null;
 }
 
-async function loadPool(): Promise<DailyLine[]> {
+function framed(line: DailyLine): boolean {
+  return hasSceneFrame(line.titleId, line.lineIndex) && canPrompt(line.titleId, line.lineIndex);
+}
+
+/** Crowd loved + popular lines. The line of the day is chosen from here. */
+async function loadGlobalPool(): Promise<DailyLine[]> {
   const popular = await fetchPopularStarsGlobal(400);
   const loved = await fetchLovedStarsGlobal(200);
   const map = new Map<string, DailyLine>();
@@ -47,13 +52,7 @@ async function loadPool(): Promise<DailyLine[]> {
 
   if (!popular && !loved) {
     for (const star of listStars()) {
-      const key = lineKey(star);
-      const existing = map.get(key);
-      if (existing) {
-        existing.loved = existing.loved || star.loved;
-        continue;
-      }
-      map.set(key, {
+      map.set(lineKey(star), {
         titleId: star.titleId,
         lineIndex: star.lineIndex,
         count: 1,
@@ -62,11 +61,21 @@ async function loadPool(): Promise<DailyLine[]> {
     }
   }
 
-  return [...map.values()].filter(
-    (line) => hasSceneFrame(line.titleId, line.lineIndex) && canPrompt(line.titleId, line.lineIndex),
-  );
+  return [...map.values()].filter(framed);
+}
+
+/** This player's stars. The two starred cards use these before the global pool. */
+function loadPersonalPool(): DailyLine[] {
+  return listStars()
+    .map((star) => ({
+      titleId: star.titleId,
+      lineIndex: star.lineIndex,
+      count: 1,
+      loved: star.loved,
+    }))
+    .filter(framed);
 }
 
 export async function loadTodaysCards(now = new Date()): Promise<DailyLine[]> {
-  return dailyCardsOn(todayIso(now), await loadPool());
+  return dailyCardsOn(todayIso(now), await loadGlobalPool(), loadPersonalPool());
 }

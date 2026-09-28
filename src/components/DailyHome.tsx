@@ -93,7 +93,10 @@ export function DailyHome({ onPlay }: Props) {
                       <span className="title-card-name">
                         {prompt ? snippet(prompt.text) : `Question ${index + 1}`}
                       </span>
-                      <span className="muted">{title?.title ?? `Question ${index + 1}`}</span>
+                      <span className="muted">
+                        {card.slot === "global" ? "Line of the day · " : ""}
+                        {title?.title ?? `Question ${index + 1}`}
+                      </span>
                     </span>
                   </button>
                   <LineSendControl titleId={card.titleId} lineIndex={card.lineIndex} />

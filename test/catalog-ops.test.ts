@@ -6,6 +6,7 @@ import {
   formatUploadsMarkdown,
   matchUploadsToCatalog,
   parseMediaFilename,
+  preferMovieSource,
 } from "../src/lib/content/mediaUploads.js";
 
 const movies: CatalogEntry[] = [
@@ -18,6 +19,11 @@ const movies: CatalogEntry[] = [
   { id: "django-unchained-2012", title: "Django Unchained (2012)", lineCount: 1859, sourceFilename: "x.srt", importedAt: "", meta: { year: 2012 } },
   { id: "rocknrolla-2008", title: "RocknRolla (2008)", lineCount: 100, sourceFilename: "x.srt", importedAt: "", meta: { year: 2008 } },
   { id: "goldeneye-1995", title: "GoldenEye (1995)", lineCount: 878, sourceFilename: "x.srt", importedAt: "", meta: { year: 1995 } },
+  { id: "snatch-2000", title: "Snatch (2000)", lineCount: 1272, sourceFilename: "x.srt", importedAt: "", meta: { year: 2000 } },
+  { id: "the-man-from-uncle-2015", title: "The Man from UNCLE (2015)", lineCount: 1100, sourceFilename: "x.srt", importedAt: "", meta: { year: 2015 } },
+  { id: "back-to-the-future-1985", title: "Back to the Future (1985)", lineCount: 1400, sourceFilename: "x.srt", importedAt: "", meta: { year: 1985 } },
+  { id: "back-to-the-future-part-ii-1989", title: "Back to the Future Part II (1989)", lineCount: 1400, sourceFilename: "x.srt", importedAt: "", meta: { year: 1989 } },
+  { id: "back-to-the-future-part-iii-1990", title: "Back to the Future Part III (1990)", lineCount: 1400, sourceFilename: "x.srt", importedAt: "", meta: { year: 1990 } },
 ];
 
 describe("parseMediaFilename", () => {
@@ -37,6 +43,11 @@ describe("parseMediaFilename", () => {
       title: "Looper",
       year: 2012,
       part: 2,
+    });
+    expect(parseMediaFilename("The Man from U.N.C.L.E. (2015).mkv")).toMatchObject({
+      title: "The Man from UNCLE",
+      year: 2015,
+      part: null,
     });
   });
 });
@@ -73,10 +84,66 @@ describe("matchUploadsToCatalog", () => {
     expect(byId["goldeneye-1995"]?.status).toBe("ok");
     expect(byId["goldeneye-1995"]?.files).toEqual(["Golden Eye (1995).mp4"]);
     expect(byId["rocknrolla-2008"]?.status).toBe("missing");
+    expect(byId["snatch-2000"]?.status).toBe("missing");
+    expect(byId["the-man-from-uncle-2015"]?.status).toBe("missing");
     expect(unmatched.map((row) => row.name)).toEqual([
       "Casino (1995).avi",
       "Star Wars Episode I - The Phantom Menace.avi",
     ]);
+  });
+
+  it("associates Snatch and dotted U.N.C.L.E. filenames", () => {
+    const { matched, unmatched } = matchUploadsToCatalog(
+      ["Snatch (2000).mp4", "The Man from U.N.C.L.E. (2015).mkv"],
+      movies,
+    );
+    const byId = Object.fromEntries(matched.map((row) => [row.titleId, row]));
+    expect(byId["snatch-2000"]).toMatchObject({
+      status: "ok",
+      files: ["Snatch (2000).mp4"],
+    });
+    expect(byId["the-man-from-uncle-2015"]).toMatchObject({
+      status: "ok",
+      files: ["The Man from U.N.C.L.E. (2015).mkv"],
+    });
+    expect(unmatched).toEqual([]);
+  });
+
+  it("keeps one whole copy and associates Back to the Future sequels", () => {
+    const { matched, unmatched } = matchUploadsToCatalog(
+      [
+        "Back to the Future (1985) 1080p.mp4",
+        "Back to the Future I  (1985).mp4",
+        "Back To The Future II (1989).avi",
+        "Back to the Future III (1990).avi",
+      ],
+      movies,
+    );
+    const byId = Object.fromEntries(matched.map((row) => [row.titleId, row]));
+    expect(byId["back-to-the-future-1985"]).toMatchObject({
+      status: "ok",
+      files: ["Back to the Future (1985) 1080p.mp4"],
+    });
+    expect(byId["back-to-the-future-part-ii-1989"]).toMatchObject({
+      status: "ok",
+      files: ["Back To The Future II (1989).avi"],
+    });
+    expect(byId["back-to-the-future-part-iii-1990"]).toMatchObject({
+      status: "ok",
+      files: ["Back to the Future III (1990).avi"],
+    });
+    expect(unmatched).toEqual([]);
+  });
+
+  it("prefers an H: copy over a higher-scored G: file", () => {
+    const picked = preferMovieSource(
+      [
+        { name: "Back to the Future (1985) 1080p.mp4", path: "G:/videos/movies/Back to the Future (1985) 1080p.mp4" },
+        { name: "Back to the Future (1985).mp4", path: "H:/videos/movies/Back to the Future (1985).mp4" },
+      ],
+      ["H:/videos/movies", "G:/videos/movies"],
+    );
+    expect(picked.path).toBe("H:/videos/movies/Back to the Future (1985).mp4");
   });
 });
 

@@ -435,7 +435,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [x] **Share quote as image** — caption-below + on-image; Original aspect; Clean/Ink/Lime/None; remembered prefs. See [Share quote as image](#share-quote-as-image).
-- [ ] **Daily quote email** — one mail, 3 framed cards (1 loved + 2 top-starred); click opens daily review on that card and wraps. See [Daily quote email](#daily-quote-email).
+- [ ] **Daily quote email** — one mail, 3 framed cards (loved line of the day + 2 starred); click opens daily review on that card and wraps. See [Daily quote email](#daily-quote-email).
 - [x] **Global search** — `#/search`; client-side over eager catalog; Popular / Starred by me; title + line hits. See [Global search](#global-search).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
@@ -783,12 +783,12 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 **Why:** Habit loop without opening the app cold. Each card shows the choices, so a familiar answer is a reason to tap through and play.
 
-**Pick (same 3 for everyone that day).** Almost no one has stars except the owner, so the pool is the starred lines that already have a scene frame. Remember what was sent; do not reuse a textline within **7 days**.
+**Pick.** The line of the day is the same for everyone. The other two follow the player’s own stars as far as those go. Do not reuse a textline within **7 days**.
 
 1. Keep only lines that have a scene frame.
-2. Slot 1: one **loved** line, pseudo-random among loved lines that have a frame and were not sent this week.
-3. Slots 2–3: pseudo-random among **top starred** lines (highest star counts) that have a frame, were not sent this week, and are not slot 1.
-4. If slot 1 has nothing left, fill it the same way as 2–3. If the framed top-starred pool is also used up for the week, send fewer than 3 rather than repeating.
+2. Slot 1: **line of the day**. One date-seeded **loved** line that has a frame and was not the line of the day this week. Same line for everyone. If no loved line is left, fill it from top starred the same way as slots 2–3.
+3. Slots 2–3: two date-seeded **starred** lines. Use the player’s own framed stars first. Fill any gap from **top starred** (highest global star counts) that were not sent this week and are not slot 1.
+4. If the framed pool is used up for the week, send fewer than 3 rather than repeating.
 5. Each card’s choices are a normal MCQ for that prompt (correct next line + distractors). The email does **not** mark which choice is right.
 
 **Email.** One message, three cards. Not three emails. Each card is the still, the textline, and the next-line choices. The card links to that day’s game at that card’s index. Tapping a choice in the mail is the same as tapping the card: it does not grade you inside the inbox.
@@ -934,7 +934,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Exploratory — YouTube titles** | Paste video URL → timed transcript → stars / packs; frames later | Whole videos as playable titles — see [YouTube videos as titles](#youtube-videos-as-titles) |
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
 | **Later — Share quote as image** | Caption-below + on-image; aspect + palettes + prefs | ✅ Export image in Share menu — see [Share quote as image](#share-quote-as-image) |
-| **Later — Daily quote email** | One mail, 3 framed cards; click opens that day’s review and wraps | 1 loved + 2 top-starred; no repeat within 7 days — see [Daily quote email](#daily-quote-email) |
+| **Later — Daily quote email** | One mail, 3 framed cards; click opens that day’s review and wraps | Loved line of the day + 2 starred (yours first); no repeat within 7 days — see [Daily quote email](#daily-quote-email) |
 | **Shipped — Global search** | `#/search`; client catalog scan; Popular / Mine; title + line hits | Find a quote or title without picking a film first — see [Global search](#global-search) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 | **Shipped — Mobile home screen** | Manifest + Add to Home Screen helper (no SW) | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |

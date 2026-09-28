@@ -139,6 +139,14 @@ describe("videoDirForShow", () => {
     expect(videoDirForShow("Movies").replaceAll("\\", "/")).toBe("G:/videos/movies");
   });
 
+  it("searches H: before G: for movie files", async () => {
+    const { movieVideoDirs } = await import("../src/lib/content/stillsStudio.js");
+    expect(movieVideoDirs().map((dir) => dir.replaceAll("\\", "/"))).toEqual([
+      "H:/videos/movies",
+      "G:/videos/movies",
+    ]);
+  });
+
   it("defaults the stills studio to Movies", async () => {
     const { DEFAULT_STUDIO_SHOW, MOVIES_STUDIO_SHOW } = await import("../src/lib/content/stillsStudio.js");
     expect(DEFAULT_STUDIO_SHOW).toBe(MOVIES_STUDIO_SHOW);

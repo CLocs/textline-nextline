@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-27T02:28:16.830Z",
+  "updatedAt": "2026-09-27T21:33:21.948Z",
   "directory": "G:\\videos\\movies + H:\\videos\\movies",
   "matched": [
     {
@@ -13,23 +13,26 @@
     {
       "titleId": "back-to-the-future-1985",
       "title": "Back to the Future",
-      "status": "split",
+      "status": "ok",
       "files": [
-        "Back to the Future (1985) 1080p.mp4",
-        "Back to the Future I  (1985).mp4"
+        "Back to the Future (1985) 1080p.mp4"
       ]
     },
     {
       "titleId": "back-to-the-future-part-ii-1989",
       "title": "Back to the Future Part II",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Back to the Future II (1989).mp4"
+      ]
     },
     {
       "titleId": "back-to-the-future-part-iii-1990",
       "title": "Back to the Future Part III",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Back to the Future III (1990).mp4"
+      ]
     },
     {
       "titleId": "barbie-2023",
@@ -112,8 +115,10 @@
     {
       "titleId": "lock-stock-and-two-smoking-barrels-1998",
       "title": "Lock Stock and Two Smoking Barrels",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Lock, Stock and Two Smoking Barrels (1998).mp4"
+      ]
     },
     {
       "titleId": "lord-of-the-rings-the-return-of-the-king-2003",
@@ -194,8 +199,10 @@
     {
       "titleId": "pirates-of-the-caribbean-the-curse-of-the-black-pearl-2003",
       "title": "Pirates of the Caribbean The Curse of the Black Pearl",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Pirates of the Caribbean Curse of the Black Pearl (2003).mp4"
+      ]
     },
     {
       "titleId": "pulp-fiction-1994",
@@ -209,8 +216,10 @@
     {
       "titleId": "reservoir-dogs-1992",
       "title": "Reservoir Dogs",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Reservoir Dogs (1992).mp4"
+      ]
     },
     {
       "titleId": "rocknrolla-2008",
@@ -223,8 +232,10 @@
     {
       "titleId": "snatch-2000",
       "title": "Snatch",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "Snatch (2000).mp4"
+      ]
     },
     {
       "titleId": "speed-1994",
@@ -301,8 +312,10 @@
     {
       "titleId": "the-man-from-uncle-2015",
       "title": "The Man from UNCLE",
-      "status": "missing",
-      "files": []
+      "status": "ok",
+      "files": [
+        "The Man from U.N.C.L.E. (2015).mkv"
+      ]
     },
     {
       "titleId": "the-ministry-of-ungentlemanly-warfare-2024",
@@ -382,12 +395,6 @@
     },
     {
       "name": "Atonement (2007).avi"
-    },
-    {
-      "name": "Back To The Future II (1989).avi"
-    },
-    {
-      "name": "Back to the Future III (1990).avi"
     },
     {
       "name": "Bangkok Knockout (2010).avi"
