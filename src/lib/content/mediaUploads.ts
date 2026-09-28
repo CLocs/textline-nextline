@@ -94,7 +94,9 @@ export function parseMediaFilename(name: string): MediaFileHint {
   const parsed = parseTitleYear(cleaned);
   let title = parsed.title.replace(SCENE_TAIL, " ");
   title = title.replace(/\b(1080p|720p|480p|2160p|4k)\b/gi, " ");
-  title = title.replace(/[\[\]()]/g, " ").replace(/\s+/g, " ").trim();
+  title = title.replace(/[\[\]()]/g, " ");
+  title = title.replace(/\b(?:[A-Za-z]\.){2,}[A-Za-z]\.?/g, (acronym) => acronym.replace(/\./g, ""));
+  title = title.replace(/\s+/g, " ").trim();
   return { name, title, year: parsed.year, part };
 }
 

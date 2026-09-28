@@ -8,8 +8,8 @@ Updated: 2026-09-27
 |-------|---------|-------|
 | Baby Driver | [x] | Baby Driver (2017).mkv |
 | Back to the Future | [x] | Back to the Future (1985) 1080p.mp4 |
-| Back to the Future Part II | [x] | Back To The Future II (1989).avi |
-| Back to the Future Part III | [x] | Back to the Future III (1990).avi |
+| Back to the Future Part II | [x] | Back to the Future II (1989).mp4 |
+| Back to the Future Part III | [x] | Back to the Future III (1990).mp4 |
 | Barbie | [x] | Barbie (2023).mkv |
 | Batman Begins | [x] | Batman Begins (2005).mp4 |
 | Days Of Thunder | [x] | Days Of Thunder (1990).mp4 |
@@ -35,7 +35,7 @@ Updated: 2026-09-27
 | Pulp Fiction | [x] split | Pulp Fiction (1994) Part1.avi<br>Pulp Fiction (1994) Part2.avi |
 | Reservoir Dogs | [x] | Reservoir Dogs (1992).mp4 |
 | RocknRolla | [x] | RocknRolla (2008).avi |
-| Snatch | [ ] missing | — |
+| Snatch | [x] | Snatch (2000).mp4 |
 | Speed | [ ] missing | — |
 | Star Wars | [x] | Star Wars Episode IV - A New Hope.avi |
 | Star Wars Episode VI Return of the Jedi | [x] | Star Wars Episode VI - Return Of The Jedi.avi |
@@ -46,7 +46,7 @@ Updated: 2026-09-27
 | The Gentlemen | [ ] missing | — |
 | The Grand Budapest Hotel | [ ] missing | — |
 | The Lord of the Rings - The Fellowship of the Ring | [x] | The Lord of the Rings The Fellowship of the Ring Extended (2001).mkv |
-| The Man from UNCLE | [ ] missing | — |
+| The Man from UNCLE | [x] | The Man from U.N.C.L.E. (2015).mkv |
 | The Ministry of Ungentlemanly Warfare | [ ] missing | — |
 | The Wolf of Wall Street | [x] | The Wolf of Wall Street [2013] 1080p BluRay AAC x264-tomcat12[ETRG].mp4 |
 | Top Gun | [ ] missing | — |
