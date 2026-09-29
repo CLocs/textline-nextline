@@ -29,6 +29,8 @@ const ALTERS = [
   { table: "line_inbox", column: "read_at", sql: "ALTER TABLE line_inbox ADD COLUMN read_at TEXT" },
   { table: "line_inbox", column: "group_id", sql: "ALTER TABLE line_inbox ADD COLUMN group_id TEXT" },
   { table: "line_inbox", column: "solved_at", sql: "ALTER TABLE line_inbox ADD COLUMN solved_at TEXT" },
+  { table: "users", column: "avatar_at", sql: "ALTER TABLE users ADD COLUMN avatar_at TEXT" },
+  { table: "users", column: "avatar", sql: "ALTER TABLE users ADD COLUMN avatar BLOB" },
 ];
 
 function wrangler(args) {
