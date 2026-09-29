@@ -9,6 +9,7 @@ import { historyTitleLabel, summarizeRuns } from "../lib/content/playedRails";
 import { GAME_MODES, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
 import { FriendsPanel } from "./FriendsPanel";
+import { ProfileAvatar } from "./ProfileAvatar";
 import { ChatsList } from "./ChatsList";
 import { useChatsUnreadCount } from "../lib/chats/useChatsUnreadCount";
 
@@ -271,6 +272,7 @@ export function ProfileScreen({
 
       {tab === "account" && (
         <>
+          <ProfileAvatar user={user} onUpdated={onUpdated} />
           <form className="auth-name-form" onSubmit={(event) => void handleSave(event)}>
             <label htmlFor="profile-display-name">Display name</label>
             <input

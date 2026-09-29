@@ -32,6 +32,7 @@ export type FriendListItem = {
   userId: string;
   displayName: string;
   streak: number;
+  avatarAt: string | null;
 };
 
 export type InvitePreview = {
@@ -93,6 +94,7 @@ export async function fetchFriends(): Promise<FriendListItem[] | { error: string
     userId: friend.userId,
     displayName: friend.displayName,
     streak: typeof friend.streak === "number" && friend.streak > 0 ? friend.streak : 0,
+    avatarAt: typeof friend.avatarAt === "string" && friend.avatarAt ? friend.avatarAt : null,
   }));
 }
 

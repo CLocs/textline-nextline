@@ -15,7 +15,9 @@ CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE,
   display_name TEXT,
-  created_at TEXT NOT NULL
+  created_at TEXT NOT NULL,
+  avatar_at TEXT,
+  avatar BLOB
 );
 
 CREATE TABLE IF NOT EXISTS magic_tokens (

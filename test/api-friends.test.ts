@@ -47,6 +47,7 @@ function createFriendsDb() {
   const friendships: FriendshipRow[] = [];
   const blocks: BlockRow[] = [];
   const streaks: StreakRow[] = [];
+  const avatars = new Map<string, { at: string; bytes: Uint8Array }>();
 
   const db = {
     prepare(sql: string) {
@@ -85,6 +86,12 @@ function createFriendsDb() {
                 if (index !== -1) friendships.splice(index, 1);
               } else if (sql.includes("DELETE FROM friend_group_members")) {
                 // Groups tables are optional in this mock; unfriend/block always attempt cleanup.
+              } else if (sql.includes("UPDATE users SET avatar = NULL")) {
+                const [userId] = args as [string];
+                avatars.delete(userId);
+              } else if (sql.includes("UPDATE users SET avatar = ?")) {
+                const [bytes, avatarAt, userId] = args as [Uint8Array, string, string];
+                avatars.set(userId, { at: avatarAt, bytes });
               } else if (sql.includes("INSERT OR IGNORE INTO friend_blocks")) {
                 const [blocker, blocked, createdAt] = args as [string, string, string];
                 if (
@@ -129,6 +136,15 @@ function createFriendsDb() {
                 const row = invites.find((invite) => invite.inviter_user_id === userId);
                 return (row ?? null) as T;
               }
+              if (sql.includes("SELECT avatar_at FROM users WHERE id")) {
+                const [userId] = args as [string];
+                return { avatar_at: avatars.get(userId)?.at ?? null } as T;
+              }
+              if (sql.includes("SELECT avatar FROM users WHERE id")) {
+                const [userId] = args as [string];
+                const row = avatars.get(userId);
+                return (row ? { avatar: row.bytes } : null) as T;
+              }
               if (sql.includes("SELECT display_name FROM users WHERE id")) {
                 const [userId] = args as [string];
                 const user = users.find((u) => u.id === userId);
@@ -168,6 +184,7 @@ function createFriendsDb() {
                     return {
                       user_id: otherId,
                       display_name: other?.display_name ?? null,
+                      avatar_at: avatars.get(otherId)?.at ?? null,
                       streak: streak?.streak ?? null,
                       last_completed_on: streak?.last_completed_on ?? null,
                     };
@@ -272,7 +289,9 @@ describe("friends API", () => {
 
     const list = await handleRequest(jsonRequest("/api/friends", { token: "sess-bob" }), envFor(db));
     const data = (await list.json()) as { friends: Array<{ userId: string; displayName: string }> };
-    expect(data.friends).toEqual([{ userId: ALICE_ID, displayName: "Alice", streak: 0 }]);
+    expect(data.friends).toEqual([
+      { userId: ALICE_ID, displayName: "Alice", streak: 0, avatarAt: null },
+    ]);
     expect(JSON.stringify(data)).not.toContain("@example.com");
   });
 
@@ -291,7 +310,9 @@ describe("friends API", () => {
     const bobList = (await asBob.json()) as {
       friends: Array<{ userId: string; displayName: string; streak: number }>;
     };
-    expect(bobList.friends).toEqual([{ userId: ALICE_ID, displayName: "Alice", streak: 4 }]);
+    expect(bobList.friends).toEqual([
+      { userId: ALICE_ID, displayName: "Alice", streak: 4, avatarAt: null },
+    ]);
     expect(JSON.stringify(bobList)).not.toContain("lastCompletedOn");
 
     const asAlice = await handleRequest(
@@ -301,7 +322,9 @@ describe("friends API", () => {
     const aliceList = (await asAlice.json()) as {
       friends: Array<{ userId: string; displayName: string; streak: number }>;
     };
-    expect(aliceList.friends).toEqual([{ userId: BOB_ID, displayName: "Bob", streak: 0 }]);
+    expect(aliceList.friends).toEqual([
+      { userId: BOB_ID, displayName: "Bob", streak: 0, avatarAt: null },
+    ]);
   });
 
   it("rejects self-accept, blocking, and has no user directory", async () => {
@@ -366,5 +389,65 @@ describe("friends API", () => {
 
     const anonList = await handleRequest(jsonRequest("/api/friends"), envFor(db));
     expect(anonList.status).toBe(401);
+  });
+
+  it("stores a profile jpeg for you and your friends", async () => {
+    const { db, friendships } = createFriendsDb();
+    friendships.push({
+      user_a: ALICE_ID,
+      user_b: BOB_ID,
+      created_at: "2026-01-02T00:00:00.000Z",
+    });
+    const jpeg = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 0, 1]);
+    const headers = new Headers({
+      Origin: ORIGIN,
+      Authorization: "Bearer sess-alice",
+      "Content-Type": "image/jpeg",
+    });
+    const uploaded = await handleRequest(
+      new Request("http://localhost/api/auth/me/avatar", { method: "POST", headers, body: jpeg }),
+      envFor(db),
+    );
+    expect(uploaded.status).toBe(200);
+    const saved = (await uploaded.json()) as { avatarAt: string };
+    expect(saved.avatarAt).toMatch(/^\d{4}-/);
+
+    const rejected = await handleRequest(
+      new Request("http://localhost/api/auth/me/avatar", {
+        method: "POST",
+        headers,
+        body: new Uint8Array([1, 2, 3]),
+      }),
+      envFor(db),
+    );
+    expect(rejected.status).toBe(400);
+
+    const list = await handleRequest(jsonRequest("/api/friends", { token: "sess-bob" }), envFor(db));
+    const data = (await list.json()) as { friends: Array<{ avatarAt: string | null }> };
+    expect(data.friends[0]?.avatarAt).toBe(saved.avatarAt);
+
+    const picture = await handleRequest(
+      jsonRequest(`/api/avatars/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(picture.status).toBe(200);
+    expect(picture.headers.get("content-type")).toContain("image/jpeg");
+
+    const hidden = await handleRequest(
+      jsonRequest("/api/avatars/33333333-3333-4333-8333-333333333333", { token: "sess-alice" }),
+      envFor(db),
+    );
+    expect(hidden.status).toBe(404);
+
+    const removed = await handleRequest(
+      jsonRequest("/api/auth/me/avatar", { method: "DELETE", token: "sess-alice" }),
+      envFor(db),
+    );
+    expect(removed.status).toBe(200);
+    const gone = await handleRequest(
+      jsonRequest(`/api/avatars/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(gone.status).toBe(404);
   });
 });

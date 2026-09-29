@@ -105,6 +105,74 @@ export async function fetchMe(): Promise<AuthUser | null> {
   return data.user;
 }
 
+export async function uploadMyAvatar(jpeg: Blob): Promise<{ avatarAt: string } | { error: string }> {
+  const response = await authFetch("/api/auth/me/avatar", {
+    method: "POST",
+    headers: { "Content-Type": "image/jpeg" },
+    body: jpeg,
+  });
+  if (!response) return { error: "API unavailable" };
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as { error?: string } | null;
+    return { error: data?.error ?? "Could not save photo" };
+  }
+  return (await response.json()) as { avatarAt: string };
+}
+
+export async function removeMyAvatar(): Promise<{ avatarAt: null } | { error: string }> {
+  const response = await authFetch("/api/auth/me/avatar", { method: "DELETE" });
+  if (!response) return { error: "API unavailable" };
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as { error?: string } | null;
+    return { error: data?.error ?? "Could not remove photo" };
+  }
+  return { avatarAt: null };
+}
+
+export async function fetchAvatarObjectUrl(userId: string): Promise<string | null> {
+  const response = await authFetch(`/api/avatars/${encodeURIComponent(userId)}`);
+  if (!response?.ok) return null;
+  const blob = await response.blob();
+  return URL.createObjectURL(blob);
+}
+
+export function prepareAvatarFile(file: File): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+    image.onload = () => {
+      const size = 256;
+      const canvas = document.createElement("canvas");
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        URL.revokeObjectURL(url);
+        reject(new Error("Could not read that image"));
+        return;
+      }
+      const scale = Math.max(size / image.width, size / image.height);
+      const width = image.width * scale;
+      const height = image.height * scale;
+      ctx.drawImage(image, (size - width) / 2, (size - height) / 2, width, height);
+      canvas.toBlob(
+        (blob) => {
+          URL.revokeObjectURL(url);
+          if (!blob) reject(new Error("Could not read that image"));
+          else resolve(blob);
+        },
+        "image/jpeg",
+        0.85,
+      );
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error("Could not read that image"));
+    };
+    image.src = url;
+  });
+}
+
 export async function updateMyDisplayName(
   displayName: string,
 ): Promise<{ user: AuthUser } | { error: string }> {

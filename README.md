@@ -578,7 +578,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 Profile → Friends is a name list (Remove / Block) under the invite link.
 
-**Icons ✅.** Home, directly above Today’s Daily Quotes: up to five initials. Highest current [day-streak](#daily-quote-email) first (`daily_streaks`), then display name. One badge, only while the last completion is still in the server’s live window. No badge at 0. Fewer than five streaked friends fills the rest from the list. No friends, or the Local Vite shortcut, shows no row. Profile → Friends stays the name list for Remove and Block. Icons are not links yet.
+**Icons ✅.** Home, directly above Today’s Daily Quotes: up to five faces. A profile photo replaces the initials when Account has one; friends see that photo, no one else does. Highest current [day-streak](#daily-quote-email) first (`daily_streaks`), then display name. One badge, only while the last completion is still in the server’s live window. No badge at 0. Fewer than five streaked friends fills the rest from the list. No friends, or the Local Vite shortcut, shows no row. Profile → Friends stays the name list for Remove and Block. Icons are not links yet.
 
 **Friends of friends.** Tap an icon to open that friend’s friends (display name, same streak badge). **Request** from that card; they Accept. Mutual friendship, same as the invite link. One hop: you are already friends with the person whose list you opened.
 

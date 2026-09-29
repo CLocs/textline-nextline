@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-26T22:16:14.562Z",
+  "updatedAt": "2026-09-29T02:58:38.423Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -3188,6 +3188,16 @@
       "importedAt": "2026-09-13T04:37:10.968Z",
       "meta": {
         "year": 2003
+      }
+    },
+    {
+      "id": "kill-bill-vol-2-2004",
+      "title": "Kill Bill Vol. 2 (2004)",
+      "lineCount": 969,
+      "sourceFilename": "Kill.Bill.Vol.2.2004.eng.srt",
+      "importedAt": "2026-09-29T02:58:38.416Z",
+      "meta": {
+        "year": 2004
       }
     },
     {

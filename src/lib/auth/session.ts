@@ -3,6 +3,7 @@ export type AuthUser = {
   email: string;
   displayName: string | null;
   createdAt: string;
+  avatarAt?: string | null;
 };
 
 const SESSION_KEY = "textline-nextline-session";

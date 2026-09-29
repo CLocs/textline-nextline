@@ -3,7 +3,7 @@ import type { FriendListItem } from "../src/lib/friends/api.js";
 import { bestFriends, friendInitials, HOME_FRIEND_LIMIT } from "../src/lib/friends/faces.js";
 
 function friend(displayName: string, streak: number): FriendListItem {
-  return { userId: displayName.toLowerCase(), displayName, streak };
+  return { userId: displayName.toLowerCase(), displayName, streak, avatarAt: null };
 }
 
 describe("best friends for home", () => {

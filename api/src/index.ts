@@ -10,6 +10,7 @@ import {
   type AuthEnv,
   type User,
 } from "./auth.js";
+import { clearAvatar, fetchAvatarAt, readAvatar, saveAvatar } from "./avatar.js";
 import { corsHeaders, isAllowedOrigin, parseAllowedOrigins } from "./cors.js";
 import { isValidPlayerId } from "./stars.js";
 import {
@@ -224,7 +225,21 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (request.method === "GET" && pathname === "/api/auth/me") {
       const user = await requireUser(request, env, origin, allowed);
       if (user instanceof Response) return user;
-      return jsonResponse({ user }, 200, origin, allowed);
+      const avatarAt = await fetchAvatarAt(env.DB, user.id);
+      return jsonResponse({ user: { ...user, avatarAt } }, 200, origin, allowed);
+    }
+
+    if (pathname === "/api/auth/me/avatar" && (request.method === "POST" || request.method === "DELETE")) {
+      const user = await requireUser(request, env, origin, allowed);
+      if (user instanceof Response) return user;
+      if (request.method === "DELETE") {
+        const cleared = await clearAvatar(env.DB, user.id);
+        return jsonResponse(cleared, 200, origin, allowed);
+      }
+      const bytes = new Uint8Array(await request.arrayBuffer());
+      const saved = await saveAvatar(env.DB, user.id, bytes);
+      if ("error" in saved) return errorResponse(saved.error, saved.status, origin, allowed);
+      return jsonResponse(saved, 200, origin, allowed);
     }
 
     if (request.method === "PATCH" && pathname === "/api/auth/me") {
@@ -257,6 +272,22 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     }
 
     return errorResponse("Not found", 404, origin, allowed);
+  }
+
+  const avatarMatch = pathname.match(/^\/api\/avatars\/([^/]+)$/);
+  if (request.method === "GET" && avatarMatch?.[1]) {
+    const user = await requireUser(request, env, origin, allowed);
+    if (user instanceof Response) return user;
+    const picture = await readAvatar(env.DB, user.id, decodeURIComponent(avatarMatch[1]));
+    if ("error" in picture) return errorResponse(picture.error, picture.status, origin, allowed);
+    return new Response(picture.bytes, {
+      status: 200,
+      headers: {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "private, max-age=3600",
+        ...corsHeaders(origin, allowed),
+      },
+    });
   }
 
   // --- Friends (invite links; no user directory) ---

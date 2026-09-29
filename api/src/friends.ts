@@ -14,6 +14,7 @@ export type FriendListItem = {
   userId: string;
   displayName: string;
   streak: number;
+  avatarAt: string | null;
 };
 
 export type InvitePreview = {
@@ -232,7 +233,7 @@ export async function acceptInvite(
 export async function listFriends(db: D1Database, userId: string): Promise<FriendListItem[]> {
   const result = await db
     .prepare(
-      `SELECT u.id AS user_id, u.display_name, s.streak AS streak, s.last_completed_on AS last_completed_on
+      `SELECT u.id AS user_id, u.display_name, u.avatar_at AS avatar_at, s.streak AS streak, s.last_completed_on AS last_completed_on
        FROM friendships f
        JOIN users u ON u.id = CASE WHEN f.user_a = ? THEN f.user_b ELSE f.user_a END
        LEFT JOIN daily_streaks s ON s.user_id = u.id
@@ -243,6 +244,7 @@ export async function listFriends(db: D1Database, userId: string): Promise<Frien
     .all<{
       user_id: string;
       display_name: string | null;
+      avatar_at: string | null;
       streak: number | null;
       last_completed_on: string | null;
     }>();
@@ -250,6 +252,7 @@ export async function listFriends(db: D1Database, userId: string): Promise<Frien
   return (result.results ?? []).map((row) => ({
     userId: row.user_id,
     displayName: publicName(row.display_name),
+    avatarAt: row.avatar_at ?? null,
     streak: currentDailyStreak({
       streak: typeof row.streak === "number" ? row.streak : 0,
       lastCompletedOn: row.last_completed_on ?? null,
