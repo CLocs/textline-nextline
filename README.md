@@ -421,7 +421,7 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Curator reputation** — count (and weight) stars people lay down. See [Later ideas](#later-ideas-parked).
 - [ ] **Watch-list connect** — Letterboxd / Trakt → “you might like” + title requests. See [Later ideas](#later-ideas-parked). Light search-and-request comes first.
 - [ ] **Integrations** — Letterboxd, Flickchart, and a spike on Netflix / Amazon watch history. See [Integrations](#integrations).
-- [ ] **Title requests (light)** — search a light movie index; request adds the title to a queue you attend by hand. See [Title requests](#title-requests-light).
+- [x] **Title requests (light)** — search a light movie index; request adds the title to a queue you attend by hand. See [Title requests](#title-requests-light).
 - [ ] **SRT + video automation** — filling a request automatically is a hard later spike. See [SRT and video automation](#srt-and-video-automation).
 - [ ] **Steam** — paid store build. Copyright posture and whether a $5 game has enough features are open. See [Steam](#steam).
 - [ ] **UGC quotes (IG / YT)** — paste a link, infer or type **one** line into a personal library. See [Quotes from anywhere](#quotes-from-anywhere-lay-person).
@@ -530,7 +530,7 @@ Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (�
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Friend faces** (up to five initials + day-streak badge) sit on Home above Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)**, **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Friend faces** (up to five initials + day-streak badge) sit on Home above Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)** are on Search (Open if we have it, otherwise Request). **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -846,9 +846,9 @@ Native iOS/Android store apps are an **ultimate** goal (App Store / Play, push, 
 
 Same web app, later wrapped (Capacitor or similar) or rebuilt, if store presence / iOS push / offline become real needs. Do not start this until Add to Home Screen has been in the wild.
 
-### Title requests *(light)*
+### Title requests *(light)* ✅
 
-Players should be able to ask for a movie we don’t have. Letterboxd connect can do that later; the first slice is just search.
+Players can ask for a movie we don’t have. Letterboxd connect can do that later; this slice is just search. Search → **Request a movie** (signed in on the live API). Catalog → **Requests** is the queue.
 
 **Light:** search a movie database we only **lightly index** — TMDB is already how transcript_maker finds a film. Cache enough to search and dedupe (id, title, year), not a full mirror. If the title is already in the catalog, open it. If not, **Request** adds it to a queue (who, tmdb id, when).
 
@@ -939,7 +939,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 | **Shipped — Mobile home screen** | Manifest + Add to Home Screen helper (no SW) | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |
 | **Exploratory — Native apps** | Store apps after PWA-lite has been in the wild | iOS / Android if push, store, or offline become real needs |
-| **Later — Title requests** | Search a light movie index; request joins a queue you attend by hand | No download — see [Title requests](#title-requests-light) |
+| **Title requests** | Search a light movie index; request joins a queue you attend by hand | ✅ Search → Request a movie. Catalog → Requests. No download — see [Title requests](#title-requests-light) |
 | **Later — SRT + video automation** | Auto-fill a request with subtitle and video | Hard; rights, caps, and file match — see [SRT and video automation](#srt-and-video-automation) |
 | **Later — Steam** | Paid store build | Copyright open; $5 needs more features first — see [Steam](#steam) |
 

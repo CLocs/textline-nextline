@@ -1346,7 +1346,7 @@
     "fps": 23.976,
     "lineOffsets": {},
     "durationSec": 5663.373,
-    "source": "inbox/media/gone-in-sixty-seconds-2000.mkv",
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\gone-in-sixty-seconds-2000.mkv",
     "handful": [
       576,
       577,
@@ -1366,7 +1366,9 @@
       "minus10",
       "pal-mid"
     ],
-    "note": "AVI is 23.976 but the picture is 29.97 content (file 1:34:23, SRT runs to 1:51). timeScale 0.8 = 23.976/29.97. Studio +/-5s and PAL 0.96 cannot land the late cues; unscaled line 1134 falls on the end card."
+    "note": "Studio lines 1246 stills (6 already on disk).",
+    "approvedAt": "2026-09-29T03:18:20.655Z",
+    "batchedAt": "2026-09-29T03:20:00.028Z"
   },
   "o-brother-where-art-thou-2000": {
     "offsetMs": 0,
@@ -1723,18 +1725,43 @@
     "durationSec": 6643.678709,
     "source": "H:\\videos\\movies\\Kill Bill Vol 1 (2003).mp4",
     "handful": [
-      151,
-      269,
-      425,
-      543,
+      120,
+      376,
+      495,
+      564,
       640,
-      729
+      735
     ],
     "methodId": "zero",
     "triedMethods": [
       "zero",
       "pal"
     ],
-    "note": "Studio shuffle (151,269,425,543,640,729)."
+    "note": "Studio shuffle (120,376,495,564,640,735)."
+  },
+  "the-man-from-uncle-2015": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 6989.76,
+    "source": "H:\\videos\\movies\\The Man from U.N.C.L.E. (2015).mkv",
+    "handful": [
+      223,
+      364,
+      447,
+      687,
+      733,
+      949
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "note": "Studio lines 1043 stills (36 already on disk).",
+    "approvedAt": "2026-09-29T03:14:24.996Z",
+    "batchedAt": "2026-09-29T03:17:28.512Z"
   }
 }

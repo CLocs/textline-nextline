@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T02:53:54.212Z",
+  "updatedAt": "2026-09-29T03:20:00.031Z",
   "titles": {
     "baby-driver-2017": 1360,
     "back-to-the-future-1985": 1302,
@@ -11,7 +11,7 @@
     "django-unchained-2012": 1842,
     "friday-1995": 1472,
     "goldeneye-1995": 795,
-    "gone-in-sixty-seconds-2000": 6,
+    "gone-in-sixty-seconds-2000": 1252,
     "goodfellas-1990": 1956,
     "inglourious-basterds-2009": 1654,
     "lock-stock-and-two-smoking-barrels-1998": 1385,
@@ -40,7 +40,8 @@
     "the-simpsons---4x04---lisa-the-beauty-queenen": 11,
     "the-simpsons---4x05---treehouse-of-horror-iiien": 5,
     "the-wolf-of-wall-street-2013": 3256,
-    "snatch-2000": 1269
+    "snatch-2000": 1269,
+    "the-man-from-uncle-2015": 1079
   },
   "covers": {
     "baby-driver-2017": 0,
@@ -53,7 +54,7 @@
     "django-unchained-2012": 321,
     "friday-1995": 2,
     "goldeneye-1995": 0,
-    "gone-in-sixty-seconds-2000": 576,
+    "gone-in-sixty-seconds-2000": 0,
     "goodfellas-1990": 138,
     "inglourious-basterds-2009": 3,
     "lock-stock-and-two-smoking-barrels-1998": 0,
@@ -82,6 +83,7 @@
     "the-simpsons---4x04---lisa-the-beauty-queenen": 0,
     "the-simpsons---4x05---treehouse-of-horror-iiien": 1,
     "the-wolf-of-wall-street-2013": 27,
-    "snatch-2000": 0
+    "snatch-2000": 0,
+    "the-man-from-uncle-2015": 0
   }
 }

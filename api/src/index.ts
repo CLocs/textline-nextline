@@ -54,6 +54,7 @@ import {
   shareCompletedRun,
 } from "./runs.js";
 import { fetchOwnerCatalogStats, isOwnerEmail } from "./ops.js";
+import { listTitleRequests, rememberFilms, requestFilm, searchTmdbMovies } from "./titleRequests.js";
 import {
   fetchDailyStreak,
   isPlausibleCompletionDate,
@@ -794,6 +795,28 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     return errorResponse("Not found", 404, origin, allowed);
   }
 
+  if (pathname === "/api/titles/search" && request.method === "GET") {
+    const user = await requireUser(request, env, origin, allowed);
+    if (user instanceof Response) return user;
+    const films = await searchTmdbMovies(env.TMDB_API_KEY, url.searchParams.get("q") ?? "");
+    if ("error" in films) return errorResponse(films.error, films.status, origin, allowed);
+    await rememberFilms(env.DB, films);
+    return jsonResponse({ films }, 200, origin, allowed);
+  }
+
+  if (pathname === "/api/titles/request" && request.method === "POST") {
+    const user = await requireUser(request, env, origin, allowed);
+    if (user instanceof Response) return user;
+    const body = await readJson(request);
+    const tmdbId =
+      body && typeof body === "object" && "tmdbId" in body && typeof body.tmdbId === "number"
+        ? body.tmdbId
+        : 0;
+    const result = await requestFilm(env.DB, user.id, tmdbId);
+    if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+    return jsonResponse(result, 200, origin, allowed);
+  }
+
   if (pathname.startsWith("/api/ops")) {
     const userOrError = await requireUser(request, env, origin, allowed);
     if (userOrError instanceof Response) return userOrError;
@@ -805,6 +828,11 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (request.method === "GET" && pathname === "/api/ops/catalog") {
       const titles = await fetchOwnerCatalogStats(env.DB, userOrError.id);
       return jsonResponse({ titles }, 200, origin, allowed);
+    }
+
+    if (request.method === "GET" && pathname === "/api/ops/title-requests") {
+      const requests = await listTitleRequests(env.DB);
+      return jsonResponse({ requests }, 200, origin, allowed);
     }
 
     return errorResponse("Not found", 404, origin, allowed);
