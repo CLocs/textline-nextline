@@ -80,15 +80,22 @@ export async function listRemoteStills(
   prefix: string,
   bucket = STILLS_R2_BUCKET,
 ): Promise<Map<string, RemoteStill>> {
-  const auth = await cloudflareAuth(packageRoot);
+  let auth = await cloudflareAuth(packageRoot);
   const found = new Map<string, RemoteStill>();
   let cursor: string | null = null;
+  let refreshed = false;
   for (;;) {
     const url = new URL(`${API}/accounts/${auth.accountId}/r2/buckets/${bucket}/objects`);
     url.searchParams.set("per_page", "1000");
     if (prefix) url.searchParams.set("prefix", prefix);
     if (cursor) url.searchParams.set("cursor", cursor);
-    const response = await fetch(url, { headers: { Authorization: `Bearer ${auth.token}` } });
+    let response = await fetch(url, { headers: { Authorization: `Bearer ${auth.token}` } });
+    if (response.status === 401 && !refreshed) {
+      resetCloudflareAuthCache();
+      auth = await cloudflareAuth(packageRoot);
+      refreshed = true;
+      response = await fetch(url, { headers: { Authorization: `Bearer ${auth.token}` } });
+    }
     const text = await response.text();
     if (!response.ok) {
       throw new Error(`R2 list failed (${response.status}): ${text.slice(0, 300)}`);
