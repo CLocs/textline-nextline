@@ -4,6 +4,14 @@ import { stillsPreviewPlugin, stillsStudioPlugin } from "./src/lib/content/still
 
 export default defineConfig({
   plugins: [react(), stillsStudioPlugin(), stillsPreviewPlugin()],
+  server: {
+    watch: {
+      // The studio rewrites this at the end of a batch. It is imported through
+      // the Vite plugin graph, so a change restarts the dev server and the
+      // Stills tab loses its place. Live counts come from the studio API.
+      ignored: ["**/content/stills-coverage.json"],
+    },
+  },
   build: {
     rollupOptions: {
       output: {

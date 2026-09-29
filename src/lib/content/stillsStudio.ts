@@ -11,6 +11,7 @@ import {
   ffmpegRemuxArgs,
   mediaRemuxOutput,
   resolveCue,
+  loadStillsSyncFile,
   seekModeForTitle,
   seekSeconds,
   stillFileName,
@@ -516,6 +517,30 @@ export function mergeSyncEntry(
 export function writeStillsSyncFile(path: string, sync: StillsSyncFile): void {
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, `${JSON.stringify(sync, null, 2)}\n`, "utf8");
+}
+
+let studioWriteQueue: Promise<void> = Promise.resolve();
+
+/** Run sync/coverage writes one at a time so overlapping batches cannot drop a title. */
+export function enqueueStudioWrite(task: () => void): Promise<void> {
+  const run = studioWriteQueue.then(task);
+  studioWriteQueue = run.then(
+    () => undefined,
+    () => undefined,
+  );
+  return run;
+}
+
+export function patchStillsSyncTitle(
+  path: string,
+  titleId: string,
+  patch: (previous: StillsSyncEntry | undefined) => StillsSyncEntry,
+): Promise<void> {
+  return enqueueStudioWrite(() => {
+    const sync = loadStillsSyncFile(path);
+    sync[titleId] = patch(sync[titleId]);
+    writeStillsSyncFile(path, sync);
+  });
 }
 
 export function handfulFromStars(title: Title, starIndices: number[]): number[] {

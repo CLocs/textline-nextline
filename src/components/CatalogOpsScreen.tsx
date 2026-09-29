@@ -84,6 +84,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   }, []);
 
   useEffect(() => {
+    if (tab !== "catalog") return;
     let cancelled = false;
     void studioHealth().then(async (ok) => {
       if (!ok || cancelled) return;
@@ -97,7 +98,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [tab]);
 
   useEffect(() => {
     if (tab !== "requests") return;

@@ -58,6 +58,12 @@ type AppliedMethod = {
   id?: string;
 };
 
+type ExtractJob = {
+  kind: StudioExtractMode;
+  message: string;
+  methodId: string | null;
+};
+
 export function StillsStudioPanel({
   initialShow = DEFAULT_STUDIO_SHOW,
   initialTitleId = null,
@@ -76,10 +82,8 @@ export function StillsStudioPanel({
   const [seek, setSeek] = useState<"start" | "mid">("start");
   const [lineOffsets, setLineOffsets] = useState<Record<string, number>>({});
   const [bust, setBust] = useState(0);
-  const [busy, setBusy] = useState<string | null>(null);
-  const [busyKind, setBusyKind] = useState<StudioExtractMode | null>(null);
-  const [busyMethodId, setBusyMethodId] = useState<string | null>(null);
-  const busyRef = useRef(false);
+  const [extracting, setExtracting] = useState<Record<string, ExtractJob>>({});
+  const extractingRef = useRef<Record<string, ExtractJob>>({});
   const openedTitleRef = useRef<string | null>(null);
   const autoBatchRef = useRef(initialAutoBatch);
   const [error, setError] = useState<string | null>(null);
@@ -93,7 +97,7 @@ export function StillsStudioPanel({
   showRef.current = show;
 
   function actionLabel(kind: StudioExtractMode, idle: string): string {
-    return busyKind === kind && busy ? busy : idle;
+    return currentJob?.kind === kind ? currentJob.message : idle;
   }
 
   useEffect(() => {
@@ -140,7 +144,7 @@ export function StillsStudioPanel({
     let cancelled = false;
     async function tick() {
       try {
-        const progress = await fetchStudioExtractProgress();
+        const progress = await fetchStudioExtractProgress(selectedIdRef.current);
         if (!cancelled) setExtractProgress(progress);
       } catch {
         /* counts are optional while a batch is running */
@@ -221,12 +225,14 @@ export function StillsStudioPanel({
   const liveRecipeId = describeStudioMethod(show, { offsetMs, timeScale, seek }).id;
   const pushingThis = pushJob?.status === "running" && pushJob.titleId === selectedId;
   const pushRunning = pushJob?.status === "running";
-  const extractLocked = Boolean(busy) || Boolean(pushingThis);
+  const currentJob = selectedId ? extracting[selectedId] : undefined;
+  const extractLocked = Boolean(currentJob) || Boolean(pushingThis);
   const linesBusy =
-    busyKind === "lines" &&
+    currentJob &&
+    (currentJob.kind === "lines" || currentJob.kind === "batch") &&
     extractProgress?.titleId === selectedId &&
     extractProgress.total > 0
-      ? `Extracting lines… ${extractProgress.done} / ${extractProgress.total}`
+      ? `${currentJob.kind === "lines" ? "Extracting lines" : "Extracting stars"}… ${extractProgress.done} / ${extractProgress.total}`
       : null;
 
   const counts = useMemo(() => {
@@ -287,43 +293,48 @@ export function StillsStudioPanel({
   }, [available, initialTitleId, queue, show]);
 
   async function runExtract(mode: StudioExtractMode, applied?: AppliedMethod) {
-    if (!selectedId || busyRef.current || (pushJob?.status === "running" && pushJob.titleId === selectedId)) return;
-    busyRef.current = true;
+    const titleId = selectedId;
+    if (!titleId || extractingRef.current[titleId] || (pushJob?.status === "running" && pushJob.titleId === titleId)) {
+      return;
+    }
     const nextOffset = applied?.offsetMs ?? offsetMs;
     const nextScale = applied?.timeScale ?? timeScale;
     const nextSeek = applied?.seek ?? seek;
-    setBusyKind(mode);
-    setBusyMethodId(applied?.id ?? null);
     const joining = (episode?.sourcePaths?.length ?? 0) > 1;
     const joinPrefix = joining ? "Joining the parts, then " : "";
-    setBusy(
+    const message =
       mode === "lines"
         ? `${joinPrefix}Extracting remaining lines — this can take several minutes…`
         : mode === "batch"
           ? `${joinPrefix}Extracting remaining stars — this can take a minute…`
           : mode === "smart"
-          ? `Trying ${nextMethod?.label ?? "next recipe"}…`
-          : mode === "shuffle"
-            ? "Picking six other frames…"
-            : applied
-              ? `${joinPrefix}Trying ${applied.label}…`
-              : `${joinPrefix}Extracting frames…`,
-    );
+            ? `Trying ${nextMethod?.label ?? "next recipe"}…`
+            : mode === "shuffle"
+              ? "Picking six other frames…"
+              : applied
+                ? `${joinPrefix}Trying ${applied.label}…`
+                : `${joinPrefix}Extracting frames…`;
+    const job: ExtractJob = { kind: mode, message, methodId: applied?.id ?? null };
+    extractingRef.current = { ...extractingRef.current, [titleId]: job };
+    setExtracting(extractingRef.current);
+    const offsets = lineOffsets;
     setError(null);
     setNotice(null);
     try {
       if (mode === "batch" || mode === "lines") {
-        await approveStudioEpisode(selectedId);
+        await approveStudioEpisode(titleId);
       }
       const result = await runStudioExtract({
-        titleId: selectedId,
+        titleId,
         mode,
         offsetMs: nextOffset,
         timeScale: nextScale,
-        lineOffsets,
+        lineOffsets: offsets,
         seek: nextSeek,
         votes: mode === "smart" ? votes : undefined,
       });
+      await refreshQueue();
+      if (selectedIdRef.current !== titleId) return;
       setEpisode(result.episode);
       setFrames(result.frames);
       setOffsetMs(result.episode.offsetMs);
@@ -332,7 +343,6 @@ export function StillsStudioPanel({
       setLineOffsets(result.episode.lineOffsets);
       setBust(Date.now());
       setVotes({});
-      await refreshQueue();
       if (mode === "smart" || applied) {
         setNotice(`Now: ${result.method.label}. ${result.method.why}`);
       }
@@ -355,18 +365,19 @@ export function StillsStudioPanel({
         setError((prev) => (prev ? `${prev} Remux is shorter than the last cue.` : "Remux is shorter than the last cue."));
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : String(err));
+      const message = err instanceof Error ? err.message : String(err);
+      if (selectedIdRef.current === titleId) setError(message);
     } finally {
-      busyRef.current = false;
-      setBusy(null);
-      setBusyKind(null);
-      setBusyMethodId(null);
+      const next = { ...extractingRef.current };
+      delete next[titleId];
+      extractingRef.current = next;
+      setExtracting(next);
     }
   }
 
   useEffect(() => {
     if (!autoBatchRef.current || !selectedId || selectedId !== initialTitleId || !episode) return;
-    if (busyRef.current) return;
+    if (extractingRef.current[selectedId]) return;
     autoBatchRef.current = false;
     if (episode.status === "batched" || episode.status === "pushed" || episode.status === "approved") {
       void runExtract("batch");
@@ -424,7 +435,7 @@ export function StillsStudioPanel({
             <p className="muted stills-tried">Tried:</p>
             {triedRecipes.map((recipe) => {
               const active = recipe.id === liveRecipeId;
-              const pending = busyMethodId === recipe.id;
+              const pending = currentJob?.methodId === recipe.id;
               return (
                 <button
                   key={recipe.id}
@@ -444,15 +455,15 @@ export function StillsStudioPanel({
                     })
                   }
                 >
-                  {pending && busy ? busy : recipe.label}
+                  {pending && currentJob ? currentJob.message : recipe.label}
                 </button>
               );
             })}
           </div>
         ) : null}
-        {busyMethodId && busy ? (
+        {currentJob?.methodId ? (
           <p className="stills-studio-busy" role="status" aria-live="polite">
-            {busy}
+            {currentJob.message}
           </p>
         ) : null}
         <div className="stills-retry-stack">
@@ -473,7 +484,7 @@ export function StillsStudioPanel({
                 type="button"
                 className="button primary"
                 disabled={extractLocked}
-                aria-busy={busyKind === "smart"}
+                aria-busy={currentJob?.kind === "smart"}
                 onClick={() => void runExtract("smart")}
               >
                 {actionLabel("smart", `Smart retry: ${nextMethod.label}`)}
@@ -483,15 +494,15 @@ export function StillsStudioPanel({
               type="button"
               className="button"
               disabled={extractLocked}
-              aria-busy={busyKind === "shuffle"}
+              aria-busy={currentJob?.kind === "shuffle"}
               onClick={() => void runExtract("shuffle")}
             >
               {actionLabel("shuffle", "Shuffle six")}
             </button>
           </div>
-          {(busyKind === "smart" || busyKind === "shuffle") && busy ? (
+          {(currentJob?.kind === "smart" || currentJob?.kind === "shuffle") && currentJob ? (
             <p className="stills-studio-busy" role="status" aria-live="polite">
-              {busy}
+              {currentJob.message}
             </p>
           ) : null}
         </div>
@@ -556,14 +567,14 @@ export function StillsStudioPanel({
             type="button"
             className="button"
             disabled={extractLocked}
-            aria-busy={busyKind === "retry"}
+            aria-busy={currentJob?.kind === "retry"}
             onClick={() => void runExtract("retry")}
           >
             {actionLabel("retry", "Re-extract these six")}
           </button>
-          {busyKind === "retry" && busy ? (
+          {currentJob?.kind === "retry" && currentJob ? (
             <p className="stills-studio-busy" role="status" aria-live="polite">
-              {busy}
+              {currentJob.message}
             </p>
           ) : null}
         </details>
@@ -636,14 +647,14 @@ export function StillsStudioPanel({
                 type="button"
                 className="button primary"
                 disabled={extractLocked || selected.status === "no-file"}
-                aria-busy={busyKind === "handful"}
+                aria-busy={currentJob?.kind === "handful"}
                 onClick={() => void runExtract("handful")}
               >
                 {actionLabel("handful", "Extract 6 frames")}
               </button>
-              {busyKind === "handful" && busy ? (
+              {currentJob?.kind === "handful" && currentJob ? (
                 <p className="stills-studio-busy" role="status" aria-live="polite">
-                  {busy}
+                  {currentJob.message}
                 </p>
               ) : null}
             </div>
@@ -734,7 +745,7 @@ export function StillsStudioPanel({
                       type="button"
                       className="button primary"
                       disabled={extractLocked}
-                      aria-busy={busyKind === "lines"}
+                      aria-busy={currentJob?.kind === "lines"}
                       onClick={() => void runExtract("lines")}
                     >
                       {linesBusy ?? actionLabel("lines", "Batch remaining lines")}
@@ -743,7 +754,7 @@ export function StillsStudioPanel({
                       type="button"
                       className="button"
                       disabled={extractLocked || selected.starCount === 0}
-                      aria-busy={busyKind === "batch"}
+                      aria-busy={currentJob?.kind === "batch"}
                       onClick={() => void runExtract("batch")}
                     >
                       {selected.starCount === 0
@@ -753,7 +764,7 @@ export function StillsStudioPanel({
                     <button
                       type="button"
                       className="button primary"
-                      disabled={Boolean(busy) || selected.status === "pushed" || pushRunning}
+                      disabled={extractLocked || selected.status === "pushed" || pushRunning}
                       aria-busy={pushingThis}
                       onClick={() => void pushApproved()}
                     >
@@ -766,9 +777,9 @@ export function StillsStudioPanel({
                             : "Push approved"}
                     </button>
                   </div>
-                  {(busyKind === "batch" || busyKind === "lines") && busy ? (
+                  {(currentJob?.kind === "batch" || currentJob?.kind === "lines") && currentJob ? (
                     <p className="stills-studio-busy" role="status" aria-live="polite">
-                      {linesBusy ?? busy}
+                      {linesBusy ?? currentJob?.message}
                     </p>
                   ) : null}
                   {renderRetryTools("gallery")}
@@ -785,7 +796,7 @@ export function StillsStudioPanel({
                       type="button"
                       className="button primary"
                       disabled={extractLocked}
-                      aria-busy={busyKind === "lines"}
+                      aria-busy={currentJob?.kind === "lines"}
                       onClick={() => void runExtract("lines")}
                     >
                       {linesBusy ?? actionLabel("lines", "Batch remaining lines")}
@@ -794,7 +805,7 @@ export function StillsStudioPanel({
                       type="button"
                       className="button"
                       disabled={extractLocked || selected.starCount === 0}
-                      aria-busy={busyKind === "batch"}
+                      aria-busy={currentJob?.kind === "batch"}
                       onClick={() => void runExtract("batch")}
                     >
                       {selected.starCount === 0
@@ -805,9 +816,9 @@ export function StillsStudioPanel({
                       Open folder
                     </button>
                   </div>
-                  {(busyKind === "batch" || busyKind === "lines") && busy ? (
+                  {(currentJob?.kind === "batch" || currentJob?.kind === "lines") && currentJob ? (
                     <p className="stills-studio-busy" role="status" aria-live="polite">
-                      {linesBusy ?? busy}
+                      {linesBusy ?? currentJob?.message}
                     </p>
                   ) : null}
                 </div>
@@ -840,7 +851,7 @@ export function StillsStudioPanel({
                   {row.label}
                   {row.durationWarn ? <span className="muted"> · short file</span> : null}
                 </td>
-                <td>{statusLabel(row.status)}</td>
+                <td>{extracting[row.titleId] ? "extracting" : statusLabel(row.status)}</td>
                 <td>{row.starCount || ""}</td>
                 <td>{row.stillCount || ""}</td>
                 <td>{row.offsetMs / 1000}s</td>

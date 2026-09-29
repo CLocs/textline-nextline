@@ -147,8 +147,9 @@ export async function startStudioPush(titleId: string): Promise<StudioPushJob> {
   return data.job;
 }
 
-export async function fetchStudioExtractProgress(): Promise<StudioExtractProgress | null> {
-  const response = await studioFetch("/extract-status");
+export async function fetchStudioExtractProgress(titleId?: string | null): Promise<StudioExtractProgress | null> {
+  const query = titleId ? `?titleId=${encodeURIComponent(titleId)}` : "";
+  const response = await studioFetch(`/extract-status${query}`);
   const data = await readJson<{ progress?: StudioExtractProgress | null }>(response);
   return data.progress ?? null;
 }
