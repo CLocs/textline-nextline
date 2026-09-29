@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { handleRequest } from "../api/src/index.js";
+import { currentDailyStreak } from "../api/src/dailyStreak.js";
 import { canonicalPair, normalizeInviteToken } from "../api/src/friends.js";
 import { sha256Hex } from "../api/src/crypto.js";
 
@@ -17,6 +18,7 @@ type InviteRow = {
 };
 type FriendshipRow = { user_a: string; user_b: string; created_at: string };
 type BlockRow = { blocker_user_id: string; blocked_user_id: string; created_at: string };
+type StreakRow = { user_id: string; last_completed_on: string; streak: number };
 
 function farFuture(): string {
   return new Date(Date.now() + 30 * 24 * 60 * 60_000).toISOString();
@@ -44,6 +46,8 @@ function createFriendsDb() {
   const invites: InviteRow[] = [];
   const friendships: FriendshipRow[] = [];
   const blocks: BlockRow[] = [];
+  const streaks: StreakRow[] = [];
+  const avatars = new Map<string, { at: string; bytes: Uint8Array }>();
 
   const db = {
     prepare(sql: string) {
@@ -82,6 +86,12 @@ function createFriendsDb() {
                 if (index !== -1) friendships.splice(index, 1);
               } else if (sql.includes("DELETE FROM friend_group_members")) {
                 // Groups tables are optional in this mock; unfriend/block always attempt cleanup.
+              } else if (sql.includes("UPDATE users SET avatar = NULL")) {
+                const [userId] = args as [string];
+                avatars.delete(userId);
+              } else if (sql.includes("UPDATE users SET avatar = ?")) {
+                const [bytes, avatarAt, userId] = args as [Uint8Array, string, string];
+                avatars.set(userId, { at: avatarAt, bytes });
               } else if (sql.includes("INSERT OR IGNORE INTO friend_blocks")) {
                 const [blocker, blocked, createdAt] = args as [string, string, string];
                 if (
@@ -126,6 +136,15 @@ function createFriendsDb() {
                 const row = invites.find((invite) => invite.inviter_user_id === userId);
                 return (row ?? null) as T;
               }
+              if (sql.includes("SELECT avatar_at FROM users WHERE id")) {
+                const [userId] = args as [string];
+                return { avatar_at: avatars.get(userId)?.at ?? null } as T;
+              }
+              if (sql.includes("SELECT avatar FROM users WHERE id")) {
+                const [userId] = args as [string];
+                const row = avatars.get(userId);
+                return (row ? { avatar: row.bytes } : null) as T;
+              }
               if (sql.includes("SELECT display_name FROM users WHERE id")) {
                 const [userId] = args as [string];
                 const user = users.find((u) => u.id === userId);
@@ -161,9 +180,13 @@ function createFriendsDb() {
                   .map((row) => {
                     const otherId = row.user_a === userId ? row.user_b : row.user_a;
                     const other = users.find((u) => u.id === otherId);
+                    const streak = streaks.find((row) => row.user_id === otherId);
                     return {
                       user_id: otherId,
                       display_name: other?.display_name ?? null,
+                      avatar_at: avatars.get(otherId)?.at ?? null,
+                      streak: streak?.streak ?? null,
+                      last_completed_on: streak?.last_completed_on ?? null,
                     };
                   });
                 return { results: results as T[] };
@@ -176,7 +199,7 @@ function createFriendsDb() {
     },
   } as unknown as D1Database;
 
-  return { db, invites, friendships, blocks };
+  return { db, invites, friendships, blocks, streaks };
 }
 
 function envFor(db: D1Database) {
@@ -200,6 +223,22 @@ function jsonRequest(
     body: init.body !== undefined ? JSON.stringify(init.body) : undefined,
   });
 }
+
+describe("current daily streak", () => {
+  const now = new Date("2026-09-28T20:00:00.000Z");
+
+  it("keeps a streak finished today, yesterday, or tomorrow UTC", () => {
+    expect(currentDailyStreak({ lastCompletedOn: "2026-09-28", streak: 4 }, now)).toBe(4);
+    expect(currentDailyStreak({ lastCompletedOn: "2026-09-27", streak: 4 }, now)).toBe(4);
+    expect(currentDailyStreak({ lastCompletedOn: "2026-09-29", streak: 4 }, now)).toBe(4);
+  });
+
+  it("hides a lapsed or empty streak", () => {
+    expect(currentDailyStreak({ lastCompletedOn: "2026-09-26", streak: 9 }, now)).toBe(0);
+    expect(currentDailyStreak({ lastCompletedOn: null, streak: 3 }, now)).toBe(0);
+    expect(currentDailyStreak({ lastCompletedOn: "2026-09-28", streak: 0 }, now)).toBe(0);
+  });
+});
 
 describe("friend helpers", () => {
   it("orders friendship pairs canonically", () => {
@@ -250,8 +289,42 @@ describe("friends API", () => {
 
     const list = await handleRequest(jsonRequest("/api/friends", { token: "sess-bob" }), envFor(db));
     const data = (await list.json()) as { friends: Array<{ userId: string; displayName: string }> };
-    expect(data.friends).toEqual([{ userId: ALICE_ID, displayName: "Alice" }]);
+    expect(data.friends).toEqual([
+      { userId: ALICE_ID, displayName: "Alice", streak: 0, avatarAt: null },
+    ]);
     expect(JSON.stringify(data)).not.toContain("@example.com");
+  });
+
+  it("returns a current day-streak and hides a lapsed one", async () => {
+    const { db, friendships, streaks } = createFriendsDb();
+    friendships.push({
+      user_a: ALICE_ID,
+      user_b: BOB_ID,
+      created_at: "2026-01-02T00:00:00.000Z",
+    });
+    const utcToday = new Date().toISOString().slice(0, 10);
+    streaks.push({ user_id: ALICE_ID, last_completed_on: utcToday, streak: 4 });
+    streaks.push({ user_id: BOB_ID, last_completed_on: "2020-01-01", streak: 9 });
+
+    const asBob = await handleRequest(jsonRequest("/api/friends", { token: "sess-bob" }), envFor(db));
+    const bobList = (await asBob.json()) as {
+      friends: Array<{ userId: string; displayName: string; streak: number }>;
+    };
+    expect(bobList.friends).toEqual([
+      { userId: ALICE_ID, displayName: "Alice", streak: 4, avatarAt: null },
+    ]);
+    expect(JSON.stringify(bobList)).not.toContain("lastCompletedOn");
+
+    const asAlice = await handleRequest(
+      jsonRequest("/api/friends", { token: "sess-alice" }),
+      envFor(db),
+    );
+    const aliceList = (await asAlice.json()) as {
+      friends: Array<{ userId: string; displayName: string; streak: number }>;
+    };
+    expect(aliceList.friends).toEqual([
+      { userId: BOB_ID, displayName: "Bob", streak: 0, avatarAt: null },
+    ]);
   });
 
   it("rejects self-accept, blocking, and has no user directory", async () => {
@@ -316,5 +389,65 @@ describe("friends API", () => {
 
     const anonList = await handleRequest(jsonRequest("/api/friends"), envFor(db));
     expect(anonList.status).toBe(401);
+  });
+
+  it("stores a profile jpeg for you and your friends", async () => {
+    const { db, friendships } = createFriendsDb();
+    friendships.push({
+      user_a: ALICE_ID,
+      user_b: BOB_ID,
+      created_at: "2026-01-02T00:00:00.000Z",
+    });
+    const jpeg = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 0, 1]);
+    const headers = new Headers({
+      Origin: ORIGIN,
+      Authorization: "Bearer sess-alice",
+      "Content-Type": "image/jpeg",
+    });
+    const uploaded = await handleRequest(
+      new Request("http://localhost/api/auth/me/avatar", { method: "POST", headers, body: jpeg }),
+      envFor(db),
+    );
+    expect(uploaded.status).toBe(200);
+    const saved = (await uploaded.json()) as { avatarAt: string };
+    expect(saved.avatarAt).toMatch(/^\d{4}-/);
+
+    const rejected = await handleRequest(
+      new Request("http://localhost/api/auth/me/avatar", {
+        method: "POST",
+        headers,
+        body: new Uint8Array([1, 2, 3]),
+      }),
+      envFor(db),
+    );
+    expect(rejected.status).toBe(400);
+
+    const list = await handleRequest(jsonRequest("/api/friends", { token: "sess-bob" }), envFor(db));
+    const data = (await list.json()) as { friends: Array<{ avatarAt: string | null }> };
+    expect(data.friends[0]?.avatarAt).toBe(saved.avatarAt);
+
+    const picture = await handleRequest(
+      jsonRequest(`/api/avatars/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(picture.status).toBe(200);
+    expect(picture.headers.get("content-type")).toContain("image/jpeg");
+
+    const hidden = await handleRequest(
+      jsonRequest("/api/avatars/33333333-3333-4333-8333-333333333333", { token: "sess-alice" }),
+      envFor(db),
+    );
+    expect(hidden.status).toBe(404);
+
+    const removed = await handleRequest(
+      jsonRequest("/api/auth/me/avatar", { method: "DELETE", token: "sess-alice" }),
+      envFor(db),
+    );
+    expect(removed.status).toBe(200);
+    const gone = await handleRequest(
+      jsonRequest(`/api/avatars/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(gone.status).toBe(404);
   });
 });

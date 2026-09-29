@@ -19,6 +19,13 @@ export function isPlausibleCompletionDate(date: string, now = new Date()): boole
   return date === utcToday || date === addDays(utcToday, -1) || date === addDays(utcToday, 1);
 }
 
+/** Stored streak while the last completion is still in the server's live window. A gap stays 0 until the next finish. */
+export function currentDailyStreak(row: DailyStreakRow, now = new Date()): number {
+  if (!Number.isInteger(row.streak) || row.streak <= 0 || !row.lastCompletedOn) return 0;
+  if (!isPlausibleCompletionDate(row.lastCompletedOn, now)) return 0;
+  return row.streak;
+}
+
 export function nextDailyStreak(current: DailyStreakRow, completedOn: string): DailyStreakRow {
   if (current.lastCompletedOn === completedOn) return current;
   if (current.lastCompletedOn && addDays(current.lastCompletedOn, 1) === completedOn) {

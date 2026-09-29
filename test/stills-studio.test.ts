@@ -7,13 +7,16 @@ import { pickHandfulIndices, shuffleHandfulIndices } from "../src/lib/content/st
 import {
   buildShowQueue,
   durationPastEof,
+  enqueueStudioWrite,
   episodeStatus,
   listPreviewStillIndices,
   mergeSyncEntry,
   parseFrameRate,
   STUDIO_SKIP_TITLE_IDS,
   videoDirForShow,
+  writeStillsSyncFile,
 } from "../src/lib/content/stillsStudio.js";
+import { loadStillsSyncFile } from "../src/lib/content/extractStills.js";
 
 function line(index: number, text: string) {
   return { index, text, kind: "dialogue" as const, startMs: index * 1000, endMs: index * 1000 + 500 };
@@ -106,6 +109,29 @@ describe("episodeStatus", () => {
     expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [] })).toBe("review");
     expect(episodeStatus({ hasFile: true, stillCount: 0, handful: [] })).toBe("ready");
     expect(episodeStatus({ hasFile: false, stillCount: 0, handful: [] })).toBe("no-file");
+  });
+});
+
+describe("enqueueStudioWrite", () => {
+  it("keeps both titles when two sync writes are queued together", async () => {
+    const dir = mkdtempSync(join(tmpdir(), "stills-sync-"));
+    const path = join(dir, "stills-sync.json");
+    writeFileSync(path, "{}\n");
+    await Promise.all([
+      enqueueStudioWrite(() => {
+        const sync = loadStillsSyncFile(path);
+        sync.alpha = { offsetMs: 0, note: "alpha" };
+        writeStillsSyncFile(path, sync);
+      }),
+      enqueueStudioWrite(() => {
+        const sync = loadStillsSyncFile(path);
+        sync.beta = { offsetMs: 5, note: "beta" };
+        writeStillsSyncFile(path, sync);
+      }),
+    ]);
+    const sync = loadStillsSyncFile(path);
+    expect(sync.alpha?.note).toBe("alpha");
+    expect(sync.beta?.note).toBe("beta");
   });
 });
 

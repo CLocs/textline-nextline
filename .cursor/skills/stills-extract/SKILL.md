@@ -109,7 +109,7 @@ flowchart TD
 
 ## Follow-up / left off (2026-09-20)
 
-**Shows:** use Catalog Ops → Stills. Remaining Simpsons on disk (S4E3 onward, then S5–S7) inherit −57s. S4E1/E2 already on R2. Do not auto-R2 from chat.
+**Shows:** use Catalog Ops → Stills. Season 4 Simpsons rips inherit −57s (SRT still includes the long theme; S4E5 is −52s, S4E3 is PAL 0.96). Seasons 5–7 SRTs already match the file — offset 0, not −57s. S4E1/E2 already on R2. Do not auto-R2 from chat.
 
 **Movies:** every-cue (`--playable`) for top-played titles that already have eyeballed sync. Skip existing JPEGs. Do not auto-R2 from chat until they ask.
 

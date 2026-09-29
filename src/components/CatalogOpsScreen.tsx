@@ -16,6 +16,7 @@ import {
   loadUploadsSnapshot,
 } from "../lib/content/catalogOpsData";
 import { fetchOpsCatalog } from "../lib/ops/api";
+import { fetchTitleRequests, type TitleRequestListItem } from "../lib/content/titleRequestsApi";
 import { fetchStudioCoverage, studioHealth } from "../lib/content/stillsStudioApi";
 import { DEFAULT_STUDIO_SHOW } from "../lib/content/stillsStudioTypes";
 import { StillsStudioPanel } from "./StillsStudioPanel";
@@ -56,7 +57,8 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   const [live, setLive] = useState(false);
   const [sortKey, setSortKey] = useState<CatalogOpsSortKey>("label");
   const [sortDir, setSortDir] = useState<CatalogOpsSortDir>("asc");
-  const [tab, setTab] = useState<"catalog" | "stills">("catalog");
+  const [tab, setTab] = useState<"catalog" | "stills" | "requests">("catalog");
+  const [requests, setRequests] = useState<TitleRequestListItem[] | null>(null);
   const [stillsShow, setStillsShow] = useState(DEFAULT_STUDIO_SHOW);
   const [stillsTitleId, setStillsTitleId] = useState<string | null>(null);
   const [stillsAutoBatch, setStillsAutoBatch] = useState(false);
@@ -82,6 +84,7 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   }, []);
 
   useEffect(() => {
+    if (tab !== "catalog") return;
     let cancelled = false;
     void studioHealth().then(async (ok) => {
       if (!ok || cancelled) return;
@@ -95,7 +98,18 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [tab]);
+
+  useEffect(() => {
+    if (tab !== "requests") return;
+    let cancelled = false;
+    void fetchTitleRequests().then((rows) => {
+      if (!cancelled) setRequests(rows);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [tab]);
 
   const rows = useMemo(() => {
     const built = buildCatalogOpsRows({
@@ -167,6 +181,13 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
         >
           Stills
         </button>
+        <button
+          type="button"
+          className={`button ghost${tab === "requests" ? " is-active" : ""}`}
+          onClick={() => setTab("requests")}
+        >
+          Requests
+        </button>
       </div>
 
       {tab === "stills" ? (
@@ -176,6 +197,31 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
           initialTitleId={stillsTitleId}
           initialAutoBatch={stillsAutoBatch}
         />
+      ) : null}
+
+      {tab === "requests" ? (
+        requests === null ? (
+          <p className="muted">Loading requests…</p>
+        ) : requests.length === 0 ? (
+          <p className="empty">No movie requests yet.</p>
+        ) : (
+          <ul className="title-list">
+            {requests.map((row) => (
+              <li key={`${row.tmdbId}:${row.createdAt}:${row.displayName}`}>
+                <div className="title-card">
+                  <span className="title-card-copy">
+                    <span className="title-card-name">
+                      {row.title} ({row.year})
+                    </span>
+                    <span className="muted">
+                      {row.displayName} · TMDB {row.tmdbId} · {row.createdAt.slice(0, 10)}
+                    </span>
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )
       ) : null}
 
       {tab === "catalog" ? (

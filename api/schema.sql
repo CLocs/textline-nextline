@@ -15,7 +15,9 @@ CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE,
   display_name TEXT,
-  created_at TEXT NOT NULL
+  created_at TEXT NOT NULL,
+  avatar_at TEXT,
+  avatar BLOB
 );
 
 CREATE TABLE IF NOT EXISTS magic_tokens (
@@ -243,3 +245,20 @@ CREATE TABLE IF NOT EXISTS chat_reactions (
 
 CREATE INDEX IF NOT EXISTS idx_chat_reactions_target
   ON chat_reactions (target_kind, target_id);
+
+-- Light title requests (also in migrations/016_title_requests.sql)
+CREATE TABLE IF NOT EXISTS tmdb_films (
+  tmdb_id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  year INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS title_requests (
+  user_id TEXT NOT NULL,
+  tmdb_id INTEGER NOT NULL,
+  created_at TEXT NOT NULL,
+  PRIMARY KEY (user_id, tmdb_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_title_requests_created
+  ON title_requests (created_at DESC);

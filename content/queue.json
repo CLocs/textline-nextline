@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-25T22:22:12.464Z",
+  "updatedAt": "2026-09-29T03:27:56.028Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -643,9 +643,9 @@
       "playCount": 0,
       "highlightCount": 5,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Friday",

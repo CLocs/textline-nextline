@@ -254,10 +254,22 @@ button {
   width: 2.5rem;
   height: 2.5rem;
   margin-top: 0.15rem;
+  padding: 0;
+  border: none;
   border-radius: 10px;
   background:
     linear-gradient(145deg, var(--lime) 0%, var(--mint) 40%, var(--plum) 100%);
   box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--plum) 18%, transparent);
+  cursor: pointer;
+}
+
+.brand-mark:hover {
+  filter: brightness(1.06);
+}
+
+.brand-mark:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
 }
 
 .brand-copy {
@@ -391,7 +403,34 @@ button {
 .daily-card .title-card-copy {
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   gap: 0.2rem;
+}
+
+.daily-card.is-today {
+  border-color: color-mix(in srgb, #c4a15a 65%, var(--line));
+  background: color-mix(in srgb, #f6e7c1 55%, var(--surface));
+  box-shadow: inset 3px 0 0 #c4a15a;
+}
+
+.daily-card.is-today:hover {
+  border-color: #b8923e;
+  background: color-mix(in srgb, #f6e7c1 72%, var(--surface));
+}
+
+.daily-today-label {
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #8a6418;
+}
+
+.daily-play-title + .daily-today-label {
+  margin: -0.45rem 0 0.85rem;
 }
 
 .daily-result {
@@ -1294,6 +1333,36 @@ code {
   margin-top: 1.25rem;
 }
 
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.profile-avatar-face {
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 1.15rem;
+}
+
+.profile-avatar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.profile-avatar-file {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .auth-name-form input {
   min-width: 8rem;
   max-width: 12rem;
@@ -1308,6 +1377,57 @@ code {
 .friends-panel {
   display: grid;
   gap: 0.75rem;
+}
+
+.friend-faces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-friend-faces {
+  margin-bottom: 0.85rem;
+}
+
+.friend-face {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.friend-face-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.friend-face-badge {
+  z-index: 1;
+  position: absolute;
+  top: -0.28rem;
+  right: -0.4rem;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.22rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.15rem;
+  text-align: center;
 }
 
 .friends-link {
@@ -1614,6 +1734,18 @@ code {
   gap: 0.45rem;
 }
 
+.title-request-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+}
+
+.title-request-row .search-hit-label {
+  min-width: 0;
+}
+
 .search-hit {
   width: 100%;
   text-align: left;
@@ -1820,6 +1952,13 @@ code {
 .inbox-line-card.is-solved {
   padding: 0.7rem 0.85rem;
   gap: 0.35rem;
+}
+
+.inbox-line-card.is-unanswered,
+.inbox-line-card.is-waiting {
+  border-color: color-mix(in srgb, var(--danger) 55%, var(--line));
+  box-shadow: inset 4px 0 0 var(--danger);
+  background: color-mix(in srgb, var(--danger) 9%, var(--surface));
 }
 
 .inbox-line-from {
@@ -2518,7 +2657,12 @@ code {
 }
 
 .chats-thread-row.has-unread {
-  border-color: color-mix(in srgb, var(--accent, #2f6f5e) 35%, var(--line));
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--line));
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.chats-list-summary {
+  margin: 0 0 0.85rem;
 }
 
 .chats-thread-avatar {
@@ -2607,6 +2751,11 @@ code {
 
 .chats-unread-chip.is-text {
   background: color-mix(in srgb, var(--ink) 72%, var(--accent, #2f6f5e));
+}
+
+.chats-unread-words {
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .chats-text-bubble {
@@ -2845,6 +2994,31 @@ code {
   font-weight: 600;
   color: var(--success, #1e5c38);
   white-space: nowrap;
+}
+
+.chats-status-chip {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.45rem;
+  padding: 0.08rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.chats-status-chip.is-unanswered,
+.chats-status-chip.is-waiting {
+  background: var(--danger);
+  color: white;
+}
+
+.chats-thread-unanswered {
+  color: var(--danger);
+  font-weight: 700;
 }
 
 .quote-image-backdrop {

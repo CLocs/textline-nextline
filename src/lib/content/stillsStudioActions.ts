@@ -19,6 +19,8 @@ import {
   listHandfulFrames,
   listPreviewStillIndices,
   mergeSyncEntry,
+  patchStillsSyncTitle,
+  enqueueStudioWrite,
   previewDirForTitle,
   probeDurationSec,
   probeFps,
@@ -61,14 +63,17 @@ export function createStudioContext(packageRoot: string): StudioContext {
 
 let starCache: { stars: OwnerStarMap; remote: boolean; error?: string; at: number } | null = null;
 let pushJob: StudioPushJob | null = null;
-let extractProgress: StudioExtractProgress | null = null;
+const extractProgressByTitle = new Map<string, StudioExtractProgress>();
 
-export function studioExtractProgress(): StudioExtractProgress | null {
-  return extractProgress ? { ...extractProgress } : null;
+export function studioExtractProgress(titleId = ""): StudioExtractProgress | null {
+  if (!titleId) return null;
+  const row = extractProgressByTitle.get(titleId);
+  return row ? { ...row } : null;
 }
 
-export function clearStudioExtractProgress(): void {
-  extractProgress = null;
+export function clearStudioExtractProgress(titleId?: string): void {
+  if (titleId) extractProgressByTitle.delete(titleId);
+  else extractProgressByTitle.clear();
 }
 const STAR_TTL_MS = 5 * 60 * 1000;
 
@@ -330,24 +335,28 @@ export async function studioExtract(
     }
     indices = opts.mode === "lines" ? stillCueIndices(title) : starIndices;
     if (indices.length === 0) {
-      sync[id] = mergeSyncEntry(previous, {
-        offsetMs,
-        timeScale,
-        seek,
-        fps: fps ?? undefined,
-        lineOffsets,
-        durationSec: durationSec ?? previous?.durationSec,
-        source: media,
-        handful: previous?.handful ?? episode.handful,
-        batchedAt: new Date().toISOString(),
-        note:
-          previous?.note ??
-          (opts.mode === "lines" ? "Studio lines: no playable cues." : "Studio batch: no D1 stars yet."),
-        methodId: previous?.methodId ?? method.id,
-        triedMethods: previous?.triedMethods,
+      await enqueueStudioWrite(() => {
+        const latest = loadStillsSyncFile(ctx.syncPath);
+        latest[id] = mergeSyncEntry(latest[id] ?? previous, {
+          offsetMs,
+          timeScale,
+          seek,
+          fps: fps ?? undefined,
+          lineOffsets,
+          durationSec: durationSec ?? previous?.durationSec,
+          source: media,
+          handful: previous?.handful ?? episode.handful,
+          batchedAt: new Date().toISOString(),
+          note:
+            latest[id]?.note ??
+            previous?.note ??
+            (opts.mode === "lines" ? "Studio lines: no playable cues." : "Studio batch: no D1 stars yet."),
+          methodId: previous?.methodId ?? method.id,
+          triedMethods: previous?.triedMethods,
+        });
+        writeStillsSyncFile(ctx.syncPath, latest);
+        upsertCoverageForTitle(ctx, id);
       });
-      writeStillsSyncFile(ctx.syncPath, sync);
-      upsertCoverageForTitle(ctx, id);
       const refreshed = findEpisode(ctx, id);
       return {
         episode: refreshed.episode,
@@ -384,12 +393,11 @@ export async function studioExtract(
     lineOffsets,
     accurateSeek,
     skipExisting: opts.mode === "lines",
-    onProgress:
-      opts.mode === "lines"
-        ? (done, total) => {
-            extractProgress = { titleId: id, done, total };
-          }
-        : undefined,
+    onProgress: fillingLines
+      ? (done, total) => {
+          extractProgressByTitle.set(id, { titleId: id, done, total });
+        }
+      : undefined,
   });
 
   const now = new Date().toISOString();
@@ -400,33 +408,37 @@ export async function studioExtract(
     fillingLines || opts.mode === "shuffle"
       ? previous?.triedMethods
       : recordTriedMethodIds(previous?.triedMethods, episode.methodId, method.id);
-  sync[id] = mergeSyncEntry(previous, {
-    offsetMs,
-    timeScale,
-    seek,
-    fps: fps ?? undefined,
-    lineOffsets,
-    durationSec: durationSec ?? previous?.durationSec,
-    source: media,
-    handful,
-    approvedAt: fillingLines ? previous?.approvedAt ?? now : undefined,
-    // Handful/smart/retry after a batch must drop these so the six-frame review returns.
-    // Batch after a later star change must un-push so the new JPEGs can go to R2.
-    batchedAt: fillingLines ? now : undefined,
-    pushedAt: undefined,
-    methodId: fillingLines || opts.mode === "shuffle" ? previous?.methodId ?? method.id : method.id,
-    triedMethods,
-    note:
-      opts.mode === "lines"
-        ? `Studio lines ${wrote} stills${skipped > 0 ? ` (${skipped} already on disk)` : ""}.`
-        : opts.mode === "batch"
-          ? `Studio batch ${wrote} stills.`
-          : opts.mode === "shuffle"
-            ? `Studio shuffle (${handful.join(",")}).`
-            : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
+  await enqueueStudioWrite(() => {
+    const latest = loadStillsSyncFile(ctx.syncPath);
+    const base = latest[id] ?? previous;
+    latest[id] = mergeSyncEntry(base, {
+      offsetMs,
+      timeScale,
+      seek,
+      fps: fps ?? undefined,
+      lineOffsets,
+      durationSec: durationSec ?? base?.durationSec,
+      source: media,
+      handful,
+      approvedAt: fillingLines ? (base?.approvedAt ?? previous?.approvedAt ?? now) : undefined,
+      // Handful/smart/retry after a batch must drop these so the six-frame review returns.
+      // Batch after a later star change must un-push so the new JPEGs can go to R2.
+      batchedAt: fillingLines ? now : undefined,
+      pushedAt: undefined,
+      methodId: fillingLines || opts.mode === "shuffle" ? (base?.methodId ?? method.id) : method.id,
+      triedMethods,
+      note:
+        opts.mode === "lines"
+          ? `Studio lines ${wrote} stills${skipped > 0 ? ` (${skipped} already on disk)` : ""}.`
+          : opts.mode === "batch"
+            ? `Studio batch ${wrote} stills.`
+            : opts.mode === "shuffle"
+              ? `Studio shuffle (${handful.join(",")}).`
+              : `Studio ${opts.mode} ${method.label} (${handful.join(",")}).`,
+    });
+    writeStillsSyncFile(ctx.syncPath, latest);
+    if (fillingLines) upsertCoverageForTitle(ctx, id);
   });
-  writeStillsSyncFile(ctx.syncPath, sync);
-  if (fillingLines) upsertCoverageForTitle(ctx, id);
 
   const refreshed = findEpisode(ctx, id);
   return {
@@ -442,22 +454,21 @@ export async function studioExtract(
   };
 }
 
-export function studioApprove(ctx: StudioContext, titleId: string): { episode: ReturnType<typeof findEpisode>["episode"] } {
+export async function studioApprove(ctx: StudioContext, titleId: string): Promise<{ episode: ReturnType<typeof findEpisode>["episode"] }> {
   const id = requireTitleId(titleId);
   const { episode } = findEpisode(ctx, id);
   if (episode.handful.length === 0) {
     throw new Error("Extract a handful before approving.");
   }
-  const sync = loadStillsSyncFile(ctx.syncPath);
-  const previous = sync[id];
-  if (!previous) {
-    throw new Error("No sync entry yet — extract first.");
-  }
-  sync[id] = mergeSyncEntry(previous, {
-    offsetMs: previous.offsetMs,
-    approvedAt: new Date().toISOString(),
+  await patchStillsSyncTitle(ctx.syncPath, id, (previous) => {
+    if (!previous) {
+      throw new Error("No sync entry yet — extract first.");
+    }
+    return mergeSyncEntry(previous, {
+      offsetMs: previous.offsetMs,
+      approvedAt: new Date().toISOString(),
+    });
   });
-  writeStillsSyncFile(ctx.syncPath, sync);
   return { episode: findEpisode(ctx, id).episode };
 }
 
@@ -506,15 +517,16 @@ async function runStudioPush(ctx: StudioContext, id: string, offsetMs: number): 
       pushJob = { ...pushJob, done, total };
     },
   });
-  const sync = loadStillsSyncFile(ctx.syncPath);
-  const previous = sync[id];
-  if (previous) {
+  await enqueueStudioWrite(() => {
+    const sync = loadStillsSyncFile(ctx.syncPath);
+    const previous = sync[id];
+    if (!previous) return;
     sync[id] = mergeSyncEntry(previous, {
       offsetMs: previous.offsetMs ?? offsetMs,
       pushedAt: new Date().toISOString(),
     });
     writeStillsSyncFile(ctx.syncPath, sync);
-  }
+  });
   if (pushJob?.titleId !== id) return;
   pushJob = {
     ...pushJob,

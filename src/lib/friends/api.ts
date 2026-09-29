@@ -31,6 +31,8 @@ async function readError(response: Response, fallback: string): Promise<string> 
 export type FriendListItem = {
   userId: string;
   displayName: string;
+  streak: number;
+  avatarAt: string | null;
 };
 
 export type InvitePreview = {
@@ -87,7 +89,13 @@ export async function fetchFriends(): Promise<FriendListItem[] | { error: string
   if (response.status === 401) return { error: "Please sign in first" };
   if (!response.ok) return { error: await readError(response, "Could not load friends") };
   const data = (await response.json()) as { friends?: FriendListItem[] };
-  return Array.isArray(data.friends) ? data.friends : [];
+  if (!Array.isArray(data.friends)) return [];
+  return data.friends.map((friend) => ({
+    userId: friend.userId,
+    displayName: friend.displayName,
+    streak: typeof friend.streak === "number" && friend.streak > 0 ? friend.streak : 0,
+    avatarAt: typeof friend.avatarAt === "string" && friend.avatarAt ? friend.avatarAt : null,
+  }));
 }
 
 export async function unfriendUser(userId: string): Promise<{ ok: true } | { error: string }> {

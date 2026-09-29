@@ -312,7 +312,7 @@ export function LibraryScreen({
                       {chatsUnread.quote > 0 ? (
                         <span
                           className="chats-unread-chip"
-                          title={`${chatsUnread.quote} unread quotes`}
+                          title={`${chatsUnread.quote} unanswered quotes`}
                         >
                           <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
                             <path
@@ -321,7 +321,7 @@ export function LibraryScreen({
                             />
                           </svg>
                           {chatsUnread.quote}
-                          <span className="sr-only"> unread quotes</span>
+                          <span className="sr-only"> unanswered quotes</span>
                         </span>
                       ) : null}
                       {chatsUnread.text > 0 ? (

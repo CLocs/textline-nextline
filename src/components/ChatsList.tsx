@@ -45,23 +45,29 @@ function TextUnreadIcon() {
 function DualUnreadBadges({
   quoteUnreadCount,
   textUnreadCount,
+  labeled = false,
 }: {
   quoteUnreadCount: number;
   textUnreadCount: number;
+  labeled?: boolean;
 }) {
   if (quoteUnreadCount <= 0 && textUnreadCount <= 0) return null;
   return (
     <span className="chats-dual-unread">
       {quoteUnreadCount > 0 ? (
-        <span className="chats-unread-chip" title={`${quoteUnreadCount} unread quotes`}>
+        <span className="chats-unread-chip" title={`${quoteUnreadCount} unanswered quotes`}>
           <QuoteUnreadIcon />
           {quoteUnreadCount}
+          {labeled ? <span className="chats-unread-words">unanswered</span> : null}
+          {!labeled ? <span className="sr-only"> unanswered quotes</span> : null}
         </span>
       ) : null}
       {textUnreadCount > 0 ? (
         <span className="chats-unread-chip is-text" title={`${textUnreadCount} unread messages`}>
           <TextUnreadIcon />
           {textUnreadCount}
+          {labeled ? <span className="chats-unread-words">unread</span> : null}
+          {!labeled ? <span className="sr-only"> unread messages</span> : null}
         </span>
       ) : null}
     </span>
@@ -130,8 +136,25 @@ export function ChatsList({ onOpenDm, onOpenGroup, compact = false }: Props) {
     );
   }
 
+  const unansweredQuotes = threads.reduce((sum, thread) => sum + thread.quoteUnreadCount, 0);
+  const unreadMessages = threads.reduce((sum, thread) => sum + thread.textUnreadCount, 0);
+
   return (
-    <ul className="chats-thread-list">
+    <>
+      {!compact ? (
+        <p className="chats-list-summary">
+          {unansweredQuotes > 0 || unreadMessages > 0 ? (
+            <DualUnreadBadges
+              quoteUnreadCount={unansweredQuotes}
+              textUnreadCount={unreadMessages}
+              labeled
+            />
+          ) : (
+            <span className="muted">No unanswered quotes.</span>
+          )}
+        </p>
+      ) : null}
+      <ul className="chats-thread-list">
       {threads.map((thread) =>
         thread.kind === "dm" ? (
           <li key={`dm-${thread.peerUserId}`}>
@@ -185,5 +208,6 @@ export function ChatsList({ onOpenDm, onOpenGroup, compact = false }: Props) {
         ),
       )}
     </ul>
+    </>
   );
 }

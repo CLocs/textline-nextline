@@ -691,7 +691,13 @@ export function App() {
     <div className={`app-shell${screen === "play" || screen === "curate" || screen === "daily" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
       <header className="app-header">
         <div className="brand-lockup">
-          <div className="brand-mark" aria-hidden="true" />
+          <button
+            type="button"
+            className="brand-mark"
+            aria-label="Home"
+            title="Home"
+            onClick={handleBackToLibrary}
+          />
           <div className="brand-copy">
             <h1>Textline → Nextline</h1>
             <p className="lede">Here's a line — guess what comes next.</p>
@@ -702,6 +708,7 @@ export function App() {
             user={user}
             onProfile={handleOpenProfile}
             onChats={handleOpenChats}
+            onHome={handleBackToLibrary}
             onSearch={handleOpenSearch}
             onBrowseLibrary={handleBrowseLibrary}
             onCatalog={showCatalog ? handleOpenCatalog : undefined}

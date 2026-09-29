@@ -27,6 +27,8 @@ export type AuthEnv = {
   AUTH_SECRET?: string;
   /** Google OAuth Web client ID (public). Enables GIS Sign-In when set. */
   GOOGLE_CLIENT_ID?: string;
+  /** TMDB v3 API key. Search proxy only; never sent to the browser. */
+  TMDB_API_KEY?: string;
 };
 
 const MAGIC_TTL_MINUTES = 15;

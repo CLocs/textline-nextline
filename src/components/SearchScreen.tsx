@@ -8,6 +8,7 @@ import {
   type SearchIndex,
 } from "../lib/content/globalSearch";
 import { listStars, loadPopularStarsGlobal } from "../lib/stars/sync";
+import { TitleRequestSearch } from "./TitleRequestSearch";
 
 type Props = {
   entries: CatalogEntry[];
@@ -218,6 +219,10 @@ export function SearchScreen({ entries, onBack, onOpenTitle, onOpenLine }: Props
             </div>
           ) : null}
         </div>
+      ) : null}
+
+      {debouncedQuery.trim().length >= 2 ? (
+        <TitleRequestSearch query={debouncedQuery.trim()} entries={entries} onOpenTitle={onOpenTitle} />
       ) : null}
     </section>
   );

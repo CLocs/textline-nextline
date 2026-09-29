@@ -22,6 +22,7 @@ import type { StudioExtractMode } from "./stillsStudioTypes.js";
 import { DEFAULT_STUDIO_SHOW } from "./stillsStudioTypes.js";
 
 const PREFIX = "/api/stills-studio";
+const MAX_CONCURRENT_EXTRACTS = 2;
 
 function sendJson(res: ServerResponse, status: number, body: unknown): void {
   res.statusCode = status;
@@ -55,7 +56,7 @@ function parseMode(raw: unknown): StudioExtractMode {
 export function stillsStudioPlugin() {
   const packageRoot = process.cwd();
   const ctx = createStudioContext(packageRoot);
-  let busy = false;
+  const extracting = new Set<string>();
 
   async function handle(req: IncomingMessage, res: ServerResponse, next: () => void): Promise<void> {
     const url = new URL(req.url ?? "", "http://studio.local");
@@ -93,7 +94,8 @@ export function stillsStudioPlugin() {
         return;
       }
       if (req.method === "GET" && path === "/extract-status") {
-        sendJson(res, 200, { progress: studioExtractProgress() });
+        const titleId = url.searchParams.get("titleId") ?? "";
+        sendJson(res, 200, { progress: studioExtractProgress(titleId) });
         return;
       }
       if (req.method === "POST" && path === "/open-preview") {
@@ -101,11 +103,6 @@ export function stillsStudioPlugin() {
         const body = raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
         const titleId = typeof body.titleId === "string" ? body.titleId : "";
         sendJson(res, 200, studioOpenPreview(ctx, titleId));
-        return;
-      }
-
-      if (busy) {
-        sendJson(res, 409, { error: "Studio is busy with another extract." });
         return;
       }
 
@@ -126,12 +123,22 @@ export function stillsStudioPlugin() {
           sendJson(res, 409, { error: `Still pushing ${pushing.label} to R2.` });
           return;
         }
-        busy = true;
+        if (path === "/approve") {
+          sendJson(res, 200, await studioApprove(ctx, titleId));
+          return;
+        }
+        if (extracting.has(titleId)) {
+          sendJson(res, 409, { error: "Already extracting this title." });
+          return;
+        }
+        if (extracting.size >= MAX_CONCURRENT_EXTRACTS) {
+          sendJson(res, 409, {
+            error: "Two extracts are already running. Wait for one to finish, then start another.",
+          });
+          return;
+        }
+        extracting.add(titleId);
         try {
-          if (path === "/approve") {
-            sendJson(res, 200, studioApprove(ctx, titleId));
-            return;
-          }
           const mode = path === "/batch" ? "batch" : parseMode(body.mode);
           if (mode === "lines" || mode === "batch") {
             req.socket?.setTimeout(0);
@@ -155,16 +162,14 @@ export function stillsStudioPlugin() {
             }),
           );
         } finally {
-          busy = false;
-          clearStudioExtractProgress();
+          extracting.delete(titleId);
+          clearStudioExtractProgress(titleId);
         }
         return;
       }
 
       sendJson(res, 404, { error: "Unknown stills studio route." });
     } catch (error) {
-      busy = false;
-      clearStudioExtractProgress();
       sendJson(res, 400, { error: error instanceof Error ? error.message : String(error) });
     }
   }
