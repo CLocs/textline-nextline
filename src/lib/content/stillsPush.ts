@@ -7,6 +7,17 @@ import { listRemoteStills } from "./stillsR2.js";
 import { stillNeedsUpload } from "./stillsSyncPlan.js";
 
 const CONCURRENCY = 4;
+const PUT_ATTEMPTS = 4;
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isTransientPutError(message: string): boolean {
+  return /504|502|503|429|Gateway time-out|Gateway Timeout|ECONNRESET|ETIMEDOUT|fetch failed/i.test(
+    message,
+  );
+}
 
 export type StillPushFile = { titleId: string; file: string; key: string };
 
@@ -65,6 +76,21 @@ function putObject(packageRoot: string, key: string, file: string): Promise<void
   });
 }
 
+async function putObjectRetry(packageRoot: string, key: string, file: string): Promise<void> {
+  let last: Error | undefined;
+  for (let attempt = 1; attempt <= PUT_ATTEMPTS; attempt += 1) {
+    try {
+      await putObject(packageRoot, key, file);
+      return;
+    } catch (error) {
+      last = error instanceof Error ? error : new Error(String(error));
+      if (attempt === PUT_ATTEMPTS || !isTransientPutError(last.message)) throw last;
+      await sleep(1500 * attempt);
+    }
+  }
+  throw last ?? new Error(`Upload failed for ${key}.`);
+}
+
 export async function pushPreviewStills(
   packageRoot: string,
   titleId: string,
@@ -107,7 +133,7 @@ export async function pushPreviewStills(
       const i = next;
       next += 1;
       const item = pending[i]!;
-      await putObject(packageRoot, item.key, item.file);
+      await putObjectRetry(packageRoot, item.key, item.file);
       done += 1;
       opts?.onProgress?.(done, pending.length);
     }

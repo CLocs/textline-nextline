@@ -240,9 +240,9 @@
       226,
       269
     ],
-    "note": "Studio lines 224 stills (16 already on disk).",
-    "approvedAt": "2026-09-29T03:35:00.647Z",
-    "batchedAt": "2026-09-29T03:44:23.679Z",
+    "note": "Studio lines 0 stills (240 already on disk).",
+    "approvedAt": "2026-09-29T05:00:41.549Z",
+    "batchedAt": "2026-09-29T05:00:47.596Z",
     "seek": "start",
     "fps": 29.965060240963854,
     "methodId": "theme-57-pal"
@@ -1801,18 +1801,19 @@
     "durationSec": 1278.847,
     "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---4x06---itchy-scratchy-the-movieen.mkv",
     "handful": [
-      26,
-      70,
-      112,
-      161,
-      210,
-      252
+      34,
+      94,
+      130,
+      169,
+      184,
+      234
     ],
     "methodId": "theme-57",
     "triedMethods": [
       "theme-57"
     ],
-    "note": "Theme skip −57s. Handful for review; not batched."
+    "note": "Studio shuffle (34,94,130,169,184,234).",
+    "lineOffsets": {}
   },
   "the-simpsons---4x07---marge-gets-a-joben": {
     "offsetMs": -57000,
@@ -1822,18 +1823,19 @@
     "durationSec": 1279.723,
     "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---4x07---marge-gets-a-joben.mkv",
     "handful": [
-      21,
-      75,
-      124,
-      180,
-      231,
-      287
+      185,
+      186,
+      291,
+      292,
+      295,
+      296
     ],
     "methodId": "theme-57",
     "triedMethods": [
       "theme-57"
     ],
-    "note": "Theme skip −57s. Handful for review; not batched."
+    "note": "Studio shuffle (185,186,291,292,295,296).",
+    "lineOffsets": {}
   },
   "the-simpsons---4x08---new-kid-on-the-blocken": {
     "offsetMs": -57000,
@@ -2164,6 +2166,1476 @@
       152,
       197,
       241
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x03---homer-goes-to-college": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1275.185,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x03---homer-goes-to-college.mkv",
+    "handful": [
+      44,
+      104,
+      155,
+      187,
+      262,
+      300
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x04---rosebud": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1228.769,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x04---rosebud.mkv",
+    "handful": [
+      15,
+      62,
+      106,
+      154,
+      203,
+      248
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x05---treehouse-of-horror-iv": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1275.952,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x05---treehouse-of-horror-iv.mkv",
+    "handful": [
+      27,
+      75,
+      119,
+      165,
+      212,
+      254
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x06---marge-on-the-lam": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1279.189,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x06---marge-on-the-lam.mkv",
+    "handful": [
+      21,
+      83,
+      130,
+      177,
+      227,
+      278
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x07---barts-inner-child": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1220.655,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x07---barts-inner-child.mkv",
+    "handful": [
+      22,
+      75,
+      123,
+      169,
+      222,
+      271
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x08---boy-scoutz-n-the-hood": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1223.591,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x08---boy-scoutz-n-the-hood.mkv",
+    "handful": [
+      121,
+      126,
+      150,
+      152,
+      216,
+      256
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x09---the-last-temptation-of-homer": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1222.095,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x09---the-last-temptation-of-homer.mkv",
+    "handful": [
+      19,
+      74,
+      123,
+      180,
+      233,
+      295
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x10---pringfield": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1278.794,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x10---pringfield.mkv",
+    "handful": [
+      27,
+      37,
+      73,
+      106,
+      168,
+      315
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x11---homer-the-vigilante": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1280.148,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x11---homer-the-vigilante.mkv",
+    "handful": [
+      6,
+      57,
+      111,
+      168,
+      224,
+      280
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x12---bart-gets-famous": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1222.238,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x12---bart-gets-famous.mkv",
+    "handful": [
+      24,
+      81,
+      136,
+      180,
+      237,
+      290
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x13---homer-and-apu": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "durationSec": 1224.125,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x13---homer-and-apu.mkv",
+    "handful": [
+      19,
+      71,
+      122,
+      170,
+      216,
+      263
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x14---lisa-vs-malibu-stacy": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1226.588,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x14---lisa-vs-malibu-stacy.mkv",
+    "handful": [
+      24,
+      78,
+      129,
+      181,
+      232,
+      283
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x15---deep-space-homer": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.966497461928935,
+    "durationSec": 1231.308,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x15---deep-space-homer.mkv",
+    "handful": [
+      24,
+      80,
+      132,
+      181,
+      231,
+      279
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x16---homer-loves-flanders": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1219.384,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x16---homer-loves-flanders.mkv",
+    "handful": [
+      51,
+      97,
+      165,
+      195,
+      228,
+      262
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x17---bart-gets-an-elephant": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96595744680851,
+    "durationSec": 1222.987,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x17---bart-gets-an-elephant.mkv",
+    "handful": [
+      27,
+      99,
+      161,
+      237,
+      292,
+      354
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x18---burns-heir": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1279.014,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x18---burns-heir.mkv",
+    "handful": [
+      27,
+      80,
+      131,
+      179,
+      235,
+      289
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x19---sweet-seymour-skinners-baadasssss-song": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1222.421,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x19---sweet-seymour-skinners-baadasssss-song.mkv",
+    "handful": [
+      18,
+      72,
+      123,
+      167,
+      214,
+      263
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x20---the-boy-who-knew-too-much": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1221.682,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x20---the-boy-who-knew-too-much.mkv",
+    "handful": [
+      18,
+      70,
+      120,
+      165,
+      213,
+      259
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x21---lady-bouviers-lover": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1277.746,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x21---lady-bouviers-lover.mkv",
+    "handful": [
+      20,
+      66,
+      112,
+      159,
+      209,
+      254
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---5x22---secrets-of-a-successful-marriage": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1223.751,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x22---secrets-of-a-successful-marriage.mkv",
+    "handful": [
+      27,
+      76,
+      123,
+      168,
+      213,
+      264
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x01---bart-of-darkness": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1278.647,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x01---bart-of-darkness.mkv",
+    "handful": [
+      13,
+      54,
+      94,
+      133,
+      173,
+      214
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x02---lisas-rival": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1223.388,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x02---lisas-rival.mkv",
+    "handful": [
+      59,
+      146,
+      174,
+      208,
+      238,
+      285
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x03---another-simpsons-clip-show": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1232.595,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x03---another-simpsons-clip-show.mkv",
+    "handful": [
+      18,
+      68,
+      114,
+      162,
+      212,
+      261
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x04---itchy-scratchy-land": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1218.612,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x04---itchy-scratchy-land.mkv",
+    "handful": [
+      10,
+      50,
+      89,
+      126,
+      165,
+      204
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x05---sideshow-bob-roberts": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1227.823,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x05---sideshow-bob-roberts.mkv",
+    "handful": [
+      25,
+      71,
+      117,
+      164,
+      211,
+      257
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x06---treehouse-of-horror-v": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1279.481,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x06---treehouse-of-horror-v.mkv",
+    "handful": [
+      10,
+      56,
+      106,
+      154,
+      201,
+      246
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x07---barts-girlfriend": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1226.642,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x07---barts-girlfriend.mkv",
+    "handful": [
+      16,
+      65,
+      115,
+      162,
+      209,
+      258
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x08---lisa-on-ice": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1225.015,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x08---lisa-on-ice.mkv",
+    "handful": [
+      27,
+      76,
+      123,
+      171,
+      220,
+      267
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x09---homer-badman": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1223.305,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x09---homer-badman.mkv",
+    "handful": [
+      30,
+      79,
+      124,
+      171,
+      220,
+      268
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x10---grandpa-vs-sexual-inadequacy": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1224.018,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x10---grandpa-vs-sexual-inadequacy.mkv",
+    "handful": [
+      20,
+      77,
+      132,
+      183,
+      236,
+      286
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x11---fear-of-flying": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1223.055,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x11---fear-of-flying.mkv",
+    "handful": [
+      25,
+      77,
+      126,
+      179,
+      230,
+      280
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x12---homer-the-great": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1279.244,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x12---homer-the-great.mkv",
+    "handful": [
+      20,
+      72,
+      120,
+      165,
+      214,
+      263
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x13---and-maggie-makes-three": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1221.949,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x13---and-maggie-makes-three.mkv",
+    "handful": [
+      23,
+      72,
+      124,
+      172,
+      218,
+      265
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x14---barts-comet": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1274.738,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x14---barts-comet.mkv",
+    "handful": [
+      35,
+      62,
+      104,
+      116,
+      158,
+      179
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x15---homie-the-clown": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1226.434,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x15---homie-the-clown.mkv",
+    "handful": [
+      43,
+      89,
+      122,
+      166,
+      205,
+      250
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x16---bart-vs-australia": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1227.289,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x16---bart-vs-australia.mkv",
+    "handful": [
+      24,
+      69,
+      115,
+      161,
+      208,
+      257
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x17---homer-vs-patty-and-selma": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1225.854,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x17---homer-vs-patty-and-selma.mkv",
+    "handful": [
+      22,
+      75,
+      129,
+      182,
+      236,
+      289
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x18---a-star-is-burns": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1225.553,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x18---a-star-is-burns.mkv",
+    "handful": [
+      18,
+      65,
+      110,
+      158,
+      207,
+      253
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x19---lisas-wedding": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1274.175,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x19---lisas-wedding.mkv",
+    "handful": [
+      21,
+      71,
+      124,
+      175,
+      225,
+      277
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x20---two-dozen-and-one-greyhounds": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1224.419,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x20---two-dozen-and-one-greyhounds.mkv",
+    "handful": [
+      20,
+      62,
+      102,
+      147,
+      188,
+      229
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x21---the-pta-disbands": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1278.451,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x21---the-pta-disbands.mkv",
+    "handful": [
+      91,
+      123,
+      188,
+      204,
+      268,
+      274
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x22---round-springfield": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1283.986,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x22---round-springfield.mkv",
+    "handful": [
+      22,
+      73,
+      123,
+      172,
+      223,
+      272
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x23---the-springfield-connection": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1279.881,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x23---the-springfield-connection.mkv",
+    "handful": [
+      19,
+      70,
+      122,
+      170,
+      216,
+      266
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x24---lemon-of-troy": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1277.241,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x24---lemon-of-troy.mkv",
+    "handful": [
+      26,
+      72,
+      117,
+      163,
+      209,
+      261
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---6x25---who-shot-mr-burns": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1277.312,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---6x25---who-shot-mr-burns.mkv",
+    "handful": [
+      44,
+      66,
+      91,
+      129,
+      196,
+      223
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x01---who-shot-mr-burns": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1231.36,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x01---who-shot-mr-burns.mkv",
+    "handful": [
+      29,
+      77,
+      127,
+      181,
+      236,
+      289
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x02---radioactive-man": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1227.622,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x02---radioactive-man.mkv",
+    "handful": [
+      24,
+      70,
+      118,
+      163,
+      210,
+      262
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x03---home-sweet-home-dum-diddly-doodly": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1232.661,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x03---home-sweet-home-dum-diddly-doodly.mkv",
+    "handful": [
+      31,
+      88,
+      140,
+      189,
+      239,
+      291
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x04---bart-sells-his-soul": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1227.722,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x04---bart-sells-his-soul.mkv",
+    "handful": [
+      15,
+      63,
+      118,
+      168,
+      222,
+      274
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x05---lisa-the-vegetarian": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.97276688453159,
+    "durationSec": 1280.662,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x05---lisa-the-vegetarian.mkv",
+    "handful": [
+      23,
+      71,
+      115,
+      157,
+      201,
+      245
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x06---treehouse-of-horror-vi": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1282.251,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x06---treehouse-of-horror-vi.mkv",
+    "handful": [
+      27,
+      55,
+      89,
+      117,
+      172,
+      203
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x07---king-size-homer": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1229.725,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x07---king-size-homer.mkv",
+    "handful": [
+      34,
+      90,
+      141,
+      196,
+      250,
+      300
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x08---mother-simpson": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1277.879,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x08---mother-simpson.mkv",
+    "handful": [
+      43,
+      73,
+      115,
+      161,
+      229,
+      272
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x09---sideshow-bobs-last-gleaming": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1229.925,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x09---sideshow-bobs-last-gleaming.mkv",
+    "handful": [
+      22,
+      73,
+      120,
+      164,
+      207,
+      257
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x10---the-simpsons-138th-episode-spectacular": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 10,
+    "durationSec": 1264.394,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x10---the-simpsons-138th-episode-spectacular.mkv",
+    "handful": [
+      81,
+      97,
+      127,
+      152,
+      180,
+      200
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x11---marge-be-not-proud": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 603.158,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x11---marge-be-not-proud.mkv",
+    "handful": [
+      25,
+      72,
+      118,
+      164,
+      212,
+      259
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x12---team-homer": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1232.728,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x12---team-homer.mkv",
+    "handful": [
+      28,
+      68,
+      109,
+      155,
+      197,
+      244
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x13---two-bad-neighbors": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1276.11,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x13---two-bad-neighbors.mkv",
+    "handful": [
+      27,
+      77,
+      129,
+      178,
+      231,
+      285
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x14---scenes-from-a-class-struggle-in-springfield": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1230.959,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x14---scenes-from-a-class-struggle-in-springfield.mkv",
+    "handful": [
+      24,
+      79,
+      129,
+      181,
+      241,
+      295
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x15---bart-the-fink": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 599.128,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x15---bart-the-fink.mkv",
+    "handful": [
+      26,
+      27,
+      73,
+      144,
+      232,
+      257
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x16---lisa-the-iconoclast": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 610.991,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x16---lisa-the-iconoclast.mkv",
+    "handful": [
+      24,
+      70,
+      118,
+      162,
+      206,
+      251
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x17---homer-the-smithers": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 572.267,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x17---homer-the-smithers.mkv",
+    "handful": [
+      25,
+      83,
+      141,
+      194,
+      249,
+      309
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x18---the-day-the-violence-died": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1278.046,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x18---the-day-the-violence-died.mkv",
+    "handful": [
+      29,
+      76,
+      81,
+      88,
+      94,
+      104
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x19---a-fish-called-selma": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1279.247,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x19---a-fish-called-selma.mkv",
+    "handful": [
+      56,
+      93,
+      124,
+      157,
+      178,
+      200
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x20---bart-on-the-road": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1278.713,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x20---bart-on-the-road.mkv",
+    "handful": [
+      32,
+      82,
+      134,
+      186,
+      236,
+      284
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x21---22-short-films-about-springfield": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1257.59,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x21---22-short-films-about-springfield.mkv",
+    "handful": [
+      26,
+      70,
+      100,
+      133,
+      177,
+      233
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x22---raging-abe-simpson-and-his-grumbling-grandson-in-the-curse-of-the-flying-hellfish": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1229.825,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x22---raging-abe-simpson-and-his-grumbling-grandson-in-the-curse-of-the-flying-hellfish.mkv",
+    "handful": [
+      47,
+      104,
+      132,
+      170,
+      210,
+      237
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x23---much-apu-about-nothing": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1231.293,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x23---much-apu-about-nothing.mkv",
+    "handful": [
+      24,
+      74,
+      123,
+      175,
+      228,
+      283
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x24---homerpalooza": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1278.768,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x24---homerpalooza.mkv",
+    "handful": [
+      72,
+      89,
+      162,
+      174,
+      225,
+      267
+    ],
+    "methodId": "theme-57",
+    "triedMethods": [
+      "theme-57"
+    ],
+    "note": "Theme skip −57s. Handful for review; not batched."
+  },
+  "the-simpsons---7x25---summer-of-42": {
+    "offsetMs": -57000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 29.96604938271605,
+    "durationSec": 1273.407,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---7x25---summer-of-42.mkv",
+    "handful": [
+      23,
+      70,
+      120,
+      169,
+      213,
+      268
     ],
     "methodId": "theme-57",
     "triedMethods": [
