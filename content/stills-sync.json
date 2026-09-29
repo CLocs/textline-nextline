@@ -231,7 +231,7 @@
       "53": 3000
     },
     "durationSec": 1223.892,
-    "source": "G:\\videos\\shows\\Simpsons\\S04E03 - The Simpsons - Homer The Heretic (English).Avi",
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---4x03---homer-the-hereticen.mkv",
     "handful": [
       25,
       53,
@@ -240,10 +240,12 @@
       226,
       269
     ],
-    "note": "Studio batch 16 stills.",
-    "approvedAt": "2026-09-20T21:46:44.273Z",
-    "batchedAt": "2026-09-20T21:47:13.766Z",
-    "pushedAt": "2026-09-20T21:48:54.644Z"
+    "note": "Studio lines 224 stills (16 already on disk).",
+    "approvedAt": "2026-09-29T03:35:00.647Z",
+    "batchedAt": "2026-09-29T03:44:23.679Z",
+    "seek": "start",
+    "fps": 29.965060240963854,
+    "methodId": "theme-57-pal"
   },
   "the-simpsons---4x04---lisa-the-beauty-queenen": {
     "offsetMs": -57000,
@@ -1737,7 +1739,9 @@
       "zero",
       "pal"
     ],
-    "note": "Studio shuffle (120,376,495,564,640,735)."
+    "note": "Studio lines 474 stills (22 already on disk).",
+    "approvedAt": "2026-09-29T03:46:47.234Z",
+    "batchedAt": "2026-09-29T03:48:41.206Z"
   },
   "the-man-from-uncle-2015": {
     "offsetMs": 0,
@@ -1763,5 +1767,29 @@
     "note": "Studio lines 1043 stills (36 already on disk).",
     "approvedAt": "2026-09-29T03:14:24.996Z",
     "batchedAt": "2026-09-29T03:17:28.512Z"
+  },
+  "casino-1995": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "lineOffsets": {},
+    "durationSec": 10433.893,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\casino-1995.mkv",
+    "handful": [
+      544,
+      838,
+      1157,
+      1686,
+      2037,
+      2778
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1665 stills (1380 already on disk).",
+    "approvedAt": "2026-09-29T03:50:40.407Z",
+    "batchedAt": "2026-09-29T03:56:47.089Z"
   }
 }

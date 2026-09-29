@@ -227,6 +227,8 @@ export type DmQuoteMessage = {
   receipt: "sent" | "read" | null;
   /** Outgoing only: peer got the next line correct. */
   peerAnswered: boolean;
+  /** Incoming only: you got the next line correct. */
+  youAnswered: boolean;
   reactions: ChatReaction[];
 };
 
@@ -246,6 +248,8 @@ export type GroupQuoteMessage = {
   inboxId: string | null;
   playable: boolean;
   youSent: boolean;
+  /** Your copy of a card someone else sent. */
+  youAnswered: boolean;
   reactions: ChatReaction[];
 };
 
@@ -341,7 +345,7 @@ export async function listChatThreads(
       .prepare(
         `SELECT COUNT(*) AS n FROM line_inbox
          WHERE recipient_user_id = ? AND sender_user_id = ?
-           AND group_id IS NULL AND read_at IS NULL`,
+           AND group_id IS NULL AND solved_at IS NULL`,
       )
       .bind(userId, peerId)
       .first<{ n: number }>();
@@ -400,7 +404,7 @@ export async function listChatThreads(
     const quoteUnreadRow = await db
       .prepare(
         `SELECT COUNT(*) AS n FROM line_inbox
-         WHERE recipient_user_id = ? AND group_id = ? AND read_at IS NULL`,
+         WHERE recipient_user_id = ? AND group_id = ? AND solved_at IS NULL`,
       )
       .bind(userId, group.id)
       .first<{ n: number }>();
@@ -590,6 +594,7 @@ export async function listDmMessages(
       receipt: direction === "out" ? (row.read_at ? ("read" as const) : ("sent" as const)) : null,
       // Outgoing row is the peer's inbox copy — solved_at means they got it right.
       peerAnswered: direction === "out" ? Boolean(row.solved_at) : false,
+      youAnswered: direction === "in" ? Boolean(row.solved_at) : false,
       reactions: [],
     };
   });
@@ -661,6 +666,7 @@ export async function listGroupMessages(
     answeredCount: number;
     inboxId: string | null;
     youSent: boolean;
+    youAnswered: boolean;
   };
 
   const byShare = new Map<string, Acc>();
@@ -681,6 +687,7 @@ export async function listGroupMessages(
         answeredCount: 0,
         inboxId: null,
         youSent: row.sender_user_id === user.id,
+        youAnswered: false,
       };
       byShare.set(row.share_id, acc);
     }
@@ -689,6 +696,7 @@ export async function listGroupMessages(
     if (row.solved_at) acc.answeredCount += 1;
     if (row.recipient_user_id === user.id) {
       acc.inboxId = row.id;
+      acc.youAnswered = Boolean(row.solved_at);
     }
     if (row.created_at < acc.createdAt) acc.createdAt = row.created_at;
   }
@@ -709,6 +717,7 @@ export async function listGroupMessages(
       inboxId: acc.inboxId,
       playable: Boolean(acc.inboxId) && !acc.youSent,
       youSent: acc.youSent,
+      youAnswered: acc.youAnswered,
       reactions: [],
     }));
 

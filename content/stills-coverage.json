@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T03:20:00.031Z",
+  "updatedAt": "2026-09-29T03:56:47.095Z",
   "titles": {
     "baby-driver-2017": 1360,
     "back-to-the-future-1985": 1302,
@@ -36,12 +36,14 @@
     "the-lord-of-the-rings---the-fellowship-of-the-ring-2001": 1664,
     "the-simpsons---4x01---kamp-krustyen": 10,
     "the-simpsons---4x02---a-streetcar-named-margeen": 16,
-    "the-simpsons---4x03---homer-the-hereticen": 16,
+    "the-simpsons---4x03---homer-the-hereticen": 240,
     "the-simpsons---4x04---lisa-the-beauty-queenen": 11,
     "the-simpsons---4x05---treehouse-of-horror-iiien": 5,
     "the-wolf-of-wall-street-2013": 3256,
     "snatch-2000": 1269,
-    "the-man-from-uncle-2015": 1079
+    "the-man-from-uncle-2015": 1079,
+    "kill-bill-vol-1-2003": 496,
+    "casino-1995": 3045
   },
   "covers": {
     "baby-driver-2017": 0,
@@ -84,6 +86,8 @@
     "the-simpsons---4x05---treehouse-of-horror-iiien": 1,
     "the-wolf-of-wall-street-2013": 27,
     "snatch-2000": 0,
-    "the-man-from-uncle-2015": 0
+    "the-man-from-uncle-2015": 0,
+    "kill-bill-vol-1-2003": 3,
+    "casino-1995": 0
   }
 }

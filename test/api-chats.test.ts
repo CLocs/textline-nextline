@@ -222,18 +222,18 @@ function createChatsDb() {
                 return null;
               }
               if (sql.includes("SELECT COUNT(*) AS n FROM line_inbox")) {
-                if (sql.includes("read_at IS NULL") && sql.includes("group_id = ?")) {
+                if (sql.includes("solved_at IS NULL") && sql.includes("group_id = ?")) {
                   const [userId, groupId] = args as [string, string];
                   return {
                     n: inbox.filter(
                       (row) =>
                         row.recipient_user_id === userId &&
                         row.group_id === groupId &&
-                        !row.read_at,
+                        !row.solved_at,
                     ).length,
                   } as T;
                 }
-                if (sql.includes("read_at IS NULL") && sql.includes("group_id IS NULL")) {
+                if (sql.includes("solved_at IS NULL") && sql.includes("group_id IS NULL")) {
                   const [userId, senderId] = args as [string, string];
                   return {
                     n: inbox.filter(
@@ -241,7 +241,7 @@ function createChatsDb() {
                         row.recipient_user_id === userId &&
                         row.sender_user_id === senderId &&
                         !row.group_id &&
-                        !row.read_at,
+                        !row.solved_at,
                     ).length,
                   } as T;
                 }
@@ -713,10 +713,21 @@ describe("chats API", () => {
       envFor(db),
     );
     const bobDmMsgs = (await bobDmView.json()) as {
-      messages: Array<{ kind: string; id: string; direction: string }>;
+      messages: Array<{ kind: string; id: string; direction: string; youAnswered?: boolean }>;
     };
     const bobIncoming = bobDmMsgs.messages.find((m) => m.kind === "quote" && m.direction === "in");
     expect(bobIncoming?.id).toBeTruthy();
+    expect(bobIncoming?.youAnswered).toBe(false);
+    const openedThreads = await handleRequest(
+      jsonRequest("/api/chats", { token: "sess-bob" }),
+      envFor(db),
+    );
+    const openedList = (await openedThreads.json()) as {
+      threads: Array<{ peerUserId?: string; quoteUnreadCount?: number }>;
+    };
+    expect(
+      openedList.threads.find((t) => t.peerUserId === ALICE_ID)?.quoteUnreadCount,
+    ).toBe(1);
     const solved = await handleRequest(
       jsonRequest(`/api/inbox/${bobIncoming!.id}/solved`, {
         method: "POST",
@@ -767,6 +778,7 @@ describe("chats API", () => {
     };
     const bobDm = bobList.threads.find((t) => t.kind === "dm" && t.peerUserId === ALICE_ID);
     expect(bobDm?.textUnreadCount).toBe(1);
+    expect(bobDm?.quoteUnreadCount).toBe(0);
 
     await handleRequest(
       jsonRequest(`/api/chats/dm/${ALICE_ID}/read`, { method: "POST", token: "sess-bob" }),

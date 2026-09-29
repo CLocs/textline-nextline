@@ -1942,6 +1942,13 @@ code {
   gap: 0.35rem;
 }
 
+.inbox-line-card.is-unanswered,
+.inbox-line-card.is-waiting {
+  border-color: color-mix(in srgb, var(--danger) 55%, var(--line));
+  box-shadow: inset 4px 0 0 var(--danger);
+  background: color-mix(in srgb, var(--danger) 9%, var(--surface));
+}
+
 .inbox-line-from {
   margin: 0;
   font-size: 0.82rem;
@@ -2638,7 +2645,12 @@ code {
 }
 
 .chats-thread-row.has-unread {
-  border-color: color-mix(in srgb, var(--accent, #2f6f5e) 35%, var(--line));
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--line));
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.chats-list-summary {
+  margin: 0 0 0.85rem;
 }
 
 .chats-thread-avatar {
@@ -2727,6 +2739,11 @@ code {
 
 .chats-unread-chip.is-text {
   background: color-mix(in srgb, var(--ink) 72%, var(--accent, #2f6f5e));
+}
+
+.chats-unread-words {
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .chats-text-bubble {
@@ -2965,6 +2982,31 @@ code {
   font-weight: 600;
   color: var(--success, #1e5c38);
   white-space: nowrap;
+}
+
+.chats-status-chip {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.45rem;
+  padding: 0.08rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.chats-status-chip.is-unanswered,
+.chats-status-chip.is-waiting {
+  background: var(--danger);
+  color: white;
+}
+
+.chats-thread-unanswered {
+  color: var(--danger);
+  font-weight: 700;
 }
 
 .quote-image-backdrop {

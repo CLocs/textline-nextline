@@ -22,6 +22,7 @@ import { InboxLineCard } from "./InboxLineCard";
 import { ChatQuoteActions } from "./ChatQuoteActions";
 import { ChatReactions } from "./ChatReactions";
 import type { InboxItem } from "../lib/inbox/api";
+import { INBOX_SOLVED_EVENT, isInboxItemSolved } from "../lib/inbox/solved";
 
 const NEAR_BOTTOM_PX = 96;
 const THREAD_POLL_MS = 4000;
@@ -43,6 +44,7 @@ function OutgoingPreview({
   fromLabel,
   receiptLabel,
   answeredLabel,
+  showWaiting,
   shareId,
   reactions,
   peerUserId,
@@ -55,6 +57,7 @@ function OutgoingPreview({
   fromLabel: string;
   receiptLabel?: string | null;
   answeredLabel?: string | null;
+  showWaiting?: boolean;
   shareId: string;
   reactions: ChatReaction[];
   peerUserId?: string;
@@ -67,7 +70,9 @@ function OutgoingPreview({
   const nextText = title ? (getNextPlayableLine(title, lineIndex)?.text ?? "") : "";
 
   return (
-    <article className="inbox-line-card chats-outgoing-card">
+    <article
+      className={`inbox-line-card chats-outgoing-card${showWaiting ? " is-waiting" : ""}`}
+    >
       <div className="chat-quote-header">
         <p className="inbox-line-from">
           {fromLabel}
@@ -82,6 +87,11 @@ function OutgoingPreview({
             <span className="chats-answered" title="Got the next line">
               {" "}
               · {answeredLabel}
+            </span>
+          ) : null}
+          {showWaiting ? (
+            <span className="chats-status-chip is-waiting" title="Next line not guessed yet">
+              Unanswered
             </span>
           ) : null}
         </p>
@@ -160,6 +170,29 @@ function groupAnsweredLabel(youSent: boolean, answeredCount: number, sentCount: 
   if (!youSent || answeredCount <= 0) return null;
   if (answeredCount >= sentCount) return "Correct";
   return `Correct ${answeredCount}/${sentCount}`;
+}
+
+function unansweredQuoteCount(
+  mode: "dm" | "group",
+  dmMessages: DmThreadMessage[],
+  groupMessages: GroupThreadMessage[],
+): number {
+  if (mode === "dm") {
+    return dmMessages.filter(
+      (message) =>
+        message.kind === "quote" &&
+        message.direction === "in" &&
+        !message.youAnswered &&
+        !isInboxItemSolved(message.id),
+    ).length;
+  }
+  return groupMessages.filter(
+    (message) =>
+      message.kind === "quote" &&
+      !message.youSent &&
+      !message.youAnswered &&
+      !(message.inboxId && isInboxItemSolved(message.inboxId)),
+  ).length;
 }
 
 function dmToInboxItem(message: DmQuoteMessage): InboxItem {
@@ -282,6 +315,27 @@ export function ChatThreadScreen({
     };
   }, [mode, peerUserId, peerName, groupId, groupName]);
 
+  useEffect(() => {
+    function onSolved(event: Event) {
+      const id = (event as CustomEvent<{ id?: string }>).detail?.id;
+      if (!id) return;
+      setDmMessages((prev) =>
+        prev.map((message) =>
+          message.kind === "quote" && message.id === id ? { ...message, youAnswered: true } : message,
+        ),
+      );
+      setGroupMessages((prev) =>
+        prev.map((message) =>
+          message.kind === "quote" && message.inboxId === id
+            ? { ...message, youAnswered: true }
+            : message,
+        ),
+      );
+    }
+    window.addEventListener(INBOX_SOLVED_EVENT, onSolved);
+    return () => window.removeEventListener(INBOX_SOLVED_EVENT, onSolved);
+  }, []);
+
   const messageCount = mode === "dm" ? dmMessages.length : groupMessages.length;
 
   useEffect(() => {
@@ -368,6 +422,8 @@ export function ChatThreadScreen({
     ? groupMessages.filter((message) => message.kind === "quote")
     : groupMessages;
 
+  const unansweredInThread = unansweredQuoteCount(mode, dmMessages, groupMessages);
+
   const empty =
     !loading &&
     !error &&
@@ -394,6 +450,12 @@ export function ChatThreadScreen({
               {mode === "group"
                 ? "Shared group chat — type here or send lines from Curate."
                 : "Direct chat — type here or send lines from Curate."}
+              {unansweredInThread > 0 ? (
+                <span className="chats-thread-unanswered">
+                  {" "}
+                  · {unansweredInThread} unanswered
+                </span>
+              ) : null}
             </p>
           </div>
           <div className="chats-thread-filter" role="group" aria-label="Show messages">
@@ -452,6 +514,7 @@ export function ChatThreadScreen({
                           item={dmToInboxItem(message)}
                           entries={entries}
                           showQuoteActions
+                          answered={message.youAnswered}
                           shareId={message.shareId}
                           reactions={message.reactions}
                           peerUserId={peerUserId}
@@ -467,6 +530,7 @@ export function ChatThreadScreen({
                           fromLabel="You sent"
                           receiptLabel={dmReceiptLabel(message.receipt)}
                           answeredLabel={message.peerAnswered ? "Correct" : null}
+                          showWaiting={!message.peerAnswered}
                           shareId={message.shareId}
                           reactions={message.reactions}
                           peerUserId={peerUserId}
@@ -507,6 +571,7 @@ export function ChatThreadScreen({
                           item={playable}
                           entries={entries}
                           showQuoteActions
+                          answered={message.youAnswered}
                           shareId={message.shareId}
                           reactions={message.reactions}
                           groupId={groupId}
@@ -534,6 +599,7 @@ export function ChatThreadScreen({
                             message.answeredCount,
                             message.sentCount,
                           )}
+                          showWaiting={message.youSent && message.answeredCount <= 0}
                           shareId={message.shareId}
                           reactions={message.reactions}
                           groupId={groupId}

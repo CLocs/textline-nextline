@@ -19,6 +19,8 @@ type Props = {
   entries: CatalogEntry[];
   /** Star + reshare toolbar (Chats). */
   showQuoteActions?: boolean;
+  /** Server already recorded a correct guess. */
+  answered?: boolean;
   shareId?: string;
   reactions?: ChatReaction[];
   peerUserId?: string;
@@ -30,6 +32,7 @@ export function InboxLineCard({
   item,
   entries,
   showQuoteActions = false,
+  answered = false,
   shareId,
   reactions = [],
   peerUserId,
@@ -43,7 +46,7 @@ export function InboxLineCard({
     const loaded = getTitle(item.titleId);
     return loaded ? buildMcq(loaded, item.lineIndex) : null;
   }, [item.titleId, item.lineIndex]);
-  const [solved, setSolved] = useState(() => isInboxItemSolved(item.id));
+  const [solved, setSolved] = useState(() => answered || isInboxItemSolved(item.id));
   const [pickedIndex, setPickedIndex] = useState<number | null>(null);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
 
@@ -53,6 +56,10 @@ export function InboxLineCard({
     [title, item.lineIndex],
   );
   const nextText = title ? (getNextPlayableLine(title, item.lineIndex)?.text ?? "") : "";
+
+  useEffect(() => {
+    if (answered) setSolved(true);
+  }, [answered]);
 
   useEffect(() => {
     if (feedback !== "correct") return;
@@ -74,11 +81,18 @@ export function InboxLineCard({
   }
 
   return (
-    <article className={`inbox-line-card${solved ? " is-solved" : ""}`}>
+    <article
+      className={`inbox-line-card${solved ? " is-solved" : ""}${
+        showQuoteActions && !solved ? " is-unanswered" : ""
+      }`}
+    >
       <div className={showQuoteActions ? "chat-quote-header" : undefined}>
         <p className="inbox-line-from">
           From {item.from.displayName}
           <span className="muted"> · {label}</span>
+          {showQuoteActions && !solved ? (
+            <span className="chats-status-chip is-unanswered">Unanswered</span>
+          ) : null}
         </p>
         {showQuoteActions ? (
           <ChatQuoteActions titleId={item.titleId} lineIndex={item.lineIndex} lineText={promptText} />
