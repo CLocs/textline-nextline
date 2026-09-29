@@ -157,10 +157,8 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
           ← Home
         </button>
       </div>
-      <h2 className="daily-play-title">
-        Daily · {step + 1} of {cards.length}
-        {card.slot === "global" ? " · Line of the day" : ""}
-      </h2>
+      <h2 className="daily-play-title">Daily · {step + 1} of {cards.length}</h2>
+      {card.slot === "global" ? <p className="daily-today-label">Line of the day</p> : null}
 
       <p className="episode-label">{title.title}</p>
       <div className="play-prompt-row">

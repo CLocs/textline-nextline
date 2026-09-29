@@ -391,7 +391,34 @@ button {
 .daily-card .title-card-copy {
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   gap: 0.2rem;
+}
+
+.daily-card.is-today {
+  border-color: color-mix(in srgb, #c4a15a 65%, var(--line));
+  background: color-mix(in srgb, #f6e7c1 55%, var(--surface));
+  box-shadow: inset 3px 0 0 #c4a15a;
+}
+
+.daily-card.is-today:hover {
+  border-color: #b8923e;
+  background: color-mix(in srgb, #f6e7c1 72%, var(--surface));
+}
+
+.daily-today-label {
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #8a6418;
+}
+
+.daily-play-title + .daily-today-label {
+  margin: -0.45rem 0 0.85rem;
 }
 
 .daily-result {
@@ -1308,6 +1335,49 @@ code {
 .friends-panel {
   display: grid;
   gap: 0.75rem;
+}
+
+.friend-faces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-friend-faces {
+  margin-bottom: 0.85rem;
+}
+
+.friend-face {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.friend-face-badge {
+  position: absolute;
+  top: -0.28rem;
+  right: -0.4rem;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.22rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.15rem;
+  text-align: center;
 }
 
 .friends-link {

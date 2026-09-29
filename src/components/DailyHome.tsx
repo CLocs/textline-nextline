@@ -4,8 +4,10 @@ import { getLine } from "../lib/content/lines";
 import { lineKey, todayIso, type DailyLine } from "../lib/game/dailyPick";
 import { loadTodaysCards } from "../lib/game/dailyLoad";
 import { loadStreak, readLocalStreak } from "../lib/game/dailyClient";
+import { fetchFriends, type FriendListItem } from "../lib/friends/api";
+import { bestFriends } from "../lib/friends/faces";
+import { FriendFaces } from "./FriendFaces";
 import { PosterArt } from "./PosterArt";
-import { LineSendControl } from "./LineSendControl";
 
 type Props = {
   onPlay: (startIndex: number) => void;
@@ -19,6 +21,7 @@ function snippet(text: string): string {
 export function DailyHome({ onPlay }: Props) {
   const [streak, setStreak] = useState(readLocalStreak);
   const [cards, setCards] = useState<DailyLine[] | null>(null);
+  const [faces, setFaces] = useState<FriendListItem[]>([]);
   const [quotesOpen, setQuotesOpen] = useState(
     () => readLocalStreak().lastCompletedOn !== todayIso(),
   );
@@ -36,6 +39,10 @@ export function DailyHome({ onPlay }: Props) {
     });
     void loadTodaysCards().then((next) => {
       if (!cancelled) setCards(next);
+    });
+    void fetchFriends().then((list) => {
+      if (cancelled || "error" in list) return;
+      setFaces(bestFriends(list));
     });
     return () => {
       cancelled = true;
@@ -55,6 +62,7 @@ export function DailyHome({ onPlay }: Props) {
       </div>
 
       <section className="panel home-section">
+        <FriendFaces friends={faces} label="Friends" className="home-friend-faces" />
         <div className="daily-fold-header">
           <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
           {doneToday ? (
@@ -69,7 +77,7 @@ export function DailyHome({ onPlay }: Props) {
           ) : null}
         </div>
         {!showQuotes ? (
-          <p className="muted daily-folded-note">Finished for today. Show the quotes to send one.</p>
+          <p className="muted daily-folded-note">Finished for today. Show the quotes to play one again.</p>
         ) : cards === null ? (
           <p className="muted">Loading today’s three…</p>
         ) : cards.length === 0 ? (
@@ -79,9 +87,14 @@ export function DailyHome({ onPlay }: Props) {
             {cards.map((card, index) => {
               const title = getTitle(card.titleId);
               const prompt = title ? getLine(title, card.lineIndex) : undefined;
+              const isLineOfDay = card.slot === "global";
               return (
                 <li key={lineKey(card)} className="daily-quote-row">
-                  <button type="button" className="title-card daily-card" onClick={() => onPlay(index)}>
+                  <button
+                    type="button"
+                    className={`title-card daily-card${isLineOfDay ? " is-today" : ""}`}
+                    onClick={() => onPlay(index)}
+                  >
                     <PosterArt
                       titleId={card.titleId}
                       title={title?.title ?? "Today"}
@@ -90,16 +103,13 @@ export function DailyHome({ onPlay }: Props) {
                       className="title-card-still"
                     />
                     <span className="title-card-copy">
+                      {isLineOfDay ? <span className="daily-today-label">Line of the day</span> : null}
                       <span className="title-card-name">
                         {prompt ? snippet(prompt.text) : `Question ${index + 1}`}
                       </span>
-                      <span className="muted">
-                        {card.slot === "global" ? "Line of the day · " : ""}
-                        {title?.title ?? `Question ${index + 1}`}
-                      </span>
+                      <span className="muted">{title?.title ?? `Question ${index + 1}`}</span>
                     </span>
                   </button>
-                  <LineSendControl titleId={card.titleId} lineIndex={card.lineIndex} />
                 </li>
               );
             })}

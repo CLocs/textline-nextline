@@ -758,5 +758,29 @@
     "approvedAt": "2026-09-27T20:27:34.781Z",
     "batchedAt": "2026-09-27T20:31:05.690Z",
     "pushedAt": "2026-09-28T05:13:44.498Z"
+  },
+  "snatch-2000": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 6166.186,
+    "source": "H:\\videos\\movies\\Snatch (2000).mp4",
+    "handful": [
+      278,
+      412,
+      574,
+      778,
+      866,
+      1112
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1257 stills (12 already on disk).",
+    "approvedAt": "2026-09-29T00:13:57.692Z",
+    "batchedAt": "2026-09-29T00:19:21.598Z"
   }
 }
