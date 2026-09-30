@@ -36,6 +36,11 @@ function statusLabel(status: StudioEpisode["status"]): string {
   return status;
 }
 
+function liveStillCount(stillCount: number, job: StudioExtractProgress | undefined): number {
+  if (!job) return stillCount;
+  return stillCount + (job.written || 0);
+}
+
 function formatSeek(sec: number): string {
   const m = Math.floor(sec / 60);
   const s = sec - m * 60;
@@ -92,6 +97,7 @@ export function StillsStudioPanel({
   const [notice, setNotice] = useState<string | null>(null);
   const [pushJob, setPushJob] = useState<StudioPushJob | null>(null);
   const [extractProgress, setExtractProgress] = useState<StudioExtractProgress | null>(null);
+  const [extractJobs, setExtractJobs] = useState<Record<string, StudioExtractProgress>>({});
   const seenPushRef = useRef<string | null>(null);
   const selectedIdRef = useRef<string | null>(null);
   const showRef = useRef(show);
@@ -146,8 +152,11 @@ export function StillsStudioPanel({
     let cancelled = false;
     async function tick() {
       try {
-        const progress = await fetchStudioExtractProgress(selectedIdRef.current);
-        if (!cancelled) setExtractProgress(progress);
+        const status = await fetchStudioExtractProgress(selectedIdRef.current);
+        if (!cancelled) {
+          setExtractProgress(status.progress);
+          setExtractJobs(Object.fromEntries(status.jobs.map((job) => [job.titleId, job])));
+        }
       } catch {
         /* counts are optional while a batch is running */
       }
@@ -478,9 +487,7 @@ export function StillsStudioPanel({
             <p className="muted">
               {anyDown
                 ? `Next: ${nextMethod.label} — ${nextMethod.why}`
-                : readyToBatch
-                  ? `Batch is unlocked. Shuffle for other cues, or tap a previous recipe. Next up: ${nextMethod.label}.`
-                  : `Thumb two frames to batch remaining lines. Shuffle for other cues, or tap a previous recipe. Next up: ${nextMethod.label}.`}
+                : `Thumb two frames to batch remaining lines. Shuffle for other cues, or tap a previous recipe. Next up: ${nextMethod.label}.`}
             </p>
           ) : (
             <p className="muted">Tried every named recipe. Tap one above to retry it on these six, or use the knobs.</p>
@@ -726,7 +733,7 @@ export function StillsStudioPanel({
                 })}
               </div>
 
-              {!gallery && !allUp && frames.length > 0 ? (
+              {!gallery && !readyToBatch && frames.length > 0 ? (
                 <div className="stills-sync-controls">{renderRetryTools("review")}</div>
               ) : null}
 
@@ -861,7 +868,7 @@ export function StillsStudioPanel({
                 </td>
                 <td>{extracting[row.titleId] ? "extracting" : statusLabel(row.status)}</td>
                 <td>{row.starCount || ""}</td>
-                <td>{row.stillCount || ""}</td>
+                <td>{liveStillCount(row.stillCount, extractJobs[row.titleId]) || ""}</td>
                 <td>{row.offsetMs / 1000}s</td>
                 <td>
                   {row.status === "no-file" ? null : (

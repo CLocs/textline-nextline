@@ -12,6 +12,7 @@ import {
   parseStudioVotes,
   studioCoverage,
   clearStudioExtractProgress,
+  studioExtractJobs,
   studioExtractProgress,
   studioOpenPreview,
   startStudioPush,
@@ -95,7 +96,7 @@ export function stillsStudioPlugin() {
       }
       if (req.method === "GET" && path === "/extract-status") {
         const titleId = url.searchParams.get("titleId") ?? "";
-        sendJson(res, 200, { progress: studioExtractProgress(titleId) });
+        sendJson(res, 200, { progress: studioExtractProgress(titleId), jobs: studioExtractJobs() });
         return;
       }
       if (req.method === "POST" && path === "/open-preview") {

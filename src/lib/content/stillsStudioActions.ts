@@ -71,6 +71,10 @@ export function studioExtractProgress(titleId = ""): StudioExtractProgress | nul
   return row ? { ...row } : null;
 }
 
+export function studioExtractJobs(): StudioExtractProgress[] {
+  return [...extractProgressByTitle.values()].map((row) => ({ ...row }));
+}
+
 export function clearStudioExtractProgress(titleId?: string): void {
   if (titleId) extractProgressByTitle.delete(titleId);
   else extractProgressByTitle.clear();
@@ -394,8 +398,8 @@ export async function studioExtract(
     accurateSeek,
     skipExisting: opts.mode === "lines",
     onProgress: fillingLines
-      ? (done, total) => {
-          extractProgressByTitle.set(id, { titleId: id, done, total });
+      ? (done, total, written) => {
+          extractProgressByTitle.set(id, { titleId: id, done, total, written });
         }
       : undefined,
   });

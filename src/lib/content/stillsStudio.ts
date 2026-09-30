@@ -436,13 +436,17 @@ export async function extractTitleStills(opts: {
   lineOffsets?: Record<string, number>;
   accurateSeek?: boolean;
   skipExisting?: boolean;
-  onProgress?: (done: number, total: number) => void;
+  onProgress?: (done: number, total: number, written: number) => void;
 }): Promise<ExtractResult[]> {
   const destDir = join(opts.packageRoot, "inbox", "stills-preview", opts.title.id);
   mkdirSync(destDir, { recursive: true });
   const results: ExtractResult[] = [];
   const total = opts.indices.length;
-  opts.onProgress?.(0, total);
+  let written = 0;
+  const notify = () => {
+    opts.onProgress?.(results.length, total, written);
+  };
+  notify();
   for (const lineIndex of opts.indices) {
     let cue: Line;
     try {
@@ -455,7 +459,7 @@ export async function extractTitleStills(opts: {
         ok: false,
         error: error instanceof Error ? error.message : String(error),
       });
-      opts.onProgress?.(results.length, total);
+      notify();
       continue;
     }
     const extra = opts.lineOffsets?.[String(lineIndex)] ?? 0;
@@ -468,7 +472,7 @@ export async function extractTitleStills(opts: {
     const output = join(destDir, stillFileName(lineIndex));
     if (opts.skipExisting && existsSync(output)) {
       results.push({ lineIndex, text: cue.text, seekSec, ok: true, skipped: true });
-      opts.onProgress?.(results.length, total);
+      notify();
       continue;
     }
     try {
@@ -480,12 +484,14 @@ export async function extractTitleStills(opts: {
           accurateSeek: opts.accurateSeek,
         }),
       );
+      const ok = existsSync(output);
+      if (ok) written += 1;
       results.push({
         lineIndex,
         text: cue.text,
         seekSec,
-        ok: existsSync(output),
-        error: existsSync(output) ? undefined : "No still written (seek past end of file?)",
+        ok,
+        error: ok ? undefined : "No still written (seek past end of file?)",
       });
     } catch {
       results.push({
@@ -496,7 +502,7 @@ export async function extractTitleStills(opts: {
         error: "ffmpeg failed",
       });
     }
-    opts.onProgress?.(results.length, total);
+    notify();
   }
   return results;
 }
