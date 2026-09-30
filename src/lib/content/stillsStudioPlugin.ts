@@ -22,7 +22,7 @@ import type { StudioExtractMode } from "./stillsStudioTypes.js";
 import { DEFAULT_STUDIO_SHOW } from "./stillsStudioTypes.js";
 
 const PREFIX = "/api/stills-studio";
-const MAX_CONCURRENT_EXTRACTS = 2;
+const MAX_CONCURRENT_EXTRACTS = 10;
 
 function sendJson(res: ServerResponse, status: number, body: unknown): void {
   res.statusCode = status;
@@ -133,7 +133,7 @@ export function stillsStudioPlugin() {
         }
         if (extracting.size >= MAX_CONCURRENT_EXTRACTS) {
           sendJson(res, 409, {
-            error: "Two extracts are already running. Wait for one to finish, then start another.",
+            error: `${MAX_CONCURRENT_EXTRACTS} extracts are already running. Wait for one to finish, then start another.`,
           });
           return;
         }

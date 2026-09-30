@@ -1860,18 +1860,19 @@
     "durationSec": 1278.324,
     "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---4x08---new-kid-on-the-blocken.mkv",
     "handful": [
-      24,
-      82,
-      132,
-      194,
-      250,
-      301
+      98,
+      99,
+      126,
+      145,
+      205,
+      217
     ],
     "methodId": "theme-57",
     "triedMethods": [
       "theme-57"
     ],
-    "note": "Theme skip −57s. Handful for review; not batched."
+    "note": "Studio shuffle (98,99,126,145,205,217).",
+    "lineOffsets": {}
   },
   "the-simpsons---4x09---mr-plowen": {
     "offsetMs": -57000,
@@ -1881,18 +1882,19 @@
     "durationSec": 1226.736,
     "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---4x09---mr-plowen.mkv",
     "handful": [
-      23,
-      74,
-      131,
-      182,
-      244,
-      289
+      221,
+      222,
+      223,
+      250,
+      253,
+      255
     ],
     "methodId": "theme-57",
     "triedMethods": [
       "theme-57"
     ],
-    "note": "Theme skip −57s. Handful for review; not batched."
+    "note": "Studio shuffle (221,222,223,250,253,255).",
+    "lineOffsets": {}
   },
   "the-simpsons---4x10---lisas-first-worden": {
     "offsetMs": -57000,
@@ -2166,7 +2168,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "Studio lines 245 stills (5 already on disk).",
+    "approvedAt": "2026-09-30T03:12:33.167Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-09-30T03:23:44.525Z"
   },
   "the-simpsons---5x02---cape-feare": {
     "offsetMs": 0,
@@ -2176,19 +2181,20 @@
     "durationSec": 1225.243,
     "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\the-simpsons---5x02---cape-feare.mkv",
     "handful": [
-      25,
-      64,
-      110,
-      152,
-      197,
-      241
+      99,
+      127,
+      130,
+      161,
+      214,
+      220
     ],
     "methodId": "zero",
     "triedMethods": [
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "Studio shuffle (99,127,130,161,214,220).",
+    "lineOffsets": {}
   },
   "the-simpsons---5x03---homer-goes-to-college": {
     "offsetMs": 0,
@@ -2210,7 +2216,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "Studio lines 37 stills (264 already on disk).",
+    "approvedAt": "2026-09-30T03:15:27.445Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-09-30T03:30:16.750Z"
   },
   "the-simpsons---5x04---rosebud": {
     "offsetMs": 0,
@@ -2232,7 +2241,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:15:48.818Z"
   },
   "the-simpsons---5x05---treehouse-of-horror-iv": {
     "offsetMs": 0,
@@ -2254,7 +2264,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:16:02.155Z"
   },
   "the-simpsons---5x06---marge-on-the-lam": {
     "offsetMs": 0,
@@ -2276,7 +2287,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:16:44.498Z"
   },
   "the-simpsons---5x07---barts-inner-child": {
     "offsetMs": 0,
@@ -2298,7 +2310,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:17:30.066Z"
   },
   "the-simpsons---5x08---boy-scoutz-n-the-hood": {
     "offsetMs": 0,
@@ -2320,7 +2333,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:17:55.929Z"
   },
   "the-simpsons---5x09---the-last-temptation-of-homer": {
     "offsetMs": 0,
@@ -2342,7 +2356,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:18:14.581Z"
   },
   "the-simpsons---5x10---pringfield": {
     "offsetMs": 0,
@@ -2364,7 +2379,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:18:27.130Z"
   },
   "the-simpsons---5x11---homer-the-vigilante": {
     "offsetMs": 0,
@@ -2386,7 +2402,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:18:40.272Z"
   },
   "the-simpsons---5x12---bart-gets-famous": {
     "offsetMs": 0,
@@ -2408,7 +2425,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:18:52.404Z"
   },
   "the-simpsons---5x13---homer-and-apu": {
     "offsetMs": 0,
@@ -2430,7 +2448,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:19:14.811Z"
   },
   "the-simpsons---5x14---lisa-vs-malibu-stacy": {
     "offsetMs": 0,
@@ -2452,7 +2471,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:20:01.742Z"
   },
   "the-simpsons---5x15---deep-space-homer": {
     "offsetMs": 0,
@@ -2474,7 +2494,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:20:19.917Z"
   },
   "the-simpsons---5x16---homer-loves-flanders": {
     "offsetMs": 0,
@@ -2496,7 +2517,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:20:50.516Z"
   },
   "the-simpsons---5x17---bart-gets-an-elephant": {
     "offsetMs": 0,
@@ -2518,7 +2540,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:22:51.732Z"
   },
   "the-simpsons---5x18---burns-heir": {
     "offsetMs": 0,
@@ -2540,7 +2563,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:23:08.814Z"
   },
   "the-simpsons---5x19---sweet-seymour-skinners-baadasssss-song": {
     "offsetMs": 0,
@@ -2562,7 +2586,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-09-30T03:23:32.623Z"
   },
   "the-simpsons---5x20---the-boy-who-knew-too-much": {
     "offsetMs": 0,

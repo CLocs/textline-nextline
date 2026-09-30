@@ -331,7 +331,7 @@ export async function studioExtract(
   let indices: number[];
   if (fillingLines) {
     if (!previous?.approvedAt) {
-      throw new Error("Batch only after all six frames are thumbs-up.");
+      throw new Error("Batch only after the review frames are approved.");
     }
     indices = opts.mode === "lines" ? stillCueIndices(title) : starIndices;
     if (indices.length === 0) {
