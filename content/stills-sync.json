@@ -3786,5 +3786,29 @@
       "zero"
     ],
     "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+  },
+  "the-fast-and-the-furious-2001": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 6411.050667,
+    "source": "H:\\videos\\movies\\The Fast and the Furious (2001).mp4",
+    "handful": [
+      141,
+      320,
+      325,
+      475,
+      505,
+      533
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 790 stills (6 already on disk).",
+    "approvedAt": "2026-10-01T23:23:05.069Z",
+    "batchedAt": "2026-10-01T23:25:07.980Z"
   }
 }
