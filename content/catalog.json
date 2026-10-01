@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-29T03:27:01.299Z",
+  "updatedAt": "2026-10-01T23:14:48.187Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -3688,6 +3688,16 @@
       "importedAt": "2026-09-13T03:48:41.402Z",
       "meta": {
         "year": 1980
+      }
+    },
+    {
+      "id": "the-fast-and-the-furious-2001",
+      "title": "The Fast and the Furious (2001)",
+      "lineCount": 803,
+      "sourceFilename": "The.Fast.and.the.Furious.2001.eng.srt",
+      "importedAt": "2026-10-01T23:14:48.179Z",
+      "meta": {
+        "year": 2001
       }
     },
     {
