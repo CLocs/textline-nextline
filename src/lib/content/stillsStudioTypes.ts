@@ -60,6 +60,8 @@ export type StudioExtractProgress = {
   titleId: string;
   done: number;
   total: number;
+  /** New JPEGs written this run. Skipped files are not included. */
+  written: number;
 };
 
 export type StudioPushJob = {

@@ -147,11 +147,14 @@ export async function startStudioPush(titleId: string): Promise<StudioPushJob> {
   return data.job;
 }
 
-export async function fetchStudioExtractProgress(titleId?: string | null): Promise<StudioExtractProgress | null> {
+export async function fetchStudioExtractProgress(titleId?: string | null): Promise<{
+  progress: StudioExtractProgress | null;
+  jobs: StudioExtractProgress[];
+}> {
   const query = titleId ? `?titleId=${encodeURIComponent(titleId)}` : "";
   const response = await studioFetch(`/extract-status${query}`);
-  const data = await readJson<{ progress?: StudioExtractProgress | null }>(response);
-  return data.progress ?? null;
+  const data = await readJson<{ progress?: StudioExtractProgress | null; jobs?: StudioExtractProgress[] }>(response);
+  return { progress: data.progress ?? null, jobs: data.jobs ?? [] };
 }
 
 export async function fetchStudioPushStatus(): Promise<StudioPushJob | null> {

@@ -22,6 +22,8 @@ import { describeStudioMethod, pickNextStudioMethod, recordTriedMethodIds, studi
 import { DEFAULT_STUDIO_SHOW, type StudioExtractMode } from "../lib/content/stillsStudioTypes";
 
 const SIMPSONS_OFFSET_MS = -57_000;
+/** Unvoted frames can stay blank. A down still means the timing is not ready. */
+const BATCH_UNLOCK_UPS = 2;
 
 type Props = {
   initialShow?: string;
@@ -32,6 +34,11 @@ type Props = {
 function statusLabel(status: StudioEpisode["status"]): string {
   if (status === "no-file") return "no file";
   return status;
+}
+
+function liveStillCount(stillCount: number, job: StudioExtractProgress | undefined): number {
+  if (!job) return stillCount;
+  return stillCount + (job.written || 0);
 }
 
 function formatSeek(sec: number): string {
@@ -90,6 +97,7 @@ export function StillsStudioPanel({
   const [notice, setNotice] = useState<string | null>(null);
   const [pushJob, setPushJob] = useState<StudioPushJob | null>(null);
   const [extractProgress, setExtractProgress] = useState<StudioExtractProgress | null>(null);
+  const [extractJobs, setExtractJobs] = useState<Record<string, StudioExtractProgress>>({});
   const seenPushRef = useRef<string | null>(null);
   const selectedIdRef = useRef<string | null>(null);
   const showRef = useRef(show);
@@ -144,8 +152,11 @@ export function StillsStudioPanel({
     let cancelled = false;
     async function tick() {
       try {
-        const progress = await fetchStudioExtractProgress(selectedIdRef.current);
-        if (!cancelled) setExtractProgress(progress);
+        const status = await fetchStudioExtractProgress(selectedIdRef.current);
+        if (!cancelled) {
+          setExtractProgress(status.progress);
+          setExtractJobs(Object.fromEntries(status.jobs.map((job) => [job.titleId, job])));
+        }
       } catch {
         /* counts are optional while a batch is running */
       }
@@ -203,7 +214,10 @@ export function StillsStudioPanel({
   const selected = queue?.episodes.find((row) => row.titleId === selectedId) ?? episode;
   const gallery = selected?.status === "batched" || selected?.status === "pushed";
   const downed = frames.filter((frame) => votes[frame.lineIndex] === "down");
+  const ups = frames.filter((frame) => votes[frame.lineIndex] === "up").length;
+  const unlockUps = Math.min(BATCH_UNLOCK_UPS, frames.length);
   const allUp = !gallery && frames.length > 0 && frames.every((frame) => votes[frame.lineIndex] === "up");
+  const readyToBatch = !gallery && frames.length > 0 && ups >= unlockUps && downed.length === 0;
   const anyDown = !gallery && downed.length > 0;
   const nextMethod = selected
     ? pickNextStudioMethod({
@@ -383,7 +397,7 @@ export function StillsStudioPanel({
       void runExtract("batch");
       return;
     }
-    setNotice("Thumb the six frames first, then batch remaining stars.");
+    setNotice("Thumb two frames first, then batch remaining lines.");
   }, [episode, selectedId, initialTitleId]);
 
   async function pushApproved() {
@@ -473,7 +487,7 @@ export function StillsStudioPanel({
             <p className="muted">
               {anyDown
                 ? `Next: ${nextMethod.label} — ${nextMethod.why}`
-                : `Thumb the six, shuffle for other cues, or tap a previous recipe. Next up: ${nextMethod.label}.`}
+                : `Thumb two frames to batch remaining lines. Shuffle for other cues, or tap a previous recipe. Next up: ${nextMethod.label}.`}
             </p>
           ) : (
             <p className="muted">Tried every named recipe. Tap one above to retry it on these six, or use the knobs.</p>
@@ -719,7 +733,7 @@ export function StillsStudioPanel({
                 })}
               </div>
 
-              {!gallery && !allUp && frames.length > 0 ? (
+              {!gallery && !readyToBatch && frames.length > 0 ? (
                 <div className="stills-sync-controls">{renderRetryTools("review")}</div>
               ) : null}
 
@@ -786,10 +800,11 @@ export function StillsStudioPanel({
                 </div>
               ) : null}
 
-              {allUp ? (
+              {readyToBatch ? (
                 <div className="stills-sync-controls">
                   <p className="muted">
-                    All six match. Batch remaining lines for every playable cue, or just the D1 stars. Then push to R2 when you mean it.
+                    {allUp ? "All six match. " : "Two frames match. "}
+                    Batch remaining lines for every playable cue, or just the D1 stars. Then push to R2 when you mean it.
                   </p>
                   <div className="row">
                     <button
@@ -853,7 +868,7 @@ export function StillsStudioPanel({
                 </td>
                 <td>{extracting[row.titleId] ? "extracting" : statusLabel(row.status)}</td>
                 <td>{row.starCount || ""}</td>
-                <td>{row.stillCount || ""}</td>
+                <td>{liveStillCount(row.stillCount, extractJobs[row.titleId]) || ""}</td>
                 <td>{row.offsetMs / 1000}s</td>
                 <td>
                   {row.status === "no-file" ? null : (

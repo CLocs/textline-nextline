@@ -12,6 +12,7 @@ import {
   parseStudioVotes,
   studioCoverage,
   clearStudioExtractProgress,
+  studioExtractJobs,
   studioExtractProgress,
   studioOpenPreview,
   startStudioPush,
@@ -22,7 +23,7 @@ import type { StudioExtractMode } from "./stillsStudioTypes.js";
 import { DEFAULT_STUDIO_SHOW } from "./stillsStudioTypes.js";
 
 const PREFIX = "/api/stills-studio";
-const MAX_CONCURRENT_EXTRACTS = 2;
+const MAX_CONCURRENT_EXTRACTS = 10;
 
 function sendJson(res: ServerResponse, status: number, body: unknown): void {
   res.statusCode = status;
@@ -95,7 +96,7 @@ export function stillsStudioPlugin() {
       }
       if (req.method === "GET" && path === "/extract-status") {
         const titleId = url.searchParams.get("titleId") ?? "";
-        sendJson(res, 200, { progress: studioExtractProgress(titleId) });
+        sendJson(res, 200, { progress: studioExtractProgress(titleId), jobs: studioExtractJobs() });
         return;
       }
       if (req.method === "POST" && path === "/open-preview") {
@@ -133,7 +134,7 @@ export function stillsStudioPlugin() {
         }
         if (extracting.size >= MAX_CONCURRENT_EXTRACTS) {
           sendJson(res, 409, {
-            error: "Two extracts are already running. Wait for one to finish, then start another.",
+            error: `${MAX_CONCURRENT_EXTRACTS} extracts are already running. Wait for one to finish, then start another.`,
           });
           return;
         }
