@@ -2778,8 +2778,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-10-02T13:02:26.612Z"
+    "note": "Studio lines 275 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T16:23:44.820Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T16:47:56.147Z"
   },
   "the-simpsons---6x04---itchy-scratchy-land": {
     "offsetMs": 0,
@@ -2801,7 +2803,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "Studio lines 223 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T16:23:59.302Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T16:45:48.771Z"
   },
   "the-simpsons---6x05---sideshow-bob-roberts": {
     "offsetMs": 0,
@@ -2823,8 +2828,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-10-02T13:03:13.996Z"
+    "note": "Studio lines 123 stills (159 already on disk).",
+    "approvedAt": "2026-10-02T16:24:09.376Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T16:44:03.087Z"
   },
   "the-simpsons---6x06---treehouse-of-horror-v": {
     "offsetMs": 0,
@@ -2846,7 +2853,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "Studio lines 119 stills (145 already on disk).",
+    "approvedAt": "2026-10-02T16:24:14.804Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T16:43:09.479Z"
   },
   "the-simpsons---6x07---barts-girlfriend": {
     "offsetMs": 0,
@@ -2868,7 +2878,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "Studio lines 283 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T16:24:54.034Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T16:48:37.367Z"
   },
   "the-simpsons---6x08---lisa-on-ice": {
     "offsetMs": 0,
@@ -2890,7 +2903,8 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
+    "approvedAt": "2026-10-02T16:13:50.304Z"
   },
   "the-simpsons---6x09---homer-badman": {
     "offsetMs": 0,
