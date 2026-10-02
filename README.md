@@ -1017,7 +1017,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Perfect mini confetti** — When a mini-game finishes with all questions correct (e.g. 10/10), celebrate with a short confetti burst on the complete screen.
 - **Chronological mini-game queue** — ✅ After selection, prompt indices are sorted so the run walks the transcript forward (shared frozen queues sorted on play too).
 - **History sidebar + partial credit** — ✅ Missed cards red; re-guesses yellow (`reguess`); first-try correct green. Score: 1 / 0.5 / 0.25 by attempt (shown in play + complete). Persisted D1 `correct_count` stays whole lines cleared for now.
-- **Curate stars access** — Personal stars only; anyone may Curate their own. No email allowlist.
+- **Curate stars access** — Pilot: only `dascolin@gmail.com` and nalongi (display name `nalongi`, or an email starting with `nalongi@`) can star or love lines. Everyone else can still play.
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
 - **Security ladder** — L0 hygiene checklist passed (secrets / CORS / auth config). L1+ later. See [spike](#spike-security-ladder-not-a-full-audit-yet).
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.

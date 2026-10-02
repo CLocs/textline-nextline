@@ -54,6 +54,7 @@ import {
   shareCompletedRun,
 } from "./runs.js";
 import { fetchOwnerCatalogStats, isOwnerEmail } from "./ops.js";
+import { isPilotCurator } from "../../src/lib/content/curators.js";
 import { listTitleRequests, rememberFilms, requestFilm, searchTmdbMovies } from "./titleRequests.js";
 import {
   fetchDailyStreak,
@@ -973,10 +974,14 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
   }
 
   if (request.method === "PUT" && pathname === "/api/stars/love") {
-    const playerId = await resolveStarPlayerId(request, env);
-    if (!playerId) {
-      return errorResponse("Unauthorized or missing player id", 401, origin, allowed);
+    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+    if (!sessionUser) {
+      return errorResponse("Unauthorized", 401, origin, allowed);
     }
+    if (!isPilotCurator(sessionUser)) {
+      return errorResponse("Starring is limited to the two-person test", 403, origin, allowed);
+    }
+    const playerId = sessionUser.id;
     const body = await readJson(request);
     const loveBody = parseLoveBody(body);
     if (!loveBody) {
@@ -997,10 +1002,14 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       return errorResponse("Not found", 404, origin, allowed);
     }
 
-    const playerId = await resolveStarPlayerId(request, env);
-    if (!playerId) {
-      return errorResponse("Unauthorized or missing player id", 401, origin, allowed);
+    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+    if (!sessionUser) {
+      return errorResponse("Unauthorized", 401, origin, allowed);
     }
+    if (!isPilotCurator(sessionUser)) {
+      return errorResponse("Starring is limited to the two-person test", 403, origin, allowed);
+    }
+    const playerId = sessionUser.id;
 
     const body = await readJson(request);
     const starBody = parseStarBody(body);
