@@ -1333,6 +1333,23 @@ code {
   margin-top: 1.25rem;
 }
 
+.daily-mail-opt {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  margin-top: 1.25rem;
+  max-width: 28rem;
+}
+
+.daily-mail-opt input {
+  margin-top: 0.35rem;
+}
+
+.daily-mail-opt-title,
+.daily-mail-opt .muted {
+  display: block;
+}
+
 .profile-avatar {
   display: flex;
   align-items: center;

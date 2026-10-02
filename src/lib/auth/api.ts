@@ -173,6 +173,46 @@ export function prepareAvatarFile(file: File): Promise<Blob> {
   });
 }
 
+export async function fetchDailyMailPreference(): Promise<{ optedIn: boolean } | { error: string }> {
+  const response = await authFetch("/api/daily/mail");
+  if (!response) return { error: "API unavailable" };
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as { error?: string } | null;
+    return { error: data?.error ?? "Could not load daily quotes" };
+  }
+  const data = (await response.json()) as { optedIn?: boolean };
+  return { optedIn: Boolean(data.optedIn) };
+}
+
+export async function setDailyMailPreference(
+  optedIn: boolean,
+): Promise<{ optedIn: boolean } | { error: string }> {
+  const response = await authFetch("/api/daily/mail", {
+    method: "PUT",
+    body: JSON.stringify({ optedIn }),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as { error?: string } | null;
+    return { error: data?.error ?? "Could not update daily quotes" };
+  }
+  const data = (await response.json()) as { optedIn?: boolean };
+  return { optedIn: Boolean(data.optedIn) };
+}
+
+export async function unsubscribeDailyMail(token: string): Promise<{ ok: true } | { error: string }> {
+  const response = await authFetch("/api/daily/mail/unsubscribe", {
+    method: "POST",
+    body: JSON.stringify({ token }),
+  });
+  if (!response) return { error: "API unavailable" };
+  if (!response.ok) {
+    const data = (await response.json().catch(() => null)) as { error?: string } | null;
+    return { error: data?.error ?? "Could not unsubscribe" };
+  }
+  return { ok: true };
+}
+
 export async function updateMyDisplayName(
   displayName: string,
 ): Promise<{ user: AuthUser } | { error: string }> {

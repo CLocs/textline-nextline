@@ -45,14 +45,24 @@ import { FriendAcceptScreen } from "../components/FriendAcceptScreen";
 import { ChatsList } from "../components/ChatsList";
 import { ChatThreadScreen } from "../components/ChatThreadScreen";
 import { SearchScreen } from "../components/SearchScreen";
+import { DailyMailUnsub } from "../components/DailyMailUnsub";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily" | "unsub";
+
+function initialScreen(): Screen {
+  if (parseHash().kind === "unsub") return "unsub";
+  return getStoredUser() ? "library" : "login";
+}
 
 export function App() {
   const entries = useMemo(() => listCatalogEntries(), []);
   const [user, setUser] = useState<AuthUser | null>(() => getStoredUser());
-  const [screen, setScreen] = useState<Screen>(() => (getStoredUser() ? "library" : "login"));
+  const [screen, setScreen] = useState<Screen>(initialScreen);
+  const [unsubToken, setUnsubToken] = useState(() => {
+    const route = parseHash();
+    return route.kind === "unsub" ? route.token : "";
+  });
   const [pendingEntry, setPendingEntry] = useState<CatalogEntry | null>(null);
   const [activeEntry, setActiveEntry] = useState<CatalogEntry | null>(null);
   const [lastSetup, setLastSetup] = useState<GameSetup | null>(null);
@@ -268,6 +278,11 @@ export function App() {
   useEffect(() => {
     function applyRoute() {
       const route = parseHash();
+      if (route.kind === "unsub") {
+        setUnsubToken(route.token);
+        setScreen("unsub");
+        return;
+      }
       if (route.kind === "auth") {
         if (user || getStoredUser()) return;
         if (route.returnTo) captureLoginReturn(route.returnTo);
@@ -722,7 +737,17 @@ export function App() {
         </p>
       )}
 
-      {(!showApp || screen === "login") && (
+      {screen === "unsub" && (
+        <DailyMailUnsub
+          token={unsubToken}
+          onBack={() => {
+            setScreen(user ? "library" : "login");
+            clearHash();
+          }}
+        />
+      )}
+
+      {screen !== "unsub" && (!showApp || screen === "login") && (
         <LoginScreen
           initialToken={authToken}
           message={loginMessage}
