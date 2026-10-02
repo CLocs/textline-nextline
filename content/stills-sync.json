@@ -2503,8 +2503,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-09-30T03:20:01.742Z"
+    "note": "Studio lines 283 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T00:22:23.987Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T00:46:16.679Z"
   },
   "the-simpsons---5x15---deep-space-homer": {
     "offsetMs": 0,
@@ -2526,8 +2528,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-09-30T03:20:19.917Z"
+    "note": "Studio lines 250 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T00:22:35.461Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T00:43:37.525Z"
   },
   "the-simpsons---5x16---homer-loves-flanders": {
     "offsetMs": 0,
@@ -2549,8 +2553,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-09-30T03:20:50.516Z"
+    "note": "Studio lines 277 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T00:22:43.877Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T00:44:26.012Z"
   },
   "the-simpsons---5x17---bart-gets-an-elephant": {
     "offsetMs": 0,
@@ -2572,8 +2578,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-09-30T03:22:51.732Z"
+    "note": "Studio lines 289 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T00:23:07.110Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T00:48:16.494Z"
   },
   "the-simpsons---5x18---burns-heir": {
     "offsetMs": 0,
@@ -2595,8 +2603,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-09-30T03:23:08.814Z"
+    "note": "Studio lines 271 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T01:08:27.572Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T01:26:20.390Z"
   },
   "the-simpsons---5x19---sweet-seymour-skinners-baadasssss-song": {
     "offsetMs": 0,
@@ -2618,8 +2628,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched.",
-    "approvedAt": "2026-09-30T03:23:32.623Z"
+    "note": "Studio lines 248 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T01:08:36.627Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T01:25:37.803Z"
   },
   "the-simpsons---5x20---the-boy-who-knew-too-much": {
     "offsetMs": 0,
@@ -2641,7 +2653,10 @@
       "theme-57",
       "zero"
     ],
-    "note": "SRT clock matches this rip. Theme skip −57s was about a minute early. Handful re-extracted at offset 0; not batched."
+    "note": "Studio lines 259 stills (6 already on disk).",
+    "approvedAt": "2026-10-02T01:10:21.994Z",
+    "lineOffsets": {},
+    "batchedAt": "2026-10-02T01:27:57.237Z"
   },
   "the-simpsons---5x21---lady-bouviers-lover": {
     "offsetMs": 0,
@@ -3823,6 +3838,7 @@
     ],
     "note": "Studio lines 790 stills (6 already on disk).",
     "approvedAt": "2026-10-01T23:23:05.069Z",
-    "batchedAt": "2026-10-01T23:25:07.980Z"
+    "batchedAt": "2026-10-01T23:25:07.980Z",
+    "pushedAt": "2026-10-01T23:33:13.835Z"
   }
 }
