@@ -105,6 +105,40 @@ function createMockDb(initial: Row[] = []) {
                 ).length;
                 return { n } as T;
               }
+              if (sql.includes("FROM sessions")) {
+                const [sessionId] = args as [string];
+                if (sessionId === "sess-curator") {
+                  return {
+                    session_id: sessionId,
+                    session_expires: "2099-01-01T00:00:00.000Z",
+                    id: PLAYER_ID,
+                    email: "dascolin@gmail.com",
+                    display_name: "Colin",
+                    created_at: "2026-01-01T00:00:00.000Z",
+                  } as T;
+                }
+                if (sessionId === "sess-nalongi") {
+                  return {
+                    session_id: sessionId,
+                    session_expires: "2099-01-01T00:00:00.000Z",
+                    id: PLAYER_ID,
+                    email: "friend@gmail.com",
+                    display_name: "nalongi",
+                    created_at: "2026-01-01T00:00:00.000Z",
+                  } as T;
+                }
+                if (sessionId === "sess-other") {
+                  return {
+                    session_id: sessionId,
+                    session_expires: "2099-01-01T00:00:00.000Z",
+                    id: PLAYER_ID,
+                    email: "friend@gmail.com",
+                    display_name: "Friend",
+                    created_at: "2026-01-01T00:00:00.000Z",
+                  } as T;
+                }
+                return null;
+              }
               return null;
             },
             async all<T>() {
@@ -260,7 +294,7 @@ describe("handleRequest", () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "X-Player-Id": PLAYER_ID,
+          Authorization: "Bearer sess-curator",
           Origin: "http://localhost:5173",
         },
         body: JSON.stringify({ titleId: "ep", lineIndex: 4 }),
@@ -290,7 +324,7 @@ describe("handleRequest", () => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "X-Player-Id": PLAYER_ID,
+          Authorization: "Bearer sess-curator",
           Origin: "http://localhost:5173",
         },
         body: JSON.stringify({ titleId: "ep", lineIndex: 4 }),
@@ -298,6 +332,54 @@ describe("handleRequest", () => {
       env,
     );
     expect(del.status).toBe(200);
+  });
+
+  it("lets nalongi star and refuses everyone else", async () => {
+    const { db } = createMockDb();
+    const env = { DB: db, ALLOWED_ORIGINS: "http://localhost:5173" };
+    const body = JSON.stringify({ titleId: "ep", lineIndex: 4 });
+
+    const anon = await handleRequest(
+      new Request("http://localhost/api/stars", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Player-Id": PLAYER_ID,
+          Origin: "http://localhost:5173",
+        },
+        body,
+      }),
+      env,
+    );
+    expect(anon.status).toBe(401);
+
+    const other = await handleRequest(
+      new Request("http://localhost/api/stars", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer sess-other",
+          Origin: "http://localhost:5173",
+        },
+        body,
+      }),
+      env,
+    );
+    expect(other.status).toBe(403);
+
+    const nalongi = await handleRequest(
+      new Request("http://localhost/api/stars", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer sess-nalongi",
+          Origin: "http://localhost:5173",
+        },
+        body,
+      }),
+      env,
+    );
+    expect(nalongi.status).toBe(200);
   });
 
   it("returns popular stars", async () => {

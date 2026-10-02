@@ -166,6 +166,12 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `GET` | `/api/parallels/:id` | Pack + ranked catalog connections (public read; `viewerVoted` when authed) |
 | `POST` | `/api/parallels/:id/connections` | Propose parallel (auth). Body `{ kind: "rewrite", context, text }` or catalog `{ titleId, lineIndices, note? }` |
 | `POST` | `/api/parallels/connections/:id/vote` | Upvote once per user (auth) |
+| `GET` | `/api/daily/mail` | `{ optedIn }` for the signed-in user. Missing row is off |
+| `PUT` | `/api/daily/mail` | Body `{ optedIn: boolean }` (auth). Turns the morning mail on or off |
+| `POST` | `/api/daily/mail/unsubscribe` | Body `{ token }` — no auth. Turns that account’s mail off |
+| `GET` | `/api/daily/mail/unsubscribe?token=` | Same, as a small HTML page |
+
+The Worker cron `0 13 * * *` (13:00 UTC) sends one mail per opted-in account for the America/New_York date. It reads `https://<APP_ORIGIN>/daily-mail-catalog.json`, which `npm run build` writes into Pages. `deploy:api` applies `migrations/017_daily_mail.sql`.
 
 Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, parallels, and ops routes require auth (invite preview and pack GET are public).
 

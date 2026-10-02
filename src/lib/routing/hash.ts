@@ -13,7 +13,8 @@ export type HashRoute =
   | { kind: "search" }
   | { kind: "profile"; tab: ProfileTab }
   | { kind: "ops" }
-  | { kind: "daily"; start: number };
+  | { kind: "daily"; start: number }
+  | { kind: "unsub"; token: string };
 
 const LOGIN_RETURN_KEY = "textline-nextline-login-return";
 
@@ -157,6 +158,10 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
   const dailyMatch = path.match(/^daily(?:\/([0-2]))?$/);
   if (dailyMatch) {
     return { kind: "daily", start: dailyMatch[1] ? Number(dailyMatch[1]) : 0 };
+  }
+
+  if (path === "unsub") {
+    return { kind: "unsub", token: params.get("token")?.trim() ?? "" };
   }
 
   const profileTab = parseProfileTab(path);
