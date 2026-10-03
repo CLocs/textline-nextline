@@ -6,7 +6,7 @@ import {
 } from "../content/playable.js";
 import type { GameLength, GameMode } from "../../types/game.js";
 
-/** Fun and Teach: MCQ, try again on a miss, skip allowed. */
+/** Fun and Learn: MCQ, try again on a miss, skip allowed. */
 export function isForgivingMcq(mode: GameMode): boolean {
   return mode === "fun" || mode === "teach";
 }

@@ -3,7 +3,9 @@ import type { Title } from "../src/types/content.js";
 import {
   buildMiniGameQueue,
   chronologicalPromptQueue,
+  describeMiniGameStars,
   findStarStreaks,
+  miniGameStarCounts,
   sequenceLabel,
   getValidPromptIndices,
 } from "../src/lib/game/miniGame.js";
@@ -143,6 +145,38 @@ describe("sequenceLabel", () => {
   it("does not join lines that skip a prompt in between", () => {
     expect(sequenceLabel([1, 2, 4], 2, valid)).toBe("Sequence: 2 of 2");
     expect(sequenceLabel([1, 2, 4], 4, valid)).toBeNull();
+  });
+});
+
+describe("describeMiniGameStars", () => {
+  it("counts your stars apart from global stars", () => {
+    const source = dialogueTitle("stars", 12);
+    const globalOnly = miniGameStarCounts(source, {
+      personalStarred: [],
+      crowdPopular: [1, 2, 3],
+    });
+    expect(globalOnly).toEqual({ personal: 0, global: 3 });
+    expect(describeMiniGameStars(globalOnly.personal, globalOnly.global)).toBe(
+      "This mini-game uses global stars. Curate Stars so it uses yours.",
+    );
+
+    const yours = miniGameStarCounts(source, {
+      personalStarred: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      crowdPopular: [1, 2, 0],
+    });
+    expect(yours).toEqual({ personal: 10, global: 1 });
+    expect(describeMiniGameStars(yours.personal, yours.global)).toBe(
+      "This mini-game uses your stars (10).",
+    );
+  });
+
+  it("says your stars come first when they do not fill the game", () => {
+    expect(describeMiniGameStars(2, 8)).toBe(
+      "This mini-game uses your stars first (2), then global stars.",
+    );
+    expect(describeMiniGameStars(0, 0)).toBe(
+      "No stars yet. Curate Stars so this mini-game uses yours.",
+    );
   });
 });
 

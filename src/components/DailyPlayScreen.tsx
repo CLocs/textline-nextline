@@ -25,6 +25,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
   const [hits, setHits] = useState(0);
   const [finished, setFinished] = useState(false);
   const [streakLabel, setStreakLabel] = useState<string | null>(null);
+  const [skipArmed, setSkipArmed] = useState(false);
   const timer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
     setFeedback(null);
     setPickedIndex(null);
     setClean(true);
+    setSkipArmed(false);
     setStreakLabel(null);
     void loadTodaysCards().then((next) => {
       if (!cancelled) setCards(rotateCards(next, startIndex));
@@ -93,6 +95,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
 
   function handleChoose(lineIndex: number) {
     if (!question || feedback === "correct" || feedback === "skipped") return;
+    setSkipArmed(false);
     setPickedIndex(lineIndex);
     if (lineIndex === question.correctLineIndex) {
       const firstTry = clean;
@@ -111,6 +114,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
 
   function handleSkip() {
     if (!question || feedback != null) return;
+    setSkipArmed(false);
     setFeedback("skipped");
     setPickedIndex(question.correctLineIndex);
     advance(false);
@@ -227,10 +231,21 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
         </ul>
       </div>
 
-      <div className="skip-row">
-        <button type="button" className="button ghost" disabled={feedback != null} onClick={handleSkip}>
-          Skip
-        </button>
+      <div className="daily-skip">
+        {skipArmed ? (
+          <>
+            <button type="button" className="button ghost daily-skip-cancel" onClick={() => setSkipArmed(false)}>
+              Cancel
+            </button>
+            <button type="button" className="skip-button" disabled={feedback != null} onClick={handleSkip}>
+              Reveal answer
+            </button>
+          </>
+        ) : (
+          <button type="button" className="skip-button" disabled={feedback != null} onClick={() => setSkipArmed(true)}>
+            Show answer
+          </button>
+        )}
       </div>
       {feedback === "wrong" && <p className="feedback missed">Missed — try again.</p>}
     </section>
