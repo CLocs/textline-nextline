@@ -11,8 +11,7 @@ import {
   toggleStar,
 } from "../lib/stars/sync";
 import { MAX_LOVED_PER_TITLE } from "../lib/stars/store";
-import { getStoredUser, isLoggedIn } from "../lib/auth/session";
-import { isPilotCurator } from "../lib/content/curators";
+import { isLoggedIn } from "../lib/auth/session";
 import { createParallelPack } from "../lib/parallels/api";
 import { offsetsForSizes, VIRTUAL_LIST_GAP, visibleWindow } from "../lib/ui/virtualWindow";
 import { LineSendControl } from "./LineSendControl";
@@ -32,21 +31,7 @@ type Props = {
   focusLineIndex?: number | null;
 };
 
-export function CurateScreen(props: Props) {
-  if (!isPilotCurator(getStoredUser())) {
-    return (
-      <section className="panel">
-        <button type="button" className="button ghost back-link" onClick={props.onBack}>
-          ← Back
-        </button>
-        <p className="muted">Starring lines is a two-person test right now.</p>
-      </section>
-    );
-  }
-  return <CurateScreenBody {...props} />;
-}
-
-function CurateScreenBody({ entry, onBack, onOpenParallel, focusLineIndex }: Props) {
+export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: Props) {
   const title = getTitle(entry.id);
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
   const [starredOnly, setStarredOnly] = useState(false);

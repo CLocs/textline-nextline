@@ -334,7 +334,7 @@ describe("handleRequest", () => {
     expect(del.status).toBe(200);
   });
 
-  it("lets nalongi star and refuses everyone else", async () => {
+  it("lets any signed-in player star", async () => {
     const { db } = createMockDb();
     const env = { DB: db, ALLOWED_ORIGINS: "http://localhost:5173" };
     const body = JSON.stringify({ titleId: "ep", lineIndex: 4 });
@@ -365,7 +365,7 @@ describe("handleRequest", () => {
       }),
       env,
     );
-    expect(other.status).toBe(403);
+    expect(other.status).toBe(200);
 
     const nalongi = await handleRequest(
       new Request("http://localhost/api/stars", {

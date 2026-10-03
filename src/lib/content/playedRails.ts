@@ -121,8 +121,7 @@ export function summarizeRuns(runs: StoredRun[], entries: CatalogEntry[]): Perso
 
   const mostPlayed = [...grouped.entries()]
     .map(([label, playCount]) => ({ label, playCount }))
-    .sort((a, b) => b.playCount - a.playCount || a.label.localeCompare(b.label))
-    .slice(0, RAIL_LIMIT);
+    .sort((a, b) => b.playCount - a.playCount || a.label.localeCompare(b.label));
 
   return {
     gamesPlayed: runs.length,

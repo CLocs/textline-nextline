@@ -5,8 +5,6 @@ import type { McqQuestion } from "../lib/game/mcq";
 import { getValidPromptIndices, sequenceLabel } from "../lib/game/miniGame";
 import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
 import { isLoved, isStarred, toggleLove, toggleStar } from "../lib/stars/sync";
-import { getStoredUser } from "../lib/auth/session";
-import { isPilotCurator } from "../lib/content/curators";
 import { HistorySidebar } from "./HistorySidebar";
 import { PosterArt } from "./PosterArt";
 import { LineSendControl } from "./LineSendControl";
@@ -218,30 +216,26 @@ export function PlayScreen({
               ) : null}
             </p>
             <div className="prompt-header-actions">
-              {isPilotCurator(getStoredUser()) ? (
-                <>
-                  <button
-                    type="button"
-                    className={`star-button${starred ? " starred" : ""}`}
-                    aria-pressed={starred}
-                    aria-label={starred ? "Unstar this line" : "Star this line for mini-games"}
-                    onClick={handleToggleStar}
-                  >
-                    {starred ? "★ Starred" : "☆ Star"}
-                  </button>
-                  {starred && (
-                    <button
-                      type="button"
-                      className={`love-button${loved ? " loved" : ""}`}
-                      aria-pressed={loved}
-                      aria-label={loved ? "Unlove this line" : "Love this line for mini-games"}
-                      onClick={handleToggleLove}
-                    >
-                      {loved ? "♥ Loved" : "♡ Love"}
-                    </button>
-                  )}
-                </>
-              ) : null}
+              <button
+                type="button"
+                className={`star-button${starred ? " starred" : ""}`}
+                aria-pressed={starred}
+                aria-label={starred ? "Unstar this line" : "Star this line for mini-games"}
+                onClick={handleToggleStar}
+              >
+                {starred ? "★ Starred" : "☆ Star"}
+              </button>
+              {starred && (
+                <button
+                  type="button"
+                  className={`love-button${loved ? " loved" : ""}`}
+                  aria-pressed={loved}
+                  aria-label={loved ? "Unlove this line" : "Love this line for mini-games"}
+                  onClick={handleToggleLove}
+                >
+                  {loved ? "♥ Loved" : "♡ Love"}
+                </button>
+              )}
               <LineSendControl titleId={title.id} lineIndex={question.promptLineIndex} />
             </div>
           </div>

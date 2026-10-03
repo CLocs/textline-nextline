@@ -13,8 +13,6 @@ import { fetchTitleStats, type TitleStats } from "../lib/runs/api";
 import { coverStillLineIndex } from "../lib/content/stillsCover";
 import { GAME_LENGTHS, GAME_MODES, type GameLength, type GameMode } from "../types/game";
 import { PosterArt } from "./PosterArt";
-import { getStoredUser } from "../lib/auth/session";
-import { isPilotCurator } from "../lib/content/curators";
 
 export type GameSetup = {
   mode: GameMode;
@@ -57,8 +55,7 @@ export function SetupScreen({
         crowdPopular,
       })
     : { personal: 0, global: 0 };
-  const canCurate = isPilotCurator(getStoredUser());
-  const starNote = noteForViewer(starCounts.personal, starCounts.global, canCurate);
+  const starNote = describeMiniGameStars(starCounts.personal, starCounts.global);
 
   const highGames = useMemo(() => {
     if (!titleStats) return [];
@@ -121,13 +118,9 @@ export function SetupScreen({
       </div>
 
       <p className="setup-star-note">{starNote}</p>
-      {canCurate ? (
-        <button type="button" className="button setup-curate" onClick={onCurate}>
-          Curate Stars
-        </button>
-      ) : (
-        <p className="muted setup-curate-note">Starring lines is a two-person test right now.</p>
-      )}
+      <button type="button" className="button setup-curate" onClick={onCurate}>
+        Curate Stars
+      </button>
 
       {titleStats && titleStats.players.length > 0 && (
         <div className="title-leaders">
@@ -222,7 +215,7 @@ export function SetupScreen({
       >
         {shareBusy ? "Creating link…" : "Share mini-game link"}
       </button>
-      {personalStarred.length === 0 && canCurate && (
+      {personalStarred.length === 0 && (
         <p className="muted share-hint">Curate Stars to share a mini-game of yours.</p>
       )}
       {shareMessage && (
@@ -232,11 +225,4 @@ export function SetupScreen({
       )}
     </section>
   );
-}
-
-function noteForViewer(personal: number, globalStars: number, canCurate: boolean): string {
-  const note = describeMiniGameStars(personal, globalStars);
-  if (canCurate || personal > 0) return note;
-  if (globalStars > 0) return "This mini-game uses global stars.";
-  return "No stars yet.";
 }
