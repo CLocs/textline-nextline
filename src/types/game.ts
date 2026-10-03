@@ -6,7 +6,7 @@ export const MINI_GAME_SIZE = 10;
 
 const MODE_LABELS: Record<GameMode, string> = {
   fun: "Fun",
-  teach: "Teach",
+  teach: "Learn",
   medium: "Medium",
   hard: "Hard",
 };
@@ -27,7 +27,7 @@ export const GAME_MODES: {
   },
   {
     id: "teach",
-    label: "Teach",
+    label: "Learn",
     description: "Like Fun, but skip shows this line and the next until you dismiss the card.",
   },
 ];
