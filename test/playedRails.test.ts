@@ -132,6 +132,34 @@ describe("summarizeRuns", () => {
     expect(stats.titlesTouched).toBe(3);
     expect(stats.mostPlayed[0]).toEqual({ label: "The Simpsons", playCount: 2 });
   });
+
+  it("lists every played title, highest play count first", () => {
+    const extras: CatalogEntry[] = Array.from({ length: 6 }, (_, index) => ({
+      id: `extra-${index}`,
+      title: `Extra ${index}`,
+      lineCount: 10,
+      sourceFilename: `${index}.srt`,
+      importedAt: "",
+      meta: { year: 2000 + index },
+    }));
+    const plays = [1, 6, 2, 5, 3, 4];
+    const stats = summarizeRuns(
+      extras.flatMap((entry, index) =>
+        Array.from({ length: plays[index] ?? 0 }, (_, play) =>
+          run({ id: `r-${index}-${play}`, titleId: entry.id, correctCount: 1 }),
+        ),
+      ),
+      extras,
+    );
+    expect(stats.mostPlayed).toEqual([
+      { label: "Extra 1", playCount: 6 },
+      { label: "Extra 3", playCount: 5 },
+      { label: "Extra 5", playCount: 4 },
+      { label: "Extra 4", playCount: 3 },
+      { label: "Extra 2", playCount: 2 },
+      { label: "Extra 0", playCount: 1 },
+    ]);
+  });
 });
 
 describe("catalogLabel", () => {

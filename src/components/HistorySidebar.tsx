@@ -4,8 +4,6 @@ import type { HistoryEntry, HistoryVia } from "../lib/game/session";
 import { getLine } from "../lib/content/lines";
 import { getValidPromptIndices } from "../lib/game/miniGame";
 import { isStarred, toggleStar } from "../lib/stars/sync";
-import { getStoredUser } from "../lib/auth/session";
-import { isPilotCurator } from "../lib/content/curators";
 
 type Props = {
   title: Title;
@@ -60,7 +58,7 @@ export function HistorySidebar({ title, history, currentLineIndex }: Props) {
             const isCurrent = entry.lineIndex === currentLineIndex && entry.via !== "incorrect";
             const tag = viaLabel(entry.via);
             const starred = isStarred(title.id, entry.lineIndex);
-            const canStar = isPilotCurator(getStoredUser()) && validPrompts.has(entry.lineIndex);
+            const canStar = validPrompts.has(entry.lineIndex);
 
             return (
               <li

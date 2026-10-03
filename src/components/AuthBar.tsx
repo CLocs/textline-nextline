@@ -95,8 +95,14 @@ export function AuthBar({
             </button>
           ) : null}
           {onBrowseLibrary ? (
-            <button type="button" className="button ghost" onClick={onBrowseLibrary}>
-              Browse full library
+            <button
+              type="button"
+              className="button ghost"
+              aria-label="Browse full library"
+              onClick={onBrowseLibrary}
+            >
+              <span className="nav-label-full">Browse full library</span>
+              <span className="nav-label-short">Library</span>
             </button>
           ) : null}
           {onCatalog ? (

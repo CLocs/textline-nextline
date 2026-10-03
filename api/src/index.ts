@@ -54,7 +54,6 @@ import {
   shareCompletedRun,
 } from "./runs.js";
 import { fetchOwnerCatalogStats, isOwnerEmail } from "./ops.js";
-import { isPilotCurator } from "../../src/lib/content/curators.js";
 import { listTitleRequests, rememberFilms, requestFilm, searchTmdbMovies } from "./titleRequests.js";
 import {
   fetchDailyStreak,
@@ -978,9 +977,6 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (!sessionUser) {
       return errorResponse("Unauthorized", 401, origin, allowed);
     }
-    if (!isPilotCurator(sessionUser)) {
-      return errorResponse("Starring is limited to the two-person test", 403, origin, allowed);
-    }
     const playerId = sessionUser.id;
     const body = await readJson(request);
     const loveBody = parseLoveBody(body);
@@ -1005,9 +1001,6 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
     if (!sessionUser) {
       return errorResponse("Unauthorized", 401, origin, allowed);
-    }
-    if (!isPilotCurator(sessionUser)) {
-      return errorResponse("Starring is limited to the two-person test", 403, origin, allowed);
     }
     const playerId = sessionUser.id;
 

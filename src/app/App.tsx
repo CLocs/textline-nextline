@@ -47,7 +47,6 @@ import { ChatThreadScreen } from "../components/ChatThreadScreen";
 import { SearchScreen } from "../components/SearchScreen";
 import { DailyMailUnsub } from "../components/DailyMailUnsub";
 import { canViewCatalogOps } from "../lib/content/owner";
-import { isPilotCurator } from "../lib/content/curators";
 
 type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily" | "unsub";
 
@@ -485,12 +484,6 @@ export function App() {
   function handleOpenSearchLine(entry: CatalogEntry, lineIndex: number) {
     setPendingEntry(entry);
     setShareMessage(null);
-    if (!isPilotCurator(user)) {
-      setCurateFocusLineIndex(null);
-      setScreen("setup");
-      clearHash();
-      return;
-    }
     setCurateFocusLineIndex(lineIndex);
     setScreen("curate");
     clearHash();
