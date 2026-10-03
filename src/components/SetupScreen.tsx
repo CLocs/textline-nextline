@@ -12,6 +12,8 @@ import { fetchTitleStats, type TitleStats } from "../lib/runs/api";
 import { coverStillLineIndex } from "../lib/content/stillsCover";
 import { GAME_LENGTHS, GAME_MODES, MINI_GAME_SIZE, type GameLength, type GameMode } from "../types/game";
 import { PosterArt } from "./PosterArt";
+import { getStoredUser } from "../lib/auth/session";
+import { isPilotCurator } from "../lib/content/curators";
 
 export type GameSetup = {
   mode: GameMode;
@@ -204,9 +206,13 @@ export function SetupScreen({
         Start game
       </button>
 
-      <button type="button" className="button ghost curate-link" onClick={onCurate}>
-        Curate stars →
-      </button>
+      {isPilotCurator(getStoredUser()) ? (
+        <button type="button" className="button ghost curate-link" onClick={onCurate}>
+          Curate stars →
+        </button>
+      ) : (
+        <p className="muted share-hint">Starring lines is a two-person test right now.</p>
+      )}
 
       <button
         type="button"

@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import type { CatalogEntry } from "../types/content";
 import type { AuthUser } from "../lib/auth/session";
-import { fetchSharedRuns, updateMyDisplayName } from "../lib/auth/api";
+import {
+  fetchDailyMailPreference,
+  fetchSharedRuns,
+  setDailyMailPreference,
+  updateMyDisplayName,
+} from "../lib/auth/api";
 import { fetchMyRuns, shareCompletedRun, type StoredRun } from "../lib/runs/api";
 import { fetchMyParallelPacks, type AnalogyPack } from "../lib/parallels/api";
 import { cohortSummary } from "../lib/runs/cohort";
@@ -167,6 +172,10 @@ export function ProfileScreen({
   const [draft, setDraft] = useState(user.displayName ?? "");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [dailyMail, setDailyMail] = useState(false);
+  const [dailyMailReady, setDailyMailReady] = useState(false);
+  const [dailyMailSaving, setDailyMailSaving] = useState(false);
+  const [dailyMailError, setDailyMailError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -198,6 +207,36 @@ export function ProfileScreen({
   useEffect(() => {
     setDraft(user.displayName ?? "");
   }, [user.displayName]);
+
+  useEffect(() => {
+    if (tab !== "account") return;
+    let cancelled = false;
+    void fetchDailyMailPreference().then((result) => {
+      if (cancelled) return;
+      setDailyMailReady(true);
+      if ("optedIn" in result) {
+        setDailyMail(result.optedIn);
+        setDailyMailError(null);
+      } else {
+        setDailyMailError(result.error);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [tab]);
+
+  async function handleDailyMail(next: boolean) {
+    setDailyMailSaving(true);
+    setDailyMailError(null);
+    const result = await setDailyMailPreference(next);
+    setDailyMailSaving(false);
+    if ("error" in result) {
+      setDailyMailError(result.error);
+      return;
+    }
+    setDailyMail(result.optedIn);
+  }
 
   const stats = useMemo(() => summarizeRuns(runs, entries), [runs, entries]);
 
@@ -292,6 +331,23 @@ export function ProfileScreen({
               </p>
             )}
           </form>
+          <label className="daily-mail-opt">
+            <input
+              type="checkbox"
+              checked={dailyMail}
+              disabled={!dailyMailReady || dailyMailSaving}
+              onChange={(event) => void handleDailyMail(event.target.checked)}
+            />
+            <span>
+              <span className="daily-mail-opt-title">Email me today’s three</span>
+              <span className="muted">One email each morning. Tap a card to play that question, then the next, then wrap.</span>
+            </span>
+          </label>
+          {dailyMailError ? (
+            <p className="feedback wrong" role="alert">
+              {dailyMailError}
+            </p>
+          ) : null}
           <button type="button" className="button ghost profile-logout" onClick={onLogout}>
             Log out
           </button>

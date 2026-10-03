@@ -37,7 +37,9 @@
     "db:migrate:avatars:local": "node scripts/ensure-share-columns.mjs --local",
     "db:migrate:avatars:remote": "node scripts/ensure-share-columns.mjs --remote",
     "db:migrate:title-requests:local": "wrangler d1 execute textline-stars --local --file=migrations/016_title_requests.sql",
-    "db:migrate:title-requests:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/016_title_requests.sql"
+    "db:migrate:title-requests:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/016_title_requests.sql",
+    "db:migrate:daily-mail:local": "wrangler d1 execute textline-stars --local --file=migrations/017_daily_mail.sql",
+    "db:migrate:daily-mail:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/017_daily_mail.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",
