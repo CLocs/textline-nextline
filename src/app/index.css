@@ -1085,6 +1085,10 @@ code {
   margin: 0.75rem 0 1.25rem;
 }
 
+.setup-curate-note {
+  margin: 0.75rem 0 1.25rem;
+}
+
 .start-game {
   display: block;
   width: 100%;
@@ -1360,6 +1364,23 @@ code {
 
 .profile-logout {
   margin-top: 1.25rem;
+}
+
+.daily-mail-opt {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  margin-top: 1.25rem;
+  max-width: 28rem;
+}
+
+.daily-mail-opt input {
+  margin-top: 0.35rem;
+}
+
+.daily-mail-opt-title,
+.daily-mail-opt .muted {
+  display: block;
 }
 
 .profile-avatar {

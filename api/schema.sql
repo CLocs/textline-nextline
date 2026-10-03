@@ -262,3 +262,18 @@ CREATE TABLE IF NOT EXISTS title_requests (
 
 CREATE INDEX IF NOT EXISTS idx_title_requests_created
   ON title_requests (created_at DESC);
+
+-- Opt-in daily quote email (also in migrations/017_daily_mail.sql)
+CREATE TABLE IF NOT EXISTS daily_mail (
+  user_id TEXT PRIMARY KEY,
+  opted_in INTEGER NOT NULL DEFAULT 0,
+  unsub_token TEXT NOT NULL UNIQUE,
+  updated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS daily_mail_sends (
+  user_id TEXT NOT NULL,
+  sent_on TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  PRIMARY KEY (user_id, sent_on)
+);

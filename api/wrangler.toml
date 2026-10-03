@@ -13,6 +13,10 @@ ALLOWED_ORIGINS = "http://localhost:5173,http://127.0.0.1:5173,https://textline-
 APP_ORIGIN = "https://textlinenextline.com"
 RESEND_FROM = "Textline <auth@textlinenextline.com>"
 
+# 13:00 UTC daily — 8am or 9am America/New_York. Sends that calendar day's three quotes.
+[triggers]
+crons = ["0 13 * * *"]
+
 # Set secrets via: wrangler secret put RESEND_API_KEY / AUTH_SECRET / TMDB_API_KEY
 # Google Sign-In (optional): set GOOGLE_CLIENT_ID to your OAuth Web client ID
 #   npx wrangler secret put GOOGLE_CLIENT_ID

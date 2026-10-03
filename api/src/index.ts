@@ -54,12 +54,20 @@ import {
   shareCompletedRun,
 } from "./runs.js";
 import { fetchOwnerCatalogStats, isOwnerEmail } from "./ops.js";
+import { isPilotCurator } from "../../src/lib/content/curators.js";
 import { listTitleRequests, rememberFilms, requestFilm, searchTmdbMovies } from "./titleRequests.js";
 import {
   fetchDailyStreak,
   isPlausibleCompletionDate,
   recordDailyStreak,
 } from "./dailyStreak.js";
+import {
+  getDailyMailPreference,
+  runDailyMail,
+  setDailyMailOptIn,
+  unsubscribeDailyMail,
+  unsubscribePage,
+} from "./dailyMail.js";
 import {
   acceptInvite,
   blockUser,
@@ -859,6 +867,46 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     return jsonResponse(streak, 200, origin, allowed);
   }
 
+  if (pathname === "/api/daily/mail" && (request.method === "GET" || request.method === "PUT")) {
+    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+    if (!sessionUser) {
+      return errorResponse("Unauthorized", 401, origin, allowed);
+    }
+    if (request.method === "GET") {
+      const preference = await getDailyMailPreference(env.DB, sessionUser.id);
+      return jsonResponse(preference, 200, origin, allowed);
+    }
+    const body = await readJson(request);
+    const optedIn =
+      body && typeof body === "object" && "optedIn" in body ? (body as { optedIn?: unknown }).optedIn : undefined;
+    if (typeof optedIn !== "boolean") {
+      return errorResponse("Expected { optedIn: boolean }", 400, origin, allowed);
+    }
+    const preference = await setDailyMailOptIn(env.DB, sessionUser.id, optedIn);
+    return jsonResponse(preference, 200, origin, allowed);
+  }
+
+  if (pathname === "/api/daily/mail/unsubscribe" && request.method === "POST") {
+    const body = await readJson(request);
+    const token =
+      body && typeof body === "object" && "token" in body && typeof (body as { token?: unknown }).token === "string"
+        ? (body as { token: string }).token
+        : "";
+    const result = await unsubscribeDailyMail(env.DB, token);
+    if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
+    return jsonResponse({ ok: true }, 200, origin, allowed);
+  }
+
+  if (pathname === "/api/daily/mail/unsubscribe" && request.method === "GET") {
+    const token = url.searchParams.get("token") ?? "";
+    const result = await unsubscribeDailyMail(env.DB, token);
+    const ok = !("error" in result);
+    return new Response(unsubscribePage(ok), {
+      status: ok ? 200 : 400,
+      headers: { "Content-Type": "text/html; charset=utf-8" },
+    });
+  }
+
   // --- Stars ---
   if (!pathname.startsWith("/api/stars")) {
     return errorResponse("Not found", 404, origin, allowed);
@@ -926,10 +974,14 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
   }
 
   if (request.method === "PUT" && pathname === "/api/stars/love") {
-    const playerId = await resolveStarPlayerId(request, env);
-    if (!playerId) {
-      return errorResponse("Unauthorized or missing player id", 401, origin, allowed);
+    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+    if (!sessionUser) {
+      return errorResponse("Unauthorized", 401, origin, allowed);
     }
+    if (!isPilotCurator(sessionUser)) {
+      return errorResponse("Starring is limited to the two-person test", 403, origin, allowed);
+    }
+    const playerId = sessionUser.id;
     const body = await readJson(request);
     const loveBody = parseLoveBody(body);
     if (!loveBody) {
@@ -950,10 +1002,14 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       return errorResponse("Not found", 404, origin, allowed);
     }
 
-    const playerId = await resolveStarPlayerId(request, env);
-    if (!playerId) {
-      return errorResponse("Unauthorized or missing player id", 401, origin, allowed);
+    const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+    if (!sessionUser) {
+      return errorResponse("Unauthorized", 401, origin, allowed);
     }
+    if (!isPilotCurator(sessionUser)) {
+      return errorResponse("Starring is limited to the two-person test", 403, origin, allowed);
+    }
+    const playerId = sessionUser.id;
 
     const body = await readJson(request);
     const starBody = parseStarBody(body);
@@ -983,5 +1039,13 @@ export default {
       const allowed = parseAllowedOrigins(env.ALLOWED_ORIGINS);
       return errorResponse("Internal server error", 500, origin, allowed);
     }
+  },
+
+  async scheduled(
+    event: { scheduledTime: number },
+    env: Env,
+    ctx: { waitUntil(promise: Promise<unknown>): void },
+  ): Promise<void> {
+    ctx.waitUntil(runDailyMail(env, new Date(event.scheduledTime)));
   },
 };

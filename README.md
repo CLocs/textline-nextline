@@ -435,7 +435,9 @@ Open questions (spike only — no pack UI yet):
 - [ ] **Security check / audit ladder** — staged levels (not one giant audit). See [Spike: security ladder](#spike-security-ladder-not-a-full-audit-yet).
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [x] **Share quote as image** — caption-below + on-image; Original aspect; Clean/Ink/Lime/None; remembered prefs. See [Share quote as image](#share-quote-as-image).
-- [ ] **Daily quote email** — one mail, 3 framed cards (loved line of the day + 2 starred); click opens daily review on that card and wraps. See [Daily quote email](#daily-quote-email).
+- [x] **Daily quote email** — one mail, 3 framed cards (loved line of the day + 2 starred); click opens daily review on that card and wraps. See [Daily quote email](#daily-quote-email).
+- [ ] **Standalone quotes (star a plain line)** — mark a line that lands on its own, not as a TLNL setup; the daily mail adds a quote card beside the three questions. See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
+- [ ] **Premium: GIFs from selected lines** — paid tier renders a short loop over the selected cues instead of a still. See [Premium GIFs](#premium-gifs-from-selected-lines).
 - [x] **Global search** — `#/search`; client-side over eager catalog; Popular / Starred by me; title + line hits. See [Global search](#global-search).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
 - [ ] **More sources** — beyond SRT (official scripts, fan transcripts) with licensing notes
@@ -530,7 +532,7 @@ Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (�
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Friend faces** (up to five initials + day-streak badge) sit on Home above Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email**, **Chats quote replies**, and a **popular-line room** (name open) stay parked. **Title requests (light)** are on Search (Open if we have it, otherwise Request). **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Friend faces** (up to five initials + day-streak badge) sit on Home above Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email** is in (opt-in morning mail). **Standalone quotes** (star a plain line, not a TLNL) and **premium GIFs from selected lines** stay parked. **Chats quote replies** and a **popular-line room** (name open) stay parked. **Title requests (light)** are on Search (Open if we have it, otherwise Request). **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -773,11 +775,53 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 9. **Include previous lines** — optional lead-in cues (same rules as Play/Chat, up to 4); remembered in prefs.
 10. **Text position** — Top / Center / Bottom (no drag); remembered in prefs.
 
-**Later:** [Daily quote email](#daily-quote-email) cards → open TLNL → Export image.
+**Later:** [Daily quote email](#daily-quote-email) cards → open TLNL → Export image. A motion export over the same selection is a paid idea — see [Premium GIFs](#premium-gifs-from-selected-lines).
 
 **Gates still true:** still coverage (many lines have no frame yet).
 
-### Daily quote email
+### Standalone quotes (star a line, not a TLNL)
+
+**Input side.** A star today means “this line is a **TL** — quiz whatever comes after it.” Plenty of lines are not setups: the quotable part *is* that line, and the cue after it is dead air. Those lines have nowhere to go right now, because starring one puts a bad question in the mini-game pool.
+
+Add a second mark on a line — **Quote** (working label) — with the same Curate / Play chrome as Star and ♥, and a different meaning:
+
+| Mark | Means | Feeds |
+|------|-------|-------|
+| **Star** | this line sets up the next one | mini-game pool, crowd popular, 1-line shares |
+| **♥ Love** (cap 5) | this setup is golden | queue bias, line of the day |
+| **Quote** *(new)* | this line stands on its own | quote surfaces (mail, Home, chat, export) — **never** the quiz pool |
+
+- A quote mark must not reach `buildMiniGameQueue`, `/api/stars/popular`, or a frozen share unless the line is **also** starred. The marks are independent: a line can be both.
+- Key it like stars (`title_id`, `line_index`, `player_id`). A `quote` flag beside `loved` is the cheap version, but only if **every** star reader (mini-game, popular, shares, seed push, stills, Catalog counts) filters it; otherwise give quotes their own table so a quote-only row can’t be mistaken for a star.
+- Star counts don’t change meaning. A quote-only line is not a star, and the ♥ cap still belongs to setups.
+- Multi-cue quotes: today the unit is one cue. If a quote needs two or three, reuse the streak / multi-select span from [parallel packs](#quote-parallels--analogy-packs) rather than inventing a second span model — and don’t confuse it with [line splitting](#split-multi-sentence-lines).
+
+**Output side.** Same habit loop as the daily mail, except one card is not a question:
+
+1. **Daily mail** — alongside the three TLNL cards, one **standalone quote card**: still, line, title, no choices, nothing to guess. Pick a date-seeded framed quote mark of the player’s own, filling from the top crowd quote marks when the personal pool is thin, with the same 7-day no-repeat as the question cards.
+2. **In the app** — Home shows the day’s quote beside Today’s Daily Quotes. It does not gate the [day streak](#daily-quote-email); the streak stays the three questions.
+3. **Export** — the quote card opens [Share quote as image](#share-quote-as-image), which already renders a line with no quiz.
+
+**Other ties** *(open, not sequenced):* send a quote in [Chats](#chats-dms--shared-group-threads) as a card with nothing to guess; a quote shelf on the profile; quote marks seeding [parallel packs](#quote-parallels--analogy-packs); a Quotes filter in [global search](#global-search); cover stills preferring a quote-marked frame.
+
+**Gates:** frame coverage (same limit as the mail), and agreement across every star reader about what to skip. The [Wikiquote / Readwise seeds](#spike-online-quotes-eg-imdb-research) are mostly standalone lines, so they are the obvious backfill once the mark exists.
+
+### Premium GIFs from selected lines
+
+**Idea:** A paid tier renders a short **GIF** of the moment instead of a still. [Share quote as image](#share-quote-as-image) already exports a PNG from the frame at `startMs`; a line carries `startMs`–`endMs`, so the clip bounds are already known.
+
+**Shape *(parked)*:**
+
+1. **Select** — one cue, or a star streak / multi-select (same selection as parallel packs). The loop runs from the first cue’s start to the last cue’s end, capped (~6s) so one pick can’t render a scene.
+2. **Render** — ffmpeg over the local remux (`inbox/media/{titleId}.mkv`) with the per-title `offsetMs` / `timeScale` from [`content/stills-sync.json`](content/stills-sync.json), `palettegen` + `paletteuse`, downscaled, optional burned-in caption reusing the export palettes. Owner-side batch like `content:stills` — not on-demand from a player’s browser.
+3. **Serve** — its own bucket + Pages Function beside `/stills`. A GIF is one to two orders of magnitude bigger than a JPEG, so coverage is curated picks, never every cue.
+4. **Gate** — an entitlement check on the account. There is no billing today (no plans, no payment provider, no entitlement column), so this is the first feature that needs one.
+
+**Why premium:** it costs real money and real work — storage, egress, per-title sync eyeballing, and the owner’s local file. Stills are cheap and stay free.
+
+**Open questions:** GIF vs silent MP4/WebM (smaller and better color, but doesn’t paste everywhere — likely ship GIF and keep MP4 behind the same gate); subscription vs one-off; what else a paid tier holds so it isn’t a one-feature plan; and rights, which is the [Steam](#steam) question again and harder once the output moves.
+
+### Daily quote email ✅
 
 **Idea:** One email a day with **3 quote cards**. A mini-mini-game: three textline → nextline questions, then done.
 
@@ -793,13 +837,15 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 **Email.** One message, three cards. Not three emails. Each card is the still, the textline, and the next-line choices. The card links to that day’s game at that card’s index. Tapping a choice in the mail is the same as tapping the card: it does not grade you inside the inbox.
 
+**Plus one quote.** The same mail also carries a **standalone quote** — a line that reads on its own, with no choices and nothing to guess. It needs the new quote mark on the input side; see [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
+
 **Daily game.** Only those three questions. Open on the card they tapped, then the next, then wrap. Tap card 2 → question 2, question 3, question 1. Same MCQ as Fun (try again on a miss). Then a three-question result.
 
-**Mail.** Resend, the same sender as magic links. No SendGrid. Cron on the Worker. Opt-in and unsubscribe before the first real send.
+**Mail.** Resend, the same sender as magic links. No SendGrid. Cron on the Worker at 13:00 UTC (morning in New York). Profile → Account → **Email me today’s three** opts in. Every mail has an unsubscribe link (`#/unsub?token=`) that works without signing in. Nobody is mailed until they opt in.
 
-**In the app.** Home shows today’s three cards. Tap a card to start there, then the next, then wrap. Finishing the three records a day streak; the badge at the top of Home is how many days in a row. The frame list is `content/stills-lines.json`. The 7-day skip is computed from the date, so it stays the same for everyone without a send log.
+**In the app.** Home shows today’s three cards. Tap a card to start there, then the next, then wrap. Finishing the three records a day streak; the badge at the top of Home is how many days in a row. The frame list is `content/stills-lines.json`. The 7-day skip is computed from the date, so it stays the same for everyone without a send log. The mail uses that same pick. A per-user send row only stops a second mail the same day.
 
-**Not built yet.** The daily HTML mail, the cron, and opt-in / unsubscribe. A stored send log if the star pool should not shift past days.
+**Catalog.** `npm run build` writes `public/daily-mail-catalog.json` (framed prompts, next line, distractors). The cron fetches it from the site. The file is not committed.
 
 Not the same as **Daily challenge** (one public quiz for everyone). Export image stays available from the review card via [Share quote as image](#share-quote-as-image).
 
@@ -934,7 +980,9 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Exploratory — YouTube titles** | Paste video URL → timed transcript → stars / packs; frames later | Whole videos as playable titles — see [YouTube videos as titles](#youtube-videos-as-titles) |
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
 | **Later — Share quote as image** | Caption-below + on-image; aspect + palettes + prefs | ✅ Export image in Share menu — see [Share quote as image](#share-quote-as-image) |
-| **Later — Daily quote email** | One mail, 3 framed cards; click opens that day’s review and wraps | Loved line of the day + 2 starred (yours first); no repeat within 7 days — see [Daily quote email](#daily-quote-email) |
+| **Shipped — Daily quote email** | One mail, 3 framed cards; click opens that day’s review and wraps | Opt-in. Loved line of the day + 2 starred (yours first); no repeat within 7 days — see [Daily quote email](#daily-quote-email) |
+| **Later — Standalone quotes** | Quote mark for lines that aren’t TLNL setups; mail/Home/chat/export carry a no-guess card | Quote marks never enter the quiz pool — see [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl) |
+| **Exploratory — Premium GIFs** | Paid tier renders a capped loop over selected cues; owner-side ffmpeg + bucket | Needs billing/entitlements, which don’t exist yet — see [Premium GIFs](#premium-gifs-from-selected-lines) |
 | **Shipped — Global search** | `#/search`; client catalog scan; Popular / Mine; title + line hits | Find a quote or title without picking a film first — see [Global search](#global-search) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
 | **Shipped — Mobile home screen** | Manifest + Add to Home Screen helper (no SW) | App-like icon before native iOS/Android — see [PWA-lite](#mobile-home-screen-pwa-lite-before-native-apps) |
@@ -1017,7 +1065,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Perfect mini confetti** — When a mini-game finishes with all questions correct (e.g. 10/10), celebrate with a short confetti burst on the complete screen.
 - **Chronological mini-game queue** — ✅ After selection, prompt indices are sorted so the run walks the transcript forward (shared frozen queues sorted on play too).
 - **History sidebar + partial credit** — ✅ Missed cards red; re-guesses yellow (`reguess`); first-try correct green. Score: 1 / 0.5 / 0.25 by attempt (shown in play + complete). Persisted D1 `correct_count` stays whole lines cleared for now.
-- **Curate stars access** — Personal stars only; anyone may Curate their own. No email allowlist.
+- **Curate stars access** — Pilot: only `dascolin@gmail.com` and nalongi (display name `nalongi`, or an email starting with `nalongi@`) can star or love lines. Everyone else can still play.
 - **Curate mini-game builder** *(later)* — Starred-by union filter + sort (most starred / most played / chrono forward·reverse); see spike above.
 - **Security ladder** — L0 hygiene checklist passed (secrets / CORS / auth config). L1+ later. See [spike](#spike-security-ladder-not-a-full-audit-yet).
 - **Teach mode** — ✅ Setup mode; Fun skip illuminates + 2s hold; Teach skip uses a dismissable this/next card.
@@ -1040,7 +1088,9 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Line / still feedback** *(later)* — on a textline: wrong scene image, request a scene image, split line. Catalog queue, not live edits. See [Later ideas](#line--still-feedback).
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - **Share quote as image** — ✅ Share → **Export image**; Caption below / On image; Portrait / Square / Story / Original; Clean / Ink / Lime / None; remembered prefs; Download PNG (+ Web Share when available). Daily email later. See [Share quote as image](#share-quote-as-image).
-- **Daily quote email** *(parked)* — ~3 quote cards in email; click opens TLNL (Readwise-style). Not Daily challenge. See [Later ideas](#daily-quote-email).
+- **Daily quote email** — one opt-in mail, 3 framed cards; click opens TLNL (Readwise-style). Not Daily challenge. See [Daily quote email](#daily-quote-email).
+- **Standalone quotes** *(parked)* — star a plain line, not a TLNL setup; input side is a second mark that stays out of the quiz pool, output side is a no-guess quote card in the daily mail (plus Home, chat, export). See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
+- **Premium GIFs from selected lines** *(parked)* — paid tier renders a short loop over the selected cues instead of a still; first feature that needs billing. See [Premium GIFs](#premium-gifs-from-selected-lines).
 - **Global search** — ✅ `#/search`; Popular / Starred by me; title + line hits over the eager catalog. See [Global search](#global-search).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).
 - **Mobile home screen (PWA-lite)** — ✅ Manifest + icons; Home install helper (Android Install / iOS Share steps); no service worker. See [Later ideas](#mobile-home-screen-pwa-lite-before-native-apps).
