@@ -6,7 +6,7 @@ import { fetchMyRuns, shareCompletedRun, type StoredRun } from "../lib/runs/api"
 import { fetchMyParallelPacks, type AnalogyPack } from "../lib/parallels/api";
 import { cohortSummary } from "../lib/runs/cohort";
 import { historyTitleLabel, summarizeRuns } from "../lib/content/playedRails";
-import { GAME_MODES, type GameMode } from "../types/game";
+import { gameModeLabel, type GameMode } from "../types/game";
 import type { ProfileTab } from "../lib/routing/hash";
 import { FriendsPanel } from "./FriendsPanel";
 import { ProfileAvatar } from "./ProfileAvatar";
@@ -28,7 +28,7 @@ type Props = {
 };
 
 function modeLabel(mode: GameMode): string {
-  return GAME_MODES.find((item) => item.id === mode)?.label ?? mode;
+  return gameModeLabel(mode);
 }
 
 function gameLabel(run: StoredRun): string {

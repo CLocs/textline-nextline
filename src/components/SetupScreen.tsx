@@ -2,15 +2,16 @@ import { useEffect, useMemo, useState } from "react";
 import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { countPlayableQuestions } from "../lib/content/playable";
-import { buildMiniGameQueue } from "../lib/game/miniGame";
+import { describeMiniGameStars, miniGameStarCounts } from "../lib/game/miniGame";
 import {
-  getStarsForTitle,
+  getLovedLineIndices,
+  getMineLineIndices,
   hydrateStarsForTitle,
   loadPopularStars,
 } from "../lib/stars/sync";
 import { fetchTitleStats, type TitleStats } from "../lib/runs/api";
 import { coverStillLineIndex } from "../lib/content/stillsCover";
-import { GAME_LENGTHS, GAME_MODES, MINI_GAME_SIZE, type GameLength, type GameMode } from "../types/game";
+import { GAME_LENGTHS, GAME_MODES, type GameLength, type GameMode } from "../types/game";
 import { PosterArt } from "./PosterArt";
 
 export type GameSetup = {
@@ -40,21 +41,21 @@ export function SetupScreen({
 }: Props) {
   const [mode, setMode] = useState<GameMode>("fun");
   const [length, setLength] = useState<GameLength>("mini");
-  const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
+  const [, setStarRevision] = useState(0);
   const [crowdPopular, setCrowdPopular] = useState<number[]>([]);
   const [titleStats, setTitleStats] = useState<TitleStats | null>(null);
 
   const title = getTitle(entry.id);
   const questionCount = title ? countPlayableQuestions(title) : 0;
-  const personalStarred = getStarsForTitle(entry.id)
-    .filter((star) => star.origin !== "wikiquote")
-    .map((star) => star.lineIndex);
-  const miniCount = title
-    ? Math.min(
-        MINI_GAME_SIZE,
-        buildMiniGameQueue(title, { personalStarred, crowdPopular }).length,
-      )
-    : 0;
+  const personalStarred = getMineLineIndices(entry.id);
+  const starCounts = title
+    ? miniGameStarCounts(title, {
+        personalStarred,
+        personalLoved: getLovedLineIndices(entry.id),
+        crowdPopular,
+      })
+    : { personal: 0, global: 0 };
+  const starNote = describeMiniGameStars(starCounts.personal, starCounts.global);
 
   const highGames = useMemo(() => {
     if (!titleStats) return [];
@@ -69,7 +70,7 @@ export function SetupScreen({
     async function loadStars() {
       await hydrateStarsForTitle(entry.id);
       if (cancelled) return;
-      setStarredCount(getStarsForTitle(entry.id).length);
+      setStarRevision((value) => value + 1);
 
       const popular = await loadPopularStars(entry.id);
       if (!cancelled) setCrowdPopular(popular);
@@ -105,13 +106,21 @@ export function SetupScreen({
         <div>
           <h2>{entry.title}</h2>
           <p className="muted setup-meta">
-            {questionCount} dialogue questions · {starredCount} starred
+            {questionCount} dialogue questions ·{" "}
+            {personalStarred.length === 0
+              ? "no stars of yours yet"
+              : `${personalStarred.length} of your stars`}
             {titleStats && titleStats.playCount > 0
               ? ` · ${titleStats.playCount} play${titleStats.playCount === 1 ? "" : "s"}`
               : ""}
           </p>
         </div>
       </div>
+
+      <p className="setup-star-note">{starNote}</p>
+      <button type="button" className="button setup-curate" onClick={onCurate}>
+        Curate Stars
+      </button>
 
       {titleStats && titleStats.players.length > 0 && (
         <div className="title-leaders">
@@ -159,11 +168,7 @@ export function SetupScreen({
                 />
                 <span className="mode-copy">
                   <span className="mode-label">{option.label}</span>
-                  <span className="mode-description">
-                    {option.id === "mini"
-                      ? `${miniCount} questions — your stars, then crowd favorites`
-                      : option.description}
-                  </span>
+                  <span className="mode-description">{option.description}</span>
                 </span>
               </label>
             </li>
@@ -176,19 +181,17 @@ export function SetupScreen({
         <ul className="mode-list">
           {GAME_MODES.map((option) => (
             <li key={option.id}>
-              <label className={`mode-option ${option.available ? "" : "disabled"}`}>
+              <label className="mode-option">
                 <input
                   type="radio"
                   name="mode"
                   value={option.id}
                   checked={mode === option.id}
-                  disabled={!option.available}
                   onChange={() => setMode(option.id)}
                 />
                 <span className="mode-copy">
                   <span className="mode-label">{option.label}</span>
                   <span className="mode-description">{option.description}</span>
-                  {!option.available && <span className="mode-soon">Coming soon</span>}
                 </span>
               </label>
             </li>
@@ -198,26 +201,22 @@ export function SetupScreen({
 
       <button
         type="button"
-        className="button primary"
+        className="button primary start-game"
         onClick={() => onStart({ mode, length, crowdPopular })}
       >
         Start game
-      </button>
-
-      <button type="button" className="button ghost curate-link" onClick={onCurate}>
-        Curate stars →
       </button>
 
       <button
         type="button"
         className="button ghost curate-link"
         onClick={onShareMiniGame}
-        disabled={shareBusy || starredCount === 0}
+        disabled={shareBusy || personalStarred.length === 0}
       >
         {shareBusy ? "Creating link…" : "Share mini-game link"}
       </button>
-      {starredCount === 0 && (
-        <p className="muted share-hint">Star some lines first (or Curate) to share a mini-game.</p>
+      {personalStarred.length === 0 && (
+        <p className="muted share-hint">Curate Stars to share a mini-game of yours.</p>
       )}
       {shareMessage && (
         <p className="share-message" role="status">

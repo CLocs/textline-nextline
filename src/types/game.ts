@@ -4,35 +4,31 @@ export type GameLength = "full" | "mini";
 
 export const MINI_GAME_SIZE = 10;
 
+const MODE_LABELS: Record<GameMode, string> = {
+  fun: "Fun",
+  teach: "Teach",
+  medium: "Medium",
+  hard: "Hard",
+};
+
+export function gameModeLabel(mode: GameMode): string {
+  return MODE_LABELS[mode];
+}
+
 export const GAME_MODES: {
   id: GameMode;
   label: string;
   description: string;
-  available: boolean;
 }[] = [
   {
     id: "fun",
     label: "Fun",
     description: "Multiple choice. Wrong answers let you try again. Skip if you're stuck.",
-    available: true,
   },
   {
     id: "teach",
     label: "Teach",
     description: "Like Fun, but skip shows this line and the next until you dismiss the card.",
-    available: true,
-  },
-  {
-    id: "medium",
-    label: "Medium",
-    description: "Type the next line. One miss ends the run.",
-    available: false,
-  },
-  {
-    id: "hard",
-    label: "Hard",
-    description: "Stricter matching. One miss ends the run.",
-    available: false,
   },
 ];
 
@@ -44,7 +40,7 @@ export const GAME_LENGTHS: {
   {
     id: "mini",
     label: "Mini-game (10)",
-    description: "Ten questions — starred lines first, then random picks.",
+    description: "Ten questions. Your stars first, then global stars.",
   },
   {
     id: "full",

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Title } from "../types/content";
-import { GAME_MODES } from "../types/game";
+import { gameModeLabel } from "../types/game";
 import type { McqQuestion } from "../lib/game/mcq";
 import { getValidPromptIndices, sequenceLabel } from "../lib/game/miniGame";
 import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
@@ -109,7 +109,7 @@ export function PlayScreen({
     return () => window.clearTimeout(timer);
   }, [feedback, run.correctCount, run.wrongCount]);
 
-  const modeLabel = GAME_MODES.find((item) => item.id === run.mode)?.label ?? run.mode;
+  const modeLabel = gameModeLabel(run.mode);
   const lengthLabel = run.length === "mini" ? "Mini" : "Full";
   const teachSkipOpen = run.mode === "teach" && feedback === "skipped" && Boolean(skipReveal);
 

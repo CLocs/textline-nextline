@@ -152,6 +152,44 @@ function pickStreak(
   return chosen.slice(bestStart, bestStart + size);
 }
 
+/** Playable personal stars, and global stars that are not already yours. */
+export function miniGameStarCounts(
+  source: LineSource,
+  options: Pick<MiniGameQueueOptions, "personalStarred" | "personalLoved" | "crowdPopular">,
+): { personal: number; global: number } {
+  const valid = new Set(getValidPromptIndices(source));
+  const personal = new Set<number>();
+  for (const index of [...(options.personalLoved ?? []), ...options.personalStarred]) {
+    if (valid.has(index)) personal.add(index);
+  }
+  const global = new Set<number>();
+  for (const index of options.crowdPopular ?? []) {
+    if (valid.has(index) && !personal.has(index)) global.add(index);
+  }
+  return { personal: personal.size, global: global.size };
+}
+
+/** Whose stars a mini-game will draw from. Personal stars are the normal source. */
+export function describeMiniGameStars(
+  personal: number,
+  globalStars: number,
+  size = MINI_GAME_SIZE,
+): string {
+  if (personal >= size) {
+    return `This mini-game uses your stars (${personal}).`;
+  }
+  if (personal > 0 && globalStars > 0) {
+    return `This mini-game uses your stars first (${personal}), then global stars.`;
+  }
+  if (personal > 0) {
+    return `This mini-game uses your stars (${personal}).`;
+  }
+  if (globalStars > 0) {
+    return "This mini-game uses global stars. Curate Stars so it uses yours.";
+  }
+  return "No stars yet. Curate Stars so this mini-game uses yours.";
+}
+
 export function buildMiniGameQueue(
   source: LineSource,
   options: MiniGameQueueOptions,
