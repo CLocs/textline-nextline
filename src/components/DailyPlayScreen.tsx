@@ -6,6 +6,7 @@ import { loadTodaysCards } from "../lib/game/dailyLoad";
 import { completeDaily } from "../lib/game/dailyClient";
 import { PosterArt } from "./PosterArt";
 import { LineSendControl } from "./LineSendControl";
+import { DailyMailPrompt } from "./DailyMailPrompt";
 
 const CHOICE_LABELS = ["A", "B", "C", "D"];
 const CORRECT_HOLD_MS = 2000;
@@ -132,6 +133,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
     const total = cards.length;
     return (
       <section className="panel daily-result">
+        {total > 0 ? <DailyMailPrompt /> : null}
         <h2>{total === 0 ? "Nothing lined up" : "Today’s three"}</h2>
         {total > 0 && (
           <p>

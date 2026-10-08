@@ -1387,6 +1387,14 @@ code {
   display: block;
 }
 
+.daily-mail-prompt p {
+  margin: 0 0 1rem;
+}
+
+.daily-mail-prompt .row {
+  margin: 0;
+}
+
 .profile-avatar {
   display: flex;
   align-items: center;
