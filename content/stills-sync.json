@@ -3854,5 +3854,31 @@
     "approvedAt": "2026-10-01T23:23:05.069Z",
     "batchedAt": "2026-10-01T23:25:07.980Z",
     "pushedAt": "2026-10-01T23:33:13.835Z"
+  },
+  "terminator-2-judgment-day-1991": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 9205.321125,
+    "source": "H:\\videos\\movies\\Terminator 2 Judgment Day (1991).mp4",
+    "handful": [
+      127,
+      261,
+      499,
+      636,
+      778,
+      872
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "note": "Studio lines 967 stills (12 already on disk).",
+    "approvedAt": "2026-10-08T03:02:22.805Z",
+    "batchedAt": "2026-10-08T03:04:53.746Z",
+    "pushedAt": "2026-10-08T03:17:05.242Z"
   }
 }

@@ -1387,6 +1387,14 @@ code {
   display: block;
 }
 
+.daily-mail-prompt p {
+  margin: 0 0 1rem;
+}
+
+.daily-mail-prompt .row {
+  margin: 0;
+}
+
 .profile-avatar {
   display: flex;
   align-items: center;
@@ -2164,7 +2172,7 @@ code {
   }
 
   .play-poster {
-    max-height: 7rem;
+    max-height: min(40vh, 20rem);
   }
 
   .prompt-text {

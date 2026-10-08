@@ -3,6 +3,7 @@ import type { Title } from "../types/content";
 import { questionTotal, type GameRun } from "../lib/game/session";
 import { fetchSharedRuns, type SharedRun } from "../lib/auth/api";
 import { rateRun, shareCompletedRun, type Thumb } from "../lib/runs/api";
+import { DailyMailPrompt } from "./DailyMailPrompt";
 
 type Props = {
   title: Title;
@@ -109,6 +110,7 @@ export function CompleteScreen({
 
   return (
     <section className="panel complete-panel">
+      <DailyMailPrompt />
       <button type="button" className="button ghost back-link" onClick={onBack}>
         ← Return to library
       </button>

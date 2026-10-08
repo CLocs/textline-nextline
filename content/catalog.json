@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-01T23:14:48.187Z",
+  "updatedAt": "2026-10-08T00:55:59.467Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -1006,6 +1006,16 @@
       "importedAt": "2026-09-16T02:46:37.940Z",
       "meta": {
         "year": 1990
+      }
+    },
+    {
+      "id": "half-baked-1998",
+      "title": "Half Baked (1998)",
+      "lineCount": 971,
+      "sourceFilename": "Half.Baked.1998.eng.srt",
+      "importedAt": "2026-10-08T00:55:59.463Z",
+      "meta": {
+        "year": 1998
       }
     },
     {
