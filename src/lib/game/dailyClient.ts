@@ -59,13 +59,23 @@ export async function loadStreak(): Promise<StreakState> {
   return best;
 }
 
+export type DailyScore = {
+  correctCount: number;
+  wrongCount: number;
+  skipCount: number;
+  questionTotal: number;
+};
+
 /** Record that today's three questions were finished. Same day does not add a day. */
-export async function completeDaily(completedOn = todayIso()): Promise<StreakState> {
+export async function completeDaily(
+  completedOn = todayIso(),
+  score?: DailyScore,
+): Promise<StreakState> {
   const local = nextStreak(readLocalStreak(), completedOn);
   writeLocalStreak(local);
   const response = await apiFetch("/api/daily/streak", {
     method: "POST",
-    body: JSON.stringify({ date: completedOn }),
+    body: JSON.stringify({ date: completedOn, ...score }),
   });
   if (!response?.ok) return local;
   const remote = parseStreak(await response.json());

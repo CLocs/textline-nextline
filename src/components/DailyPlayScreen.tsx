@@ -30,12 +30,14 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
   const [streakLabel, setStreakLabel] = useState<string | null>(null);
   const [skipArmed, setSkipArmed] = useState(false);
   const timer = useRef<number | null>(null);
+  const scoreRef = useRef({ correctCount: 0, wrongCount: 0, skipCount: 0 });
 
   useEffect(() => {
     let cancelled = false;
     setStep(0);
     setFinished(false);
     setHits(0);
+    scoreRef.current = { correctCount: 0, wrongCount: 0, skipCount: 0 };
     setFeedback(null);
     setPickedIndex(null);
     setClean(true);
@@ -59,7 +61,10 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
   useEffect(() => {
     if (!finished || kind !== "daily") return;
     let cancelled = false;
-    void completeDaily().then((state) => {
+    const total = cards?.length ?? 0;
+    const score =
+      total > 0 ? { ...scoreRef.current, questionTotal: total } : undefined;
+    void completeDaily(undefined, score).then((state) => {
       if (!cancelled) {
         setStreakLabel(state.streak > 0 ? `${state.streak}-day streak` : null);
       }
@@ -67,7 +72,7 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [finished, kind]);
+  }, [finished, kind, cards]);
 
   const card = cards?.[step] ?? null;
   const title = card ? getTitle(card.titleId) : null;
@@ -83,7 +88,10 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
   }, [cards, finished, question, step]);
 
   function advance(firstTry: boolean) {
-    if (firstTry) setHits((count) => count + 1);
+    if (firstTry) {
+      scoreRef.current.correctCount += 1;
+      setHits((count) => count + 1);
+    }
     const nextStep = step + 1;
     timer.current = window.setTimeout(() => {
       if (!cards || nextStep >= cards.length) {
@@ -108,6 +116,7 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
       return;
     }
     setClean(false);
+    scoreRef.current.wrongCount += 1;
     setFeedback("wrong");
     if (timer.current != null) window.clearTimeout(timer.current);
     timer.current = window.setTimeout(() => {
@@ -120,6 +129,7 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
     if (!question || feedback != null) return;
     setSkipArmed(false);
     setFeedback("skipped");
+    scoreRef.current.skipCount += 1;
     setPickedIndex(question.correctLineIndex);
     advance(false);
   }

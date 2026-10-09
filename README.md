@@ -438,7 +438,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **Daily quote email** — one mail, 3 framed cards (loved line of the day + 2 starred); click opens daily review on that card and wraps. See [Daily quote email](#daily-quote-email).
 - [x] **Play now** — Home: Play 3 (not the daily) and two framed movies, with Other movies. See [Play now](#play-now).
 - [x] **Home quote** — one skippable starred quote per visit. See [Play now](#play-now).
-- [ ] **Play counts** — mini-games and dailies counted apart; perfects weighted by correct answers; DMs marked right or not. See [Play now](#play-now).
+- [x] **Play counts** — mini-games and dailies counted apart; perfects weighted by correct answers; DMs marked right or not. Stored, not shown yet. See [Play now](#play-now).
 - [ ] **Badges and friends boards** — those three numbers, friends only. See [Play now](#play-now).
 - [ ] **Standalone quotes (star a plain line)** — mark a line that lands on its own, not as a TLNL setup; the daily mail adds a quote card beside the three questions. See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
 - [ ] **Premium: GIFs from selected lines** — paid tier renders a short loop over the selected cues instead of a still. See [Premium GIFs](#premium-gifs-from-selected-lines).
@@ -863,9 +863,15 @@ Not the same as **Daily challenge** (one public quiz for everyone). Export image
 
 A show picker stays off. A show still needs an episode.
 
+**Counts.** Computed for the signed-in player at `GET /api/stats/counts`. Not shown in the app yet.
+
+- **Mini-games played** — finished runs of length mini. Full episodes are left out. Play 3 and the Home quote are not runs, so they are not counted.
+- **Daily games played** — one row per finished day in `daily_plays`, from the day this shipped. The streak does not remember older days. Playing the same day again does not add another game or replace the score.
+- **Perfects** — every question right, no miss, no skip. The weight is the sum of those correct answers, so a perfect 10 outweighs a perfect 3. Perfect minis and perfect dailies both add in. A perfect full episode does not.
+- **DMs** — a new correct guess sets `line_inbox.guessed_right`. Older solved cards stay solved, not correct.
+
 **Next, not in this pass.**
 
-- **Counts.** Mini-games played, daily games played, and perfects (every question right, no miss, no skip). Rank weight is the sum of correct answers, so a perfect 10 outweighs a perfect 3. Dailies do not count as minis. An incoming DM stores whether the guess was right; older solved cards stay solved, not correct.
 - **Badges, then a friends board** for mini-games played, weighted perfects, and DMs answered correctly. No public list.
 
 ### Global search ✅

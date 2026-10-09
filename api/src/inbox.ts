@@ -289,7 +289,10 @@ export async function markInboxSolved(
   if (row.solved_at) return { ok: true };
   const now = new Date().toISOString();
   await db
-    .prepare(`UPDATE line_inbox SET solved_at = ? WHERE id = ? AND solved_at IS NULL`)
+    .prepare(
+      `UPDATE line_inbox SET solved_at = ?, guessed_right = 1
+       WHERE id = ? AND solved_at IS NULL`,
+    )
     .bind(now, inboxId)
     .run();
   return { ok: true };
