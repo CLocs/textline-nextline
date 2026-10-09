@@ -131,7 +131,7 @@ function createDb() {
                 }
                 return { results: results as T[] };
               }
-              if (sql.includes("COUNT(*) AS count")) {
+              if (sql.includes("SUM(weight) AS count") || sql.includes("COUNT(*) AS count")) {
                 const counts = new Map<string, { title_id: string; line_index: number; count: number }>();
                 for (const star of stars) {
                   const key = `${star.title_id}:${star.line_index}`;

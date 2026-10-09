@@ -46,3 +46,20 @@ export function sampleFramedMovies(
   const pool = fresh.length >= Math.min(count, movies.length) ? fresh : movies;
   return shuffle(pool, rng).slice(0, Math.min(count, pool.length));
 }
+
+/** Replace the movie just played. The other card stays. If nothing else is left, the pair stays. */
+export function rotatePlayedMovie(
+  movies: CatalogEntry[],
+  pair: readonly CatalogEntry[],
+  playedId: string,
+  rng: () => number = Math.random,
+): CatalogEntry[] {
+  const index = pair.findIndex((movie) => movie.id === playedId);
+  if (index < 0) return [...pair];
+  const avoid = pair.map((movie) => movie.id);
+  const [next] = sampleFramedMovies(movies, avoid, 1, rng);
+  if (!next || avoid.includes(next.id)) return [...pair];
+  const updated = [...pair];
+  updated[index] = next;
+  return updated;
+}

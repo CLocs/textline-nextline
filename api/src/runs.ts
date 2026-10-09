@@ -1,4 +1,5 @@
 import type { User } from "./auth.js";
+import { adjustStarWeights } from "./stars.js";
 import { createFrozenShare, upsertSharedRun } from "./shares.js";
 
 const UUID_RE =
@@ -167,6 +168,15 @@ export async function insertRun(
     .run();
 }
 
+/** A thumbs-up adds one point. Leaving thumbs-up gives that point back. */
+export function thumbWeightDelta(previous: string | null, next: Thumb): number {
+  const wasUp = previous === "up";
+  const nowUp = next === "up";
+  if (nowUp && !wasUp) return 1;
+  if (!nowUp && wasUp) return -1;
+  return 0;
+}
+
 export async function rateRun(
   db: D1Database,
   user: User,
@@ -174,13 +184,27 @@ export async function rateRun(
   thumb: Thumb,
 ): Promise<{ ok: true } | { error: string; status: number }> {
   const row = await db
-    .prepare(`SELECT id, user_id FROM runs WHERE id = ?`)
+    .prepare(
+      `SELECT r.id, r.user_id, r.title_id, r.question_queue, rt.thumb AS prev_thumb
+       FROM runs r
+       LEFT JOIN run_ratings rt ON rt.run_id = r.id
+       WHERE r.id = ?`,
+    )
     .bind(runId)
-    .first<{ id: string; user_id: string }>();
+    .first<{
+      id: string;
+      user_id: string;
+      title_id: string;
+      question_queue: string | null;
+      prev_thumb: string | null;
+    }>();
 
   if (!row || row.user_id !== user.id) {
     return { error: "Run not found", status: 404 };
   }
+
+  const lines = decodeQuestionQueue(row.question_queue) ?? [];
+  await adjustStarWeights(db, user.id, row.title_id, lines, thumbWeightDelta(row.prev_thumb, thumb));
 
   await db
     .prepare(

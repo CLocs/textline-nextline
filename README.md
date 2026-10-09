@@ -221,7 +221,7 @@ Keep the **login gate** (browse/play still require an account). Add one-click Go
 
 **Goal:** Gamify without waiting on rooms or global leaderboards. Every completed run is recorded. Signed-in players get a tabbed profile (account, match history, game stats). **Home** is the landing (recent + top played); the full catalog is one click away under Browse. End-of-run thumbs collect a light quality signal for later popular-star ranking.
 
-Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — the only persisted scores were `shared_runs` on a share link. Crowd popular remains a raw `COUNT` of stars per line (thumbs are stored, not yet applied).
+Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — the only persisted scores were `shared_runs` on a share link. Crowd popular is the sum of each person’s star weight. A normal star weighs 1.
 
 ### Features
 
@@ -229,7 +229,7 @@ Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — th
 - [x] **Profile** — auth bar name opens a profile with tabs: **Account** (display name), **Match history**, **Game stats** (games played, lines guessed, titles touched, personal most-played). Reputation is those totals — not ELO.
 - [x] **Match history** — list on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips), and stored thumbs when present. Mini runs with a saved prompt list can **Share** an exact replay (`#/play/:shareId`); a short cohort line shows who played. Newest first. Personal; not a public leaderboard.
 - [x] **Home + library** — signed-in landing is **Home**: **your recent**, **your top played**, then **top movies / shows · everyone** (global play counts). Crowd rails show even if you have no games yet. **Browse full library** opens Movies \| TV. Clicking a title shows who has played it most and who has the high game.
-- [x] **Thumbs on complete** — optional thumbs up / down on the game-over screen (skip allowed). One rating per run, changeable until they leave. Stars stay “this line is a TL”; thumbs are “this session was a good game.”
+- [x] **Thumbs on complete** — optional thumbs up / down on the game-over screen (skip allowed). One rating per run, changeable until they leave. Thumbs up adds 1 to that person’s weight on each line from the game they had already starred. Thumbs down gives that point back. It does not create a new star.
 - [ ] **Light weight on popular *(later slice)*** — do **not** change `/api/stars/popular` in the same ship as collecting votes. When enough ratings exist, apply a small title-level nudge (clamp about ±10%) so well-liked titles’ crowd stars surface a bit sooner. Never hide or unstar a line from a thumbs-down.
 
 ### Data (D1)
@@ -281,7 +281,7 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 - Finishing (or missing out of) a solo or shared game writes a `runs` row.
 - Profile shows stats + a match-history list (game, title, score, thumbs when present).
 - Home lists your recent + your top played, then everyone’s top movies/shows (visible with zero personal games). Opening a title shows per-title leaders (most played / high game).
-- Complete screen has optional thumbs; ratings persist; popular ranking is **unchanged** until the later weight slice.
+- Complete screen has optional thumbs; ratings persist. A thumbs-up adds 1 to that person’s existing star weight on each line from the game.
 - Mini-game history rows with a saved prompt list can share an exact replay; Setup share still uses live stars.
 
 ### Suggested build order
@@ -860,7 +860,7 @@ A later pass should prefer stars from movies the player likes. See [Liked titles
 **On Home**, under friends and above today’s daily.
 
 1. **Play 3** — three framed quotes right now. Your stars fill first, then the same framed pool as the daily. Today’s three are skipped when other lines exist. It does not move the day streak.
-2. **Two movies** — two catalog movies that have stills. Tap one to start a Fun mini-game. **Other movies** draws a new pair and skips the ones just shown when enough others remain.
+2. **Two movies** — two catalog movies that have stills. Tap one to start a Fun mini-game. Coming back home replaces the one you played and keeps the other. **Other movies** draws a new pair and skips the ones just shown when enough others remain.
 3. **A quote** — one starred line (yours, or the framed pool) for this visit. **Answer this** plays that one card, then returns Home and clears it. Skip clears it without playing. Refresh shows another. Coming back from a game does not.
 
 A show picker stays off. A show still needs an episode.
