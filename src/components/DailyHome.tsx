@@ -34,6 +34,28 @@ function moviesForVisit(movies: CatalogEntry[]): CatalogEntry[] {
   return shownMovies;
 }
 
+function RefreshIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        d="M20 12a8 8 0 1 1-2.3-5.7"
+      />
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M20 4v5h-5"
+      />
+    </svg>
+  );
+}
+
 function snippet(text: string): string {
   const trimmed = text.replace(/\s+/g, " ").trim();
   return trimmed.length > 90 ? `${trimmed.slice(0, 87)}…` : trimmed;
@@ -90,7 +112,7 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie }: Props
         <div className="play-now">
           <h3 className="library-group-heading">Play now</h3>
           <div className="play-now-actions">
-            <button type="button" className="button primary" onClick={onPlayInstant}>
+            <button type="button" className="button primary play-now-play" onClick={onPlayInstant}>
               Play 3
             </button>
             <p className="muted">Three quotes, right now. Not today’s daily.</p>
@@ -101,14 +123,16 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie }: Props
                 <h3 className="library-group-heading">Two movies</h3>
                 <button
                   type="button"
-                  className="button ghost"
+                  className="button ghost play-now-refresh"
+                  aria-label="Other movies"
+                  title="Other movies"
                   disabled={movies.length <= 2}
                   onClick={() => {
                     shownMovies = sampleFramedMovies(movies, pair.map((entry) => entry.id), 2);
                     setPair(shownMovies);
                   }}
                 >
-                  Other movies
+                  <RefreshIcon />
                 </button>
               </div>
               <ul className="play-now-movies">
