@@ -350,7 +350,8 @@ button {
   margin-top: 0.65rem;
 }
 
-.button.play-now-play {
+.button.play-now-play,
+.button.home-browse {
   display: block;
   width: 100%;
   padding: 0.95rem 1.15rem;
@@ -542,6 +543,7 @@ button {
 
 .home-browse-row {
   margin-top: 0.25rem;
+  padding-inline: calc(1.25rem + 1px);
 }
 
 .home-empty-rails {

@@ -475,7 +475,7 @@ export function LibraryScreen({
           <div className="home-browse-row">
             <button
               type="button"
-              className="button primary"
+              className="button primary home-browse"
               onClick={() => setView({ level: "browse" })}
             >
               Browse full library
