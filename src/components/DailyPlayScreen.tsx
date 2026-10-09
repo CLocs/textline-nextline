@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { getTitle } from "../lib/content/browser";
 import { buildMcq, type McqQuestion } from "../lib/game/mcq";
 import { rotateCards, type DailyLine } from "../lib/game/dailyPick";
-import { loadTodaysCards } from "../lib/game/dailyLoad";
+import { loadInstantCards, loadTodaysCards } from "../lib/game/dailyLoad";
 import { completeDaily } from "../lib/game/dailyClient";
 import { PosterArt } from "./PosterArt";
 import { LineSendControl } from "./LineSendControl";
@@ -15,9 +15,11 @@ const MISS_HOLD_MS = 1400;
 type Props = {
   startIndex: number;
   onQuit: () => void;
+  /** Instant three does not touch the daily streak. */
+  kind?: "daily" | "instant";
 };
 
-export function DailyPlayScreen({ startIndex, onQuit }: Props) {
+export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
   const [cards, setCards] = useState<DailyLine[] | null>(null);
   const [step, setStep] = useState(0);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | "skipped" | null>(null);
@@ -39,13 +41,14 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
     setClean(true);
     setSkipArmed(false);
     setStreakLabel(null);
-    void loadTodaysCards().then((next) => {
+    const load = kind === "instant" ? loadInstantCards() : loadTodaysCards();
+    void load.then((next) => {
       if (!cancelled) setCards(rotateCards(next, startIndex));
     });
     return () => {
       cancelled = true;
     };
-  }, [startIndex]);
+  }, [startIndex, kind]);
 
   useEffect(() => {
     return () => {
@@ -54,7 +57,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
   }, []);
 
   useEffect(() => {
-    if (!finished) return;
+    if (!finished || kind !== "daily") return;
     let cancelled = false;
     void completeDaily().then((state) => {
       if (!cancelled) {
@@ -64,7 +67,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [finished]);
+  }, [finished, kind]);
 
   const card = cards?.[step] ?? null;
   const title = card ? getTitle(card.titleId) : null;
@@ -124,7 +127,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
   if (cards === null) {
     return (
       <section className="panel">
-        <p className="muted">Loading today’s three…</p>
+        <p className="muted">{kind === "instant" ? "Loading three quotes…" : "Loading today’s three…"}</p>
       </section>
     );
   }
@@ -134,7 +137,7 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
     return (
       <section className="panel daily-result">
         {total > 0 ? <DailyMailPrompt /> : null}
-        <h2>{total === 0 ? "Nothing lined up" : "Today’s three"}</h2>
+        <h2>{total === 0 ? "Nothing lined up" : kind === "instant" ? "Three quotes" : "Today’s three"}</h2>
         {total > 0 && (
           <p>
             You got {hits} of {total} on the first try.
@@ -163,8 +166,10 @@ export function DailyPlayScreen({ startIndex, onQuit }: Props) {
           ← Home
         </button>
       </div>
-      <h2 className="daily-play-title">Daily · {step + 1} of {cards.length}</h2>
-      {card.slot === "global" ? <p className="daily-today-label">Line of the day</p> : null}
+      <h2 className="daily-play-title">
+        {kind === "instant" ? "Play 3" : "Daily"} · {step + 1} of {cards.length}
+      </h2>
+      {kind === "daily" && card.slot === "global" ? <p className="daily-today-label">Line of the day</p> : null}
 
       <p className="episode-label">{title.title}</p>
       <div className="play-prompt-row">

@@ -177,6 +177,52 @@ export function dailyCardsOn(
   return last;
 }
 
+function drawInstant(
+  personalPool: DailyLine[],
+  globalPool: DailyLine[],
+  excluded: Set<string>,
+  rng: () => number,
+): DailyLine[] {
+  const taken = new Set(excluded);
+  const cards: DailyLine[] = [];
+  const personal = uniqueLines(personalPool, taken);
+  while (cards.length < DAILY_SIZE) {
+    const next = takeOne(personal, taken, rng);
+    if (!next) break;
+    cards.push(place(next, "starred"));
+  }
+  const global = uniqueLines(globalPool, taken);
+  while (cards.length < DAILY_SIZE) {
+    const next = takeOne(global, taken, rng);
+    if (!next) break;
+    cards.push(place(next, "starred"));
+  }
+  return cards;
+}
+
+/** Three framed quotes for right now. Personal stars first. Not the daily. */
+export function pickInstantCards(
+  personalPool: DailyLine[],
+  globalPool: DailyLine[],
+  avoid: Set<string> = new Set(),
+  rng: () => number = Math.random,
+): DailyLine[] {
+  const preferred = drawInstant(personalPool, globalPool, avoid, rng);
+  if (preferred.length > 0) return preferred;
+  return drawInstant(personalPool, globalPool, new Set(), rng);
+}
+
+/** One starred quote for this Home visit. Personal stars first, then the framed pool. */
+export function pickVisitQuote(
+  personalPool: DailyLine[],
+  globalPool: DailyLine[],
+  rng: () => number = Math.random,
+): DailyLine | null {
+  const personal = takeOne(uniqueLines(personalPool, new Set()), new Set(), rng);
+  if (personal) return personal;
+  return takeOne(uniqueLines(globalPool, new Set()), new Set(), rng);
+}
+
 export function rotateCards<T>(cards: T[], startIndex: number): T[] {
   if (cards.length === 0) return [];
   const start = ((startIndex % cards.length) + cards.length) % cards.length;

@@ -6,7 +6,7 @@ import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue, chronologicalPromptQueue } from "../lib/game/miniGame";
 import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, isForgivingMcq, type GameRun } from "../lib/game/session";
-import { getLovedLineIndices, getMineLineIndices } from "../lib/stars/sync";
+import { getLovedLineIndices, getMineLineIndices, hydrateStarsForTitle, loadPopularStars } from "../lib/stars/sync";
 import {
   createMiniShare,
   fetchMe,
@@ -48,7 +48,7 @@ import { SearchScreen } from "../components/SearchScreen";
 import { DailyMailUnsub } from "../components/DailyMailUnsub";
 import { canViewCatalogOps } from "../lib/content/owner";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily" | "unsub";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily" | "instant" | "unsub";
 
 function initialScreen(): Screen {
   if (parseHash().kind === "unsub") return "unsub";
@@ -318,6 +318,17 @@ export function App() {
         setScreen("parallel");
         return;
       }
+      if (route.kind === "instant") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to play three quotes.");
+          captureLoginReturn("instant");
+          setScreen("login");
+          setHash(`login?return=${encodeURIComponent("instant")}`);
+          return;
+        }
+        setScreen("instant");
+        return;
+      }
       if (route.kind === "daily") {
         if (!user && !getStoredUser()) {
           setLoginMessage("Sign in to play today’s three.");
@@ -464,6 +475,12 @@ export function App() {
     setSkipReveal(null);
     setPendingRun(null);
     setScreen("play");
+  }
+
+  async function handlePlayMovie(entry: CatalogEntry) {
+    await hydrateStarsForTitle(entry.id);
+    const crowdPopular = await loadPopularStars(entry.id);
+    beginGame(entry, { mode: "fun", length: "mini", crowdPopular });
   }
 
   function handlePickEpisode(entry: CatalogEntry) {
@@ -703,7 +720,7 @@ export function App() {
   const showApp = Boolean(user);
 
   return (
-    <div className={`app-shell${screen === "play" || screen === "curate" || screen === "daily" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
+    <div className={`app-shell${screen === "play" || screen === "curate" || screen === "daily" || screen === "instant" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
       <header className="app-header">
         <div className="brand-lockup">
           <button
@@ -770,11 +787,22 @@ export function App() {
             setScreen("daily");
             setHash(`daily/${startIndex}`);
           }}
+          onPlayInstant={() => {
+            setScreen("instant");
+            setHash("instant");
+          }}
+          onPlayMovie={(entry) => {
+            void handlePlayMovie(entry);
+          }}
         />
       )}
 
       {showApp && screen === "daily" && (
         <DailyPlayScreen startIndex={dailyStart} onQuit={handleBackToLibrary} />
+      )}
+
+      {showApp && screen === "instant" && (
+        <DailyPlayScreen kind="instant" startIndex={0} onQuit={handleBackToLibrary} />
       )}
 
       {showApp && screen === "chats" && (
