@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS stars (
   starred_at TEXT NOT NULL,
   loved      INTEGER NOT NULL DEFAULT 0,
   origin     TEXT NOT NULL DEFAULT 'mine',
+  weight     INTEGER NOT NULL DEFAULT 1,
   PRIMARY KEY (title_id, line_index, player_id)
 );
 

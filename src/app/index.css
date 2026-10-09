@@ -1116,6 +1116,19 @@ button {
   border-color: var(--secondary);
 }
 
+.button.thumb-up {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.button.thumb-up svg {
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+}
+
 .local-dev-continue {
   margin-top: 0.85rem;
   width: 100%;

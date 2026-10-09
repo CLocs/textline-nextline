@@ -3,6 +3,7 @@ import { isAllowedOrigin, parseAllowedOrigins } from "../api/src/cors.js";
 import {
   deleteStar,
   fetchMyStars,
+  adjustStarWeights,
   fetchPopularStars,
   fetchPopularStarsGlobal,
   isValidPlayerId,
@@ -22,6 +23,7 @@ type Row = {
   starred_at: string;
   loved: number;
   origin?: string;
+  weight?: number;
 };
 
 function createMockDb(initial: Row[] = []) {
@@ -55,6 +57,7 @@ function createMockDb(initial: Row[] = []) {
                     player_id: playerId,
                     starred_at: starredAt,
                     loved: 0,
+                    weight: 1,
                   });
                 }
               } else if (sql.includes("UPDATE stars SET loved")) {
@@ -75,6 +78,20 @@ function createMockDb(initial: Row[] = []) {
                   row.loved = loved;
                   if (loved === 1) row.origin = "mine";
                 }
+              } else if (sql.includes("UPDATE stars SET weight")) {
+                const [delta, titleId, lineIndex, playerId] = args as [
+                  number,
+                  string,
+                  number,
+                  string,
+                ];
+                const row = rows.find(
+                  (entry) =>
+                    entry.title_id === titleId &&
+                    entry.line_index === lineIndex &&
+                    entry.player_id === playerId,
+                );
+                if (row) row.weight = Math.max(1, (row.weight ?? 1) + delta);
               } else if (sql.includes("DELETE FROM stars")) {
                 const [titleId, lineIndex, playerId] = args as [string, number, string];
                 const index = rows.findIndex(
@@ -161,12 +178,13 @@ function createMockDb(initial: Row[] = []) {
                 for (const row of rows) {
                   const key = `${row.title_id}:${row.line_index}`;
                   const existing = counts.get(key);
-                  if (existing) existing.count += 1;
+                  const points = row.weight ?? 1;
+                  if (existing) existing.count += points;
                   else {
                     counts.set(key, {
                       title_id: row.title_id,
                       line_index: row.line_index,
-                      count: 1,
+                      count: points,
                     });
                   }
                 }
@@ -185,7 +203,7 @@ function createMockDb(initial: Row[] = []) {
                 const [titleId, limit] = args as [string, number];
                 const counts = new Map<number, number>();
                 for (const row of rows.filter((entry) => entry.title_id === titleId)) {
-                  counts.set(row.line_index, (counts.get(row.line_index) ?? 0) + 1);
+                  counts.set(row.line_index, (counts.get(row.line_index) ?? 0) + (row.weight ?? 1));
                 }
                 const results = [...counts.entries()]
                   .map(([line_index, count]) => ({ line_index, count }))
@@ -260,6 +278,17 @@ describe("star helpers", () => {
       { lineIndex: 5, count: 2 },
       { lineIndex: 7, count: 1 },
     ]);
+  });
+
+  it("adds one point to stars this person already has", async () => {
+    const { db, rows } = createMockDb();
+    await putStar(db, PLAYER_ID, { titleId: "ep", lineIndex: 2 });
+    await adjustStarWeights(db, PLAYER_ID, "ep", [2, 9], 1);
+    expect(rows.find((row) => row.line_index === 2)?.weight).toBe(2);
+    expect(rows.some((row) => row.line_index === 9)).toBe(false);
+    await adjustStarWeights(db, PLAYER_ID, "ep", [2], -1);
+    expect(rows.find((row) => row.line_index === 2)?.weight).toBe(1);
+    expect(await fetchPopularStars(db, "ep", 10)).toEqual([{ lineIndex: 2, count: 1 }]);
   });
 
   it("aggregates popular stars across titles", async () => {

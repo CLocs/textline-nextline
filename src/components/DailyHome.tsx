@@ -5,7 +5,7 @@ import { getLine } from "../lib/content/lines";
 import { lineKey, todayIso, type DailyLine } from "../lib/game/dailyPick";
 import { loadTodaysCards } from "../lib/game/dailyLoad";
 import { loadStreak, readLocalStreak } from "../lib/game/dailyClient";
-import { framedMovies, framedTitleIds, sampleFramedMovies } from "../lib/game/playNow";
+import { framedMovies, framedTitleIds, rotatePlayedMovie, sampleFramedMovies } from "../lib/game/playNow";
 import { coverStillLineIndex } from "../lib/content/stillsCover";
 import { fetchFriends, type FriendListItem } from "../lib/friends/api";
 import { bestFriends } from "../lib/friends/faces";
@@ -22,8 +22,17 @@ type Props = {
 };
 
 let shownMovies: CatalogEntry[] | null = null;
+let playedMovieId: string | null = null;
 
 function moviesForVisit(movies: CatalogEntry[]): CatalogEntry[] {
+  if (shownMovies && playedMovieId) {
+    const next = rotatePlayedMovie(movies, shownMovies, playedMovieId);
+    playedMovieId = null;
+    if (next.length > 0 && next.every((shown) => movies.some((movie) => movie.id === shown.id))) {
+      shownMovies = next;
+      return shownMovies;
+    }
+  }
   if (
     shownMovies &&
     shownMovies.length > 0 &&
@@ -141,7 +150,14 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
                   const lineIndex = coverStillLineIndex(entry.id);
                   return (
                     <li key={entry.id}>
-                      <button type="button" className="title-card" onClick={() => onPlayMovie(entry)}>
+                      <button
+                        type="button"
+                        className="title-card"
+                        onClick={() => {
+                          playedMovieId = entry.id;
+                          onPlayMovie(entry);
+                        }}
+                      >
                         {lineIndex != null ? (
                           <PosterArt
                             titleId={entry.id}

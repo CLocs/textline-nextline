@@ -26,6 +26,11 @@ const ALTERS = [
     column: "origin",
     sql: "ALTER TABLE stars ADD COLUMN origin TEXT NOT NULL DEFAULT 'mine'",
   },
+  {
+    table: "stars",
+    column: "weight",
+    sql: "ALTER TABLE stars ADD COLUMN weight INTEGER NOT NULL DEFAULT 1",
+  },
   { table: "line_inbox", column: "read_at", sql: "ALTER TABLE line_inbox ADD COLUMN read_at TEXT" },
   { table: "line_inbox", column: "group_id", sql: "ALTER TABLE line_inbox ADD COLUMN group_id TEXT" },
   { table: "line_inbox", column: "solved_at", sql: "ALTER TABLE line_inbox ADD COLUMN solved_at TEXT" },

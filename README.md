@@ -221,7 +221,7 @@ Keep the **login gate** (browse/play still require an account). Add one-click Go
 
 **Goal:** Gamify without waiting on rooms or global leaderboards. Every completed run is recorded. Signed-in players get a tabbed profile (account, match history, game stats). **Home** is the landing (recent + top played); the full catalog is one click away under Browse. End-of-run thumbs collect a light quality signal for later popular-star ranking.
 
-Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — the only persisted scores were `shared_runs` on a share link. Crowd popular remains a raw `COUNT` of stars per line (thumbs are stored, not yet applied).
+Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — the only persisted scores were `shared_runs` on a share link. Crowd popular is the sum of each person’s star weight. A normal star weighs 1.
 
 ### Features
 
@@ -229,7 +229,7 @@ Auth already exists (Phase 2a). Solo `GameRun` used to be **client-only** — th
 - [x] **Profile** — auth bar name opens a profile with tabs: **Account** (display name), **Match history**, **Game stats** (games played, lines guessed, titles touched, personal most-played). Reputation is those totals — not ELO.
 - [x] **Match history** — list on the profile: **game** (full vs mini, mode), **title** (movie or show + episode), **score** (`correct / questions`, plus wrongs/skips), and stored thumbs when present. Mini runs with a saved prompt list can **Share** an exact replay (`#/play/:shareId`); a short cohort line shows who played. Newest first. Personal; not a public leaderboard.
 - [x] **Home + library** — signed-in landing is **Home**: **your recent**, **your top played**, then **top movies / shows · everyone** (global play counts). Crowd rails show even if you have no games yet. **Browse full library** opens Movies \| TV. Clicking a title shows who has played it most and who has the high game.
-- [x] **Thumbs on complete** — optional thumbs up / down on the game-over screen (skip allowed). One rating per run, changeable until they leave. Stars stay “this line is a TL”; thumbs are “this session was a good game.”
+- [x] **Thumbs on complete** — optional thumbs up / down on the game-over screen (skip allowed). One rating per run, changeable until they leave. Thumbs up adds 1 to that person’s weight on each line from the game they had already starred. Thumbs down gives that point back. It does not create a new star.
 - [ ] **Light weight on popular *(later slice)*** — do **not** change `/api/stars/popular` in the same ship as collecting votes. When enough ratings exist, apply a small title-level nudge (clamp about ±10%) so well-liked titles’ crowd stars surface a bit sooner. Never hide or unstar a line from a thumbs-down.
 
 ### Data (D1)
@@ -281,7 +281,7 @@ popular_score ≈ star_count × (1 + ε × title_sentiment)
 - Finishing (or missing out of) a solo or shared game writes a `runs` row.
 - Profile shows stats + a match-history list (game, title, score, thumbs when present).
 - Home lists your recent + your top played, then everyone’s top movies/shows (visible with zero personal games). Opening a title shows per-title leaders (most played / high game).
-- Complete screen has optional thumbs; ratings persist; popular ranking is **unchanged** until the later weight slice.
+- Complete screen has optional thumbs; ratings persist. A thumbs-up adds 1 to that person’s existing star weight on each line from the game.
 - Mini-game history rows with a saved prompt list can share an exact replay; Setup share still uses live stars.
 
 ### Suggested build order
@@ -536,7 +536,7 @@ Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (�
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Friend faces** (up to five initials + day-streak badge) sit on Home above Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email** is in (opt-in morning mail). **Standalone quotes** (star a plain line, not a TLNL) and **premium GIFs from selected lines** stay parked. **Chats quote replies** and a **popular-line room** (name open) stay parked. **Title requests (light)** are on Search (Open if we have it, otherwise Request). **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Keep it going** on a one-line send that sits in a streak stays parked. **Friend faces** (up to five initials + day-streak badge) sit on Home above Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email** is in (opt-in morning mail). **Liked-title bias** for that mail and Play 3 stays parked. **Standalone quotes** (star a plain line, not a TLNL) and **premium GIFs from selected lines** stay parked. **Chats quote replies** and a **popular-line room** (name open) stay parked. **Title requests (light)** are on Search (Open if we have it, otherwise Request). **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -556,11 +556,19 @@ A **star streak** is two or more starred lines in a row (adjacent quiz prompts i
 
 Curate **Send** is one line. Next: from Curate, send a **star streak** (two or more starred lines in a row) to a friend or a named group. The share is those lines in transcript order, the same way a streak plays in a mini-game. Same friend gate and Send overlay as the one-line send.
 
+A one-line send that is already part of a streak can offer **Keep it going** later. See [Keep it going](#keep-it-going).
+
 ### Popular-line room *(name open)*
 
 A room mode for 2–4 players, turn-based, on the same board. Instead of the full transcript or a 10-line mini-game, the room walks the title’s **crowd-popular starred lines** — all of them, or most, if the popular set is long. Lines stay in transcript order. Same turn rotation as the [full-transcript room](#features-rooms--later).
 
 The name is unset. “Popular-line room” is a working label only.
+
+### Keep it going *(parked)*
+
+A single quote is one question: a random one-line send, or a DM. When that line is one beat in a **star streak**, offer **Keep it going**.
+
+Tap it to play the rest of the streak in transcript order, from the next starred line. The card stays one line until they tap. For a DM, the streak is the sender’s adjacent stars. For a quote drawn from your own stars, it is yours.
 
 ### Friends + question inbox
 
@@ -853,12 +861,14 @@ Add a second mark on a line — **Quote** (working label) — with the same Cura
 
 Not the same as **Daily challenge** (one public quiz for everyone). Export image stays available from the review card via [Share quote as image](#share-quote-as-image).
 
+A later pass should prefer stars from movies the player likes. See [Liked titles](#liked-titles-for-daily-and-play-3).
+
 ### Play now ✅
 
 **On Home**, under friends and above today’s daily.
 
 1. **Play 3** — three framed quotes right now. Your stars fill first, then the same framed pool as the daily. Today’s three are skipped when other lines exist. It does not move the day streak.
-2. **Two movies** — two catalog movies that have stills. Tap one to start a Fun mini-game. **Other movies** draws a new pair and skips the ones just shown when enough others remain.
+2. **Two movies** — two catalog movies that have stills. Tap one to start a Fun mini-game. Coming back home replaces the one you played and keeps the other. **Other movies** draws a new pair and skips the ones just shown when enough others remain.
 3. **A quote** — one starred line (yours, or the framed pool) for this visit. **Answer this** plays that one card, then returns Home and clears it. Skip clears it without playing. Refresh shows another. Coming back from a game does not.
 
 A show picker stays off. A show still needs an episode.
@@ -873,6 +883,15 @@ A show picker stays off. A show still needs an episode.
 **Next, not in this pass.**
 
 - **Badges, then a friends board** for mini-games played, weighted perfects, and DMs answered correctly. No public list.
+- **Liked titles** — Play 3 prefers stars from movies they have played. See [Liked titles](#liked-titles-for-daily-and-play-3).
+
+### Liked titles for daily and Play 3 *(parked)*
+
+The daily mail’s two starred cards and **Play 3** fill from your stars, then the framed pool. Those fills should know which movies you like, and lean toward stars from those movies.
+
+**Gauge.** A title you have played counts as one you like. For a show, a played episode means you like that show.
+
+**Bias.** Your own stars on liked titles come first. Crowd stars on those same titles fill what is left. The line of the day stays the same for everyone.
 
 ### Global search ✅
 
@@ -980,6 +999,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Next — Loved quotes** | Double-star / love a few golden lines so they land in most mini-games | ✅ Cap 5; queue bias; Curate/Play ♥ |
 | **Shipped — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
 | **Next — Send streaks** | Curate sends a star streak to a friend; they play it in order | Same Send as one line, but the whole run — see [Send streaks](#send-streaks-from-curate) |
+| **Later — Keep it going** | A one-line send inside a star streak can continue the rest | Random quote or DM. Button plays the following lines in order — see [Keep it going](#keep-it-going) |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | L0 checklist below; see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **2 — Popular-line room** | Turn-based room walks the crowd-popular starred lines (all or most) | Name open — longer than a mini-game, shorter than the full transcript |
@@ -1006,6 +1026,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Exploratory — Quote parallels** | Light: packs + catalog connections + upvotes | ✅ Curate save + `#/parallel/{id}`; Medium deferred |
 | **Later — Share quote as image** | Caption-below + on-image; aspect + palettes + prefs | ✅ Export image in Share menu — see [Share quote as image](#share-quote-as-image) |
 | **Shipped — Daily quote email** | One mail, 3 framed cards; click opens that day’s review and wraps | Opt-in. Loved line of the day + 2 starred (yours first); no repeat within 7 days — see [Daily quote email](#daily-quote-email) |
+| **Later — Liked titles** | Daily mail and Play 3 prefer stars from movies the player has played | Played means liked — see [Liked titles](#liked-titles-for-daily-and-play-3) |
 | **Later — Standalone quotes** | Quote mark for lines that aren’t TLNL setups; mail/Home/chat/export carry a no-guess card | Quote marks never enter the quiz pool — see [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl) |
 | **Exploratory — Premium GIFs** | Paid tier renders a capped loop over selected cues; owner-side ffmpeg + bucket | Needs billing/entitlements, which don’t exist yet — see [Premium GIFs](#premium-gifs-from-selected-lines) |
 | **Shipped — Global search** | `#/search`; client catalog scan; Popular / Mine; title + line hits | Find a quote or title without picking a film first — see [Global search](#global-search) |
@@ -1103,6 +1124,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Friend faces** — ✅ Up to five initials on Home, above Today’s Daily Quotes, with a current day-streak badge. Friends of friends (tap, then request) still later. See [Friend faces](#friend-faces--friends-of-friends).
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
 - **Send streaks from Curate** *(next)* — Send a star streak (sequential starred lines) to a friend; they play it in order. See [Send streaks from Curate](#send-streaks-from-curate).
+- **Keep it going** *(parked)* — on a one-line send (random quote or DM) that sits in a star streak, a button plays the rest in order. See [Keep it going](#keep-it-going).
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC single quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **Integrations** *(parked)* — Letterboxd, Flickchart, and a Netflix / Amazon watch-history spike. See [Integrations](#integrations).
@@ -1114,6 +1136,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Quote parallels / analogy packs** — ✅ Light: Curate multi-select → pack; catalog connections + upvotes; Profile → Parallels. Medium (chat/URLs/Home) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - **Share quote as image** — ✅ Share → **Export image**; Caption below / On image; Portrait / Square / Story / Original; Clean / Ink / Lime / None; remembered prefs; Download PNG (+ Web Share when available). Daily email later. See [Share quote as image](#share-quote-as-image).
 - **Daily quote email** — one opt-in mail, 3 framed cards; click opens TLNL (Readwise-style). Not Daily challenge. See [Daily quote email](#daily-quote-email).
+- **Liked titles for daily and Play 3** *(parked)* — a played movie counts as a like; the mail’s starred cards and Play 3 then prefer stars from those movies. See [Liked titles](#liked-titles-for-daily-and-play-3).
 - **Standalone quotes** *(parked)* — star a plain line, not a TLNL setup; input side is a second mark that stays out of the quiz pool, output side is a no-guess quote card in the daily mail (plus Home, chat, export). See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
 - **Premium GIFs from selected lines** *(parked)* — paid tier renders a short loop over the selected cues instead of a still; first feature that needs billing. See [Premium GIFs](#premium-gifs-from-selected-lines).
 - **Global search** — ✅ `#/search`; Popular / Starred by me; title + line hits over the eager catalog. See [Global search](#global-search).
