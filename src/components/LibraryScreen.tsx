@@ -20,6 +20,7 @@ import {
   yourTopPlayed,
 } from "../lib/content/playedRails";
 import { coverStillForShow, coverStillLineIndex } from "../lib/content/stillsCover";
+import type { DailyLine } from "../lib/game/dailyPick";
 import { PosterArt } from "./PosterArt";
 import { ParallelInboxCard } from "./ParallelInboxCard";
 import { ChatsList } from "./ChatsList";
@@ -36,6 +37,7 @@ type Props = {
   onPlayDaily: (startIndex: number) => void;
   onPlayInstant: () => void;
   onPlayMovie: (entry: CatalogEntry) => void;
+  onAnswerQuote: (line: DailyLine) => void;
   /** Increment from the header to jump Home → full library browse. */
   browseNonce?: number;
 };
@@ -100,6 +102,7 @@ export function LibraryScreen({
   onPlayDaily,
   onPlayInstant,
   onPlayMovie,
+  onAnswerQuote,
   browseNonce = 0,
 }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
@@ -301,6 +304,7 @@ export function LibraryScreen({
         onPlay={onPlayDaily}
         onPlayInstant={onPlayInstant}
         onPlayMovie={onPlayMovie}
+        onAnswerQuote={onAnswerQuote}
       />
 
       <PwaInstallHelper />

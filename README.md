@@ -859,7 +859,7 @@ Not the same as **Daily challenge** (one public quiz for everyone). Export image
 
 1. **Play 3** — three framed quotes right now. Your stars fill first, then the same framed pool as the daily. Today’s three are skipped when other lines exist. It does not move the day streak.
 2. **Two movies** — two catalog movies that have stills. Tap one to start a Fun mini-game. **Other movies** draws a new pair and skips the ones just shown when enough others remain.
-3. **A quote** — one starred line (yours, or the framed pool) for this visit. Skip hides it. Refresh shows another. Coming back from a game does not.
+3. **A quote** — one starred line (yours, or the framed pool) for this visit. **Answer this** plays that one card, then returns Home and clears it. Skip clears it without playing. Refresh shows another. Coming back from a game does not.
 
 A show picker stays off. A show still needs an episode.
 

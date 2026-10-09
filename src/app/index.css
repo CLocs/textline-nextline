@@ -408,7 +408,12 @@ button {
 }
 
 .visit-quote-title {
-  margin: 0;
+  margin: 0 0 0.75rem;
+}
+
+.visit-quote-answer {
+  display: block;
+  width: 100%;
 }
 
 .daily-fold-header {

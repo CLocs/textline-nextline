@@ -6,8 +6,12 @@ import type { DailyLine } from "../lib/game/dailyPick";
 import { dismissVisitQuote, ensureVisitQuote } from "../lib/game/visitQuote";
 import { PosterArt } from "./PosterArt";
 
-/** One quote for this visit. Skip hides it until the next refresh. */
-export function VisitQuote() {
+type Props = {
+  onAnswer: (line: DailyLine) => void;
+};
+
+/** One quote for this visit. Skip or a finished answer hides it until the next refresh. */
+export function VisitQuote({ onAnswer }: Props) {
   const [line, setLine] = useState<DailyLine | null | undefined>(undefined);
 
   useEffect(() => {
@@ -51,6 +55,9 @@ export function VisitQuote() {
         <p className="prompt-current">{prompt.text}</p>
       </blockquote>
       <p className="muted visit-quote-title">{title.title}</p>
+      <button type="button" className="button primary visit-quote-answer" onClick={() => onAnswer(line)}>
+        Answer this
+      </button>
     </article>
   );
 }

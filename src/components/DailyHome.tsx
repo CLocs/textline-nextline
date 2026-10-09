@@ -18,6 +18,7 @@ type Props = {
   onPlay: (startIndex: number) => void;
   onPlayInstant: () => void;
   onPlayMovie: (entry: CatalogEntry) => void;
+  onAnswerQuote: (line: DailyLine) => void;
 };
 
 let shownMovies: CatalogEntry[] | null = null;
@@ -61,7 +62,7 @@ function snippet(text: string): string {
   return trimmed.length > 90 ? `${trimmed.slice(0, 87)}…` : trimmed;
 }
 
-export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie }: Props) {
+export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswerQuote }: Props) {
   const [streak, setStreak] = useState(readLocalStreak);
   const [cards, setCards] = useState<DailyLine[] | null>(null);
   const [faces, setFaces] = useState<FriendListItem[]>([]);
@@ -108,7 +109,7 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie }: Props
 
       <section className="panel home-section">
         <FriendFaces friends={faces} label="Friends" className="home-friend-faces" />
-        <VisitQuote />
+        <VisitQuote onAnswer={onAnswerQuote} />
         <div className="play-now">
           <h3 className="library-group-heading">Play now</h3>
           <div className="play-now-actions">
