@@ -436,6 +436,10 @@ Open questions (spike only — no pack UI yet):
 - [x] **Quote parallels / analogy packs (Light)** — Curate 3–500 lines → pack; catalog connections + upvotes; `#/parallel/{id}`. Medium (chat/URLs/Home rail) deferred. See [Later ideas](#quote-parallels--analogy-packs).
 - [x] **Share quote as image** — caption-below + on-image; Original aspect; Clean/Ink/Lime/None; remembered prefs. See [Share quote as image](#share-quote-as-image).
 - [x] **Daily quote email** — one mail, 3 framed cards (loved line of the day + 2 starred); click opens daily review on that card and wraps. See [Daily quote email](#daily-quote-email).
+- [x] **Play now** — Home: Play 3 (not the daily) and two framed movies, with Other movies. See [Play now](#play-now).
+- [x] **Home quote** — one skippable starred quote per visit. See [Play now](#play-now).
+- [x] **Play counts** — mini-games and dailies counted apart; perfects weighted by correct answers; DMs marked right or not. Stored, not shown yet. See [Play now](#play-now).
+- [ ] **Badges and friends boards** — those three numbers, friends only. See [Play now](#play-now).
 - [ ] **Standalone quotes (star a plain line)** — mark a line that lands on its own, not as a TLNL setup; the daily mail adds a quote card beside the three questions. See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
 - [ ] **Premium: GIFs from selected lines** — paid tier renders a short loop over the selected cues instead of a still. See [Premium GIFs](#premium-gifs-from-selected-lines).
 - [x] **Global search** — `#/search`; client-side over eager catalog; Popular / Starred by me; title + line hits. See [Global search](#global-search).
@@ -848,6 +852,27 @@ Add a second mark on a line — **Quote** (working label) — with the same Cura
 **Catalog.** `npm run build` writes `public/daily-mail-catalog.json` (framed prompts, next line, distractors). The cron fetches it from the site. The file is not committed.
 
 Not the same as **Daily challenge** (one public quiz for everyone). Export image stays available from the review card via [Share quote as image](#share-quote-as-image).
+
+### Play now ✅
+
+**On Home**, under friends and above today’s daily.
+
+1. **Play 3** — three framed quotes right now. Your stars fill first, then the same framed pool as the daily. Today’s three are skipped when other lines exist. It does not move the day streak.
+2. **Two movies** — two catalog movies that have stills. Tap one to start a Fun mini-game. **Other movies** draws a new pair and skips the ones just shown when enough others remain.
+3. **A quote** — one starred line (yours, or the framed pool) for this visit. **Answer this** plays that one card, then returns Home and clears it. Skip clears it without playing. Refresh shows another. Coming back from a game does not.
+
+A show picker stays off. A show still needs an episode.
+
+**Counts.** Computed for the signed-in player at `GET /api/stats/counts`. Not shown in the app yet.
+
+- **Mini-games played** — finished runs of length mini. Full episodes are left out. Play 3 and the Home quote are not runs, so they are not counted.
+- **Daily games played** — one row per finished day in `daily_plays`, from the day this shipped. The streak does not remember older days. Playing the same day again does not add another game or replace the score.
+- **Perfects** — every question right, no miss, no skip. The weight is the sum of those correct answers, so a perfect 10 outweighs a perfect 3. Perfect minis and perfect dailies both add in. A perfect full episode does not.
+- **DMs** — a new correct guess sets `line_inbox.guessed_right`. Older solved cards stay solved, not correct.
+
+**Next, not in this pass.**
+
+- **Badges, then a friends board** for mini-games played, weighted perfects, and DMs answered correctly. No public list.
 
 ### Global search ✅
 

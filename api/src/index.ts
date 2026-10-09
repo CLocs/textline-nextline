@@ -60,6 +60,7 @@ import {
   isPlausibleCompletionDate,
   recordDailyStreak,
 } from "./dailyStreak.js";
+import { fetchPlayCounts, parseDailyScore, recordDailyPlay } from "./playCounts.js";
 import {
   getDailyMailPreference,
   runDailyMail,
@@ -785,6 +786,11 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     const userOrError = await requireUser(request, env, origin, allowed);
     if (userOrError instanceof Response) return userOrError;
 
+    if (request.method === "GET" && pathname === "/api/stats/counts") {
+      const counts = await fetchPlayCounts(env.DB, userOrError.id);
+      return jsonResponse(counts, 200, origin, allowed);
+    }
+
     if (request.method === "GET" && pathname === "/api/stats/played") {
       const titles = await fetchPlayedStats(env.DB);
       return jsonResponse({ titles }, 200, origin, allowed);
@@ -862,7 +868,17 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     if (!isPlausibleCompletionDate(date)) {
       return errorResponse("Invalid date", 400, origin, allowed);
     }
+    const parsed = parseDailyScore(body);
+    if (!parsed.ok) {
+      return errorResponse(
+        "Invalid score: expected { correctCount, wrongCount, skipCount, questionTotal }",
+        400,
+        origin,
+        allowed,
+      );
+    }
     const streak = await recordDailyStreak(env.DB, sessionUser.id, date);
+    if (parsed.score) await recordDailyPlay(env.DB, sessionUser.id, date, parsed.score);
     return jsonResponse(streak, 200, origin, allowed);
   }
 

@@ -4,7 +4,7 @@ import { getNextPlayableLine, isPlayableLine } from "../content/playable.js";
 import { hasSceneFrame } from "../content/stillsLines.js";
 import { fetchLovedStarsGlobal, fetchPopularStarsGlobal } from "../stars/api.js";
 import { listStars } from "../stars/store.js";
-import { dailyCardsOn, lineKey, todayIso, type DailyLine } from "./dailyPick.js";
+import { dailyCardsOn, lineKey, pickInstantCards, pickVisitQuote, todayIso, type DailyLine } from "./dailyPick.js";
 
 function canPrompt(titleId: string, lineIndex: number): boolean {
   const title = getTitle(titleId);
@@ -78,4 +78,17 @@ function loadPersonalPool(): DailyLine[] {
 
 export async function loadTodaysCards(now = new Date()): Promise<DailyLine[]> {
   return dailyCardsOn(todayIso(now), await loadGlobalPool(), loadPersonalPool());
+}
+
+/** Three quotes that are not today's daily. Personal framed stars fill first. */
+export async function loadInstantCards(now = new Date()): Promise<DailyLine[]> {
+  const personal = loadPersonalPool();
+  const global = await loadGlobalPool();
+  const today = new Set(dailyCardsOn(todayIso(now), global, personal).map(lineKey));
+  return pickInstantCards(personal, global, today);
+}
+
+/** The quote waiting on Home. Personal framed stars, then the shared framed pool. */
+export async function loadVisitLine(): Promise<DailyLine | null> {
+  return pickVisitQuote(loadPersonalPool(), await loadGlobalPool());
 }

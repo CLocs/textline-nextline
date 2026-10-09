@@ -277,3 +277,15 @@ CREATE TABLE IF NOT EXISTS daily_mail_sends (
   created_at TEXT NOT NULL,
   PRIMARY KEY (user_id, sent_on)
 );
+
+-- Finished daily games with a score (also in migrations/018_play_counts.sql)
+CREATE TABLE IF NOT EXISTS daily_plays (
+  user_id TEXT NOT NULL,
+  completed_on TEXT NOT NULL,
+  correct_count INTEGER NOT NULL,
+  wrong_count INTEGER NOT NULL,
+  skip_count INTEGER NOT NULL,
+  question_total INTEGER NOT NULL,
+  created_at TEXT NOT NULL,
+  PRIMARY KEY (user_id, completed_on)
+);

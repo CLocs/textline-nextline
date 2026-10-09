@@ -6,7 +6,7 @@ import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue, chronologicalPromptQueue } from "../lib/game/miniGame";
 import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, isForgivingMcq, type GameRun } from "../lib/game/session";
-import { getLovedLineIndices, getMineLineIndices } from "../lib/stars/sync";
+import { getLovedLineIndices, getMineLineIndices, hydrateStarsForTitle, loadPopularStars } from "../lib/stars/sync";
 import {
   createMiniShare,
   fetchMe,
@@ -47,8 +47,10 @@ import { ChatThreadScreen } from "../components/ChatThreadScreen";
 import { SearchScreen } from "../components/SearchScreen";
 import { DailyMailUnsub } from "../components/DailyMailUnsub";
 import { canViewCatalogOps } from "../lib/content/owner";
+import { dismissVisitQuote } from "../lib/game/visitQuote";
+import type { DailyLine } from "../lib/game/dailyPick";
 
-type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily" | "unsub";
+type Screen = "library" | "setup" | "curate" | "play" | "complete" | "login" | "profile" | "ops" | "friend" | "parallel" | "chats" | "chat" | "search" | "daily" | "instant" | "unsub";
 
 function initialScreen(): Screen {
   if (parseHash().kind === "unsub") return "unsub";
@@ -108,6 +110,7 @@ export function App() {
   const beginSharedPlayRef = useRef<(shareId: string) => Promise<void>>(async () => {});
   const pendingRunRef = useRef(pendingRun);
   pendingRunRef.current = pendingRun;
+  const visitAnswerRef = useRef(false);
 
   // Rebuild MCQ only when the prompt changes so a miss does not reshuffle choices.
   const question = useMemo(() => {
@@ -173,6 +176,7 @@ export function App() {
   }, []);
 
   async function beginSharedPlay(shareId: string) {
+    visitAnswerRef.current = false;
     setRouteError(null);
     const metaResult = await fetchShareMeta(shareId);
     if ("error" in metaResult) {
@@ -318,6 +322,17 @@ export function App() {
         setScreen("parallel");
         return;
       }
+      if (route.kind === "instant") {
+        if (!user && !getStoredUser()) {
+          setLoginMessage("Sign in to play three quotes.");
+          captureLoginReturn("instant");
+          setScreen("login");
+          setHash(`login?return=${encodeURIComponent("instant")}`);
+          return;
+        }
+        setScreen("instant");
+        return;
+      }
       if (route.kind === "daily") {
         if (!user && !getStoredUser()) {
           setLoginMessage("Sign in to play today’s three.");
@@ -427,6 +442,7 @@ export function App() {
   }, [user, entries]);
 
   function beginGame(entry: CatalogEntry, setup: GameSetup) {
+    visitAnswerRef.current = false;
     const loaded = getTitle(entry.id);
     if (!loaded) return;
 
@@ -464,6 +480,39 @@ export function App() {
     setSkipReveal(null);
     setPendingRun(null);
     setScreen("play");
+  }
+
+  function handleAnswerQuote(line: DailyLine) {
+    const entry = entries.find((item) => item.id === line.titleId);
+    const loaded = entry ? getTitle(entry.id) : undefined;
+    if (!entry || !loaded) return;
+    visitAnswerRef.current = true;
+    setActiveShareId(null);
+    setShareMeta(null);
+    setPendingEntry(entry);
+    setActiveEntry(entry);
+    setLastSetup(null);
+    setTitle(loaded);
+    setPersistedRunId(null);
+    setRun(
+      startRun(entry.id, {
+        mode: "fun",
+        length: "mini",
+        firstPromptLineIndex: line.lineIndex,
+        questionQueue: [line.lineIndex],
+      }),
+    );
+    setFeedback(null);
+    setSkipReveal(null);
+    setPendingRun(null);
+    setScreen("play");
+    clearHash();
+  }
+
+  async function handlePlayMovie(entry: CatalogEntry) {
+    await hydrateStarsForTitle(entry.id);
+    const crowdPopular = await loadPopularStars(entry.id);
+    beginGame(entry, { mode: "fun", length: "mini", crowdPopular });
   }
 
   function handlePickEpisode(entry: CatalogEntry) {
@@ -528,6 +577,12 @@ export function App() {
   }
 
   async function finishRun(completed: GameRun) {
+    if (visitAnswerRef.current) {
+      visitAnswerRef.current = false;
+      dismissVisitQuote();
+      handleBackToLibrary();
+      return;
+    }
     if (activeShareId) {
       await submitSharedRun(activeShareId, {
         correctCount: completed.correctCount,
@@ -576,6 +631,7 @@ export function App() {
   }
 
   function handleBackToLibrary() {
+    visitAnswerRef.current = false;
     if (!user) {
       setScreen("login");
       setLoginMessage("Sign in to browse episodes and play.");
@@ -703,7 +759,7 @@ export function App() {
   const showApp = Boolean(user);
 
   return (
-    <div className={`app-shell${screen === "play" || screen === "curate" || screen === "daily" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
+    <div className={`app-shell${screen === "play" || screen === "curate" || screen === "daily" || screen === "instant" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
       <header className="app-header">
         <div className="brand-lockup">
           <button
@@ -770,11 +826,23 @@ export function App() {
             setScreen("daily");
             setHash(`daily/${startIndex}`);
           }}
+          onPlayInstant={() => {
+            setScreen("instant");
+            setHash("instant");
+          }}
+          onPlayMovie={(entry) => {
+            void handlePlayMovie(entry);
+          }}
+          onAnswerQuote={handleAnswerQuote}
         />
       )}
 
       {showApp && screen === "daily" && (
         <DailyPlayScreen startIndex={dailyStart} onQuit={handleBackToLibrary} />
+      )}
+
+      {showApp && screen === "instant" && (
+        <DailyPlayScreen kind="instant" startIndex={0} onQuit={handleBackToLibrary} />
       )}
 
       {showApp && screen === "chats" && (

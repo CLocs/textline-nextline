@@ -14,6 +14,7 @@ export type HashRoute =
   | { kind: "profile"; tab: ProfileTab }
   | { kind: "ops" }
   | { kind: "daily"; start: number }
+  | { kind: "instant" }
   | { kind: "unsub"; token: string };
 
 const LOGIN_RETURN_KEY = "textline-nextline-login-return";
@@ -35,6 +36,7 @@ export function isSafeLoginReturn(value: string | null | undefined): value is st
   }
   if (/^play\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   if (/^daily\/[0-2]$/.test(value)) return true;
+  if (value === "instant") return true;
   if (/^parallel\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   if (/^chat\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
   if (/^chat\/group\/[A-Za-z0-9_-]{1,64}$/.test(value)) return true;
@@ -78,6 +80,7 @@ export function loginReturnFromRoute(route: HashRoute): string | undefined {
   if (route.kind === "profile") return profileHash(route.tab === "inbox" ? "chats" : route.tab);
   if (route.kind === "ops") return "ops";
   if (route.kind === "daily") return `daily/${route.start}`;
+  if (route.kind === "instant") return "instant";
   return undefined;
 }
 
@@ -153,6 +156,10 @@ export function parseHash(hash = typeof window !== "undefined" ? window.location
 
   if (path === "ops") {
     return { kind: "ops" };
+  }
+
+  if (path === "instant") {
+    return { kind: "instant" };
   }
 
   const dailyMatch = path.match(/^daily(?:\/([0-2]))?$/);
