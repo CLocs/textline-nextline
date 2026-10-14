@@ -4,6 +4,7 @@ import { gameModeLabel } from "../types/game";
 import type { McqQuestion } from "../lib/game/mcq";
 import { getValidPromptIndices, sequenceLabel } from "../lib/game/miniGame";
 import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
+import { isQuoted, toggleQuote } from "../lib/quotes/sync";
 import { isLoved, isStarred, toggleLove, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
 import { PosterArt } from "./PosterArt";
@@ -58,6 +59,7 @@ export function PlayScreen({
     isStarred(title.id, question.promptLineIndex),
   );
   const [loved, setLoved] = useState(() => isLoved(title.id, question.promptLineIndex));
+  const [quoted, setQuoted] = useState(() => isQuoted(title.id, question.promptLineIndex));
   const [pickedIndex, setPickedIndex] = useState<number | null>(null);
   const [scorePulse, setScorePulse] = useState<"up" | "down" | null>(null);
   const [showShareTip, setShowShareTip] = useState(false);
@@ -77,6 +79,7 @@ export function PlayScreen({
   useEffect(() => {
     setStarred(isStarred(title.id, question.promptLineIndex));
     setLoved(isLoved(title.id, question.promptLineIndex));
+    setQuoted(isQuoted(title.id, question.promptLineIndex));
     setPickedIndex(null);
     if (window.matchMedia("(max-width: 860px)").matches) {
       panelRef.current?.scrollIntoView({ block: "start" });
@@ -132,6 +135,10 @@ export function PlayScreen({
       if (now === null) return;
       setLoved(now);
     });
+  }
+
+  function handleToggleQuote() {
+    void toggleQuote(title.id, question.promptLineIndex).then(setQuoted);
   }
 
   function handleChoose(lineIndex: number) {
@@ -236,6 +243,15 @@ export function PlayScreen({
                   {loved ? "♥ Loved" : "♡ Love"}
                 </button>
               )}
+              <button
+                type="button"
+                className={`quote-button${quoted ? " quoted" : ""}`}
+                aria-pressed={quoted}
+                aria-label={quoted ? "Remove quote mark" : "Mark this line as a quote"}
+                onClick={handleToggleQuote}
+              >
+                {quoted ? "“ Quoted" : "“ Quote"}
+              </button>
               <LineSendControl titleId={title.id} lineIndex={question.promptLineIndex} />
             </div>
           </div>

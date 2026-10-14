@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { pickInstantCards, pickVisitQuote, type DailyLine } from "../src/lib/game/dailyPick.js";
-import { sampleFramedMovies } from "../src/lib/game/playNow.js";
+import { rotatePlayedMovie, sampleFramedMovies } from "../src/lib/game/playNow.js";
 import type { CatalogEntry } from "../src/types/content.js";
 
 function line(titleId: string, lineIndex: number): DailyLine {
@@ -48,5 +48,20 @@ describe("sampleFramedMovies", () => {
   it("draws from the full list when the skip leaves fewer than two", () => {
     const next = sampleFramedMovies(movies.slice(0, 3), ["a", "b"], 2, () => 0);
     expect(next).toHaveLength(2);
+  });
+});
+
+describe("rotatePlayedMovie", () => {
+  const movies = [movie("a"), movie("b"), movie("c"), movie("d")];
+
+  it("replaces the movie that was played and keeps the other card", () => {
+    const next = rotatePlayedMovie(movies, [movie("a"), movie("b")], "a", () => 0);
+    expect(next.map((entry) => entry.id)).toEqual(["d", "b"]);
+  });
+
+  it("keeps the pair when no other movie is left", () => {
+    const pair = [movie("a"), movie("b")];
+    const next = rotatePlayedMovie(pair, pair, "b", () => 0);
+    expect(next.map((entry) => entry.id)).toEqual(["a", "b"]);
   });
 });

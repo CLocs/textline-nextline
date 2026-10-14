@@ -31,6 +31,12 @@ import {
   upsertSharedRun,
 } from "./shares.js";
 import {
+  deleteQuote,
+  fetchMyQuotes,
+  fetchPopularQuotesGlobal,
+  putQuote,
+} from "./quotes.js";
+import {
   deleteStar,
   fetchMyStars,
   fetchLovedStarsGlobal,
@@ -920,6 +926,51 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       status: ok ? 200 : 400,
       headers: { "Content-Type": "text/html; charset=utf-8" },
     });
+  }
+
+  // --- Quotes (never the star pool) ---
+  if (pathname.startsWith("/api/quotes")) {
+    if (request.method === "GET" && pathname === "/api/quotes/popular-global") {
+      const limitParam = url.searchParams.get("limit");
+      const limit = limitParam ? Number.parseInt(limitParam, 10) : 100;
+      if (!Number.isFinite(limit) || limit < 1 || limit > 500) {
+        return errorResponse("Invalid limit", 400, origin, allowed);
+      }
+      const quotes = await fetchPopularQuotesGlobal(env.DB, limit);
+      return jsonResponse({ quotes }, 200, origin, allowed);
+    }
+
+    if (request.method === "GET" && pathname === "/api/quotes/mine") {
+      const playerId = await resolveStarPlayerId(request, env);
+      if (!playerId) {
+        return errorResponse("Unauthorized or missing player id", 401, origin, allowed);
+      }
+      const titleId = url.searchParams.get("titleId")?.trim() || null;
+      if (titleId && (titleId.length > 180 || titleId.includes("\0"))) {
+        return errorResponse("Invalid titleId", 400, origin, allowed);
+      }
+      const quotes = await fetchMyQuotes(env.DB, playerId, titleId);
+      return jsonResponse({ quotes }, 200, origin, allowed);
+    }
+
+    if ((request.method === "PUT" || request.method === "DELETE") && pathname === "/api/quotes") {
+      const sessionUser = await getSessionUser(env.DB, getBearerToken(request));
+      if (!sessionUser) {
+        return errorResponse("Unauthorized", 401, origin, allowed);
+      }
+      const parsed = parseStarBody(await readJson(request));
+      if (!parsed) {
+        return errorResponse("Invalid body: expected { titleId, lineIndex }", 400, origin, allowed);
+      }
+      if (request.method === "PUT") {
+        await putQuote(env.DB, sessionUser.id, parsed.titleId, parsed.lineIndex);
+      } else {
+        await deleteQuote(env.DB, sessionUser.id, parsed.titleId, parsed.lineIndex);
+      }
+      return jsonResponse({ ok: true }, 200, origin, allowed);
+    }
+
+    return errorResponse("Not found", 404, origin, allowed);
   }
 
   // --- Stars ---

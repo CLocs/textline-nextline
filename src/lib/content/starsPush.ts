@@ -104,6 +104,26 @@ export function starOrigin(note: string | null | undefined): "mine" | "wikiquote
   return note === "wikiquote" ? "wikiquote" : "mine";
 }
 
+export function insertQuotesSql(
+  quotes: Pick<StarSeed, "titleId" | "lineIndex">[],
+  playerId: string,
+  quotedAt: string,
+): string {
+  if (!UUID_RE.test(playerId)) {
+    throw new Error("playerId must be a UUID (logged-in user id).");
+  }
+  const values = quotes
+    .map(
+      (quote) =>
+        `(${sqlString(quote.titleId)}, ${quote.lineIndex}, ${sqlString(playerId)}, ${sqlString(quotedAt)}, 'wikiquote')`,
+    )
+    .join(",\n");
+  return `INSERT INTO quotes (title_id, line_index, player_id, quoted_at, origin)
+VALUES
+${values}
+ON CONFLICT(title_id, line_index, player_id) DO NOTHING;`;
+}
+
 export function insertStarsSql(
   stars: Pick<StarSeed, "titleId" | "lineIndex" | "note">[],
   playerId: string,

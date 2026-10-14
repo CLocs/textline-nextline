@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { addDays, dailyCardsOn, lineKey, rotateCards, type DailyLine } from "../src/lib/game/dailyPick.js";
+import {
+  addDays,
+  dailyCardsOn,
+  lineKey,
+  rotateCards,
+  standaloneQuoteOn,
+  type DailyLine,
+} from "../src/lib/game/dailyPick.js";
 import { nextStreak } from "../src/lib/game/dailyStreak.js";
 
 function line(titleId: string, lineIndex: number, count: number, loved = false): DailyLine {
@@ -66,6 +73,24 @@ describe("dailyCardsOn", () => {
     const cards = ["a", "b", "c"];
     expect(rotateCards(cards, 1)).toEqual(["b", "c", "a"]);
     expect(rotateCards(cards, 2)).toEqual(["c", "a", "b"]);
+  });
+});
+
+describe("standaloneQuoteOn", () => {
+  it("uses a personal mark, then the most-marked crowd line after a 7-day skip", () => {
+    const personal = [line("mine", 1, 1)];
+    const crowd = [line("crowd", 2, 9), line("crowd", 3, 4)];
+    expect(lineKey(standaloneQuoteOn("2026-09-01", crowd, personal)!)).toBe("mine:1");
+    const next = standaloneQuoteOn("2026-09-02", crowd, personal);
+    expect(lineKey(next!)).toBe("crowd:2");
+    expect(next?.count).toBe(9);
+  });
+
+  it("omits the card when nothing is left in the week", () => {
+    const only = [line("mine", 1, 1)];
+    expect(standaloneQuoteOn("2026-09-01", [], only)).not.toBeNull();
+    expect(standaloneQuoteOn("2026-09-02", [], only)).toBeNull();
+    expect(standaloneQuoteOn("2026-09-01", [], [])).toBeNull();
   });
 });
 

@@ -46,12 +46,35 @@ export function parseLoveBody(body: unknown): (StarBody & { loved: boolean }) | 
 export async function putStar(db: D1Database, playerId: string, body: StarBody): Promise<void> {
   await db
     .prepare(
-      `INSERT INTO stars (title_id, line_index, player_id, starred_at, loved)
-       VALUES (?, ?, ?, ?, 0)
-       ON CONFLICT(title_id, line_index, player_id) DO UPDATE SET starred_at = excluded.starred_at`,
+      `INSERT INTO stars (title_id, line_index, player_id, starred_at, loved, origin)
+       VALUES (?, ?, ?, ?, 0, 'mine')
+       ON CONFLICT(title_id, line_index, player_id) DO UPDATE SET
+         starred_at = excluded.starred_at,
+         origin = 'mine'`,
     )
     .bind(body.titleId, body.lineIndex, playerId, new Date().toISOString())
     .run();
+}
+
+/** Add or remove one point on this person's existing stars. Missing stars stay missing. Weight never drops below 1. */
+export async function adjustStarWeights(
+  db: D1Database,
+  playerId: string,
+  titleId: string,
+  lineIndexes: readonly number[],
+  delta: number,
+): Promise<void> {
+  if (delta === 0) return;
+  const unique = [...new Set(lineIndexes)];
+  for (const lineIndex of unique) {
+    await db
+      .prepare(
+        `UPDATE stars SET weight = MAX(1, weight + ?)
+         WHERE title_id = ? AND line_index = ? AND player_id = ?`,
+      )
+      .bind(delta, titleId, lineIndex, playerId)
+      .run();
+  }
 }
 
 export async function deleteStar(db: D1Database, playerId: string, body: StarBody): Promise<void> {
@@ -137,8 +160,8 @@ export async function fetchPopularStars(
 ): Promise<PopularStar[]> {
   const result = await db
     .prepare(
-      `SELECT line_index, COUNT(*) AS count
-       FROM stars WHERE title_id = ?
+      `SELECT line_index, SUM(weight) AS count
+       FROM stars WHERE title_id = ? AND origin != 'wikiquote'
        GROUP BY line_index
        ORDER BY count DESC, line_index ASC
        LIMIT ?`,
@@ -185,8 +208,9 @@ export async function fetchPopularStarsGlobal(
 ): Promise<GlobalPopularStar[]> {
   const result = await db
     .prepare(
-      `SELECT title_id, line_index, COUNT(*) AS count
+      `SELECT title_id, line_index, SUM(weight) AS count
        FROM stars
+       WHERE origin != 'wikiquote'
        GROUP BY title_id, line_index
        ORDER BY count DESC, title_id ASC, line_index ASC
        LIMIT ?`,

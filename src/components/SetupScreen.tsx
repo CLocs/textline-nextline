@@ -3,6 +3,7 @@ import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { countPlayableQuestions } from "../lib/content/playable";
 import { describeMiniGameStars, miniGameStarCounts } from "../lib/game/miniGame";
+import { hydrateQuotesForTitle } from "../lib/quotes/sync";
 import {
   getLovedLineIndices,
   getMineLineIndices,
@@ -69,6 +70,7 @@ export function SetupScreen({
 
     async function loadStars() {
       await hydrateStarsForTitle(entry.id);
+      await hydrateQuotesForTitle(entry.id);
       if (cancelled) return;
       setStarRevision((value) => value + 1);
 

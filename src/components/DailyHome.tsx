@@ -3,14 +3,15 @@ import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { getLine } from "../lib/content/lines";
 import { lineKey, todayIso, type DailyLine } from "../lib/game/dailyPick";
-import { loadTodaysCards } from "../lib/game/dailyLoad";
+import { loadTodaysCards, loadTodaysQuote } from "../lib/game/dailyLoad";
 import { loadStreak, readLocalStreak } from "../lib/game/dailyClient";
-import { framedMovies, framedTitleIds, sampleFramedMovies } from "../lib/game/playNow";
+import { framedMovies, framedTitleIds, rotatePlayedMovie, sampleFramedMovies } from "../lib/game/playNow";
 import { coverStillLineIndex } from "../lib/content/stillsCover";
 import { fetchFriends, type FriendListItem } from "../lib/friends/api";
 import { bestFriends } from "../lib/friends/faces";
 import { FriendFaces } from "./FriendFaces";
 import { PosterArt } from "./PosterArt";
+import { QuoteImageExportModal } from "./QuoteImageExportModal";
 import { VisitQuote } from "./VisitQuote";
 
 type Props = {
@@ -22,8 +23,17 @@ type Props = {
 };
 
 let shownMovies: CatalogEntry[] | null = null;
+let playedMovieId: string | null = null;
 
 function moviesForVisit(movies: CatalogEntry[]): CatalogEntry[] {
+  if (shownMovies && playedMovieId) {
+    const next = rotatePlayedMovie(movies, shownMovies, playedMovieId);
+    playedMovieId = null;
+    if (next.length > 0 && next.every((shown) => movies.some((movie) => movie.id === shown.id))) {
+      shownMovies = next;
+      return shownMovies;
+    }
+  }
   if (
     shownMovies &&
     shownMovies.length > 0 &&
@@ -57,6 +67,34 @@ function RefreshIcon() {
   );
 }
 
+function StandaloneQuote({ line, onExport }: { line: DailyLine; onExport: () => void }) {
+  const title = getTitle(line.titleId);
+  const prompt = title ? getLine(title, line.lineIndex) : undefined;
+  return (
+    <div className="daily-quote-row">
+      <div className="title-card daily-card daily-standalone">
+        <PosterArt
+          titleId={line.titleId}
+          title={title?.title ?? "A quote"}
+          lineIndex={line.lineIndex}
+          fallback="hide"
+          className="title-card-still"
+        />
+        <span className="title-card-copy">
+          <span className="daily-today-label">A quote</span>
+          <span className="title-card-name">
+            {prompt ? snippet(prompt.text) : "A quote"}
+          </span>
+          <span className="muted">{title?.title ?? ""}</span>
+          <button type="button" className="button ghost daily-quote-export" onClick={onExport}>
+            Export image
+          </button>
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function snippet(text: string): string {
   const trimmed = text.replace(/\s+/g, " ").trim();
   return trimmed.length > 90 ? `${trimmed.slice(0, 87)}…` : trimmed;
@@ -65,6 +103,8 @@ function snippet(text: string): string {
 export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswerQuote }: Props) {
   const [streak, setStreak] = useState(readLocalStreak);
   const [cards, setCards] = useState<DailyLine[] | null>(null);
+  const [standalone, setStandalone] = useState<DailyLine | null>(null);
+  const [exportOpen, setExportOpen] = useState(false);
   const [faces, setFaces] = useState<FriendListItem[]>([]);
   const [quotesOpen, setQuotesOpen] = useState(
     () => readLocalStreak().lastCompletedOn !== todayIso(),
@@ -86,6 +126,9 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
     void loadTodaysCards().then((next) => {
       if (!cancelled) setCards(next);
     });
+    void loadTodaysQuote().then((next) => {
+      if (!cancelled) setStandalone(next);
+    });
     void fetchFriends().then((list) => {
       if (cancelled || "error" in list) return;
       setFaces(bestFriends(list));
@@ -106,6 +149,73 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
           {badge}
         </p>
       </div>
+
+      <section className="panel home-section home-daily">
+        <div className="daily-fold-header">
+          <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
+          {doneToday ? (
+            <button
+              type="button"
+              className="button ghost"
+              aria-expanded={quotesOpen}
+              onClick={() => setQuotesOpen((open) => !open)}
+            >
+              {quotesOpen ? "Hide" : "Show"}
+            </button>
+          ) : null}
+        </div>
+        {!showQuotes ? (
+          <p className="muted daily-folded-note">Finished for today. Show the quotes to play one again.</p>
+        ) : cards === null ? (
+          <p className="muted">Loading today’s three…</p>
+        ) : cards.length === 0 ? (
+          <p className="muted">No framed quotes lined up for today.</p>
+        ) : (
+          <>
+          <ul className="title-list">
+            {cards.map((card, index) => {
+              const title = getTitle(card.titleId);
+              const prompt = title ? getLine(title, card.lineIndex) : undefined;
+              const isLineOfDay = card.slot === "global";
+              return (
+                <li key={lineKey(card)} className="daily-quote-row">
+                  <button
+                    type="button"
+                    className={`title-card daily-card${isLineOfDay ? " is-today" : ""}`}
+                    onClick={() => onPlay(index)}
+                  >
+                    <PosterArt
+                      titleId={card.titleId}
+                      title={title?.title ?? "Today"}
+                      lineIndex={card.lineIndex}
+                      fallback="hide"
+                      className="title-card-still"
+                    />
+                    <span className="title-card-copy">
+                      {isLineOfDay ? <span className="daily-today-label">Line of the day</span> : null}
+                      <span className="title-card-name">
+                        {prompt ? snippet(prompt.text) : `Question ${index + 1}`}
+                      </span>
+                      <span className="muted">{title?.title ?? `Question ${index + 1}`}</span>
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          {standalone ? (
+            <StandaloneQuote line={standalone} onExport={() => setExportOpen(true)} />
+          ) : null}
+          </>
+        )}
+      </section>
+      {exportOpen && standalone ? (
+        <QuoteImageExportModal
+          titleId={standalone.titleId}
+          lineIndex={standalone.lineIndex}
+          onClose={() => setExportOpen(false)}
+        />
+      ) : null}
 
       <section className="panel home-section">
         <FriendFaces friends={faces} label="Friends" className="home-friend-faces" />
@@ -141,7 +251,14 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
                   const lineIndex = coverStillLineIndex(entry.id);
                   return (
                     <li key={entry.id}>
-                      <button type="button" className="title-card" onClick={() => onPlayMovie(entry)}>
+                      <button
+                        type="button"
+                        className="title-card"
+                        onClick={() => {
+                          playedMovieId = entry.id;
+                          onPlayMovie(entry);
+                        }}
+                      >
                         {lineIndex != null ? (
                           <PosterArt
                             titleId={entry.id}
@@ -162,58 +279,6 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
             </>
           ) : null}
         </div>
-        <div className="daily-fold-header">
-          <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
-          {doneToday ? (
-            <button
-              type="button"
-              className="button ghost"
-              aria-expanded={quotesOpen}
-              onClick={() => setQuotesOpen((open) => !open)}
-            >
-              {quotesOpen ? "Hide" : "Show"}
-            </button>
-          ) : null}
-        </div>
-        {!showQuotes ? (
-          <p className="muted daily-folded-note">Finished for today. Show the quotes to play one again.</p>
-        ) : cards === null ? (
-          <p className="muted">Loading today’s three…</p>
-        ) : cards.length === 0 ? (
-          <p className="muted">No framed quotes lined up for today.</p>
-        ) : (
-          <ul className="title-list">
-            {cards.map((card, index) => {
-              const title = getTitle(card.titleId);
-              const prompt = title ? getLine(title, card.lineIndex) : undefined;
-              const isLineOfDay = card.slot === "global";
-              return (
-                <li key={lineKey(card)} className="daily-quote-row">
-                  <button
-                    type="button"
-                    className={`title-card daily-card${isLineOfDay ? " is-today" : ""}`}
-                    onClick={() => onPlay(index)}
-                  >
-                    <PosterArt
-                      titleId={card.titleId}
-                      title={title?.title ?? "Today"}
-                      lineIndex={card.lineIndex}
-                      fallback="hide"
-                      className="title-card-still"
-                    />
-                    <span className="title-card-copy">
-                      {isLineOfDay ? <span className="daily-today-label">Line of the day</span> : null}
-                      <span className="title-card-name">
-                        {prompt ? snippet(prompt.text) : `Question ${index + 1}`}
-                      </span>
-                      <span className="muted">{title?.title ?? `Question ${index + 1}`}</span>
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        )}
       </section>
     </>
   );

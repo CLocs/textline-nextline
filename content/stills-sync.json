@@ -3880,5 +3880,75 @@
     "approvedAt": "2026-10-08T03:02:22.805Z",
     "batchedAt": "2026-10-08T03:04:53.746Z",
     "pushedAt": "2026-10-08T03:17:05.242Z"
+  },
+  "half-baked-1998": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 4920.234,
+    "source": "H:\\videos\\movies\\Half Baked (1998).mkv",
+    "handful": [
+      79,
+      252,
+      423,
+      582,
+      752,
+      926
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 956 stills (6 already on disk).",
+    "approvedAt": "2026-10-14T11:01:22.036Z",
+    "batchedAt": "2026-10-14T11:06:30.539Z"
+  },
+  "wedding-crashers-2005": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "lineOffsets": {},
+    "durationSec": 7618.951,
+    "source": "C:\\Users\\dasco\\repos\\textline-nextline\\inbox\\media\\wedding-crashers-2005.mkv",
+    "handful": [
+      332,
+      506,
+      751,
+      1139,
+      1600,
+      1910
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1942 stills (6 already on disk).",
+    "approvedAt": "2026-10-14T11:02:32.136Z",
+    "batchedAt": "2026-10-14T11:06:25.057Z"
+  },
+  "top-gun-maverick-2022": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 7814.55675,
+    "source": "H:\\videos\\movies\\Top Gun Maverick (2022).mp4",
+    "handful": [
+      153,
+      176,
+      472,
+      611,
+      813,
+      1130
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio handful No offset (153,176,472,611,813,1130)."
   }
 }

@@ -7,6 +7,7 @@ import {
   chunk,
   excludeTitleIds,
   filterStarsByTitle,
+  insertQuotesSql,
   insertStarsSql,
   loadProtectedTitleIds,
   sqlString,
@@ -15,20 +16,28 @@ import {
 import type { StarSeed } from "../src/lib/content/starSeed.js";
 
 describe("insertStarsSql", () => {
-  it("builds a conflict-safe insert", () => {
+  it("builds a conflict-safe insert for stars you picked", () => {
     const sql = insertStarsSql(
-      [
-        { titleId: "friday-1995", lineIndex: 133, note: null },
-        { titleId: "matrix-1999", lineIndex: 0, note: "wikiquote" },
-      ],
+      [{ titleId: "friday-1995", lineIndex: 133, note: null }],
       "11111111-1111-4111-8111-111111111111",
       "2026-01-01T00:00:00.000Z",
     );
+    expect(sql).toContain("INSERT INTO stars");
     expect(sql).toContain("ON CONFLICT(title_id, line_index, player_id) DO NOTHING");
     expect(sql).toContain("'friday-1995', 133");
     expect(sql).toContain("'mine'");
+  });
+
+  it("writes Wikiquote matches as quote marks", () => {
+    const sql = insertQuotesSql(
+      [{ titleId: "matrix-1999", lineIndex: 0 }],
+      "11111111-1111-4111-8111-111111111111",
+      "2026-01-01T00:00:00.000Z",
+    );
+    expect(sql).toContain("INSERT INTO quotes");
     expect(sql).toContain("'matrix-1999', 0");
     expect(sql).toContain("'wikiquote'");
+    expect(sql).not.toContain("INSERT INTO stars");
   });
 });
 

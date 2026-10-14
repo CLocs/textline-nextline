@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { handleRequest } from "../api/src/index.js";
-import { parseRunBody } from "../api/src/runs.js";
+import { parseRunBody, thumbWeightDelta } from "../api/src/runs.js";
 
 const RUN_ID = "550e8400-e29b-41d4-a716-446655440001";
 const RUN_ID_B = "550e8400-e29b-41d4-a716-446655440002";
@@ -187,6 +187,19 @@ function createRunsDb() {
                   email: user.email,
                   display_name: user.display_name,
                   created_at: user.created_at,
+                } as T;
+              }
+              if (sql.includes("prev_thumb")) {
+                const [runId] = args as [string];
+                const row = runs.find((item) => item.id === runId);
+                if (!row) return null;
+                const rating = ratings.find((item) => item.run_id === runId);
+                return {
+                  id: row.id,
+                  user_id: row.user_id,
+                  title_id: row.title_id,
+                  question_queue: row.question_queue,
+                  prev_thumb: rating?.thumb ?? null,
                 } as T;
               }
               if (sql.includes("SELECT id, user_id FROM runs WHERE id")) {
@@ -388,6 +401,14 @@ describe("runs HTTP", () => {
     expect(mine.status).toBe(200);
     const data = (await mine.json()) as { runs: { titleId: string }[] };
     expect(data.runs.map((row) => row.titleId)).toEqual(["snatch-2000", "payback-1999"]);
+  });
+
+  it("adds a point only when a rating becomes thumbs up", () => {
+    expect(thumbWeightDelta(null, "up")).toBe(1);
+    expect(thumbWeightDelta("down", "up")).toBe(1);
+    expect(thumbWeightDelta("up", "down")).toBe(-1);
+    expect(thumbWeightDelta("up", "up")).toBe(0);
+    expect(thumbWeightDelta(null, "down")).toBe(0);
   });
 
   it("rates only the owner's run and aggregates played stats", async () => {

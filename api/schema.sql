@@ -5,10 +5,23 @@ CREATE TABLE IF NOT EXISTS stars (
   starred_at TEXT NOT NULL,
   loved      INTEGER NOT NULL DEFAULT 0,
   origin     TEXT NOT NULL DEFAULT 'mine',
+  weight     INTEGER NOT NULL DEFAULT 1,
   PRIMARY KEY (title_id, line_index, player_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_stars_title ON stars (title_id);
+
+-- A line that stands on its own. Not a star, and not a quiz prompt.
+CREATE TABLE IF NOT EXISTS quotes (
+  title_id TEXT NOT NULL,
+  line_index INTEGER NOT NULL,
+  player_id TEXT NOT NULL,
+  quoted_at TEXT NOT NULL,
+  origin TEXT NOT NULL DEFAULT 'mine',
+  PRIMARY KEY (title_id, line_index, player_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_quotes_player ON quotes (player_id);
 
 -- Phase 2a: auth + share mini-games (also in migrations/002_auth_shares.sql)
 CREATE TABLE IF NOT EXISTS users (
