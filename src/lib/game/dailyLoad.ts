@@ -2,9 +2,19 @@ import { getTitle } from "../content/browser.js";
 import { getLine } from "../content/lines.js";
 import { getNextPlayableLine, isPlayableLine } from "../content/playable.js";
 import { hasSceneFrame } from "../content/stillsLines.js";
+import { fetchPopularQuotesGlobal } from "../quotes/api.js";
+import { hydrateAllQuotes, listQuotes } from "../quotes/sync.js";
 import { fetchLovedStarsGlobal, fetchPopularStarsGlobal } from "../stars/api.js";
 import { listStars } from "../stars/store.js";
-import { dailyCardsOn, lineKey, pickInstantCards, pickVisitQuote, todayIso, type DailyLine } from "./dailyPick.js";
+import {
+  dailyCardsOn,
+  lineKey,
+  pickInstantCards,
+  pickVisitQuote,
+  standaloneQuoteOn,
+  todayIso,
+  type DailyLine,
+} from "./dailyPick.js";
 
 function canPrompt(titleId: string, lineIndex: number): boolean {
   const title = getTitle(titleId);
@@ -91,4 +101,34 @@ export async function loadInstantCards(now = new Date()): Promise<DailyLine[]> {
 /** The quote waiting on Home. Personal framed stars, then the shared framed pool. */
 export async function loadVisitLine(): Promise<DailyLine | null> {
   return pickVisitQuote(loadPersonalPool(), await loadGlobalPool());
+}
+
+function framedQuote(line: DailyLine): boolean {
+  if (!hasSceneFrame(line.titleId, line.lineIndex)) return false;
+  const title = getTitle(line.titleId);
+  const text = title ? getLine(title, line.lineIndex)?.text.trim() : "";
+  return Boolean(text);
+}
+
+/** Today's no-guess quote. Personal marks first, then the most-marked crowd quotes. */
+export async function loadTodaysQuote(now = new Date()): Promise<DailyLine | null> {
+  await hydrateAllQuotes();
+  const personal = listQuotes()
+    .map((quote) => ({
+      titleId: quote.titleId,
+      lineIndex: quote.lineIndex,
+      count: 1,
+      loved: false,
+    }))
+    .filter(framedQuote);
+  const popular = await fetchPopularQuotesGlobal(400);
+  const global = (popular ?? [])
+    .map((quote) => ({
+      titleId: quote.titleId,
+      lineIndex: quote.lineIndex,
+      count: quote.count,
+      loved: false,
+    }))
+    .filter(framedQuote);
+  return standaloneQuoteOn(todayIso(now), global, personal);
 }

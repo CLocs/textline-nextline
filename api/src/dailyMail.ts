@@ -1,8 +1,10 @@
 import { createMagicToken } from "./crypto.js";
+import { fetchMyQuotes, fetchPopularQuotesGlobal } from "./quotes.js";
 import { fetchLovedStarsGlobal, fetchPopularStarsGlobal } from "./stars.js";
 import {
   dailyCardsOn,
   lineKey,
+  standaloneQuoteOn,
   type DailyLine,
   type DailySlot,
 } from "../../src/lib/game/dailyPick.js";
@@ -186,12 +188,52 @@ export function stillUrl(origin: string, cue: MailCue): string {
   return `${appOrigin(origin)}/stills/${encodeURIComponent(cue.titleId)}/${cue.lineIndex}.jpg`;
 }
 
+/** One no-guess card. Personal framed quotes first, then the most-marked crowd quotes. */
+export function quoteForMail(
+  date: string,
+  cues: MailCue[],
+  globalQuotes: { titleId: string; lineIndex: number; count: number }[],
+  personalQuotes: { titleId: string; lineIndex: number }[],
+): MailCue | null {
+  const byKey = new Map<string, MailCue>();
+  for (const cue of cues) {
+    const key = lineKey(cue);
+    if (!byKey.has(key)) byKey.set(key, cue);
+  }
+  const framed = new Set(byKey.keys());
+  const seen = new Set<string>();
+  const personal: DailyLine[] = [];
+  for (const quote of personalQuotes) {
+    const key = lineKey(quote);
+    if (!framed.has(key) || seen.has(key)) continue;
+    seen.add(key);
+    personal.push({
+      titleId: quote.titleId,
+      lineIndex: quote.lineIndex,
+      count: 1,
+      loved: false,
+    });
+  }
+  const global = globalQuotes
+    .filter((quote) => framed.has(lineKey(quote)))
+    .map((quote) => ({
+      titleId: quote.titleId,
+      lineIndex: quote.lineIndex,
+      count: quote.count,
+      loved: false,
+    }));
+  const picked = standaloneQuoteOn(date, global, personal);
+  if (!picked) return null;
+  return byKey.get(lineKey(picked)) ?? null;
+}
+
 export function renderDailyMail(input: {
   date: string;
   origin: string;
   unsubToken: string;
   displayName?: string | null;
   cards: MailCard[];
+  quote?: MailCue | null;
 }): { subject: string; html: string; text: string } {
   const when = formatMailDate(input.date);
   const subject = `Today’s three · ${when}`;
@@ -245,6 +287,23 @@ export function renderDailyMail(input: {
       </td></tr>
     </table>`);
   });
+
+  if (input.quote) {
+    textBlocks.push("A quote");
+    textBlocks.push(input.quote.title);
+    textBlocks.push(input.quote.prompt);
+    textBlocks.push("");
+    cardsHtml.push(`<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 18px;background:#f4f8f5;border:1px solid #d5e3da;border-radius:16px;">
+      <tr><td style="padding:0;">
+        <img src="${escapeHtml(stillUrl(input.origin, input.quote))}" alt="${escapeHtml(input.quote.prompt)}" width="560" style="display:block;width:100%;max-width:560px;height:auto;border:0;border-radius:16px 16px 0 0;" />
+      </td></tr>
+      <tr><td style="padding:4px 16px 16px;">
+        <p style="margin:12px 0 4px;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#4f345a;">A quote</p>
+        <p style="margin:8px 0 4px;font-size:18px;line-height:1.4;color:#4f345a;">${escapeHtml(input.quote.prompt)}</p>
+        <p style="margin:0;font-size:14px;color:#5d4e6d;">${escapeHtml(input.quote.title)}</p>
+      </td></tr>
+    </table>`);
+  }
 
   textBlocks.push(`Unsubscribe: ${unsub}`);
   const preview = input.cards[0]?.cue.prompt ?? "Three quotes for today.";
@@ -437,6 +496,29 @@ async function deliverMail(
   return true;
 }
 
+async function loadCrowdQuotes(
+  db: D1Database,
+): Promise<{ titleId: string; lineIndex: number; count: number }[]> {
+  try {
+    return await fetchPopularQuotesGlobal(db, POPULAR_LIMIT);
+  } catch (error) {
+    console.error("[daily-mail] quotes", error);
+    return [];
+  }
+}
+
+async function loadPersonalQuotes(
+  db: D1Database,
+  playerId: string,
+): Promise<{ titleId: string; lineIndex: number }[]> {
+  try {
+    return await fetchMyQuotes(db, playerId);
+  } catch (error) {
+    console.error("[daily-mail] quotes", error);
+    return [];
+  }
+}
+
 export async function fetchDailyMailCatalog(origin: string, fetchImpl: typeof fetch = fetch): Promise<MailCue[]> {
   const response = await fetchImpl(`${appOrigin(origin)}/daily-mail-catalog.json`);
   if (!response.ok) {
@@ -456,6 +538,7 @@ export async function sendDailyMails(
   const popular = await fetchPopularStarsGlobal(env.DB, POPULAR_LIMIT);
   const loved = await fetchLovedStarsGlobal(env.DB, LOVED_LIMIT);
   const globalPool = globalDailyPool(popular, loved, framed);
+  const crowdQuotes = await loadCrowdQuotes(env.DB);
   const users = await listOptedInUsers(env.DB);
   let sent = 0;
   let skipped = 0;
@@ -472,12 +555,14 @@ export async function sendDailyMails(
       skipped += 1;
       continue;
     }
+    const quote = quoteForMail(date, cues, crowdQuotes, await loadPersonalQuotes(env.DB, user.id));
     const mail = renderDailyMail({
       date,
       origin: env.APP_ORIGIN ?? "",
       unsubToken: user.unsubToken,
       displayName: user.displayName,
       cards,
+      quote,
     });
     const ok = await deliverMail(env, user, mail, fetchImpl);
     if (!ok) {

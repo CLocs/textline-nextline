@@ -859,6 +859,22 @@ button {
   background: color-mix(in srgb, var(--plum, #6b3a5c) 12%, white);
 }
 
+.quote-button {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.25rem 0.65rem;
+  background: var(--surface);
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.quote-button.quoted {
+  border-color: var(--accent);
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
 .length-badge {
   color: var(--muted);
 }
@@ -2035,6 +2051,36 @@ code {
 .curate-love:disabled {
   opacity: 0.35;
   cursor: default;
+}
+
+.curate-quote {
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--surface);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+.curate-quote.quoted {
+  border-color: var(--accent);
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
+.daily-standalone {
+  cursor: default;
+}
+
+.daily-standalone .daily-quote-export {
+  margin-top: 0.45rem;
 }
 
 .curate-item.loved {

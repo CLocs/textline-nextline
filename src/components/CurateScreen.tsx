@@ -4,6 +4,7 @@ import { getTitle } from "../lib/content/browser";
 import { getLine } from "../lib/content/lines";
 import { leadInForPrompt } from "../lib/game/promptContext";
 import { getValidPromptIndices } from "../lib/game/miniGame";
+import { getQuotesForTitle, hydrateQuotesForTitle, toggleQuote } from "../lib/quotes/sync";
 import {
   getStarsForTitle,
   hydrateStarsForTitle,
@@ -56,6 +57,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
 
     async function load() {
       await hydrateStarsForTitle(entry.id);
+      await hydrateQuotesForTitle(entry.id);
       if (!cancelled) setStarredCount(getStarsForTitle(entry.id).length);
     }
 
@@ -89,6 +91,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
       if (star.origin === "wikiquote") wikiquote.add(star.lineIndex);
     }
     return { starred, loved, wikiquote };
+  }, [entry.id, revision]);
+
+  const quotedLines = useMemo(() => {
+    const quoted = new Set<number>();
+    for (const quote of getQuotesForTitle(entry.id)) quoted.add(quote.lineIndex);
+    return quoted;
   }, [entry.id, revision]);
 
   const selectedSet = useMemo(() => new Set(selected), [selected]);
@@ -193,6 +201,11 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   async function handleToggle(lineIndex: number, text: string) {
     await toggleStar(entry.id, lineIndex, text);
     setStarredCount(getStarsForTitle(entry.id).length);
+    setRevision((value) => value + 1);
+  }
+
+  async function handleQuote(lineIndex: number) {
+    await toggleQuote(entry.id, lineIndex);
     setRevision((value) => value + 1);
   }
 
@@ -393,6 +406,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
 
               const starred = starSets.starred.has(lineIndex);
               const loved = starSets.loved.has(lineIndex);
+              const quoted = quotedLines.has(lineIndex);
               const fromWikiquote = starSets.wikiquote.has(lineIndex);
               const isSelected = selectedSet.has(lineIndex);
               const isFocused = highlightLine === lineIndex;
@@ -405,7 +419,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                   rowIndex={rowIndex}
                   setSize={filteredIndices.length}
                   offset={offsets[rowIndex] ?? 0}
-                  className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${isSelected ? " selected" : ""}${isFocused ? " focused" : ""}`}
+                  className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${quoted ? " quoted" : ""}${isSelected ? " selected" : ""}${isFocused ? " focused" : ""}`}
                   onHeight={handleRowHeight}
                 >
                   <div className="curate-controls">
@@ -454,6 +468,15 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                       onClick={() => void handleLove(lineIndex)}
                     >
                       {loved ? "♥" : "♡"}
+                    </button>
+                    <button
+                      type="button"
+                      className={`curate-quote${quoted ? " quoted" : ""}`}
+                      aria-pressed={quoted}
+                      aria-label={quoted ? "Remove quote mark" : "Mark line as a quote"}
+                      onClick={() => void handleQuote(lineIndex)}
+                    >
+                      “
                     </button>
                   </div>
                   <div className="curate-copy">

@@ -440,7 +440,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **Home quote** — one skippable starred quote per visit. See [Play now](#play-now).
 - [x] **Play counts** — mini-games and dailies counted apart; perfects weighted by correct answers; DMs marked right or not. Stored, not shown yet. See [Play now](#play-now).
 - [ ] **Badges and friends boards** — those three numbers, friends only. See [Play now](#play-now).
-- [ ] **Standalone quotes (star a plain line)** — mark a line that lands on its own, not as a TLNL setup; the daily mail adds a quote card beside the three questions. See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
+- [x] **Standalone quotes (star a plain line)** — Quote mark on Curate and Play (own table, never the quiz pool); one no-guess card in the daily mail and on Home, with image export. Chat, profile shelf, search, and seed backfill stay parked. See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
 - [ ] **Premium: GIFs from selected lines** — paid tier renders a short loop over the selected cues instead of a still. See [Premium GIFs](#premium-gifs-from-selected-lines).
 - [x] **Global search** — `#/search`; client-side over eager catalog; Popular / Starred by me; title + line hits. See [Global search](#global-search).
 - [x] **Onboarding + play UX clarity** — first-share coach tip; distinct Skip; A–D + radio chrome on MCQ. See [Later ideas](#onboarding--play-ux-clarity).
@@ -793,20 +793,20 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 ### Standalone quotes (star a line, not a TLNL)
 
-**Input side.** A star today means “this line is a **TL** — quiz whatever comes after it.” Plenty of lines are not setups: the quotable part *is* that line, and the cue after it is dead air. Those lines have nowhere to go right now, because starring one puts a bad question in the mini-game pool.
+**Input side.** A star means “this line is a **TL** — quiz whatever comes after it.” Plenty of lines are not setups: the quotable part *is* that line, and the cue after it is dead air. Starring one of those puts a bad question in the mini-game pool.
 
-Add a second mark on a line — **Quote** (working label) — with the same Curate / Play chrome as Star and ♥, and a different meaning:
+**Quote** is a second mark, with the same Curate / Play chrome as Star and ♥, and a different meaning. It lives in its own `quotes` table, so a quote-only line cannot be read as a star.
 
 | Mark | Means | Feeds |
 |------|-------|-------|
 | **Star** | this line sets up the next one | mini-game pool, crowd popular, 1-line shares |
 | **♥ Love** (cap 5) | this setup is golden | queue bias, line of the day |
-| **Quote** *(new)* | this line stands on its own | quote surfaces (mail, Home, chat, export) — **never** the quiz pool |
+| **Quote** | this line stands on its own | the daily mail and Home — **never** the quiz pool |
 
-- A quote mark must not reach `buildMiniGameQueue`, `/api/stars/popular`, or a frozen share unless the line is **also** starred. The marks are independent: a line can be both.
-- Key it like stars (`title_id`, `line_index`, `player_id`). A `quote` flag beside `loved` is the cheap version, but only if **every** star reader (mini-game, popular, shares, seed push, stills, Catalog counts) filters it; otherwise give quotes their own table so a quote-only row can’t be mistaken for a star.
+- A quote mark does not reach `buildMiniGameQueue`, `/api/stars/popular`, or a frozen share unless the line is **also** starred. The marks are independent: a line can be both.
+- Keyed like stars (`title_id`, `line_index`, `player_id`) in `quotes`, not as a flag on `stars`.
 - Star counts don’t change meaning. A quote-only line is not a star, and the ♥ cap still belongs to setups.
-- Multi-cue quotes: today the unit is one cue. If a quote needs two or three, reuse the streak / multi-select span from [parallel packs](#quote-parallels--analogy-packs) rather than inventing a second span model — and don’t confuse it with [line splitting](#split-multi-sentence-lines).
+- Multi-cue quotes stay later. The unit is one cue. If a quote needs two or three, reuse the streak / multi-select span from [parallel packs](#quote-parallels--analogy-packs) rather than inventing a second span model — and don’t confuse it with [line splitting](#split-multi-sentence-lines).
 
 **Output side.** Same habit loop as the daily mail, except one card is not a question:
 
@@ -816,7 +816,7 @@ Add a second mark on a line — **Quote** (working label) — with the same Cura
 
 **Other ties** *(open, not sequenced):* send a quote in [Chats](#chats-dms--shared-group-threads) as a card with nothing to guess; a quote shelf on the profile; quote marks seeding [parallel packs](#quote-parallels--analogy-packs); a Quotes filter in [global search](#global-search); cover stills preferring a quote-marked frame.
 
-**Gates:** frame coverage (same limit as the mail), and agreement across every star reader about what to skip. The [Wikiquote / Readwise seeds](#spike-online-quotes-eg-imdb-research) are mostly standalone lines, so they are the obvious backfill once the mark exists.
+**Gates:** frame coverage (same limit as the mail). The [Wikiquote / Readwise seeds](#spike-online-quotes-eg-imdb-research) are mostly standalone lines; backfill stays a follow-up.
 
 ### Premium GIFs from selected lines
 
@@ -849,7 +849,7 @@ Add a second mark on a line — **Quote** (working label) — with the same Cura
 
 **Email.** One message, three cards. Not three emails. Each card is the still, the textline, and the next-line choices. The card links to that day’s game at that card’s index. Tapping a choice in the mail is the same as tapping the card: it does not grade you inside the inbox.
 
-**Plus one quote.** The same mail also carries a **standalone quote** — a line that reads on its own, with no choices and nothing to guess. It needs the new quote mark on the input side; see [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
+**Plus one quote.** After the three questions, the same mail carries a **standalone quote** — still, line, and title, with no choices and no play link. It uses the quote mark, not a star. See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
 
 **Daily game.** Only those three questions. Open on the card they tapped, then the next, then wrap. Tap card 2 → question 2, question 3, question 1. Same MCQ as Fun (try again on a miss). Then a three-question result.
 
@@ -1035,7 +1035,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Later — Share quote as image** | Caption-below + on-image; aspect + palettes + prefs | ✅ Export image in Share menu — see [Share quote as image](#share-quote-as-image) |
 | **Shipped — Daily quote email** | One mail, 3 framed cards; click opens that day’s review and wraps | Opt-in. Loved line of the day + 2 starred (yours first); no repeat within 7 days — see [Daily quote email](#daily-quote-email) |
 | **Later — Liked titles** | Daily mail and Play 3 prefer stars from movies the player has played | Played means liked — see [Liked titles](#liked-titles-for-daily-and-play-3) |
-| **Later — Standalone quotes** | Quote mark for lines that aren’t TLNL setups; mail/Home/chat/export carry a no-guess card | Quote marks never enter the quiz pool — see [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl) |
+| **Shipped — Standalone quotes** | Quote mark on Curate and Play; one no-guess card in the mail and on Home | Chat, profile shelf, search, and Wikiquote backfill stay parked — see [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl) |
 | **Exploratory — Premium GIFs** | Paid tier renders a capped loop over selected cues; owner-side ffmpeg + bucket | Needs billing/entitlements, which don’t exist yet — see [Premium GIFs](#premium-gifs-from-selected-lines) |
 | **Shipped — Global search** | `#/search`; client catalog scan; Popular / Mine; title + line hits | Find a quote or title without picking a film first — see [Global search](#global-search) |
 | **Later — Onboarding / play UX** | First-share tip; distinct Skip; A–D / radio MCQ chrome | ✅ Shared-play coach + Skip + choice letters |
@@ -1146,7 +1146,7 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Share quote as image** — ✅ Share → **Export image**; Caption below / On image; Portrait / Square / Story / Original; Clean / Ink / Lime / None; remembered prefs; Download PNG (+ Web Share when available). Daily email later. See [Share quote as image](#share-quote-as-image).
 - **Daily quote email** — one opt-in mail, 3 framed cards; click opens TLNL (Readwise-style). Not Daily challenge. See [Daily quote email](#daily-quote-email).
 - **Liked titles for daily and Play 3** *(parked)* — a played movie counts as a like; the mail’s starred cards and Play 3 then prefer stars from those movies. See [Liked titles](#liked-titles-for-daily-and-play-3).
-- **Standalone quotes** *(parked)* — star a plain line, not a TLNL setup; input side is a second mark that stays out of the quiz pool, output side is a no-guess quote card in the daily mail (plus Home, chat, export). See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
+- **Standalone quotes** — ✅ Quote on Curate and Play; own `quotes` table; one no-guess card in the daily mail and on Home (image export). Chat, profile shelf, search, and seed backfill stay parked. See [Standalone quotes](#standalone-quotes-star-a-line-not-a-tlnl).
 - **Premium GIFs from selected lines** *(parked)* — paid tier renders a short loop over the selected cues instead of a still; first feature that needs billing. See [Premium GIFs](#premium-gifs-from-selected-lines).
 - **Global search** — ✅ `#/search`; Popular / Starred by me; title + line hits over the eager catalog. See [Global search](#global-search).
 - **Onboarding + play UX clarity** — ✅ First-share coach tip; distinct Skip; A–D + radio chrome on MCQ rows. See [Later ideas](#onboarding--play-ux-clarity).

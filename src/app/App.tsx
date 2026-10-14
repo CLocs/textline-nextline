@@ -6,6 +6,7 @@ import { getFirstPlayableLine } from "../lib/content/playable";
 import { buildMcq } from "../lib/game/mcq";
 import { buildMiniGameQueue, chronologicalPromptQueue } from "../lib/game/miniGame";
 import { questionTotal, startRun, submitAnswer, skipQuestion, goBackQuestion, progressLabel, isForgivingMcq, type GameRun } from "../lib/game/session";
+import { hydrateQuotesForTitle } from "../lib/quotes/sync";
 import { getLovedLineIndices, getMineLineIndices, hydrateStarsForTitle, loadPopularStars } from "../lib/stars/sync";
 import {
   createMiniShare,
@@ -511,6 +512,7 @@ export function App() {
 
   async function handlePlayMovie(entry: CatalogEntry) {
     await hydrateStarsForTitle(entry.id);
+    await hydrateQuotesForTitle(entry.id);
     const crowdPopular = await loadPopularStars(entry.id);
     beginGame(entry, { mode: "fun", length: "mini", crowdPopular });
   }

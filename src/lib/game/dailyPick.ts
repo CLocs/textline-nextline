@@ -212,6 +212,50 @@ export function pickInstantCards(
   return drawInstant(personalPool, globalPool, new Set(), rng);
 }
 
+function pickStandaloneQuote(
+  date: string,
+  personalPool: DailyLine[],
+  globalPool: DailyLine[],
+  excluded: Set<string>,
+): DailyLine | null {
+  const taken = new Set(excluded);
+  const rng = rngFor(`${date}:quote`);
+  const mine = uniqueLines(personalPool, taken);
+  const fromMine = takeOne(mine, taken, rng);
+  if (fromMine) return fromMine;
+
+  const crowd = [...uniqueLines(globalPool, taken)].sort(
+    (a, b) => b.count - a.count || a.titleId.localeCompare(b.titleId) || a.lineIndex - b.lineIndex,
+  );
+  if (crowd.length === 0) return null;
+  const topCount = crowd[0]!.count;
+  return takeOne(
+    crowd.filter((line) => line.count === topCount),
+    taken,
+    rng,
+  );
+}
+
+/**
+ * One framed quote for this date. Personal marks first, then the most-marked crowd lines.
+ * A line used in the previous 7 days is skipped. An empty week returns null.
+ */
+export function standaloneQuoteOn(
+  date: string,
+  globalPool: DailyLine[],
+  personalPool: DailyLine[] = [],
+): DailyLine | null {
+  let cursor = date < DAILY_EPOCH ? date : DAILY_EPOCH;
+  const recent: { date: string; keys: string[] }[] = [];
+  let last: DailyLine | null = null;
+  while (cursor <= date) {
+    last = pickStandaloneQuote(cursor, personalPool, globalPool, keysInWindow(recent, cursor));
+    recent.push({ date: cursor, keys: last ? [lineKey(last)] : [] });
+    cursor = addDays(cursor, 1);
+  }
+  return last;
+}
+
 /** One starred quote for this Home visit. Personal stars first, then the framed pool. */
 export function pickVisitQuote(
   personalPool: DailyLine[],

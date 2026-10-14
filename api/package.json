@@ -43,7 +43,9 @@
     "db:migrate:play-counts:local": "node scripts/ensure-share-columns.mjs --local && wrangler d1 execute textline-stars --local --file=migrations/018_play_counts.sql",
     "db:migrate:play-counts:remote": "node scripts/ensure-share-columns.mjs --remote && wrangler d1 execute textline-stars --remote --yes --file=migrations/018_play_counts.sql",
     "db:migrate:star-weight:local": "node scripts/ensure-share-columns.mjs --local",
-    "db:migrate:star-weight:remote": "node scripts/ensure-share-columns.mjs --remote"
+    "db:migrate:star-weight:remote": "node scripts/ensure-share-columns.mjs --remote",
+    "db:migrate:quotes:local": "wrangler d1 execute textline-stars --local --file=migrations/019_quotes.sql",
+    "db:migrate:quotes:remote": "wrangler d1 execute textline-stars --remote --yes --file=migrations/019_quotes.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260831.1",

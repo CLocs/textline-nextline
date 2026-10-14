@@ -355,6 +355,26 @@ export async function claimAnonymousStars(
     .bind(anonymousPlayerId)
     .run();
 
+  try {
+    const quotes = await db
+      .prepare(`SELECT title_id, line_index, quoted_at FROM quotes WHERE player_id = ?`)
+      .bind(anonymousPlayerId)
+      .all<{ title_id: string; line_index: number; quoted_at: string }>();
+    for (const quote of quotes.results ?? []) {
+      await db
+        .prepare(
+          `INSERT INTO quotes (title_id, line_index, player_id, quoted_at)
+           VALUES (?, ?, ?, ?)
+           ON CONFLICT(title_id, line_index, player_id) DO NOTHING`,
+        )
+        .bind(quote.title_id, quote.line_index, userId, quote.quoted_at)
+        .run();
+    }
+    await db.prepare(`DELETE FROM quotes WHERE player_id = ?`).bind(anonymousPlayerId).run();
+  } catch (error) {
+    console.error("quote claim skipped", error);
+  }
+
   await db
     .prepare(
       `INSERT INTO player_claims (anonymous_player_id, user_id, claimed_at)

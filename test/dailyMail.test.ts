@@ -7,6 +7,7 @@ import {
   globalDailyPool,
   mailChoices,
   mailDateIso,
+  quoteForMail,
   renderDailyMail,
   runDailyMail,
   sendDailyMails,
@@ -119,6 +120,7 @@ function createDb() {
               return null;
             },
             async all<T>(): Promise<{ results: T[] }> {
+              if (sql.includes("FROM quotes")) return { results: [] };
               if (sql.includes("WHERE loved = 1")) {
                 const seen = new Set<string>();
                 const results = [];
@@ -309,6 +311,45 @@ describe("daily mail render", () => {
       ["Loved line next", "Loved line other", "Loved line else"].sort(),
     );
     expect(escapeHtml(`<script>"`)).toBe("&lt;script&gt;&quot;");
+  });
+
+  it("adds one quote card after the three questions, with no choices and no play link", () => {
+    const cards = cardsForMail(
+      "2026-09-01",
+      cues,
+      globalDailyPool(
+        [{ titleId: "loved", lineIndex: 1, count: 4 }],
+        [{ titleId: "loved", lineIndex: 1 }],
+        new Set(cues.map((item) => `${item.titleId}:${item.lineIndex}`)),
+      ),
+      [
+        { titleId: "mine", lineIndex: 2, count: 1, loved: false },
+        { titleId: "mine", lineIndex: 3, count: 1, loved: false },
+      ],
+    );
+    const quote = quoteForMail(
+      "2026-09-01",
+      cues,
+      [{ titleId: "bob", lineIndex: 9, count: 3 }],
+      [{ titleId: "bob", lineIndex: 9 }],
+    );
+    expect(quote?.prompt).toBe("Bob only");
+    const mail = renderDailyMail({
+      date: "2026-09-01",
+      origin: "https://textlinenextline.com",
+      unsubToken: "a".repeat(64),
+      displayName: "Ada",
+      cards,
+      quote,
+    });
+    expect(mail.subject).toBe("Today’s three · September 1");
+    expect(mail.html.match(/What comes next\?/g)).toHaveLength(3);
+    expect(mail.html).toContain("A quote");
+    expect(mail.html).toContain("Bob only");
+    expect(mail.html).toContain("/stills/bob/9.jpg");
+    expect(mail.html).not.toContain("#/daily/3");
+    expect(mail.text).toContain("A quote");
+    expect(mail.text).not.toMatch(/A quote[\s\S]*#\/daily/);
   });
 });
 
