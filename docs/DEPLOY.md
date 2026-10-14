@@ -171,7 +171,7 @@ CORS allows `localhost:5173`, production `textline-nextline.pages.dev`, and prev
 | `POST` | `/api/daily/mail/unsubscribe` | Body `{ token }` — no auth. Turns that account’s mail off |
 | `GET` | `/api/daily/mail/unsubscribe?token=` | Same, as a small HTML page |
 
-The Worker cron `0 13 * * *` (13:00 UTC) sends one mail per opted-in account for the America/New_York date. It reads `https://<APP_ORIGIN>/daily-mail-catalog.json`, which `npm run build` writes into Pages. `deploy:api` applies `migrations/017_daily_mail.sql`.
+The Worker cron `0 5 * * *` (05:00 UTC, midnight New York in winter and 1am in summer) sends one mail per opted-in account for the America/New_York date. It reads `https://<APP_ORIGIN>/daily-mail-catalog.json`, which `npm run build` writes into Pages. `deploy:api` applies `migrations/017_daily_mail.sql`.
 
 Star routes: prefer `Authorization: Bearer <session>` (user id as `player_id`); fall back to `X-Player-Id` for anonymous. Share, run, stats, friends, groups, inbox, parallels, and ops routes require auth (invite preview and pack GET are public).
 

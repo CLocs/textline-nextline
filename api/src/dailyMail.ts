@@ -11,7 +11,7 @@ import {
   type MailCue,
 } from "../../src/lib/game/dailyMailCatalog.js";
 
-/** Morning send clock. 13:00 UTC is 8am or 9am in New York, still that calendar day. */
+/** Send clock. 05:00 UTC is midnight New York in winter and 1am in summer, on the new calendar day. */
 export const DAILY_MAIL_TIMEZONE = "America/New_York";
 
 const POPULAR_LIMIT = 400;

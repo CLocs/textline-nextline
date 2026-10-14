@@ -116,6 +116,61 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
         </p>
       </div>
 
+      <section className="panel home-section home-daily">
+        <div className="daily-fold-header">
+          <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
+          {doneToday ? (
+            <button
+              type="button"
+              className="button ghost"
+              aria-expanded={quotesOpen}
+              onClick={() => setQuotesOpen((open) => !open)}
+            >
+              {quotesOpen ? "Hide" : "Show"}
+            </button>
+          ) : null}
+        </div>
+        {!showQuotes ? (
+          <p className="muted daily-folded-note">Finished for today. Show the quotes to play one again.</p>
+        ) : cards === null ? (
+          <p className="muted">Loading today’s three…</p>
+        ) : cards.length === 0 ? (
+          <p className="muted">No framed quotes lined up for today.</p>
+        ) : (
+          <ul className="title-list">
+            {cards.map((card, index) => {
+              const title = getTitle(card.titleId);
+              const prompt = title ? getLine(title, card.lineIndex) : undefined;
+              const isLineOfDay = card.slot === "global";
+              return (
+                <li key={lineKey(card)} className="daily-quote-row">
+                  <button
+                    type="button"
+                    className={`title-card daily-card${isLineOfDay ? " is-today" : ""}`}
+                    onClick={() => onPlay(index)}
+                  >
+                    <PosterArt
+                      titleId={card.titleId}
+                      title={title?.title ?? "Today"}
+                      lineIndex={card.lineIndex}
+                      fallback="hide"
+                      className="title-card-still"
+                    />
+                    <span className="title-card-copy">
+                      {isLineOfDay ? <span className="daily-today-label">Line of the day</span> : null}
+                      <span className="title-card-name">
+                        {prompt ? snippet(prompt.text) : `Question ${index + 1}`}
+                      </span>
+                      <span className="muted">{title?.title ?? `Question ${index + 1}`}</span>
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </section>
+
       <section className="panel home-section">
         <FriendFaces friends={faces} label="Friends" className="home-friend-faces" />
         <VisitQuote onAnswer={onAnswerQuote} />
@@ -178,58 +233,6 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
             </>
           ) : null}
         </div>
-        <div className="daily-fold-header">
-          <h3 className="library-group-heading">Today&apos;s Daily Quotes</h3>
-          {doneToday ? (
-            <button
-              type="button"
-              className="button ghost"
-              aria-expanded={quotesOpen}
-              onClick={() => setQuotesOpen((open) => !open)}
-            >
-              {quotesOpen ? "Hide" : "Show"}
-            </button>
-          ) : null}
-        </div>
-        {!showQuotes ? (
-          <p className="muted daily-folded-note">Finished for today. Show the quotes to play one again.</p>
-        ) : cards === null ? (
-          <p className="muted">Loading today’s three…</p>
-        ) : cards.length === 0 ? (
-          <p className="muted">No framed quotes lined up for today.</p>
-        ) : (
-          <ul className="title-list">
-            {cards.map((card, index) => {
-              const title = getTitle(card.titleId);
-              const prompt = title ? getLine(title, card.lineIndex) : undefined;
-              const isLineOfDay = card.slot === "global";
-              return (
-                <li key={lineKey(card)} className="daily-quote-row">
-                  <button
-                    type="button"
-                    className={`title-card daily-card${isLineOfDay ? " is-today" : ""}`}
-                    onClick={() => onPlay(index)}
-                  >
-                    <PosterArt
-                      titleId={card.titleId}
-                      title={title?.title ?? "Today"}
-                      lineIndex={card.lineIndex}
-                      fallback="hide"
-                      className="title-card-still"
-                    />
-                    <span className="title-card-copy">
-                      {isLineOfDay ? <span className="daily-today-label">Line of the day</span> : null}
-                      <span className="title-card-name">
-                        {prompt ? snippet(prompt.text) : `Question ${index + 1}`}
-                      </span>
-                      <span className="muted">{title?.title ?? `Question ${index + 1}`}</span>
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        )}
       </section>
     </>
   );

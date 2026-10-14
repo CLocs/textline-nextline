@@ -410,7 +410,7 @@ Open questions (spike only — no pack UI yet):
 - [x] **Question inbox** — Curate send icon → friend’s inbox (or copy a 1-line `#/play` link). See [Later ideas](#later-ideas-parked).
 - [x] **Chats (DMs + shared group threads on Home)** — `#/chats`, `#/chat/{userId}`, `#/chat/group/{groupId}`; Home rail; bell. See [Chats](#chats-dms--shared-group-threads).
 - [x] **Named friend groups** — Profile → Friends send-lists; one Send fans out the same 1-line share. Attempt-chat stays later.
-- [x] **Friend icons + day-streak badges** — up to five initials on Home, above Today’s Daily Quotes; badge is the current day-streak. See [Friend faces](#friend-faces--friends-of-friends).
+- [x] **Friend icons + day-streak badges** — up to five initials on Home, under Today’s Daily Quotes; badge is the current day-streak. See [Friend faces](#friend-faces--friends-of-friends).
 - [ ] **Friends of friends** — tap a friend to see their friends, then request. See [Friend faces](#friend-faces--friends-of-friends).
 - [x] **Send cooldown: per recipient, not global** — Reuse one frozen share across friends; 10s debounce only for same line → same person. See [Recent feedback](#recent-feedback-parked).
 - [ ] **Difficulty modes** — Medium/Hard free text
@@ -536,7 +536,7 @@ Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (�
 
 ## Later ideas *(parked)*
 
-Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Keep it going** on a one-line send that sits in a streak stays parked. **Friend faces** (up to five initials + day-streak badge) sit on Home above Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email** is in (opt-in morning mail). **Liked-title bias** for that mail and Play 3 stays parked. **Standalone quotes** (star a plain line, not a TLNL) and **premium GIFs from selected lines** stay parked. **Chats quote replies** and a **popular-line room** (name open) stay parked. **Title requests (light)** are on Search (Open if we have it, otherwise Request). **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
+Not sequenced. Steer as we go. Teach mode, the **MCQ similar-answer guard**, **quote stills (2.6)**, the **friends graph**, **question inbox**, **named friend groups**, **Loved / double-star**, **star-streak bias**, **play UX clarity**, **Chats** (DMs + shared groups on Home), **global search**, and **PWA-lite** (Add to Home Screen) are in. Line-splitting is the leftover “what counts as a line” work. **Line / still feedback** (wrong image, request image, split line) stays parked. Attempt-chat on a 1-line share is still parked. **Quote parallels** Light is in (Medium deferred). **Share quote as image** is in (aspect + palettes + prefs). **Send streaks from Curate** is next. **Keep it going** on a one-line send that sits in a streak stays parked. **Friend faces** (up to five initials + day-streak badge) sit on Home under Today’s Daily Quotes. **Friends of friends** (tap through, then request) stay parked. **Daily quote email** is in (opt-in mail around midnight New York). **Favorite quote** after a mini-game stays parked. **Liked-title bias** for that mail and Play 3 stays parked. **Standalone quotes** (star a plain line, not a TLNL) and **premium GIFs from selected lines** stay parked. **Chats quote replies** and a **popular-line room** (name open) stay parked. **Title requests (light)** are on Search (Open if we have it, otherwise Request). **SRT + video automation**, and **Steam** stay parked. Native iOS/Android store apps remain a later goal.
 
 ### Loved / double-star quotes ✅
 
@@ -582,7 +582,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Groups ✅.** Owner-only lists on Profile → Friends (e.g. “Movie night”). Members must already be **your** friends. Cap ~10 groups / ~20 members. Unfriend or block drops that person from **your** groups. No shared clubs, no directory, no emails. Local Vite shortcut has no groups.
 
-**Friend faces.** Up to five initials on Home, above Today’s Daily Quotes, with a current day-streak badge. Highest streak first. Tap-through to friends of friends is still later. See [Friend faces](#friend-faces--friends-of-friends).
+**Friend faces.** Up to five initials on Home, under Today’s Daily Quotes, with a current day-streak badge. Highest streak first. Tap-through to friends of friends is still later. See [Friend faces](#friend-faces--friends-of-friends).
 
 **Not this:** rooms (Phase 2), 10-pack mini-game shares (2a), loved-cover stills, exposing emails on friend/share meta, Discord-style servers, a public user directory.
 
@@ -592,7 +592,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 Profile → Friends is a name list (Remove / Block) under the invite link.
 
-**Icons ✅.** Home, directly above Today’s Daily Quotes: up to five faces. A profile photo replaces the initials when Account has one; friends see that photo, no one else does. Highest current [day-streak](#daily-quote-email) first (`daily_streaks`), then display name. One badge, only while the last completion is still in the server’s live window. No badge at 0. Fewer than five streaked friends fills the rest from the list. No friends, or the Local Vite shortcut, shows no row. Profile → Friends stays the name list for Remove and Block. Icons are not links yet.
+**Icons ✅.** Home, directly under Today’s Daily Quotes: up to five faces. A profile photo replaces the initials when Account has one; friends see that photo, no one else does. Highest current [day-streak](#daily-quote-email) first (`daily_streaks`), then display name. One badge, only while the last completion is still in the server’s live window. No badge at 0. Fewer than five streaked friends fills the rest from the list. No friends, or the Local Vite shortcut, shows no row. Profile → Friends stays the name list for Remove and Block. Icons are not links yet.
 
 **Friends of friends.** Tap an icon to open that friend’s friends (display name, same streak badge). **Request** from that card; they Accept. Mutual friendship, same as the invite link. One hop: you are already friends with the person whose list you opened.
 
@@ -853,9 +853,9 @@ Add a second mark on a line — **Quote** (working label) — with the same Cura
 
 **Daily game.** Only those three questions. Open on the card they tapped, then the next, then wrap. Tap card 2 → question 2, question 3, question 1. Same MCQ as Fun (try again on a miss). Then a three-question result.
 
-**Mail.** Resend, the same sender as magic links. No SendGrid. Cron on the Worker at 13:00 UTC (morning in New York). Profile → Account → **Email me today’s three** opts in. Every mail has an unsubscribe link (`#/unsub?token=`) that works without signing in. Nobody is mailed until they opt in.
+**Mail.** Resend, the same sender as magic links. No SendGrid. Cron on the Worker at 05:00 UTC (midnight in New York in winter, 1am in summer), so the mail is waiting for the day. Profile → Account → **Email me today’s three** opts in. Every mail has an unsubscribe link (`#/unsub?token=`) that works without signing in. Nobody is mailed until they opt in.
 
-**In the app.** Home shows today’s three cards. Tap a card to start there, then the next, then wrap. Finishing the three records a day streak; the badge at the top of Home is how many days in a row. The frame list is `content/stills-lines.json`. The 7-day skip is computed from the date, so it stays the same for everyone without a send log. The mail uses that same pick. A per-user send row only stops a second mail the same day.
+**In the app.** Home opens on today’s three cards, in their own section above Play now. Tap a card to start there, then the next, then wrap. Finishing the three records a day streak; the badge at the top of Home is how many days in a row. The frame list is `content/stills-lines.json`. The 7-day skip is computed from the date, so it stays the same for everyone without a send log. The mail uses that same pick. A per-user send row only stops a second mail the same day.
 
 **Catalog.** `npm run build` writes `public/daily-mail-catalog.json` (framed prompts, next line, distractors). The cron fetches it from the site. The file is not committed.
 
@@ -865,7 +865,7 @@ A later pass should prefer stars from movies the player likes. See [Liked titles
 
 ### Play now ✅
 
-**On Home**, under friends and above today’s daily.
+**On Home**, under Today’s Daily Quotes.
 
 1. **Play 3** — three framed quotes right now. Your stars fill first, then the same framed pool as the daily. Today’s three are skipped when other lines exist. It does not move the day streak.
 2. **Two movies** — two catalog movies that have stills. Tap one to start a Fun mini-game. Coming back home replaces the one you played and keeps the other. **Other movies** draws a new pair and skips the ones just shown when enough others remain.
@@ -884,6 +884,13 @@ A show picker stays off. A show still needs an episode.
 
 - **Badges, then a friends board** for mini-games played, weighted perfects, and DMs answered correctly. No public list.
 - **Liked titles** — Play 3 prefers stars from movies they have played. See [Liked titles](#liked-titles-for-daily-and-play-3).
+- **Favorite quote** — after a mini-game, pick a favorite from that run. See [Favorite quote](#favorite-quote-after-a-mini-game).
+
+### Favorite quote after a mini-game *(parked)*
+
+When a mini-game ends, ask which quote from that run they liked best. The point is to stay in the app for one more beat.
+
+Each card is the frame, the textline, and the next line. No choices to guess. The same star, love, share, and export actions sit on the card.
 
 ### Liked titles for daily and Play 3 *(parked)*
 
@@ -1000,6 +1007,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Shipped — Star streaks** | Mini-game queue prefers a run of sequential stars and plays them in order | Chain the bit when back-to-back stars exist — see [Star streaks](#star-streaks-in-mini-games) |
 | **Next — Send streaks** | Curate sends a star streak to a friend; they play it in order | Same Send as one line, but the whole run — see [Send streaks](#send-streaks-from-curate) |
 | **Later — Keep it going** | A one-line send inside a star streak can continue the rest | Random quote or DM. Button plays the following lines in order — see [Keep it going](#keep-it-going) |
+| **Later — Favorite quote** | After a mini-game, pick a favorite line from that run | Frame, textline, next line. Star, love, share, export. No choices — see [Favorite quote](#favorite-quote-after-a-mini-game) |
 | **Sec — Security ladder** | L0 hygiene → L1 auth pass → L3 deps → L4 PR reviews; L5 only if scale demands | L0 checklist below; see [spike](#spike-security-ladder-not-a-full-audit-yet) |
 | **2 — Multiplayer** | Rooms, codes/links, turn rotation, sync | 2–4 friends can play one transcript together |
 | **2 — Popular-line room** | Turn-based room walks the crowd-popular starred lines (all or most) | Name open — longer than a mini-game, shorter than the full transcript |
@@ -1009,7 +1017,7 @@ A paid Steam listing is a later distribution idea, after the web app. Two gates 
 | **Next — Chats** | Per-friend DMs + shared group threads on Home | ✅ See [Chats](#chats-dms--shared-group-threads) |
 | **Later — Chats quote replies** | Text replies under a quote card (thread-lite) | Parked — see [Chats → quote replies](#chats--quote-replies) |
 | **Named friend groups** | Owner-only send-lists; one frozen share fans out to members | ✅ Profile → Friends; Send overlay groups first |
-| **Friend faces** | Up to five initials on Home with a current day-streak badge | ✅ Above Today’s Daily Quotes. Tap-through still later — see [Friend faces](#friend-faces--friends-of-friends) |
+| **Friend faces** | Up to five initials on Home with a current day-streak badge | ✅ Under Today’s Daily Quotes. Tap-through still later — see [Friend faces](#friend-faces--friends-of-friends) |
 | **3.5 — Obsidian → TL** | Vault scrape, highlight→line match, weighted seed | Personal TLs from Obsidian feed mini-games / challenges |
 | **3.6 — Online quotes** | Wikiquote dialogue merged into your stars, then Curate | Lebowski: 210 new lines, 1 existing star kept — see [spike](#spike-online-quotes-eg-imdb-research) |
 | **4 — Depth** | Free-text modes, leaderboards, daily challenge | Replayability and competition |
@@ -1121,10 +1129,11 @@ Does **not** wait on rooms. Full spec: [Phase 2.6](#phase-26--quote-stills-r2-ca
 - **Chats (DMs + group threads on Home)** — ✅ `#/chats`, DM + shared group threads; Home rail; server unread. Quote replies + attempt scores still later. See [Chats](#chats-dms--shared-group-threads).
 - **Chats → quote replies** *(parked)* — Reply under a quote card (scoped to that share); lives under the card, not as a free-floating timeline peer. See [Chats → quote replies](#chats--quote-replies).
 - **Named friend groups** — ✅ Owner-only send-lists on Profile → Friends; one Send, same `shareId`. Attempt-chat still later.
-- **Friend faces** — ✅ Up to five initials on Home, above Today’s Daily Quotes, with a current day-streak badge. Friends of friends (tap, then request) still later. See [Friend faces](#friend-faces--friends-of-friends).
+- **Friend faces** — ✅ Up to five initials on Home, under Today’s Daily Quotes, with a current day-streak badge. Friends of friends (tap, then request) still later. See [Friend faces](#friend-faces--friends-of-friends).
 - **Send cooldown: per recipient** — ✅ Same line to Nick then someone else works; 10s debounce only for duplicate same line → same person. Share is reused across recipients.
 - **Send streaks from Curate** *(next)* — Send a star streak (sequential starred lines) to a friend; they play it in order. See [Send streaks from Curate](#send-streaks-from-curate).
 - **Keep it going** *(parked)* — on a one-line send (random quote or DM) that sits in a star streak, a button plays the rest in order. See [Keep it going](#keep-it-going).
+- **Favorite quote after a mini-game** *(parked)* — pick a favorite from the run just played. Cards are frame + textline + next line, with star, love, share, and export. No multiple choice. See [Favorite quote](#favorite-quote-after-a-mini-game).
 - **Attempt chat** *(later)* — person icons for first/second/third try on a 1-line share; belongs **inside** Chats threads. See [Later ideas](#later-ideas-parked).
 - **Curator score / Letterboxd connect / UGC single quotes / songs** — parked in [Later ideas](#later-ideas-parked).
 - **Integrations** *(parked)* — Letterboxd, Flickchart, and a Netflix / Amazon watch-history spike. See [Integrations](#integrations).
