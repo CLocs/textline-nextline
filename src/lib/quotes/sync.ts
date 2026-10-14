@@ -1,3 +1,5 @@
+import { unstarLine } from "../stars/api.js";
+import { isStarred } from "../stars/store.js";
 import {
   fetchMyQuotes,
   fetchPopularQuotesGlobal,
@@ -15,6 +17,7 @@ import {
   replaceQuotes,
   setQuoteLocal,
   type QuoteMark,
+  type QuoteOrigin,
 } from "./store.js";
 
 export type { PopularQuote, QuoteMark };
@@ -35,7 +38,15 @@ export async function hydrateAllQuotes(): Promise<void> {
       titleId: quote.titleId,
       lineIndex: quote.lineIndex,
       quotedAt: quote.quotedAt,
+      origin: quote.origin === "wikiquote" ? "wikiquote" : "mine",
     })),
+  );
+}
+
+function quoteOrigin(titleId: string, lineIndex: number): QuoteOrigin {
+  return (
+    listQuotes().find((quote) => quote.titleId === titleId && quote.lineIndex === lineIndex)
+      ?.origin ?? "mine"
   );
 }
 
@@ -43,23 +54,32 @@ export async function hydrateAllQuotes(): Promise<void> {
 export async function toggleQuote(titleId: string, lineIndex: number): Promise<boolean> {
   const wasQuoted = isQuoted(titleId, lineIndex);
   const nowQuoted = !wasQuoted;
+  const origin = wasQuoted ? quoteOrigin(titleId, lineIndex) : "mine";
 
   if (nowQuoted) setQuoteLocal(titleId, lineIndex);
   else removeQuoteLocal(titleId, lineIndex);
 
   if (!isQuoteApiEnabled()) return nowQuoted;
 
-  const synced = nowQuoted
-    ? await quoteLine(titleId, lineIndex)
-    : await unquoteLine(titleId, lineIndex);
-
-  if (!synced) {
-    if (nowQuoted) removeQuoteLocal(titleId, lineIndex);
-    else setQuoteLocal(titleId, lineIndex);
-    return wasQuoted;
+  if (nowQuoted) {
+    const synced = await quoteLine(titleId, lineIndex);
+    if (!synced) {
+      removeQuoteLocal(titleId, lineIndex);
+      return wasQuoted;
+    }
+    return true;
   }
 
-  return nowQuoted;
+  const quoteSynced = await unquoteLine(titleId, lineIndex);
+  // A Wikiquote import still lives on the star row until that row is moved.
+  // Clearing the quote removes that star when this line is not also a real TL.
+  const starSynced =
+    origin === "wikiquote" && !isStarred(titleId, lineIndex) ? await unstarLine(titleId, lineIndex) : true;
+  if (!quoteSynced && !starSynced) {
+    setQuoteLocal(titleId, lineIndex, origin);
+    return wasQuoted;
+  }
+  return false;
 }
 
 export { getQuotesForTitle, isQuoted, listQuotes };

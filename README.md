@@ -526,7 +526,7 @@ Re-run this list after any auth or origin change. L1+ still open.
 
 Exact equality was almost never (2 lines on Lebowski). Hits are real dialogue (“I always wanted to be a gangster”, “it really tied the room together”). Misses are credits, taglines, and quotes that stitch several subtitle cues into one sentence — the existing Readwise window match should pick up some of those. About two in five lines are usable **before** that, with a person dropping the rest.
 
-**Shipped, one film:** `npm run content:wikiquote -- --title <id> --vault <readwise-dir>` keeps Dialogue and character sections, drops taglines, cast, and “quotes about,” and matches with the same window matcher as Readwise. It unions into `content/stars-seed.json`. A vault line keeps the line when both sources hit it. `content:stars-push --title <id> --merge` inserts missing rows for that account only (`ON CONFLICT DO NOTHING`). Existing stars and loved flags stay. The lines show up starred in that account’s Curate, where misses get unstarred. After that review, add the title to `stars-protected.json` so a later merge does not put those lines back. Store our `lineIndex`, not a copy of their wording (pages are CC BY-SA if we republish the text). The Simpsons, SpongeBob, and It's Always Sunny use each season page, matched by episode title onto the catalog episodes we have.
+**Shipped, one film:** `npm run content:wikiquote -- --title <id> --vault <readwise-dir>` keeps Dialogue and character sections, drops taglines, cast, and “quotes about,” and matches with the same window matcher as Readwise. It unions into `content/stars-seed.json`. A vault line keeps the line when both sources hit it, and that line stays a star. `content:stars-push --title <id> --merge` inserts missing rows for that account only (`ON CONFLICT DO NOTHING`). Wikiquote matches insert as **quote** marks, not stars. Existing stars and loved flags stay. The lines show up quoted in that account’s Curate, where misses get the quote mark removed. After that review, add the title to `stars-protected.json` so a later merge does not put those lines back. Store our `lineIndex`, not a copy of their wording (pages are CC BY-SA if we republish the text). The Simpsons, SpongeBob, and It's Always Sunny use each season page, matched by episode title onto the catalog episodes we have.
 
 **Lebowski trial (Sep 2026):** 280 quotes considered, 211 matched (63 exact, 101 contains, 47 window). One vault line (`Shut the fuck up, Donny!`) was already a star and stayed. 210 new stars were inserted for `dascolin@gmail.com`. Live count went from 1 to 211. Nothing was deleted.
 
@@ -816,7 +816,7 @@ Some lines aren’t just next-line quiz material — they’re **templates peopl
 
 **Other ties** *(open, not sequenced):* send a quote in [Chats](#chats-dms--shared-group-threads) as a card with nothing to guess; a quote shelf on the profile; quote marks seeding [parallel packs](#quote-parallels--analogy-packs); a Quotes filter in [global search](#global-search); cover stills preferring a quote-marked frame.
 
-**Gates:** frame coverage (same limit as the mail). The [Wikiquote / Readwise seeds](#spike-online-quotes-eg-imdb-research) are mostly standalone lines; backfill stays a follow-up.
+**Gates:** frame coverage (same limit as the mail). [Wikiquote](#spike-online-quotes-eg-imdb-research) matches are quote marks. Readwise matches stay stars.
 
 ### Premium GIFs from selected lines
 

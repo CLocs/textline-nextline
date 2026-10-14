@@ -46,9 +46,11 @@ export function parseLoveBody(body: unknown): (StarBody & { loved: boolean }) | 
 export async function putStar(db: D1Database, playerId: string, body: StarBody): Promise<void> {
   await db
     .prepare(
-      `INSERT INTO stars (title_id, line_index, player_id, starred_at, loved)
-       VALUES (?, ?, ?, ?, 0)
-       ON CONFLICT(title_id, line_index, player_id) DO UPDATE SET starred_at = excluded.starred_at`,
+      `INSERT INTO stars (title_id, line_index, player_id, starred_at, loved, origin)
+       VALUES (?, ?, ?, ?, 0, 'mine')
+       ON CONFLICT(title_id, line_index, player_id) DO UPDATE SET
+         starred_at = excluded.starred_at,
+         origin = 'mine'`,
     )
     .bind(body.titleId, body.lineIndex, playerId, new Date().toISOString())
     .run();
@@ -159,7 +161,7 @@ export async function fetchPopularStars(
   const result = await db
     .prepare(
       `SELECT line_index, SUM(weight) AS count
-       FROM stars WHERE title_id = ?
+       FROM stars WHERE title_id = ? AND origin != 'wikiquote'
        GROUP BY line_index
        ORDER BY count DESC, line_index ASC
        LIMIT ?`,
@@ -208,6 +210,7 @@ export async function fetchPopularStarsGlobal(
     .prepare(
       `SELECT title_id, line_index, SUM(weight) AS count
        FROM stars
+       WHERE origin != 'wikiquote'
        GROUP BY title_id, line_index
        ORDER BY count DESC, title_id ASC, line_index ASC
        LIMIT ?`,

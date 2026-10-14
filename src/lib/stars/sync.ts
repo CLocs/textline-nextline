@@ -1,3 +1,4 @@
+import { setQuoteLocal } from "../quotes/store.js";
 import {
   fetchMyStars,
   fetchPopularStars,
@@ -28,7 +29,15 @@ export async function hydrateStarsForTitle(titleId: string): Promise<void> {
   if (!isStarApiEnabled()) return;
   const remote = await fetchMyStars(titleId);
   if (remote === null) return;
-  mergeRemoteStars(titleId, remote);
+  const imported = remote.filter((star) => star.origin === "wikiquote");
+  mergeRemoteStars(
+    titleId,
+    remote.filter((star) => star.origin !== "wikiquote"),
+  );
+  for (const star of imported) {
+    removeStarLocal(titleId, star.lineIndex);
+    setQuoteLocal(titleId, star.lineIndex, "wikiquote");
+  }
 }
 
 export async function loadPopularStars(titleId: string, limit = 50): Promise<number[]> {

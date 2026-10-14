@@ -84,19 +84,21 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     const stars = getStarsForTitle(entry.id);
     const starred = new Set<number>();
     const loved = new Set<number>();
-    const wikiquote = new Set<number>();
     for (const star of stars) {
       starred.add(star.lineIndex);
       if (star.loved) loved.add(star.lineIndex);
-      if (star.origin === "wikiquote") wikiquote.add(star.lineIndex);
     }
-    return { starred, loved, wikiquote };
+    return { starred, loved };
   }, [entry.id, revision]);
 
   const quotedLines = useMemo(() => {
     const quoted = new Set<number>();
-    for (const quote of getQuotesForTitle(entry.id)) quoted.add(quote.lineIndex);
-    return quoted;
+    const wikiquote = new Set<number>();
+    for (const quote of getQuotesForTitle(entry.id)) {
+      quoted.add(quote.lineIndex);
+      if (quote.origin === "wikiquote") wikiquote.add(quote.lineIndex);
+    }
+    return { quoted, wikiquote };
   }, [entry.id, revision]);
 
   const selectedSet = useMemo(() => new Set(selected), [selected]);
@@ -304,7 +306,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
         <h2>Curate stars</h2>
         <p className="muted curate-meta">
           {entry.title} · {starredCount} starred
-          {starSets.wikiquote.size > 0 ? ` · ${starSets.wikiquote.size} from Wikiquote` : ""} ·{" "}
+          {quotedLines.wikiquote.size > 0 ? ` · ${quotedLines.wikiquote.size} from Wikiquote` : ""} ·{" "}
           {promptIndices.length} quiz lines
         </p>
         <p className="curate-hint">
@@ -406,8 +408,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
 
               const starred = starSets.starred.has(lineIndex);
               const loved = starSets.loved.has(lineIndex);
-              const quoted = quotedLines.has(lineIndex);
-              const fromWikiquote = starSets.wikiquote.has(lineIndex);
+              const quoted = quotedLines.quoted.has(lineIndex);
+              const fromWikiquote = quotedLines.wikiquote.has(lineIndex);
               const isSelected = selectedSet.has(lineIndex);
               const isFocused = highlightLine === lineIndex;
               const rowIndex = windowRange.start + visibleOffset;

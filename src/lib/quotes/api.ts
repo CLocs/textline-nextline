@@ -5,6 +5,7 @@ export type MyQuote = {
   titleId: string;
   lineIndex: number;
   quotedAt: string;
+  origin?: "mine" | "wikiquote";
 };
 
 export type PopularQuote = {
@@ -65,12 +66,17 @@ export async function fetchMyQuotes(titleId?: string): Promise<MyQuote[] | null>
   if (!response?.ok) return null;
   const data = (await response.json()) as { quotes?: MyQuote[] };
   if (!Array.isArray(data.quotes)) return null;
-  return data.quotes.filter(
-    (quote) =>
-      typeof quote.titleId === "string" &&
-      Number.isInteger(quote.lineIndex) &&
-      quote.lineIndex >= 0,
-  );
+  return data.quotes
+    .filter(
+      (quote) =>
+        typeof quote.titleId === "string" &&
+        Number.isInteger(quote.lineIndex) &&
+        quote.lineIndex >= 0,
+    )
+    .map((quote) => ({
+      ...quote,
+      origin: quote.origin === "wikiquote" ? ("wikiquote" as const) : ("mine" as const),
+    }));
 }
 
 export async function fetchPopularQuotesGlobal(limit = 100): Promise<PopularQuote[] | null> {

@@ -1,7 +1,10 @@
+export type QuoteOrigin = "mine" | "wikiquote";
+
 export type QuoteMark = {
   titleId: string;
   lineIndex: number;
   quotedAt: string;
+  origin?: QuoteOrigin;
 };
 
 type QuoteStore = {
@@ -18,13 +21,18 @@ function readStore(): QuoteStore {
     const parsed = JSON.parse(raw) as QuoteStore;
     if (!Array.isArray(parsed.quotes)) return { quotes: [] };
     return {
-      quotes: parsed.quotes.filter(
-        (quote) =>
-          typeof quote.titleId === "string" &&
-          quote.titleId.length > 0 &&
-          Number.isInteger(quote.lineIndex) &&
-          quote.lineIndex >= 0,
-      ),
+      quotes: parsed.quotes
+        .filter(
+          (quote) =>
+            typeof quote.titleId === "string" &&
+            quote.titleId.length > 0 &&
+            Number.isInteger(quote.lineIndex) &&
+            quote.lineIndex >= 0,
+        )
+        .map((quote) => ({
+          ...quote,
+          origin: quote.origin === "wikiquote" ? ("wikiquote" as const) : ("mine" as const),
+        })),
     };
   } catch {
     return { quotes: [] };
@@ -50,15 +58,25 @@ export function isQuoted(titleId: string, lineIndex: number): boolean {
   );
 }
 
-export function setQuoteLocal(titleId: string, lineIndex: number): void {
+export function setQuoteLocal(
+  titleId: string,
+  lineIndex: number,
+  origin: QuoteOrigin = "mine",
+): void {
   const store = readStore();
-  if (store.quotes.some((quote) => quote.titleId === titleId && quote.lineIndex === lineIndex)) {
+  const existing = store.quotes.find(
+    (quote) => quote.titleId === titleId && quote.lineIndex === lineIndex,
+  );
+  if (existing) {
+    if (origin === "wikiquote" && existing.origin !== "mine") existing.origin = "wikiquote";
+    writeStore(store);
     return;
   }
   store.quotes.push({
     titleId,
     lineIndex,
     quotedAt: new Date().toISOString(),
+    origin,
   });
   writeStore(store);
 }
@@ -74,7 +92,7 @@ export function removeQuoteLocal(titleId: string, lineIndex: number): void {
 /** Remote marks for one title replace that title's local marks. Other titles stay. */
 export function mergeRemoteQuotes(
   titleId: string,
-  remote: { lineIndex: number; quotedAt?: string }[],
+  remote: { lineIndex: number; quotedAt?: string; origin?: QuoteOrigin }[],
 ): void {
   const store = readStore();
   const kept = store.quotes.filter((quote) => quote.titleId !== titleId);
@@ -86,6 +104,7 @@ export function mergeRemoteQuotes(
         titleId,
         lineIndex: quote.lineIndex,
         quotedAt: quote.quotedAt || now,
+        origin: quote.origin === "wikiquote" ? ("wikiquote" as const) : ("mine" as const),
       })),
     ],
   });

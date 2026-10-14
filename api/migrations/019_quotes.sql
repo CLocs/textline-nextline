@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS quotes (
   line_index INTEGER NOT NULL,
   player_id TEXT NOT NULL,
   quoted_at TEXT NOT NULL,
+  origin TEXT NOT NULL DEFAULT 'mine',
   PRIMARY KEY (title_id, line_index, player_id)
 );
 

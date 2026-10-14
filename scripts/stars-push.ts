@@ -7,6 +7,7 @@ import {
   countByTitle,
   excludeTitleIds,
   filterStarsByTitle,
+  insertQuotesSql,
   insertStarsSql,
   loadProtectedTitleIds,
   loadStarSeedFile,
@@ -24,6 +25,7 @@ function usage(): never {
   npm run content:stars-push -- --email you@example.com [--remote] [--title payback-1999]
 
 Inserts Readwise-matched lines from stars-seed.json into Cloudflare D1 as YOUR stars.
+Wikiquote matches (note wikiquote) insert as quote marks, not stars.
 Does not delete or update existing rows (ON CONFLICT DO NOTHING).
 Inserts are insert-only: ON CONFLICT DO NOTHING. Existing rows stay, including
 loved. Nothing is deleted.
@@ -248,7 +250,10 @@ function main(): void {
     return;
   }
 
-  printCounts(stars, dryRun ? "rows that would be inserted" : "rows to insert");
+  const quoteRows = stars.filter((star) => star.note === "wikiquote");
+  const starRows = stars.filter((star) => star.note !== "wikiquote");
+  printCounts(starRows, dryRun ? "stars that would be inserted" : "stars to insert");
+  printCounts(quoteRows, dryRun ? "Wikiquote quotes that would be inserted" : "Wikiquote quotes to insert");
   if (dryRun) {
     console.log("Dry run — nothing written.");
     return;
@@ -256,11 +261,17 @@ function main(): void {
 
   const starredAt = new Date().toISOString();
   let batches = 0;
-  for (const group of chunk(stars, 40)) {
+  for (const group of chunk(starRows, 40)) {
     d1Json(insertStarsSql(group, userId, starredAt), remote);
     batches += 1;
   }
-  console.log(`Wrote ${stars.length} rows in ${batches} batch(es). Re-open the game signed in as ${email}.`);
+  for (const group of chunk(quoteRows, 40)) {
+    d1Json(insertQuotesSql(group, userId, starredAt), remote);
+    batches += 1;
+  }
+  console.log(
+    `Wrote ${starRows.length} star(s) and ${quoteRows.length} quote(s) in ${batches} batch(es). Re-open the game signed in as ${email}.`,
+  );
 }
 
 main();

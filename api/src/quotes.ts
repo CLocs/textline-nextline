@@ -1,7 +1,10 @@
+export type QuoteOrigin = "mine" | "wikiquote";
+
 export type QuoteRow = {
   titleId: string;
   lineIndex: number;
   quotedAt: string;
+  origin: QuoteOrigin;
 };
 
 export type PopularQuote = {
@@ -14,6 +17,7 @@ type QuoteDbRow = {
   title_id: string;
   line_index: number;
   quoted_at: string;
+  origin: string | null;
 };
 
 type PopularQuoteDbRow = {
@@ -27,6 +31,7 @@ function mapQuote(row: QuoteDbRow): QuoteRow {
     titleId: row.title_id,
     lineIndex: row.line_index,
     quotedAt: row.quoted_at,
+    origin: row.origin === "wikiquote" ? "wikiquote" : "mine",
   };
 }
 
@@ -38,8 +43,8 @@ export async function putQuote(
 ): Promise<void> {
   await db
     .prepare(
-      `INSERT INTO quotes (title_id, line_index, player_id, quoted_at)
-       VALUES (?, ?, ?, ?)
+      `INSERT INTO quotes (title_id, line_index, player_id, quoted_at, origin)
+       VALUES (?, ?, ?, ?, 'mine')
        ON CONFLICT(title_id, line_index, player_id) DO UPDATE SET quoted_at = excluded.quoted_at`,
     )
     .bind(titleId, lineIndex, playerId, new Date().toISOString())
@@ -66,14 +71,14 @@ export async function fetchMyQuotes(
   const query = titleId
     ? db
         .prepare(
-          `SELECT title_id, line_index, quoted_at FROM quotes
+          `SELECT title_id, line_index, quoted_at, origin FROM quotes
            WHERE player_id = ? AND title_id = ?
            ORDER BY line_index ASC`,
         )
         .bind(playerId, titleId)
     : db
         .prepare(
-          `SELECT title_id, line_index, quoted_at FROM quotes
+          `SELECT title_id, line_index, quoted_at, origin FROM quotes
            WHERE player_id = ?
            ORDER BY title_id ASC, line_index ASC`,
         )

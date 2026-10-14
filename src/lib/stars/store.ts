@@ -1,3 +1,5 @@
+import { setQuoteLocal } from "../quotes/store.js";
+
 export type StarOrigin = "mine" | "wikiquote";
 
 export type Star = {
@@ -25,13 +27,16 @@ function readStore(): StarStore {
     if (!raw) return { stars: [] };
     const parsed = JSON.parse(raw) as StarStore;
     if (!Array.isArray(parsed.stars)) return { stars: [] };
-    return {
-      stars: parsed.stars.map((star) => ({
-        ...star,
-        loved: Boolean(star.loved),
-        origin: star.origin === "wikiquote" ? "wikiquote" : "mine",
-      })),
-    };
+    const stars = parsed.stars.map((star) => ({
+      ...star,
+      loved: Boolean(star.loved),
+      origin: star.origin === "wikiquote" ? ("wikiquote" as const) : ("mine" as const),
+    }));
+    const wiki = stars.filter((star) => star.origin === "wikiquote");
+    if (wiki.length === 0) return { stars };
+    writeStore({ stars: stars.filter((star) => star.origin !== "wikiquote") });
+    for (const star of wiki) setQuoteLocal(star.titleId, star.lineIndex, "wikiquote");
+    return { stars: stars.filter((star) => star.origin !== "wikiquote") };
   } catch {
     return { stars: [] };
   }
