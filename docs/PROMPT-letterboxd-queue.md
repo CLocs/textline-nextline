@@ -2,7 +2,7 @@
 
 Copy this into a new Cursor chat in **textline-nextline**.
 
-This is **C0** of the [content workstream](ROADMAP-content.md). Do not implement batch SRT convert here — that stays in transcript_maker ([PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-maker-batch-export.md)).
+This is **C0** of the [content workstream](CONTENT.md). Do not implement batch SRT convert here — that stays in transcript_maker ([PROMPT-transcript-maker-batch-export.md](PROMPT-transcript-maker-batch-export.md)).
 
 ---
 
@@ -59,7 +59,7 @@ npm run content:queue -- --from <path-to-zip-or-dir> [--out content/queue.json]
 - Use **tsx** (already used for `scripts/import.ts`), e.g. `scripts/letterboxd-queue.ts`.
 - Gitignore Letterboxd ZIPs and an inbox dir (e.g. `inbox/letterboxd/*.zip`, `inbox/srt/`). Do not commit the user’s export.
 - Parse CSV robustly (quoted fields, BOM). Add Vitest fixtures: a tiny likes CSV + ratings CSV covering overlap, a 4.0 rating (excluded), a 4.5 (included).
-- Document in README (Import transcripts or a short “Content queue” bullet) and point at [ROADMAP-content.md](ROADMAP-content.md).
+- Document in README (Import transcripts or a short “Content queue” bullet) and point at [CONTENT.md](CONTENT.md).
 
 ### Out of scope (for this task)
 

@@ -14,7 +14,7 @@ This is the handoff format textline-nextline already imports via `npm run import
 
 - **transcript_maker** already parses SRT/VTT, generates clean transcripts (`generateTranscript`), and exports timed JSON in the browser via `workToTimedJson` (`src/lib/export/transcript.ts`).
 - **textline-nextline** imports that JSON with `src/lib/import/transcriptMaker.ts` and stores normalized titles in `content/titles/`.
-- Today export is manual, one file at a time from the Work screen. We need **batch** for a folder of SRTs — a TV season *or* a stack of movie files from the [content workstream](ROADMAP-content.md).
+- Today export is manual, one file at a time from the Work screen. We need **batch** for a folder of SRTs — a TV season *or* a stack of movie files from the [content workstream](CONTENT.md).
 
 ## Requirements
 
