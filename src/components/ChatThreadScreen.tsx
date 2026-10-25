@@ -40,6 +40,7 @@ type Props = {
 function OutgoingPreview({
   titleId,
   lineIndex,
+  promptCount = 1,
   label,
   fromLabel,
   receiptLabel,
@@ -53,6 +54,7 @@ function OutgoingPreview({
 }: {
   titleId: string;
   lineIndex: number;
+  promptCount?: number;
   label: string;
   fromLabel: string;
   receiptLabel?: string | null;
@@ -77,6 +79,9 @@ function OutgoingPreview({
         <p className="inbox-line-from">
           {fromLabel}
           <span className="muted"> · {label}</span>
+          {promptCount > 1 ? (
+            <span className="muted"> · {promptCount}-line streak</span>
+          ) : null}
           {receiptLabel ? (
             <span className="chats-receipt muted" title="Opened the chat">
               {" "}
@@ -201,6 +206,7 @@ function dmToInboxItem(message: DmQuoteMessage): InboxItem {
     shareId: message.shareId,
     titleId: message.titleId,
     lineIndex: message.lineIndex,
+    promptCount: message.promptCount,
     from: message.from,
     createdAt: message.createdAt,
   };
@@ -213,6 +219,7 @@ function groupToInboxItem(message: GroupQuoteMessage): InboxItem | null {
     shareId: message.shareId,
     titleId: message.titleId,
     lineIndex: message.lineIndex,
+    promptCount: message.promptCount,
     from: message.from,
     createdAt: message.createdAt,
   };
@@ -526,6 +533,7 @@ export function ChatThreadScreen({
                         <OutgoingPreview
                           titleId={message.titleId}
                           lineIndex={message.lineIndex}
+                          promptCount={message.promptCount}
                           label={entryLabel(message.titleId)}
                           fromLabel="You sent"
                           receiptLabel={dmReceiptLabel(message.receipt)}
@@ -583,6 +591,7 @@ export function ChatThreadScreen({
                         <OutgoingPreview
                           titleId={message.titleId}
                           lineIndex={message.lineIndex}
+                          promptCount={message.promptCount}
                           label={entryLabel(message.titleId)}
                           fromLabel={
                             message.youSent

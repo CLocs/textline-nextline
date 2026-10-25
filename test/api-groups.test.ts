@@ -191,11 +191,42 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                 const [groupId] = args as [string];
                 return { n: members.filter((row) => row.group_id === groupId).length } as T;
               }
+              if (sql.includes("SELECT id FROM mini_shares") && sql.includes("line_indices")) {
+                const [ownerId, titleId, lineIndices] = args as [string, string, string];
+                const rows = shares
+                  .filter(
+                    (share) =>
+                      share.owner_user_id === ownerId &&
+                      share.title_id === titleId &&
+                      share.line_indices === lineIndices,
+                  )
+                  .reverse();
+                const row = rows[0];
+                return (row ? { id: row.id } : null) as T;
+              }
               if (sql.includes("FROM mini_shares WHERE owner_user_id")) {
                 const [userId] = args as [string];
                 const rows = shares.filter((share) => share.owner_user_id === userId);
                 const last = rows[rows.length - 1];
                 return (last ? { created_at: last.created_at } : null) as T;
+              }
+              if (
+                sql.includes("SELECT share_id, created_at FROM line_inbox") &&
+                sql.includes("sender_user_id")
+              ) {
+                const [sender, recipient, shareId] = args as [string, string, string];
+                const rows = inbox
+                  .filter(
+                    (row) =>
+                      row.sender_user_id === sender &&
+                      row.recipient_user_id === recipient &&
+                      row.share_id === shareId,
+                  )
+                  .sort((a, b) => b.created_at.localeCompare(a.created_at));
+                const row = rows[0];
+                return (row
+                  ? { share_id: row.share_id, created_at: row.created_at }
+                  : null) as T;
               }
               if (sql.includes("SELECT id FROM friend_groups WHERE id = ? AND owner_user_id")) {
                 const [id, owner] = args as [string, string];
@@ -239,6 +270,7 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                   .filter((row) => row.recipient_user_id === userId)
                   .map((row) => {
                     const sender = users.find((u) => u.id === row.sender_user_id);
+                    const share = shares.find((item) => item.id === row.share_id);
                     return {
                       id: row.id,
                       share_id: row.share_id,
@@ -247,6 +279,7 @@ function createGroupsDb(options?: { carolFriend?: boolean }) {
                       created_at: row.created_at,
                       sender_id: row.sender_user_id,
                       display_name: sender?.display_name ?? null,
+                      line_indices: share?.line_indices ?? null,
                     };
                   });
                 return { results: results as T[] };

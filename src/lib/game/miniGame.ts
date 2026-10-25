@@ -120,6 +120,27 @@ export function findStarStreaks(
   return streaks;
 }
 
+/**
+ * The personal star streak that contains this prompt, trimmed to mini size.
+ * Window stays contiguous and keeps the clicked line. Null if the line is not in a streak.
+ */
+export function streakForSend(
+  validPromptIndices: number[],
+  starredIndices: number[],
+  lineIndex: number,
+  cap = MINI_GAME_SIZE,
+): number[] | null {
+  if (cap < 2) return null;
+  const streak = findStarStreaks(validPromptIndices, starredIndices).find((run) =>
+    run.includes(lineIndex),
+  );
+  if (!streak) return null;
+  if (streak.length <= cap) return [...streak];
+  const pos = streak.indexOf(lineIndex);
+  const start = Math.min(Math.max(0, pos - Math.floor((cap - 1) / 2)), streak.length - cap);
+  return streak.slice(start, start + cap);
+}
+
 function pickStreak(
   streaks: number[][],
   size: number,

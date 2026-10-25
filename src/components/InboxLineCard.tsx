@@ -8,6 +8,7 @@ import { buildMcq } from "../lib/game/mcq";
 import { isInboxItemSolved, markInboxItemSolvedEverywhere } from "../lib/inbox/solved";
 import type { InboxItem } from "../lib/inbox/api";
 import type { CatalogEntry } from "../types/content";
+import { setHash } from "../lib/routing/hash";
 import type { ChatReaction } from "../lib/chats/api";
 import { ChatQuoteActions } from "./ChatQuoteActions";
 import { ChatReactions } from "./ChatReactions";
@@ -56,6 +57,8 @@ export function InboxLineCard({
     [title, item.lineIndex],
   );
   const nextText = title ? (getNextPlayableLine(title, item.lineIndex)?.text ?? "") : "";
+  const promptCount = item.promptCount && item.promptCount > 1 ? item.promptCount : 1;
+  const isStreak = promptCount > 1;
 
   useEffect(() => {
     if (answered) setSolved(true);
@@ -90,6 +93,7 @@ export function InboxLineCard({
         <p className="inbox-line-from">
           From {item.from.displayName}
           <span className="muted"> · {label}</span>
+          {isStreak ? <span className="muted"> · {promptCount}-line streak</span> : null}
           {showQuoteActions && !solved ? (
             <span className="chats-status-chip is-unanswered">Unanswered</span>
           ) : null}
@@ -108,6 +112,29 @@ export function InboxLineCard({
           <p className="prompt-current">{promptText}</p>
           {nextText ? <p className="inbox-nextline">{nextText}</p> : null}
         </blockquote>
+      ) : isStreak ? (
+        <>
+          <blockquote className="prompt-text">
+            {leadIn.map((line) => (
+              <p key={line.lineIndex} className="prompt-lead-in">
+                {line.text}
+              </p>
+            ))}
+            <p className="prompt-current">{promptText}</p>
+          </blockquote>
+          <p className="prompt-label">{promptCount}-line streak</p>
+          {item.shareId ? (
+            <button
+              type="button"
+              className="button primary inbox-play-streak"
+              onClick={() => setHash(`play/${item.shareId}`)}
+            >
+              Play {promptCount}-line streak
+            </button>
+          ) : (
+            <p className="muted">This streak has no play link.</p>
+          )}
+        </>
       ) : !question ? (
         <p className="muted">This line isn’t playable in the current catalog.</p>
       ) : (

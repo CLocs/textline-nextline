@@ -1,5 +1,6 @@
 import type { User } from "./auth.js";
 import { createId } from "./crypto.js";
+import { countFrozenPrompts } from "./inbox.js";
 import { areFriends, canonicalPair, isBlocked, isValidFriendUserId, listFriends } from "./friends.js";
 import { listGroups, userCanAccessGroup } from "./groups.js";
 
@@ -219,6 +220,7 @@ export type DmQuoteMessage = {
   shareId: string;
   titleId: string;
   lineIndex: number;
+  promptCount: number;
   direction: "in" | "out";
   from: { userId: string; displayName: string };
   createdAt: string;
@@ -237,6 +239,7 @@ export type GroupQuoteMessage = {
   shareId: string;
   titleId: string;
   lineIndex: number;
+  promptCount: number;
   from: { userId: string; displayName: string };
   createdAt: string;
   sentCount: number;
@@ -553,9 +556,10 @@ export async function listDmMessages(
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
               i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
-              su.display_name AS sender_name
+              su.display_name AS sender_name, s.line_indices
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
+       LEFT JOIN mini_shares s ON s.id = i.share_id
        WHERE i.group_id IS NULL
          AND ((i.sender_user_id = ? AND i.recipient_user_id = ?)
            OR (i.sender_user_id = ? AND i.recipient_user_id = ?))
@@ -574,6 +578,7 @@ export async function listDmMessages(
       read_at: string | null;
       solved_at: string | null;
       sender_name: string | null;
+      line_indices: string | null;
     }>();
 
   const quotes: DmQuoteMessage[] = (result.results ?? []).map((row) => {
@@ -584,6 +589,7 @@ export async function listDmMessages(
       shareId: row.share_id,
       titleId: row.title_id,
       lineIndex: Number(row.prompt_line_index),
+      promptCount: countFrozenPrompts(row.line_indices),
       direction,
       from: {
         userId: row.sender_user_id,
@@ -634,9 +640,10 @@ export async function listGroupMessages(
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
               i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
-              su.display_name AS sender_name
+              su.display_name AS sender_name, s.line_indices
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
+       LEFT JOIN mini_shares s ON s.id = i.share_id
        WHERE i.group_id = ?
        ORDER BY i.created_at ASC
        LIMIT ?`,
@@ -653,12 +660,14 @@ export async function listGroupMessages(
       read_at: string | null;
       solved_at: string | null;
       sender_name: string | null;
+      line_indices: string | null;
     }>();
 
   type Acc = {
     shareId: string;
     titleId: string;
     lineIndex: number;
+    promptCount: number;
     from: { userId: string; displayName: string };
     createdAt: string;
     sentCount: number;
@@ -677,6 +686,7 @@ export async function listGroupMessages(
         shareId: row.share_id,
         titleId: row.title_id,
         lineIndex: Number(row.prompt_line_index),
+        promptCount: countFrozenPrompts(row.line_indices),
         from: {
           userId: row.sender_user_id,
           displayName: publicName(row.sender_name),
@@ -709,6 +719,7 @@ export async function listGroupMessages(
       shareId: acc.shareId,
       titleId: acc.titleId,
       lineIndex: acc.lineIndex,
+      promptCount: acc.promptCount,
       from: acc.from,
       createdAt: acc.createdAt,
       sentCount: acc.sentCount,

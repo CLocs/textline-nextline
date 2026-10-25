@@ -3,7 +3,7 @@ import type { CatalogEntry } from "../types/content";
 import { getTitle } from "../lib/content/browser";
 import { getLine } from "../lib/content/lines";
 import { leadInForPrompt } from "../lib/game/promptContext";
-import { getValidPromptIndices } from "../lib/game/miniGame";
+import { getValidPromptIndices, streakForSend } from "../lib/game/miniGame";
 import { getQuotesForTitle, hydrateQuotesForTitle, toggleQuote } from "../lib/quotes/sync";
 import {
   getStarsForTitle,
@@ -492,7 +492,11 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                     <p className="curate-text">{line.text}</p>
                     {fromWikiquote ? <span className="curate-origin">Wikiquote</span> : null}
                   </div>
-                  <LazyLineSendControl titleId={entry.id} lineIndex={lineIndex} />
+                  <LazyLineSendControl
+                    titleId={entry.id}
+                    lineIndex={lineIndex}
+                    streakIndices={streakForSend(promptIndices, [...starSets.starred], lineIndex)}
+                  />
                 </CurateLineItem>
               );
             })}
@@ -550,12 +554,27 @@ function CurateLineItem({
 }
 
 /** Avoid mounting ~3k send menus; hydrate on hover/focus/click. */
-function LazyLineSendControl({ titleId, lineIndex }: { titleId: string; lineIndex: number }) {
+function LazyLineSendControl({
+  titleId,
+  lineIndex,
+  streakIndices,
+}: {
+  titleId: string;
+  lineIndex: number;
+  streakIndices: number[] | null;
+}) {
   const [active, setActive] = useState(false);
   const [openOnMount, setOpenOnMount] = useState(false);
 
   if (active) {
-    return <LineSendControl titleId={titleId} lineIndex={lineIndex} autoOpen={openOnMount} />;
+    return (
+      <LineSendControl
+        titleId={titleId}
+        lineIndex={lineIndex}
+        streakIndices={streakIndices}
+        autoOpen={openOnMount}
+      />
+    );
   }
 
   return (

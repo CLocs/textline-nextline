@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { handleRequest } from "../api/src/index.js";
 import { canonicalPair } from "../api/src/friends.js";
+import {
+  countFrozenPrompts,
+  parseShareLineIndices,
+  STREAK_SEND_CAP,
+} from "../api/src/inbox.js";
 
 const ALICE_ID = "11111111-1111-4111-8111-111111111111";
 const BOB_ID = "22222222-2222-4222-8222-222222222222";
@@ -165,19 +170,13 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCar
                 sql.includes("SELECT share_id, created_at FROM line_inbox") &&
                 sql.includes("sender_user_id")
               ) {
-                const [sender, recipient, titleId, lineIndex] = args as [
-                  string,
-                  string,
-                  string,
-                  number,
-                ];
+                const [sender, recipient, shareId] = args as [string, string, string];
                 const rows = inbox
                   .filter(
                     (row) =>
                       row.sender_user_id === sender &&
                       row.recipient_user_id === recipient &&
-                      row.title_id === titleId &&
-                      row.prompt_line_index === lineIndex,
+                      row.share_id === shareId,
                   )
                   .sort((a, b) => b.created_at.localeCompare(a.created_at));
                 const row = rows[0];
@@ -222,6 +221,7 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCar
                   .filter((row) => row.recipient_user_id === userId)
                   .map((row) => {
                     const sender = users.find((u) => u.id === row.sender_user_id);
+                    const share = shares.find((item) => item.id === row.share_id);
                     return {
                       id: row.id,
                       share_id: row.share_id,
@@ -230,6 +230,7 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCar
                       created_at: row.created_at,
                       sender_id: row.sender_user_id,
                       display_name: sender?.display_name ?? null,
+                      line_indices: share?.line_indices ?? null,
                     };
                   });
                 return { results: results as T[] };
@@ -374,5 +375,106 @@ describe("inbox API", () => {
       envFor(db),
     );
     expect(again.status).toBe(429);
+  });
+
+  it("sends a frozen streak as one inbox card", async () => {
+    const { db } = createInboxDb({ friends: true });
+    const sent = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 11, lineIndices: [10, 11, 12], toUserId: BOB_ID },
+      }),
+      envFor(db),
+    );
+    expect(sent.status).toBe(200);
+    const payload = (await sent.json()) as { shareId: string };
+
+    const queue = await handleRequest(
+      jsonRequest(`/api/shares/${payload.shareId}/queue`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(queue.status).toBe(200);
+    const body = (await queue.json()) as { titleId: string; lineIndices: number[]; frozen: boolean };
+    expect(body).toEqual({ titleId: TITLE_ID, lineIndices: [10, 11, 12], frozen: true });
+
+    const list = await handleRequest(jsonRequest("/api/inbox", { token: "sess-bob" }), envFor(db));
+    const data = (await list.json()) as {
+      items: Array<{ lineIndex: number; promptCount: number; shareId: string }>;
+    };
+    expect(data.items).toHaveLength(1);
+    expect(data.items[0]).toMatchObject({
+      lineIndex: 10,
+      promptCount: 3,
+      shareId: payload.shareId,
+    });
+  });
+
+  it("429s a rapid resend of the same streak from another line in the window", async () => {
+    const { db } = createInboxDb({ friends: true });
+    const first = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 10, lineIndices: [10, 11, 12], toUserId: BOB_ID },
+      }),
+      envFor(db),
+    );
+    expect(first.status).toBe(200);
+
+    const again = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 12, lineIndices: [10, 11, 12], toUserId: BOB_ID },
+      }),
+      envFor(db),
+    );
+    expect(again.status).toBe(429);
+  });
+
+  it("rejects a streak longer than the mini cap", async () => {
+    const { db } = createInboxDb({ friends: true });
+    const sent = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: {
+          titleId: TITLE_ID,
+          lineIndex: 0,
+          lineIndices: Array.from({ length: STREAK_SEND_CAP + 1 }, (_, i) => i),
+          toUserId: BOB_ID,
+        },
+      }),
+      envFor(db),
+    );
+    expect(sent.status).toBe(400);
+  });
+});
+
+describe("parseShareLineIndices", () => {
+  it("uses lineIndex when lineIndices is omitted", () => {
+    expect(parseShareLineIndices(27, undefined)).toEqual([27]);
+  });
+
+  it("keeps lineIndices order and drops duplicates", () => {
+    expect(parseShareLineIndices(11, [10, 11, 10, 12])).toEqual([10, 11, 12]);
+  });
+
+  it("rejects empty, over-cap, and non-integer indices", () => {
+    expect(parseShareLineIndices(0, [])).toBeNull();
+    expect(parseShareLineIndices(0, Array.from({ length: STREAK_SEND_CAP + 1 }, (_, i) => i))).toBeNull();
+    expect(parseShareLineIndices(0, [1, 1.5])).toBeNull();
+  });
+});
+
+describe("countFrozenPrompts", () => {
+  it("returns 1 for missing or invalid JSON", () => {
+    expect(countFrozenPrompts(null)).toBe(1);
+    expect(countFrozenPrompts("nope")).toBe(1);
+  });
+
+  it("counts frozen prompts", () => {
+    expect(countFrozenPrompts("[1,2,3]")).toBe(3);
   });
 });

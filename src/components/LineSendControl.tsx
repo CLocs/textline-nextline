@@ -11,6 +11,8 @@ const CLOSE_QUOTE_EXPORT = "tlnl:close-quote-export";
 type Props = {
   titleId: string;
   lineIndex: number;
+  /** Adjacent starred prompts to send as one frozen mini. */
+  streakIndices?: number[] | null;
   /** Open the send menu on mount (used when Curate lazy-hydrates on click). */
   autoOpen?: boolean;
 };
@@ -24,7 +26,16 @@ async function copyText(text: string): Promise<boolean> {
   }
 }
 
-export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props) {
+export function LineSendControl({
+  titleId,
+  lineIndex,
+  streakIndices = null,
+  autoOpen = false,
+}: Props) {
+  const streak =
+    streakIndices && streakIndices.length >= 2 ? streakIndices : null;
+  const streakKey = streak ? streak.join(",") : "";
+  const [sendStreak, setSendStreak] = useState(Boolean(streak));
   const apiReady = isAuthApiEnabled() && !isLocalDevSession();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -49,7 +60,8 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
     setBusyTargets(new Set());
     setCopyBusy(false);
     setExportOpen(false);
-  }, [titleId, lineIndex, autoOpen]);
+    setSendStreak(Boolean(streakKey));
+  }, [titleId, lineIndex, autoOpen, streakKey]);
 
   useEffect(() => {
     if (!open || !autoOpen) return;
@@ -126,24 +138,33 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
     });
   }
 
+  const outgoing = sendStreak && streak ? streak : undefined;
+  const outgoingCount = outgoing?.length ?? 1;
+
   async function handleCopy() {
     setCopyBusy(true);
     setError(null);
-    const result = await copyLineShare(titleId, lineIndex);
+    const result = await copyLineShare(titleId, lineIndex, outgoing);
     setCopyBusy(false);
     if ("error" in result) {
       setError(result.error);
       return;
     }
     const ok = await copyText(result.url);
-    setMessage(ok ? "Copied one-line link." : result.url);
+    setMessage(
+      ok
+        ? outgoingCount > 1
+          ? `Copied ${outgoingCount}-line streak link.`
+          : "Copied one-line link."
+        : result.url,
+    );
   }
 
   async function handleSendGroup(group: FriendGroup) {
     const key = `group:${group.id}`;
     markBusy(key, true);
     setError(null);
-    const result = await sendLineToGroup(titleId, lineIndex, group.id);
+    const result = await sendLineToGroup(titleId, lineIndex, group.id, outgoing);
     markBusy(key, false);
     if ("error" in result) {
       setError(result.error);
@@ -168,7 +189,7 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
     const key = `friend:${friend.userId}`;
     markBusy(key, true);
     setError(null);
-    const result = await sendLineToFriend(titleId, lineIndex, friend.userId);
+    const result = await sendLineToFriend(titleId, lineIndex, friend.userId, outgoing);
     markBusy(key, false);
     if ("error" in result) {
       setError(result.error);
@@ -213,6 +234,24 @@ export function LineSendControl({ titleId, lineIndex, autoOpen = false }: Props)
           </button>
           {apiReady ? (
             <>
+              {streak ? (
+                <div className="curate-send-mode" role="group" aria-label="What to send">
+                  <button
+                    type="button"
+                    className={`button ghost${sendStreak ? " is-active" : ""}`}
+                    onClick={() => setSendStreak(true)}
+                  >
+                    Streak ({streak.length})
+                  </button>
+                  <button
+                    type="button"
+                    className={`button ghost${sendStreak ? "" : " is-active"}`}
+                    onClick={() => setSendStreak(false)}
+                  >
+                    This line
+                  </button>
+                </div>
+              ) : null}
               <button
                 type="button"
                 className="button ghost"

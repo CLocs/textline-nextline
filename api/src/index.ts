@@ -502,7 +502,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     return errorResponse("Not found", 404, origin, allowed);
   }
 
-  // --- Inbox (one-line sends; no user directory) ---
+  // --- Inbox (one-line or streak sends; no user directory) ---
   if (pathname.startsWith("/api/inbox")) {
     const userOrError = await requireUser(request, env, origin, allowed);
     if (userOrError instanceof Response) return userOrError;
@@ -510,9 +510,20 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
     const appOrigin = resolveShareOrigin(env.APP_ORIGIN, origin, allowed);
 
     if (request.method === "POST" && pathname === "/api/inbox/share") {
-      const body = (await readJson(request)) as { titleId?: string; lineIndex?: number } | null;
+      const body = (await readJson(request)) as {
+        titleId?: string;
+        lineIndex?: number;
+        lineIndices?: number[];
+      } | null;
       if (typeof body?.titleId !== "string") return errorResponse("Missing titleId", 400, origin, allowed);
-      const result = await copyLineShare(env.DB, user, appOrigin, body.titleId, body.lineIndex);
+      const result = await copyLineShare(
+        env.DB,
+        user,
+        appOrigin,
+        body.titleId,
+        body.lineIndex,
+        body.lineIndices,
+      );
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse(result, 200, origin, allowed);
     }
@@ -521,6 +532,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
       const body = (await readJson(request)) as {
         titleId?: string;
         lineIndex?: number;
+        lineIndices?: number[];
         toUserId?: string;
         groupId?: string;
       } | null;
@@ -538,6 +550,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
           body.titleId,
           body.lineIndex,
           body.groupId,
+          body.lineIndices,
         );
         if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
         return jsonResponse(result, 200, origin, allowed);
@@ -552,6 +565,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         body.titleId,
         body.lineIndex,
         body.toUserId,
+        body.lineIndices,
       );
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse(result, 200, origin, allowed);

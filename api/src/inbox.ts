@@ -6,7 +6,9 @@ import { createFrozenShare } from "./shares.js";
 import { isTitleId } from "./runs.js";
 
 export const INBOX_CAP = 50;
-/** Debounce only same sender → same recipient → same line (not cross-friend sends). */
+/** Same cap as a mini-game; a longer star streak is trimmed client-side first. */
+export const STREAK_SEND_CAP = 10;
+/** Debounce only same sender → same recipient → same share (not cross-friend sends). */
 export const RECIPIENT_SEND_COOLDOWN_MS = 10_000;
 
 export type LineShare = {
@@ -19,6 +21,8 @@ export type InboxItem = {
   shareId: string;
   titleId: string;
   lineIndex: number;
+  /** Frozen prompt count on the share. 1 = one-line send; 2+ = streak. */
+  promptCount: number;
   from: { userId: string; displayName: string };
   createdAt: string;
 };
@@ -39,16 +43,46 @@ export function parsePromptLineIndex(raw: unknown): number | null {
   return raw;
 }
 
-function oneLineIndicesJson(lineIndex: number): string {
-  return JSON.stringify([lineIndex]);
+/** One line from `lineIndex`, or a frozen streak from `lineIndices` (order preserved). */
+export function parseShareLineIndices(lineIndexRaw: unknown, lineIndicesRaw: unknown): number[] | null {
+  if (Array.isArray(lineIndicesRaw)) {
+    const indices: number[] = [];
+    const seen = new Set<number>();
+    for (const item of lineIndicesRaw) {
+      const n = parsePromptLineIndex(item);
+      if (n == null) return null;
+      if (seen.has(n)) continue;
+      seen.add(n);
+      indices.push(n);
+    }
+    if (indices.length < 1 || indices.length > STREAK_SEND_CAP) return null;
+    return indices;
+  }
+  const one = parsePromptLineIndex(lineIndexRaw);
+  return one == null ? null : [one];
 }
 
-/** Reuse a frozen 1-line share so multi-friend sends don't mint a new row each time. */
-async function findReusableOneLineShare(
+export function countFrozenPrompts(lineIndicesJson: string | null | undefined): number {
+  if (!lineIndicesJson) return 1;
+  try {
+    const parsed = JSON.parse(lineIndicesJson) as unknown;
+    if (!Array.isArray(parsed) || parsed.length === 0) return 1;
+    return parsed.length;
+  } catch {
+    return 1;
+  }
+}
+
+function indicesJson(indices: number[]): string {
+  return JSON.stringify(indices);
+}
+
+/** Reuse a frozen share so multi-friend sends don't mint a new row each time. */
+async function findReusableShare(
   db: D1Database,
   ownerId: string,
   titleId: string,
-  lineIndex: number,
+  indices: number[],
 ): Promise<string | null> {
   const row = await db
     .prepare(
@@ -58,7 +92,7 @@ async function findReusableOneLineShare(
        ORDER BY created_at DESC
        LIMIT 1`,
     )
-    .bind(ownerId, titleId, oneLineIndicesJson(lineIndex))
+    .bind(ownerId, titleId, indicesJson(indices))
     .first<{ id: string }>();
   return row?.id ?? null;
 }
@@ -68,33 +102,32 @@ async function issueShare(
   user: User,
   appOrigin: string,
   titleId: string,
-  lineIndex: number,
+  indices: number[],
 ): Promise<LineShare | ActionError> {
   if (!isTitleId(titleId)) return { error: "Invalid title", status: 400 };
-  const existingId = await findReusableOneLineShare(db, user.id, titleId, lineIndex);
+  const existingId = await findReusableShare(db, user.id, titleId, indices);
   if (existingId) {
     return { shareId: existingId, url: playUrl(appOrigin, existingId) };
   }
-  const share = await createFrozenShare(db, user, titleId, [lineIndex]);
+  const share = await createFrozenShare(db, user, titleId, indices);
   return { shareId: share.id, url: playUrl(appOrigin, share.id) };
 }
 
-async function recentSameRecipientSend(
+async function recentSameShareSend(
   db: D1Database,
   senderId: string,
   recipientId: string,
-  titleId: string,
-  lineIndex: number,
+  shareId: string,
 ): Promise<{ shareId: string; createdAt: string } | null> {
   const row = await db
     .prepare(
       `SELECT share_id, created_at FROM line_inbox
        WHERE sender_user_id = ? AND recipient_user_id = ?
-         AND title_id = ? AND prompt_line_index = ?
+         AND share_id = ?
        ORDER BY created_at DESC
        LIMIT 1`,
     )
-    .bind(senderId, recipientId, titleId, lineIndex)
+    .bind(senderId, recipientId, shareId)
     .first<{ share_id: string; created_at: string }>();
   if (!row) return null;
   return { shareId: row.share_id, createdAt: row.created_at };
@@ -111,11 +144,12 @@ export async function copyLineShare(
   appOrigin: string,
   titleIdRaw: string,
   lineIndexRaw: unknown,
+  lineIndicesRaw?: unknown,
 ): Promise<LineShare | ActionError> {
   const titleId = titleIdRaw.trim();
-  const lineIndex = parsePromptLineIndex(lineIndexRaw);
-  if (!titleId || lineIndex == null) return { error: "Invalid line", status: 400 };
-  return issueShare(db, user, appOrigin, titleId, lineIndex);
+  const indices = parseShareLineIndices(lineIndexRaw, lineIndicesRaw);
+  if (!titleId || !indices) return { error: "Invalid line", status: 400 };
+  return issueShare(db, user, appOrigin, titleId, indices);
 }
 
 export async function sendLineToFriend(
@@ -125,11 +159,12 @@ export async function sendLineToFriend(
   titleIdRaw: string,
   lineIndexRaw: unknown,
   toUserIdRaw: string,
+  lineIndicesRaw?: unknown,
 ): Promise<LineShare | ActionError> {
   const titleId = titleIdRaw.trim();
-  const lineIndex = parsePromptLineIndex(lineIndexRaw);
+  const indices = parseShareLineIndices(lineIndexRaw, lineIndicesRaw);
   const toUserId = toUserIdRaw.trim();
-  if (!titleId || lineIndex == null) return { error: "Invalid line", status: 400 };
+  if (!titleId || !indices) return { error: "Invalid line", status: 400 };
   if (!isValidFriendUserId(toUserId) || toUserId === user.id) {
     return { error: "Invalid recipient", status: 400 };
   }
@@ -140,15 +175,18 @@ export async function sendLineToFriend(
     return { error: "Can't send to this person", status: 403 };
   }
 
-  const prior = await recentSameRecipientSend(db, user.id, toUserId, titleId, lineIndex);
-  if (prior && withinCooldown(prior.createdAt)) {
-    return {
-      error: "Already sent this line to them — wait a moment to resend",
-      status: 429,
-    };
-  }
-  if (prior) {
-    return { shareId: prior.shareId, url: playUrl(appOrigin, prior.shareId) };
+  const existingId = await findReusableShare(db, user.id, titleId, indices);
+  if (existingId) {
+    const prior = await recentSameShareSend(db, user.id, toUserId, existingId);
+    if (prior && withinCooldown(prior.createdAt)) {
+      return {
+        error: "Already sent this line to them — wait a moment to resend",
+        status: 429,
+      };
+    }
+    if (prior) {
+      return { shareId: prior.shareId, url: playUrl(appOrigin, prior.shareId) };
+    }
   }
 
   const countRow = await db
@@ -159,7 +197,7 @@ export async function sendLineToFriend(
     return { error: "Their inbox is full", status: 400 };
   }
 
-  const share = await issueShare(db, user, appOrigin, titleId, lineIndex);
+  const share = await issueShare(db, user, appOrigin, titleId, indices);
   if ("error" in share) return share;
 
   await db
@@ -168,7 +206,15 @@ export async function sendLineToFriend(
          (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at)
        VALUES (?, ?, ?, ?, ?, ?, ?)`,
     )
-    .bind(createId(), share.shareId, user.id, toUserId, titleId, lineIndex, new Date().toISOString())
+    .bind(
+      createId(),
+      share.shareId,
+      user.id,
+      toUserId,
+      titleId,
+      indices[0],
+      new Date().toISOString(),
+    )
     .run();
 
   return share;
@@ -186,11 +232,12 @@ export async function sendLineToGroup(
   titleIdRaw: string,
   lineIndexRaw: unknown,
   groupIdRaw: string,
+  lineIndicesRaw?: unknown,
 ): Promise<GroupLineShare | ActionError> {
   const titleId = titleIdRaw.trim();
-  const lineIndex = parsePromptLineIndex(lineIndexRaw);
+  const indices = parseShareLineIndices(lineIndexRaw, lineIndicesRaw);
   const groupId = groupIdRaw.trim();
-  if (!titleId || lineIndex == null) return { error: "Invalid line", status: 400 };
+  if (!titleId || !indices) return { error: "Invalid line", status: 400 };
   if (!isValidFriendUserId(groupId)) return { error: "Invalid group", status: 400 };
 
   const group = await userCanAccessGroup(db, groupId, user.id);
@@ -202,12 +249,15 @@ export async function sendLineToGroup(
     return { error: "This group has no one else to send to", status: 400 };
   }
 
+  const existingId = await findReusableShare(db, user.id, titleId, indices);
   const eligible: string[] = [];
   for (const toUserId of recipients) {
     if (await isBlocked(db, user.id, toUserId)) continue;
-    const prior = await recentSameRecipientSend(db, user.id, toUserId, titleId, lineIndex);
-    if (prior && withinCooldown(prior.createdAt)) continue;
-    if (prior) continue;
+    if (existingId) {
+      const prior = await recentSameShareSend(db, user.id, toUserId, existingId);
+      if (prior && withinCooldown(prior.createdAt)) continue;
+      if (prior) continue;
+    }
     const countRow = await db
       .prepare(`SELECT COUNT(*) AS n FROM line_inbox WHERE recipient_user_id = ?`)
       .bind(toUserId)
@@ -221,7 +271,7 @@ export async function sendLineToGroup(
     return { error: "No one in this group can receive this", status: 400 };
   }
 
-  const share = await issueShare(db, user, appOrigin, titleId, lineIndex);
+  const share = await issueShare(db, user, appOrigin, titleId, indices);
   if ("error" in share) return share;
 
   const createdAt = new Date().toISOString();
@@ -232,7 +282,7 @@ export async function sendLineToGroup(
            (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at, group_id)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
       )
-      .bind(createId(), share.shareId, user.id, toUserId, titleId, lineIndex, createdAt, groupId)
+      .bind(createId(), share.shareId, user.id, toUserId, titleId, indices[0], createdAt, groupId)
       .run();
   }
 
@@ -243,9 +293,10 @@ export async function listInbox(db: D1Database, userId: string): Promise<InboxIt
   const result = await db
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
-              u.id AS sender_id, u.display_name
+              u.id AS sender_id, u.display_name, s.line_indices
        FROM line_inbox i
        JOIN users u ON u.id = i.sender_user_id
+       LEFT JOIN mini_shares s ON s.id = i.share_id
        WHERE i.recipient_user_id = ?
        ORDER BY i.created_at DESC
        LIMIT ?`,
@@ -259,6 +310,7 @@ export async function listInbox(db: D1Database, userId: string): Promise<InboxIt
       created_at: string;
       sender_id: string;
       display_name: string | null;
+      line_indices: string | null;
     }>();
 
   return (result.results ?? []).map((row) => ({
@@ -266,6 +318,7 @@ export async function listInbox(db: D1Database, userId: string): Promise<InboxIt
     shareId: row.share_id,
     titleId: row.title_id,
     lineIndex: Number(row.prompt_line_index),
+    promptCount: countFrozenPrompts(row.line_indices),
     from: { userId: row.sender_id, displayName: publicName(row.display_name) },
     createdAt: row.created_at,
   }));
