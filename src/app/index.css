@@ -714,7 +714,14 @@ button {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  margin: 0 0 0.7rem;
+  width: 80%;
+  max-width: 80%;
+  box-sizing: border-box;
+  margin: 0 auto 0.7rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 70%, white);
 }
 
 .play-progress-count {
@@ -760,24 +767,20 @@ button {
 }
 
 .play-progress-dot.is-current {
-  background: var(--ink);
+  background: transparent;
   border-color: var(--ink);
+  border-width: 2px;
 }
 
 .play-progress-dot.is-correct {
-  background: transparent;
+  background: var(--success);
   border-color: var(--success);
-  box-shadow: 0 0 0 1px var(--success);
 }
 
-.play-progress-dot.is-skip {
-  background: var(--line);
-  border-color: var(--sage);
-}
-
+.play-progress-dot.is-skip,
 .play-progress-dot.is-miss {
-  background: transparent;
-  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 45%, white);
+  border-color: color-mix(in srgb, var(--danger) 45%, white);
 }
 
 .play-progress-dot.is-upcoming {
