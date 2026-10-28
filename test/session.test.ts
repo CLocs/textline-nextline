@@ -111,6 +111,7 @@ describe("submitAnswer", () => {
       { lineIndex: 1, via: "start" },
       { lineIndex: 3, via: "incorrect" },
     ]);
+    expect(result.run.slotOutcomes[0]).toBe("miss");
   });
 });
 
@@ -126,6 +127,7 @@ describe("mini-game runs", () => {
     expect(result.run.promptLineIndex).toBe(3);
     expect(result.run.questionIndex).toBe(1);
     expect(result.run.phase).toBe("playing");
+    expect(result.run.slotOutcomes[0]).toBe("correct");
   });
 
   it("completes after the last queued question", () => {
@@ -152,6 +154,7 @@ describe("goBackQuestion", () => {
     expect(previous).not.toBeNull();
     expect(previous!.promptLineIndex).toBe(1);
     expect(previous!.correctCount).toBe(0);
+    expect(previous!.slotOutcomes).toEqual([]);
     expect(previous!.history).toEqual([{ lineIndex: 1, via: "start" }]);
   });
 
@@ -175,6 +178,7 @@ describe("skipQuestion", () => {
     expect(result).not.toBeNull();
     expect(result!.revealedText).toBe("Goodbye.");
     expect(result!.run.skipCount).toBe(1);
+    expect(result!.run.slotOutcomes[0]).toBe("skip");
     expect(result!.run.promptLineIndex).toBe(3);
     expect(result!.run.history).toEqual([
       { lineIndex: 1, via: "start" },

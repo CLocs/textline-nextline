@@ -450,10 +450,14 @@ button {
 }
 
 .daily-play-title {
-  margin: 0.1rem 0 0.85rem;
+  margin: 0.1rem 0 0.35rem;
   font-size: 1.85rem;
   line-height: 1.15;
   letter-spacing: -0.02em;
+}
+
+.daily-play-title + .play-progress {
+  margin-bottom: 0.85rem;
 }
 
 .home-top {
@@ -504,8 +508,8 @@ button {
   color: #8a6418;
 }
 
-.daily-play-title + .daily-today-label {
-  margin: -0.45rem 0 0.85rem;
+.play-progress + .daily-today-label {
+  margin: -0.35rem 0 0.85rem;
 }
 
 .daily-skip {
@@ -704,6 +708,97 @@ button {
 .history-toggle,
 .history-backdrop {
   display: none;
+}
+
+.play-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.7rem;
+}
+
+.play-progress-count {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.35rem;
+}
+
+.play-progress-ellipsis {
+  color: var(--muted);
+  line-height: 1;
+}
+
+.play-progress-track {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.play-progress-slot {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.play-progress-slot:last-child {
+  flex: 0 0 auto;
+}
+
+.play-progress-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.play-progress-dot.is-current {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.play-progress-dot.is-correct {
+  background: transparent;
+  border-color: var(--success);
+  box-shadow: 0 0 0 1px var(--success);
+}
+
+.play-progress-dot.is-skip {
+  background: var(--line);
+  border-color: var(--sage);
+}
+
+.play-progress-dot.is-miss {
+  background: transparent;
+  border-color: var(--danger);
+}
+
+.play-progress-dot.is-upcoming {
+  background: transparent;
+  border-color: var(--line);
+}
+
+.play-progress-link {
+  flex: 1;
+  height: 2px;
+  min-width: 0.3rem;
+  background: transparent;
+}
+
+.play-progress-link.is-streak {
+  background: var(--sage);
+}
+
+.play-progress-link.is-gap {
+  background: transparent;
+  flex: 0.45;
 }
 
 .play-stats {

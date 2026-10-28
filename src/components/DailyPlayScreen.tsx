@@ -4,6 +4,9 @@ import { buildMcq, type McqQuestion } from "../lib/game/mcq";
 import { rotateCards, type DailyLine } from "../lib/game/dailyPick";
 import { loadInstantCards, loadTodaysCards } from "../lib/game/dailyLoad";
 import { completeDaily } from "../lib/game/dailyClient";
+import { getValidPromptIndices } from "../lib/game/miniGame";
+import { connectorsForQueue, type SlotOutcome } from "../lib/game/progressMap";
+import { PlayProgressMap } from "./PlayProgressMap";
 import { PosterArt } from "./PosterArt";
 import { LineSendControl } from "./LineSendControl";
 import { DailyMailPrompt } from "./DailyMailPrompt";
@@ -11,6 +14,19 @@ import { DailyMailPrompt } from "./DailyMailPrompt";
 const CHOICE_LABELS = ["A", "B", "C", "D"];
 const CORRECT_HOLD_MS = 2000;
 const MISS_HOLD_MS = 1400;
+
+function dailyConnectors(cards: DailyLine[]): boolean[] {
+  return cards.slice(0, -1).map((card, i) => {
+    const next = cards[i + 1]!;
+    if (card.titleId !== next.titleId) return false;
+    const loaded = getTitle(card.titleId);
+    if (!loaded) return false;
+    return connectorsForQueue(
+      [card.lineIndex, next.lineIndex],
+      getValidPromptIndices(loaded),
+    )[0] === true;
+  });
+}
 
 type Props = {
   startIndex: number;
@@ -29,6 +45,7 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
   const [finished, setFinished] = useState(false);
   const [streakLabel, setStreakLabel] = useState<string | null>(null);
   const [skipArmed, setSkipArmed] = useState(false);
+  const [slotOutcomes, setSlotOutcomes] = useState<Array<SlotOutcome | null>>([]);
   const timer = useRef<number | null>(null);
   const scoreRef = useRef({ correctCount: 0, wrongCount: 0, skipCount: 0 });
 
@@ -43,9 +60,13 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
     setClean(true);
     setSkipArmed(false);
     setStreakLabel(null);
+    setSlotOutcomes([]);
     const load = kind === "instant" ? loadInstantCards() : loadTodaysCards();
     void load.then((next) => {
-      if (!cancelled) setCards(rotateCards(next, startIndex));
+      if (cancelled) return;
+      const rotated = rotateCards(next, startIndex);
+      setCards(rotated);
+      setSlotOutcomes(rotated.map(() => null));
     });
     return () => {
       cancelled = true;
@@ -83,9 +104,25 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
 
   useEffect(() => {
     if (!cards || finished || question) return;
+    setSlotOutcomes((current) => {
+      if (current[step] != null) return current;
+      const next = current.slice();
+      while (next.length <= step) next.push(null);
+      next[step] = "skip";
+      return next;
+    });
     if (step + 1 >= cards.length) setFinished(true);
     else setStep((current) => current + 1);
   }, [cards, finished, question, step]);
+
+  function markSlot(outcome: SlotOutcome) {
+    setSlotOutcomes((current) => {
+      const next = current.slice();
+      while (next.length <= step) next.push(null);
+      next[step] = outcome;
+      return next;
+    });
+  }
 
   function advance(firstTry: boolean) {
     if (firstTry) {
@@ -112,6 +149,7 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
     if (lineIndex === question.correctLineIndex) {
       const firstTry = clean;
       setFeedback("correct");
+      markSlot("correct");
       advance(firstTry);
       return;
     }
@@ -129,6 +167,7 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
     if (!question || feedback != null) return;
     setSkipArmed(false);
     setFeedback("skipped");
+    markSlot("skip");
     scoreRef.current.skipCount += 1;
     setPickedIndex(question.correctLineIndex);
     advance(false);
@@ -176,9 +215,17 @@ export function DailyPlayScreen({ startIndex, onQuit, kind = "daily" }: Props) {
           ← Home
         </button>
       </div>
-      <h2 className="daily-play-title">
-        {kind === "instant" ? "Play 3" : "Daily"} · {step + 1} of {cards.length}
-      </h2>
+      <h2 className="daily-play-title">{kind === "instant" ? "Play 3" : "Daily"}</h2>
+      <PlayProgressMap
+        total={cards.length}
+        currentIndex={step}
+        outcomes={slotOutcomes}
+        connected={dailyConnectors(cards)}
+        label={`${kind === "instant" ? "Play 3" : "Daily"} · ${step + 1} of ${cards.length}`}
+        holdOutcome={
+          feedback === "correct" ? "correct" : feedback === "skipped" ? "skip" : null
+        }
+      />
       {kind === "daily" && card.slot === "global" ? <p className="daily-today-label">Line of the day</p> : null}
 
       <p className="episode-label">{title.title}</p>
