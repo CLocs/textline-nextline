@@ -85,6 +85,7 @@ export function episodeStatus(opts: {
   hasFile: boolean;
   stillCount: number;
   handful: number[];
+  syncedAt?: string;
   approvedAt?: string;
   batchedAt?: string;
   pushedAt?: string;
@@ -92,6 +93,7 @@ export function episodeStatus(opts: {
   if (opts.pushedAt) return "pushed";
   if (opts.batchedAt) return "batched";
   if (opts.approvedAt) return "approved";
+  if (opts.syncedAt) return "synced";
   if (!opts.hasFile) return "no-file";
   if (opts.stillCount > 0) return "review";
   return "ready";
@@ -150,6 +152,7 @@ export function buildShowQueue(opts: {
         hasFile: Boolean(video),
         stillCount,
         handful,
+        syncedAt: syncEntry?.syncedAt,
         approvedAt: syncEntry?.approvedAt,
         batchedAt: syncEntry?.batchedAt,
         pushedAt: syncEntry?.pushedAt,
@@ -261,6 +264,7 @@ function buildMovieQueue(opts: {
         hasFile,
         stillCount,
         handful,
+        syncedAt: syncEntry?.syncedAt,
         approvedAt: syncEntry?.approvedAt,
         batchedAt: syncEntry?.batchedAt,
         pushedAt: syncEntry?.pushedAt,

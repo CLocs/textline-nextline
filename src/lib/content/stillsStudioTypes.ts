@@ -5,6 +5,7 @@ export type StudioEpisodeStatus =
   | "no-file"
   | "ready"
   | "review"
+  | "synced"
   | "approved"
   | "batched"
   | "pushed";

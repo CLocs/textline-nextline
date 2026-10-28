@@ -17,6 +17,8 @@ export type StillsSyncEntry = {
   /** Extra ms on top of title offsetMs, keyed by line index. */
   lineOffsets?: Record<string, number>;
   handful?: number[];
+  /** Set when the lock frames matched. Overnight batch will extract the rest. */
+  syncedAt?: string;
   approvedAt?: string;
   batchedAt?: string;
   pushedAt?: string;

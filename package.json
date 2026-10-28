@@ -60,7 +60,7 @@
     "content:stills": "tsx scripts/extract-stills.ts",
     "content:stills:remux": "tsx scripts/remux-media.ts",
     "content:stills:push": "tsx scripts/push-stills.ts",
-    "content:stills:overnight": "powershell -NoProfile -File scripts/stills-playable-overnight.ps1",
+    "content:stills:overnight": "tsx scripts/stills-overnight.ts",
     "content:uploads": "tsx scripts/media-uploads.ts"
   },
   "dependencies": {

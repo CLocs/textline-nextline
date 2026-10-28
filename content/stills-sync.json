@@ -3949,6 +3949,153 @@
     "triedMethods": [
       "zero"
     ],
-    "note": "Studio handful No offset (153,176,472,611,813,1130)."
+    "note": "Studio lines 1200 stills (6 already on disk).",
+    "approvedAt": "2026-10-28T03:20:49.832Z",
+    "batchedAt": "2026-10-28T03:24:38.839Z"
+  },
+  "inception-2010": {
+    "offsetMs": 0,
+    "timeScale": 0.96,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 8888.045834,
+    "source": "H:\\videos\\movies\\Inception (2010).mp4",
+    "handful": [
+      184,
+      297,
+      503,
+      700,
+      1085,
+      1212
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero",
+      "pal"
+    ],
+    "note": "Studio lines 1234 stills (30 already on disk).",
+    "approvedAt": "2026-10-28T02:11:49.675Z",
+    "batchedAt": "2026-10-28T02:15:17.073Z"
+  },
+  "minority-report-2002": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 8709.283917,
+    "source": "H:\\videos\\movies\\Minority Report (2002).mp4",
+    "handful": [
+      140,
+      381,
+      634,
+      872,
+      1126,
+      1368
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1353 stills (6 already on disk).",
+    "approvedAt": "2026-10-28T02:22:51.102Z",
+    "batchedAt": "2026-10-28T02:27:05.986Z"
+  },
+  "tenet-2020": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 9009.002,
+    "source": "H:\\videos\\movies\\Tenet (2020).mp4",
+    "handful": [
+      102,
+      381,
+      680,
+      989,
+      1292,
+      1590
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1688 stills (6 already on disk).",
+    "approvedAt": "2026-10-28T02:32:39.769Z",
+    "batchedAt": "2026-10-28T02:39:00.760Z"
+  },
+  "the-dark-knight-2008": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 9133.482667,
+    "source": "H:\\videos\\movies\\The Dark Knight (2008).mp4",
+    "handful": [
+      138,
+      446,
+      770,
+      1092,
+      1421,
+      1756
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1794 stills (6 already on disk).",
+    "approvedAt": "2026-10-28T02:39:45.161Z",
+    "batchedAt": "2026-10-28T02:46:20.127Z"
+  },
+  "the-dark-knight-rises-2012": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 9872.904709,
+    "source": "H:\\videos\\movies\\The Dark Knight Rises (2012).mp4",
+    "handful": [
+      144,
+      440,
+      738,
+      1046,
+      1339,
+      1664
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1628 stills (6 already on disk).",
+    "approvedAt": "2026-10-28T02:51:39.867Z",
+    "batchedAt": "2026-10-28T02:56:27.345Z"
+  },
+  "there-will-be-blood-2007": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 9505.746,
+    "source": "H:\\videos\\movies\\There Will Be Blood (2007).mkv",
+    "handful": [
+      33,
+      235,
+      443,
+      647,
+      860,
+      1057
+    ],
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Studio lines 1180 stills (6 already on disk).",
+    "approvedAt": "2026-10-28T03:03:18.151Z",
+    "batchedAt": "2026-10-28T03:06:45.947Z"
   }
 }

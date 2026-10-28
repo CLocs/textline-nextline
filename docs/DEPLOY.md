@@ -207,7 +207,7 @@ Quote JPEGs are **not** in git. Production Pages reads them from a private R2 bu
    npm run content:stills:push -- --title oceans-thirteen-2007 --title the-wolf-of-wall-street-2013
    ```
 
-   Omit `--title` to push every folder. Skip titles that have not been eyeballed (Empire PAL is not ready).
+   Pass `--title` for titles that are **batched**. Omit `--title` only when every preview folder should go up. Leave **review** rows alone. Studio states: [README](../README.md#extract-stills-local).
 
 4. **Deploy Pages** so the Function and R2 binding go live (`npm run deploy` or push to `main`). Until then `/stills/...` 404s in production and the play UI falls back to the poster.
 
