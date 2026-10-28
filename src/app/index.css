@@ -450,10 +450,14 @@ button {
 }
 
 .daily-play-title {
-  margin: 0.1rem 0 0.85rem;
+  margin: 0.1rem 0 0.35rem;
   font-size: 1.85rem;
   line-height: 1.15;
   letter-spacing: -0.02em;
+}
+
+.daily-play-title + .play-progress {
+  margin-bottom: 0.85rem;
 }
 
 .home-top {
@@ -504,8 +508,8 @@ button {
   color: #8a6418;
 }
 
-.daily-play-title + .daily-today-label {
-  margin: -0.45rem 0 0.85rem;
+.play-progress + .daily-today-label {
+  margin: -0.35rem 0 0.85rem;
 }
 
 .daily-skip {
@@ -704,6 +708,100 @@ button {
 .history-toggle,
 .history-backdrop {
   display: none;
+}
+
+.play-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 80%;
+  max-width: 80%;
+  box-sizing: border-box;
+  margin: 0 auto 0.7rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 70%, white);
+}
+
+.play-progress-count {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.35rem;
+}
+
+.play-progress-ellipsis {
+  color: var(--muted);
+  line-height: 1;
+}
+
+.play-progress-track {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.play-progress-slot {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.play-progress-slot:last-child {
+  flex: 0 0 auto;
+}
+
+.play-progress-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.play-progress-dot.is-current {
+  background: transparent;
+  border-color: var(--ink);
+  border-width: 2px;
+}
+
+.play-progress-dot.is-correct {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.play-progress-dot.is-skip,
+.play-progress-dot.is-miss {
+  background: color-mix(in srgb, var(--danger) 45%, white);
+  border-color: color-mix(in srgb, var(--danger) 45%, white);
+}
+
+.play-progress-dot.is-upcoming {
+  background: transparent;
+  border-color: var(--line);
+}
+
+.play-progress-link {
+  flex: 1;
+  height: 2px;
+  min-width: 0.3rem;
+  background: transparent;
+}
+
+.play-progress-link.is-streak {
+  background: var(--sage);
+}
+
+.play-progress-link.is-gap {
+  background: transparent;
+  flex: 0.45;
 }
 
 .play-stats {
@@ -2129,12 +2227,31 @@ code {
   color: var(--muted);
 }
 
+.curate-send-mode {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.curate-send-mode .button {
+  flex: 1;
+}
+
+.curate-send-mode .button.is-active {
+  background: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--sage));
+  color: var(--accent-ink);
+}
+
 .inbox-line-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   gap: 0.85rem;
+}
+
+.inbox-play-streak {
+  width: fit-content;
 }
 
 .inbox-line-card {

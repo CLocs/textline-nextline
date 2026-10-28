@@ -5,6 +5,7 @@ import {
   type LineSource,
 } from "../content/playable.js";
 import type { GameLength, GameMode } from "../../types/game.js";
+import { setSlotOutcome, type SlotOutcome } from "./progressMap.js";
 
 /** Fun and Learn: MCQ, try again on a miss, skip allowed. */
 export function isForgivingMcq(mode: GameMode): boolean {
@@ -31,6 +32,7 @@ export type RevertFrame = {
   scoreCredit: number;
   questionWrongCount: number;
   historyLength: number;
+  slotOutcomes: Array<SlotOutcome | null>;
 };
 
 export type GameRun = {
@@ -48,6 +50,8 @@ export type GameRun = {
   scoreCredit: number;
   /** Wrong answers on the current prompt (resets when the question advances). */
   questionWrongCount: number;
+  /** Per-question result once that slot advances (or a Hard miss). */
+  slotOutcomes: Array<SlotOutcome | null>;
   history: HistoryEntry[];
   revertStack: RevertFrame[];
   phase: GamePhase;
@@ -80,6 +84,7 @@ export function startRun(titleId: string, options: StartRunOptions): GameRun {
     skipCount: 0,
     scoreCredit: 0,
     questionWrongCount: 0,
+    slotOutcomes: [],
     history: [{ lineIndex: firstPromptLineIndex, via: "start" }],
     revertStack: [],
     phase: "playing",
@@ -158,8 +163,18 @@ function pushRevertFrame(run: GameRun): RevertFrame[] {
       scoreCredit: run.scoreCredit,
       questionWrongCount: run.questionWrongCount,
       historyLength: run.history.length,
+      slotOutcomes: [...run.slotOutcomes],
     },
   ];
+}
+
+/** 0-based slot for the prompt currently on screen. */
+export function currentSlotIndex(run: GameRun, source: LineSource): number {
+  if (run.length === "mini" && run.questionQueue) {
+    return run.questionIndex;
+  }
+  const number = playableQuestionNumber(source, run.promptLineIndex);
+  return Math.max(0, number - 1);
 }
 
 function advanceAfterReveal(
@@ -168,9 +183,15 @@ function advanceAfterReveal(
   correctLineIndex: number,
   history: HistoryEntry[],
   updates: Partial<GameRun>,
+  slotOutcome: SlotOutcome,
 ): GameRun {
   const revertStack = pushRevertFrame(run);
-  const nextUpdates = { ...updates, questionWrongCount: 0 };
+  const slotOutcomes = setSlotOutcome(
+    run.slotOutcomes,
+    currentSlotIndex(run, source),
+    slotOutcome,
+  );
+  const nextUpdates = { ...updates, questionWrongCount: 0, slotOutcomes };
 
   if (run.length === "mini" && run.questionQueue) {
     const nextQuestionIndex = run.questionIndex + 1;
@@ -231,6 +252,7 @@ export function goBackQuestion(run: GameRun): GameRun | null {
     skipCount: frame.skipCount,
     scoreCredit: frame.scoreCredit,
     questionWrongCount: frame.questionWrongCount,
+    slotOutcomes: [...frame.slotOutcomes],
     history: run.history.slice(0, frame.historyLength),
     revertStack: run.revertStack.slice(0, -1),
   };
@@ -256,6 +278,11 @@ export function submitAnswer(
         run: missRun({
           ...run,
           wrongCount: run.wrongCount + 1,
+          slotOutcomes: setSlotOutcome(
+            run.slotOutcomes,
+            currentSlotIndex(run, source),
+            "miss",
+          ),
           history: appendHistory(run, correctLine.index, "incorrect"),
         }),
         correct: false,
@@ -275,10 +302,17 @@ export function submitAnswer(
   const history = appendHistory(run, correctLine.index, via);
 
   return {
-    run: advanceAfterReveal(run, source, correctLine.index, history, {
-      correctCount,
-      scoreCredit,
-    }),
+    run: advanceAfterReveal(
+      run,
+      source,
+      correctLine.index,
+      history,
+      {
+        correctCount,
+        scoreCredit,
+      },
+      "correct",
+    ),
     correct: true,
   };
 }
@@ -289,7 +323,14 @@ export function skipQuestion(run: GameRun, source: LineSource): SkipResult | nul
   const correctLine = getNextPlayableLine(source, run.promptLineIndex);
   if (!correctLine) {
     return {
-      run: completeRun(run, { skipCount: run.skipCount + 1 }),
+      run: completeRun(run, {
+        skipCount: run.skipCount + 1,
+        slotOutcomes: setSlotOutcome(
+          run.slotOutcomes,
+          currentSlotIndex(run, source),
+          "skip",
+        ),
+      }),
       revealedText: "",
     };
   }
@@ -298,7 +339,14 @@ export function skipQuestion(run: GameRun, source: LineSource): SkipResult | nul
   const skipCount = run.skipCount + 1;
 
   return {
-    run: advanceAfterReveal(run, source, correctLine.index, history, { skipCount }),
+    run: advanceAfterReveal(
+      run,
+      source,
+      correctLine.index,
+      history,
+      { skipCount },
+      "skip",
+    ),
     revealedText: correctLine.text,
   };
 }

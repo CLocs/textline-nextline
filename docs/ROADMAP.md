@@ -6,7 +6,7 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 
 ## Now
 
-**Send streaks from Curate.** Curate Send is one line. Next: send a **star streak** (two or more starred lines in a row) to a friend or a named group. The share is those lines in transcript order, the same way a streak already plays in a mini-game. Same friend gate and Send overlay as the one-line send.
+**Send streaks from Curate.** Curate Send is one line. Next: send a **star streak** (two or more starred lines in a row) to a friend or a named group. The share is those lines in transcript order, the same way a streak already plays in a mini-game. Same friend gate, Send overlay, and 10s same-share cooldown as a one-line send. Inbox and Chats show one Play N-line streak card (`#/play/{shareId}`), not N MCQ cards. Cap is mini size (10).
 
 ## Next
 

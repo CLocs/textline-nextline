@@ -3,7 +3,15 @@ import type { Title } from "../types/content";
 import { gameModeLabel } from "../types/game";
 import type { McqQuestion } from "../lib/game/mcq";
 import { getValidPromptIndices, sequenceLabel } from "../lib/game/miniGame";
-import { canGoBack, isForgivingMcq, type GameRun } from "../lib/game/session";
+import { connectorsForQueue, type SlotOutcome } from "../lib/game/progressMap";
+import {
+  canGoBack,
+  currentSlotIndex,
+  isForgivingMcq,
+  questionTotal,
+  type GameRun,
+} from "../lib/game/session";
+import { PlayProgressMap } from "./PlayProgressMap";
 import { isQuoted, toggleQuote } from "../lib/quotes/sync";
 import { isLoved, isStarred, toggleLove, toggleStar } from "../lib/stars/sync";
 import { HistorySidebar } from "./HistorySidebar";
@@ -67,14 +75,19 @@ export function PlayScreen({
   const panelRef = useRef<HTMLElement>(null);
   const onFeedbackDoneRef = useRef(onFeedbackDone);
   onFeedbackDoneRef.current = onFeedbackDone;
+  const validPrompts = useMemo(() => getValidPromptIndices(title), [title]);
   const sequenceText = useMemo(() => {
     if (!run.questionQueue) return null;
-    return sequenceLabel(
-      run.questionQueue,
-      question.promptLineIndex,
-      getValidPromptIndices(title),
-    );
-  }, [run.questionQueue, question.promptLineIndex, title]);
+    return sequenceLabel(run.questionQueue, question.promptLineIndex, validPrompts);
+  }, [run.questionQueue, question.promptLineIndex, validPrompts]);
+  const progressQueue = run.questionQueue ?? validPrompts;
+  const progressConnected = useMemo(
+    () => connectorsForQueue(progressQueue, validPrompts),
+    [progressQueue, validPrompts],
+  );
+  const holdOutcome: SlotOutcome | null =
+    feedback === "correct" ? "correct" : feedback === "skipped" ? "skip" : null;
+  const progressLabelText = sequenceText ? `${progress} · ${sequenceText}` : progress;
 
   useEffect(() => {
     setStarred(isStarred(title.id, question.promptLineIndex));
@@ -175,7 +188,6 @@ export function PlayScreen({
           <div className="play-stats">
             <span className="mode-badge">{modeLabel}</span>
             <span className="mode-badge length-badge">{lengthLabel}</span>
-            <span>{progress}</span>
             <span
               className={`play-score${scorePulse ? ` pulse-${scorePulse}` : ""}`}
             >
@@ -186,6 +198,14 @@ export function PlayScreen({
             </span>
           </div>
         </div>
+        <PlayProgressMap
+          total={questionTotal(run, title)}
+          currentIndex={currentSlotIndex(run, title)}
+          outcomes={run.slotOutcomes}
+          connected={progressConnected}
+          label={progressLabelText}
+          holdOutcome={holdOutcome}
+        />
 
         {showShareTip && (
           <div className="play-coach" role="status">
@@ -199,7 +219,6 @@ export function PlayScreen({
           </div>
         )}
 
-        {sequenceText ? <p className="sequence-label">{sequenceText}</p> : null}
         <p className="episode-label">{title.title}</p>
 
         <div className={run.length === "mini" ? "play-prompt-row" : undefined}>

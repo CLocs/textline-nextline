@@ -256,8 +256,18 @@ function createChatsDb() {
                 const [groupId] = args as [string];
                 return { n: members.filter((row) => row.group_id === groupId).length } as T;
               }
-              if (sql.includes("FROM mini_shares WHERE owner_user_id") && sql.includes("line_indices")) {
-                return null;
+              if (sql.includes("SELECT id FROM mini_shares") && sql.includes("line_indices")) {
+                const [ownerId, titleId, lineIndices] = args as [string, string, string];
+                const rows = shares
+                  .filter(
+                    (share) =>
+                      share.owner_user_id === ownerId &&
+                      share.title_id === titleId &&
+                      share.line_indices === lineIndices,
+                  )
+                  .reverse();
+                const row = rows[0];
+                return (row ? { id: row.id } : null) as T;
               }
               if (sql.includes("FROM mini_shares WHERE owner_user_id")) {
                 return null;
@@ -408,6 +418,24 @@ function createChatsDb() {
                 const [id, groupId] = args as [string, string];
                 const row = chatMessages.find((item) => item.id === id && item.group_id === groupId);
                 return (row ? { id: row.id } : null) as T;
+              }
+              if (
+                sql.includes("SELECT share_id, created_at FROM line_inbox") &&
+                sql.includes("sender_user_id")
+              ) {
+                const [sender, recipient, shareId] = args as [string, string, string];
+                const rows = inbox
+                  .filter(
+                    (row) =>
+                      row.sender_user_id === sender &&
+                      row.recipient_user_id === recipient &&
+                      row.share_id === shareId,
+                  )
+                  .sort((a, b) => b.created_at.localeCompare(a.created_at));
+                const row = rows[0];
+                return (row
+                  ? { share_id: row.share_id, created_at: row.created_at }
+                  : null) as T;
               }
               if (sql.includes("SELECT share_id FROM line_inbox") && sql.includes("LIMIT 1")) {
                 if (sql.includes("group_id = ?")) {
@@ -573,6 +601,7 @@ function createChatsDb() {
                   .filter((row) => row.group_id === groupId)
                   .map((row) => {
                     const sender = users.find((u) => u.id === row.sender_user_id);
+                    const share = shares.find((item) => item.id === row.share_id);
                     return {
                       id: row.id,
                       share_id: row.share_id,
@@ -584,6 +613,7 @@ function createChatsDb() {
                       read_at: row.read_at,
                       solved_at: row.solved_at,
                       sender_name: sender?.display_name ?? null,
+                      line_indices: share?.line_indices ?? null,
                     };
                   });
                 return { results: results as T[] };
@@ -599,6 +629,7 @@ function createChatsDb() {
                   )
                   .map((row) => {
                     const sender = users.find((u) => u.id === row.sender_user_id);
+                    const share = shares.find((item) => item.id === row.share_id);
                     return {
                       id: row.id,
                       share_id: row.share_id,
@@ -610,6 +641,7 @@ function createChatsDb() {
                       read_at: row.read_at,
                       solved_at: row.solved_at,
                       sender_name: sender?.display_name ?? null,
+                      line_indices: share?.line_indices ?? null,
                     };
                   });
                 return { results: results as T[] };
@@ -901,5 +933,33 @@ describe("chats API", () => {
       envFor(db),
     );
     expect(quoteReact.status).toBe(200);
+  });
+
+  it("surfaces promptCount on a streak quote in a DM", async () => {
+    const { db } = createChatsDb();
+    const sent = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: { titleId: TITLE_ID, lineIndex: 11, lineIndices: [10, 11, 12], toUserId: BOB_ID },
+      }),
+      envFor(db),
+    );
+    expect(sent.status).toBe(200);
+
+    const dm = await handleRequest(
+      jsonRequest(`/api/chats/dm/${ALICE_ID}`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    expect(dm.status).toBe(200);
+    const body = (await dm.json()) as {
+      messages: Array<{ kind: string; promptCount?: number; lineIndex?: number }>;
+    };
+    expect(body.messages).toHaveLength(1);
+    expect(body.messages[0]).toMatchObject({
+      kind: "quote",
+      lineIndex: 10,
+      promptCount: 3,
+    });
   });
 });

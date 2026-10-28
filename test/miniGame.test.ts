@@ -6,6 +6,7 @@ import {
   describeMiniGameStars,
   findStarStreaks,
   miniGameStarCounts,
+  streakForSend,
   sequenceLabel,
   getValidPromptIndices,
 } from "../src/lib/game/miniGame.js";
@@ -128,6 +129,25 @@ describe("findStarStreaks", () => {
     expect(findStarStreaks([1, 2, 3, 4], [1, 2, 4])).toEqual([[1, 2]]);
     expect(findStarStreaks([1, 2, 3, 4], [1, 2, 3])).toEqual([[1, 2, 3]]);
     expect(findStarStreaks([1, 2, 3, 4], [1, 3])).toEqual([]);
+  });
+});
+
+describe("streakForSend", () => {
+  it("returns null when the line is not in a streak", () => {
+    expect(streakForSend([1, 2, 3, 4], [1, 3], 1)).toBeNull();
+    expect(streakForSend([1, 2, 3, 4], [1, 2], 4)).toBeNull();
+  });
+
+  it("returns the whole streak when it fits the cap", () => {
+    expect(streakForSend([1, 2, 3, 4], [1, 2, 3], 2)).toEqual([1, 2, 3]);
+  });
+
+  it("keeps a contiguous window that includes the clicked line", () => {
+    const valid = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    const starred = valid;
+    expect(streakForSend(valid, starred, 0, 4)).toEqual([0, 1, 2, 3]);
+    expect(streakForSend(valid, starred, 11, 4)).toEqual([8, 9, 10, 11]);
+    expect(streakForSend(valid, starred, 5, 4)).toEqual([4, 5, 6, 7]);
   });
 });
 

@@ -43,17 +43,25 @@ export type InboxItem = {
   shareId: string;
   titleId: string;
   lineIndex: number;
+  promptCount?: number;
   from: { userId: string; displayName: string };
   createdAt: string;
 };
 
+function shareBody(titleId: string, lineIndex: number, lineIndices?: number[]) {
+  return lineIndices && lineIndices.length > 1
+    ? { titleId, lineIndex, lineIndices }
+    : { titleId, lineIndex };
+}
+
 export async function copyLineShare(
   titleId: string,
   lineIndex: number,
+  lineIndices?: number[],
 ): Promise<LineShare | { error: string }> {
   const response = await inboxFetch("/api/inbox/share", {
     method: "POST",
-    body: JSON.stringify({ titleId, lineIndex }),
+    body: JSON.stringify(shareBody(titleId, lineIndex, lineIndices)),
   });
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
@@ -65,10 +73,11 @@ export async function sendLineToFriend(
   titleId: string,
   lineIndex: number,
   toUserId: string,
+  lineIndices?: number[],
 ): Promise<LineShare | { error: string }> {
   const response = await inboxFetch("/api/inbox", {
     method: "POST",
-    body: JSON.stringify({ titleId, lineIndex, toUserId }),
+    body: JSON.stringify({ ...shareBody(titleId, lineIndex, lineIndices), toUserId }),
   });
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
@@ -80,10 +89,11 @@ export async function sendLineToGroup(
   titleId: string,
   lineIndex: number,
   groupId: string,
+  lineIndices?: number[],
 ): Promise<GroupLineShare | { error: string }> {
   const response = await inboxFetch("/api/inbox", {
     method: "POST",
-    body: JSON.stringify({ titleId, lineIndex, groupId }),
+    body: JSON.stringify({ ...shareBody(titleId, lineIndex, lineIndices), groupId }),
   });
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
@@ -111,7 +121,13 @@ export async function fetchInbox(): Promise<
   if (!response.ok) return { error: await readError(response, "Could not load inbox") };
   const data = (await response.json()) as { items?: InboxItem[]; parallels?: ParallelInboxItem[] };
   return {
-    items: Array.isArray(data.items) ? data.items : [],
+    items: Array.isArray(data.items)
+      ? data.items.map((item) => ({
+          ...item,
+          promptCount:
+            typeof item.promptCount === "number" && item.promptCount > 0 ? item.promptCount : 1,
+        }))
+      : [],
     parallels: Array.isArray(data.parallels) ? data.parallels : [],
   };
 }

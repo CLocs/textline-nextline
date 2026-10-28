@@ -76,6 +76,7 @@ export type DmQuoteMessage = {
   shareId: string;
   titleId: string;
   lineIndex: number;
+  promptCount: number;
   direction: "in" | "out";
   from: { userId: string; displayName: string };
   createdAt: string;
@@ -91,6 +92,7 @@ export type GroupQuoteMessage = {
   shareId: string;
   titleId: string;
   lineIndex: number;
+  promptCount: number;
   from: { userId: string; displayName: string };
   createdAt: string;
   sentCount: number;
@@ -163,6 +165,7 @@ function normalizeDmMessage(raw: Record<string, unknown>): DmThreadMessage | nul
     shareId: typeof raw.shareId === "string" ? raw.shareId : "",
     titleId: raw.titleId,
     lineIndex: typeof raw.lineIndex === "number" ? raw.lineIndex : 0,
+    promptCount: typeof raw.promptCount === "number" && raw.promptCount > 0 ? raw.promptCount : 1,
     direction: raw.direction === "out" ? "out" : "in",
     from: {
       userId: typeof from?.userId === "string" ? from.userId : "",
@@ -201,6 +204,7 @@ function normalizeGroupMessage(raw: Record<string, unknown>): GroupThreadMessage
     shareId: raw.shareId,
     titleId: raw.titleId,
     lineIndex: typeof raw.lineIndex === "number" ? raw.lineIndex : 0,
+    promptCount: typeof raw.promptCount === "number" && raw.promptCount > 0 ? raw.promptCount : 1,
     from: {
       userId: typeof from?.userId === "string" ? from.userId : "",
       displayName: typeof from?.displayName === "string" ? from.displayName : "Friend",
