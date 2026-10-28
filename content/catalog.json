@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-08T00:55:59.467Z",
+  "updatedAt": "2026-10-28T01:39:38.366Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -1016,6 +1016,16 @@
       "importedAt": "2026-10-08T00:55:59.463Z",
       "meta": {
         "year": 1998
+      }
+    },
+    {
+      "id": "inception-2010",
+      "title": "Inception (2010)",
+      "lineCount": 1425,
+      "sourceFilename": "Inception.2010.eng.srt",
+      "importedAt": "2026-10-28T01:39:35.568Z",
+      "meta": {
+        "year": 2010
       }
     },
     {
@@ -3261,6 +3271,16 @@
       }
     },
     {
+      "id": "minority-report-2002",
+      "title": "Minority Report (2002)",
+      "lineCount": 1471,
+      "sourceFilename": "Minority.Report.2002.eng.srt",
+      "importedAt": "2026-10-28T01:39:36.129Z",
+      "meta": {
+        "year": 2002
+      }
+    },
+    {
       "id": "my-cousin-vinny-1992",
       "title": "My Cousin Vinny (1992)",
       "lineCount": 1881,
@@ -3661,6 +3681,16 @@
       }
     },
     {
+      "id": "tenet-2020",
+      "title": "Tenet (2020)",
+      "lineCount": 1712,
+      "sourceFilename": "Tenet.2020.eng.srt",
+      "importedAt": "2026-10-28T01:39:36.687Z",
+      "meta": {
+        "year": 2020
+      }
+    },
+    {
       "id": "terminator-2-judgment-day-1991",
       "title": "Terminator 2 Judgment Day (1991)",
       "lineCount": 987,
@@ -3688,6 +3718,26 @@
       "importedAt": "2026-09-16T02:46:39.446Z",
       "meta": {
         "year": 1998
+      }
+    },
+    {
+      "id": "the-dark-knight-2008",
+      "title": "The Dark Knight (2008)",
+      "lineCount": 1808,
+      "sourceFilename": "The.Dark.Knight.2008.eng.srt",
+      "importedAt": "2026-10-28T01:39:37.253Z",
+      "meta": {
+        "year": 2008
+      }
+    },
+    {
+      "id": "the-dark-knight-rises-2012",
+      "title": "The Dark Knight Rises (2012)",
+      "lineCount": 1773,
+      "sourceFilename": "The.Dark.Knight.Rises.2012.eng.srt",
+      "importedAt": "2026-10-28T01:39:37.806Z",
+      "meta": {
+        "year": 2012
       }
     },
     {
@@ -4896,6 +4946,16 @@
       "importedAt": "2026-09-13T03:48:43.497Z",
       "meta": {
         "year": 2013
+      }
+    },
+    {
+      "id": "there-will-be-blood-2007",
+      "title": "There Will Be Blood (2007)",
+      "lineCount": 1197,
+      "sourceFilename": "There.Will.Be.Blood.2007.eng.srt",
+      "importedAt": "2026-10-28T01:39:38.362Z",
+      "meta": {
+        "year": 2007
       }
     },
     {

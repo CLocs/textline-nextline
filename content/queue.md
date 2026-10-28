@@ -7,7 +7,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | Pri | Plays | HLs | Title | Year | Rating | Liked | SRT |
 |-----|-------|-----|-------|------|--------|-------|-----|
 | 1 | 5 | 165 | [The Lord of the Rings: The Fellowship of the Ring](https://boxd.it/2b5O) | 2001 | 5 | yes | [x] |
-| 1 | 5 | 32 | [Tenet](https://boxd.it/leq4) | 2020 | 5 | yes | [ ] missing |
+| 1 | 5 | 32 | [Tenet](https://boxd.it/leq4) | 2020 | 5 | yes | [x] |
 | 1 | 4 | 85 | [Ocean's Thirteen](https://boxd.it/2aEy) | 2007 | 5 | yes | [x] |
 | 1 | 4 | 72 | [The Gentlemen](https://boxd.it/iYBQ) | 2019 | 5 | yes | [x] |
 | 1 | 3 | 197 | [The Lord of the Rings: The Return of the King](https://boxd.it/2b5u) | 2003 | 5 | yes | [x] |
@@ -31,7 +31,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 2 | 23 | [The Empire Strikes Back](https://boxd.it/27Vw) | 1980 | 5 | yes | [x] |
 | 1 | 2 | 18 | [The Ministry of Ungentlemanly Warfare](https://boxd.it/u5zu) | 2024 | 5 | yes | [x] |
 | 1 | 2 | 14 | [Ratatouille](https://boxd.it/27ww) | 2007 | 5 | yes | [ ] missing |
-| 1 | 2 | 8 | [Inception](https://boxd.it/1skk) | 2010 | 5 | yes | [ ] missing |
+| 1 | 2 | 8 | [Inception](https://boxd.it/1skk) | 2010 | 5 | yes | [x] |
 | 1 | 2 | 7 | [Baby Driver](https://boxd.it/bhF2) | 2017 | 5 | yes | [x] |
 | 1 | 2 | 0 | [Back to the Future](https://boxd.it/2b8e) | 1985 | 5 | yes | [x] |
 | 1 | 2 | 0 | [Last Breath](https://boxd.it/AJqO) | 2025 | 5 | yes | [ ] missing |
@@ -60,7 +60,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 1 | 0 | [Jurassic Park III](https://boxd.it/2azI) | 2001 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Limitless](https://boxd.it/Aly) | 2011 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Midway](https://boxd.it/iX4w) | 2019 | 5 | yes | [ ] missing |
-| 1 | 1 | 0 | [Minority Report](https://boxd.it/2aWi) | 2002 | 5 | yes | [ ] missing |
+| 1 | 1 | 0 | [Minority Report](https://boxd.it/2aWi) | 2002 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Mississippi Burning](https://boxd.it/28r8) | 1988 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Mrs. Doubtfire](https://boxd.it/29Cw) | 1993 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Pulp Fiction](https://boxd.it/29Pq) | 1994 | 5 | yes | [x] |
@@ -101,7 +101,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 1549 | [The Conversation](https://boxd.it/2a38) | 1974 | 5 |  | [x] short |
 | 2 | 1 | 80 | [Drive](https://boxd.it/IG) | 2011 | 5 |  | [ ] missing |
 | 2 | 1 | 78 | [Star Wars](https://boxd.it/72s) | 1977 | 5 |  | [x] |
-| 2 | 1 | 67 | [The Dark Knight Rises](https://boxd.it/H3m) | 2012 | 5 |  | [ ] missing |
+| 2 | 1 | 67 | [The Dark Knight Rises](https://boxd.it/H3m) | 2012 | 5 |  | [x] |
 | 2 | 1 | 64 | [Creed III](https://boxd.it/pf68) | 2023 | 5 |  | [ ] missing |
 | 2 | 1 | 61 | [Nobody](https://boxd.it/mLqS) | 2021 | 5 |  | [ ] missing |
 | 2 | 1 | 61 | [The Ten Commandments](https://boxd.it/21mg) | 1956 | 5 |  | [ ] missing |
@@ -124,7 +124,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 23 | [Frankenstein](https://boxd.it/Ecsg) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 23 | [No Other Choice](https://boxd.it/nKiA) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 22 | [The Phoenician Scheme](https://boxd.it/H0Ca) | 2025 | 5 |  | [ ] missing |
-| 2 | 1 | 18 | [There Will Be Blood](https://boxd.it/20Z2) | 2007 | 5 |  | [ ] missing |
+| 2 | 1 | 18 | [There Will Be Blood](https://boxd.it/20Z2) | 2007 | 5 |  | [x] |
 | 2 | 1 | 18 | [TRON: Ares](https://boxd.it/jqdM) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 17 | [Death Becomes Her](https://boxd.it/1YQi) | 1992 | 5 |  | [ ] missing |
 | 2 | 1 | 15 | [Passengers](https://boxd.it/8lFu) | 2016 | 5 |  | [ ] missing |
