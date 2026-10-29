@@ -92,14 +92,33 @@ This writes normalized titles to `content/titles/<id>.json` and updates `content
 
 ### Extract stills (local)
 
-Agent skill: [`.cursor/skills/stills-extract/SKILL.md`](.cursor/skills/stills-extract/SKILL.md). Needs **ffmpeg** on PATH. Remux, then extract (gitignored `inbox/media/` + `inbox/stills-preview/`):
+Agent skill: [`.cursor/skills/stills-extract/SKILL.md`](.cursor/skills/stills-extract/SKILL.md). Needs **ffmpeg** on PATH. Movie files stay on this PC (`H:\videos\movies`, then `G:\videos\movies`). Catalog Ops → Stills (`#/ops`, with `npm run dev`) shows one status per title:
+
+| Status | Meaning |
+| --- | --- |
+| ready | File is on disk. The clock has not been checked. |
+| synced | Lock frames matched (`syncedAt` in `content/stills-sync.json`). The rest of the lines can be extracted. |
+| review | A frame did not match, or stills exist without `syncedAt`. Wait. |
+| approved | Two thumbs-up in the studio. |
+| batched | Remaining lines are JPEGs on disk. |
+| pushed | Those JPEGs are in R2. |
+
+Ask in chat to sync a movie. That check looks at the frames, so it is the skill, not a script. A 23.976 fps file that runs as long as the subtitle stays at no offset. PAL `timeScale: 0.96` is for a ~25 fps rip (Ocean's 13). When the locks match, the row becomes **synced**. When one does not, it stays **review**.
+
+Remux, then extract a handful (gitignored `inbox/media/` + `inbox/stills-preview/`):
 
 ```bash
 npm run content:stills:remux -- --title oceans-thirteen-2007 --input "G:\videos\movies\Ocean's 13 (2007).avi"
 npm run content:stills -- --title oceans-thirteen-2007 --indices 40,58,70,526,768,1334
 ```
 
-Batch D1 stars with `--indices` after the user confirms sync. Ocean's 13 uses PAL `timeScale: 0.96` in `content/stills-sync.json`. Push confirmed JPEGs to R2:
+Batch every **synced** title that is not batched yet. This does not upload:
+
+```bash
+npm run content:stills:overnight
+```
+
+Ask in chat to upload, or push named titles yourself. Skip anything still in review:
 
 ```bash
 npm run content:stills:push -- --title oceans-thirteen-2007

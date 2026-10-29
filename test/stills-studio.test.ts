@@ -106,6 +106,8 @@ describe("episodeStatus", () => {
     expect(episodeStatus({ hasFile: true, stillCount: 10, handful: [1], pushedAt: "x" })).toBe("pushed");
     expect(episodeStatus({ hasFile: true, stillCount: 10, handful: [1], batchedAt: "x" })).toBe("batched");
     expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [1, 2] })).toBe("review");
+    expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [], syncedAt: "x" })).toBe("synced");
+    expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [1], syncedAt: "s", approvedAt: "a" })).toBe("approved");
     expect(episodeStatus({ hasFile: true, stillCount: 6, handful: [] })).toBe("review");
     expect(episodeStatus({ hasFile: true, stillCount: 0, handful: [] })).toBe("ready");
     expect(episodeStatus({ hasFile: false, stillCount: 0, handful: [] })).toBe("no-file");

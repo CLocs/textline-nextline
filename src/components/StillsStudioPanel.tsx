@@ -217,7 +217,9 @@ export function StillsStudioPanel({
   const ups = frames.filter((frame) => votes[frame.lineIndex] === "up").length;
   const unlockUps = Math.min(BATCH_UNLOCK_UPS, frames.length);
   const allUp = !gallery && frames.length > 0 && frames.every((frame) => votes[frame.lineIndex] === "up");
-  const readyToBatch = !gallery && frames.length > 0 && ups >= unlockUps && downed.length === 0;
+  const clockTrusted = selected?.status === "synced";
+  const readyToBatch =
+    !gallery && frames.length > 0 && downed.length === 0 && (clockTrusted || ups >= unlockUps);
   const anyDown = !gallery && downed.length > 0;
   const nextMethod = selected
     ? pickNextStudioMethod({
@@ -250,7 +252,7 @@ export function StillsStudioPanel({
       : null;
 
   const counts = useMemo(() => {
-    const tallies = { "no-file": 0, ready: 0, review: 0, approved: 0, batched: 0, pushed: 0 };
+    const tallies = { "no-file": 0, ready: 0, review: 0, synced: 0, approved: 0, batched: 0, pushed: 0 };
     for (const row of queue?.episodes ?? []) {
       tallies[row.status] += 1;
     }
@@ -281,6 +283,8 @@ export function StillsStudioPanel({
       );
     } else if (row.status === "batched") {
       setNotice(`Batched ${stills.toLocaleString()} stills in ${data.previewDir}. Push to R2 when you mean it.`);
+    } else if (row.status === "synced") {
+      setNotice("Clock matches the file. Batch remaining lines, or leave it for the overnight run.");
     } else {
       setNotice(null);
     }
@@ -393,7 +397,7 @@ export function StillsStudioPanel({
     if (!autoBatchRef.current || !selectedId || selectedId !== initialTitleId || !episode) return;
     if (extractingRef.current[selectedId]) return;
     autoBatchRef.current = false;
-    if (episode.status === "batched" || episode.status === "pushed" || episode.status === "approved") {
+    if (episode.status === "batched" || episode.status === "pushed" || episode.status === "approved" || episode.status === "synced") {
       void runExtract("batch");
       return;
     }
@@ -626,7 +630,7 @@ export function StillsStudioPanel({
         </label>
         <p className="muted stills-studio-summary">
           {queue
-            ? `${counts.ready} ready · ${counts.review} review · ${counts.batched} batched · ${counts.pushed} pushed · ${counts["no-file"]} no file`
+            ? `${counts.ready} ready · ${counts.synced} synced · ${counts.review} review · ${counts.batched} batched · ${counts.pushed} pushed · ${counts["no-file"]} no file`
             : "Loading queue…"}
           {queue && !queue.directoryExists ? " · video folder missing" : ""}
           {queue && queue.unmatched.length > 0 ? ` · ${queue.unmatched.length} unmatched files` : ""}

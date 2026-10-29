@@ -14,7 +14,7 @@ function sleep(ms: number): Promise<void> {
 }
 
 function isTransientPutError(message: string): boolean {
-  return /504|502|503|429|Gateway time-out|Gateway Timeout|ECONNRESET|ETIMEDOUT|fetch failed/i.test(
+  return /500|504|502|503|429|Internal Server Error|Gateway time-out|Gateway Timeout|ECONNRESET|ETIMEDOUT|fetch failed/i.test(
     message,
   );
 }

@@ -1,19 +1,22 @@
 ---
 name: stills-extract
 description: >-
-  Remuxes a local movie or show file, extracts quote stills with ffmpeg at
-  line startMs, records per-title offset/PAL timeScale, then batches D1
-  starred frames or remaining playable cues (skip SDH/lyrics). Use when the
+  Remuxes a local movie or show file, checks the stills clock, extracts quote
+  stills with ffmpeg at line startMs, records offset/PAL timeScale and
+  syncedAt, then batches playable cues and uploads them to R2. Use when the
   user says "extract stills", "stills for", "quote frames", "run stills",
-  "stills extract", "stills studio", "review stills", "every cue",
-  "all frames", "playable stills", "push stills", "sync stills",
-  "batch push", "R2 sync", or points at a file on G:\videos\movies
+  "stills extract", "stills studio", "review stills", "sync", "sync the
+  clock", "is this synced", "every cue", "all frames", "playable stills",
+  "batch the stills", "upload stills", "push stills", "push to R2",
+  "R2 sync", or points at a file on H:\videos\movies, G:\videos\movies,
   or G:\videos\shows.
 ---
 
 # Stills extract
 
-Offline only. Movie/show files never leave the machine. **Never batch or R2 until eyeballed** — thumbs-up in the studio counts as the eyeball. Do **not** pass `--from-stars --email` to extract.
+Offline only. Movie/show files never leave the machine. Do **not** pass `--from-stars --email` to extract.
+
+Studio status, in order: **ready** (file on disk, clock unchecked) → **synced** (`syncedAt`, lock frames matched; batch is allowed) or **review** (a lock missed, or stills exist with no `syncedAt`; wait) → **approved** (two thumbs-up) → **batched** → **pushed** (R2). Asking to sync a movie runs the lock-frame check in [content-ingest](../content-ingest/SKILL.md) step 5. Asking to upload runs `content:stills:push` for named titles that are batched. There is no separate upload skill. `npm run content:stills:overnight` batches synced titles on this PC and does not upload.
 
 ## Shows — Catalog Ops studio (prefer this)
 
@@ -45,7 +48,7 @@ CLI below remains the fallback for **movies** and for one-off show debugging.
    ```
    Writes gitignored `inbox/media/{titleId}.mkv`.
 
-4. **Probe.** `ffprobe` fps + duration vs last dialogue `startMs` and theatrical runtime. 25 fps and a short file → suspect PAL (`timeScale: 0.96`). Do **not** set scale until the user confirms.
+4. **Probe.** `ffprobe` fps + duration vs last dialogue `startMs` and theatrical runtime. A 23.976 fps file that runs about as long as the subtitle is scale 1. PAL `0.96` is for a ~25 fps rip whose picture runs short. The studio still offers PAL when late dialogue frames look wrong; confirm with a unique-picture cue before recording it. The lock-frame check used during ingest is [content-ingest](../content-ingest/SKILL.md) step 5.
 
 5. **Starred handful.** Query prod D1 (from `api/`):
    ```bash
@@ -111,7 +114,7 @@ flowchart TD
 
 **Shows:** use Catalog Ops → Stills. Season 4 Simpsons rips inherit −57s (SRT still includes the long theme; S4E5 is −52s, S4E3 is PAL 0.96). Seasons 5–7 SRTs already match the file — offset 0, not −57s. S4E1/E2 already on R2. Do not auto-R2 from chat.
 
-**Movies:** every-cue (`--playable`) for top-played titles that already have eyeballed sync. Skip existing JPEGs. Do not auto-R2 from chat until they ask.
+**Movies:** `syncedAt` means the lock frames matched, so `npm run content:stills:overnight` may `--playable` that title on this PC. No `syncedAt` means review — leave it. Skip existing JPEGs. Do not auto-R2 from chat until they ask. A cloud agent cannot see `H:\` or `G:\`.
 
 **Already on R2:** Ocean's 13 (PAL 0.96, 125), Wolf (scale 1, 67), Inglourious Basterds (scale 1, 115), Empire (PAL 0.96, 81), Django (scale 1, 44), Batman Begins (scale 1, 79), The Gentlemen (mid-cue, 122), Matrix (scale 1, 106), Kamp Krusty S4E1 (offset −57s, 10), **Streetcar Named Marge S4E2 (offset −57s + late nudges, 16)**. Re-run Empire if early cues slip.
 
