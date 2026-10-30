@@ -4121,5 +4121,325 @@
     "approvedAt": "2026-10-28T03:03:18.151Z",
     "batchedAt": "2026-10-28T03:06:45.947Z",
     "pushedAt": "2026-10-28T05:45:52.221Z"
+  },
+  "game-of-thrones---1x01---winter-is-coming": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3697.1,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E01.Winter.Is.Coming.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Ned and Bran at the execution, the dead direwolf, Cersei in the broken tower.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:49:55.151Z"
+  },
+  "game-of-thrones---1x02---the-kingsroad": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3317.4,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E02.The.Kingsroad.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Mycah at the Trident and Ned in the inn. Opening map still plays under a recap line.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:52:23.145Z"
+  },
+  "game-of-thrones---1x03---lord-snow": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3434.1,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E03.Lord.Snow.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Ned with Needle, Tyrion in the Castle Black yard, Syrio with Arya.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:55:24.462Z"
+  },
+  "game-of-thrones---1x04---cripples-bastards-and-broken-things": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3337.8,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E04.Cripples.Bastards.and.Broken.Things.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV subtitle on the original Blu-ray. Scale 1. Bran in bed at Hodor, Catelyn in the inn at the Frey line.",
+    "syncedAt": "2026-10-30T00:04:00.000Z",
+    "batchedAt": "2026-10-30T00:07:56.794Z"
+  },
+  "game-of-thrones---1x05---the-wolf-and-the-lion": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3256.5,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E05.The.Wolf.and.the.Lion.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. The Mountain's dead opponent in the tent, Ned before the seven-pointed star.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:58:18.596Z"
+  },
+  "game-of-thrones---1x06---a-golden-crown": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3156.8,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E06.A.Golden.Crown.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Tyrion at the Eyrie trial, Viserys, Drogo with the molten gold.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:00:31.418Z"
+  },
+  "game-of-thrones---1x07---you-win-or-you-die": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3467.1,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E07.You.Win.or.You.Die.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Cersei in the garden, you win or you die.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:02:57.441Z"
+  },
+  "game-of-thrones---1x08---the-pointy-end": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3488.2,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E08.The.Pointy.End.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Replaced SRT. Scale 1. Syrio and Arya in the yard, Arya in the stable, Sansa while Joffrey talks about Ned.",
+    "syncedAt": "2026-10-29T23:55:00.000Z",
+    "batchedAt": "2026-10-29T23:59:50.644Z"
+  },
+  "game-of-thrones---1x09---baelor": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3376.2,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E09.Baelor.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Ned in the crowd and on the Sept of Baelor steps.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:05:16.739Z"
+  },
+  "game-of-thrones---1x10---fire-and-blood": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3157.2,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E10.Fire.and.Blood.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Dany and Jorah at the pyre.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:07:33.980Z"
+  },
+  "game-of-thrones---2x01---the-north-remembers": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3161.4,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E01 The North Remembers (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Joffrey at the nameday tourney, the bull helmet at the camp.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:28:03.907Z"
+  },
+  "game-of-thrones---2x02---the-night-lands": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3209.8,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E02 The Night Lands (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Gilly with Jon, Theon with Balon at Pyke, Stannis at Dragonstone.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:31:06.402Z"
+  },
+  "game-of-thrones---2x03---what-is-dead-may-never-die": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3165,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E03 What Is Dead May Never Die (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Blu-ray subtitle. Scale 1. Theon after the drowning, Lommy when Arya gives up the helmet.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:33:42.938Z"
+  },
+  "game-of-thrones---2x04---garden-of-bones": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3074.7,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E04 Garden of Bones (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. The night camp before the wolf, Davos at the shadow birth.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:36:07.927Z"
+  },
+  "game-of-thrones---2x05---the-ghost-of-harrenhal": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3250.3,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E05  The Ghost Of Harrenhal (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Renly and Catelyn in the tent, the Fist of the First Men, Arya at Harrenhal.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:39:09.659Z"
+  },
+  "game-of-thrones---2x06---the-old-gods-and-the-new": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3239.5,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E06 The Old Gods And The New (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Joffrey in the riot, Dany shouting for her dragons.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:41:54.547Z"
+  },
+  "game-of-thrones---2x07---a-man-without-honor": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3311,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E07 A Man Without Honor (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Pyat Pree, Jaime talking about Ned's bastard.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:44:59.697Z"
+  },
+  "game-of-thrones---2x08---the-prince-of-winterfell": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3201.2,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E08 The Prince of Winterfell (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Yara at Winterfell, Bran and Rickon in the crypt.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:48:05.376Z"
+  },
+  "game-of-thrones---2x09---blackwater": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3267.9,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E09 Blackwater (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Davos on the deck, Cersei and Tommen as Tywin arrives. The closing song sits on the credits.",
+    "syncedAt": "2026-10-30T01:35:00.000Z",
+    "batchedAt": "2026-10-30T01:50:25.037Z"
+  },
+  "game-of-thrones---2x10---valar-morghulis": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3806.8,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 2\\Game of Thrones S02E10 Valar Morghulis (1080p x265 10bit Joy).mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "ShAaNiG Blu-ray subtitle. Scale 1. Jaqen with Arya, Dany for dracarys, Sam shouting for Grenn.",
+    "syncedAt": "2026-10-30T02:20:00.000Z",
+    "batchedAt": "2026-10-30T02:21:58.445Z"
   }
 }
