@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T03:24:38.842Z",
+  "updatedAt": "2026-10-30T00:07:56.721Z",
   "titles": {
     "baby-driver-2017": 1360,
     "back-to-the-future-1985": 1302,
@@ -82,7 +82,17 @@
     "the-dark-knight-2008": 1800,
     "the-dark-knight-rises-2012": 1634,
     "there-will-be-blood-2007": 1186,
-    "top-gun-maverick-2022": 1206
+    "top-gun-maverick-2022": 1206,
+    "game-of-thrones---1x01---winter-is-coming": 503,
+    "game-of-thrones---1x02---the-kingsroad": 535,
+    "game-of-thrones---1x03---lord-snow": 682,
+    "game-of-thrones---1x04---cripples-bastards-and-broken-things": 680,
+    "game-of-thrones---1x05---the-wolf-and-the-lion": 697,
+    "game-of-thrones---1x06---a-golden-crown": 544,
+    "game-of-thrones---1x07---you-win-or-you-die": 581,
+    "game-of-thrones---1x08---the-pointy-end": 555,
+    "game-of-thrones---1x09---baelor": 538,
+    "game-of-thrones---1x10---fire-and-blood": 501
   },
   "covers": {
     "baby-driver-2017": 0,
@@ -166,6 +176,16 @@
     "the-dark-knight-2008": 0,
     "the-dark-knight-rises-2012": 0,
     "there-will-be-blood-2007": 1,
-    "top-gun-maverick-2022": 0
+    "top-gun-maverick-2022": 0,
+    "game-of-thrones---1x01---winter-is-coming": 5,
+    "game-of-thrones---1x02---the-kingsroad": 0,
+    "game-of-thrones---1x03---lord-snow": 0,
+    "game-of-thrones---1x04---cripples-bastards-and-broken-things": 1,
+    "game-of-thrones---1x05---the-wolf-and-the-lion": 1,
+    "game-of-thrones---1x06---a-golden-crown": 1,
+    "game-of-thrones---1x07---you-win-or-you-die": 0,
+    "game-of-thrones---1x08---the-pointy-end": 0,
+    "game-of-thrones---1x09---baelor": 1,
+    "game-of-thrones---1x10---fire-and-blood": 1
   }
 }

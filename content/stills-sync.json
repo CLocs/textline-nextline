@@ -4121,5 +4121,165 @@
     "approvedAt": "2026-10-28T03:03:18.151Z",
     "batchedAt": "2026-10-28T03:06:45.947Z",
     "pushedAt": "2026-10-28T05:45:52.221Z"
+  },
+  "game-of-thrones---1x01---winter-is-coming": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3697.1,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E01.Winter.Is.Coming.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Ned and Bran at the execution, the dead direwolf, Cersei in the broken tower.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:49:55.151Z"
+  },
+  "game-of-thrones---1x02---the-kingsroad": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3317.4,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E02.The.Kingsroad.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Mycah at the Trident and Ned in the inn. Opening map still plays under a recap line.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:52:23.145Z"
+  },
+  "game-of-thrones---1x03---lord-snow": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3434.1,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E03.Lord.Snow.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Ned with Needle, Tyrion in the Castle Black yard, Syrio with Arya.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:55:24.462Z"
+  },
+  "game-of-thrones---1x04---cripples-bastards-and-broken-things": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3337.8,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E04.Cripples.Bastards.and.Broken.Things.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV subtitle on the original Blu-ray. Scale 1. Bran in bed at Hodor, Catelyn in the inn at the Frey line.",
+    "syncedAt": "2026-10-30T00:04:00.000Z",
+    "batchedAt": "2026-10-30T00:07:56.794Z"
+  },
+  "game-of-thrones---1x05---the-wolf-and-the-lion": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3256.5,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E05.The.Wolf.and.the.Lion.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. The Mountain's dead opponent in the tent, Ned before the seven-pointed star.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T22:58:18.596Z"
+  },
+  "game-of-thrones---1x06---a-golden-crown": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3156.8,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E06.A.Golden.Crown.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Tyrion at the Eyrie trial, Viserys, Drogo with the molten gold.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:00:31.418Z"
+  },
+  "game-of-thrones---1x07---you-win-or-you-die": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3467.1,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E07.You.Win.or.You.Die.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Cersei in the garden, you win or you die.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:02:57.441Z"
+  },
+  "game-of-thrones---1x08---the-pointy-end": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3488.2,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E08.The.Pointy.End.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Replaced SRT. Scale 1. Syrio and Arya in the yard, Arya in the stable, Sansa while Joffrey talks about Ned.",
+    "syncedAt": "2026-10-29T23:55:00.000Z",
+    "batchedAt": "2026-10-29T23:59:50.644Z"
+  },
+  "game-of-thrones---1x09---baelor": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3376.2,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E09.Baelor.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Ned in the crowd and on the Sept of Baelor steps.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:05:16.739Z"
+  },
+  "game-of-thrones---1x10---fire-and-blood": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3157.2,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 1\\Game.of.Thrones.S01E10.Fire.and.Blood.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Scale 1. Dany and Jorah at the pyre.",
+    "syncedAt": "2026-10-29T22:47:10.674Z",
+    "batchedAt": "2026-10-29T23:07:33.980Z"
   }
 }
