@@ -56,7 +56,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 1 | 0 | [Batman Begins](https://boxd.it/2aIg) | 2005 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Bob Marley: One Love](https://boxd.it/uckw) | 2024 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Get On Up](https://boxd.it/73bO) | 2014 | 5 | yes | [ ] missing |
-| 1 | 1 | 0 | [Hamilton](https://boxd.it/kmvE) | 2020 | 5 | yes | [ ] missing |
+| 1 | 1 | 0 | [Hamilton](https://boxd.it/kmvE) | 2020 | 5 | yes | [x] |
 | 1 | 1 | 0 | [Jurassic Park III](https://boxd.it/2azI) | 2001 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Limitless](https://boxd.it/Aly) | 2011 | 5 | yes | [ ] missing |
 | 1 | 1 | 0 | [Midway](https://boxd.it/iX4w) | 2019 | 5 | yes | [ ] missing |
@@ -286,11 +286,3 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 4 | 1 | 0 | [The Way of the Gun](https://boxd.it/28t4) | 2000 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tom Segura: Sledgehammer](https://boxd.it/H6E2) | 2023 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tumbbad](https://boxd.it/jDZk) | 2018 | 4.5 |  | [ ] missing |
-
-## Shows
-
-Hand-queued seasons. Kept when the Letterboxd film seed is regenerated.
-
-| Show | Season | Year | SRT | Note |
-|------|--------|------|-----|------|
-| SpongeBob SquarePants | 1 | 1999 | [ ] missing | Season 1 |
