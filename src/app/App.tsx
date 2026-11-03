@@ -48,6 +48,7 @@ import { ChatThreadScreen } from "../components/ChatThreadScreen";
 import { SearchScreen } from "../components/SearchScreen";
 import { DailyMailUnsub } from "../components/DailyMailUnsub";
 import { canViewCatalogOps } from "../lib/content/owner";
+import bubblesLogo from "../assets/textline-nextline-logo-bubbles.png";
 import { dismissVisitQuote } from "../lib/game/visitQuote";
 import type { DailyLine } from "../lib/game/dailyPick";
 
@@ -764,15 +765,18 @@ export function App() {
     <div className={`app-shell${screen === "play" || screen === "curate" || screen === "daily" || screen === "instant" ? " play-active" : ""}${screen === "ops" ? " ops-active" : ""}`}>
       <header className="app-header">
         <div className="brand-lockup">
-          <button
-            type="button"
-            className="brand-mark"
-            aria-label="Home"
-            title="Home"
-            onClick={handleBackToLibrary}
-          />
+          <h1 className="brand-title">
+            <button
+              type="button"
+              className="brand-mark"
+              aria-label="Textline → Nextline"
+              title="Home"
+              onClick={handleBackToLibrary}
+            >
+              <img src={bubblesLogo} alt="" />
+            </button>
+          </h1>
           <div className="brand-copy">
-            <h1>Textline → Nextline</h1>
             <p className="lede">Here's a line — guess what comes next.</p>
           </div>
         </div>

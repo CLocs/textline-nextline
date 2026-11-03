@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-28T01:40:24.848Z",
+  "updatedAt": "2026-11-02T18:29:18.603Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -2603,9 +2603,9 @@
       "playCount": 1,
       "highlightCount": 0,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "My Octopus Teacher",
