@@ -54,7 +54,7 @@ Growing the catalog: [content workstream](docs/CONTENT.md). Agent skill: [`.curs
 | [docs/CONTENT.md](docs/CONTENT.md) | Letterboxd queue, convert, import (C0–C4) |
 | [docs/DEPLOY.md](docs/DEPLOY.md) | Cloudflare Pages + Worker + D1 + R2 |
 
-Phase writeups used to live in this README; they moved to [docs/SHIPPED.md](docs/SHIPPED.md).
+Phase writeups used to live in this README; they moved to [docs/SHIPPED.md](docs/SHIPPED.md). UI colors and the header wordmark are in [Design](#design) below.
 
 ---
 
@@ -200,9 +200,26 @@ Push to `main` deploys **both** via GitHub Actions.
 
 Or connect GitHub Actions (push to `main`) with `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets.
 
+### Design
+
+The header wordmark is the blue and green bubbles logo (`design/textline-nextline_logo_blue_green_bubbles.png`). That file has a solid white plate, so the app uses a cut-out at `src/assets/textline-nextline-logo-bubbles.png`. Clicking it returns home.
+
+Colors come from `design/tlnl-color-palatte3.png`. Tokens live on `:root` in `src/app/index.css`.
+
+| Color | Hex | Use |
+| --- | --- | --- |
+| Blue | `#29ABE2` | Wash behind the logo, and other fills. Too light for small text or for white type. |
+| Green | `#8BC53E` | Primary buttons and the bar beside the current line. Labels on it use the dark olive. |
+| Dark olive | `#2A3728` | Body text and headings. |
+| Gray | `#636661` | Captions, borders, secondary buttons. |
+| Wine | `#912F56` | Text that should stand out: the FUN / MINI label, a miss, a starred line. |
+
+`--plum`, `--grape`, `--sage`, `--mint`, and `--lime` still exist and point at this set, so older rules follow it.
+
 ### Project layout
 
 ```
+design/            bubbles wordmark and Coolors palettes (palette 3 is live)
 content/           normalized library (catalog + per-title JSON)
 inbox/letterboxd/  gitignored Letterboxd ZIP
 inbox/srt/         gitignored raw subtitles
@@ -210,6 +227,7 @@ inbox/media/       gitignored movie remuxes (stills)
 inbox/stills-preview/  gitignored landmark JPEGs
 imports/           raw transcript_maker exports
 src/
+  assets/          header wordmark, cut out from the bubbles logo
   app/             React UI (library, play, complete, profile)
   components/
   lib/

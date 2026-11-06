@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-30T02:19:12.584Z",
+  "updatedAt": "2026-11-02T18:29:18.592Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -1016,6 +1016,16 @@
       "importedAt": "2026-10-08T00:55:59.463Z",
       "meta": {
         "year": 1998
+      }
+    },
+    {
+      "id": "hamilton-2020",
+      "title": "Hamilton (2020)",
+      "lineCount": 958,
+      "sourceFilename": "Hamilton.2020.eng.srt",
+      "importedAt": "2026-11-02T18:29:18.590Z",
+      "meta": {
+        "year": 2020
       }
     },
     {
@@ -4976,6 +4986,16 @@
       "importedAt": "2026-09-21T22:05:34.718Z",
       "meta": {
         "year": 2022
+      }
+    },
+    {
+      "id": "tropic-thunder-2008",
+      "title": "Tropic Thunder (2008)",
+      "lineCount": 1599,
+      "sourceFilename": "Tropic.Thunder.2008.eng.srt",
+      "importedAt": "2026-11-02T18:29:18.584Z",
+      "meta": {
+        "year": 2008
       }
     },
     {
