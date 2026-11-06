@@ -18,11 +18,41 @@ export type RenderQuoteImageInput = {
   quoteText: string;
   /** Correct next line; omitted when missing from the transcript. */
   nextText?: string | null;
+  /**
+   * Feature this line as the punch. The next line stays off the card.
+   * A line with no next line is always the punch.
+   */
+  focusLine?: boolean;
   /** Previous cues above the textline (lead-in). */
   leadInTexts?: string[];
   titleLabel: string;
   image: HTMLImageElement | null;
 };
+
+export type QuoteCardCopy = {
+  /** Smaller line above the punch. Empty when this line is the punch. */
+  setup: string;
+  /** Emphasized line. */
+  punch: string;
+};
+
+/** Split the card into setup + punch. Focusing this line drops the next line. */
+export function quoteCardCopy(input: {
+  quoteText: string;
+  nextText?: string | null;
+  focusLine?: boolean;
+}): QuoteCardCopy {
+  const quote = input.quoteText.trim();
+  const next = input.nextText?.trim() ?? "";
+  if (input.focusLine || !next) return { setup: "", punch: quote };
+  return { setup: quote, punch: next };
+}
+
+/** Quoted lines, and lines with nothing after them, open on this line. */
+export function defaultFocusThisLine(quoted: boolean, hasNextLine: boolean): boolean {
+  if (!hasNextLine) return true;
+  return quoted;
+}
 
 const BRAND = "Textline → Nextline";
 const SERIF = '"Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif';
@@ -299,8 +329,10 @@ function renderCaptionBelow(
   const pad = Math.round(72 * scale);
   const textMax = width - pad * 2;
   const leadIn = (input.leadInTexts ?? []).map((t) => t.trim()).filter(Boolean);
+  const { setup, punch } = quoteCardCopy(input);
   const hasLead = leadIn.length > 0;
-  const hasNext = Boolean(input.nextText?.trim());
+  const hasSetup = setup.length > 0;
+  const hasPunch = punch.length > 0;
   const align = input.textAlign ?? "center";
   const leadSize = Math.round(32 * scale);
   const promptSize = Math.round(42 * scale);
@@ -338,10 +370,11 @@ function renderCaptionBelow(
   }
 
   ctx.font = `500 ${promptSize}px ${SERIF}`;
-  const promptMax = hasLead ? (hasNext ? 3 : 4) : hasNext ? 4 : 6;
-  const promptLines = wrapLines(ctx, input.quoteText, textMax, promptMax);
+  const promptMax = hasLead ? (hasPunch ? 3 : 4) : hasPunch ? 4 : 6;
+  const promptLines = hasSetup ? wrapLines(ctx, setup, textMax, promptMax) : [];
   ctx.font = `600 ${nextSize}px ${SERIF}`;
-  const nextLines = hasNext ? wrapLines(ctx, input.nextText!.trim(), textMax, hasLead ? 3 : 4) : [];
+  const punchMax = hasSetup ? (hasLead ? 3 : 4) : hasLead ? 4 : 6;
+  const punchLines = hasPunch ? wrapLines(ctx, punch, textMax, punchMax) : [];
 
   let blockH = 0;
   for (const lines of leadWrapped) {
@@ -349,7 +382,10 @@ function renderCaptionBelow(
   }
   if (hasLead) blockH += Math.round(8 * scale);
   blockH += promptLines.length * promptStep;
-  if (hasNext) blockH += Math.round(18 * scale) + nextLines.length * nextStep;
+  if (hasPunch) {
+    if (hasSetup) blockH += Math.round(18 * scale);
+    blockH += punchLines.length * nextStep;
+  }
 
   let y = blockTopY(align, regionTop, regionBottom, blockH);
 
@@ -373,11 +409,11 @@ function renderCaptionBelow(
     y += promptStep;
   }
 
-  if (hasNext) {
-    y += Math.round(18 * scale);
+  if (hasPunch) {
+    if (hasSetup) y += Math.round(18 * scale);
     ctx.fillStyle = tokens.next;
     ctx.font = `600 ${nextSize}px ${SERIF}`;
-    for (const line of nextLines) {
+    for (const line of punchLines) {
       ctx.fillText(line, pad, y);
       y += nextStep;
     }
@@ -403,8 +439,10 @@ function renderOnImage(
   const pad = Math.round(80 * scale);
   const textMax = width - pad * 2;
   const leadIn = (input.leadInTexts ?? []).map((t) => t.trim()).filter(Boolean);
+  const { setup, punch } = quoteCardCopy(input);
   const hasLead = leadIn.length > 0;
-  const hasNext = Boolean(input.nextText?.trim());
+  const hasSetup = setup.length > 0;
+  const hasPunch = punch.length > 0;
   const align = input.textAlign ?? "center";
   const leadSize = Math.round(34 * scale);
   const promptSize = Math.round(44 * scale);
@@ -414,7 +452,7 @@ function renderOnImage(
   const leadH = Math.round(44 * scale);
   const promptH = Math.round(56 * scale);
   const nextH = Math.round(68 * scale);
-  const gap = hasNext ? Math.round(28 * scale) : 0;
+  const gap = hasSetup && hasPunch ? Math.round(28 * scale) : 0;
   const leadGap = hasLead ? Math.round(16 * scale) : 0;
   const contain = input.aspect === "original";
   const regionTop = pad;
@@ -448,14 +486,17 @@ function renderOnImage(
   }
 
   ctx.font = `500 ${promptSize}px ${SERIF}`;
-  const promptLines = wrapLines(ctx, input.quoteText, textMax, hasLead ? (hasNext ? 3 : 4) : hasNext ? 4 : 6);
+  const promptMax = hasLead ? (hasPunch ? 3 : 4) : hasPunch ? 4 : 6;
+  const promptLines = hasSetup ? wrapLines(ctx, setup, textMax, promptMax) : [];
   ctx.font = `600 ${nextSize}px ${SERIF}`;
-  const nextLines = hasNext ? wrapLines(ctx, input.nextText!.trim(), textMax, hasLead ? 3 : 4) : [];
+  const punchMax = hasSetup ? (hasLead ? 3 : 4) : hasLead ? 4 : 6;
+  const punchLines = hasPunch ? wrapLines(ctx, punch, textMax, punchMax) : [];
 
   const leadBlockH = leadWrapped.reduce((sum, lines) => sum + lines.length * leadH + Math.round(4 * scale), 0);
   const blockH =
-    leadBlockH + leadGap + promptLines.length * promptH + gap + nextLines.length * nextH;
-  const firstLineH = hasLead ? leadH : promptH;
+    leadBlockH + leadGap + promptLines.length * promptH + gap + punchLines.length * nextH;
+  const bodyLineH = hasSetup ? promptH : nextH;
+  const firstLineH = hasLead ? leadH : bodyLineH;
   let y = blockFirstMiddleY(align, regionTop, regionBottom, blockH, firstLineH);
 
   withTextShadow(ctx, tokens.textShadow, () => {
@@ -469,21 +510,23 @@ function renderOnImage(
         }
         y += Math.round(4 * scale);
       }
-      y += leadGap - leadH / 2 + promptH / 2;
+      y += leadGap - leadH / 2 + bodyLineH / 2;
     }
 
-    ctx.fillStyle = tokens.onPrompt;
-    ctx.font = `500 ${promptSize}px ${SERIF}`;
-    for (const line of promptLines) {
-      ctx.fillText(line, width / 2, y);
-      y += promptH;
+    if (hasSetup) {
+      ctx.fillStyle = tokens.onPrompt;
+      ctx.font = `500 ${promptSize}px ${SERIF}`;
+      for (const line of promptLines) {
+        ctx.fillText(line, width / 2, y);
+        y += promptH;
+      }
     }
 
-    if (hasNext) {
-      y += gap - promptH / 2 + nextH / 2;
+    if (hasPunch) {
+      if (hasSetup) y += gap - promptH / 2 + nextH / 2;
       ctx.fillStyle = tokens.onNext;
       ctx.font = `600 ${nextSize}px ${SERIF}`;
-      for (const line of nextLines) {
+      for (const line of punchLines) {
         ctx.fillText(line, width / 2, y);
         y += nextH;
       }

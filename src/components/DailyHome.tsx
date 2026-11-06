@@ -213,6 +213,7 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
         <QuoteImageExportModal
           titleId={standalone.titleId}
           lineIndex={standalone.lineIndex}
+          focusThisLine
           onClose={() => setExportOpen(false)}
         />
       ) : null}

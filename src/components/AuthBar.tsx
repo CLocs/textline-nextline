@@ -1,4 +1,6 @@
-import type { AuthUser } from "../lib/auth/session";
+import { useEffect, useState } from "react";
+import { fetchAvatarObjectUrl, isAuthApiEnabled } from "../lib/auth/api";
+import { isLocalDevSession, type AuthUser } from "../lib/auth/session";
 import { useChatsUnreadCount } from "../lib/chats/useChatsUnreadCount";
 
 type Props = {
@@ -44,6 +46,34 @@ function ChatsMessageIcon() {
   );
 }
 
+function useAccountAvatar(user: AuthUser): string | null {
+  const live = isAuthApiEnabled() && !isLocalDevSession();
+  const [src, setSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!live || !user.avatarAt) {
+      setSrc(null);
+      return;
+    }
+    let url: string | null = null;
+    let cancelled = false;
+    void fetchAvatarObjectUrl(user.id).then((next) => {
+      if (cancelled) {
+        if (next) URL.revokeObjectURL(next);
+        return;
+      }
+      url = next;
+      setSrc(next);
+    });
+    return () => {
+      cancelled = true;
+      if (url) URL.revokeObjectURL(url);
+    };
+  }, [live, user.avatarAt, user.id]);
+
+  return src;
+}
+
 export function AuthBar({
   user,
   onProfile,
@@ -56,6 +86,8 @@ export function AuthBar({
   const unread = useChatsUnreadCount();
   const chatsLabel = `Chats, ${unread} unread`;
   const hasTools = Boolean(onHome || onSearch || onBrowseLibrary || onCatalog);
+  const avatarSrc = useAccountAvatar(user);
+  const accountLabel = user.displayName ?? user.email;
 
   return (
     <>
@@ -77,7 +109,10 @@ export function AuthBar({
           title={`${user.email} — open profile`}
           onClick={onProfile}
         >
-          {user.displayName ?? user.email}
+          {avatarSrc ? (
+            <img className="auth-user-avatar" src={avatarSrc} alt="" />
+          ) : null}
+          <span className="auth-user-name">{accountLabel}</span>
         </button>
       </div>
       {hasTools ? (

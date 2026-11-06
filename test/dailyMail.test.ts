@@ -8,6 +8,7 @@ import {
   mailChoices,
   mailDateIso,
   quoteForMail,
+  dailyStreakMailNote,
   renderDailyMail,
   runDailyMail,
   sendDailyMails,
@@ -44,8 +45,9 @@ type SessionRow = { id: string; user_id: string; expires_at: string };
 type MailRow = { user_id: string; opted_in: number; unsub_token: string; updated_at: string };
 type SendRow = { user_id: string; sent_on: string; created_at: string };
 type StarRow = { title_id: string; line_index: number; player_id: string; loved: number };
+type StreakRow = { user_id: string; last_completed_on: string; streak: number };
 
-function createDb() {
+function createDb(streaks: StreakRow[] = []) {
   const users: UserRow[] = [
     {
       id: ALICE,
@@ -116,6 +118,13 @@ function createDb() {
                 const [userId, sentOn] = args as [string, string];
                 const row = sends.find((item) => item.user_id === userId && item.sent_on === sentOn);
                 return (row ? { user_id: row.user_id } : null) as T | null;
+              }
+              if (sql.includes("FROM daily_streaks")) {
+                const [userId] = args as [string];
+                const row = streaks.find((item) => item.user_id === userId);
+                return (row
+                  ? { last_completed_on: row.last_completed_on, streak: row.streak }
+                  : null) as T | null;
               }
               return null;
             },
@@ -350,6 +359,25 @@ describe("daily mail render", () => {
     expect(mail.html).not.toContain("#/daily/3");
     expect(mail.text).toContain("A quote");
     expect(mail.text).not.toMatch(/A quote[\s\S]*#\/daily/);
+    expect(mail.html).toContain("Start a streak. Finish today’s three.");
+    expect(mail.text.indexOf("Start a streak")).toBeLessThan(mail.text.indexOf("Today’s three for"));
+  });
+
+  it("puts a live streak under the title and asks you to play today", () => {
+    expect(dailyStreakMailNote(4, false)).toBe("4-day streak. Play today to keep it going.");
+    expect(dailyStreakMailNote(1, true)).toBe("1-day streak. Done today.");
+    expect(dailyStreakMailNote(0, false)).toBe("Start a streak. Finish today’s three.");
+    const mail = renderDailyMail({
+      date: "2026-09-01",
+      origin: "https://textlinenextline.com",
+      unsubToken: "a".repeat(64),
+      cards: [],
+      streak: 4,
+    });
+    expect(mail.html.indexOf("4-day streak. Play today to keep it going.")).toBeLessThan(
+      mail.html.indexOf("Tap a card"),
+    );
+    expect(mail.text.startsWith("Hi,\n\n4-day streak. Play today to keep it going.")).toBe(true);
   });
 });
 
@@ -376,12 +404,34 @@ describe("daily mail send", () => {
     expect(calls[0]?.html).toContain("Mine one");
     expect(calls[0]?.html).toContain("Mine two");
     expect(calls[0]?.html).not.toContain("Bob only");
+    expect(calls[0]?.html).toContain("Start a streak. Finish today’s three.");
     expect(sends).toHaveLength(1);
 
     const second = await sendDailyMails(env, cues, NOW, fetchImpl);
     expect(second.sent).toBe(0);
     expect(second.skipped).toBe(1);
     expect(calls).toHaveLength(1);
+  });
+
+  it("mails a live streak from the day before", async () => {
+    const { db } = createDb([{ user_id: ALICE, last_completed_on: "2026-08-31", streak: 4 }]);
+    const calls: { html: string }[] = [];
+    const fetchImpl = async (_url: RequestInfo | URL, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body)) as { html: string };
+      calls.push({ html: body.html });
+      return new Response("{}", { status: 200 });
+    };
+    await sendDailyMails(
+      {
+        DB: db,
+        APP_ORIGIN: "https://textlinenextline.com",
+        RESEND_API_KEY: "test-key",
+      },
+      cues,
+      NOW,
+      fetchImpl,
+    );
+    expect(calls[0]?.html).toContain("4-day streak. Play today to keep it going.");
   });
 
   it("does not record a send when Resend rejects it", async () => {

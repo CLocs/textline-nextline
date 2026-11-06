@@ -17,6 +17,8 @@ import { FriendsPanel } from "./FriendsPanel";
 import { ProfileAvatar } from "./ProfileAvatar";
 import { ChatsList } from "./ChatsList";
 import { useChatsUnreadCount } from "../lib/chats/useChatsUnreadCount";
+import { loadStreak, readLocalStreak } from "../lib/game/dailyClient";
+import { todayIso } from "../lib/game/dailyPick";
 
 type Props = {
   user: AuthUser;
@@ -176,6 +178,17 @@ export function ProfileScreen({
   const [dailyMailReady, setDailyMailReady] = useState(false);
   const [dailyMailSaving, setDailyMailSaving] = useState(false);
   const [dailyMailError, setDailyMailError] = useState<string | null>(null);
+  const [streak, setStreak] = useState(readLocalStreak);
+
+  useEffect(() => {
+    let cancelled = false;
+    void loadStreak().then((next) => {
+      if (!cancelled) setStreak(next);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -311,6 +324,12 @@ export function ProfileScreen({
 
       {tab === "account" && (
         <>
+          {streak.streak > 0 ? (
+            <p className="streak-badge profile-streak">
+              {streak.streak}-day streak
+              {streak.lastCompletedOn === todayIso() ? " · done today" : ""}
+            </p>
+          ) : null}
           <ProfileAvatar user={user} onUpdated={onUpdated} />
           <form className="auth-name-form" onSubmit={(event) => void handleSave(event)}>
             <label htmlFor="profile-display-name">Display name</label>
