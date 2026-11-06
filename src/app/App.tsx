@@ -777,7 +777,7 @@ export function App() {
             </button>
           </h1>
           <div className="brand-copy">
-            <p className="lede">Here's a line — guess what comes next.</p>
+            <p className="lede">Here's a line — guess the next line.</p>
           </div>
         </div>
         {user && (
