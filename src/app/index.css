@@ -1518,10 +1518,26 @@ code {
 }
 
 .auth-user-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   max-width: 16rem;
+  min-width: 0;
+}
+
+.auth-user-avatar {
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.auth-user-name {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .inbox-notify {
@@ -2562,7 +2578,12 @@ code {
   }
 
   .auth-user-button {
-    max-width: 4.5rem;
+    max-width: 7.5rem;
+  }
+
+  .auth-user-avatar {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 }
 

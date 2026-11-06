@@ -70,7 +70,7 @@ Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
 
 **Premium GIFs from selected lines.** Paid tier renders a capped (~6s) loop over selected cues from the local remux. Own bucket beside `/stills`. First feature that needs billing. GIF vs silent MP4/WebM is open. Rights is the Steam question again.
 
-**Native apps.** After PWA-lite has been in the wild. Capacitor or similar if store / iOS push / offline become real needs.
+**Native shell and home screen widget.** After PWA-lite has been in the wild. A thin shell (Capacitor or similar) if the store, iOS push, or offline become real needs. The widget is the glance that needs it: streak, “till next time,” and the day’s line, in the Duolingo style. Add to Home Screen only pins an icon. Android draws the tile in the shell; iOS needs a WidgetKit extension beside the web view, in an App Store build. The site feeds the data. It cannot draw the tile.
 
 **SRT and video automation.** Filling a [title request](SHIPPED.md#title-requests-light) automatically. Manual drop + paced OpenSubtitles already exist ([C2](CONTENT.md#c2--subtitle-acquisition-hybrid)). Daily cap, match quality, and copyright sit between requested and playable. Video has no licensed equivalent of the owner’s local file. Rights, source, rate limit, and file match all have to be true at once.
 
