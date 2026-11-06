@@ -5,6 +5,7 @@ import { catalogLabel } from "../lib/content/libraryGroups";
 import { getLine } from "../lib/content/lines";
 import { getNextPlayableLine } from "../lib/content/playable";
 import { leadInForPrompt } from "../lib/game/promptContext";
+import { isQuoted } from "../lib/quotes/store";
 import { loadQuoteBackdrop } from "../lib/quoteImage/loadQuoteImage";
 import {
   loadQuoteImagePrefs,
@@ -14,13 +15,20 @@ import {
   type QuoteImagePalette,
   type QuoteImageTextAlign,
 } from "../lib/quoteImage/prefs";
-import { canvasToPngBlob, renderQuoteImageCanvas } from "../lib/quoteImage/renderQuoteImage";
+import {
+  canvasToPngBlob,
+  defaultFocusThisLine,
+  quoteCardCopy,
+  renderQuoteImageCanvas,
+} from "../lib/quoteImage/renderQuoteImage";
 
 type Props = {
   titleId: string;
   lineIndex: number;
   /** Fallback when catalog text is missing. */
   quoteText?: string;
+  /** Open with this line as the punch. Quote marks already do that. */
+  focusThisLine?: boolean;
   onClose: () => void;
 };
 
@@ -53,7 +61,13 @@ function canShareFiles(): boolean {
   }
 }
 
-export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }: Props) {
+export function QuoteImageExportModal({
+  titleId,
+  lineIndex,
+  quoteText,
+  focusThisLine,
+  onClose,
+}: Props) {
   const title = getTitle(titleId);
   const entry = getCatalog().titles.find((item) => item.id === titleId);
   const resolvedQuote =
@@ -75,6 +89,12 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
   const [palette, setPalette] = useState<QuoteImagePalette>(initialPrefs.palette);
   const [textAlign, setTextAlign] = useState<QuoteImageTextAlign>(initialPrefs.textAlign);
   const [includeLeadIn, setIncludeLeadIn] = useState(initialPrefs.includeLeadIn);
+  const [focusLine, setFocusLine] = useState(() =>
+    defaultFocusThisLine(
+      Boolean(focusThisLine) || isQuoted(titleId, lineIndex),
+      Boolean(resolvedNext),
+    ),
+  );
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -93,6 +113,11 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
   }, []);
 
   const leadInTexts = includeLeadIn && availableLeadIn.length > 0 ? availableLeadIn : [];
+  const cardCopy = quoteCardCopy({
+    quoteText: resolvedQuote,
+    nextText: resolvedNext,
+    focusLine,
+  });
 
   function updateFormat(next: QuoteImageFormat) {
     setFormat(next);
@@ -139,6 +164,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
         textAlign,
         quoteText: resolvedQuote,
         nextText: resolvedNext,
+        focusLine,
         leadInTexts,
         titleLabel,
         image,
@@ -153,7 +179,18 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
     return () => {
       void objectUrl;
     };
-  }, [format, aspect, palette, textAlign, leadInTexts, resolvedQuote, resolvedNext, titleLabel, image]);
+  }, [
+    format,
+    aspect,
+    palette,
+    textAlign,
+    focusLine,
+    leadInTexts,
+    resolvedQuote,
+    resolvedNext,
+    titleLabel,
+    image,
+  ]);
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -171,6 +208,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       textAlign,
       quoteText: resolvedQuote,
       nextText: resolvedNext,
+      focusLine,
       leadInTexts,
       titleLabel,
       image,
@@ -224,7 +262,7 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
       await navigator.share({
         files: [file],
         title: titleLabel,
-        text: resolvedNext ? `${resolvedQuote}\n${resolvedNext}` : resolvedQuote,
+        text: [...leadInTexts, cardCopy.setup, cardCopy.punch].filter(Boolean).join("\n"),
       });
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
@@ -356,22 +394,40 @@ export function QuoteImageExportModal({ titleId, lineIndex, quoteText, onClose }
           </div>
         </div>
 
-        <label
-          className={`quote-image-leadin${availableLeadIn.length === 0 ? " is-disabled" : ""}`}
-          title={
-            availableLeadIn.length === 0
-              ? "No previous lines in this beat"
-              : "Same lead-in cues as Play / Chat (up to 4)"
-          }
-        >
-          <input
-            type="checkbox"
-            checked={includeLeadIn && availableLeadIn.length > 0}
-            disabled={availableLeadIn.length === 0}
-            onChange={(event) => updateIncludeLeadIn(event.target.checked)}
-          />
-          <span>Include previous lines</span>
-        </label>
+        <div className="quote-image-toggles">
+          <label
+            className={`quote-image-leadin${resolvedNext ? "" : " is-disabled"}`}
+            title={
+              resolvedNext
+                ? "Feature this line. Uncheck for textline → next line."
+                : "No next line — this line is the card"
+            }
+          >
+            <input
+              type="checkbox"
+              checked={focusLine}
+              disabled={!resolvedNext}
+              onChange={(event) => setFocusLine(event.target.checked)}
+            />
+            <span>This line is the main line</span>
+          </label>
+          <label
+            className={`quote-image-leadin${availableLeadIn.length === 0 ? " is-disabled" : ""}`}
+            title={
+              availableLeadIn.length === 0
+                ? "No previous lines in this beat"
+                : "Same lead-in cues as Play / Chat (up to 4)"
+            }
+          >
+            <input
+              type="checkbox"
+              checked={includeLeadIn && availableLeadIn.length > 0}
+              disabled={availableLeadIn.length === 0}
+              onChange={(event) => updateIncludeLeadIn(event.target.checked)}
+            />
+            <span>Include previous lines</span>
+          </label>
+        </div>
 
         <div className="quote-image-preview-wrap">
           {previewUrl ? (

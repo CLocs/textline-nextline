@@ -3524,6 +3524,11 @@ code {
   border-color: color-mix(in srgb, var(--sage) 55%, var(--line));
 }
 
+.quote-image-toggles {
+  display: grid;
+  gap: 0.45rem;
+}
+
 .quote-image-leadin {
   display: flex;
   align-items: center;
