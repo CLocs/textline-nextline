@@ -1,4 +1,5 @@
 import { createMagicToken } from "./crypto.js";
+import { currentDailyStreak, fetchDailyStreak } from "./dailyStreak.js";
 import { fetchMyQuotes, fetchPopularQuotesGlobal } from "./quotes.js";
 import { fetchLovedStarsGlobal, fetchPopularStarsGlobal } from "./stars.js";
 import {
@@ -227,6 +228,14 @@ export function quoteForMail(
   return byKey.get(lineKey(picked)) ?? null;
 }
 
+/** Inbox nudge. A live streak asks you to play today; a finished day says so; otherwise start one. */
+export function dailyStreakMailNote(streak: number, doneToday: boolean): string {
+  if (!Number.isInteger(streak) || streak <= 0) return "Start a streak. Finish today’s three.";
+  const days = streak === 1 ? "1-day streak" : `${streak}-day streak`;
+  if (doneToday) return `${days}. Done today.`;
+  return `${days}. Play today to keep it going.`;
+}
+
 export function renderDailyMail(input: {
   date: string;
   origin: string;
@@ -234,6 +243,10 @@ export function renderDailyMail(input: {
   displayName?: string | null;
   cards: MailCard[];
   quote?: MailCue | null;
+  /** Current daily-3 streak. 0 means none in the live window. */
+  streak?: number;
+  /** True when today's three are already finished on this mail date. */
+  doneToday?: boolean;
 }): { subject: string; html: string; text: string } {
   const when = formatMailDate(input.date);
   const subject = `Today’s three · ${when}`;
@@ -241,8 +254,11 @@ export function renderDailyMail(input: {
   const greeting = input.displayName?.trim()
     ? `Hi ${input.displayName.trim()},`
     : "Hi,";
+  const streakNote = dailyStreakMailNote(input.streak ?? 0, input.doneToday === true);
   const textBlocks = [
     greeting,
+    "",
+    streakNote,
     "",
     `Today’s three for ${when}. Tap a card to play that question, then the next, then wrap.`,
     "",
@@ -317,6 +333,7 @@ export function renderDailyMail(input: {
         <tr><td style="padding:0 0 16px;font-family:Georgia,'Iowan Old Style',serif;color:#4f345a;">
           <p style="margin:0 0 8px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#5d4e6d;">Textline → Nextline</p>
           <h1 style="margin:0 0 8px;font-size:28px;font-weight:600;">Today’s three</h1>
+          <p style="margin:0 0 8px;font-size:16px;line-height:1.4;font-weight:700;">${escapeHtml(streakNote)}</p>
           <p style="margin:0;font-size:16px;line-height:1.5;">${escapeHtml(greeting)} ${escapeHtml(when)}. Tap a card to play that question, then the next, then wrap.</p>
         </td></tr>
         <tr><td>${cardsHtml.join("")}</td></tr>
@@ -556,6 +573,8 @@ export async function sendDailyMails(
       continue;
     }
     const quote = quoteForMail(date, cues, crowdQuotes, await loadPersonalQuotes(env.DB, user.id));
+    const streakRow = await fetchDailyStreak(env.DB, user.id);
+    const streak = currentDailyStreak(streakRow, now);
     const mail = renderDailyMail({
       date,
       origin: env.APP_ORIGIN ?? "",
@@ -563,6 +582,8 @@ export async function sendDailyMails(
       displayName: user.displayName,
       cards,
       quote,
+      streak,
+      doneToday: streak > 0 && streakRow.lastCompletedOn === date,
     });
     const ok = await deliverMail(env, user, mail, fetchImpl);
     if (!ok) {

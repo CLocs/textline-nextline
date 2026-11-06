@@ -479,6 +479,11 @@ button {
   white-space: nowrap;
 }
 
+.profile-streak {
+  display: inline-block;
+  margin: 0 0 0.85rem;
+}
+
 .daily-card .title-card-copy {
   flex-direction: column;
   align-items: flex-start;

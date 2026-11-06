@@ -50,7 +50,7 @@ Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
 
 **Liked titles for daily and Play 3.** A played title (or show, via a played episode) counts as liked. Daily mail starred cards and Play 3 prefer the player’s stars on those titles, then crowd stars on the same titles. Line of the day stays global.
 
-**Badges and friends boards.** Mini-games played, weighted perfects, and DMs answered correctly — friends only, no public list. Counts already exist at `GET /api/stats/counts` and are not shown yet.
+**Badges and friends boards.** First badge is the daily-3 streak: Home, Profile → Account, and the top of the daily email. Friends already see that number on your face. Still later, friends only, no public list: mini-games played, weighted perfects, and DMs answered correctly. Those counts exist at `GET /api/stats/counts` and are not shown yet.
 
 **Quote parallels Medium.** Situation blurb + moderated URL; bidirectional links; up/down votes; Home Parallels rail; short pack chat; diff view of a rewrite. Light packs already shipped.
 
