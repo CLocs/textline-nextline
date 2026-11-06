@@ -2351,6 +2351,18 @@ code {
   cursor: default;
 }
 
+.curate-still {
+  display: block;
+  width: 8.5rem;
+  height: 4.8rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin-bottom: 0.45rem;
+  background: color-mix(in srgb, var(--ink) 10%, var(--bg-raised));
+}
+
 .curate-line-index {
   display: block;
   font-size: 0.78rem;

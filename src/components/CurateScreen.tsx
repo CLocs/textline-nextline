@@ -15,13 +15,16 @@ import { MAX_LOVED_PER_TITLE } from "../lib/stars/store";
 import { isLoggedIn } from "../lib/auth/session";
 import { createParallelPack } from "../lib/parallels/api";
 import { offsetsForSizes, VIRTUAL_LIST_GAP, visibleWindow } from "../lib/ui/virtualWindow";
+import { sceneLinesFor } from "../lib/content/stillsLines";
 import { LineSendControl } from "./LineSendControl";
+import { PosterArt } from "./PosterArt";
 
 const PACK_MIN = 3;
 /** Room for a full scene (e.g. Wolf lunch), not just a short beat. */
 const PACK_MAX = 500;
 const ROW_ESTIMATE = 92;
 const ROW_ESTIMATE_WITH_PREV = 148;
+const ROW_ESTIMATE_WITH_STILL = 176;
 const ROW_OVERSCAN = 10;
 
 type Props = {
@@ -37,6 +40,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const [starredCount, setStarredCount] = useState(() => getStarsForTitle(entry.id).length);
   const [starredOnly, setStarredOnly] = useState(false);
   const [showPreviousLines, setShowPreviousLines] = useState(true);
+  const [showStills, setShowStills] = useState(false);
   const [query, setQuery] = useState("");
   const [revision, setRevision] = useState(0);
   const [selected, setSelected] = useState<number[]>([]);
@@ -78,6 +82,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     () => (title ? getValidPromptIndices(title) : []),
     [title],
   );
+  const sceneFrames = useMemo(() => new Set(sceneLinesFor(entry.id)), [entry.id]);
 
   // One localStorage read per revision — not per row (thousands of quiz lines).
   const starSets = useMemo(() => {
@@ -124,7 +129,9 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     });
   }, [title, promptIndices, starredOnly, query, starSets]);
 
-  const estimateSize = showPreviousLines ? ROW_ESTIMATE_WITH_PREV : ROW_ESTIMATE;
+  const estimateSize =
+    (showPreviousLines ? ROW_ESTIMATE_WITH_PREV : ROW_ESTIMATE) +
+    (showStills ? ROW_ESTIMATE_WITH_STILL - ROW_ESTIMATE : 0);
 
   const scheduleSizeFlush = useCallback(() => {
     if (sizeFlushRef.current != null) return;
@@ -146,7 +153,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   useEffect(() => {
     sizeMapRef.current.clear();
     setSizeRev((value) => value + 1);
-  }, [showPreviousLines, entry.id]);
+  }, [showPreviousLines, showStills, entry.id]);
 
   useEffect(() => {
     // Keep scroll position free for focusLineIndex jump from global search.
@@ -343,6 +350,14 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
           />
           Previous lines
         </label>
+        <label className="curate-filter">
+          <input
+            type="checkbox"
+            checked={showStills}
+            onChange={(event) => setShowStills(event.target.checked)}
+          />
+          Scene stills
+        </label>
       </div>
 
       {selected.length > 0 && (
@@ -482,6 +497,15 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                     </button>
                   </div>
                   <div className="curate-copy">
+                    {showStills && sceneFrames.has(lineIndex) ? (
+                      <PosterArt
+                        titleId={entry.id}
+                        title={entry.title}
+                        lineIndex={lineIndex}
+                        fallback="hide"
+                        className="curate-still"
+                      />
+                    ) : null}
                     <span className="curate-line-index">Line {lineIndex + 1}</span>
                     {showPreviousLines &&
                       leadInForPrompt(title, lineIndex).map((lead) => (
