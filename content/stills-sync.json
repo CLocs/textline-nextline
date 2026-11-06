@@ -4461,5 +4461,57 @@
     "syncedAt": "2026-10-30T02:20:00.000Z",
     "batchedAt": "2026-10-30T02:21:58.445Z",
     "pushedAt": "2026-10-30T06:14:10.926Z"
+  },
+  "speed-1994": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 6954.03,
+    "source": "H:/videos/movies/Speed (1994).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Elevator briefing (13 passengers), Jack on the phone for the bus bomb, subway station at Pop quiz, asshole.",
+    "syncedAt": "2026-11-06T17:20:00.000Z"
+  },
+  "the-grand-budapest-hotel-2014": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 5995.11,
+    "source": "H:/videos/movies/The Grand Budapest Hotel (2014).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Zero meets Gustave, Mendl's in the prison, old Zero keeps the hotel for Agatha.",
+    "syncedAt": "2026-11-06T17:20:00.000Z"
+  },
+  "tropic-thunder-2008": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 7268.65,
+    "source": "H:/videos/movies/Tropic Thunder (2008).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Booty Sweat commercial, Tugg in the jungle for never go full retard, the lead farmer with the crossed rifles.",
+    "syncedAt": "2026-11-06T17:20:00.000Z"
+  },
+  "hamilton-2020": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 9615.87,
+    "source": "H:/videos/movies/Hamilton (2020).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Opening Alexander Hamilton, King George in You'll Be Back, Eliza and Hamilton on Who tells your story.",
+    "syncedAt": "2026-11-06T17:20:00.000Z"
   }
 }

@@ -28,10 +28,10 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 1 | 2 | 39 | [The Fifth Element](https://boxd.it/71k) | 1997 | 5 | yes | [ ] missing |
 | 1 | 2 | 37 | [The Bridge on the River Kwai](https://boxd.it/29wo) | 1957 | 5 | yes | [ ] missing |
 | 1 | 2 | 34 | [Mad Max: Fury Road](https://boxd.it/2DjO) | 2015 | 5 | yes | [ ] missing |
+| 1 | 2 | 26 | [Inception](https://boxd.it/1skk) | 2010 | 5 | yes | [x] |
 | 1 | 2 | 23 | [The Empire Strikes Back](https://boxd.it/27Vw) | 1980 | 5 | yes | [x] |
 | 1 | 2 | 18 | [The Ministry of Ungentlemanly Warfare](https://boxd.it/u5zu) | 2024 | 5 | yes | [x] |
 | 1 | 2 | 14 | [Ratatouille](https://boxd.it/27ww) | 2007 | 5 | yes | [ ] missing |
-| 1 | 2 | 8 | [Inception](https://boxd.it/1skk) | 2010 | 5 | yes | [x] |
 | 1 | 2 | 7 | [Baby Driver](https://boxd.it/bhF2) | 2017 | 5 | yes | [x] |
 | 1 | 2 | 0 | [Back to the Future](https://boxd.it/2b8e) | 1985 | 5 | yes | [x] |
 | 1 | 2 | 0 | [Last Breath](https://boxd.it/AJqO) | 2025 | 5 | yes | [ ] missing |
@@ -286,3 +286,11 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 4 | 1 | 0 | [The Way of the Gun](https://boxd.it/28t4) | 2000 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tom Segura: Sledgehammer](https://boxd.it/H6E2) | 2023 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tumbbad](https://boxd.it/jDZk) | 2018 | 4.5 |  | [ ] missing |
+
+## Shows
+
+Hand-queued seasons. Kept when the Letterboxd film seed is regenerated.
+
+| Show | Season | Year | SRT | Note |
+|------|--------|------|-----|------|
+| SpongeBob SquarePants | 1 | 1999 | [ ] missing | Season 1 |
