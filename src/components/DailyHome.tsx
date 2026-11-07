@@ -143,7 +143,6 @@ export function DailyHome({ entries, onPlay, onPlayInstant, onPlayMovie, onAnswe
       <div className="home-top">
         <div className="section-header">
           <h2>Home</h2>
-          <p className="muted">Your games, then what everyone else is playing.</p>
         </div>
         <p className="streak-badge" aria-label={badge}>
           {badge}

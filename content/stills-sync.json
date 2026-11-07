@@ -4461,5 +4461,555 @@
     "syncedAt": "2026-10-30T02:20:00.000Z",
     "batchedAt": "2026-10-30T02:21:58.445Z",
     "pushedAt": "2026-10-30T06:14:10.926Z"
+  },
+  "game-of-thrones---3x01---valar-dohaeris": {
+    "offsetMs": 1859,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3271.48,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E01.Valar.Dohaeris.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Blu-ray subtitle is 1.9s after the catalog. Scale 1. Jon sees the giant, Cersei on Tyrion's nose, Barristan in Astapor.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x02---dark-wings-dark-words": {
+    "offsetMs": -88584,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3425.42,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E02.Dark.Wings.Dark.Words.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 88.6s late. Scale 1. Bran on the three-eyed raven, Jojen in the wood, Jaime and Brienne at the capture.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x03---walk-of-punishment": {
+    "offsetMs": -89180,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3169,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E03.Walk.of.Punishment.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 89.2s late. Scale 1. The Blackfish at Riverrun, Dany offering a dragon, the knife on Jaime's wrist.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x04---and-now-his-watch-is-ended": {
+    "offsetMs": -89000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3202.99,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E04.And.Now.His.Watch.is.Ended.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 89.0s late. Scale 1. Gilly at Craster's, Margaery with Sansa, Kraznys as Dany says dracarys.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x05---kissed-by-fire": {
+    "offsetMs": -88952,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3445.44,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E05.Kissed.by.Fire.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 89.0s late. Scale 1. Beric's flaming sword, Jon and Ygritte in the cave, Tywin on the Karstarks.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x06---the-climb": {
+    "offsetMs": 652,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3202.03,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E06.The.Climb.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Blu-ray subtitle is 0.7s after the catalog. Scale 1. Jon below the Wall, Ramsay with Theon, Littlefinger on the ladder.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x07---the-bear-and-the-maiden-fair": {
+    "offsetMs": -88600,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3457.66,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E07.The.Bear.and.the.Maiden.Fair.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 88.6s late. Scale 1. Mance in the tent, Dany with the Yunkai envoy, the bear pit at Harrenhal.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x08---second-sons": {
+    "offsetMs": -103920,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3381.59,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E08.Second.Sons.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 103.9s late. Scale 1. Daario introduced to Dany, Tyrion cloaking Sansa, Gilly as the walker comes for the baby.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x09---the-rains-of-castamere": {
+    "offsetMs": -104000,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3048.25,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E09.The.Rains.of.Castamere.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 104s late. Scale 1. Salt pork for the Twins, Edmure's cloaking, Roose with Robb for the regards.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---3x10---mhysa": {
+    "offsetMs": -104439,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3763.76,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 3\\Game.of.Thrones.S03E10.Mhysa.1080p.10bit.BluRay.6CH.x265.HEVC-PSA.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "Catalog runs 104.4s late. Scale 1. Joffrey with Sansa, Sam and Gilly on dragonglass, the Yunkai overlook for Mhysa.",
+    "syncedAt": "2026-11-06T20:20:00.000Z",
+    "batchedAt": "2026-11-06T20:52:00.000Z",
+    "pushedAt": "2026-11-06T21:43:02.095Z"
+  },
+  "game-of-thrones---4x01---two-swords": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3609.82,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\game.of.thrones.s04e01.720p.hdtv.x264-killers.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Oberyn in the brothel, Needle at the inn, the chicken fight.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x02---the-lion-and-the-rose": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3242.86,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\game.of.thrones.s04e02.hdtv.x264-2hd.mp4",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Jaime at breakfast, Joffrey and Margaery crowned, Cersei as Joffrey chokes.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x03---breaker-of-chains": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3411.87,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\game.of.thrones.s04e03.720p.hdtv.x264-killers.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Littlefinger in the boat, the farm table, Dany before the Meereen spears.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x04---oathkeeper": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3302.34,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\game.of.thrones.s04e04.720p.hdtv.x264-killers.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Castle Black yard, Brienne named Oathkeeper, Meera and Summer by the baby.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x05---first-of-his-name": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3189.73,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\game.of.thrones.s04e05.720p.hdtv.x264-killers.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Tommen's coronation, Sansa and Lysa at the Moon Door, Jon at Craster's.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x06---the-laws-of-gods-and-men": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3138.8,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\Game.of.Thrones.S04E06.720p.HDTV.x264-DIMENSION.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Dany's Meereen court, the witness stand, Tyrion demanding trial by combat.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x07---mockingbird": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3063.73,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\game.of.thrones.s04e07.720p.hdtv.x264-killers.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Tyrion in the cell, Littlefinger at the Eyrie window. The last cue sits on the network bumper.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x08---the-mountain-and-the-viper": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3140.72,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\Game.of.Thrones.S04E08.720p.HDTV.x264-KILLERS.mkv",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. The mountain road, Tywin in the royal box, Oberyn in the arena.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x09---the-watchers-on-the-wall": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3032.21,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\Game.of.Thrones.S04E09.1080p.HDTV.x264.Chupacabra.mp4",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Jon as the giants come, hold the gate, Sam in the tunnel for come back.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---4x10---the-children": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3917.61,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 4\\Game.of.Thrones.S04E10.1080p.HDTV.x264.Chupacabra.mp4",
+    "methodId": "zero",
+    "triedMethods": [
+      "zero"
+    ],
+    "note": "HDTV, scale 1, offset 0. Bran and Meera in the cave, the Hound and Arya on the rocks, Tywin with the crossbow.",
+    "syncedAt": "2026-11-06T22:40:00.000Z",
+    "batchedAt": "2026-11-06T22:46:55.227Z",
+    "pushedAt": "2026-11-07T01:17:16.364Z"
+  },
+  "game-of-thrones---5x01---the-wars-to-come": {
+    "offsetMs": 7194,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3127.78,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E01_The Wars To Come.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Blu-ray subtitle is 7.2s after the catalog. Scale 1. Young Cersei in the woods, Mance at the stake.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x02---the-house-of-black-and-white": {
+    "offsetMs": -6753,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3331.17,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E02_The House of Black and White.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 6.8s late. Scale 1. The boat to the House of Black and White, the Watch standing guard.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x03---high-sparrow": {
+    "offsetMs": -610,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3593.28,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E03_High Sparrow.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 0.6s late. Scale 1. The sweeping floor, Tyrion and Jorah taken to the queen.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x04---sons-of-the-harpy": {
+    "offsetMs": -1187,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3022.21,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E04_The Sons of the Harpy.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 1.2s late. Scale 1. The knife in the merchant-ship cabin, the old mistrust speech.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x05---kill-the-boy": {
+    "offsetMs": -103524,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3398.53,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E05_Kill the Boy.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 103.5s late. Scale 1. Barristan on the bier, Tyrion on the beach.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x06---unbowed-unbent-unbroken": {
+    "offsetMs": -107263,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3218.5,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E06_Unbowed, Unbent, Unbroken.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 107.3s late. Scale 1. The bodies in the alley, Ramsay and Sansa in the bedchamber.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x07---the-gift": {
+    "offsetMs": -105530,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3528.03,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E07_The Gift.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 105.5s late. Scale 1. The First Ranger at Castle Black, the Faith taking Cersei.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x08---hardhome": {
+    "offsetMs": -254,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3599.62,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E08_Hardhome.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 0.3s late. Scale 1. The silence before the dead, the boat leaving Hardhome.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x09---the-dance-of-dragons": {
+    "offsetMs": -102535,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3139.14,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E09_The Dance of Dragons.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 102.5s late. Scale 1. The band of riders, Daario in the pit during the escape.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "game-of-thrones---5x10---mothers-mercy": {
+    "offsetMs": -198,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976023976023978,
+    "lineOffsets": {},
+    "durationSec": 3611.68,
+    "source": "H:\\videos\\shows\\Game of Thrones\\Season 5\\Game of Thrones_S05E10_Mother's Mercy.mkv",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "note": "Catalog runs 0.2s late. Scale 1. The melted snow at the camp, Jon in the Castle Black yard.",
+    "syncedAt": "2026-11-07T04:30:00.000Z",
+    "batchedAt": "2026-11-07T04:53:35.257Z",
+    "pushedAt": "2026-11-07T09:35:32.921Z"
+  },
+  "speed-1994": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 6954.03,
+    "source": "H:/videos/movies/Speed (1994).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Elevator briefing (13 passengers), Jack on the phone for the bus bomb, subway station at Pop quiz, asshole.",
+    "syncedAt": "2026-11-06T17:20:00.000Z",
+    "batchedAt": "2026-11-06T17:45:51.000Z",
+    "pushedAt": "2026-11-06T18:28:55.000Z"
+  },
+  "the-grand-budapest-hotel-2014": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 5995.11,
+    "source": "H:/videos/movies/The Grand Budapest Hotel (2014).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Zero meets Gustave, Mendl's in the prison, old Zero keeps the hotel for Agatha.",
+    "syncedAt": "2026-11-06T17:20:00.000Z",
+    "batchedAt": "2026-11-06T17:45:51.000Z",
+    "pushedAt": "2026-11-06T18:28:55.000Z"
+  },
+  "tropic-thunder-2008": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 7268.65,
+    "source": "H:/videos/movies/Tropic Thunder (2008).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Booty Sweat commercial, Tugg in the jungle for never go full retard, the lead farmer with the crossed rifles.",
+    "syncedAt": "2026-11-06T17:20:00.000Z",
+    "batchedAt": "2026-11-06T17:45:51.000Z",
+    "pushedAt": "2026-11-06T18:28:55.000Z"
+  },
+  "hamilton-2020": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 9615.87,
+    "source": "H:/videos/movies/Hamilton (2020).mp4",
+    "methodId": "zero",
+    "triedMethods": ["zero"],
+    "lineOffsets": {},
+    "note": "23.976 fps. Scale 1. Opening Alexander Hamilton, King George in You'll Be Back, Eliza and Hamilton on Who tells your story.",
+    "syncedAt": "2026-11-06T17:20:00.000Z",
+    "batchedAt": "2026-11-06T17:45:51.000Z",
+    "pushedAt": "2026-11-06T18:28:55.000Z"
   }
 }

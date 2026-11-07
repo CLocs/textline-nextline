@@ -95,7 +95,10 @@ describe("recentFromRuns", () => {
       ],
       entries,
     );
-    expect(recent.map((entry) => entry.id)).toEqual(["s5e1", "baby"]);
+    expect(recent.map((row) => [row.entry.id, row.playCount])).toEqual([
+      ["s5e1", 1],
+      ["baby", 2],
+    ]);
   });
 });
 

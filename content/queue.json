@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T18:29:18.603Z",
+  "updatedAt": "2026-11-06T17:20:11.577Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -1579,7 +1579,7 @@
       "rating": 5,
       "priority": 1,
       "playCount": 2,
-      "highlightCount": 8,
+      "highlightCount": 26,
       "tmdbId": null,
       "srt": "manual",
       "converted": true,

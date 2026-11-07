@@ -239,7 +239,6 @@ function buildMovieQueue(opts: {
     const hasFile = sourcePaths.length > 0;
     const stillCount = opts.stillCounts[entry.id] ?? 0;
     const syncEntry = opts.sync[entry.id];
-    if (!hasFile && stillCount === 0 && !syncEntry) continue;
     const title = opts.titlesById.get(entry.id);
     const offsetMs =
       syncEntry && Number.isFinite(syncEntry.offsetMs)

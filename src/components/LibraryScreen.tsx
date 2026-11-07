@@ -107,7 +107,7 @@ export function LibraryScreen({
 }: Props) {
   const [view, setView] = useState<View>({ level: "home" });
   const [counts, setCounts] = useState<Map<string, number>>(new Map());
-  const [recent, setRecent] = useState<CatalogEntry[]>([]);
+  const [recent, setRecent] = useState<ReturnType<typeof recentFromRuns>>([]);
   const [yours, setYours] = useState<ReturnType<typeof yourTopPlayed>>([]);
   const [parallelInbox, setParallelInbox] = useState<ParallelInboxItem[]>([]);
   const [railsReady, setRailsReady] = useState(false);
@@ -386,11 +386,11 @@ export function LibraryScreen({
             <div className="library-group">
               <h3 className="library-group-heading">Your Recent</h3>
               <ul className="title-list">
-                {recent.map((entry) => (
+                {recent.map(({ entry, playCount }) => (
                   <li key={entry.id}>
                     <TitleCard
                       name={catalogLabel(entry)}
-                      meta={`${dialogueLineCount(entry)} lines`}
+                      meta={`${playCount} play${playCount === 1 ? "" : "s"}`}
                       stillTitleId={entry.id}
                       stillTitle={entry.title}
                       onClick={() => onSelect(entry)}

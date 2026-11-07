@@ -86,15 +86,19 @@ export function yourTopPlayed(
     .slice(0, limit);
 }
 
-/** Newest-first unique titles from the player's runs (skip unknown catalog ids). */
+/** Newest-first unique titles from the player's runs, with that title's play count. */
 export function recentFromRuns(
   runs: StoredRun[],
   entries: CatalogEntry[],
   limit = RAIL_LIMIT,
-): CatalogEntry[] {
+): PlayedMovie[] {
   const byId = new Map(entries.map((entry) => [entry.id, entry]));
+  const counts = new Map<string, number>();
+  for (const run of runs) {
+    counts.set(run.titleId, (counts.get(run.titleId) ?? 0) + 1);
+  }
   const seen = new Set<string>();
-  const recent: CatalogEntry[] = [];
+  const recent: PlayedMovie[] = [];
 
   const ordered = [...runs].sort((a, b) => b.completedAt.localeCompare(a.completedAt));
   for (const run of ordered) {
@@ -102,7 +106,7 @@ export function recentFromRuns(
     const entry = byId.get(run.titleId);
     if (!entry) continue;
     seen.add(run.titleId);
-    recent.push(entry);
+    recent.push({ entry, playCount: counts.get(run.titleId) ?? 1 });
     if (recent.length >= limit) break;
   }
   return recent;

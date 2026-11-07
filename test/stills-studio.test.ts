@@ -217,7 +217,7 @@ describe("buildShowQueue", () => {
     expect(queue.episodes[0]?.offsetMs).toBe(-57000);
   });
 
-  it("lists movies with stills even when the video folder is missing", () => {
+  it("lists every transcript movie, including ones with no video file", () => {
     const queue = buildShowQueue({
       show: "Movies",
       directory: "/missing-movies",
@@ -230,6 +230,14 @@ describe("buildShowQueue", () => {
           importedAt: "",
           meta: { year: 1999 },
         },
+        {
+          id: "hamilton-2020",
+          title: "Hamilton (2020)",
+          lineCount: 958,
+          sourceFilename: "Hamilton.2020.eng.srt",
+          importedAt: "",
+          meta: { year: 2020 },
+        },
       ],
       titlesById: new Map(),
       sync: {
@@ -238,9 +246,9 @@ describe("buildShowQueue", () => {
       stillCounts: { "payback-1999": 6 },
       starCounts: { "payback-1999": 78 },
     });
-    expect(queue.episodes.map((ep) => ep.titleId)).toEqual(["payback-1999"]);
-    expect(queue.episodes[0]?.status).toBe("no-file");
-    expect(queue.episodes[0]?.offsetMs).toBe(0);
+    expect(queue.episodes.map((ep) => ep.titleId)).toEqual(["hamilton-2020", "payback-1999"]);
+    expect(queue.episodes.map((ep) => ep.status)).toEqual(["no-file", "no-file"]);
+    expect(queue.episodes[1]?.offsetMs).toBe(0);
   });
 });
 
