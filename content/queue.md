@@ -113,6 +113,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 45 | [Nuremberg](https://boxd.it/K6qU) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 45 | [The Other Guys](https://boxd.it/1rtq) | 2010 | 5 |  | [ ] missing |
 | 2 | 1 | 39 | [Logan Lucky](https://boxd.it/dZrs) | 2017 | 5 |  | [ ] missing |
+| 2 | 1 | 36 | [The Odyssey](https://boxd.it/QFQU) | 2026 | 5 |  | [ ] missing |
 | 2 | 1 | 34 | [Blade Runner 2049](https://boxd.it/b8wK) | 2017 | 5 |  | [ ] missing |
 | 2 | 1 | 31 | [Tombstone](https://boxd.it/1SE6) | 1993 | 5 |  | [ ] missing |
 | 2 | 1 | 30 | [The Guard](https://boxd.it/2eBS) | 2011 | 5 |  | [ ] missing |
@@ -136,7 +137,6 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 7 | [Den of Thieves](https://boxd.it/g17e) | 2018 | 5 |  | [ ] missing |
 | 2 | 1 | 5 | [Black Swan](https://boxd.it/Sw0) | 2010 | 5 |  | [ ] missing |
 | 2 | 1 | 5 | [Harry Potter and the Goblet of Fire](https://boxd.it/29Qo) | 2005 | 5 |  | [ ] missing |
-| 2 | 1 | 5 | [The Odyssey](https://boxd.it/QFQU) | 2026 | 5 |  | [ ] missing |
 | 2 | 1 | 3 | [Deepwater Horizon](https://boxd.it/9oiU) | 2016 | 5 |  | [ ] missing |
 | 2 | 1 | 2 | [Little Women](https://boxd.it/aSVk) | 2019 | 5 |  | [ ] missing |
 | 2 | 1 | 2 | [Remarkably Bright Creatures](https://boxd.it/OZJq) | 2026 | 5 |  | [ ] missing |
