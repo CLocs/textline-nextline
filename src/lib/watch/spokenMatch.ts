@@ -18,6 +18,11 @@ const MIN_SPAN = 6;
 /** Two lines this close are a weak match. Keep listening. */
 const AMBIGUOUS_GAP = 0.08;
 const MAX_HEARD_TOKENS = 40;
+/** A lookback only locks a line with enough words to be a place in the movie. */
+const SUFFICIENT_LINE_TOKENS = 5;
+const REVIEW_MIN_COVERAGE = 0.5;
+/** Two sufficient lines ending this close are not a lock yet. */
+const REVIEW_END_GAP = 3;
 
 function tokenize(text: string): string[] {
   const normalized = normalizeChoiceText(text);
@@ -148,4 +153,95 @@ export function matchSpokenLine(
 
   const span = pickBest(tokenized, (tokens) => spanScore(heardTokens, tokens));
   return span.kind === "match" ? span.match : null;
+}
+
+export type HeardToken = {
+  token: string;
+  at: number;
+};
+
+export type WindowMatch = {
+  lineIndex: number;
+  score: number;
+  /** When the matched words were heard, so the clock can catch up. */
+  heardAt: number;
+};
+
+/**
+ * Latest sufficient line inside a stretch of already-heard words.
+ * Words have to sit together. A short line, a thin overlap, or two lines
+ * ending together is not a lock.
+ */
+export function matchHeardWindow(
+  heard: readonly HeardToken[],
+  lines: readonly SpokenLine[],
+  skipLineIndex?: number,
+): WindowMatch | null {
+  if (heard.length < MIN_HITS) return null;
+  const heardTokens = heard.map((token) => token.token);
+
+  let best: { lineIndex: number; score: number; heardAt: number; end: number } | null = null;
+  let secondEnd = -1;
+  let secondScore = 0;
+
+  for (const line of lines) {
+    if (line.index === skipLineIndex) continue;
+    const tokens = tokenize(line.text);
+    if (tokens.length < SUFFICIENT_LINE_TOKENS) continue;
+    const aligned = alignLine(heardTokens, tokens);
+    if (!aligned) continue;
+    const score = aligned.hits / tokens.length;
+    const heardAt = heard[aligned.start]?.at;
+    if (heardAt === undefined) continue;
+    if (!best || aligned.end > best.end || (aligned.end === best.end && score > best.score)) {
+      if (best) {
+        secondEnd = best.end;
+        secondScore = best.score;
+      }
+      best = { lineIndex: line.index, score, heardAt, end: aligned.end };
+    } else if (aligned.end > secondEnd || (aligned.end === secondEnd && score > secondScore)) {
+      secondEnd = aligned.end;
+      secondScore = score;
+    }
+  }
+
+  if (!best) return null;
+  if (secondEnd >= 0 && best.end - secondEnd < REVIEW_END_GAP && best.score - secondScore < AMBIGUOUS_GAP) {
+    return null;
+  }
+  return { lineIndex: best.lineIndex, score: best.score, heardAt: best.heardAt };
+}
+
+/** Rightmost place the line's words sit together. One missing final word still counts. */
+function alignLine(heard: string[], line: string[]): { hits: number; start: number; end: number } | null {
+  const full = rightmostRun(heard, line, line.length);
+  const shorter = line.length > MIN_HITS ? rightmostRun(heard, line.slice(0, -1), line.length) : null;
+  if (!full) return shorter;
+  if (!shorter) return full;
+  if (shorter.hits > full.hits) return shorter;
+  if (shorter.hits === full.hits && shorter.end > full.end) return shorter;
+  return full;
+}
+
+function rightmostRun(
+  heard: string[],
+  line: string[],
+  coverageOf: number,
+): { hits: number; start: number; end: number } | null {
+  if (line.length === 0 || coverageOf === 0) return null;
+  let lineAt = line.length - 1;
+  let end = -1;
+  let start = -1;
+  let hits = 0;
+  for (let i = heard.length - 1; i >= 0 && lineAt >= 0; i -= 1) {
+    if (heard[i] !== line[lineAt]) continue;
+    if (end < 0) end = i;
+    start = i;
+    hits += 1;
+    lineAt -= 1;
+  }
+  if (hits < MIN_HITS || start < 0 || end < 0) return null;
+  if (hits / coverageOf < REVIEW_MIN_COVERAGE) return null;
+  if (end - start + 1 > coverageOf + 2) return null;
+  return { hits, start, end };
 }

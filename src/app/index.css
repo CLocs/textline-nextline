@@ -1971,8 +1971,13 @@ code {
 }
 
 .curate-sync-status,
-.curate-sync-line {
+.curate-sync-line,
+.curate-sync-hint {
   margin: 0;
+}
+
+.curate-sync-hint {
+  flex-basis: 100%;
 }
 
 .curate-sync-candidate {
@@ -1995,11 +2000,44 @@ code {
 }
 
 .curate-note {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
   margin-top: 0.45rem;
 }
 
+.curate-note-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.curate-note-person {
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  background: color-mix(in srgb, var(--muted) 35%, var(--surface));
+  color: var(--surface);
+}
+
+.curate-note-person img,
+.curate-note-person svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.curate-note-person svg {
+  fill: color-mix(in srgb, var(--ink) 55%, var(--muted));
+}
+
+.curate-note-person svg circle:first-child {
+  fill: color-mix(in srgb, var(--muted) 45%, var(--surface));
+}
+
 .curate-note-text {
-  margin: 0 0 0.35rem;
+  margin: 0;
   color: var(--muted);
   font-size: 0.92rem;
 }
@@ -2016,8 +2054,20 @@ code {
 }
 
 .curate-note-open {
-  margin-top: 0.35rem;
-  padding: 0.25rem 0.6rem;
+  margin-top: 0;
+  padding: 0.12rem 0.45rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  border-radius: 8px;
+}
+
+.curate-note-open.has-note {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.curate-note-person svg .is-face {
+  fill: var(--surface);
 }
 
 .curate-item.focused {
@@ -2172,6 +2222,21 @@ code {
 }
 
 .curate-controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.curate-mark-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.curate-marks {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

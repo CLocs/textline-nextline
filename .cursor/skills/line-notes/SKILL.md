@@ -16,7 +16,7 @@ Plan: [W2G.md](../../../docs/W2G.md). Highlighting and Sync stay [watch-highligh
 
 ## Paths
 
-1. **Type it.** In Curate, on a starred or quoted line. This browser only. If they type the note in chat instead, manual note below.
+1. **Type it.** In Curate, on any line. This browser only. The note shows your icon. Other people join the watch session later, once, rather than on each line. If they type the note in chat instead, manual note below.
 2. **Readwise.** They highlight outside the app. The note stays on `stars-seed.json` after `content:vault-title`. It is not copied into the session file.
 3. **HeyPocket after the watch.** Pocket import below. The Odyssey recording with Matty Ice is the trial.
 4. **The Sync mic.** A stretch from a Sync lock can be kept as the note on the line it matched. Sync is in Curate. Keeping that stretch as the note is not this slice. Store the words only after they accept them.

@@ -6149,5 +6149,17 @@
     "syncedAt": "2026-11-06T17:20:00.000Z",
     "batchedAt": "2026-11-06T17:45:51.000Z",
     "pushedAt": "2026-11-06T18:28:55.000Z"
+  },
+  "american-gangster-2007": {
+    "offsetMs": 0,
+    "timeScale": 1,
+    "seek": "start",
+    "fps": 23.976,
+    "durationSec": 10545.99,
+    "source": "H:/videos/movies/American Gangster (2007).mp4",
+    "encode": "mp4-h264-23976",
+    "note": "23.976 fps extended cut, 2:55:46. Scale 1. Line 3 turkey toss, line 322 passport meeting, line 1180 Ali in the fight crowd, line 1787 Richie in the cargo hold, line 2113 property keys.",
+    "syncedAt": "2026-11-09T04:35:00.000Z",
+    "pushedAt": "2026-11-09T05:10:03.805Z"
   }
 }

@@ -109,10 +109,11 @@ npm run content:stars-push -- --email dascolin@gmail.com --title TITLE_ID --remo
 
 Curate has Sync. Do not add a player, and do not upload the movie. The movie file is not required. The transcript timings are the clock.
 
-1. They tap **Sync**. The mic stays on until a spoken line matches a catalog line.
-2. The list shows that line. **This line** jumps there and the mic stops. **Not this** keeps listening.
-3. The list advances on the clock from that lock: elapsed time since they accepted, plus that line's `startMs`.
-4. They tap Sync again after a pause, a seek, or a bad lock. The mic runs only until the next accepted match.
+1. They tap **Sync**. The mic stays on.
+2. The first matching line is a rough start. The list puts that line at the bottom and the clock runs from when that phrase was heard. Lines just said stay on screen. If they scroll up to mark those, the list stays put and the highlight keeps moving. Scrolling back down follows again. The mic does not stop.
+3. If the speech runs on, every 5 seconds the words already heard are checked again. The stretch grows until a long enough line is close. The clock uses when those words were heard, so a late lock catches up. The heard words show only while Sync is still searching.
+4. A later matching line near that clock snaps the list forward. **Not this** drops the rough start and keeps listening.
+5. **Stop** holds the list. They tap Sync again after a pause, a seek, or a bad lock.
 
 A stills `offsetMs` / `timeScale` can correct a clock that drifts the same way on every lock. Do not record `0.96` on a guess. Do not apply that scale unless they ask.
 

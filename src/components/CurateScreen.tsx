@@ -14,12 +14,26 @@ import {
 import { MAX_LOVED_PER_TITLE } from "../lib/stars/store";
 import { isLoggedIn } from "../lib/auth/session";
 import { createParallelPack } from "../lib/parallels/api";
-import { offsetsForSizes, VIRTUAL_LIST_GAP, visibleWindow } from "../lib/ui/virtualWindow";
+import {
+  followScrollTop,
+  offsetsForSizes,
+  scrolledAboveFollow,
+  VIRTUAL_LIST_GAP,
+  visibleWindow,
+} from "../lib/ui/virtualWindow";
+import { fetchAvatarObjectUrl, isAuthApiEnabled } from "../lib/auth/api";
+import { getStoredUser, isLocalDevSession } from "../lib/auth/session";
 import { sceneLinesFor } from "../lib/content/stillsLines";
-import { lineAtMovieMs, movieMsSinceLock, type TimedLine } from "../lib/watch/followClock";
+import {
+  lineAtMovieMs,
+  movieMsSinceLock,
+  upcomingLines,
+  type TimedLine,
+} from "../lib/watch/followClock";
 import { getLineNotesForTitle, saveLineNote, type LineNote } from "../lib/watch/lineNotes";
+import { createHeardLog } from "../lib/watch/heardLog";
 import { openSpeechListener, speechRecognitionSupported, type SpeechListener } from "../lib/watch/speechListener";
-import { matchSpokenLine, type SpokenLine } from "../lib/watch/spokenMatch";
+import { matchHeardWindow, matchSpokenLine, type SpokenLine } from "../lib/watch/spokenMatch";
 import { LineSendControl } from "./LineSendControl";
 import { PosterArt } from "./PosterArt";
 
@@ -31,12 +45,22 @@ const ROW_ESTIMATE_WITH_PREV = 148;
 const ROW_ESTIMATE_WITH_STILL = 176;
 const ROW_OVERSCAN = 10;
 const FOLLOW_TICK_MS = 250;
+const QUIET_HINT_MS = 5000;
+/** How often the words already heard are matched again. */
+const REVIEW_EVERY_MS = 5_000;
+const REVIEW_WINDOW_START_MS = 5_000;
+const REVIEW_WINDOW_STEP_MS = 5_000;
+const REVIEW_WINDOW_MAX_MS = 30_000;
+/** A final that covers this much speech is a stretch, not one cue. */
+const LONG_PHRASE_MS = 4_000;
+const QUIET_HINT =
+  "Still quiet. Chrome’s microphone for this site is the lock icon in the address bar. This page can’t choose it. If this tab is inside the editor, open it in Chrome.";
 
 type SyncPhase =
   | { kind: "idle" }
   | { kind: "listening" }
-  | { kind: "candidate"; lineIndex: number; heard: string }
-  | { kind: "following"; startMs: number; confirmedAt: number };
+  | { kind: "tracking"; startMs: number; heardAt: number; lineIndex: number }
+  | { kind: "held" };
 
 type Props = {
   entry: CatalogEntry;
@@ -68,12 +92,25 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const didFocusRef = useRef(false);
   const [syncPhase, setSyncPhase] = useState<SyncPhase>({ kind: "idle" });
   const [syncMessage, setSyncMessage] = useState<string | null>(null);
+  const [syncHint, setSyncHint] = useState<string | null>(null);
   const [heardPreview, setHeardPreview] = useState("");
   /** Line the list should keep on screen while Sync is showing or following it. */
   const [pinnedLine, setPinnedLine] = useState<number | null>(null);
+  const notePerson = useSessionFace();
   const listenRef = useRef<SpeechListener | null>(null);
-  const spokenLinesRef = useRef<SpokenLine[]>([]);
+  const hintTimerRef = useRef(0);
+  const heardPreviewRef = useRef("");
+  const lastFinalRef = useRef("");
+  const heardLogRef = useRef(createHeardLog());
+  const reviewTimerRef = useRef(0);
+  const reviewWindowRef = useRef(REVIEW_WINDOW_START_MS);
+  const reviewHeardRef = useRef<() => void>(() => {});
+  const syncPhaseRef = useRef<SyncPhase>({ kind: "idle" });
+  const spokenLinesRef = useRef<Array<SpokenLine & TimedLine>>([]);
   const skipSpokenRef = useRef<{ heard: string; lineIndex: number } | null>(null);
+  /** They scrolled up to earlier lines. Sync keeps selecting, and does not pull the list back. */
+  const followHoldRef = useRef(false);
+  const ignoreScrollUntilRef = useRef(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -97,7 +134,13 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     packSelectAnchorRef.current = null;
     setSyncPhase({ kind: "idle" });
     setSyncMessage(null);
+    setSyncHint(null);
     setHeardPreview("");
+    heardPreviewRef.current = "";
+    window.clearTimeout(hintTimerRef.current);
+    window.clearTimeout(reviewTimerRef.current);
+    heardLogRef.current.clear();
+    followHoldRef.current = false;
     setPinnedLine(null);
     skipSpokenRef.current = null;
     listenRef.current?.close();
@@ -106,6 +149,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
 
   useEffect(() => {
     return () => {
+      window.clearTimeout(hintTimerRef.current);
+      window.clearTimeout(reviewTimerRef.current);
       listenRef.current?.close();
     };
   }, []);
@@ -117,9 +162,11 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const promptSet = useMemo(() => new Set(promptIndices), [promptIndices]);
   const spokenLines = useMemo(() => {
     if (!title) return [];
-    const rows: SpokenLine[] = [];
+    const rows: Array<SpokenLine & TimedLine> = [];
     for (const line of title.lines) {
-      if (promptSet.has(line.index) && line.text) rows.push({ index: line.index, text: line.text });
+      if (promptSet.has(line.index) && line.text) {
+        rows.push({ index: line.index, text: line.text, startMs: line.startMs });
+      }
     }
     return rows;
   }, [title, promptSet]);
@@ -132,6 +179,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     return rows;
   }, [title, promptSet]);
   spokenLinesRef.current = spokenLines;
+  syncPhaseRef.current = syncPhase;
   const sceneFrames = useMemo(() => new Set(sceneLinesFor(entry.id)), [entry.id]);
 
   // One localStorage read per revision — not per row (thousands of quiz lines).
@@ -166,7 +214,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const listRef = useRef<HTMLDivElement>(null);
   const sizeMapRef = useRef(new Map<number, number>());
   const prevOffsetsRef = useRef<number[] | null>(null);
-  const skipSizeClearRef = useRef(true);
+  const layoutKey = `${entry.id}:${showPreviousLines ? 1 : 0}:${showStills ? 1 : 0}`;
+  const layoutKeyRef = useRef(layoutKey);
+  if (layoutKeyRef.current !== layoutKey) {
+    layoutKeyRef.current = layoutKey;
+    sizeMapRef.current.clear();
+  }
   const [scrollTop, setScrollTop] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(640);
   const [sizeRev, setSizeRev] = useState(0);
@@ -186,10 +239,6 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     });
   }, [title, promptIndices, starredOnly, query, starSets]);
 
-  const estimateSize =
-    (showPreviousLines ? ROW_ESTIMATE_WITH_PREV : ROW_ESTIMATE) +
-    (showStills ? ROW_ESTIMATE_WITH_STILL - ROW_ESTIMATE : 0);
-
   const handleRowHeight = useCallback((lineIndex: number, height: number) => {
     if (sizeMapRef.current.get(lineIndex) === height) return;
     sizeMapRef.current.set(lineIndex, height);
@@ -197,15 +246,6 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     // which left every short line sitting in the tall estimated slot.
     setSizeRev((value) => value + 1);
   }, []);
-
-  useEffect(() => {
-    if (skipSizeClearRef.current) {
-      skipSizeClearRef.current = false;
-      return;
-    }
-    sizeMapRef.current.clear();
-    setSizeRev((value) => value + 1);
-  }, [showPreviousLines, showStills, entry.id]);
 
   useEffect(() => {
     // A Sync pin owns the scroll. Clearing the filter to reveal that line must not jump to the top.
@@ -228,11 +268,15 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   }, [filteredIndices.length]);
 
   const offsets = useMemo(() => {
-    const sizes = filteredIndices.map(
-      (lineIndex) => sizeMapRef.current.get(lineIndex) ?? estimateSize,
-    );
+    const base = showPreviousLines ? ROW_ESTIMATE_WITH_PREV : ROW_ESTIMATE;
+    const stillExtra = ROW_ESTIMATE_WITH_STILL - ROW_ESTIMATE;
+    const sizes = filteredIndices.map((lineIndex) => {
+      const measured = sizeMapRef.current.get(lineIndex);
+      if (measured != null) return measured;
+      return showStills && sceneFrames.has(lineIndex) ? base + stillExtra : base;
+    });
     return offsetsForSizes(sizes, VIRTUAL_LIST_GAP);
-  }, [filteredIndices, estimateSize, sizeRev]);
+  }, [filteredIndices, showPreviousLines, showStills, sceneFrames, sizeRev]);
 
   const totalSize = offsets[filteredIndices.length] ?? 0;
 
@@ -255,6 +299,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     if (delta === 0) return;
     const next = Math.max(0, current + delta);
     if (next === current) return;
+    ignoreScrollUntilRef.current = performance.now() + 80;
     el.scrollTop = next;
     setScrollTop(next);
   }, [offsets]);
@@ -285,27 +330,32 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   }, []);
 
   useLayoutEffect(() => {
-    if (pinnedLine === null) return;
+    if (pinnedLine === null || followHoldRef.current) return;
     const pos = filteredIndices.indexOf(pinnedLine);
     if (pos < 0) return;
-    const top = offsets[pos] ?? 0;
     const el = listRef.current;
     if (!el) return;
-    if (Math.abs(el.scrollTop - top) > 1) el.scrollTop = top;
-    setScrollTop((current) => (Math.abs(current - top) > 1 ? top : current));
+    const top = offsets[pos] ?? 0;
+    const nextTop = offsets[pos + 1] ?? top;
+    const lineHeight = Math.max(0, nextTop - top - VIRTUAL_LIST_GAP);
+    const next = followScrollTop(top, lineHeight, el.clientHeight);
+    if (Math.abs(el.scrollTop - next) <= 1) return;
+    ignoreScrollUntilRef.current = performance.now() + 80;
+    el.scrollTop = next;
+    setScrollTop(next);
   }, [pinnedLine, filteredIndices, offsets]);
 
   useEffect(() => {
-    if (syncPhase.kind !== "following" || pinnedLine === null) return;
+    if (syncPhase.kind !== "tracking" || pinnedLine === null) return;
     if (filteredIndices.includes(pinnedLine)) return;
     setQuery("");
     setStarredOnly(false);
   }, [syncPhase, pinnedLine, filteredIndices]);
 
   useEffect(() => {
-    if (syncPhase.kind !== "following") return;
+    if (syncPhase.kind !== "tracking") return;
     const tick = () => {
-      const movieMs = movieMsSinceLock(syncPhase.startMs, syncPhase.confirmedAt, Date.now());
+      const movieMs = movieMsSinceLock(syncPhase.startMs, syncPhase.heardAt, Date.now());
       const next = lineAtMovieMs(followLines, movieMs);
       if (next === null) return;
       pinLine(next);
@@ -316,57 +366,135 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   }, [syncPhase, followLines, pinLine]);
 
   function stopListening() {
+    window.clearTimeout(hintTimerRef.current);
+    window.clearTimeout(reviewTimerRef.current);
     listenRef.current?.close();
     listenRef.current = null;
   }
+
+  function scheduleReview() {
+    window.clearTimeout(reviewTimerRef.current);
+    reviewTimerRef.current = window.setTimeout(() => {
+      reviewHeardRef.current();
+    }, REVIEW_EVERY_MS);
+  }
+
+  function lockHeardLine(lineIndex: number, heardAt: number) {
+    const line = title ? getLine(title, lineIndex) : undefined;
+    if (!line) return;
+    skipSpokenRef.current = null;
+    const next = {
+      kind: "tracking" as const,
+      startMs: line.startMs,
+      heardAt,
+      lineIndex,
+    };
+    syncPhaseRef.current = next;
+    setSyncPhase(next);
+    pinLine(lineIndex);
+    reviewWindowRef.current = REVIEW_WINDOW_START_MS;
+    scheduleReview();
+  }
+
+  function spokenPool() {
+    const phase = syncPhaseRef.current;
+    if (phase.kind !== "tracking") return spokenLinesRef.current;
+    return upcomingLines(
+      spokenLinesRef.current,
+      phase.startMs,
+      movieMsSinceLock(phase.startMs, phase.heardAt, Date.now()),
+    );
+  }
+
+  function skipFor(text: string): number | undefined {
+    const skip = skipSpokenRef.current;
+    if (!skip) return undefined;
+    if (text === skip.heard || (skip.heard && text.includes(skip.heard))) return skip.lineIndex;
+    return undefined;
+  }
+
+  reviewHeardRef.current = () => {
+    const phase = syncPhaseRef.current;
+    if (phase.kind !== "listening" && phase.kind !== "tracking") return;
+    const tokens = heardLogRef.current.tokensSince(Date.now() - reviewWindowRef.current);
+    const joined = tokens.map((token) => token.token).join(" ");
+    const match = matchHeardWindow(tokens, spokenPool(), skipFor(joined));
+    if (!match) {
+      reviewWindowRef.current = Math.min(
+        REVIEW_WINDOW_MAX_MS,
+        reviewWindowRef.current + REVIEW_WINDOW_STEP_MS,
+      );
+      scheduleReview();
+      return;
+    }
+    lockHeardLine(match.lineIndex, match.heardAt);
+  };
 
   function beginListening() {
     stopListening();
     setQuery("");
     setStarredOnly(false);
     setSyncMessage(null);
+    setSyncHint(null);
     setHeardPreview("");
+    heardPreviewRef.current = "";
+    lastFinalRef.current = "";
+    heardLogRef.current.clear();
+    reviewWindowRef.current = REVIEW_WINDOW_START_MS;
+    followHoldRef.current = false;
     setPinnedLine(null);
     if (!speechRecognitionSupported()) {
       setSyncPhase({ kind: "idle" });
-      setSyncMessage("This browser has no speech recognition.");
+      setSyncMessage("This browser has no speech recognition. Open this page in Chrome.");
       return;
     }
-    setSyncPhase({ kind: "listening" });
+    const listening = { kind: "listening" as const };
+    syncPhaseRef.current = listening;
+    setSyncPhase(listening);
+    hintTimerRef.current = window.setTimeout(() => {
+      if (!heardPreviewRef.current) setSyncHint(QUIET_HINT);
+    }, QUIET_HINT_MS);
+    scheduleReview();
     listenRef.current = openSpeechListener({
       onPhrase: (phrase, isFinal) => {
+        heardPreviewRef.current = phrase;
         setHeardPreview(phrase);
-        if (!isFinal) return;
-        const skip =
-          skipSpokenRef.current?.heard === phrase ? skipSpokenRef.current.lineIndex : undefined;
-        const match = matchSpokenLine(phrase, spokenLinesRef.current, skip);
+        if (phrase) setSyncHint(null);
+        const at = Date.now();
+        if (!isFinal) {
+          heardLogRef.current.interim(phrase, at);
+          return;
+        }
+        if (phrase === lastFinalRef.current) return;
+        lastFinalRef.current = phrase;
+        const span = heardLogRef.current.final(phrase, at);
+        if (span && span.endedAt - span.startedAt >= LONG_PHRASE_MS) {
+          reviewHeardRef.current();
+          return;
+        }
+        const match = matchSpokenLine(phrase, spokenPool(), skipFor(phrase));
         if (!match) return;
-        stopListening();
-        setSyncPhase({ kind: "candidate", lineIndex: match.lineIndex, heard: phrase });
-        pinLine(match.lineIndex);
+        lockHeardLine(match.lineIndex, at);
       },
+      onNotice: (message) => setSyncHint(message),
       onError: (message) => {
         stopListening();
+        setSyncHint(null);
         setSyncPhase({ kind: "idle" });
+        syncPhaseRef.current = { kind: "idle" };
         setSyncMessage(message);
       },
     });
   }
 
-  function acceptLock(lineIndex: number) {
-    const line = title ? getLine(title, lineIndex) : undefined;
-    if (!line) return;
-    stopListening();
-    skipSpokenRef.current = null;
-    setSyncPhase({ kind: "following", startMs: line.startMs, confirmedAt: Date.now() });
-    pinLine(lineIndex);
-  }
-
-  function dismissCandidate() {
-    if (syncPhase.kind === "candidate") {
-      skipSpokenRef.current = { heard: syncPhase.heard, lineIndex: syncPhase.lineIndex };
-    }
-    beginListening();
+  function rejectLock() {
+    const phase = syncPhaseRef.current;
+    if (phase.kind !== "tracking") return;
+    skipSpokenRef.current = { heard: heardPreviewRef.current, lineIndex: phase.lineIndex };
+    const listening = { kind: "listening" as const };
+    syncPhaseRef.current = listening;
+    setSyncPhase(listening);
+    setPinnedLine(null);
   }
 
   async function handleToggle(lineIndex: number, text: string) {
@@ -525,49 +653,48 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
       <div className="curate-sync">
         <button
           type="button"
-          className={`button${syncPhase.kind === "listening" ? " is-listening" : " primary"}`}
-          aria-pressed={syncPhase.kind === "listening"}
+          className={`button${syncPhase.kind === "listening" || syncPhase.kind === "tracking" ? " is-listening" : " primary"}`}
+          aria-pressed={syncPhase.kind === "listening" || syncPhase.kind === "tracking"}
           onClick={() => {
-            if (syncPhase.kind === "listening") {
+            if (syncPhase.kind === "listening" || syncPhase.kind === "tracking") {
               stopListening();
-              setSyncPhase({ kind: "idle" });
+              const next = syncPhase.kind === "tracking" ? { kind: "held" as const } : { kind: "idle" as const };
+              syncPhaseRef.current = next;
+              setSyncPhase(next);
+              setSyncHint(null);
               setHeardPreview("");
-              setPinnedLine(null);
+              heardPreviewRef.current = "";
+              if (next.kind === "idle") setPinnedLine(null);
               return;
             }
             beginListening();
           }}
         >
-          {syncPhase.kind === "listening" ? "Stop" : "Sync"}
+          {syncPhase.kind === "listening" || syncPhase.kind === "tracking" ? "Stop" : "Sync"}
         </button>
         {syncPhase.kind === "listening" ? (
           <p className="muted curate-sync-status" role="status">
             {heardPreview ? `Hearing “${heardPreview}”` : "Listening for a line…"}
           </p>
         ) : null}
-        {syncPhase.kind === "candidate" ? (
-          <div className="curate-sync-candidate" role="status">
-            <p className="curate-sync-line">
-              Line {syncPhase.lineIndex + 1}: {getLine(title, syncPhase.lineIndex)?.text}
-            </p>
-            <p className="muted">Heard “{syncPhase.heard}”</p>
-            <div className="curate-sync-actions">
-              <button
-                type="button"
-                className="button primary"
-                onClick={() => acceptLock(syncPhase.lineIndex)}
-              >
-                This line
-              </button>
-              <button type="button" className="button ghost" onClick={dismissCandidate}>
-                Not this
-              </button>
-            </div>
-          </div>
+        {syncPhase.kind === "listening" && syncHint ? (
+          <p className="muted curate-sync-hint" role="status">
+            {syncHint}
+          </p>
         ) : null}
-        {syncPhase.kind === "following" && highlightLine !== null ? (
+        {syncPhase.kind === "tracking" && highlightLine !== null ? (
           <p className="muted curate-sync-status" role="status">
-            Following line {highlightLine + 1}. Tap Sync after a pause or a seek.
+            Following line {highlightLine + 1}. The mic stays on for the next line.
+          </p>
+        ) : null}
+        {syncPhase.kind === "tracking" ? (
+          <button type="button" className="button ghost" onClick={rejectLock}>
+            Not this
+          </button>
+        ) : null}
+        {syncPhase.kind === "held" && highlightLine !== null ? (
+          <p className="muted curate-sync-status" role="status">
+            Held on line {highlightLine + 1}. Tap Sync after a pause or a seek.
           </p>
         ) : null}
         {syncMessage ? (
@@ -631,7 +758,29 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
           className="curate-list"
           role="list"
           ref={listRef}
-          onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)}
+          onScroll={(event) => {
+            const top = event.currentTarget.scrollTop;
+            setScrollTop(top);
+            if (performance.now() < ignoreScrollUntilRef.current) return;
+            const phase = syncPhaseRef.current.kind;
+            if (phase !== "tracking" && phase !== "held") return;
+            const line = pinnedLine;
+            if (line === null) return;
+            const pos = filteredIndices.indexOf(line);
+            if (pos < 0) return;
+            const lineTop = offsets[pos] ?? 0;
+            const nextTop = offsets[pos + 1] ?? lineTop;
+            const lineHeight = Math.max(0, nextTop - lineTop - VIRTUAL_LIST_GAP);
+            const target = followScrollTop(lineTop, lineHeight, event.currentTarget.clientHeight);
+            const above = scrolledAboveFollow(top, target);
+            const wasHeld = followHoldRef.current;
+            followHoldRef.current = above;
+            if (wasHeld && !above) {
+              ignoreScrollUntilRef.current = performance.now() + 80;
+              event.currentTarget.scrollTop = target;
+              setScrollTop(target);
+            }
+          }}
         >
           <div className="curate-list-canvas" style={{ height: totalSize }}>
             {visibleIndices.map((lineIndex, visibleOffset) => {
@@ -653,73 +802,86 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                   rowIndex={rowIndex}
                   setSize={filteredIndices.length}
                   offset={offsets[rowIndex] ?? 0}
+                  layoutKey={layoutKey}
                   className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${quoted ? " quoted" : ""}${isSelected ? " selected" : ""}${isFocused ? " focused" : ""}`}
                   onHeight={handleRowHeight}
                 >
-                  <div className="curate-controls">
-                    <label className="curate-select">
-                      <input
-                        type="checkbox"
-                        checked={isSelected}
-                        onClick={(event) => {
-                          if (!event.shiftKey) return;
-                          // Shift+click: take over so the browser doesn't only toggle this box.
-                          event.preventDefault();
-                          skipPackChangeRef.current = true;
-                          handlePackSelect(lineIndex, true);
-                        }}
-                        onChange={() => {
-                          if (skipPackChangeRef.current) {
-                            skipPackChangeRef.current = false;
-                            return;
+                  <LineNoteField
+                    text={notesByLine.get(lineIndex)?.text ?? ""}
+                    person={notePerson}
+                    onSave={(words) => {
+                      saveLineNote(entry.id, lineIndex, words);
+                      setRevision((value) => value + 1);
+                    }}
+                    marks={
+                      <label className="curate-select">
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onClick={(event) => {
+                            if (!event.shiftKey) return;
+                            // Shift+click: take over so the browser doesn't only toggle this box.
+                            event.preventDefault();
+                            skipPackChangeRef.current = true;
+                            handlePackSelect(lineIndex, true);
+                          }}
+                          onChange={() => {
+                            if (skipPackChangeRef.current) {
+                              skipPackChangeRef.current = false;
+                              return;
+                            }
+                            handlePackSelect(lineIndex, false);
+                          }}
+                          aria-label={`Select line ${lineIndex + 1} for parallel pack`}
+                        />
+                      </label>
+                    }
+                    icons={
+                      <>
+                        <button
+                          type="button"
+                          className={`curate-star${starred ? " starred" : ""}`}
+                          aria-pressed={starred}
+                          aria-label={starred ? "Unstar line" : "Star line"}
+                          onClick={() => void handleToggle(lineIndex, line.text)}
+                        >
+                          {starred ? "★" : "☆"}
+                        </button>
+                        <button
+                          type="button"
+                          className={`curate-love${loved ? " loved" : ""}${starred ? "" : " is-placeholder"}`}
+                          aria-pressed={loved}
+                          aria-label={
+                            starred
+                              ? loved
+                                ? "Unlove line"
+                                : "Love line for mini-games"
+                              : "Star a line before loving it"
                           }
-                          handlePackSelect(lineIndex, false);
-                        }}
-                        aria-label={`Select line ${lineIndex + 1} for parallel pack`}
-                      />
-                    </label>
-                    <button
-                      type="button"
-                      className={`curate-star${starred ? " starred" : ""}`}
-                      aria-pressed={starred}
-                      aria-label={starred ? "Unstar line" : "Star line"}
-                      onClick={() => void handleToggle(lineIndex, line.text)}
-                    >
-                      {starred ? "★" : "☆"}
-                    </button>
-                    <button
-                      type="button"
-                      className={`curate-love${loved ? " loved" : ""}${starred ? "" : " is-placeholder"}`}
-                      aria-pressed={loved}
-                      aria-label={
-                        starred
-                          ? loved
-                            ? "Unlove line"
-                            : "Love line for mini-games"
-                          : "Star a line before loving it"
-                      }
-                      disabled={!starred}
-                      onClick={() => void handleLove(lineIndex)}
-                    >
-                      {loved ? "♥" : "♡"}
-                    </button>
-                    <button
-                      type="button"
-                      className={`curate-quote${quoted ? " quoted" : ""}`}
-                      aria-pressed={quoted}
-                      aria-label={quoted ? "Remove quote mark" : "Mark line as a quote"}
-                      onClick={() => void handleQuote(lineIndex)}
-                    >
-                      “
-                    </button>
-                  </div>
-                  <div className="curate-copy">
+                          disabled={!starred}
+                          onClick={() => void handleLove(lineIndex)}
+                        >
+                          {loved ? "♥" : "♡"}
+                        </button>
+                        <button
+                          type="button"
+                          className={`curate-quote${quoted ? " quoted" : ""}`}
+                          aria-pressed={quoted}
+                          aria-label={quoted ? "Remove quote mark" : "Mark line as a quote"}
+                          onClick={() => void handleQuote(lineIndex)}
+                        >
+                          “
+                        </button>
+                      </>
+                    }
+                  >
                     {showStills && sceneFrames.has(lineIndex) ? (
                       <PosterArt
                         titleId={entry.id}
                         title={entry.title}
                         lineIndex={lineIndex}
                         fallback="hide"
+                        lazy
                         className="curate-still"
                       />
                     ) : null}
@@ -732,16 +894,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                       ))}
                     <p className="curate-text">{line.text}</p>
                     {fromWikiquote ? <span className="curate-origin">Wikiquote</span> : null}
-                    {starred || quoted || notesByLine.has(lineIndex) ? (
-                      <LineNoteField
-                        text={notesByLine.get(lineIndex)?.text ?? ""}
-                        onSave={(words) => {
-                          saveLineNote(entry.id, lineIndex, words);
-                          setRevision((value) => value + 1);
-                        }}
-                      />
-                    ) : null}
-                  </div>
+                  </LineNoteField>
                   <LazyLineSendControl
                     titleId={entry.id}
                     lineIndex={lineIndex}
@@ -762,6 +915,7 @@ type CurateLineItemProps = {
   rowIndex: number;
   setSize: number;
   offset: number;
+  layoutKey: string;
   className: string;
   onHeight: (lineIndex: number, height: number) => void;
   children: ReactNode;
@@ -772,6 +926,7 @@ function CurateLineItem({
   rowIndex,
   setSize,
   offset,
+  layoutKey,
   className,
   onHeight,
   children,
@@ -787,7 +942,7 @@ function CurateLineItem({
     const observer = new ResizeObserver(report);
     observer.observe(node);
     return () => observer.disconnect();
-  }, [lineIndex, onHeight]);
+  }, [lineIndex, onHeight, layoutKey]);
 
   return (
     <div
@@ -803,7 +958,21 @@ function CurateLineItem({
   );
 }
 
-function LineNoteField({ text, onSave }: { text: string; onSave: (words: string) => void }) {
+function LineNoteField({
+  text,
+  person,
+  onSave,
+  marks,
+  icons,
+  children,
+}: {
+  text: string;
+  person: SessionFace;
+  onSave: (words: string) => void;
+  marks: ReactNode;
+  icons: ReactNode;
+  children: ReactNode;
+}) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(text);
 
@@ -811,59 +980,114 @@ function LineNoteField({ text, onSave }: { text: string; onSave: (words: string)
     if (!editing) setDraft(text);
   }, [editing, text]);
 
-  if (!editing) {
-    if (!text) {
-      return (
-        <button type="button" className="button ghost curate-note-open" onClick={() => setEditing(true)}>
-          Note
-        </button>
-      );
-    }
-    return (
-      <div className="curate-note">
-        <p className="curate-note-text">{text}</p>
-        <button type="button" className="button ghost curate-note-open" onClick={() => setEditing(true)}>
-          Edit note
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <form
-      className="curate-note"
-      onSubmit={(event) => {
-        event.preventDefault();
-        onSave(draft);
-        setEditing(false);
-      }}
-    >
-      <label>
-        <span className="sr-only">Note on this line</span>
-        <textarea
-          rows={2}
-          value={draft}
-          onChange={(event) => setDraft(event.target.value)}
-          placeholder="What the room said"
-          autoFocus
-        />
-      </label>
-      <div className="curate-note-actions">
-        <button type="submit" className="button primary">
-          Save note
-        </button>
-        <button
-          type="button"
-          className="button ghost"
-          onClick={() => {
-            setDraft(text);
-            setEditing(false);
-          }}
-        >
-          Cancel
-        </button>
+    <>
+      <div className="curate-controls">
+        {marks}
+        <div className="curate-mark-stack">
+          <div className="curate-marks">{icons}</div>
+          <button
+            type="button"
+            className={`button ghost curate-note-open${text ? " has-note" : ""}`}
+            aria-label={text ? "Edit note" : "Add a note"}
+            onClick={() => setEditing(true)}
+          >
+            Note
+          </button>
+        </div>
       </div>
-    </form>
+      <div className="curate-copy">
+        {children}
+        {editing ? (
+          <form
+            className="curate-note"
+            onSubmit={(event) => {
+              event.preventDefault();
+              onSave(draft);
+              setEditing(false);
+            }}
+          >
+            <PersonMark label={person.label} src={person.src} />
+            <div className="curate-note-body">
+              <label>
+                <span className="sr-only">Note on this line</span>
+                <textarea
+                  rows={2}
+                  value={draft}
+                  onChange={(event) => setDraft(event.target.value)}
+                  placeholder="What the room said"
+                  autoFocus
+                />
+              </label>
+              <div className="curate-note-actions">
+                <button type="submit" className="button primary">
+                  Save note
+                </button>
+                <button
+                  type="button"
+                  className="button ghost"
+                  onClick={() => {
+                    setDraft(text);
+                    setEditing(false);
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        ) : text ? (
+          <div className="curate-note">
+            <PersonMark label={person.label} src={person.src} />
+            <p className="curate-note-text">{text}</p>
+          </div>
+        ) : null}
+      </div>
+    </>
+  );
+}
+
+type SessionFace = { label: string; src: string | null };
+
+function useSessionFace(): SessionFace {
+  const user = getStoredUser();
+  const label = user?.displayName?.trim() || "You";
+  const [src, setSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!user?.id || !user.avatarAt || !isAuthApiEnabled() || isLocalDevSession()) return;
+    let url: string | null = null;
+    let cancelled = false;
+    void fetchAvatarObjectUrl(user.id).then((next) => {
+      if (cancelled) {
+        if (next) URL.revokeObjectURL(next);
+        return;
+      }
+      url = next;
+      setSrc(next);
+    });
+    return () => {
+      cancelled = true;
+      if (url) URL.revokeObjectURL(url);
+    };
+  }, [user?.id, user?.avatarAt]);
+
+  return { label, src };
+}
+
+function PersonMark({ label, src }: { label: string; src: string | null }) {
+  return (
+    <span className="curate-note-person" title={label}>
+      {src ? (
+        <img src={src} alt={label} />
+      ) : (
+        <svg viewBox="0 0 24 24" role="img" aria-label={label}>
+          <circle cx="12" cy="12" r="12" />
+          <circle className="is-face" cx="12" cy="9.2" r="3.1" />
+          <path className="is-face" d="M5.8 18.6a6.4 6.4 0 0 1 12.4 0" />
+        </svg>
+      )}
+    </span>
   );
 }
 

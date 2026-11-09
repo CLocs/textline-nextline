@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { offsetsForSizes, visibleWindow } from "../src/lib/ui/virtualWindow.js";
+import {
+  followScrollTop,
+  offsetsForSizes,
+  scrolledAboveFollow,
+  visibleWindow,
+} from "../src/lib/ui/virtualWindow.js";
 
 describe("offsetsForSizes", () => {
   it("stacks sizes with a gap after each item", () => {
@@ -29,5 +34,20 @@ describe("visibleWindow", () => {
   it("applies overscan and clamps to the ends", () => {
     expect(visibleWindow(offsets, 0, 100, 2)).toEqual({ start: 0, end: 3 });
     expect(visibleWindow(offsets, 400, 100, 2)).toEqual({ start: 2, end: 5 });
+  });
+});
+
+describe("follow scroll", () => {
+  it("parks the live line on the bottom edge", () => {
+    expect(followScrollTop(1000, 80, 400)).toBe(688);
+  });
+
+  it("stays at the top when the line is still on the first screen", () => {
+    expect(followScrollTop(40, 80, 400)).toBe(0);
+  });
+
+  it("holds when the viewport is above the live line", () => {
+    expect(scrolledAboveFollow(100, 200)).toBe(true);
+    expect(scrolledAboveFollow(190, 200)).toBe(false);
   });
 });
