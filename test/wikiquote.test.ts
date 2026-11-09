@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mergeStarSeeds, type StarSeed } from "../src/lib/content/starSeed.js";
+import { mergeStarSeeds, unionTitleStarSeeds, type StarSeed } from "../src/lib/content/starSeed.js";
 import {
   cleanWikiQuote,
   extractSeasonEpisodes,
@@ -123,5 +123,35 @@ describe("mergeStarSeeds", () => {
   it("adds a Wikiquote line the vault did not have", () => {
     const merged = mergeStarSeeds([line("from the vault", 3)], [line("wikiquote", 9)]);
     expect(merged.map((star) => star.lineIndex).sort()).toEqual([3, 9]);
+  });
+});
+
+describe("unionTitleStarSeeds", () => {
+  const star = (titleId: string, lineIndex: number): StarSeed => ({
+    titleId,
+    title: titleId,
+    lineIndex,
+    text: "line",
+    prevText: null,
+    nextText: null,
+    highlight: "line",
+    note: null,
+    score: "exact",
+  });
+
+  it("replaces one title's vault lines and leaves the others", () => {
+    const existing = [star("other-1999", 1), star("the-odyssey-1997", 2)];
+    const incoming = [star("the-odyssey-1997", 4)];
+    const merged = unionTitleStarSeeds(existing, "the-odyssey-1997", incoming);
+    expect(merged.map((item) => `${item.titleId}:${item.lineIndex}`)).toEqual([
+      "other-1999:1",
+      "the-odyssey-1997:4",
+    ]);
+  });
+
+  it("keeps a Wikiquote line on the refreshed title", () => {
+    const wiki = { ...star("the-odyssey-1997", 2), note: "wikiquote" };
+    const merged = unionTitleStarSeeds([wiki], "the-odyssey-1997", [star("the-odyssey-1997", 4)]);
+    expect(merged.map((item) => item.lineIndex).sort()).toEqual([2, 4]);
   });
 });
