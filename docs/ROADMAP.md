@@ -14,6 +14,20 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 2. **Content C3 hygiene** — strip leftover `.en` from Simpsons S4 titles/ids without breaking star `titleId`s; persist `year` / `tmdbId`. Details: [CONTENT.md](CONTENT.md#c3--import--movie-catalog-hygiene-this-repo-).
 3. **Security L1** — session TTL / logout, Bearer on runs/shares/me, Google JWT checks, magic-link rate limit, claim-anonymous cannot steal stars. Do this before inviting a much larger circle. Ladder: [Open spikes](#open-spikes).
 
+## 2.7 Watch
+
+Real-time watching and highlighting. Opened on a live watch of The Odyssey (1997). How a direction gets a number: [feature-dimension](../.cursor/skills/feature-dimension/SKILL.md). Procedure: [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md).
+
+**This slice.** Readwise highlight → Obsidian vault → one catalog title → `stars-seed.json` → dry-run `content:stars-push` for that title. Command: `npm run content:vault-title`. Other titles in the seed stay. A note under a highlight stays on the seed. It is not a D1 column. Do not re-import the SRT after stars exist.
+
+**Already usable.** Drop an SRT, import, and star in local Curate against production D1 (`VITE_API_URL` on the remote Worker). Pages deploy when asked, so the title shows on the live site. Same `title_id` + `lineIndex`. Catalog Requests stays the queue. No import tab.
+
+**Spikes**
+
+- **Live follow.** The transcript scrolls with the movie. The file stays on this machine. Initiate and confirm locally before the clock is recorded. A synced stills row (`offsetMs`, `timeScale`) can start that clock. Not built.
+- **w2g notes.** A note on a line that names the people it is for. No notes table. The watch session file holds them. A Readwise highlight note is the stand-in from this slice.
+- **Pocket.** A room recording. Its duration aligns spoken text onto lines only after a transcript exists and `movieMsAtStart` is set. Not built.
+
 ## Later
 
 Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
@@ -74,7 +88,7 @@ Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
 
 **SRT and video automation.** Filling a [title request](SHIPPED.md#title-requests-light) automatically. Manual drop + paced OpenSubtitles already exist ([C2](CONTENT.md#c2--subtitle-acquisition-hybrid)). Daily cap, match quality, and copyright sit between requested and playable. Video has no licensed equivalent of the owner’s local file. Rights, source, rate limit, and file match all have to be true at once.
 
-**Obsidian → TL (remaining).** Weighted seed of `stars-seed.json` into D1 / Curate; watch-party metadata; login + group popularity. Vault scrape + fuzzy match already shipped.
+**Obsidian → TL (remaining).** Weighted seed of `stars-seed.json` into D1 / Curate; login + group popularity. Vault scrape + fuzzy match already shipped. Watch highlighting is [2.7](#27-watch).
 
 **Perfect mini confetti.** Short burst on the complete screen when a mini-game finishes all-correct.
 
@@ -157,6 +171,7 @@ Time-box whether a signed-in player’s history can be read at all: public API, 
 | Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
 | Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
 | **Send streaks from Curate** | **Now** |
+| **2.7 Watch** | Started — one-title vault import. Live follow, w2g notes, Pocket are spikes |
 | Keep it going; C3 hygiene; security L1 | Next |
 | Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
 | C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |

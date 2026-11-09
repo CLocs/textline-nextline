@@ -109,7 +109,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const selectedSet = useMemo(() => new Set(selected), [selected]);
   const listRef = useRef<HTMLDivElement>(null);
   const sizeMapRef = useRef(new Map<number, number>());
-  const sizeFlushRef = useRef<number | null>(null);
+  const prevOffsetsRef = useRef<number[] | null>(null);
+  const skipSizeClearRef = useRef(true);
   const [scrollTop, setScrollTop] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(640);
   const [sizeRev, setSizeRev] = useState(0);
@@ -133,24 +134,19 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     (showPreviousLines ? ROW_ESTIMATE_WITH_PREV : ROW_ESTIMATE) +
     (showStills ? ROW_ESTIMATE_WITH_STILL - ROW_ESTIMATE : 0);
 
-  const scheduleSizeFlush = useCallback(() => {
-    if (sizeFlushRef.current != null) return;
-    sizeFlushRef.current = requestAnimationFrame(() => {
-      sizeFlushRef.current = null;
-      setSizeRev((value) => value + 1);
-    });
+  const handleRowHeight = useCallback((lineIndex: number, height: number) => {
+    if (sizeMapRef.current.get(lineIndex) === height) return;
+    sizeMapRef.current.set(lineIndex, height);
+    // Set state from the row itself. A parent layout effect runs too early to see this write,
+    // which left every short line sitting in the tall estimated slot.
+    setSizeRev((value) => value + 1);
   }, []);
 
-  const handleRowHeight = useCallback(
-    (lineIndex: number, height: number) => {
-      if (sizeMapRef.current.get(lineIndex) === height) return;
-      sizeMapRef.current.set(lineIndex, height);
-      scheduleSizeFlush();
-    },
-    [scheduleSizeFlush],
-  );
-
   useEffect(() => {
+    if (skipSizeClearRef.current) {
+      skipSizeClearRef.current = false;
+      return;
+    }
     sizeMapRef.current.clear();
     setSizeRev((value) => value + 1);
   }, [showPreviousLines, showStills, entry.id]);
@@ -162,12 +158,6 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     if (el) el.scrollTop = 0;
     setScrollTop(0);
   }, [query, starredOnly, entry.id, focusLineIndex]);
-
-  useEffect(() => {
-    return () => {
-      if (sizeFlushRef.current != null) cancelAnimationFrame(sizeFlushRef.current);
-    };
-  }, []);
 
   useEffect(() => {
     const el = listRef.current;
@@ -187,6 +177,30 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   }, [filteredIndices, estimateSize, sizeRev]);
 
   const totalSize = offsets[filteredIndices.length] ?? 0;
+
+  // Measured rows above the viewport shrink the list. Keep the same line on screen.
+  useLayoutEffect(() => {
+    const el = listRef.current;
+    const prev = prevOffsetsRef.current;
+    prevOffsetsRef.current = offsets;
+    if (!el || !prev || prev.length !== offsets.length) return;
+    const current = el.scrollTop;
+    if (current <= 0) return;
+    let anchor = 0;
+    for (let i = 0; i < prev.length - 1; i++) {
+      if ((prev[i + 1] ?? 0) > current) {
+        anchor = i;
+        break;
+      }
+    }
+    const delta = (offsets[anchor] ?? 0) - (prev[anchor] ?? 0);
+    if (delta === 0) return;
+    const next = Math.max(0, current + delta);
+    if (next === current) return;
+    el.scrollTop = next;
+    setScrollTop(next);
+  }, [offsets]);
+
   const windowRange = visibleWindow(offsets, scrollTop, viewportHeight, ROW_OVERSCAN);
   const visibleIndices = filteredIndices.slice(windowRange.start, windowRange.end);
 
