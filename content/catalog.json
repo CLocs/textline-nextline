@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T02:26:28.965Z",
+  "updatedAt": "2026-11-09T02:27:00.000Z",
   "titles": [
     {
       "id": "baby-driver-2017",
@@ -60,6 +60,750 @@
       "importedAt": "2026-09-13T03:48:37.724Z",
       "meta": {
         "year": 2005
+      }
+    },
+    {
+      "id": "breaking-bad---1x01---pilot",
+      "title": "Breaking Bad - 1x01 - Pilot",
+      "lineCount": 587,
+      "sourceFilename": "Breaking Bad - 1x01 - Pilot.en.srt",
+      "importedAt": "2026-11-07T21:34:59.534Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 1,
+        "episode": 1
+      }
+    },
+    {
+      "id": "breaking-bad---1x02---cats-in-the-bag",
+      "title": "Breaking Bad - 1x02 - Cat's in the Bag",
+      "lineCount": 421,
+      "sourceFilename": "Breaking Bad - 1x02 - Cat's in the Bag.en.srt",
+      "importedAt": "2026-11-07T21:34:59.540Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 1,
+        "episode": 2
+      }
+    },
+    {
+      "id": "breaking-bad---1x03---and-the-bags-in-the-river",
+      "title": "Breaking Bad - 1x03 - And the Bag's in the River",
+      "lineCount": 473,
+      "sourceFilename": "Breaking Bad - 1x03 - And the Bag's in the River.en.srt",
+      "importedAt": "2026-11-07T21:34:59.542Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 1,
+        "episode": 3
+      }
+    },
+    {
+      "id": "breaking-bad---1x04---cancer-man",
+      "title": "Breaking Bad - 1x04 - Cancer Man",
+      "lineCount": 520,
+      "sourceFilename": "Breaking Bad - 1x04 - Cancer Man.en.srt",
+      "importedAt": "2026-11-07T21:34:59.544Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 1,
+        "episode": 4
+      }
+    },
+    {
+      "id": "breaking-bad---1x05---gray-matter",
+      "title": "Breaking Bad - 1x05 - Gray Matter",
+      "lineCount": 606,
+      "sourceFilename": "Breaking Bad - 1x05 - Gray Matter.en.srt",
+      "importedAt": "2026-11-07T21:34:59.546Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 1,
+        "episode": 5
+      }
+    },
+    {
+      "id": "breaking-bad---1x06---crazy-handful-of-nothin",
+      "title": "Breaking Bad - 1x06 - Crazy Handful of Nothin'",
+      "lineCount": 458,
+      "sourceFilename": "Breaking Bad - 1x06 - Crazy Handful of Nothin'.en.srt",
+      "importedAt": "2026-11-07T21:34:59.549Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 1,
+        "episode": 6
+      }
+    },
+    {
+      "id": "breaking-bad---1x07---a-no-rough-stuff-type-deal",
+      "title": "Breaking Bad - 1x07 - A No-Rough-Stuff-Type Deal",
+      "lineCount": 616,
+      "sourceFilename": "Breaking Bad - 1x07 - A No-Rough-Stuff-Type Deal.en.srt",
+      "importedAt": "2026-11-07T21:34:59.551Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 1,
+        "episode": 7
+      }
+    },
+    {
+      "id": "breaking-bad---2x01---seven-thirty-seven",
+      "title": "Breaking Bad - 2x01 - Seven Thirty-Seven",
+      "lineCount": 443,
+      "sourceFilename": "Breaking Bad - 2x01 - Seven Thirty-Seven.en.srt",
+      "importedAt": "2026-11-08T19:36:10.797Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 1
+      }
+    },
+    {
+      "id": "breaking-bad---2x02---grilled",
+      "title": "Breaking Bad - 2x02 - Grilled",
+      "lineCount": 454,
+      "sourceFilename": "Breaking Bad - 2x02 - Grilled.en.srt",
+      "importedAt": "2026-11-08T19:36:10.802Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 2
+      }
+    },
+    {
+      "id": "breaking-bad---2x03---bit-by-a-dead-bee",
+      "title": "Breaking Bad - 2x03 - Bit by a Dead Bee",
+      "lineCount": 570,
+      "sourceFilename": "Breaking Bad - 2x03 - Bit by a Dead Bee.en.srt",
+      "importedAt": "2026-11-08T19:36:10.804Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 3
+      }
+    },
+    {
+      "id": "breaking-bad---2x04---down",
+      "title": "Breaking Bad - 2x04 - Down",
+      "lineCount": 495,
+      "sourceFilename": "Breaking Bad - 2x04 - Down.en.srt",
+      "importedAt": "2026-11-08T19:36:10.807Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 4
+      }
+    },
+    {
+      "id": "breaking-bad---2x05---breakage",
+      "title": "Breaking Bad - 2x05 - Breakage",
+      "lineCount": 500,
+      "sourceFilename": "Breaking Bad - 2x05 - Breakage.en.srt",
+      "importedAt": "2026-11-08T19:36:10.809Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 5
+      }
+    },
+    {
+      "id": "breaking-bad---2x06---peekaboo",
+      "title": "Breaking Bad - 2x06 - Peekaboo",
+      "lineCount": 546,
+      "sourceFilename": "Breaking Bad - 2x06 - Peekaboo.en.srt",
+      "importedAt": "2026-11-08T19:36:10.812Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 6
+      }
+    },
+    {
+      "id": "breaking-bad---2x07---negro-y-azul",
+      "title": "Breaking Bad - 2x07 - Negro Y Azul",
+      "lineCount": 560,
+      "sourceFilename": "Breaking Bad - 2x07 - Negro Y Azul.en.srt",
+      "importedAt": "2026-11-08T19:36:10.814Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 7
+      }
+    },
+    {
+      "id": "breaking-bad---2x08---better-call-saul",
+      "title": "Breaking Bad - 2x08 - Better Call Saul",
+      "lineCount": 681,
+      "sourceFilename": "Breaking Bad - 2x08 - Better Call Saul.en.srt",
+      "importedAt": "2026-11-08T19:36:10.818Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 8
+      }
+    },
+    {
+      "id": "breaking-bad---2x09---4-days-out",
+      "title": "Breaking Bad - 2x09 - 4 Days Out",
+      "lineCount": 568,
+      "sourceFilename": "Breaking Bad - 2x09 - 4 Days Out.en.srt",
+      "importedAt": "2026-11-08T19:36:10.820Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 9
+      }
+    },
+    {
+      "id": "breaking-bad---2x10---over",
+      "title": "Breaking Bad - 2x10 - Over",
+      "lineCount": 477,
+      "sourceFilename": "Breaking Bad - 2x10 - Over.en.srt",
+      "importedAt": "2026-11-08T19:36:10.822Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 10
+      }
+    },
+    {
+      "id": "breaking-bad---2x11---mandala",
+      "title": "Breaking Bad - 2x11 - Mandala",
+      "lineCount": 512,
+      "sourceFilename": "Breaking Bad - 2x11 - Mandala.en.srt",
+      "importedAt": "2026-11-08T19:36:10.824Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 11
+      }
+    },
+    {
+      "id": "breaking-bad---2x12---phoenix",
+      "title": "Breaking Bad - 2x12 - Phoenix",
+      "lineCount": 594,
+      "sourceFilename": "Breaking Bad - 2x12 - Phoenix.en.srt",
+      "importedAt": "2026-11-08T19:36:10.826Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 12
+      }
+    },
+    {
+      "id": "breaking-bad---2x13---abq",
+      "title": "Breaking Bad - 2x13 - ABQ",
+      "lineCount": 517,
+      "sourceFilename": "Breaking Bad - 2x13 - ABQ.en.srt",
+      "importedAt": "2026-11-08T19:36:10.828Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 2,
+        "episode": 13
+      }
+    },
+    {
+      "id": "breaking-bad---3x01---no-mas",
+      "title": "Breaking Bad - 3x01 - No Mas",
+      "lineCount": 417,
+      "sourceFilename": "Breaking Bad - 3x01 - No Mas.en.srt",
+      "importedAt": "2026-11-08T19:36:21.978Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 1
+      }
+    },
+    {
+      "id": "breaking-bad---3x02---caballo-sin-nombre",
+      "title": "Breaking Bad - 3x02 - Caballo Sin Nombre",
+      "lineCount": 414,
+      "sourceFilename": "Breaking Bad - 3x02 - Caballo Sin Nombre.en.srt",
+      "importedAt": "2026-11-08T19:36:21.985Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 2
+      }
+    },
+    {
+      "id": "breaking-bad---3x03---ift",
+      "title": "Breaking Bad - 3x03 - I.F.T.",
+      "lineCount": 427,
+      "sourceFilename": "Breaking Bad - 3x03 - I.F.T.en.srt",
+      "importedAt": "2026-11-08T19:36:21.987Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 3
+      }
+    },
+    {
+      "id": "breaking-bad---3x04---green-light",
+      "title": "Breaking Bad - 3x04 - Green Light",
+      "lineCount": 513,
+      "sourceFilename": "Breaking Bad - 3x04 - Green Light.en.srt",
+      "importedAt": "2026-11-08T19:36:21.990Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 4
+      }
+    },
+    {
+      "id": "breaking-bad---3x05---mas",
+      "title": "Breaking Bad - 3x05 - Mas",
+      "lineCount": 488,
+      "sourceFilename": "Breaking Bad - 3x05 - Mas.en.srt",
+      "importedAt": "2026-11-08T19:36:21.992Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 5
+      }
+    },
+    {
+      "id": "breaking-bad---3x06---sunset",
+      "title": "Breaking Bad - 3x06 - Sunset",
+      "lineCount": 485,
+      "sourceFilename": "Breaking Bad - 3x06 - Sunset.en.srt",
+      "importedAt": "2026-11-08T19:36:21.995Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 6
+      }
+    },
+    {
+      "id": "breaking-bad---3x07---one-minute",
+      "title": "Breaking Bad - 3x07 - One Minute",
+      "lineCount": 473,
+      "sourceFilename": "Breaking Bad - 3x07 - One Minute.en.srt",
+      "importedAt": "2026-11-08T19:36:21.997Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 7
+      }
+    },
+    {
+      "id": "breaking-bad---3x08---i-see-you",
+      "title": "Breaking Bad - 3x08 - I See You",
+      "lineCount": 560,
+      "sourceFilename": "Breaking Bad - 3x08 - I See You.en.srt",
+      "importedAt": "2026-11-08T19:36:21.999Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 8
+      }
+    },
+    {
+      "id": "breaking-bad---3x09---kafkaesque",
+      "title": "Breaking Bad - 3x09 - Kafkaesque",
+      "lineCount": 617,
+      "sourceFilename": "Breaking Bad - 3x09 - Kafkaesque.en.srt",
+      "importedAt": "2026-11-08T19:36:22.001Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 9
+      }
+    },
+    {
+      "id": "breaking-bad---3x10---fly",
+      "title": "Breaking Bad - 3x10 - Fly",
+      "lineCount": 491,
+      "sourceFilename": "Breaking Bad - 3x10 - Fly.en.srt",
+      "importedAt": "2026-11-08T19:36:22.003Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 10
+      }
+    },
+    {
+      "id": "breaking-bad---3x11---abiquiu",
+      "title": "Breaking Bad - 3x11 - Abiquiu",
+      "lineCount": 587,
+      "sourceFilename": "Breaking Bad - 3x11 - Abiquiu.en.srt",
+      "importedAt": "2026-11-08T19:36:22.006Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 11
+      }
+    },
+    {
+      "id": "breaking-bad---3x12---half-measures",
+      "title": "Breaking Bad - 3x12 - Half Measures",
+      "lineCount": 503,
+      "sourceFilename": "Breaking Bad - 3x12 - Half Measures.en.srt",
+      "importedAt": "2026-11-08T19:36:22.008Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 12
+      }
+    },
+    {
+      "id": "breaking-bad---3x13---full-measure",
+      "title": "Breaking Bad - 3x13 - Full Measure",
+      "lineCount": 448,
+      "sourceFilename": "Breaking Bad - 3x13 - Full Measure.en.srt",
+      "importedAt": "2026-11-08T19:36:22.010Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 3,
+        "episode": 13
+      }
+    },
+    {
+      "id": "breaking-bad---4x01---box-cutter",
+      "title": "Breaking Bad - 4x01 - Box Cutter",
+      "lineCount": 388,
+      "sourceFilename": "Breaking Bad - 4x01 - Box Cutter.en.srt",
+      "importedAt": "2026-11-08T19:36:33.684Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 1
+      }
+    },
+    {
+      "id": "breaking-bad---4x02---thirty-eight-snub",
+      "title": "Breaking Bad - 4x02 - Thirty-Eight Snub",
+      "lineCount": 483,
+      "sourceFilename": "Breaking Bad - 4x02 - Thirty-Eight Snub.en.srt",
+      "importedAt": "2026-11-08T19:36:33.689Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 2
+      }
+    },
+    {
+      "id": "breaking-bad---4x03---open-house",
+      "title": "Breaking Bad - 4x03 - Open House",
+      "lineCount": 631,
+      "sourceFilename": "Breaking Bad - 4x03 - Open House.en.srt",
+      "importedAt": "2026-11-08T19:36:33.693Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 3
+      }
+    },
+    {
+      "id": "breaking-bad---4x04---bullet-points",
+      "title": "Breaking Bad - 4x04 - Bullet Points",
+      "lineCount": 579,
+      "sourceFilename": "Breaking Bad - 4x04 - Bullet Points.en.srt",
+      "importedAt": "2026-11-08T19:36:33.696Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 4
+      }
+    },
+    {
+      "id": "breaking-bad---4x05---shotgun",
+      "title": "Breaking Bad - 4x05 - Shotgun",
+      "lineCount": 454,
+      "sourceFilename": "Breaking Bad - 4x05 - Shotgun.en.srt",
+      "importedAt": "2026-11-08T19:36:33.700Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 5
+      }
+    },
+    {
+      "id": "breaking-bad---4x06---cornered",
+      "title": "Breaking Bad - 4x06 - Cornered",
+      "lineCount": 495,
+      "sourceFilename": "Breaking Bad - 4x06 - Cornered.en.srt",
+      "importedAt": "2026-11-08T19:36:33.703Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 6
+      }
+    },
+    {
+      "id": "breaking-bad---4x07---problem-dog",
+      "title": "Breaking Bad - 4x07 - Problem Dog",
+      "lineCount": 508,
+      "sourceFilename": "Breaking Bad - 4x07 - Problem Dog.en.srt",
+      "importedAt": "2026-11-08T19:36:33.705Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 7
+      }
+    },
+    {
+      "id": "breaking-bad---4x08---hermanos",
+      "title": "Breaking Bad - 4x08 - Hermanos",
+      "lineCount": 437,
+      "sourceFilename": "Breaking Bad - 4x08 - Hermanos.en.srt",
+      "importedAt": "2026-11-08T19:36:33.707Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 8
+      }
+    },
+    {
+      "id": "breaking-bad---4x09---bug",
+      "title": "Breaking Bad - 4x09 - Bug",
+      "lineCount": 475,
+      "sourceFilename": "Breaking Bad - 4x09 - Bug.en.srt",
+      "importedAt": "2026-11-08T19:36:33.709Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 9
+      }
+    },
+    {
+      "id": "breaking-bad---4x10---salud",
+      "title": "Breaking Bad - 4x10 - Salud",
+      "lineCount": 351,
+      "sourceFilename": "Breaking Bad - 4x10 - Salud.en.srt",
+      "importedAt": "2026-11-08T19:36:33.711Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 10
+      }
+    },
+    {
+      "id": "breaking-bad---4x11---crawl-space",
+      "title": "Breaking Bad - 4x11 - Crawl Space",
+      "lineCount": 619,
+      "sourceFilename": "Breaking Bad - 4x11 - Crawl Space.en.srt",
+      "importedAt": "2026-11-08T19:36:33.714Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 11
+      }
+    },
+    {
+      "id": "breaking-bad---4x12---end-times",
+      "title": "Breaking Bad - 4x12 - End Times",
+      "lineCount": 496,
+      "sourceFilename": "Breaking Bad - 4x12 - End Times.en.srt",
+      "importedAt": "2026-11-08T19:36:33.716Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 12
+      }
+    },
+    {
+      "id": "breaking-bad---4x13---face-off",
+      "title": "Breaking Bad - 4x13 - Face Off",
+      "lineCount": 458,
+      "sourceFilename": "Breaking Bad - 4x13 - Face Off.en.srt",
+      "importedAt": "2026-11-08T19:36:33.718Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 4,
+        "episode": 13
+      }
+    },
+    {
+      "id": "breaking-bad---5x01---live-free-or-die",
+      "title": "Breaking Bad - 5x01 - Live Free or Die",
+      "lineCount": 464,
+      "sourceFilename": "Breaking Bad - 5x01 - Live Free or Die.en.srt",
+      "importedAt": "2026-11-08T19:36:34.474Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 1
+      }
+    },
+    {
+      "id": "breaking-bad---5x02---madrigal",
+      "title": "Breaking Bad - 5x02 - Madrigal",
+      "lineCount": 567,
+      "sourceFilename": "Breaking Bad - 5x02 - Madrigal.en.srt",
+      "importedAt": "2026-11-08T19:36:34.480Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 2
+      }
+    },
+    {
+      "id": "breaking-bad---5x03---hazard-pay",
+      "title": "Breaking Bad - 5x03 - Hazard Pay",
+      "lineCount": 621,
+      "sourceFilename": "Breaking Bad - 5x03 - Hazard Pay.en.srt",
+      "importedAt": "2026-11-08T19:36:34.483Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 3
+      }
+    },
+    {
+      "id": "breaking-bad---5x04---fifty-one",
+      "title": "Breaking Bad - 5x04 - Fifty-One",
+      "lineCount": 622,
+      "sourceFilename": "Breaking Bad - 5x04 - Fifty-One.en.srt",
+      "importedAt": "2026-11-08T19:36:34.486Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 4
+      }
+    },
+    {
+      "id": "breaking-bad---5x05---dead-freight",
+      "title": "Breaking Bad - 5x05 - Dead Freight",
+      "lineCount": 572,
+      "sourceFilename": "Breaking Bad - 5x05 - Dead Freight.en.srt",
+      "importedAt": "2026-11-08T19:36:34.491Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 5
+      }
+    },
+    {
+      "id": "breaking-bad---5x06---buyout",
+      "title": "Breaking Bad - 5x06 - Buyout",
+      "lineCount": 530,
+      "sourceFilename": "Breaking Bad - 5x06 - Buyout.en.srt",
+      "importedAt": "2026-11-08T19:36:34.494Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 6
+      }
+    },
+    {
+      "id": "breaking-bad---5x07---say-my-name",
+      "title": "Breaking Bad - 5x07 - Say My Name",
+      "lineCount": 529,
+      "sourceFilename": "Breaking Bad - 5x07 - Say My Name.en.srt",
+      "importedAt": "2026-11-08T19:36:34.496Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 7
+      }
+    },
+    {
+      "id": "breaking-bad---5x08---gliding-over-all",
+      "title": "Breaking Bad - 5x08 - Gliding Over All",
+      "lineCount": 408,
+      "sourceFilename": "Breaking Bad - 5x08 - Gliding Over All.en.srt",
+      "importedAt": "2026-11-08T19:36:34.499Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 8
+      }
+    },
+    {
+      "id": "breaking-bad---5x09---blood-money",
+      "title": "Breaking Bad - 5x09 - Blood Money",
+      "lineCount": 503,
+      "sourceFilename": "Breaking Bad - 5x09 - Blood Money.en.srt",
+      "importedAt": "2026-11-08T19:36:34.501Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 9
+      }
+    },
+    {
+      "id": "breaking-bad---5x10---buried",
+      "title": "Breaking Bad - 5x10 - Buried",
+      "lineCount": 495,
+      "sourceFilename": "Breaking Bad - 5x10 - Buried.en.srt",
+      "importedAt": "2026-11-08T19:36:34.503Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 10
+      }
+    },
+    {
+      "id": "breaking-bad---5x11---confessions",
+      "title": "Breaking Bad - 5x11 - Confessions",
+      "lineCount": 558,
+      "sourceFilename": "Breaking Bad - 5x11 - Confessions.en.srt",
+      "importedAt": "2026-11-08T19:36:34.505Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 11
+      }
+    },
+    {
+      "id": "breaking-bad---5x12---rabid-dog",
+      "title": "Breaking Bad - 5x12 - Rabid Dog",
+      "lineCount": 521,
+      "sourceFilename": "Breaking Bad - 5x12 - Rabid Dog.en.srt",
+      "importedAt": "2026-11-08T19:36:34.508Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 12
+      }
+    },
+    {
+      "id": "breaking-bad---5x13---tohajiilee",
+      "title": "Breaking Bad - 5x13 - To'hajiilee",
+      "lineCount": 639,
+      "sourceFilename": "Breaking Bad - 5x13 - To'hajiilee.en.srt",
+      "importedAt": "2026-11-08T19:36:34.511Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 13
+      }
+    },
+    {
+      "id": "breaking-bad---5x14---ozymandias",
+      "title": "Breaking Bad - 5x14 - Ozymandias",
+      "lineCount": 625,
+      "sourceFilename": "Breaking Bad - 5x14 - Ozymandias.en.srt",
+      "importedAt": "2026-11-08T19:36:34.514Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 14
+      }
+    },
+    {
+      "id": "breaking-bad---5x15---granite-state",
+      "title": "Breaking Bad - 5x15 - Granite State",
+      "lineCount": 582,
+      "sourceFilename": "Breaking Bad - 5x15 - Granite State.en.srt",
+      "importedAt": "2026-11-08T19:36:34.517Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 15
+      }
+    },
+    {
+      "id": "breaking-bad---5x16---felina",
+      "title": "Breaking Bad - 5x16 - Felina",
+      "lineCount": 544,
+      "sourceFilename": "Breaking Bad - 5x16 - Felina.en.srt",
+      "importedAt": "2026-11-08T19:36:34.519Z",
+      "meta": {
+        "show": "Breaking Bad",
+        "season": 5,
+        "episode": 16
       }
     },
     {

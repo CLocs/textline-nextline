@@ -1,0 +1,7140 @@
+{
+  "title": "Breaking Bad - 1x03 - And the Bag's in the River",
+  "sourceFilename": "Breaking Bad - 1x03 - And the Bag's in the River.en.srt",
+  "cues": [
+    {
+      "index": 1,
+      "startMs": 46021,
+      "endMs": 47523,
+      "rawText": "<i>Let's break it down. </i>"
+    },
+    {
+      "index": 2,
+      "startMs": 49692,
+      "endMs": 51985,
+      "rawText": "Hydrogen. What does that give us?"
+    },
+    {
+      "index": 3,
+      "startMs": 52194,
+      "endMs": 54988,
+      "rawText": "By mole, we're looking at 63 percent."
+    },
+    {
+      "index": 4,
+      "startMs": 55197,
+      "endMs": 57282,
+      "rawText": "Sixty-three?"
+    },
+    {
+      "index": 5,
+      "startMs": 57491,
+      "endMs": 58909,
+      "rawText": "That is a big bite."
+    },
+    {
+      "index": 6,
+      "startMs": 59118,
+      "endMs": 62246,
+      "rawText": "- My next step's gotta be oxygen.\n- Oxygen, 26 percent."
+    },
+    {
+      "index": 7,
+      "startMs": 62454,
+      "endMs": 64623,
+      "rawText": "Twenty-six.\nThere you have your water."
+    },
+    {
+      "index": 8,
+      "startMs": 64832,
+      "endMs": 68210,
+      "rawText": "- Carbon, 9 percent.\n- Carbon, 9."
+    },
+    {
+      "index": 9,
+      "startMs": 68419,
+      "endMs": 71338,
+      "rawText": "- For a total of 98 percent.\n- Right."
+    },
+    {
+      "index": 10,
+      "startMs": 71547,
+      "endMs": 75801,
+      "rawText": "- Nitrogen, 1.25 percent.\n- One-point-two-five."
+    },
+    {
+      "index": 11,
+      "startMs": 76009,
+      "endMs": 78303,
+      "rawText": "That brings you to 99 and a quarter."
+    },
+    {
+      "index": 12,
+      "startMs": 78512,
+      "endMs": 81473,
+      "rawText": "Which only leaves you\nwith the trace elements..."
+    },
+    {
+      "index": 13,
+      "startMs": 81682,
+      "endMs": 84226,
+      "rawText": "...down where the magic happens."
+    },
+    {
+      "index": 14,
+      "startMs": 84435,
+      "endMs": 88188,
+      "rawText": "Oh, wait a minute. What about calcium?\nCalcium's not a trace."
+    },
+    {
+      "index": 15,
+      "startMs": 88397,
+      "endMs": 90190,
+      "rawText": "Got a whole skeleton to account for."
+    },
+    {
+      "index": 16,
+      "startMs": 90399,
+      "endMs": 92067,
+      "rawText": "- You would think, right?\n- Right."
+    },
+    {
+      "index": 17,
+      "startMs": 92276,
+      "endMs": 95821,
+      "rawText": "Calcium.\nCalcium's only 0.25 percent."
+    },
+    {
+      "index": 18,
+      "startMs": 96321,
+      "endMs": 100743,
+      "rawText": "What? That low? Seriously?"
+    },
+    {
+      "index": 19,
+      "startMs": 100951,
+      "endMs": 102661,
+      "rawText": "Damn, I never would've thought that."
+    },
+    {
+      "index": 20,
+      "startMs": 102870,
+      "endMs": 107666,
+      "rawText": "- Okay, so where does iron fit in?\n- Iron."
+    },
+    {
+      "index": 21,
+      "startMs": 107875,
+      "endMs": 114715,
+      "rawText": "Well, okay, 0.00004 percent."
+    },
+    {
+      "index": 22,
+      "startMs": 115049,
+      "endMs": 118802,
+      "rawText": "What? You can't have\nhaemoglobin without iron."
+    },
+    {
+      "index": 23,
+      "startMs": 119011,
+      "endMs": 121847,
+      "rawText": "- Apparently, it don't take much.\n- No doubt. Go figure."
+    },
+    {
+      "index": 24,
+      "startMs": 122056,
+      "endMs": 125893,
+      "rawText": "- Sodium.\n- Sodium, 0.04."
+    },
+    {
+      "index": 25,
+      "startMs": 127895,
+      "endMs": 132816,
+      "rawText": "- Phosphorus, 0.19.\n- Point-one-nine."
+    },
+    {
+      "index": 26,
+      "startMs": 133525,
+      "endMs": 134943,
+      "rawText": "There we go."
+    },
+    {
+      "index": 27,
+      "startMs": 135444,
+      "endMs": 138947,
+      "rawText": "So the whole thing..."
+    },
+    {
+      "index": 28,
+      "startMs": 139156,
+      "endMs": 145579,
+      "rawText": "...adds up to 99.888042 percent."
+    },
+    {
+      "index": 29,
+      "startMs": 148290,
+      "endMs": 153629,
+      "rawText": "We are 0.111958 percent..."
+    },
+    {
+      "index": 30,
+      "startMs": 154671,
+      "endMs": 155964,
+      "rawText": "...shy."
+    },
+    {
+      "index": 31,
+      "startMs": 156173,
+      "endMs": 159802,
+      "rawText": "- Supposedly, that's everything.\n- Yeah?"
+    },
+    {
+      "index": 32,
+      "startMs": 161595,
+      "endMs": 162971,
+      "rawText": "I don't know, I just..."
+    },
+    {
+      "index": 33,
+      "startMs": 164598,
+      "endMs": 166725,
+      "rawText": "It seems like something's missing,\ndoesn't it?"
+    },
+    {
+      "index": 34,
+      "startMs": 169269,
+      "endMs": 172981,
+      "rawText": "There's got to be more\nto a human being than that."
+    },
+    {
+      "index": 35,
+      "startMs": 204430,
+      "endMs": 206056,
+      "rawText": "I hate these shoes."
+    },
+    {
+      "index": 36,
+      "startMs": 206265,
+      "endMs": 208976,
+      "rawText": "Shoes make me look like\nI should be changing bedpans..."
+    },
+    {
+      "index": 37,
+      "startMs": 209184,
+      "endMs": 211020,
+      "rawText": "...like I should be squeaking around..."
+    },
+    {
+      "index": 38,
+      "startMs": 211228,
+      "endMs": 213814,
+      "rawText": "...bringing soup to some\ndisgusting old person..."
+    },
+    {
+      "index": 39,
+      "startMs": 214023,
+      "endMs": 215983,
+      "rawText": "...then take the bus home\nto my 16 cats."
+    },
+    {
+      "index": 40,
+      "startMs": 216191,
+      "endMs": 218402,
+      "rawText": "Then why are you wearing them?"
+    },
+    {
+      "index": 41,
+      "startMs": 219528,
+      "endMs": 222906,
+      "rawText": "I like the support. My arches\nhappen to be extremely archy."
+    },
+    {
+      "index": 42,
+      "startMs": 226076,
+      "endMs": 231707,
+      "rawText": "Yo, what's up? Hey, can you call me,\nlike, in two minutes? Thanks, bye."
+    },
+    {
+      "index": 43,
+      "startMs": 233584,
+      "endMs": 235794,
+      "rawText": "I gotta go take this."
+    },
+    {
+      "index": 44,
+      "startMs": 236795,
+      "endMs": 238505,
+      "rawText": "Female?"
+    },
+    {
+      "index": 45,
+      "startMs": 239882,
+      "endMs": 241759,
+      "rawText": "Louis."
+    },
+    {
+      "index": 46,
+      "startMs": 241967,
+      "endMs": 245429,
+      "rawText": "Not like it's any\nof your business, though."
+    },
+    {
+      "index": 47,
+      "startMs": 245637,
+      "endMs": 247598,
+      "rawText": "- Just be quick about it.\n- No."
+    },
+    {
+      "index": 48,
+      "startMs": 247806,
+      "endMs": 252186,
+      "rawText": "Oh, and please don't say, \"Yo. \""
+    },
+    {
+      "index": 49,
+      "startMs": 252394,
+      "endMs": 255147,
+      "rawText": "You can't know how much I hate that."
+    },
+    {
+      "index": 50,
+      "startMs": 260319,
+      "endMs": 263947,
+      "rawText": "You missed a spot, right there."
+    },
+    {
+      "index": 51,
+      "startMs": 264448,
+      "endMs": 265824,
+      "rawText": "Should you be on that ladder?"
+    },
+    {
+      "index": 52,
+      "startMs": 266033,
+      "endMs": 268494,
+      "rawText": "You're more than welcome\nto take over for me in here."
+    },
+    {
+      "index": 53,
+      "startMs": 268702,
+      "endMs": 270913,
+      "rawText": "I don't see why you don't get\nWalt to do it."
+    },
+    {
+      "index": 54,
+      "startMs": 271372,
+      "endMs": 274333,
+      "rawText": "Yeah, there's an idea."
+    },
+    {
+      "index": 55,
+      "startMs": 276418,
+      "endMs": 279338,
+      "rawText": "So I'm working on\nthis new short story..."
+    },
+    {
+      "index": 56,
+      "startMs": 279546,
+      "endMs": 284134,
+      "rawText": "...and there's this stoner character in it\nand I'm trying to..."
+    },
+    {
+      "index": 57,
+      "startMs": 285427,
+      "endMs": 287554,
+      "rawText": "Well, you know, actually,\nlet me back up."
+    },
+    {
+      "index": 58,
+      "startMs": 287763,
+      "endMs": 293310,
+      "rawText": "You smoked your fair share of pot\nin college, didn't you?"
+    },
+    {
+      "index": 59,
+      "startMs": 295187,
+      "endMs": 298065,
+      "rawText": "I mean, you at least tried it."
+    },
+    {
+      "index": 60,
+      "startMs": 300109,
+      "endMs": 301985,
+      "rawText": "Come on."
+    },
+    {
+      "index": 61,
+      "startMs": 303946,
+      "endMs": 307991,
+      "rawText": "I perhaps tried it. Why?"
+    },
+    {
+      "index": 62,
+      "startMs": 308200,
+      "endMs": 310494,
+      "rawText": "Do you remember it\nhaving an effect on your mood?"
+    },
+    {
+      "index": 63,
+      "startMs": 310703,
+      "endMs": 312788,
+      "rawText": "Like, changing it in any major way?"
+    },
+    {
+      "index": 64,
+      "startMs": 313414,
+      "endMs": 315624,
+      "rawText": "It made me more serious."
+    },
+    {
+      "index": 65,
+      "startMs": 315833,
+      "endMs": 317501,
+      "rawText": "Really?"
+    },
+    {
+      "index": 66,
+      "startMs": 317710,
+      "endMs": 323006,
+      "rawText": "Because I mostly remember it made me\nlight-headed, that's about it."
+    },
+    {
+      "index": 67,
+      "startMs": 323799,
+      "endMs": 327970,
+      "rawText": "I was just wondering\nif it maybe could..."
+    },
+    {
+      "index": 68,
+      "startMs": 330889,
+      "endMs": 335310,
+      "rawText": "You know, it's just a character thing\nI'm stuck on. Never mind."
+    },
+    {
+      "index": 69,
+      "startMs": 335519,
+      "endMs": 338605,
+      "rawText": "- Walter Jr. 's on pot?\n- What? No."
+    },
+    {
+      "index": 70,
+      "startMs": 338814,
+      "endMs": 340482,
+      "rawText": "No. No."
+    },
+    {
+      "index": 71,
+      "startMs": 340691,
+      "endMs": 343235,
+      "rawText": "- What would make you even...?\n- Where's he getting it?"
+    },
+    {
+      "index": 72,
+      "startMs": 343444,
+      "endMs": 346905,
+      "rawText": "- Marie.\n- Seriously. Is it this Louis person?"
+    },
+    {
+      "index": 73,
+      "startMs": 347322,
+      "endMs": 351452,
+      "rawText": "- What are you gonna do about this?\n- Marie, you need to look me in the eye."
+    },
+    {
+      "index": 74,
+      "startMs": 351660,
+      "endMs": 355539,
+      "rawText": "I am strictly asking about a story\nthat I'm writing, that's all."
+    },
+    {
+      "index": 75,
+      "startMs": 356165,
+      "endMs": 360294,
+      "rawText": "Right hand to God,\nWalter Jr. Is not on pot..."
+    },
+    {
+      "index": 76,
+      "startMs": 360502,
+      "endMs": 363338,
+      "rawText": "...certainly not as far as I know."
+    },
+    {
+      "index": 77,
+      "startMs": 364048,
+      "endMs": 366008,
+      "rawText": "Not as far as you know?"
+    },
+    {
+      "index": 78,
+      "startMs": 366508,
+      "endMs": 368093,
+      "rawText": "Marie."
+    },
+    {
+      "index": 79,
+      "startMs": 475242,
+      "endMs": 477119,
+      "rawText": "Hey, look at me."
+    },
+    {
+      "index": 80,
+      "startMs": 478787,
+      "endMs": 480914,
+      "rawText": "Hey, turn around and look at me."
+    },
+    {
+      "index": 81,
+      "startMs": 485627,
+      "endMs": 489339,
+      "rawText": "This here."
+    },
+    {
+      "index": 82,
+      "startMs": 489965,
+      "endMs": 492509,
+      "rawText": "I wouldn't do this\nto my worst enemy."
+    },
+    {
+      "index": 83,
+      "startMs": 494636,
+      "endMs": 496472,
+      "rawText": "This is degrading."
+    },
+    {
+      "index": 84,
+      "startMs": 501226,
+      "endMs": 502895,
+      "rawText": "I'm sorry."
+    },
+    {
+      "index": 85,
+      "startMs": 503812,
+      "endMs": 506940,
+      "rawText": "You hope I'll make it easy\nand just drop dead, don't you?"
+    },
+    {
+      "index": 86,
+      "startMs": 508484,
+      "endMs": 510235,
+      "rawText": "But I won't."
+    },
+    {
+      "index": 87,
+      "startMs": 510444,
+      "endMs": 512863,
+      "rawText": "So either kill me, or let me go."
+    },
+    {
+      "index": 88,
+      "startMs": 514198,
+      "endMs": 516658,
+      "rawText": "You don't have it in you, Walter."
+    },
+    {
+      "index": 89,
+      "startMs": 520704,
+      "endMs": 522456,
+      "rawText": "How do you know my name?"
+    },
+    {
+      "index": 90,
+      "startMs": 523916,
+      "endMs": 528045,
+      "rawText": "Jesse. He told Emilio and me."
+    },
+    {
+      "index": 91,
+      "startMs": 528921,
+      "endMs": 531340,
+      "rawText": "I came by to sell your meth."
+    },
+    {
+      "index": 92,
+      "startMs": 532758,
+      "endMs": 536011,
+      "rawText": "So what? You threaten him, huh?\nDid you beat it out of him?"
+    },
+    {
+      "index": 93,
+      "startMs": 536220,
+      "endMs": 538222,
+      "rawText": "Not even close."
+    },
+    {
+      "index": 94,
+      "startMs": 541934,
+      "endMs": 543977,
+      "rawText": "What else did he tell you?"
+    },
+    {
+      "index": 95,
+      "startMs": 545479,
+      "endMs": 548107,
+      "rawText": "Pretty much everything\nhe could think of."
+    },
+    {
+      "index": 96,
+      "startMs": 548315,
+      "endMs": 550567,
+      "rawText": "You were his high school teacher."
+    },
+    {
+      "index": 97,
+      "startMs": 550776,
+      "endMs": 552778,
+      "rawText": "One time you taught\nabout carbon dioxide..."
+    },
+    {
+      "index": 98,
+      "startMs": 552986,
+      "endMs": 555531,
+      "rawText": "...by making grape soda in class."
+    },
+    {
+      "index": 99,
+      "startMs": 556281,
+      "endMs": 559993,
+      "rawText": "You have a son who's retarded,\nor in a wheelchair or something."
+    },
+    {
+      "index": 100,
+      "startMs": 562496,
+      "endMs": 565457,
+      "rawText": "It shouldn't come across\nas some news flash."
+    },
+    {
+      "index": 101,
+      "startMs": 565666,
+      "endMs": 567835,
+      "rawText": "That partner of yours..."
+    },
+    {
+      "index": 102,
+      "startMs": 568043,
+      "endMs": 569169,
+      "rawText": "...he's got a big mouth."
+    },
+    {
+      "index": 103,
+      "startMs": 571046,
+      "endMs": 572715,
+      "rawText": "Walter..."
+    },
+    {
+      "index": 104,
+      "startMs": 572923,
+      "endMs": 575384,
+      "rawText": "...I don't know what you think\nyou're doing here..."
+    },
+    {
+      "index": 105,
+      "startMs": 575592,
+      "endMs": 577261,
+      "rawText": "...but trust me..."
+    },
+    {
+      "index": 106,
+      "startMs": 578053,
+      "endMs": 580597,
+      "rawText": "...this line of work doesn't suit you."
+    },
+    {
+      "index": 107,
+      "startMs": 582516,
+      "endMs": 585936,
+      "rawText": "So I should just let you go, then."
+    },
+    {
+      "index": 108,
+      "startMs": 586145,
+      "endMs": 590649,
+      "rawText": "Just unlock you and... adi�s, huh?"
+    },
+    {
+      "index": 109,
+      "startMs": 591150,
+      "endMs": 593610,
+      "rawText": "I don't see\nwhat other choice you have."
+    },
+    {
+      "index": 110,
+      "startMs": 593819,
+      "endMs": 596655,
+      "rawText": "It's between that\nand cold-blooded murder."
+    },
+    {
+      "index": 111,
+      "startMs": 597448,
+      "endMs": 598907,
+      "rawText": "Besides..."
+    },
+    {
+      "index": 112,
+      "startMs": 600117,
+      "endMs": 602077,
+      "rawText": "...your real problem's\nsitting upstairs."
+    },
+    {
+      "index": 113,
+      "startMs": 621722,
+      "endMs": 623140,
+      "rawText": "Occupied."
+    },
+    {
+      "index": 114,
+      "startMs": 623766,
+      "endMs": 626352,
+      "rawText": "Hey, yo, I'm trying to pinch one off\nin here."
+    },
+    {
+      "index": 115,
+      "startMs": 626560,
+      "endMs": 628604,
+      "rawText": "Just give me some privacy,\nwould you?"
+    },
+    {
+      "index": 116,
+      "startMs": 631940,
+      "endMs": 634526,
+      "rawText": "- Okay.\n- What the hell, man?"
+    },
+    {
+      "index": 117,
+      "startMs": 635611,
+      "endMs": 637404,
+      "rawText": "What are you doing, man?"
+    },
+    {
+      "index": 118,
+      "startMs": 637613,
+      "endMs": 639865,
+      "rawText": "- You asshole. What...?\n- You told him my name."
+    },
+    {
+      "index": 119,
+      "startMs": 640074,
+      "endMs": 642159,
+      "rawText": "- Says who, him?\n- My name, where I work."
+    },
+    {
+      "index": 120,
+      "startMs": 642368,
+      "endMs": 644745,
+      "rawText": "- You told him about my son.\n- Hey, don't touch me."
+    },
+    {
+      "index": 121,
+      "startMs": 644953,
+      "endMs": 647539,
+      "rawText": "- You damn junkie.\n- No, give me that. That's mine."
+    },
+    {
+      "index": 122,
+      "startMs": 647748,
+      "endMs": 649875,
+      "rawText": "This is going down the toilet.\nWatch it go."
+    },
+    {
+      "index": 123,
+      "startMs": 650084,
+      "endMs": 651585,
+      "rawText": "No, that's worth 40 grand, you..."
+    },
+    {
+      "index": 124,
+      "startMs": 651794,
+      "endMs": 654505,
+      "rawText": "It's worth nothing\nwhen you smoke it all."
+    },
+    {
+      "index": 125,
+      "startMs": 654713,
+      "endMs": 656673,
+      "rawText": "Get off the toilet."
+    },
+    {
+      "index": 126,
+      "startMs": 656882,
+      "endMs": 658675,
+      "rawText": "- Get off the toilet!\n- No."
+    },
+    {
+      "index": 127,
+      "startMs": 660761,
+      "endMs": 663806,
+      "rawText": "Get off the toilet."
+    },
+    {
+      "index": 128,
+      "startMs": 664139,
+      "endMs": 666266,
+      "rawText": "Stop it."
+    },
+    {
+      "index": 129,
+      "startMs": 669645,
+      "endMs": 671021,
+      "rawText": "No. No way."
+    },
+    {
+      "index": 130,
+      "startMs": 705556,
+      "endMs": 706807,
+      "rawText": "No."
+    },
+    {
+      "index": 131,
+      "startMs": 707016,
+      "endMs": 708976,
+      "rawText": "No, no, no."
+    },
+    {
+      "index": 132,
+      "startMs": 709184,
+      "endMs": 711729,
+      "rawText": "Jesse, where the hell do you think\nyou're going?"
+    },
+    {
+      "index": 133,
+      "startMs": 711937,
+      "endMs": 713272,
+      "rawText": "Back off, man, Jesus."
+    },
+    {
+      "index": 134,
+      "startMs": 713480,
+      "endMs": 714940,
+      "rawText": "- We've got work to do.\n- No, no."
+    },
+    {
+      "index": 135,
+      "startMs": 715149,
+      "endMs": 717651,
+      "rawText": "You got work to do. I did my part."
+    },
+    {
+      "index": 136,
+      "startMs": 717860,
+      "endMs": 720320,
+      "rawText": "You mean that obscenity\nI spent hours cleaning up?"
+    },
+    {
+      "index": 137,
+      "startMs": 720529,
+      "endMs": 723407,
+      "rawText": "- That is your contribution?\n- Kiss my pink ass, man."
+    },
+    {
+      "index": 138,
+      "startMs": 723615,
+      "endMs": 726910,
+      "rawText": "I didn't ask for any of this. How am I\nsupposed to live here now, huh?"
+    },
+    {
+      "index": 139,
+      "startMs": 727119,
+      "endMs": 729705,
+      "rawText": "My whole house smells like\ntoe cheese and dry cleaning."
+    },
+    {
+      "index": 140,
+      "startMs": 729913,
+      "endMs": 733000,
+      "rawText": "Because you didn't follow\nmy instructions."
+    },
+    {
+      "index": 141,
+      "startMs": 733208,
+      "endMs": 734918,
+      "rawText": "Oh, well, <i>Heil</i> Hitler, bitch."
+    },
+    {
+      "index": 142,
+      "startMs": 735127,
+      "endMs": 737379,
+      "rawText": "And let me tell you something else."
+    },
+    {
+      "index": 143,
+      "startMs": 737588,
+      "endMs": 740382,
+      "rawText": "We flipped a coin, okay?"
+    },
+    {
+      "index": 144,
+      "startMs": 740591,
+      "endMs": 743135,
+      "rawText": "You and me. You and me."
+    },
+    {
+      "index": 145,
+      "startMs": 743343,
+      "endMs": 745637,
+      "rawText": "Coin flip is sacred."
+    },
+    {
+      "index": 146,
+      "startMs": 756148,
+      "endMs": 758442,
+      "rawText": "Your job is waiting for you\nin that basement..."
+    },
+    {
+      "index": 147,
+      "startMs": 758650,
+      "endMs": 760861,
+      "rawText": "...as per the coin."
+    },
+    {
+      "index": 148,
+      "startMs": 761070,
+      "endMs": 762571,
+      "rawText": "Fucking do it, already."
+    },
+    {
+      "index": 149,
+      "startMs": 777544,
+      "endMs": 780506,
+      "rawText": "That's what she said. Yeah."
+    },
+    {
+      "index": 150,
+      "startMs": 781548,
+      "endMs": 783884,
+      "rawText": "Yeah. Yeah, I think\nwe have some of those."
+    },
+    {
+      "index": 151,
+      "startMs": 784593,
+      "endMs": 786553,
+      "rawText": "- Yeah, you'll have to try them on.\n- Hello?"
+    },
+    {
+      "index": 152,
+      "startMs": 786762,
+      "endMs": 789223,
+      "rawText": "- Seven and a half, maybe. I don't know.\n- Excuse me."
+    },
+    {
+      "index": 153,
+      "startMs": 789431,
+      "endMs": 790849,
+      "rawText": "Do you have these in black?"
+    },
+    {
+      "index": 154,
+      "startMs": 793268,
+      "endMs": 795020,
+      "rawText": "Anyways, so like I was saying..."
+    },
+    {
+      "index": 155,
+      "startMs": 795229,
+      "endMs": 798565,
+      "rawText": "...I went to the party the other night.\nYeah, Tony was there."
+    },
+    {
+      "index": 156,
+      "startMs": 802403,
+      "endMs": 803696,
+      "rawText": "Whatever."
+    },
+    {
+      "index": 157,
+      "startMs": 803904,
+      "endMs": 806532,
+      "rawText": "Hey, where have you been?\nI called you two hours ago."
+    },
+    {
+      "index": 158,
+      "startMs": 806740,
+      "endMs": 809201,
+      "rawText": "<i>Sorry, baby, I'm kind of busy here.</i>\n<i>What's up?</i>"
+    },
+    {
+      "index": 159,
+      "startMs": 809410,
+      "endMs": 813622,
+      "rawText": "Well, kind of a lot, actually,\nand it's a delicate subject."
+    },
+    {
+      "index": 160,
+      "startMs": 813831,
+      "endMs": 818669,
+      "rawText": "- So I need you to focus, and...\n<i>- Hey, sit down! Sit down!</i>"
+    },
+    {
+      "index": 161,
+      "startMs": 818877,
+      "endMs": 820963,
+      "rawText": "Damn it, Hank."
+    },
+    {
+      "index": 162,
+      "startMs": 821171,
+      "endMs": 823924,
+      "rawText": "I'm sorry, babe, I'm just in the middle\nof something here."
+    },
+    {
+      "index": 163,
+      "startMs": 824133,
+      "endMs": 825968,
+      "rawText": "Get down. Get down."
+    },
+    {
+      "index": 164,
+      "startMs": 826176,
+      "endMs": 829888,
+      "rawText": "Sit down! Sit your ass down,\n<i>comprende?</i> You too, sit down!"
+    },
+    {
+      "index": 165,
+      "startMs": 835227,
+      "endMs": 837354,
+      "rawText": "I'm back, babe. What's up?"
+    },
+    {
+      "index": 166,
+      "startMs": 837563,
+      "endMs": 840899,
+      "rawText": "- Walter Jr.\n<i>- Yeah, what about him?</i>"
+    },
+    {
+      "index": 167,
+      "startMs": 841442,
+      "endMs": 844695,
+      "rawText": "Marijuana. He's smoking it."
+    },
+    {
+      "index": 168,
+      "startMs": 844903,
+      "endMs": 847072,
+      "rawText": "<i>Excuse me, his own mother</i>\n<i>seems to think so. </i>"
+    },
+    {
+      "index": 169,
+      "startMs": 847281,
+      "endMs": 849199,
+      "rawText": "- Skyler told you that?\n<i>- She inferred it. </i>"
+    },
+    {
+      "index": 170,
+      "startMs": 849408,
+      "endMs": 850701,
+      "rawText": "She inferred it, huh?"
+    },
+    {
+      "index": 171,
+      "startMs": 851702,
+      "endMs": 853704,
+      "rawText": "She strongly inferred it."
+    },
+    {
+      "index": 172,
+      "startMs": 853912,
+      "endMs": 859460,
+      "rawText": "Like, \" Doctor, my friend suffers\nfrom erectile dysfunction. \""
+    },
+    {
+      "index": 173,
+      "startMs": 859668,
+      "endMs": 861211,
+      "rawText": "<i>- Please, come on. </i>\n- All right."
+    },
+    {
+      "index": 174,
+      "startMs": 861420,
+      "endMs": 863547,
+      "rawText": "- Talk to him.\n<i>- Walt should talk to him. </i>"
+    },
+    {
+      "index": 175,
+      "startMs": 863756,
+      "endMs": 865716,
+      "rawText": "Skyler, better yet.\nShe'll kick his butt."
+    },
+    {
+      "index": 176,
+      "startMs": 865924,
+      "endMs": 868010,
+      "rawText": "<i>I think it ought to be you. </i>"
+    },
+    {
+      "index": 177,
+      "startMs": 868218,
+      "endMs": 870220,
+      "rawText": "You know, tell him\nsome horror stories."
+    },
+    {
+      "index": 178,
+      "startMs": 870429,
+      "endMs": 873140,
+      "rawText": "Maybe show him\nsome autopsy pictures."
+    },
+    {
+      "index": 179,
+      "startMs": 873349,
+      "endMs": 875184,
+      "rawText": "An autopsy of a pot overdose?\nCome on."
+    },
+    {
+      "index": 180,
+      "startMs": 875517,
+      "endMs": 877728,
+      "rawText": "I don't know, baby,\nit's just that, you know..."
+    },
+    {
+      "index": 181,
+      "startMs": 877936,
+      "endMs": 881106,
+      "rawText": "...I figure his dad should be the one\ndoing this, don't you think?"
+    },
+    {
+      "index": 182,
+      "startMs": 881315,
+      "endMs": 883567,
+      "rawText": "Hank, he respects you."
+    },
+    {
+      "index": 183,
+      "startMs": 886987,
+      "endMs": 890824,
+      "rawText": "Yeah, all right. Well, listen, yeah,\nI'll swing by their place after work."
+    },
+    {
+      "index": 184,
+      "startMs": 891033,
+      "endMs": 893744,
+      "rawText": "- Good. Scare him straight.\n<i>- Yeah, yeah. </i>"
+    },
+    {
+      "index": 185,
+      "startMs": 893952,
+      "endMs": 895537,
+      "rawText": "Hey, where's my sugar?"
+    },
+    {
+      "index": 186,
+      "startMs": 900876,
+      "endMs": 902002,
+      "rawText": "Excuse me, ma'am."
+    },
+    {
+      "index": 187,
+      "startMs": 902461,
+      "endMs": 905422,
+      "rawText": "Ma'am, you need to be wearing footies\nbefore you try those on."
+    },
+    {
+      "index": 188,
+      "startMs": 905964,
+      "endMs": 907549,
+      "rawText": "I'm extremely clean."
+    },
+    {
+      "index": 189,
+      "startMs": 907758,
+      "endMs": 910761,
+      "rawText": "Yeah, well, I'd really appreciate it."
+    },
+    {
+      "index": 190,
+      "startMs": 912262,
+      "endMs": 915724,
+      "rawText": "Hey, sorry about that.\nYeah, I'll check."
+    },
+    {
+      "index": 191,
+      "startMs": 916684,
+      "endMs": 919144,
+      "rawText": "You know, I hid a pair for you\nlast week, grey ones."
+    },
+    {
+      "index": 192,
+      "startMs": 970154,
+      "endMs": 973323,
+      "rawText": "- What do you think?\n- About what?"
+    },
+    {
+      "index": 193,
+      "startMs": 974533,
+      "endMs": 975826,
+      "rawText": "This look like a nice place?"
+    },
+    {
+      "index": 194,
+      "startMs": 976702,
+      "endMs": 978829,
+      "rawText": "No, not really."
+    },
+    {
+      "index": 195,
+      "startMs": 979038,
+      "endMs": 981040,
+      "rawText": "Think you'd like to live here?"
+    },
+    {
+      "index": 196,
+      "startMs": 981540,
+      "endMs": 983042,
+      "rawText": "No."
+    },
+    {
+      "index": 197,
+      "startMs": 983250,
+      "endMs": 986128,
+      "rawText": "- Sure about that?\n- Yeah, pretty sure."
+    },
+    {
+      "index": 198,
+      "startMs": 986336,
+      "endMs": 989423,
+      "rawText": "I thought we were going to\nCold Stone Creamery."
+    },
+    {
+      "index": 199,
+      "startMs": 989631,
+      "endMs": 992176,
+      "rawText": "Yeah, yeah, well,\nwe took a little detour."
+    },
+    {
+      "index": 200,
+      "startMs": 992384,
+      "endMs": 995429,
+      "rawText": "Figure we'll come over\nand check out how the other half lives."
+    },
+    {
+      "index": 201,
+      "startMs": 995637,
+      "endMs": 998140,
+      "rawText": "This here is what we call\nthe Crystal Palace."
+    },
+    {
+      "index": 202,
+      "startMs": 998349,
+      "endMs": 1001101,
+      "rawText": "You know who lives in the palace?\nMeth-heads."
+    },
+    {
+      "index": 203,
+      "startMs": 1001852,
+      "endMs": 1004104,
+      "rawText": "Nasty, skeevy meth-heads..."
+    },
+    {
+      "index": 204,
+      "startMs": 1004313,
+      "endMs": 1008275,
+      "rawText": "...who'd sell their grandma's coochie\nfor a hit."
+    },
+    {
+      "index": 205,
+      "startMs": 1008484,
+      "endMs": 1010944,
+      "rawText": "Oh, you think that's funny?\nThat's funny, huh? Yeah."
+    },
+    {
+      "index": 206,
+      "startMs": 1011153,
+      "endMs": 1013447,
+      "rawText": "Let me tell you something.\nEvery one of these..."
+    },
+    {
+      "index": 207,
+      "startMs": 1013655,
+      "endMs": 1017951,
+      "rawText": "...miserable wastes of skin\ngot started how?"
+    },
+    {
+      "index": 208,
+      "startMs": 1018160,
+      "endMs": 1020371,
+      "rawText": "- How do you think they started?\n- I don't know."
+    },
+    {
+      "index": 209,
+      "startMs": 1020579,
+      "endMs": 1023374,
+      "rawText": "What do you think they were doing\nbefore they graduated..."
+    },
+    {
+      "index": 210,
+      "startMs": 1023582,
+      "endMs": 1026251,
+      "rawText": "...to shooting meth in their dicks?"
+    },
+    {
+      "index": 211,
+      "startMs": 1027920,
+      "endMs": 1029713,
+      "rawText": "A gateway drug."
+    },
+    {
+      "index": 212,
+      "startMs": 1029922,
+      "endMs": 1031632,
+      "rawText": "That's what we call it."
+    },
+    {
+      "index": 213,
+      "startMs": 1031840,
+      "endMs": 1034176,
+      "rawText": "Dollars to doughnuts,\nand I shit you not..."
+    },
+    {
+      "index": 214,
+      "startMs": 1034385,
+      "endMs": 1038263,
+      "rawText": "...that gateway drug was marijuana,\nevery time."
+    },
+    {
+      "index": 215,
+      "startMs": 1038472,
+      "endMs": 1040474,
+      "rawText": "- You understand?\n- Yeah."
+    },
+    {
+      "index": 216,
+      "startMs": 1040683,
+      "endMs": 1043727,
+      "rawText": "So why are you telling me this?"
+    },
+    {
+      "index": 217,
+      "startMs": 1043936,
+      "endMs": 1046563,
+      "rawText": "Because I love you,\nyou little bastard."
+    },
+    {
+      "index": 218,
+      "startMs": 1047189,
+      "endMs": 1049858,
+      "rawText": "And, hey, I was young once,\nyou know."
+    },
+    {
+      "index": 219,
+      "startMs": 1050818,
+      "endMs": 1053654,
+      "rawText": "The world's a messed up place,\nyou know."
+    },
+    {
+      "index": 220,
+      "startMs": 1053862,
+      "endMs": 1057199,
+      "rawText": "You know, just this one time,\nyou know..."
+    },
+    {
+      "index": 221,
+      "startMs": 1057408,
+      "endMs": 1060411,
+      "rawText": "Hey! Hey! Hey, you!"
+    },
+    {
+      "index": 222,
+      "startMs": 1060619,
+      "endMs": 1064498,
+      "rawText": "Yeah, you, princess. Get over here."
+    },
+    {
+      "index": 223,
+      "startMs": 1067000,
+      "endMs": 1069712,
+      "rawText": "Hey, don't make me\nget out of the car."
+    },
+    {
+      "index": 224,
+      "startMs": 1074133,
+      "endMs": 1075426,
+      "rawText": "Check this out."
+    },
+    {
+      "index": 225,
+      "startMs": 1075634,
+      "endMs": 1077678,
+      "rawText": "What I'm talking about."
+    },
+    {
+      "index": 226,
+      "startMs": 1078762,
+      "endMs": 1081181,
+      "rawText": "- I ain't holding, okay?\n- Did I say open your mouth?"
+    },
+    {
+      "index": 227,
+      "startMs": 1081390,
+      "endMs": 1083267,
+      "rawText": "And hands off the car."
+    },
+    {
+      "index": 228,
+      "startMs": 1084018,
+      "endMs": 1087354,
+      "rawText": "Other side. Go around the other side,\ntalk to my friend here."
+    },
+    {
+      "index": 229,
+      "startMs": 1090274,
+      "endMs": 1092401,
+      "rawText": "What's your name, sweetheart?"
+    },
+    {
+      "index": 230,
+      "startMs": 1093694,
+      "endMs": 1095404,
+      "rawText": "- Wendy.\n- Wendy, huh?"
+    },
+    {
+      "index": 231,
+      "startMs": 1095612,
+      "endMs": 1097740,
+      "rawText": "How much you charge\nfor a windy, Wendy?"
+    },
+    {
+      "index": 232,
+      "startMs": 1098240,
+      "endMs": 1101160,
+      "rawText": "- I ain't doing him, he's a kid.\n- Jesus, was that my question?"
+    },
+    {
+      "index": 233,
+      "startMs": 1101368,
+      "endMs": 1104121,
+      "rawText": "Don't think so hard,\nit's gonna hurt your brain."
+    },
+    {
+      "index": 234,
+      "startMs": 1104329,
+      "endMs": 1107207,
+      "rawText": "- Are you on the pipe or on the needle?\n- Nothing. Neither."
+    },
+    {
+      "index": 235,
+      "startMs": 1107416,
+      "endMs": 1109585,
+      "rawText": "Yeah, yeah.\nShow us your teeth, huh?"
+    },
+    {
+      "index": 236,
+      "startMs": 1109793,
+      "endMs": 1112671,
+      "rawText": "Come on, Wendy,\nlet's see those pearly whites."
+    },
+    {
+      "index": 237,
+      "startMs": 1114465,
+      "endMs": 1118344,
+      "rawText": "Oh, God. See that? Pipe, definitely."
+    },
+    {
+      "index": 238,
+      "startMs": 1118552,
+      "endMs": 1120179,
+      "rawText": "Big time, big time on the pipe."
+    },
+    {
+      "index": 239,
+      "startMs": 1120387,
+      "endMs": 1122473,
+      "rawText": "You got something\nyou wanna ask Wendy?"
+    },
+    {
+      "index": 240,
+      "startMs": 1122681,
+      "endMs": 1124266,
+      "rawText": "No, not really."
+    },
+    {
+      "index": 241,
+      "startMs": 1124475,
+      "endMs": 1126602,
+      "rawText": "You ever smoke anything else,\nWendy?"
+    },
+    {
+      "index": 242,
+      "startMs": 1127102,
+      "endMs": 1129355,
+      "rawText": "Sausages don't count."
+    },
+    {
+      "index": 243,
+      "startMs": 1130773,
+      "endMs": 1133942,
+      "rawText": "Seriously, tell my friend here\nhow you got started."
+    },
+    {
+      "index": 244,
+      "startMs": 1134151,
+      "endMs": 1137946,
+      "rawText": "Probably used to be, what? Like a\nGirl Scout, or sang in the church choir."
+    },
+    {
+      "index": 245,
+      "startMs": 1138155,
+      "endMs": 1142201,
+      "rawText": "- What are you, like, handicapped?\n- He broke his leg playing football."
+    },
+    {
+      "index": 246,
+      "startMs": 1142409,
+      "endMs": 1146080,
+      "rawText": "He's a qb. Got an arm like a howitzer."
+    },
+    {
+      "index": 247,
+      "startMs": 1147539,
+      "endMs": 1150292,
+      "rawText": "So tell me, Wendy, you smoke pot?"
+    },
+    {
+      "index": 248,
+      "startMs": 1150501,
+      "endMs": 1151627,
+      "rawText": "Why, you got some?"
+    },
+    {
+      "index": 249,
+      "startMs": 1151835,
+      "endMs": 1154463,
+      "rawText": "No. Right, hoof it, get lost.\nGet out of here."
+    },
+    {
+      "index": 250,
+      "startMs": 1154671,
+      "endMs": 1157925,
+      "rawText": "Hey, fair warning, next time\nI'm gonna bust you."
+    },
+    {
+      "index": 251,
+      "startMs": 1165432,
+      "endMs": 1166725,
+      "rawText": "So, what do you think?"
+    },
+    {
+      "index": 252,
+      "startMs": 1168977,
+      "endMs": 1169978,
+      "rawText": "Cool."
+    },
+    {
+      "index": 253,
+      "startMs": 1179405,
+      "endMs": 1182950,
+      "rawText": "Shut the door. Shut the door.\nLock it. Lock it, lock it."
+    },
+    {
+      "index": 254,
+      "startMs": 1183951,
+      "endMs": 1184993,
+      "rawText": "Who the hell was that?"
+    },
+    {
+      "index": 255,
+      "startMs": 1185202,
+      "endMs": 1187955,
+      "rawText": "Cop and some football player\nmessing with me."
+    },
+    {
+      "index": 256,
+      "startMs": 1188163,
+      "endMs": 1190416,
+      "rawText": "They ask about me, huh?"
+    },
+    {
+      "index": 257,
+      "startMs": 1191333,
+      "endMs": 1193127,
+      "rawText": "No, I think they just wanted pot."
+    },
+    {
+      "index": 258,
+      "startMs": 1207141,
+      "endMs": 1208726,
+      "rawText": "Right there."
+    },
+    {
+      "index": 259,
+      "startMs": 1210144,
+      "endMs": 1212438,
+      "rawText": "Shit, I left my root beer."
+    },
+    {
+      "index": 260,
+      "startMs": 1261653,
+      "endMs": 1264698,
+      "rawText": "<i>- Hello?</i>\n- Hey, sweetie, it's me."
+    },
+    {
+      "index": 261,
+      "startMs": 1264907,
+      "endMs": 1266700,
+      "rawText": "Listen, I'm so sorry."
+    },
+    {
+      "index": 262,
+      "startMs": 1266909,
+      "endMs": 1272122,
+      "rawText": "Time, it just completely got away\nfrom me. I'm just..."
+    },
+    {
+      "index": 263,
+      "startMs": 1273332,
+      "endMs": 1277086,
+      "rawText": "My fault, my fault.\nBogdan just kept me here late..."
+    },
+    {
+      "index": 264,
+      "startMs": 1277294,
+      "endMs": 1279880,
+      "rawText": "...you know, doing some inventory..."
+    },
+    {
+      "index": 265,
+      "startMs": 1280089,
+      "endMs": 1282675,
+      "rawText": "...and I should've just..."
+    },
+    {
+      "index": 266,
+      "startMs": 1282883,
+      "endMs": 1288013,
+      "rawText": "You know, you're right.\nI gotta learn to say, you know, \"No. \""
+    },
+    {
+      "index": 267,
+      "startMs": 1288222,
+      "endMs": 1290224,
+      "rawText": "But..."
+    },
+    {
+      "index": 268,
+      "startMs": 1291600,
+      "endMs": 1294019,
+      "rawText": "Sky? You there?"
+    },
+    {
+      "index": 269,
+      "startMs": 1295437,
+      "endMs": 1297523,
+      "rawText": "<i>You're at the car wash?</i>"
+    },
+    {
+      "index": 270,
+      "startMs": 1298482,
+      "endMs": 1300109,
+      "rawText": "Yeah."
+    },
+    {
+      "index": 271,
+      "startMs": 1300901,
+      "endMs": 1305906,
+      "rawText": "I seriously doubt that,\nsince you quit two weeks ago."
+    },
+    {
+      "index": 272,
+      "startMs": 1311578,
+      "endMs": 1315416,
+      "rawText": "I called Bogdan, looking for you."
+    },
+    {
+      "index": 273,
+      "startMs": 1315958,
+      "endMs": 1318043,
+      "rawText": "Quite an earful he gave me."
+    },
+    {
+      "index": 274,
+      "startMs": 1320170,
+      "endMs": 1321922,
+      "rawText": "Listen..."
+    },
+    {
+      "index": 275,
+      "startMs": 1323590,
+      "endMs": 1325801,
+      "rawText": "Listen, I'll come home\nand we'll talk about it."
+    },
+    {
+      "index": 276,
+      "startMs": 1327344,
+      "endMs": 1329805,
+      "rawText": "- I don't think so, Walt.\n<i>- Honey... </i>"
+    },
+    {
+      "index": 277,
+      "startMs": 1330014,
+      "endMs": 1332016,
+      "rawText": "Wherever you are..."
+    },
+    {
+      "index": 278,
+      "startMs": 1333100,
+      "endMs": 1335894,
+      "rawText": "...why don't you just\nstay there tonight?"
+    },
+    {
+      "index": 279,
+      "startMs": 1340566,
+      "endMs": 1341984,
+      "rawText": "Skyler?"
+    },
+    {
+      "index": 280,
+      "startMs": 1343777,
+      "endMs": 1345779,
+      "rawText": "<i>Walter?</i>"
+    },
+    {
+      "index": 281,
+      "startMs": 1346155,
+      "endMs": 1347614,
+      "rawText": "Hello?"
+    },
+    {
+      "index": 282,
+      "startMs": 1347823,
+      "endMs": 1350617,
+      "rawText": "Hey, there's a hungry guy here."
+    },
+    {
+      "index": 283,
+      "startMs": 1448882,
+      "endMs": 1450884,
+      "rawText": "Come on."
+    },
+    {
+      "index": 284,
+      "startMs": 1473323,
+      "endMs": 1474950,
+      "rawText": "Damn."
+    },
+    {
+      "index": 285,
+      "startMs": 1475451,
+      "endMs": 1477828,
+      "rawText": "I didn't think you were coming back."
+    },
+    {
+      "index": 286,
+      "startMs": 1492176,
+      "endMs": 1493761,
+      "rawText": "How long was I out?"
+    },
+    {
+      "index": 287,
+      "startMs": 1495012,
+      "endMs": 1496680,
+      "rawText": "Ten, 15 minutes?"
+    },
+    {
+      "index": 288,
+      "startMs": 1498682,
+      "endMs": 1502311,
+      "rawText": "I've never seen someone knock\nthemselves out just by coughing."
+    },
+    {
+      "index": 289,
+      "startMs": 1502519,
+      "endMs": 1504563,
+      "rawText": "Were you on the same shit\nyou used on me?"
+    },
+    {
+      "index": 290,
+      "startMs": 1513572,
+      "endMs": 1514948,
+      "rawText": "I've got lung cancer."
+    },
+    {
+      "index": 291,
+      "startMs": 1539765,
+      "endMs": 1542226,
+      "rawText": "I'll make you another sandwich."
+    },
+    {
+      "index": 292,
+      "startMs": 1579138,
+      "endMs": 1580931,
+      "rawText": "It's safe."
+    },
+    {
+      "index": 293,
+      "startMs": 1581932,
+      "endMs": 1583934,
+      "rawText": "There's no poison."
+    },
+    {
+      "index": 294,
+      "startMs": 1587104,
+      "endMs": 1589231,
+      "rawText": "Because that would be\nthe way to do it..."
+    },
+    {
+      "index": 295,
+      "startMs": 1589982,
+      "endMs": 1591984,
+      "rawText": "...if you're gonna do it."
+    },
+    {
+      "index": 296,
+      "startMs": 1593277,
+      "endMs": 1595487,
+      "rawText": "I suppose it would."
+    },
+    {
+      "index": 297,
+      "startMs": 1597281,
+      "endMs": 1599867,
+      "rawText": "You being a chemist and all."
+    },
+    {
+      "index": 298,
+      "startMs": 1617051,
+      "endMs": 1620971,
+      "rawText": "So that name..."
+    },
+    {
+      "index": 299,
+      "startMs": 1621388,
+      "endMs": 1623557,
+      "rawText": "...Krazy-8."
+    },
+    {
+      "index": 300,
+      "startMs": 1623849,
+      "endMs": 1625976,
+      "rawText": "Do I really have to call you that?"
+    },
+    {
+      "index": 301,
+      "startMs": 1626185,
+      "endMs": 1628771,
+      "rawText": "I mean, no offence, but..."
+    },
+    {
+      "index": 302,
+      "startMs": 1629313,
+      "endMs": 1631273,
+      "rawText": "...don't you have a real name?"
+    },
+    {
+      "index": 303,
+      "startMs": 1632524,
+      "endMs": 1634276,
+      "rawText": "Domingo."
+    },
+    {
+      "index": 304,
+      "startMs": 1635361,
+      "endMs": 1637029,
+      "rawText": "Domingo."
+    },
+    {
+      "index": 305,
+      "startMs": 1637237,
+      "endMs": 1639990,
+      "rawText": "That's \"Sunday,\" right?"
+    },
+    {
+      "index": 306,
+      "startMs": 1642493,
+      "endMs": 1646330,
+      "rawText": "I'd rather call you that,\nif you don't mind."
+    },
+    {
+      "index": 307,
+      "startMs": 1649041,
+      "endMs": 1651668,
+      "rawText": "I can't say I ever liked it much."
+    },
+    {
+      "index": 308,
+      "startMs": 1654797,
+      "endMs": 1657883,
+      "rawText": "So, Domingo..."
+    },
+    {
+      "index": 309,
+      "startMs": 1658092,
+      "endMs": 1661929,
+      "rawText": "...you from around town here\nor someplace else?"
+    },
+    {
+      "index": 310,
+      "startMs": 1662262,
+      "endMs": 1664306,
+      "rawText": "Hey, Walter?\nYou getting to know me..."
+    },
+    {
+      "index": 311,
+      "startMs": 1664515,
+      "endMs": 1667559,
+      "rawText": "...is not gonna make it easier\nfor you to kill me."
+    },
+    {
+      "index": 312,
+      "startMs": 1668102,
+      "endMs": 1669853,
+      "rawText": "Not that I mind, you understand?"
+    },
+    {
+      "index": 313,
+      "startMs": 1672439,
+      "endMs": 1675943,
+      "rawText": "You know, you keep telling me\nthat I don't have it in me."
+    },
+    {
+      "index": 314,
+      "startMs": 1676151,
+      "endMs": 1677820,
+      "rawText": "Well, maybe."
+    },
+    {
+      "index": 315,
+      "startMs": 1678320,
+      "endMs": 1680197,
+      "rawText": "But maybe not."
+    },
+    {
+      "index": 316,
+      "startMs": 1683367,
+      "endMs": 1686078,
+      "rawText": "I sure as hell am looking for\nany reason not to."
+    },
+    {
+      "index": 317,
+      "startMs": 1686286,
+      "endMs": 1689707,
+      "rawText": "I mean, any good reason at all."
+    },
+    {
+      "index": 318,
+      "startMs": 1695879,
+      "endMs": 1697965,
+      "rawText": "Sell me."
+    },
+    {
+      "index": 319,
+      "startMs": 1698173,
+      "endMs": 1700217,
+      "rawText": "Tell me what it is."
+    },
+    {
+      "index": 320,
+      "startMs": 1703846,
+      "endMs": 1706265,
+      "rawText": "I'd start off by promising\nthat if you let me go..."
+    },
+    {
+      "index": 321,
+      "startMs": 1706473,
+      "endMs": 1709810,
+      "rawText": "...I won't come after you,\nthat you'd be safe."
+    },
+    {
+      "index": 322,
+      "startMs": 1710019,
+      "endMs": 1712021,
+      "rawText": "I guess I'd say\nwhat happened between us..."
+    },
+    {
+      "index": 323,
+      "startMs": 1713147,
+      "endMs": 1714356,
+      "rawText": "...never happened."
+    },
+    {
+      "index": 324,
+      "startMs": 1714565,
+      "endMs": 1718235,
+      "rawText": "And what's best for both parties\nis we forget all about it."
+    },
+    {
+      "index": 325,
+      "startMs": 1718986,
+      "endMs": 1722614,
+      "rawText": "But you know anybody in my situation\nwould make promises like that."
+    },
+    {
+      "index": 326,
+      "startMs": 1722823,
+      "endMs": 1725200,
+      "rawText": "And, in my case,\nthey happen to be true."
+    },
+    {
+      "index": 327,
+      "startMs": 1725409,
+      "endMs": 1726869,
+      "rawText": "You'll never know for sure."
+    },
+    {
+      "index": 328,
+      "startMs": 1730914,
+      "endMs": 1733083,
+      "rawText": "So, what else can I tell you?"
+    },
+    {
+      "index": 329,
+      "startMs": 1738964,
+      "endMs": 1740841,
+      "rawText": "I don't know."
+    },
+    {
+      "index": 330,
+      "startMs": 1742217,
+      "endMs": 1744762,
+      "rawText": "But you've gotta convince me."
+    },
+    {
+      "index": 331,
+      "startMs": 1745637,
+      "endMs": 1749558,
+      "rawText": "And you're going nowhere\nuntil you do."
+    },
+    {
+      "index": 332,
+      "startMs": 1750768,
+      "endMs": 1753103,
+      "rawText": "- Hey, yeah.\n- Yeah."
+    },
+    {
+      "index": 333,
+      "startMs": 1753395,
+      "endMs": 1755564,
+      "rawText": "I'm from here in town, man."
+    },
+    {
+      "index": 334,
+      "startMs": 1756357,
+      "endMs": 1758901,
+      "rawText": "ABQ, born and bred."
+    },
+    {
+      "index": 335,
+      "startMs": 1759109,
+      "endMs": 1761028,
+      "rawText": "Never left."
+    },
+    {
+      "index": 336,
+      "startMs": 1761653,
+      "endMs": 1764907,
+      "rawText": "Studied Business Administration\nover at UNM..."
+    },
+    {
+      "index": 337,
+      "startMs": 1765115,
+      "endMs": 1766325,
+      "rawText": "...got my degree."
+    },
+    {
+      "index": 338,
+      "startMs": 1767576,
+      "endMs": 1769244,
+      "rawText": "Really?"
+    },
+    {
+      "index": 339,
+      "startMs": 1771872,
+      "endMs": 1775417,
+      "rawText": "Does that come in handy\nin the drug trade?"
+    },
+    {
+      "index": 340,
+      "startMs": 1775626,
+      "endMs": 1777419,
+      "rawText": "Doesn't hurt."
+    },
+    {
+      "index": 341,
+      "startMs": 1778253,
+      "endMs": 1781006,
+      "rawText": "I was gonna study music originally."
+    },
+    {
+      "index": 342,
+      "startMs": 1781465,
+      "endMs": 1784218,
+      "rawText": "Maybe even try out\nfor Oberlin and Berklee."
+    },
+    {
+      "index": 343,
+      "startMs": 1784426,
+      "endMs": 1787680,
+      "rawText": "My pops talked me out of it."
+    },
+    {
+      "index": 344,
+      "startMs": 1787888,
+      "endMs": 1791767,
+      "rawText": "Said there was no money in it unless\nI wind up some bullshit rock star..."
+    },
+    {
+      "index": 345,
+      "startMs": 1791975,
+      "endMs": 1794937,
+      "rawText": "...and I hadn't a snowball chance\nat that one."
+    },
+    {
+      "index": 346,
+      "startMs": 1795979,
+      "endMs": 1798148,
+      "rawText": "What does your dad do?"
+    },
+    {
+      "index": 347,
+      "startMs": 1799191,
+      "endMs": 1802486,
+      "rawText": "He owns Tampico Furniture\nover on Menaul."
+    },
+    {
+      "index": 348,
+      "startMs": 1803570,
+      "endMs": 1806156,
+      "rawText": "Wait a minute, I know that place."
+    },
+    {
+      "index": 349,
+      "startMs": 1808701,
+      "endMs": 1810577,
+      "rawText": "Wait a minute. That's..."
+    },
+    {
+      "index": 350,
+      "startMs": 1810786,
+      "endMs": 1813163,
+      "rawText": "That's that..."
+    },
+    {
+      "index": 351,
+      "startMs": 1813372,
+      "endMs": 1815749,
+      "rawText": "They used to have those late-night..."
+    },
+    {
+      "index": 352,
+      "startMs": 1815958,
+      "endMs": 1818210,
+      "rawText": "- The stupid commercials.\n- That they had, yeah."
+    },
+    {
+      "index": 353,
+      "startMs": 1818419,
+      "endMs": 1821547,
+      "rawText": "Yeah, that's him.\nBeen doing them for over 30 years."
+    },
+    {
+      "index": 354,
+      "startMs": 1821755,
+      "endMs": 1825426,
+      "rawText": "Wait a minute.\nHow did it go? It was..."
+    },
+    {
+      "index": 355,
+      "startMs": 1825759,
+      "endMs": 1828470,
+      "rawText": "Wait, wait, wait. It was..."
+    },
+    {
+      "index": 356,
+      "startMs": 1829680,
+      "endMs": 1834226,
+      "rawText": "<i>Don't let shopping</i>\n<i>Strain your brain-o</i>"
+    },
+    {
+      "index": 357,
+      "startMs": 1834518,
+      "endMs": 1838147,
+      "rawText": "<i>Just sing this short refrain-o</i>"
+    },
+    {
+      "index": 358,
+      "startMs": 1838355,
+      "endMs": 1841525,
+      "rawText": "<i>- Our furniture is</i> bueno\n<i>- Our furniture is</i> bueno"
+    },
+    {
+      "index": 359,
+      "startMs": 1841734,
+      "endMs": 1845320,
+      "rawText": "<i>- Tampico is the name- o</i>\n<i>- Tampico is the name- o</i>"
+    },
+    {
+      "index": 360,
+      "startMs": 1855873,
+      "endMs": 1858917,
+      "rawText": "Pretty moronic. But what can you do?"
+    },
+    {
+      "index": 361,
+      "startMs": 1859126,
+      "endMs": 1862838,
+      "rawText": "Well, it did tend\nto stick in your head."
+    },
+    {
+      "index": 362,
+      "startMs": 1863047,
+      "endMs": 1866800,
+      "rawText": "Did you write that?\nBeing the musician in the family."
+    },
+    {
+      "index": 363,
+      "startMs": 1867009,
+      "endMs": 1870971,
+      "rawText": "Oh, no, man.\nIt was my crazy uncle Alex."
+    },
+    {
+      "index": 364,
+      "startMs": 1871180,
+      "endMs": 1873432,
+      "rawText": "He sings it at bars,\ntrying to pick up on women."
+    },
+    {
+      "index": 365,
+      "startMs": 1875017,
+      "endMs": 1878979,
+      "rawText": "His mind, it's like saying,\n\"Hey, I wrote 'Stairway to Heaven. \"'"
+    },
+    {
+      "index": 366,
+      "startMs": 1881190,
+      "endMs": 1884193,
+      "rawText": "Yeah, but at Tampico Furniture, I..."
+    },
+    {
+      "index": 367,
+      "startMs": 1884735,
+      "endMs": 1889573,
+      "rawText": "I think when my son was born\nthat we bought his bassinet there."
+    },
+    {
+      "index": 368,
+      "startMs": 1889782,
+      "endMs": 1892951,
+      "rawText": "We don't sell bassinets there.\nIt's more of a speciality item."
+    },
+    {
+      "index": 369,
+      "startMs": 1893160,
+      "endMs": 1894370,
+      "rawText": "We did use to sell cribs."
+    },
+    {
+      "index": 370,
+      "startMs": 1896622,
+      "endMs": 1899166,
+      "rawText": "A crib, then, okay. A crib."
+    },
+    {
+      "index": 371,
+      "startMs": 1899375,
+      "endMs": 1901502,
+      "rawText": "Yeah. No, I remember that."
+    },
+    {
+      "index": 372,
+      "startMs": 1901710,
+      "endMs": 1907758,
+      "rawText": "In fact, I remember recognising\nyour dad from those commercials."
+    },
+    {
+      "index": 373,
+      "startMs": 1907966,
+      "endMs": 1911387,
+      "rawText": "Although, he wasn't anywhere near\nas friendly in real life."
+    },
+    {
+      "index": 374,
+      "startMs": 1911595,
+      "endMs": 1913514,
+      "rawText": "Yeah. No shit."
+    },
+    {
+      "index": 375,
+      "startMs": 1913722,
+      "endMs": 1916225,
+      "rawText": "Did he try selling you\nthat extended warranty?"
+    },
+    {
+      "index": 376,
+      "startMs": 1916725,
+      "endMs": 1918686,
+      "rawText": "Yeah, he probably did."
+    },
+    {
+      "index": 377,
+      "startMs": 1918894,
+      "endMs": 1921271,
+      "rawText": "And I was probably dumb enough\nto buy it."
+    },
+    {
+      "index": 378,
+      "startMs": 1921480,
+      "endMs": 1923399,
+      "rawText": "Yeah, that was his big thing."
+    },
+    {
+      "index": 379,
+      "startMs": 1923607,
+      "endMs": 1925234,
+      "rawText": "You ask him for a glass of water..."
+    },
+    {
+      "index": 380,
+      "startMs": 1925442,
+      "endMs": 1928404,
+      "rawText": "...he'd tell you you need\nan extended warranty on the ice."
+    },
+    {
+      "index": 381,
+      "startMs": 1932408,
+      "endMs": 1934827,
+      "rawText": "- Did you work there too?\n- Only my whole life."
+    },
+    {
+      "index": 382,
+      "startMs": 1935369,
+      "endMs": 1937955,
+      "rawText": "Up until the day I said,\n\"Fuck you,\" and quit."
+    },
+    {
+      "index": 383,
+      "startMs": 1942292,
+      "endMs": 1944044,
+      "rawText": "So..."
+    },
+    {
+      "index": 384,
+      "startMs": 1945838,
+      "endMs": 1948590,
+      "rawText": "...16 years ago,\nhow old would you have been?"
+    },
+    {
+      "index": 385,
+      "startMs": 1950009,
+      "endMs": 1952928,
+      "rawText": "If it was after school,\ntrust me, I was there."
+    },
+    {
+      "index": 386,
+      "startMs": 1953178,
+      "endMs": 1955180,
+      "rawText": "Might have even helped ring you up."
+    },
+    {
+      "index": 387,
+      "startMs": 1955389,
+      "endMs": 1959101,
+      "rawText": "You and your extended warranty\non the crib."
+    },
+    {
+      "index": 388,
+      "startMs": 1967735,
+      "endMs": 1969778,
+      "rawText": "Small world."
+    },
+    {
+      "index": 389,
+      "startMs": 1971113,
+      "endMs": 1973032,
+      "rawText": "It is."
+    },
+    {
+      "index": 390,
+      "startMs": 1974408,
+      "endMs": 1976994,
+      "rawText": "The paths we take, huh?"
+    },
+    {
+      "index": 391,
+      "startMs": 2002561,
+      "endMs": 2004980,
+      "rawText": "Jesse know you've got cancer?"
+    },
+    {
+      "index": 392,
+      "startMs": 2007941,
+      "endMs": 2009985,
+      "rawText": "No one but you."
+    },
+    {
+      "index": 393,
+      "startMs": 2011487,
+      "endMs": 2014239,
+      "rawText": "- Not your family?\n- No."
+    },
+    {
+      "index": 394,
+      "startMs": 2016116,
+      "endMs": 2017659,
+      "rawText": "Why not?"
+    },
+    {
+      "index": 395,
+      "startMs": 2021413,
+      "endMs": 2026293,
+      "rawText": "Not a conversation\nthat I'm even remotely ready to have."
+    },
+    {
+      "index": 396,
+      "startMs": 2028629,
+      "endMs": 2030631,
+      "rawText": "That's why you're cooking meth?"
+    },
+    {
+      "index": 397,
+      "startMs": 2031507,
+      "endMs": 2033926,
+      "rawText": "You wanna leave money\nfor your family."
+    },
+    {
+      "index": 398,
+      "startMs": 2036095,
+      "endMs": 2037680,
+      "rawText": "Hell."
+    },
+    {
+      "index": 399,
+      "startMs": 2037930,
+      "endMs": 2040683,
+      "rawText": "I'll write you a cheque right now\nif you let me go."
+    },
+    {
+      "index": 400,
+      "startMs": 2046313,
+      "endMs": 2048565,
+      "rawText": "Like I said, Walter..."
+    },
+    {
+      "index": 401,
+      "startMs": 2049233,
+      "endMs": 2052152,
+      "rawText": "...if this line of work\ndoesn't suit you..."
+    },
+    {
+      "index": 402,
+      "startMs": 2056865,
+      "endMs": 2059159,
+      "rawText": "...get out before it's too late."
+    },
+    {
+      "index": 403,
+      "startMs": 2065457,
+      "endMs": 2067960,
+      "rawText": "I don't know what to do."
+    },
+    {
+      "index": 404,
+      "startMs": 2078178,
+      "endMs": 2079346,
+      "rawText": "You do."
+    },
+    {
+      "index": 405,
+      "startMs": 2098532,
+      "endMs": 2100701,
+      "rawText": "I'll get the key."
+    },
+    {
+      "index": 406,
+      "startMs": 2202428,
+      "endMs": 2204346,
+      "rawText": "No."
+    },
+    {
+      "index": 407,
+      "startMs": 2204847,
+      "endMs": 2206473,
+      "rawText": "No."
+    },
+    {
+      "index": 408,
+      "startMs": 2206849,
+      "endMs": 2209351,
+      "rawText": "Oh, no, no, no."
+    },
+    {
+      "index": 409,
+      "startMs": 2221196,
+      "endMs": 2223449,
+      "rawText": "No. No, don't do this."
+    },
+    {
+      "index": 410,
+      "startMs": 2223657,
+      "endMs": 2226910,
+      "rawText": "Don't do this.\nWhy are you doing this?"
+    },
+    {
+      "index": 411,
+      "startMs": 2227578,
+      "endMs": 2230247,
+      "rawText": "Why are you doing this?"
+    },
+    {
+      "index": 412,
+      "startMs": 2263405,
+      "endMs": 2265574,
+      "rawText": "You're doing the right thing, Walter."
+    },
+    {
+      "index": 413,
+      "startMs": 2272664,
+      "endMs": 2274541,
+      "rawText": "Do you wanna?"
+    },
+    {
+      "index": 414,
+      "startMs": 2289390,
+      "endMs": 2293185,
+      "rawText": "So you're not angry?"
+    },
+    {
+      "index": 415,
+      "startMs": 2295771,
+      "endMs": 2297690,
+      "rawText": "Angry at you?"
+    },
+    {
+      "index": 416,
+      "startMs": 2299983,
+      "endMs": 2302277,
+      "rawText": "Live and let live, man."
+    },
+    {
+      "index": 417,
+      "startMs": 2304488,
+      "endMs": 2306657,
+      "rawText": "That's very understanding."
+    },
+    {
+      "index": 418,
+      "startMs": 2306865,
+      "endMs": 2308701,
+      "rawText": "Whatever, man."
+    },
+    {
+      "index": 419,
+      "startMs": 2308909,
+      "endMs": 2311036,
+      "rawText": "I just wanna go home."
+    },
+    {
+      "index": 420,
+      "startMs": 2316959,
+      "endMs": 2318711,
+      "rawText": "Me too."
+    },
+    {
+      "index": 421,
+      "startMs": 2326552,
+      "endMs": 2328595,
+      "rawText": "Unlock me, Walter."
+    },
+    {
+      "index": 422,
+      "startMs": 2344194,
+      "endMs": 2346488,
+      "rawText": "The moment I do..."
+    },
+    {
+      "index": 423,
+      "startMs": 2348073,
+      "endMs": 2351035,
+      "rawText": "...are you gonna stick me\nwith that broken piece of plate?"
+    },
+    {
+      "index": 424,
+      "startMs": 2379897,
+      "endMs": 2381648,
+      "rawText": "I'm sorry, I'm sorry, I'm sorry."
+    },
+    {
+      "index": 425,
+      "startMs": 2381857,
+      "endMs": 2383692,
+      "rawText": "I'm sorry, I'm sorry, I'm sorry."
+    },
+    {
+      "index": 426,
+      "startMs": 2386153,
+      "endMs": 2387696,
+      "rawText": "I'm sorry."
+    },
+    {
+      "index": 427,
+      "startMs": 2394661,
+      "endMs": 2396663,
+      "rawText": "I'm sorry."
+    },
+    {
+      "index": 428,
+      "startMs": 2396955,
+      "endMs": 2399166,
+      "rawText": "I'm so sorry."
+    },
+    {
+      "index": 429,
+      "startMs": 2488005,
+      "endMs": 2489798,
+      "rawText": "Hello?"
+    },
+    {
+      "index": 430,
+      "startMs": 2490799,
+      "endMs": 2493135,
+      "rawText": "Anybody down here?"
+    },
+    {
+      "index": 431,
+      "startMs": 2560536,
+      "endMs": 2562621,
+      "rawText": "Everybody..."
+    },
+    {
+      "index": 432,
+      "startMs": 2563580,
+      "endMs": 2566208,
+      "rawText": "...I need you all to take your seats."
+    },
+    {
+      "index": 433,
+      "startMs": 2566417,
+      "endMs": 2569211,
+      "rawText": "Settle down, please. Thank you."
+    },
+    {
+      "index": 434,
+      "startMs": 2569420,
+      "endMs": 2572172,
+      "rawText": "I understand\nthat Mr. White is feeling..."
+    },
+    {
+      "index": 435,
+      "startMs": 2572381,
+      "endMs": 2574967,
+      "rawText": "...a little under the weather\nthis morning."
+    },
+    {
+      "index": 436,
+      "startMs": 2575175,
+      "endMs": 2580139,
+      "rawText": "So you folks are going to have\nto be making do with me today."
+    },
+    {
+      "index": 437,
+      "startMs": 2580347,
+      "endMs": 2584601,
+      "rawText": "And we are going to be watching\na very interesting video..."
+    },
+    {
+      "index": 438,
+      "startMs": 2584810,
+      "endMs": 2588272,
+      "rawText": "...on carbon."
+    },
+    {
+      "index": 439,
+      "startMs": 2588522,
+      "endMs": 2589732,
+      "rawText": "Very important stuff."
+    },
+    {
+      "index": 440,
+      "startMs": 2593235,
+      "endMs": 2596822,
+      "rawText": "- So, what do you think?\n- It's a cook site. Gotta be."
+    },
+    {
+      "index": 441,
+      "startMs": 2597031,
+      "endMs": 2600284,
+      "rawText": "Nobody came way the hell out here\njust to buy."
+    },
+    {
+      "index": 442,
+      "startMs": 2600492,
+      "endMs": 2603245,
+      "rawText": "Fire there could have started\nby accident."
+    },
+    {
+      "index": 443,
+      "startMs": 2603454,
+      "endMs": 2605956,
+      "rawText": "I don't think that was meant\nto destroy evidence."
+    },
+    {
+      "index": 444,
+      "startMs": 2606665,
+      "endMs": 2610002,
+      "rawText": "Got a couple of Dooley tracks\nheaded away, towards the road."
+    },
+    {
+      "index": 445,
+      "startMs": 2610210,
+      "endMs": 2613464,
+      "rawText": "So, what, they're in\nsome sort of camper-slash-lab?"
+    },
+    {
+      "index": 446,
+      "startMs": 2613672,
+      "endMs": 2616717,
+      "rawText": "They accidentally start a fire\nand everybody FOs?"
+    },
+    {
+      "index": 447,
+      "startMs": 2616925,
+      "endMs": 2618594,
+      "rawText": "Yeah. Why not?"
+    },
+    {
+      "index": 448,
+      "startMs": 2618802,
+      "endMs": 2621889,
+      "rawText": "So why did that little hair-gelled shit\nleave his car?"
+    },
+    {
+      "index": 449,
+      "startMs": 2625225,
+      "endMs": 2630147,
+      "rawText": "- Gomey, it's a culture in decline.\n- It's a rich and vibrant culture."
+    },
+    {
+      "index": 450,
+      "startMs": 2630356,
+      "endMs": 2632608,
+      "rawText": "It's a car that jumps up and down."
+    },
+    {
+      "index": 451,
+      "startMs": 2633067,
+      "endMs": 2634276,
+      "rawText": "What the hell?"
+    },
+    {
+      "index": 452,
+      "startMs": 2634485,
+      "endMs": 2637613,
+      "rawText": "You people used to be conquistadors,\nfor chrissake."
+    },
+    {
+      "index": 453,
+      "startMs": 2637821,
+      "endMs": 2641909,
+      "rawText": "Smells like a Drakkar Noir\nfactory in here."
+    },
+    {
+      "index": 454,
+      "startMs": 2642326,
+      "endMs": 2643869,
+      "rawText": "I already searched it."
+    },
+    {
+      "index": 455,
+      "startMs": 2644411,
+      "endMs": 2646205,
+      "rawText": "Yeah."
+    },
+    {
+      "index": 456,
+      "startMs": 2647122,
+      "endMs": 2649124,
+      "rawText": "You're wasting your time."
+    },
+    {
+      "index": 457,
+      "startMs": 2650000,
+      "endMs": 2652961,
+      "rawText": "Give it up. If this here's a trap car,\nit's gonna take more..."
+    },
+    {
+      "index": 458,
+      "startMs": 2653170,
+      "endMs": 2655839,
+      "rawText": "...than your dumb white ass to find it.\n- Oh, yeah?"
+    },
+    {
+      "index": 459,
+      "startMs": 2656048,
+      "endMs": 2660010,
+      "rawText": "You are talking to the trap-car master,\nmy friend."
+    },
+    {
+      "index": 460,
+      "startMs": 2660219,
+      "endMs": 2662513,
+      "rawText": "I'm Rain Man counting\nhis toothpicks."
+    },
+    {
+      "index": 461,
+      "startMs": 2663013,
+      "endMs": 2665599,
+      "rawText": "Yeah, you're like Rain Man. Retarded."
+    },
+    {
+      "index": 462,
+      "startMs": 2673232,
+      "endMs": 2674650,
+      "rawText": "Yeah, baby."
+    },
+    {
+      "index": 463,
+      "startMs": 2678862,
+      "endMs": 2681407,
+      "rawText": "- Hello, zippy.\n- Asshole."
+    },
+    {
+      "index": 464,
+      "startMs": 2682282,
+      "endMs": 2686120,
+      "rawText": "Sort of looks like meth\nbut it's too damn white."
+    },
+    {
+      "index": 465,
+      "startMs": 2688664,
+      "endMs": 2690416,
+      "rawText": "You know what I'm thinking, Gomey?"
+    },
+    {
+      "index": 466,
+      "startMs": 2690624,
+      "endMs": 2693335,
+      "rawText": "Yep. Somebody croaked our snitch."
+    },
+    {
+      "index": 467,
+      "startMs": 2693544,
+      "endMs": 2695004,
+      "rawText": "Hey, agent."
+    },
+    {
+      "index": 468,
+      "startMs": 2695212,
+      "endMs": 2697047,
+      "rawText": "You got something?"
+    },
+    {
+      "index": 469,
+      "startMs": 2731749,
+      "endMs": 2733667,
+      "rawText": "<i>I don't know. </i>"
+    },
+    {
+      "index": 470,
+      "startMs": 2734668,
+      "endMs": 2737087,
+      "rawText": "It just... Doesn't it seem like..."
+    },
+    {
+      "index": 471,
+      "startMs": 2737296,
+      "endMs": 2739923,
+      "rawText": "...something's missing?"
+    },
+    {
+      "index": 472,
+      "startMs": 2740174,
+      "endMs": 2742217,
+      "rawText": "What about the soul?"
+    },
+    {
+      "index": 473,
+      "startMs": 2753812,
+      "endMs": 2756148,
+      "rawText": "The soul."
+    },
+    {
+      "index": 474,
+      "startMs": 2763530,
+      "endMs": 2766533,
+      "rawText": "There's nothing but chemistry here."
+    },
+    {
+      "index": 475,
+      "startMs": 2831598,
+      "endMs": 2833475,
+      "rawText": "Skyler?"
+    },
+    {
+      "index": 476,
+      "startMs": 2843277,
+      "endMs": 2845904,
+      "rawText": "There's something I have to tell you."
+    },
+    {
+      "index": 477,
+      "startMs": 500,
+      "endMs": 2000,
+      "rawText": "<font color=\"#ffff00\" size=14>www.tvsubtitles.net</font>"
+    }
+  ],
+  "transcript": {
+    "generatedAt": 1794087279275,
+    "options": {
+      "mergeContinuations": true,
+      "stripTags": true,
+      "includeSdh": true,
+      "gapMsForParagraph": 1500
+    },
+    "blocks": [
+      {
+        "startMs": 46021,
+        "endMs": 47523,
+        "cueIndices": [
+          1
+        ],
+        "text": "Let's break it down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 49692,
+        "endMs": 51985,
+        "cueIndices": [
+          2
+        ],
+        "text": "Hydrogen. What does that give us?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 52194,
+        "endMs": 54988,
+        "cueIndices": [
+          3
+        ],
+        "text": "By mole, we're looking at 63 percent.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 55197,
+        "endMs": 57282,
+        "cueIndices": [
+          4
+        ],
+        "text": "Sixty-three?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 57491,
+        "endMs": 58909,
+        "cueIndices": [
+          5
+        ],
+        "text": "That is a big bite.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 59118,
+        "endMs": 62246,
+        "cueIndices": [
+          6
+        ],
+        "text": "- My next step's gotta be oxygen.\n- Oxygen, 26 percent.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 62454,
+        "endMs": 64623,
+        "cueIndices": [
+          7
+        ],
+        "text": "Twenty-six. There you have your water.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 64832,
+        "endMs": 68210,
+        "cueIndices": [
+          8
+        ],
+        "text": "- Carbon, 9 percent.\n- Carbon, 9.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 68419,
+        "endMs": 71338,
+        "cueIndices": [
+          9
+        ],
+        "text": "- For a total of 98 percent.\n- Right.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 71547,
+        "endMs": 75801,
+        "cueIndices": [
+          10
+        ],
+        "text": "- Nitrogen, 1.25 percent.\n- One-point-two-five.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 76009,
+        "endMs": 78303,
+        "cueIndices": [
+          11
+        ],
+        "text": "That brings you to 99 and a quarter.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 78512,
+        "endMs": 81473,
+        "cueIndices": [
+          12
+        ],
+        "text": "Which only leaves you with the trace elements...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 81682,
+        "endMs": 84226,
+        "cueIndices": [
+          13
+        ],
+        "text": "...down where the magic happens.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 84435,
+        "endMs": 88188,
+        "cueIndices": [
+          14
+        ],
+        "text": "Oh, wait a minute. What about calcium? Calcium's not a trace.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 88397,
+        "endMs": 90190,
+        "cueIndices": [
+          15
+        ],
+        "text": "Got a whole skeleton to account for.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 90399,
+        "endMs": 92067,
+        "cueIndices": [
+          16
+        ],
+        "text": "- You would think, right?\n- Right.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 92276,
+        "endMs": 95821,
+        "cueIndices": [
+          17
+        ],
+        "text": "Calcium. Calcium's only 0.25 percent.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 96321,
+        "endMs": 100743,
+        "cueIndices": [
+          18
+        ],
+        "text": "What? That low? Seriously?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 100951,
+        "endMs": 102661,
+        "cueIndices": [
+          19
+        ],
+        "text": "Damn, I never would've thought that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 102870,
+        "endMs": 107666,
+        "cueIndices": [
+          20
+        ],
+        "text": "- Okay, so where does iron fit in?\n- Iron.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 107875,
+        "endMs": 114715,
+        "cueIndices": [
+          21
+        ],
+        "text": "Well, okay, 0.00004 percent.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 115049,
+        "endMs": 118802,
+        "cueIndices": [
+          22
+        ],
+        "text": "What? You can't have haemoglobin without iron.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 119011,
+        "endMs": 121847,
+        "cueIndices": [
+          23
+        ],
+        "text": "- Apparently, it don't take much.\n- No doubt. Go figure.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 122056,
+        "endMs": 125893,
+        "cueIndices": [
+          24
+        ],
+        "text": "- Sodium.\n- Sodium, 0.04.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 127895,
+        "endMs": 132816,
+        "cueIndices": [
+          25
+        ],
+        "text": "- Phosphorus, 0.19.\n- Point-one-nine.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 133525,
+        "endMs": 134943,
+        "cueIndices": [
+          26
+        ],
+        "text": "There we go.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 135444,
+        "endMs": 138947,
+        "cueIndices": [
+          27
+        ],
+        "text": "So the whole thing...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 139156,
+        "endMs": 145579,
+        "cueIndices": [
+          28
+        ],
+        "text": "...adds up to 99.888042 percent.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 148290,
+        "endMs": 153629,
+        "cueIndices": [
+          29
+        ],
+        "text": "We are 0.111958 percent...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 154671,
+        "endMs": 155964,
+        "cueIndices": [
+          30
+        ],
+        "text": "...shy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 156173,
+        "endMs": 159802,
+        "cueIndices": [
+          31
+        ],
+        "text": "- Supposedly, that's everything.\n- Yeah?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 161595,
+        "endMs": 162971,
+        "cueIndices": [
+          32
+        ],
+        "text": "I don't know, I just...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 164598,
+        "endMs": 166725,
+        "cueIndices": [
+          33
+        ],
+        "text": "It seems like something's missing, doesn't it?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 169269,
+        "endMs": 172981,
+        "cueIndices": [
+          34
+        ],
+        "text": "There's got to be more to a human being than that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 204430,
+        "endMs": 206056,
+        "cueIndices": [
+          35
+        ],
+        "text": "I hate these shoes.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 206265,
+        "endMs": 208976,
+        "cueIndices": [
+          36
+        ],
+        "text": "Shoes make me look like I should be changing bedpans...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 209184,
+        "endMs": 211020,
+        "cueIndices": [
+          37
+        ],
+        "text": "...like I should be squeaking around...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 211228,
+        "endMs": 213814,
+        "cueIndices": [
+          38
+        ],
+        "text": "...bringing soup to some disgusting old person...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 214023,
+        "endMs": 215983,
+        "cueIndices": [
+          39
+        ],
+        "text": "...then take the bus home to my 16 cats.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 216191,
+        "endMs": 218402,
+        "cueIndices": [
+          40
+        ],
+        "text": "Then why are you wearing them?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 219528,
+        "endMs": 222906,
+        "cueIndices": [
+          41
+        ],
+        "text": "I like the support. My arches happen to be extremely archy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 226076,
+        "endMs": 231707,
+        "cueIndices": [
+          42
+        ],
+        "text": "Yo, what's up? Hey, can you call me, like, in two minutes? Thanks, bye.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 233584,
+        "endMs": 235794,
+        "cueIndices": [
+          43
+        ],
+        "text": "I gotta go take this.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 236795,
+        "endMs": 238505,
+        "cueIndices": [
+          44
+        ],
+        "text": "Female?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 239882,
+        "endMs": 241759,
+        "cueIndices": [
+          45
+        ],
+        "text": "Louis.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 241967,
+        "endMs": 245429,
+        "cueIndices": [
+          46
+        ],
+        "text": "Not like it's any of your business, though.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 245637,
+        "endMs": 247598,
+        "cueIndices": [
+          47
+        ],
+        "text": "- Just be quick about it.\n- No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 247806,
+        "endMs": 255147,
+        "cueIndices": [
+          48,
+          49
+        ],
+        "text": "Oh, and please don't say, \"Yo. \" You can't know how much I hate that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 260319,
+        "endMs": 263947,
+        "cueIndices": [
+          50
+        ],
+        "text": "You missed a spot, right there.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 264448,
+        "endMs": 265824,
+        "cueIndices": [
+          51
+        ],
+        "text": "Should you be on that ladder?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 266033,
+        "endMs": 268494,
+        "cueIndices": [
+          52
+        ],
+        "text": "You're more than welcome to take over for me in here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 268702,
+        "endMs": 270913,
+        "cueIndices": [
+          53
+        ],
+        "text": "I don't see why you don't get Walt to do it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 271372,
+        "endMs": 274333,
+        "cueIndices": [
+          54
+        ],
+        "text": "Yeah, there's an idea.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 276418,
+        "endMs": 279338,
+        "cueIndices": [
+          55
+        ],
+        "text": "So I'm working on this new short story...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 279546,
+        "endMs": 284134,
+        "cueIndices": [
+          56
+        ],
+        "text": "...and there's this stoner character in it and I'm trying to...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 285427,
+        "endMs": 287554,
+        "cueIndices": [
+          57
+        ],
+        "text": "Well, you know, actually, let me back up.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 287763,
+        "endMs": 293310,
+        "cueIndices": [
+          58
+        ],
+        "text": "You smoked your fair share of pot in college, didn't you?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 295187,
+        "endMs": 298065,
+        "cueIndices": [
+          59
+        ],
+        "text": "I mean, you at least tried it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 300109,
+        "endMs": 301985,
+        "cueIndices": [
+          60
+        ],
+        "text": "Come on.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 303946,
+        "endMs": 307991,
+        "cueIndices": [
+          61
+        ],
+        "text": "I perhaps tried it. Why?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 308200,
+        "endMs": 310494,
+        "cueIndices": [
+          62
+        ],
+        "text": "Do you remember it having an effect on your mood?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 310703,
+        "endMs": 312788,
+        "cueIndices": [
+          63
+        ],
+        "text": "Like, changing it in any major way?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 313414,
+        "endMs": 315624,
+        "cueIndices": [
+          64
+        ],
+        "text": "It made me more serious.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 315833,
+        "endMs": 317501,
+        "cueIndices": [
+          65
+        ],
+        "text": "Really?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 317710,
+        "endMs": 323006,
+        "cueIndices": [
+          66
+        ],
+        "text": "Because I mostly remember it made me light-headed, that's about it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 323799,
+        "endMs": 327970,
+        "cueIndices": [
+          67
+        ],
+        "text": "I was just wondering if it maybe could...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 330889,
+        "endMs": 335310,
+        "cueIndices": [
+          68
+        ],
+        "text": "You know, it's just a character thing I'm stuck on. Never mind.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 335519,
+        "endMs": 338605,
+        "cueIndices": [
+          69
+        ],
+        "text": "- Walter Jr. 's on pot?\n- What? No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 338814,
+        "endMs": 340482,
+        "cueIndices": [
+          70
+        ],
+        "text": "No. No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 340691,
+        "endMs": 343235,
+        "cueIndices": [
+          71
+        ],
+        "text": "- What would make you even...?\n- Where's he getting it?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 343444,
+        "endMs": 346905,
+        "cueIndices": [
+          72
+        ],
+        "text": "- Marie.\n- Seriously. Is it this Louis person?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 347322,
+        "endMs": 351452,
+        "cueIndices": [
+          73
+        ],
+        "text": "- What are you gonna do about this?\n- Marie, you need to look me in the eye.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 351660,
+        "endMs": 355539,
+        "cueIndices": [
+          74
+        ],
+        "text": "I am strictly asking about a story that I'm writing, that's all.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 356165,
+        "endMs": 360294,
+        "cueIndices": [
+          75
+        ],
+        "text": "Right hand to God, Walter Jr. Is not on pot...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 360502,
+        "endMs": 363338,
+        "cueIndices": [
+          76
+        ],
+        "text": "...certainly not as far as I know.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 364048,
+        "endMs": 366008,
+        "cueIndices": [
+          77
+        ],
+        "text": "Not as far as you know?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 366508,
+        "endMs": 368093,
+        "cueIndices": [
+          78
+        ],
+        "text": "Marie.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 475242,
+        "endMs": 477119,
+        "cueIndices": [
+          79
+        ],
+        "text": "Hey, look at me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 478787,
+        "endMs": 480914,
+        "cueIndices": [
+          80
+        ],
+        "text": "Hey, turn around and look at me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 485627,
+        "endMs": 489339,
+        "cueIndices": [
+          81
+        ],
+        "text": "This here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 489965,
+        "endMs": 492509,
+        "cueIndices": [
+          82
+        ],
+        "text": "I wouldn't do this to my worst enemy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 494636,
+        "endMs": 496472,
+        "cueIndices": [
+          83
+        ],
+        "text": "This is degrading.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 501226,
+        "endMs": 502895,
+        "cueIndices": [
+          84
+        ],
+        "text": "I'm sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 503812,
+        "endMs": 506940,
+        "cueIndices": [
+          85
+        ],
+        "text": "You hope I'll make it easy and just drop dead, don't you?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 508484,
+        "endMs": 510235,
+        "cueIndices": [
+          86
+        ],
+        "text": "But I won't.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 510444,
+        "endMs": 512863,
+        "cueIndices": [
+          87
+        ],
+        "text": "So either kill me, or let me go.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 514198,
+        "endMs": 516658,
+        "cueIndices": [
+          88
+        ],
+        "text": "You don't have it in you, Walter.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 520704,
+        "endMs": 522456,
+        "cueIndices": [
+          89
+        ],
+        "text": "How do you know my name?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 523916,
+        "endMs": 528045,
+        "cueIndices": [
+          90
+        ],
+        "text": "Jesse. He told Emilio and me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 528921,
+        "endMs": 531340,
+        "cueIndices": [
+          91
+        ],
+        "text": "I came by to sell your meth.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 532758,
+        "endMs": 536011,
+        "cueIndices": [
+          92
+        ],
+        "text": "So what? You threaten him, huh? Did you beat it out of him?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 536220,
+        "endMs": 538222,
+        "cueIndices": [
+          93
+        ],
+        "text": "Not even close.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 541934,
+        "endMs": 543977,
+        "cueIndices": [
+          94
+        ],
+        "text": "What else did he tell you?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 545479,
+        "endMs": 548107,
+        "cueIndices": [
+          95
+        ],
+        "text": "Pretty much everything he could think of.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 548315,
+        "endMs": 550567,
+        "cueIndices": [
+          96
+        ],
+        "text": "You were his high school teacher.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 550776,
+        "endMs": 552778,
+        "cueIndices": [
+          97
+        ],
+        "text": "One time you taught about carbon dioxide...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 552986,
+        "endMs": 555531,
+        "cueIndices": [
+          98
+        ],
+        "text": "...by making grape soda in class.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 556281,
+        "endMs": 559993,
+        "cueIndices": [
+          99
+        ],
+        "text": "You have a son who's retarded, or in a wheelchair or something.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 562496,
+        "endMs": 565457,
+        "cueIndices": [
+          100
+        ],
+        "text": "It shouldn't come across as some news flash.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 565666,
+        "endMs": 567835,
+        "cueIndices": [
+          101
+        ],
+        "text": "That partner of yours...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 568043,
+        "endMs": 569169,
+        "cueIndices": [
+          102
+        ],
+        "text": "...he's got a big mouth.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 571046,
+        "endMs": 572715,
+        "cueIndices": [
+          103
+        ],
+        "text": "Walter...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 572923,
+        "endMs": 575384,
+        "cueIndices": [
+          104
+        ],
+        "text": "...I don't know what you think you're doing here...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 575592,
+        "endMs": 577261,
+        "cueIndices": [
+          105
+        ],
+        "text": "...but trust me...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 578053,
+        "endMs": 580597,
+        "cueIndices": [
+          106
+        ],
+        "text": "...this line of work doesn't suit you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 582516,
+        "endMs": 585936,
+        "cueIndices": [
+          107
+        ],
+        "text": "So I should just let you go, then.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 586145,
+        "endMs": 590649,
+        "cueIndices": [
+          108
+        ],
+        "text": "Just unlock you and... adi�s, huh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 591150,
+        "endMs": 593610,
+        "cueIndices": [
+          109
+        ],
+        "text": "I don't see what other choice you have.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 593819,
+        "endMs": 596655,
+        "cueIndices": [
+          110
+        ],
+        "text": "It's between that and cold-blooded murder.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 597448,
+        "endMs": 598907,
+        "cueIndices": [
+          111
+        ],
+        "text": "Besides...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 600117,
+        "endMs": 602077,
+        "cueIndices": [
+          112
+        ],
+        "text": "...your real problem's sitting upstairs.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 621722,
+        "endMs": 623140,
+        "cueIndices": [
+          113
+        ],
+        "text": "Occupied.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 623766,
+        "endMs": 626352,
+        "cueIndices": [
+          114
+        ],
+        "text": "Hey, yo, I'm trying to pinch one off in here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 626560,
+        "endMs": 628604,
+        "cueIndices": [
+          115
+        ],
+        "text": "Just give me some privacy, would you?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 631940,
+        "endMs": 634526,
+        "cueIndices": [
+          116
+        ],
+        "text": "- Okay.\n- What the hell, man?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 635611,
+        "endMs": 637404,
+        "cueIndices": [
+          117
+        ],
+        "text": "What are you doing, man?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 637613,
+        "endMs": 639865,
+        "cueIndices": [
+          118
+        ],
+        "text": "- You asshole. What...?\n- You told him my name.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 640074,
+        "endMs": 642159,
+        "cueIndices": [
+          119
+        ],
+        "text": "- Says who, him?\n- My name, where I work.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 642368,
+        "endMs": 644745,
+        "cueIndices": [
+          120
+        ],
+        "text": "- You told him about my son.\n- Hey, don't touch me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 644953,
+        "endMs": 647539,
+        "cueIndices": [
+          121
+        ],
+        "text": "- You damn junkie.\n- No, give me that. That's mine.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 647748,
+        "endMs": 649875,
+        "cueIndices": [
+          122
+        ],
+        "text": "This is going down the toilet. Watch it go.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 650084,
+        "endMs": 651585,
+        "cueIndices": [
+          123
+        ],
+        "text": "No, that's worth 40 grand, you...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 651794,
+        "endMs": 654505,
+        "cueIndices": [
+          124
+        ],
+        "text": "It's worth nothing when you smoke it all.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 654713,
+        "endMs": 656673,
+        "cueIndices": [
+          125
+        ],
+        "text": "Get off the toilet.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 656882,
+        "endMs": 658675,
+        "cueIndices": [
+          126
+        ],
+        "text": "- Get off the toilet!\n- No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 660761,
+        "endMs": 663806,
+        "cueIndices": [
+          127
+        ],
+        "text": "Get off the toilet.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 664139,
+        "endMs": 666266,
+        "cueIndices": [
+          128
+        ],
+        "text": "Stop it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 669645,
+        "endMs": 671021,
+        "cueIndices": [
+          129
+        ],
+        "text": "No. No way.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 705556,
+        "endMs": 706807,
+        "cueIndices": [
+          130
+        ],
+        "text": "No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 707016,
+        "endMs": 708976,
+        "cueIndices": [
+          131
+        ],
+        "text": "No, no, no.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 709184,
+        "endMs": 711729,
+        "cueIndices": [
+          132
+        ],
+        "text": "Jesse, where the hell do you think you're going?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 711937,
+        "endMs": 713272,
+        "cueIndices": [
+          133
+        ],
+        "text": "Back off, man, Jesus.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 713480,
+        "endMs": 714940,
+        "cueIndices": [
+          134
+        ],
+        "text": "- We've got work to do.\n- No, no.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 715149,
+        "endMs": 717651,
+        "cueIndices": [
+          135
+        ],
+        "text": "You got work to do. I did my part.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 717860,
+        "endMs": 720320,
+        "cueIndices": [
+          136
+        ],
+        "text": "You mean that obscenity I spent hours cleaning up?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 720529,
+        "endMs": 723407,
+        "cueIndices": [
+          137
+        ],
+        "text": "- That is your contribution?\n- Kiss my pink ass, man.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 723615,
+        "endMs": 726910,
+        "cueIndices": [
+          138
+        ],
+        "text": "I didn't ask for any of this. How am I supposed to live here now, huh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 727119,
+        "endMs": 729705,
+        "cueIndices": [
+          139
+        ],
+        "text": "My whole house smells like toe cheese and dry cleaning.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 729913,
+        "endMs": 733000,
+        "cueIndices": [
+          140
+        ],
+        "text": "Because you didn't follow my instructions.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 733208,
+        "endMs": 734918,
+        "cueIndices": [
+          141
+        ],
+        "text": "Oh, well, Heil Hitler, bitch.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 735127,
+        "endMs": 737379,
+        "cueIndices": [
+          142
+        ],
+        "text": "And let me tell you something else.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 737588,
+        "endMs": 740382,
+        "cueIndices": [
+          143
+        ],
+        "text": "We flipped a coin, okay?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 740591,
+        "endMs": 743135,
+        "cueIndices": [
+          144
+        ],
+        "text": "You and me. You and me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 743343,
+        "endMs": 745637,
+        "cueIndices": [
+          145
+        ],
+        "text": "Coin flip is sacred.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 756148,
+        "endMs": 758442,
+        "cueIndices": [
+          146
+        ],
+        "text": "Your job is waiting for you in that basement...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 758650,
+        "endMs": 760861,
+        "cueIndices": [
+          147
+        ],
+        "text": "...as per the coin.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 761070,
+        "endMs": 762571,
+        "cueIndices": [
+          148
+        ],
+        "text": "Fucking do it, already.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 777544,
+        "endMs": 780506,
+        "cueIndices": [
+          149
+        ],
+        "text": "That's what she said. Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 781548,
+        "endMs": 783884,
+        "cueIndices": [
+          150
+        ],
+        "text": "Yeah. Yeah, I think we have some of those.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 784593,
+        "endMs": 786553,
+        "cueIndices": [
+          151
+        ],
+        "text": "- Yeah, you'll have to try them on.\n- Hello?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 786762,
+        "endMs": 789223,
+        "cueIndices": [
+          152
+        ],
+        "text": "- Seven and a half, maybe. I don't know.\n- Excuse me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 789431,
+        "endMs": 790849,
+        "cueIndices": [
+          153
+        ],
+        "text": "Do you have these in black?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 793268,
+        "endMs": 795020,
+        "cueIndices": [
+          154
+        ],
+        "text": "Anyways, so like I was saying...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 795229,
+        "endMs": 798565,
+        "cueIndices": [
+          155
+        ],
+        "text": "...I went to the party the other night. Yeah, Tony was there.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 802403,
+        "endMs": 803696,
+        "cueIndices": [
+          156
+        ],
+        "text": "Whatever.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 803904,
+        "endMs": 806532,
+        "cueIndices": [
+          157
+        ],
+        "text": "Hey, where have you been? I called you two hours ago.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 806740,
+        "endMs": 809201,
+        "cueIndices": [
+          158
+        ],
+        "text": "Sorry, baby, I'm kind of busy here. What's up?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 809410,
+        "endMs": 813622,
+        "cueIndices": [
+          159
+        ],
+        "text": "Well, kind of a lot, actually, and it's a delicate subject.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 813831,
+        "endMs": 818669,
+        "cueIndices": [
+          160
+        ],
+        "text": "- So I need you to focus, and...\n- Hey, sit down! Sit down!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 818877,
+        "endMs": 820963,
+        "cueIndices": [
+          161
+        ],
+        "text": "Damn it, Hank.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 821171,
+        "endMs": 823924,
+        "cueIndices": [
+          162
+        ],
+        "text": "I'm sorry, babe, I'm just in the middle of something here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 824133,
+        "endMs": 825968,
+        "cueIndices": [
+          163
+        ],
+        "text": "Get down. Get down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 826176,
+        "endMs": 829888,
+        "cueIndices": [
+          164
+        ],
+        "text": "Sit down! Sit your ass down, comprende? You too, sit down!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 835227,
+        "endMs": 837354,
+        "cueIndices": [
+          165
+        ],
+        "text": "I'm back, babe. What's up?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 837563,
+        "endMs": 840899,
+        "cueIndices": [
+          166
+        ],
+        "text": "- Walter Jr.\n- Yeah, what about him?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 841442,
+        "endMs": 844695,
+        "cueIndices": [
+          167
+        ],
+        "text": "Marijuana. He's smoking it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 844903,
+        "endMs": 847072,
+        "cueIndices": [
+          168
+        ],
+        "text": "Excuse me, his own mother seems to think so.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 847281,
+        "endMs": 849199,
+        "cueIndices": [
+          169
+        ],
+        "text": "- Skyler told you that?\n- She inferred it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 849408,
+        "endMs": 850701,
+        "cueIndices": [
+          170
+        ],
+        "text": "She inferred it, huh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 851702,
+        "endMs": 853704,
+        "cueIndices": [
+          171
+        ],
+        "text": "She strongly inferred it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 853912,
+        "endMs": 859460,
+        "cueIndices": [
+          172
+        ],
+        "text": "Like, \" Doctor, my friend suffers from erectile dysfunction. \"",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 859668,
+        "endMs": 861211,
+        "cueIndices": [
+          173
+        ],
+        "text": "- Please, come on.\n- All right.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 861420,
+        "endMs": 863547,
+        "cueIndices": [
+          174
+        ],
+        "text": "- Talk to him.\n- Walt should talk to him.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 863756,
+        "endMs": 865716,
+        "cueIndices": [
+          175
+        ],
+        "text": "Skyler, better yet. She'll kick his butt.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 865924,
+        "endMs": 868010,
+        "cueIndices": [
+          176
+        ],
+        "text": "I think it ought to be you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 868218,
+        "endMs": 870220,
+        "cueIndices": [
+          177
+        ],
+        "text": "You know, tell him some horror stories.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 870429,
+        "endMs": 873140,
+        "cueIndices": [
+          178
+        ],
+        "text": "Maybe show him some autopsy pictures.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 873349,
+        "endMs": 875184,
+        "cueIndices": [
+          179
+        ],
+        "text": "An autopsy of a pot overdose? Come on.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 875517,
+        "endMs": 877728,
+        "cueIndices": [
+          180
+        ],
+        "text": "I don't know, baby, it's just that, you know...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 877936,
+        "endMs": 881106,
+        "cueIndices": [
+          181
+        ],
+        "text": "...I figure his dad should be the one doing this, don't you think?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 881315,
+        "endMs": 883567,
+        "cueIndices": [
+          182
+        ],
+        "text": "Hank, he respects you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 886987,
+        "endMs": 890824,
+        "cueIndices": [
+          183
+        ],
+        "text": "Yeah, all right. Well, listen, yeah, I'll swing by their place after work.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 891033,
+        "endMs": 893744,
+        "cueIndices": [
+          184
+        ],
+        "text": "- Good. Scare him straight.\n- Yeah, yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 893952,
+        "endMs": 895537,
+        "cueIndices": [
+          185
+        ],
+        "text": "Hey, where's my sugar?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 900876,
+        "endMs": 902002,
+        "cueIndices": [
+          186
+        ],
+        "text": "Excuse me, ma'am.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 902461,
+        "endMs": 905422,
+        "cueIndices": [
+          187
+        ],
+        "text": "Ma'am, you need to be wearing footies before you try those on.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 905964,
+        "endMs": 907549,
+        "cueIndices": [
+          188
+        ],
+        "text": "I'm extremely clean.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 907758,
+        "endMs": 910761,
+        "cueIndices": [
+          189
+        ],
+        "text": "Yeah, well, I'd really appreciate it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 912262,
+        "endMs": 915724,
+        "cueIndices": [
+          190
+        ],
+        "text": "Hey, sorry about that. Yeah, I'll check.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 916684,
+        "endMs": 919144,
+        "cueIndices": [
+          191
+        ],
+        "text": "You know, I hid a pair for you last week, grey ones.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 970154,
+        "endMs": 973323,
+        "cueIndices": [
+          192
+        ],
+        "text": "- What do you think?\n- About what?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 974533,
+        "endMs": 975826,
+        "cueIndices": [
+          193
+        ],
+        "text": "This look like a nice place?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 976702,
+        "endMs": 978829,
+        "cueIndices": [
+          194
+        ],
+        "text": "No, not really.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 979038,
+        "endMs": 981040,
+        "cueIndices": [
+          195
+        ],
+        "text": "Think you'd like to live here?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 981540,
+        "endMs": 983042,
+        "cueIndices": [
+          196
+        ],
+        "text": "No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 983250,
+        "endMs": 986128,
+        "cueIndices": [
+          197
+        ],
+        "text": "- Sure about that?\n- Yeah, pretty sure.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 986336,
+        "endMs": 989423,
+        "cueIndices": [
+          198
+        ],
+        "text": "I thought we were going to Cold Stone Creamery.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 989631,
+        "endMs": 992176,
+        "cueIndices": [
+          199
+        ],
+        "text": "Yeah, yeah, well, we took a little detour.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 992384,
+        "endMs": 995429,
+        "cueIndices": [
+          200
+        ],
+        "text": "Figure we'll come over and check out how the other half lives.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 995637,
+        "endMs": 998140,
+        "cueIndices": [
+          201
+        ],
+        "text": "This here is what we call the Crystal Palace.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 998349,
+        "endMs": 1001101,
+        "cueIndices": [
+          202
+        ],
+        "text": "You know who lives in the palace? Meth-heads.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1001852,
+        "endMs": 1004104,
+        "cueIndices": [
+          203
+        ],
+        "text": "Nasty, skeevy meth-heads...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1004313,
+        "endMs": 1008275,
+        "cueIndices": [
+          204
+        ],
+        "text": "...who'd sell their grandma's coochie for a hit.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1008484,
+        "endMs": 1010944,
+        "cueIndices": [
+          205
+        ],
+        "text": "Oh, you think that's funny? That's funny, huh? Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1011153,
+        "endMs": 1013447,
+        "cueIndices": [
+          206
+        ],
+        "text": "Let me tell you something. Every one of these...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1013655,
+        "endMs": 1017951,
+        "cueIndices": [
+          207
+        ],
+        "text": "...miserable wastes of skin got started how?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1018160,
+        "endMs": 1020371,
+        "cueIndices": [
+          208
+        ],
+        "text": "- How do you think they started?\n- I don't know.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1020579,
+        "endMs": 1023374,
+        "cueIndices": [
+          209
+        ],
+        "text": "What do you think they were doing before they graduated...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1023582,
+        "endMs": 1026251,
+        "cueIndices": [
+          210
+        ],
+        "text": "...to shooting meth in their dicks?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1027920,
+        "endMs": 1029713,
+        "cueIndices": [
+          211
+        ],
+        "text": "A gateway drug.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1029922,
+        "endMs": 1031632,
+        "cueIndices": [
+          212
+        ],
+        "text": "That's what we call it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1031840,
+        "endMs": 1034176,
+        "cueIndices": [
+          213
+        ],
+        "text": "Dollars to doughnuts, and I shit you not...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1034385,
+        "endMs": 1038263,
+        "cueIndices": [
+          214
+        ],
+        "text": "...that gateway drug was marijuana, every time.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1038472,
+        "endMs": 1040474,
+        "cueIndices": [
+          215
+        ],
+        "text": "- You understand?\n- Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1040683,
+        "endMs": 1043727,
+        "cueIndices": [
+          216
+        ],
+        "text": "So why are you telling me this?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1043936,
+        "endMs": 1046563,
+        "cueIndices": [
+          217
+        ],
+        "text": "Because I love you, you little bastard.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1047189,
+        "endMs": 1049858,
+        "cueIndices": [
+          218
+        ],
+        "text": "And, hey, I was young once, you know.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1050818,
+        "endMs": 1053654,
+        "cueIndices": [
+          219
+        ],
+        "text": "The world's a messed up place, you know.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1053862,
+        "endMs": 1057199,
+        "cueIndices": [
+          220
+        ],
+        "text": "You know, just this one time, you know...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1057408,
+        "endMs": 1060411,
+        "cueIndices": [
+          221
+        ],
+        "text": "Hey! Hey! Hey, you!",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1060619,
+        "endMs": 1064498,
+        "cueIndices": [
+          222
+        ],
+        "text": "Yeah, you, princess. Get over here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1067000,
+        "endMs": 1069712,
+        "cueIndices": [
+          223
+        ],
+        "text": "Hey, don't make me get out of the car.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1074133,
+        "endMs": 1075426,
+        "cueIndices": [
+          224
+        ],
+        "text": "Check this out.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1075634,
+        "endMs": 1077678,
+        "cueIndices": [
+          225
+        ],
+        "text": "What I'm talking about.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1078762,
+        "endMs": 1081181,
+        "cueIndices": [
+          226
+        ],
+        "text": "- I ain't holding, okay?\n- Did I say open your mouth?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1081390,
+        "endMs": 1083267,
+        "cueIndices": [
+          227
+        ],
+        "text": "And hands off the car.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1084018,
+        "endMs": 1087354,
+        "cueIndices": [
+          228
+        ],
+        "text": "Other side. Go around the other side, talk to my friend here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1090274,
+        "endMs": 1092401,
+        "cueIndices": [
+          229
+        ],
+        "text": "What's your name, sweetheart?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1093694,
+        "endMs": 1095404,
+        "cueIndices": [
+          230
+        ],
+        "text": "- Wendy.\n- Wendy, huh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1095612,
+        "endMs": 1097740,
+        "cueIndices": [
+          231
+        ],
+        "text": "How much you charge for a windy, Wendy?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1098240,
+        "endMs": 1101160,
+        "cueIndices": [
+          232
+        ],
+        "text": "- I ain't doing him, he's a kid.\n- Jesus, was that my question?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1101368,
+        "endMs": 1104121,
+        "cueIndices": [
+          233
+        ],
+        "text": "Don't think so hard, it's gonna hurt your brain.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1104329,
+        "endMs": 1107207,
+        "cueIndices": [
+          234
+        ],
+        "text": "- Are you on the pipe or on the needle?\n- Nothing. Neither.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1107416,
+        "endMs": 1109585,
+        "cueIndices": [
+          235
+        ],
+        "text": "Yeah, yeah. Show us your teeth, huh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1109793,
+        "endMs": 1112671,
+        "cueIndices": [
+          236
+        ],
+        "text": "Come on, Wendy, let's see those pearly whites.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1114465,
+        "endMs": 1118344,
+        "cueIndices": [
+          237
+        ],
+        "text": "Oh, God. See that? Pipe, definitely.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1118552,
+        "endMs": 1120179,
+        "cueIndices": [
+          238
+        ],
+        "text": "Big time, big time on the pipe.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1120387,
+        "endMs": 1122473,
+        "cueIndices": [
+          239
+        ],
+        "text": "You got something you wanna ask Wendy?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1122681,
+        "endMs": 1124266,
+        "cueIndices": [
+          240
+        ],
+        "text": "No, not really.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1124475,
+        "endMs": 1126602,
+        "cueIndices": [
+          241
+        ],
+        "text": "You ever smoke anything else, Wendy?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1127102,
+        "endMs": 1129355,
+        "cueIndices": [
+          242
+        ],
+        "text": "Sausages don't count.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1130773,
+        "endMs": 1133942,
+        "cueIndices": [
+          243
+        ],
+        "text": "Seriously, tell my friend here how you got started.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1134151,
+        "endMs": 1137946,
+        "cueIndices": [
+          244
+        ],
+        "text": "Probably used to be, what? Like a Girl Scout, or sang in the church choir.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1138155,
+        "endMs": 1142201,
+        "cueIndices": [
+          245
+        ],
+        "text": "- What are you, like, handicapped?\n- He broke his leg playing football.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1142409,
+        "endMs": 1146080,
+        "cueIndices": [
+          246
+        ],
+        "text": "He's a qb. Got an arm like a howitzer.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1147539,
+        "endMs": 1150292,
+        "cueIndices": [
+          247
+        ],
+        "text": "So tell me, Wendy, you smoke pot?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1150501,
+        "endMs": 1151627,
+        "cueIndices": [
+          248
+        ],
+        "text": "Why, you got some?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1151835,
+        "endMs": 1154463,
+        "cueIndices": [
+          249
+        ],
+        "text": "No. Right, hoof it, get lost. Get out of here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1154671,
+        "endMs": 1157925,
+        "cueIndices": [
+          250
+        ],
+        "text": "Hey, fair warning, next time I'm gonna bust you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1165432,
+        "endMs": 1166725,
+        "cueIndices": [
+          251
+        ],
+        "text": "So, what do you think?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1168977,
+        "endMs": 1169978,
+        "cueIndices": [
+          252
+        ],
+        "text": "Cool.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1179405,
+        "endMs": 1182950,
+        "cueIndices": [
+          253
+        ],
+        "text": "Shut the door. Shut the door. Lock it. Lock it, lock it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1183951,
+        "endMs": 1184993,
+        "cueIndices": [
+          254
+        ],
+        "text": "Who the hell was that?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1185202,
+        "endMs": 1187955,
+        "cueIndices": [
+          255
+        ],
+        "text": "Cop and some football player messing with me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1188163,
+        "endMs": 1190416,
+        "cueIndices": [
+          256
+        ],
+        "text": "They ask about me, huh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1191333,
+        "endMs": 1193127,
+        "cueIndices": [
+          257
+        ],
+        "text": "No, I think they just wanted pot.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1207141,
+        "endMs": 1208726,
+        "cueIndices": [
+          258
+        ],
+        "text": "Right there.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1210144,
+        "endMs": 1212438,
+        "cueIndices": [
+          259
+        ],
+        "text": "Shit, I left my root beer.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1261653,
+        "endMs": 1264698,
+        "cueIndices": [
+          260
+        ],
+        "text": "- Hello?\n- Hey, sweetie, it's me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1264907,
+        "endMs": 1266700,
+        "cueIndices": [
+          261
+        ],
+        "text": "Listen, I'm so sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1266909,
+        "endMs": 1272122,
+        "cueIndices": [
+          262
+        ],
+        "text": "Time, it just completely got away from me. I'm just...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1273332,
+        "endMs": 1277086,
+        "cueIndices": [
+          263
+        ],
+        "text": "My fault, my fault. Bogdan just kept me here late...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1277294,
+        "endMs": 1279880,
+        "cueIndices": [
+          264
+        ],
+        "text": "...you know, doing some inventory...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1280089,
+        "endMs": 1282675,
+        "cueIndices": [
+          265
+        ],
+        "text": "...and I should've just...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1282883,
+        "endMs": 1290224,
+        "cueIndices": [
+          266,
+          267
+        ],
+        "text": "You know, you're right. I gotta learn to say, you know, \"No. \" But...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1291600,
+        "endMs": 1294019,
+        "cueIndices": [
+          268
+        ],
+        "text": "Sky? You there?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1295437,
+        "endMs": 1297523,
+        "cueIndices": [
+          269
+        ],
+        "text": "You're at the car wash?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1298482,
+        "endMs": 1300109,
+        "cueIndices": [
+          270
+        ],
+        "text": "Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1300901,
+        "endMs": 1305906,
+        "cueIndices": [
+          271
+        ],
+        "text": "I seriously doubt that, since you quit two weeks ago.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1311578,
+        "endMs": 1315416,
+        "cueIndices": [
+          272
+        ],
+        "text": "I called Bogdan, looking for you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1315958,
+        "endMs": 1318043,
+        "cueIndices": [
+          273
+        ],
+        "text": "Quite an earful he gave me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1320170,
+        "endMs": 1321922,
+        "cueIndices": [
+          274
+        ],
+        "text": "Listen...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1323590,
+        "endMs": 1325801,
+        "cueIndices": [
+          275
+        ],
+        "text": "Listen, I'll come home and we'll talk about it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1327344,
+        "endMs": 1329805,
+        "cueIndices": [
+          276
+        ],
+        "text": "- I don't think so, Walt.\n- Honey...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1330014,
+        "endMs": 1332016,
+        "cueIndices": [
+          277
+        ],
+        "text": "Wherever you are...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1333100,
+        "endMs": 1335894,
+        "cueIndices": [
+          278
+        ],
+        "text": "...why don't you just stay there tonight?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1340566,
+        "endMs": 1341984,
+        "cueIndices": [
+          279
+        ],
+        "text": "Skyler?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1343777,
+        "endMs": 1345779,
+        "cueIndices": [
+          280
+        ],
+        "text": "Walter?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1346155,
+        "endMs": 1347614,
+        "cueIndices": [
+          281
+        ],
+        "text": "Hello?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1347823,
+        "endMs": 1350617,
+        "cueIndices": [
+          282
+        ],
+        "text": "Hey, there's a hungry guy here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1448882,
+        "endMs": 1450884,
+        "cueIndices": [
+          283
+        ],
+        "text": "Come on.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1473323,
+        "endMs": 1474950,
+        "cueIndices": [
+          284
+        ],
+        "text": "Damn.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1475451,
+        "endMs": 1477828,
+        "cueIndices": [
+          285
+        ],
+        "text": "I didn't think you were coming back.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1492176,
+        "endMs": 1493761,
+        "cueIndices": [
+          286
+        ],
+        "text": "How long was I out?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1495012,
+        "endMs": 1496680,
+        "cueIndices": [
+          287
+        ],
+        "text": "Ten, 15 minutes?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1498682,
+        "endMs": 1502311,
+        "cueIndices": [
+          288
+        ],
+        "text": "I've never seen someone knock themselves out just by coughing.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1502519,
+        "endMs": 1504563,
+        "cueIndices": [
+          289
+        ],
+        "text": "Were you on the same shit you used on me?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1513572,
+        "endMs": 1514948,
+        "cueIndices": [
+          290
+        ],
+        "text": "I've got lung cancer.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1539765,
+        "endMs": 1542226,
+        "cueIndices": [
+          291
+        ],
+        "text": "I'll make you another sandwich.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1579138,
+        "endMs": 1580931,
+        "cueIndices": [
+          292
+        ],
+        "text": "It's safe.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1581932,
+        "endMs": 1583934,
+        "cueIndices": [
+          293
+        ],
+        "text": "There's no poison.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1587104,
+        "endMs": 1589231,
+        "cueIndices": [
+          294
+        ],
+        "text": "Because that would be the way to do it...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1589982,
+        "endMs": 1591984,
+        "cueIndices": [
+          295
+        ],
+        "text": "...if you're gonna do it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1593277,
+        "endMs": 1595487,
+        "cueIndices": [
+          296
+        ],
+        "text": "I suppose it would.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1597281,
+        "endMs": 1599867,
+        "cueIndices": [
+          297
+        ],
+        "text": "You being a chemist and all.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1617051,
+        "endMs": 1620971,
+        "cueIndices": [
+          298
+        ],
+        "text": "So that name...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1621388,
+        "endMs": 1623557,
+        "cueIndices": [
+          299
+        ],
+        "text": "...Krazy-8.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1623849,
+        "endMs": 1625976,
+        "cueIndices": [
+          300
+        ],
+        "text": "Do I really have to call you that?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1626185,
+        "endMs": 1628771,
+        "cueIndices": [
+          301
+        ],
+        "text": "I mean, no offence, but...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1629313,
+        "endMs": 1631273,
+        "cueIndices": [
+          302
+        ],
+        "text": "...don't you have a real name?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1632524,
+        "endMs": 1634276,
+        "cueIndices": [
+          303
+        ],
+        "text": "Domingo.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1635361,
+        "endMs": 1637029,
+        "cueIndices": [
+          304
+        ],
+        "text": "Domingo.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1637237,
+        "endMs": 1639990,
+        "cueIndices": [
+          305
+        ],
+        "text": "That's \"Sunday,\" right?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1642493,
+        "endMs": 1646330,
+        "cueIndices": [
+          306
+        ],
+        "text": "I'd rather call you that, if you don't mind.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1649041,
+        "endMs": 1651668,
+        "cueIndices": [
+          307
+        ],
+        "text": "I can't say I ever liked it much.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1654797,
+        "endMs": 1657883,
+        "cueIndices": [
+          308
+        ],
+        "text": "So, Domingo...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1658092,
+        "endMs": 1661929,
+        "cueIndices": [
+          309
+        ],
+        "text": "...you from around town here or someplace else?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1662262,
+        "endMs": 1664306,
+        "cueIndices": [
+          310
+        ],
+        "text": "Hey, Walter? You getting to know me...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1664515,
+        "endMs": 1667559,
+        "cueIndices": [
+          311
+        ],
+        "text": "...is not gonna make it easier for you to kill me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1668102,
+        "endMs": 1669853,
+        "cueIndices": [
+          312
+        ],
+        "text": "Not that I mind, you understand?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1672439,
+        "endMs": 1675943,
+        "cueIndices": [
+          313
+        ],
+        "text": "You know, you keep telling me that I don't have it in me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1676151,
+        "endMs": 1677820,
+        "cueIndices": [
+          314
+        ],
+        "text": "Well, maybe.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1678320,
+        "endMs": 1680197,
+        "cueIndices": [
+          315
+        ],
+        "text": "But maybe not.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1683367,
+        "endMs": 1686078,
+        "cueIndices": [
+          316
+        ],
+        "text": "I sure as hell am looking for any reason not to.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1686286,
+        "endMs": 1689707,
+        "cueIndices": [
+          317
+        ],
+        "text": "I mean, any good reason at all.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1695879,
+        "endMs": 1697965,
+        "cueIndices": [
+          318
+        ],
+        "text": "Sell me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1698173,
+        "endMs": 1700217,
+        "cueIndices": [
+          319
+        ],
+        "text": "Tell me what it is.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1703846,
+        "endMs": 1706265,
+        "cueIndices": [
+          320
+        ],
+        "text": "I'd start off by promising that if you let me go...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1706473,
+        "endMs": 1709810,
+        "cueIndices": [
+          321
+        ],
+        "text": "...I won't come after you, that you'd be safe.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1710019,
+        "endMs": 1712021,
+        "cueIndices": [
+          322
+        ],
+        "text": "I guess I'd say what happened between us...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1713147,
+        "endMs": 1714356,
+        "cueIndices": [
+          323
+        ],
+        "text": "...never happened.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1714565,
+        "endMs": 1718235,
+        "cueIndices": [
+          324
+        ],
+        "text": "And what's best for both parties is we forget all about it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1718986,
+        "endMs": 1722614,
+        "cueIndices": [
+          325
+        ],
+        "text": "But you know anybody in my situation would make promises like that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1722823,
+        "endMs": 1725200,
+        "cueIndices": [
+          326
+        ],
+        "text": "And, in my case, they happen to be true.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1725409,
+        "endMs": 1726869,
+        "cueIndices": [
+          327
+        ],
+        "text": "You'll never know for sure.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1730914,
+        "endMs": 1733083,
+        "cueIndices": [
+          328
+        ],
+        "text": "So, what else can I tell you?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1738964,
+        "endMs": 1740841,
+        "cueIndices": [
+          329
+        ],
+        "text": "I don't know.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1742217,
+        "endMs": 1744762,
+        "cueIndices": [
+          330
+        ],
+        "text": "But you've gotta convince me.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1745637,
+        "endMs": 1749558,
+        "cueIndices": [
+          331
+        ],
+        "text": "And you're going nowhere until you do.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1750768,
+        "endMs": 1753103,
+        "cueIndices": [
+          332
+        ],
+        "text": "- Hey, yeah.\n- Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1753395,
+        "endMs": 1755564,
+        "cueIndices": [
+          333
+        ],
+        "text": "I'm from here in town, man.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1756357,
+        "endMs": 1758901,
+        "cueIndices": [
+          334
+        ],
+        "text": "ABQ, born and bred.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1759109,
+        "endMs": 1761028,
+        "cueIndices": [
+          335
+        ],
+        "text": "Never left.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1761653,
+        "endMs": 1764907,
+        "cueIndices": [
+          336
+        ],
+        "text": "Studied Business Administration over at UNM...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1765115,
+        "endMs": 1766325,
+        "cueIndices": [
+          337
+        ],
+        "text": "...got my degree.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1767576,
+        "endMs": 1769244,
+        "cueIndices": [
+          338
+        ],
+        "text": "Really?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1771872,
+        "endMs": 1775417,
+        "cueIndices": [
+          339
+        ],
+        "text": "Does that come in handy in the drug trade?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1775626,
+        "endMs": 1777419,
+        "cueIndices": [
+          340
+        ],
+        "text": "Doesn't hurt.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1778253,
+        "endMs": 1781006,
+        "cueIndices": [
+          341
+        ],
+        "text": "I was gonna study music originally.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1781465,
+        "endMs": 1784218,
+        "cueIndices": [
+          342
+        ],
+        "text": "Maybe even try out for Oberlin and Berklee.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1784426,
+        "endMs": 1787680,
+        "cueIndices": [
+          343
+        ],
+        "text": "My pops talked me out of it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1787888,
+        "endMs": 1791767,
+        "cueIndices": [
+          344
+        ],
+        "text": "Said there was no money in it unless I wind up some bullshit rock star...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1791975,
+        "endMs": 1794937,
+        "cueIndices": [
+          345
+        ],
+        "text": "...and I hadn't a snowball chance at that one.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1795979,
+        "endMs": 1798148,
+        "cueIndices": [
+          346
+        ],
+        "text": "What does your dad do?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1799191,
+        "endMs": 1802486,
+        "cueIndices": [
+          347
+        ],
+        "text": "He owns Tampico Furniture over on Menaul.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1803570,
+        "endMs": 1806156,
+        "cueIndices": [
+          348
+        ],
+        "text": "Wait a minute, I know that place.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1808701,
+        "endMs": 1810577,
+        "cueIndices": [
+          349
+        ],
+        "text": "Wait a minute. That's...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1810786,
+        "endMs": 1813163,
+        "cueIndices": [
+          350
+        ],
+        "text": "That's that...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1813372,
+        "endMs": 1815749,
+        "cueIndices": [
+          351
+        ],
+        "text": "They used to have those late-night...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1815958,
+        "endMs": 1818210,
+        "cueIndices": [
+          352
+        ],
+        "text": "- The stupid commercials.\n- That they had, yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1818419,
+        "endMs": 1821547,
+        "cueIndices": [
+          353
+        ],
+        "text": "Yeah, that's him. Been doing them for over 30 years.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1821755,
+        "endMs": 1825426,
+        "cueIndices": [
+          354
+        ],
+        "text": "Wait a minute. How did it go? It was...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1825759,
+        "endMs": 1828470,
+        "cueIndices": [
+          355
+        ],
+        "text": "Wait, wait, wait. It was...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1829680,
+        "endMs": 1838147,
+        "cueIndices": [
+          356,
+          357
+        ],
+        "text": "Don't let shopping Strain your brain-o Just sing this short refrain-o",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1838355,
+        "endMs": 1841525,
+        "cueIndices": [
+          358
+        ],
+        "text": "- Our furniture is bueno\n- Our furniture is bueno",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1841734,
+        "endMs": 1845320,
+        "cueIndices": [
+          359
+        ],
+        "text": "- Tampico is the name- o\n- Tampico is the name- o",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1855873,
+        "endMs": 1858917,
+        "cueIndices": [
+          360
+        ],
+        "text": "Pretty moronic. But what can you do?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1859126,
+        "endMs": 1862838,
+        "cueIndices": [
+          361
+        ],
+        "text": "Well, it did tend to stick in your head.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1863047,
+        "endMs": 1866800,
+        "cueIndices": [
+          362
+        ],
+        "text": "Did you write that? Being the musician in the family.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1867009,
+        "endMs": 1870971,
+        "cueIndices": [
+          363
+        ],
+        "text": "Oh, no, man. It was my crazy uncle Alex.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1871180,
+        "endMs": 1873432,
+        "cueIndices": [
+          364
+        ],
+        "text": "He sings it at bars, trying to pick up on women.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1875017,
+        "endMs": 1878979,
+        "cueIndices": [
+          365
+        ],
+        "text": "His mind, it's like saying, \"Hey, I wrote 'Stairway to Heaven. \"'",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1881190,
+        "endMs": 1884193,
+        "cueIndices": [
+          366
+        ],
+        "text": "Yeah, but at Tampico Furniture, I...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1884735,
+        "endMs": 1889573,
+        "cueIndices": [
+          367
+        ],
+        "text": "I think when my son was born that we bought his bassinet there.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1889782,
+        "endMs": 1892951,
+        "cueIndices": [
+          368
+        ],
+        "text": "We don't sell bassinets there. It's more of a speciality item.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1893160,
+        "endMs": 1894370,
+        "cueIndices": [
+          369
+        ],
+        "text": "We did use to sell cribs.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1896622,
+        "endMs": 1899166,
+        "cueIndices": [
+          370
+        ],
+        "text": "A crib, then, okay. A crib.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1899375,
+        "endMs": 1901502,
+        "cueIndices": [
+          371
+        ],
+        "text": "Yeah. No, I remember that.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1901710,
+        "endMs": 1907758,
+        "cueIndices": [
+          372
+        ],
+        "text": "In fact, I remember recognising your dad from those commercials.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1907966,
+        "endMs": 1911387,
+        "cueIndices": [
+          373
+        ],
+        "text": "Although, he wasn't anywhere near as friendly in real life.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1911595,
+        "endMs": 1913514,
+        "cueIndices": [
+          374
+        ],
+        "text": "Yeah. No shit.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1913722,
+        "endMs": 1916225,
+        "cueIndices": [
+          375
+        ],
+        "text": "Did he try selling you that extended warranty?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1916725,
+        "endMs": 1918686,
+        "cueIndices": [
+          376
+        ],
+        "text": "Yeah, he probably did.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1918894,
+        "endMs": 1921271,
+        "cueIndices": [
+          377
+        ],
+        "text": "And I was probably dumb enough to buy it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1921480,
+        "endMs": 1923399,
+        "cueIndices": [
+          378
+        ],
+        "text": "Yeah, that was his big thing.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1923607,
+        "endMs": 1925234,
+        "cueIndices": [
+          379
+        ],
+        "text": "You ask him for a glass of water...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1925442,
+        "endMs": 1928404,
+        "cueIndices": [
+          380
+        ],
+        "text": "...he'd tell you you need an extended warranty on the ice.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1932408,
+        "endMs": 1934827,
+        "cueIndices": [
+          381
+        ],
+        "text": "- Did you work there too?\n- Only my whole life.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1935369,
+        "endMs": 1937955,
+        "cueIndices": [
+          382
+        ],
+        "text": "Up until the day I said, \"Fuck you,\" and quit.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1942292,
+        "endMs": 1944044,
+        "cueIndices": [
+          383
+        ],
+        "text": "So...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1945838,
+        "endMs": 1948590,
+        "cueIndices": [
+          384
+        ],
+        "text": "...16 years ago, how old would you have been?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1950009,
+        "endMs": 1952928,
+        "cueIndices": [
+          385
+        ],
+        "text": "If it was after school, trust me, I was there.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1953178,
+        "endMs": 1955180,
+        "cueIndices": [
+          386
+        ],
+        "text": "Might have even helped ring you up.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1955389,
+        "endMs": 1959101,
+        "cueIndices": [
+          387
+        ],
+        "text": "You and your extended warranty on the crib.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1967735,
+        "endMs": 1969778,
+        "cueIndices": [
+          388
+        ],
+        "text": "Small world.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1971113,
+        "endMs": 1973032,
+        "cueIndices": [
+          389
+        ],
+        "text": "It is.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 1974408,
+        "endMs": 1976994,
+        "cueIndices": [
+          390
+        ],
+        "text": "The paths we take, huh?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2002561,
+        "endMs": 2004980,
+        "cueIndices": [
+          391
+        ],
+        "text": "Jesse know you've got cancer?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2007941,
+        "endMs": 2009985,
+        "cueIndices": [
+          392
+        ],
+        "text": "No one but you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2011487,
+        "endMs": 2014239,
+        "cueIndices": [
+          393
+        ],
+        "text": "- Not your family?\n- No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2016116,
+        "endMs": 2017659,
+        "cueIndices": [
+          394
+        ],
+        "text": "Why not?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2021413,
+        "endMs": 2026293,
+        "cueIndices": [
+          395
+        ],
+        "text": "Not a conversation that I'm even remotely ready to have.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2028629,
+        "endMs": 2030631,
+        "cueIndices": [
+          396
+        ],
+        "text": "That's why you're cooking meth?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2031507,
+        "endMs": 2033926,
+        "cueIndices": [
+          397
+        ],
+        "text": "You wanna leave money for your family.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2036095,
+        "endMs": 2037680,
+        "cueIndices": [
+          398
+        ],
+        "text": "Hell.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2037930,
+        "endMs": 2040683,
+        "cueIndices": [
+          399
+        ],
+        "text": "I'll write you a cheque right now if you let me go.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2046313,
+        "endMs": 2048565,
+        "cueIndices": [
+          400
+        ],
+        "text": "Like I said, Walter...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2049233,
+        "endMs": 2052152,
+        "cueIndices": [
+          401
+        ],
+        "text": "...if this line of work doesn't suit you...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2056865,
+        "endMs": 2059159,
+        "cueIndices": [
+          402
+        ],
+        "text": "...get out before it's too late.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2065457,
+        "endMs": 2067960,
+        "cueIndices": [
+          403
+        ],
+        "text": "I don't know what to do.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2078178,
+        "endMs": 2079346,
+        "cueIndices": [
+          404
+        ],
+        "text": "You do.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2098532,
+        "endMs": 2100701,
+        "cueIndices": [
+          405
+        ],
+        "text": "I'll get the key.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2202428,
+        "endMs": 2204346,
+        "cueIndices": [
+          406
+        ],
+        "text": "No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2204847,
+        "endMs": 2206473,
+        "cueIndices": [
+          407
+        ],
+        "text": "No.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2206849,
+        "endMs": 2209351,
+        "cueIndices": [
+          408
+        ],
+        "text": "Oh, no, no, no.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2221196,
+        "endMs": 2223449,
+        "cueIndices": [
+          409
+        ],
+        "text": "No. No, don't do this.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2223657,
+        "endMs": 2226910,
+        "cueIndices": [
+          410
+        ],
+        "text": "Don't do this. Why are you doing this?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2227578,
+        "endMs": 2230247,
+        "cueIndices": [
+          411
+        ],
+        "text": "Why are you doing this?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2263405,
+        "endMs": 2265574,
+        "cueIndices": [
+          412
+        ],
+        "text": "You're doing the right thing, Walter.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2272664,
+        "endMs": 2274541,
+        "cueIndices": [
+          413
+        ],
+        "text": "Do you wanna?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2289390,
+        "endMs": 2293185,
+        "cueIndices": [
+          414
+        ],
+        "text": "So you're not angry?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2295771,
+        "endMs": 2297690,
+        "cueIndices": [
+          415
+        ],
+        "text": "Angry at you?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2299983,
+        "endMs": 2302277,
+        "cueIndices": [
+          416
+        ],
+        "text": "Live and let live, man.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2304488,
+        "endMs": 2306657,
+        "cueIndices": [
+          417
+        ],
+        "text": "That's very understanding.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2306865,
+        "endMs": 2308701,
+        "cueIndices": [
+          418
+        ],
+        "text": "Whatever, man.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2308909,
+        "endMs": 2311036,
+        "cueIndices": [
+          419
+        ],
+        "text": "I just wanna go home.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2316959,
+        "endMs": 2318711,
+        "cueIndices": [
+          420
+        ],
+        "text": "Me too.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2326552,
+        "endMs": 2328595,
+        "cueIndices": [
+          421
+        ],
+        "text": "Unlock me, Walter.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2344194,
+        "endMs": 2346488,
+        "cueIndices": [
+          422
+        ],
+        "text": "The moment I do...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2348073,
+        "endMs": 2351035,
+        "cueIndices": [
+          423
+        ],
+        "text": "...are you gonna stick me with that broken piece of plate?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2379897,
+        "endMs": 2381648,
+        "cueIndices": [
+          424
+        ],
+        "text": "I'm sorry, I'm sorry, I'm sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2381857,
+        "endMs": 2383692,
+        "cueIndices": [
+          425
+        ],
+        "text": "I'm sorry, I'm sorry, I'm sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2386153,
+        "endMs": 2387696,
+        "cueIndices": [
+          426
+        ],
+        "text": "I'm sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2394661,
+        "endMs": 2396663,
+        "cueIndices": [
+          427
+        ],
+        "text": "I'm sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2396955,
+        "endMs": 2399166,
+        "cueIndices": [
+          428
+        ],
+        "text": "I'm so sorry.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2488005,
+        "endMs": 2489798,
+        "cueIndices": [
+          429
+        ],
+        "text": "Hello?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2490799,
+        "endMs": 2493135,
+        "cueIndices": [
+          430
+        ],
+        "text": "Anybody down here?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2560536,
+        "endMs": 2562621,
+        "cueIndices": [
+          431
+        ],
+        "text": "Everybody...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2563580,
+        "endMs": 2566208,
+        "cueIndices": [
+          432
+        ],
+        "text": "...I need you all to take your seats.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2566417,
+        "endMs": 2569211,
+        "cueIndices": [
+          433
+        ],
+        "text": "Settle down, please. Thank you.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2569420,
+        "endMs": 2572172,
+        "cueIndices": [
+          434
+        ],
+        "text": "I understand that Mr. White is feeling...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2572381,
+        "endMs": 2574967,
+        "cueIndices": [
+          435
+        ],
+        "text": "...a little under the weather this morning.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2575175,
+        "endMs": 2580139,
+        "cueIndices": [
+          436
+        ],
+        "text": "So you folks are going to have to be making do with me today.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2580347,
+        "endMs": 2584601,
+        "cueIndices": [
+          437
+        ],
+        "text": "And we are going to be watching a very interesting video...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2584810,
+        "endMs": 2588272,
+        "cueIndices": [
+          438
+        ],
+        "text": "...on carbon.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2588522,
+        "endMs": 2589732,
+        "cueIndices": [
+          439
+        ],
+        "text": "Very important stuff.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2593235,
+        "endMs": 2596822,
+        "cueIndices": [
+          440
+        ],
+        "text": "- So, what do you think?\n- It's a cook site. Gotta be.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2597031,
+        "endMs": 2600284,
+        "cueIndices": [
+          441
+        ],
+        "text": "Nobody came way the hell out here just to buy.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2600492,
+        "endMs": 2603245,
+        "cueIndices": [
+          442
+        ],
+        "text": "Fire there could have started by accident.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2603454,
+        "endMs": 2605956,
+        "cueIndices": [
+          443
+        ],
+        "text": "I don't think that was meant to destroy evidence.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2606665,
+        "endMs": 2610002,
+        "cueIndices": [
+          444
+        ],
+        "text": "Got a couple of Dooley tracks headed away, towards the road.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2610210,
+        "endMs": 2613464,
+        "cueIndices": [
+          445
+        ],
+        "text": "So, what, they're in some sort of camper-slash-lab?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2613672,
+        "endMs": 2616717,
+        "cueIndices": [
+          446
+        ],
+        "text": "They accidentally start a fire and everybody FOs?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2616925,
+        "endMs": 2618594,
+        "cueIndices": [
+          447
+        ],
+        "text": "Yeah. Why not?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2618802,
+        "endMs": 2621889,
+        "cueIndices": [
+          448
+        ],
+        "text": "So why did that little hair-gelled shit leave his car?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2625225,
+        "endMs": 2630147,
+        "cueIndices": [
+          449
+        ],
+        "text": "- Gomey, it's a culture in decline.\n- It's a rich and vibrant culture.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2630356,
+        "endMs": 2632608,
+        "cueIndices": [
+          450
+        ],
+        "text": "It's a car that jumps up and down.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2633067,
+        "endMs": 2634276,
+        "cueIndices": [
+          451
+        ],
+        "text": "What the hell?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2634485,
+        "endMs": 2637613,
+        "cueIndices": [
+          452
+        ],
+        "text": "You people used to be conquistadors, for chrissake.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2637821,
+        "endMs": 2641909,
+        "cueIndices": [
+          453
+        ],
+        "text": "Smells like a Drakkar Noir factory in here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2642326,
+        "endMs": 2643869,
+        "cueIndices": [
+          454
+        ],
+        "text": "I already searched it.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2644411,
+        "endMs": 2646205,
+        "cueIndices": [
+          455
+        ],
+        "text": "Yeah.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2647122,
+        "endMs": 2649124,
+        "cueIndices": [
+          456
+        ],
+        "text": "You're wasting your time.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2650000,
+        "endMs": 2652961,
+        "cueIndices": [
+          457
+        ],
+        "text": "Give it up. If this here's a trap car, it's gonna take more...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2653170,
+        "endMs": 2655839,
+        "cueIndices": [
+          458
+        ],
+        "text": "...than your dumb white ass to find it. - Oh, yeah?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2656048,
+        "endMs": 2660010,
+        "cueIndices": [
+          459
+        ],
+        "text": "You are talking to the trap-car master, my friend.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2660219,
+        "endMs": 2662513,
+        "cueIndices": [
+          460
+        ],
+        "text": "I'm Rain Man counting his toothpicks.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2663013,
+        "endMs": 2665599,
+        "cueIndices": [
+          461
+        ],
+        "text": "Yeah, you're like Rain Man. Retarded.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2673232,
+        "endMs": 2674650,
+        "cueIndices": [
+          462
+        ],
+        "text": "Yeah, baby.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2678862,
+        "endMs": 2681407,
+        "cueIndices": [
+          463
+        ],
+        "text": "- Hello, zippy.\n- Asshole.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2682282,
+        "endMs": 2686120,
+        "cueIndices": [
+          464
+        ],
+        "text": "Sort of looks like meth but it's too damn white.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2688664,
+        "endMs": 2690416,
+        "cueIndices": [
+          465
+        ],
+        "text": "You know what I'm thinking, Gomey?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2690624,
+        "endMs": 2693335,
+        "cueIndices": [
+          466
+        ],
+        "text": "Yep. Somebody croaked our snitch.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2693544,
+        "endMs": 2695004,
+        "cueIndices": [
+          467
+        ],
+        "text": "Hey, agent.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2695212,
+        "endMs": 2697047,
+        "cueIndices": [
+          468
+        ],
+        "text": "You got something?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2731749,
+        "endMs": 2733667,
+        "cueIndices": [
+          469
+        ],
+        "text": "I don't know.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2734668,
+        "endMs": 2737087,
+        "cueIndices": [
+          470
+        ],
+        "text": "It just... Doesn't it seem like...",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2737296,
+        "endMs": 2739923,
+        "cueIndices": [
+          471
+        ],
+        "text": "...something's missing?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2740174,
+        "endMs": 2742217,
+        "cueIndices": [
+          472
+        ],
+        "text": "What about the soul?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2753812,
+        "endMs": 2756148,
+        "cueIndices": [
+          473
+        ],
+        "text": "The soul.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2763530,
+        "endMs": 2766533,
+        "cueIndices": [
+          474
+        ],
+        "text": "There's nothing but chemistry here.",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2831598,
+        "endMs": 2833475,
+        "cueIndices": [
+          475
+        ],
+        "text": "Skyler?",
+        "kind": "dialogue"
+      },
+      {
+        "startMs": 2843277,
+        "endMs": 2000,
+        "cueIndices": [
+          476,
+          477
+        ],
+        "text": "There's something I have to tell you. www.tvsubtitles.net",
+        "kind": "dialogue"
+      }
+    ]
+  }
+}
