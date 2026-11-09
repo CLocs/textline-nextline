@@ -1,7 +1,17 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-09T02:27:00.000Z",
+  "updatedAt": "2026-11-09T03:50:06.933Z",
   "titles": [
+    {
+      "id": "american-gangster-2007",
+      "title": "American Gangster (2007)",
+      "lineCount": 2426,
+      "sourceFilename": "American Gangster.2007.eng.srt",
+      "importedAt": "2026-11-09T03:50:06.923Z",
+      "meta": {
+        "year": 2007
+      }
+    },
     {
       "id": "baby-driver-2017",
       "title": "Baby Driver (2017)",

@@ -10,16 +10,16 @@ description: >-
 
 # Line notes
 
-The note half of **w2g**. A line note is the room talking over one quote: a joke, a life story, another movie. Quote parallels stay analogy packs. Friends are a later link for a person, not a requirement to store the words. There is no notes table and no Curate field. Do not add either in this skill. Do not insert notes until a mapping is shown and they confirm it.
+The note half of **w2g**. A line note is the room talking over one quote: a joke, a life story, another movie. Quote parallels stay analogy packs. Friends are a later link for a person, not a requirement to store the words. Curate already shows a typed note on a starred or quoted line and stores it in this browser. There is no notes table. Do not add one in this skill. Do not insert Pocket notes until a mapping is shown and they confirm it.
 
 Plan: [W2G.md](../../../docs/W2G.md). Highlighting and Sync stay [watch-highlight](../watch-highlight/SKILL.md).
 
 ## Paths
 
-1. **Type it.** Manual note below.
+1. **Type it.** In Curate, on a starred or quoted line. This browser only. If they type the note in chat instead, manual note below.
 2. **Readwise.** They highlight outside the app. The note stays on `stars-seed.json` after `content:vault-title`. It is not copied into the session file.
 3. **HeyPocket after the watch.** Pocket import below. The Odyssey recording with Matty Ice is the trial.
-4. **The Sync mic.** A stretch from a Sync lock can be kept as the note on the line it matched. Sync itself is not built. Store the words only after they accept them.
+4. **The Sync mic.** A stretch from a Sync lock can be kept as the note on the line it matched. Sync is in Curate. Keeping that stretch as the note is not this slice. Store the words only after they accept them.
 
 ## Where a note lives
 

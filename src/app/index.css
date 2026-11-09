@@ -1962,6 +1962,64 @@ code {
   margin: 0;
 }
 
+.curate-sync {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.curate-sync-status,
+.curate-sync-line {
+  margin: 0;
+}
+
+.curate-sync-candidate {
+  flex: 1 1 16rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.curate-sync-actions,
+.curate-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.button.is-listening {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.curate-note {
+  margin-top: 0.45rem;
+}
+
+.curate-note-text {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.curate-note textarea {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--surface);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.curate-note-open {
+  margin-top: 0.35rem;
+  padding: 0.25rem 0.6rem;
+}
+
 .curate-item.focused {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);

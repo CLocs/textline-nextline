@@ -43,17 +43,17 @@ flowchart TD
 
 ## Sync
 
-Not built. Tap Sync. The mic stays on until a spoken line matches the transcript. The list jumps to that line and the mic stops. The list then advances on the clock. Tap Sync again after a pause, a seek, or a bad lock. The movie file is not required. The transcript timings are the clock.
+In Curate. Tap Sync. The mic stays on until a spoken line matches the transcript. The list shows that line. This line jumps there and the mic stops. Not this keeps listening. The list then advances on the clock. Tap Sync again after a pause, a seek, or a bad lock. The movie file is not required. The transcript timings are the clock.
 
 ## Notes
 
 A line note is the room on one quote: a joke, a life story, another movie. Quote parallels stay analogy packs, a curated tie between lines. Friends are a later link for a person. The words can be stored before anyone is linked.
 
-There is no notes table and no note field in Curate. A watch session file can hold a note. The app does not read it.
+There is no notes table. Curate shows a typed note on a starred or quoted line and stores it in this browser. A watch session file can still hold a note. The app does not read that file.
 
 | Path | What you do | Now |
 | --- | --- | --- |
-| Type it | Write the note on the starred or quoted line | First sprinkle. Not built |
+| Type it | Write the note on the starred or quoted line | In Curate, this browser only |
 | Readwise | Highlight online. Vault-import after it reaches Obsidian | The star path works. The note stays on `stars-seed.json` |
 | HeyPocket after the watch | Drop the transcript. Confirm the mapping | Procedure only. The Odyssey recording with Matty Ice waits on the transcript |
 | The Sync mic | Keep the mic stretch as the note on the line it locked | Needs Sync. Still confirmed by you |

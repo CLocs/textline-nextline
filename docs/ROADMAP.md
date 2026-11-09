@@ -26,8 +26,8 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 | Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
 | Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
 | **Send streaks from Curate** | **Now** |
-| **2.7 w2g Watch** | Started — one-title vault import. Sync is the spike: tap, mic until a line locks, then the clock |
-| **2.8 w2g Line notes** | Captured — type, Readwise, HeyPocket, or the Sync mic. Manual note is the first sprinkle |
+| **2.7 w2g Watch** | Sync is in Curate: tap, mic until a line locks, then the clock. One-title vault import stays |
+| **2.8 w2g Line notes** | Typed note on a starred or quoted line, in this browser. HeyPocket, speakers, and the Sync mic note are still later |
 | Keep it going; C3 hygiene; security L1 | Next |
 | Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
 | C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |
@@ -41,15 +41,15 @@ Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone el
 
 **w2g** highlight and sync. Plan: [W2G.md](W2G.md). Procedure: [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md).
 
-**This slice.** One title’s Readwise highlights into `stars-seed.json`, then a dry-run `content:stars-push`. Command: `content:vault-title`. Do not re-import the SRT after stars exist.
+**Shipped.** One title’s Readwise highlights into `stars-seed.json`, then a dry-run `content:stars-push`. Command: `content:vault-title`. Do not re-import the SRT after stars exist.
 
-**Spike.** Sync. Tap Sync, mic until a spoken line matches, the list jumps, the mic stops, the list follows the clock. Not built.
+**Shipped.** Sync, in Curate. Tap Sync, mic until a spoken line matches, accept that line, the list jumps, the mic stops, the list follows the clock. Tap Sync again after a pause, a seek, or a bad lock.
 
 ## 2.8 Line notes
 
 The note half of **w2g**. Same plan: [W2G.md](W2G.md). Procedure: [line-notes](../.cursor/skills/line-notes/SKILL.md).
 
-**This slice.** A typed note on a starred or quoted line, shown in Curate. Not built. HeyPocket, the Sync mic, speakers, and a pointer at another line follow, one at a time.
+**Shipped.** A typed note on a starred or quoted line, shown in Curate, stored in this browser. HeyPocket, the Sync mic, speakers, and a pointer at another line follow, one at a time.
 
 ## Later
 

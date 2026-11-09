@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T19:37:18.756Z",
+  "updatedAt": "2026-11-09T03:50:06.954Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -1413,9 +1413,9 @@
       "playCount": 1,
       "highlightCount": 0,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     },
     {
       "title": "Ocean's Thirteen",

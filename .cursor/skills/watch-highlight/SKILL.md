@@ -107,14 +107,14 @@ npm run content:stars-push -- --email dascolin@gmail.com --title TITLE_ID --remo
 
 ## Sync
 
-Not built. Do not add a player, and do not upload the movie. The movie file is not required. The transcript timings are the clock.
+Curate has Sync. Do not add a player, and do not upload the movie. The movie file is not required. The transcript timings are the clock.
 
 1. They tap **Sync**. The mic stays on until a spoken line matches a catalog line.
-2. Show that line. When they accept it, set `follow.source` to `mic`, `follow.confirmedAt` to now, and `follow.lineIndex` to that line. The list jumps there. The mic stops.
-3. The list advances on the clock from that lock: elapsed time since `confirmedAt` plus that line's `startMs`.
-4. They tap Sync again after a pause, a seek, or a bad lock. The mic runs only until the next match.
+2. The list shows that line. **This line** jumps there and the mic stops. **Not this** keeps listening.
+3. The list advances on the clock from that lock: elapsed time since they accepted, plus that line's `startMs`.
+4. They tap Sync again after a pause, a seek, or a bad lock. The mic runs only until the next accepted match.
 
-When they ask to follow during a watch, say Sync is not built. If they name the line on screen, store it as the lock anyway. A stills `offsetMs` / `timeScale` can correct a clock that drifts the same way on every lock. Do not record `0.96` on a guess.
+A stills `offsetMs` / `timeScale` can correct a clock that drifts the same way on every lock. Do not record `0.96` on a guess. Do not apply that scale unless they ask.
 
 ## Report
 

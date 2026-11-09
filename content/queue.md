@@ -145,7 +145,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 0 | [A Man Called Otto](https://boxd.it/zl06) | 2022 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Airplane!](https://boxd.it/29yu) | 1980 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Ali Wong: Hard Knock Wife](https://boxd.it/iMFG) | 2018 | 5 |  | [ ] missing |
-| 2 | 1 | 0 | [American Gangster](https://boxd.it/23wi) | 2007 | 5 |  | [ ] missing |
+| 2 | 1 | 0 | [American Gangster](https://boxd.it/23wi) | 2007 | 5 |  | [x] |
 | 2 | 1 | 0 | [Bad Moms](https://boxd.it/d5nk) | 2016 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Black Panther](https://boxd.it/8MHs) | 2018 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [Blazing Saddles](https://boxd.it/1UHQ) | 1974 | 5 |  | [ ] missing |
@@ -286,11 +286,3 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 4 | 1 | 0 | [The Way of the Gun](https://boxd.it/28t4) | 2000 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tom Segura: Sledgehammer](https://boxd.it/H6E2) | 2023 | 4.5 |  | [ ] missing |
 | 4 | 1 | 0 | [Tumbbad](https://boxd.it/jDZk) | 2018 | 4.5 |  | [ ] missing |
-
-## Shows
-
-Hand-queued seasons. Kept when the Letterboxd film seed is regenerated.
-
-| Show | Season | Year | SRT | Note |
-|------|--------|------|-----|------|
-| SpongeBob SquarePants | 1 | 1999 | [ ] missing | Season 1 |

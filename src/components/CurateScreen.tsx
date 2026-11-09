@@ -16,6 +16,10 @@ import { isLoggedIn } from "../lib/auth/session";
 import { createParallelPack } from "../lib/parallels/api";
 import { offsetsForSizes, VIRTUAL_LIST_GAP, visibleWindow } from "../lib/ui/virtualWindow";
 import { sceneLinesFor } from "../lib/content/stillsLines";
+import { lineAtMovieMs, movieMsSinceLock, type TimedLine } from "../lib/watch/followClock";
+import { getLineNotesForTitle, saveLineNote, type LineNote } from "../lib/watch/lineNotes";
+import { openSpeechListener, speechRecognitionSupported, type SpeechListener } from "../lib/watch/speechListener";
+import { matchSpokenLine, type SpokenLine } from "../lib/watch/spokenMatch";
 import { LineSendControl } from "./LineSendControl";
 import { PosterArt } from "./PosterArt";
 
@@ -26,6 +30,13 @@ const ROW_ESTIMATE = 92;
 const ROW_ESTIMATE_WITH_PREV = 148;
 const ROW_ESTIMATE_WITH_STILL = 176;
 const ROW_OVERSCAN = 10;
+const FOLLOW_TICK_MS = 250;
+
+type SyncPhase =
+  | { kind: "idle" }
+  | { kind: "listening" }
+  | { kind: "candidate"; lineIndex: number; heard: string }
+  | { kind: "following"; startMs: number; confirmedAt: number };
 
 type Props = {
   entry: CatalogEntry;
@@ -55,6 +66,14 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   /** Skip the change event that can follow a Shift+click we already handled. */
   const skipPackChangeRef = useRef(false);
   const didFocusRef = useRef(false);
+  const [syncPhase, setSyncPhase] = useState<SyncPhase>({ kind: "idle" });
+  const [syncMessage, setSyncMessage] = useState<string | null>(null);
+  const [heardPreview, setHeardPreview] = useState("");
+  /** Line the list should keep on screen while Sync is showing or following it. */
+  const [pinnedLine, setPinnedLine] = useState<number | null>(null);
+  const listenRef = useRef<SpeechListener | null>(null);
+  const spokenLinesRef = useRef<SpokenLine[]>([]);
+  const skipSpokenRef = useRef<{ heard: string; lineIndex: number } | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -76,12 +95,43 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     setPackName("");
     setPackMsg(null);
     packSelectAnchorRef.current = null;
+    setSyncPhase({ kind: "idle" });
+    setSyncMessage(null);
+    setHeardPreview("");
+    setPinnedLine(null);
+    skipSpokenRef.current = null;
+    listenRef.current?.close();
+    listenRef.current = null;
   }, [entry.id]);
+
+  useEffect(() => {
+    return () => {
+      listenRef.current?.close();
+    };
+  }, []);
 
   const promptIndices = useMemo(
     () => (title ? getValidPromptIndices(title) : []),
     [title],
   );
+  const promptSet = useMemo(() => new Set(promptIndices), [promptIndices]);
+  const spokenLines = useMemo(() => {
+    if (!title) return [];
+    const rows: SpokenLine[] = [];
+    for (const line of title.lines) {
+      if (promptSet.has(line.index) && line.text) rows.push({ index: line.index, text: line.text });
+    }
+    return rows;
+  }, [title, promptSet]);
+  const followLines = useMemo(() => {
+    if (!title) return [];
+    const rows: TimedLine[] = [];
+    for (const line of title.lines) {
+      if (promptSet.has(line.index)) rows.push({ index: line.index, startMs: line.startMs });
+    }
+    return rows;
+  }, [title, promptSet]);
+  spokenLinesRef.current = spokenLines;
   const sceneFrames = useMemo(() => new Set(sceneLinesFor(entry.id)), [entry.id]);
 
   // One localStorage read per revision — not per row (thousands of quiz lines).
@@ -104,6 +154,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
       if (quote.origin === "wikiquote") wikiquote.add(quote.lineIndex);
     }
     return { quoted, wikiquote };
+  }, [entry.id, revision]);
+
+  const notesByLine = useMemo(() => {
+    const notes = new Map<number, LineNote>();
+    for (const note of getLineNotesForTitle(entry.id)) notes.set(note.lineIndex, note);
+    return notes;
   }, [entry.id, revision]);
 
   const selectedSet = useMemo(() => new Set(selected), [selected]);
@@ -152,6 +208,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   }, [showPreviousLines, showStills, entry.id]);
 
   useEffect(() => {
+    // A Sync pin owns the scroll. Clearing the filter to reveal that line must not jump to the top.
+    if (pinnedLine !== null) return;
     // Keep scroll position free for focusLineIndex jump from global search.
     if (typeof focusLineIndex === "number" && !didFocusRef.current) return;
     const el = listRef.current;
@@ -220,6 +278,96 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     setScrollTop(top);
     didFocusRef.current = true;
   }, [focusLineIndex, filteredIndices, offsets]);
+
+  const pinLine = useCallback((lineIndex: number) => {
+    setHighlightLine((current) => (current === lineIndex ? current : lineIndex));
+    setPinnedLine((current) => (current === lineIndex ? current : lineIndex));
+  }, []);
+
+  useLayoutEffect(() => {
+    if (pinnedLine === null) return;
+    const pos = filteredIndices.indexOf(pinnedLine);
+    if (pos < 0) return;
+    const top = offsets[pos] ?? 0;
+    const el = listRef.current;
+    if (!el) return;
+    if (Math.abs(el.scrollTop - top) > 1) el.scrollTop = top;
+    setScrollTop((current) => (Math.abs(current - top) > 1 ? top : current));
+  }, [pinnedLine, filteredIndices, offsets]);
+
+  useEffect(() => {
+    if (syncPhase.kind !== "following" || pinnedLine === null) return;
+    if (filteredIndices.includes(pinnedLine)) return;
+    setQuery("");
+    setStarredOnly(false);
+  }, [syncPhase, pinnedLine, filteredIndices]);
+
+  useEffect(() => {
+    if (syncPhase.kind !== "following") return;
+    const tick = () => {
+      const movieMs = movieMsSinceLock(syncPhase.startMs, syncPhase.confirmedAt, Date.now());
+      const next = lineAtMovieMs(followLines, movieMs);
+      if (next === null) return;
+      pinLine(next);
+    };
+    tick();
+    const id = window.setInterval(tick, FOLLOW_TICK_MS);
+    return () => window.clearInterval(id);
+  }, [syncPhase, followLines, pinLine]);
+
+  function stopListening() {
+    listenRef.current?.close();
+    listenRef.current = null;
+  }
+
+  function beginListening() {
+    stopListening();
+    setQuery("");
+    setStarredOnly(false);
+    setSyncMessage(null);
+    setHeardPreview("");
+    setPinnedLine(null);
+    if (!speechRecognitionSupported()) {
+      setSyncPhase({ kind: "idle" });
+      setSyncMessage("This browser has no speech recognition.");
+      return;
+    }
+    setSyncPhase({ kind: "listening" });
+    listenRef.current = openSpeechListener({
+      onPhrase: (phrase, isFinal) => {
+        setHeardPreview(phrase);
+        if (!isFinal) return;
+        const skip =
+          skipSpokenRef.current?.heard === phrase ? skipSpokenRef.current.lineIndex : undefined;
+        const match = matchSpokenLine(phrase, spokenLinesRef.current, skip);
+        if (!match) return;
+        stopListening();
+        setSyncPhase({ kind: "candidate", lineIndex: match.lineIndex, heard: phrase });
+        pinLine(match.lineIndex);
+      },
+      onError: (message) => {
+        stopListening();
+        setSyncPhase({ kind: "idle" });
+        setSyncMessage(message);
+      },
+    });
+  }
+
+  function acceptLock(lineIndex: number) {
+    const line = title ? getLine(title, lineIndex) : undefined;
+    if (!line) return;
+    stopListening();
+    skipSpokenRef.current = null;
+    setSyncPhase({ kind: "following", startMs: line.startMs, confirmedAt: Date.now() });
+    pinLine(lineIndex);
+  }
+
+  function dismissCandidate() {
+    if (syncPhase.kind === "candidate") {
+      skipSpokenRef.current = { heard: syncPhase.heard, lineIndex: syncPhase.lineIndex };
+    }
+    beginListening();
+  }
 
   async function handleToggle(lineIndex: number, text: string) {
     await toggleStar(entry.id, lineIndex, text);
@@ -372,6 +520,61 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
           />
           Scene stills
         </label>
+      </div>
+
+      <div className="curate-sync">
+        <button
+          type="button"
+          className={`button${syncPhase.kind === "listening" ? " is-listening" : " primary"}`}
+          aria-pressed={syncPhase.kind === "listening"}
+          onClick={() => {
+            if (syncPhase.kind === "listening") {
+              stopListening();
+              setSyncPhase({ kind: "idle" });
+              setHeardPreview("");
+              setPinnedLine(null);
+              return;
+            }
+            beginListening();
+          }}
+        >
+          {syncPhase.kind === "listening" ? "Stop" : "Sync"}
+        </button>
+        {syncPhase.kind === "listening" ? (
+          <p className="muted curate-sync-status" role="status">
+            {heardPreview ? `Hearing “${heardPreview}”` : "Listening for a line…"}
+          </p>
+        ) : null}
+        {syncPhase.kind === "candidate" ? (
+          <div className="curate-sync-candidate" role="status">
+            <p className="curate-sync-line">
+              Line {syncPhase.lineIndex + 1}: {getLine(title, syncPhase.lineIndex)?.text}
+            </p>
+            <p className="muted">Heard “{syncPhase.heard}”</p>
+            <div className="curate-sync-actions">
+              <button
+                type="button"
+                className="button primary"
+                onClick={() => acceptLock(syncPhase.lineIndex)}
+              >
+                This line
+              </button>
+              <button type="button" className="button ghost" onClick={dismissCandidate}>
+                Not this
+              </button>
+            </div>
+          </div>
+        ) : null}
+        {syncPhase.kind === "following" && highlightLine !== null ? (
+          <p className="muted curate-sync-status" role="status">
+            Following line {highlightLine + 1}. Tap Sync after a pause or a seek.
+          </p>
+        ) : null}
+        {syncMessage ? (
+          <p className="share-message" role="status">
+            {syncMessage}
+          </p>
+        ) : null}
       </div>
 
       {selected.length > 0 && (
@@ -529,6 +732,15 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                       ))}
                     <p className="curate-text">{line.text}</p>
                     {fromWikiquote ? <span className="curate-origin">Wikiquote</span> : null}
+                    {starred || quoted || notesByLine.has(lineIndex) ? (
+                      <LineNoteField
+                        text={notesByLine.get(lineIndex)?.text ?? ""}
+                        onSave={(words) => {
+                          saveLineNote(entry.id, lineIndex, words);
+                          setRevision((value) => value + 1);
+                        }}
+                      />
+                    ) : null}
                   </div>
                   <LazyLineSendControl
                     titleId={entry.id}
@@ -588,6 +800,70 @@ function CurateLineItem({
     >
       {children}
     </div>
+  );
+}
+
+function LineNoteField({ text, onSave }: { text: string; onSave: (words: string) => void }) {
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(text);
+
+  useEffect(() => {
+    if (!editing) setDraft(text);
+  }, [editing, text]);
+
+  if (!editing) {
+    if (!text) {
+      return (
+        <button type="button" className="button ghost curate-note-open" onClick={() => setEditing(true)}>
+          Note
+        </button>
+      );
+    }
+    return (
+      <div className="curate-note">
+        <p className="curate-note-text">{text}</p>
+        <button type="button" className="button ghost curate-note-open" onClick={() => setEditing(true)}>
+          Edit note
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      className="curate-note"
+      onSubmit={(event) => {
+        event.preventDefault();
+        onSave(draft);
+        setEditing(false);
+      }}
+    >
+      <label>
+        <span className="sr-only">Note on this line</span>
+        <textarea
+          rows={2}
+          value={draft}
+          onChange={(event) => setDraft(event.target.value)}
+          placeholder="What the room said"
+          autoFocus
+        />
+      </label>
+      <div className="curate-note-actions">
+        <button type="submit" className="button primary">
+          Save note
+        </button>
+        <button
+          type="button"
+          className="button ghost"
+          onClick={() => {
+            setDraft(text);
+            setEditing(false);
+          }}
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
   );
 }
 
