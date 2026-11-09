@@ -23,7 +23,7 @@ A dimension is a release-shaped direction. A bugfix, a copy change, or a tweak t
    - spikes for what is not built
    - a link to the procedure skill
 
-   The roadmap states the outcome and the order. The steps an agent runs stay in `.cursor/skills/`.
+   The roadmap states the outcome and the order. The steps an agent runs stay in `.cursor/skills/`. A direction a person will reopen gets a page in `docs/`, linked from that section. The Cursor plan file under `~/.cursor/plans/` is session-local. It is not the source of truth.
 
 4. Add a Status row. If a Later bullet is the same idea, point it at the new section and delete the duplicate sentences.
 

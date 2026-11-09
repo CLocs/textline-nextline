@@ -2,18 +2,23 @@
 name: watch-highlight
 description: >-
   While the user is watching a movie, import the SRT so they can star lines
-  in Curate, and keep a watch session of w2g notes, people those notes are
-  for, and a Pocket recording anchor so spoken audio can become notes later.
-  Use when they say they are watching, want to highlight a transcript, star
-  while watching, "w2g notes", watch2gether notes, notes that link to people,
-  they are recording the watch with Pocket, they drop an SRT, they want
-  the transcript to scroll in real time with the movie, or they highlighted
-  in Readwise and want those lines imported for one title.
+  in Curate, and keep a watch session. Room chatter, HeyPocket transcripts,
+  and speaker labels are the line-notes skill. Use when they say they are
+  watching, want to highlight a transcript, star while watching, they drop
+  an SRT, they want the transcript to scroll in real time with the movie,
+  or they highlighted in Readwise and want those lines imported for one title.
+  w2g is this watch: highlight, tap Sync, and notes.
 ---
 
 # Watch and highlight
 
-Stars in Curate are the highlight. Notes are not in the app. A watch session file holds w2g notes, the people they are for, and the Pocket clock until a notes table exists. Do not invent a notes API or write D1 stars unless they name a line and ask to star it.
+**w2g** is watch together done right. Plan: [W2G.md](../../../docs/W2G.md). Stars in Curate are the highlight. Sync is the live list. Notes on a line are [line-notes](../line-notes/SKILL.md). Do not invent a notes API or write D1 stars unless they name a line and ask to star it.
+
+**The film is already in TLNL.** They open it and star lines in Curate. On the live site, signed in, each star is a production D1 row.
+
+**A new film.** Import below, then Curate. The live site shows it after a Pages deploy they ask for. Do not re-import after they star.
+
+**They are highlighting in Readwise.** That is the source for this watch. The vault step below brings the stars in. Do not ask them to star those same lines in Curate.
 
 A full library ingest (stills, Wikiquote, Readwise, stars-push) is [content-ingest](../content-ingest/SKILL.md). During a watch, stop after import.
 
@@ -66,6 +71,7 @@ A full library ingest (stills, Wikiquote, Readwise, stars-push) is [content-inge
   },
   "follow": {
     "source": null,
+    "lineIndex": null,
     "offsetMs": null,
     "timeScale": null,
     "confirmedAt": null
@@ -77,21 +83,14 @@ A full library ingest (stills, Wikiquote, Readwise, stars-push) is [content-inge
 ```
 
 - `people` — names they are watching with. Display names as they said them. Do not look up accounts unless they ask.
-- `notes[]` — `{ "movieMs": 0, "text": "", "people": [] }`. A w2g note is a note from the room. `people` on the note are who it is for (a subset of the room, or someone not present). No Watch2Gether link unless they paste one.
+- `notes[]` — the room on a line. Shape and Pocket mapping are [line-notes](../line-notes/SKILL.md). `people` on the session are who is in the room.
 - `stars[]` — `{ "lineIndex": 0, "text": "" }` they asked to keep. `lineIndex` is the catalog line index (0-based), the same number Curate shows as Line N minus 1.
 
 When they call out a quote, find that line in `content/titles/<title-id>.json` and give them **Line N** plus the text so they can star it in Curate. Append `stars` only after they confirm that line.
 
 ## Pocket, after the recording
 
-They record the room on Pocket. Duration is the length of that recording, not the movie. Do not transcribe it here. When they bring a Pocket transcript:
-
-1. Refuse to attach anything if `movieMsAtStart` is null.
-2. For each spoken span, `movieMs = movieMsAtStart + offsetMs` inside the Pocket transcript.
-3. Attach the text to the playable line where `startMs <= movieMs && movieMs < endMs`. If none, use the nearest `startMs` and say the gap.
-4. A span that is them saying to star or highlight that moment goes in `stars` as a proposal. Show the line. Wait.
-5. Any other span is a note. Keep names they say in `people`.
-6. A duration with no transcript only fills `pocket.durationMs`. It does not become notes.
+They record the room on Pocket. The movie in that recording is the clock, and the chatter on a line is a [line note](../line-notes/SKILL.md). Follow that skill. Do not transcribe the audio here. A duration with no transcript only fills `pocket.durationMs`. A span that is them saying to star a moment goes in `stars` as a proposal. Show the line. Wait.
 
 ## Readwise, after the watch
 
@@ -106,17 +105,16 @@ npm run content:stars-push -- --email dascolin@gmail.com --title TITLE_ID --remo
 
 **Stop.** Show how many lines would insert. Wait. Then drop `--dry-run`. Use `--merge` when the title already has their stars. Never `--force` a title in `stars-protected.json`. A note under a highlight stays on the seed. It is not a D1 column. `content:queue` rewrites the whole seed. Do not use it for one watch.
 
-## Follow the picture
+## Sync
 
-Later, the transcript scrolls in real time with the movie. That follow is not built. Do not add a player, and do not upload or scrape the movie. The file stays on this machine, same as stills.
+Not built. Do not add a player, and do not upload the movie. The movie file is not required. The transcript timings are the clock.
 
-Some initiation and confirmation is required locally to record the clock.
+1. They tap **Sync**. The mic stays on until a spoken line matches a catalog line.
+2. Show that line. When they accept it, set `follow.source` to `mic`, `follow.confirmedAt` to now, and `follow.lineIndex` to that line. The list jumps there. The mic stops.
+3. The list advances on the clock from that lock: elapsed time since `confirmedAt` plus that line's `startMs`.
+4. They tap Sync again after a pause, a seek, or a bad lock. The mic runs only until the next match.
 
-1. **Initiate.** They name the local file, or they say which line is on screen right now. Write that path on `follow.source` only in the session file. It never goes to Pages, R2, or D1.
-2. **Confirm.** Show the line you think is on screen. Wait until they say it matches. Then set `follow.confirmedAt`. Leave it null until then, and do not pretend the list is following.
-3. **Clock.** A confirmed `content/stills-sync.json` row (`offsetMs`, `timeScale`, `syncedAt`) is the starting clock. One confirmation still has to happen for this watch. A same slip on the lock is an `offsetMs`. Early right and late wrong is the cue to try `timeScale` 0.96 before recording it. Do not record 0.96 on a guess.
-
-When they ask to follow during a watch, say it is not built, and store the confirmed line plus the movie time they gave.
+When they ask to follow during a watch, say Sync is not built. If they name the line on screen, store it as the lock anyway. A stills `offsetMs` / `timeScale` can correct a clock that drifts the same way on every lock. Do not record `0.96` on a guess.
 
 ## Report
 

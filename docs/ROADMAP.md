@@ -14,19 +14,42 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 2. **Content C3 hygiene** — strip leftover `.en` from Simpsons S4 titles/ids without breaking star `titleId`s; persist `year` / `tmdbId`. Details: [CONTENT.md](CONTENT.md#c3--import--movie-catalog-hygiene-this-repo-).
 3. **Security L1** — session TTL / logout, Bearer on runs/shares/me, Google JWT checks, magic-link rate limit, claim-anonymous cannot steal stars. Do this before inviting a much larger circle. Ladder: [Open spikes](#open-spikes).
 
+## Status
+
+| Item | Status |
+|------|--------|
+| 0 – 1.8 Foundation, MVP, stars, Curate, library browse | Shipped |
+| 2a Auth + share mini-game, Google Sign-In | Shipped |
+| 2.5 Runs, profile, Home rails, thumbs, exact mini replay | Shipped (weighted popular later) |
+| 2.6 Starred stills, R2, Catalog ops, protect curated stars | Shipped (every-cue / video later) |
+| Loved, star streaks, friends, inbox, groups, friend faces, Chats | Shipped |
+| Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
+| Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
+| **Send streaks from Curate** | **Now** |
+| **2.7 w2g Watch** | Started — one-title vault import. Sync is the spike: tap, mic until a line locks, then the clock |
+| **2.8 w2g Line notes** | Captured — type, Readwise, HeyPocket, or the Sync mic. Manual note is the first sprinkle |
+| Keep it going; C3 hygiene; security L1 | Next |
+| Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
+| C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |
+| C2 SRT acquisition | Inbox drop works; OpenSubtitles optional |
+| C3 Import hygiene | Next content polish |
+| C4 Ongoing Letterboxd delta | Whenever you re-export |
+
+Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone else can still play.
+
 ## 2.7 Watch
 
-Real-time watching and highlighting. Opened on a live watch of The Odyssey (1997). How a direction gets a number: [feature-dimension](../.cursor/skills/feature-dimension/SKILL.md). Procedure: [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md).
+**w2g** highlight and sync. Plan: [W2G.md](W2G.md). Procedure: [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md).
 
-**This slice.** Readwise highlight → Obsidian vault → one catalog title → `stars-seed.json` → dry-run `content:stars-push` for that title. Command: `npm run content:vault-title`. Other titles in the seed stay. A note under a highlight stays on the seed. It is not a D1 column. Do not re-import the SRT after stars exist.
+**This slice.** One title’s Readwise highlights into `stars-seed.json`, then a dry-run `content:stars-push`. Command: `content:vault-title`. Do not re-import the SRT after stars exist.
 
-**Already usable.** Drop an SRT, import, and star in local Curate against production D1 (`VITE_API_URL` on the remote Worker). Pages deploy when asked, so the title shows on the live site. Same `title_id` + `lineIndex`. Catalog Requests stays the queue. No import tab.
+**Spike.** Sync. Tap Sync, mic until a spoken line matches, the list jumps, the mic stops, the list follows the clock. Not built.
 
-**Spikes**
+## 2.8 Line notes
 
-- **Live follow.** The transcript scrolls with the movie. The file stays on this machine. Initiate and confirm locally before the clock is recorded. A synced stills row (`offsetMs`, `timeScale`) can start that clock. Not built.
-- **w2g notes.** A note on a line that names the people it is for. No notes table. The watch session file holds them. A Readwise highlight note is the stand-in from this slice.
-- **Pocket.** A room recording. Its duration aligns spoken text onto lines only after a transcript exists and `movieMsAtStart` is set. Not built.
+The note half of **w2g**. Same plan: [W2G.md](W2G.md). Procedure: [line-notes](../.cursor/skills/line-notes/SKILL.md).
+
+**This slice.** A typed note on a starred or quoted line, shown in Curate. Not built. HeyPocket, the Sync mic, speakers, and a pointer at another line follow, one at a time.
 
 ## Later
 
@@ -158,25 +181,3 @@ Not this yet: Steamworks, a Windows build, or moving off the web app.
 ### Netflix / Amazon watch history
 
 Time-box whether a signed-in player’s history can be read at all: public API, then official export, then stop. Scraping is out. Expected outcome is **no**.
-
-## Status
-
-| Item | Status |
-|------|--------|
-| 0 – 1.8 Foundation, MVP, stars, Curate, library browse | Shipped |
-| 2a Auth + share mini-game, Google Sign-In | Shipped |
-| 2.5 Runs, profile, Home rails, thumbs, exact mini replay | Shipped (weighted popular later) |
-| 2.6 Starred stills, R2, Catalog ops, protect curated stars | Shipped (every-cue / video later) |
-| Loved, star streaks, friends, inbox, groups, friend faces, Chats | Shipped |
-| Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
-| Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
-| **Send streaks from Curate** | **Now** |
-| **2.7 Watch** | Started — one-title vault import. Live follow, w2g notes, Pocket are spikes |
-| Keep it going; C3 hygiene; security L1 | Next |
-| Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
-| C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |
-| C2 SRT acquisition | Inbox drop works; OpenSubtitles optional |
-| C3 Import hygiene | Next content polish |
-| C4 Ongoing Letterboxd delta | Whenever you re-export |
-
-Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone else can still play.
