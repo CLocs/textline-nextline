@@ -2,18 +2,11 @@
 export const VIRTUAL_LIST_GAP = 4;
 /** Keep a sliver of the row above the bottom edge while Sync is following. */
 export const FOLLOW_BOTTOM_PAD = 8;
-/** A scroll this far above the live line means they are reading earlier lines. */
-export const FOLLOW_HOLD_SLOP = 24;
 
 /** Scroll offset that puts a row's bottom on the viewport bottom. */
 export function followScrollTop(lineTop: number, lineHeight: number, viewportHeight: number): number {
   if (viewportHeight <= 0) return Math.max(0, lineTop);
   return Math.max(0, lineTop + lineHeight - viewportHeight + FOLLOW_BOTTOM_PAD);
-}
-
-/** True when the viewport sits above the live line, so follow should not pull it back. */
-export function scrolledAboveFollow(scrollTop: number, target: number): boolean {
-  return scrollTop < target - FOLLOW_HOLD_SLOP;
 }
 
 export function offsetsForSizes(sizes: number[], gap: number): number[] {

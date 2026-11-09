@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T05:52:22.660Z",
+  "updatedAt": "2026-11-09T06:16:52.535Z",
   "titles": {
     "baby-driver-2017": 1360,
     "back-to-the-future-1985": 1302,
@@ -169,10 +169,10 @@
     "game-of-thrones---6x04---book-of-the-stranger": 533,
     "game-of-thrones---6x09---battle-of-the-bastards": 388,
     "game-of-thrones---7x01---dragonstone": 548,
-    "game-of-thrones---7x04---the-spoils-of-war": 2,
-    "game-of-thrones---8x01---winterfell": 2,
-    "game-of-thrones---8x03---the-long-night": 2,
-    "game-of-thrones---8x06---the-iron-throne": 2,
+    "game-of-thrones---7x04---the-spoils-of-war": 457,
+    "game-of-thrones---8x01---winterfell": 437,
+    "game-of-thrones---8x03---the-long-night": 190,
+    "game-of-thrones---8x06---the-iron-throne": 411,
     "breaking-bad---5x03---hazard-pay": 608,
     "breaking-bad---3x02---caballo-sin-nombre": 413,
     "breaking-bad---3x03---ift": 427,
@@ -216,7 +216,13 @@
     "game-of-thrones---6x08---no-one": 572,
     "game-of-thrones---6x10---the-winds-of-winter": 514,
     "game-of-thrones---7x02---stormborn": 606,
-    "game-of-thrones---7x03---the-queens-justice": 736
+    "game-of-thrones---7x03---the-queens-justice": 736,
+    "game-of-thrones---7x05---eastwatch": 573,
+    "game-of-thrones---7x06---beyond-the-wall": 575,
+    "game-of-thrones---7x07---the-dragon-and-the-wolf": 730,
+    "game-of-thrones---8x02---a-knight-of-the-seven-kingdoms": 626,
+    "game-of-thrones---8x04---the-last-of-the-starks": 710,
+    "game-of-thrones---8x05---the-bells": 449
   },
   "covers": {
     "baby-driver-2017": 0,
@@ -387,9 +393,9 @@
     "game-of-thrones---6x04---book-of-the-stranger": 0,
     "game-of-thrones---6x09---battle-of-the-bastards": 0,
     "game-of-thrones---7x01---dragonstone": 0,
-    "game-of-thrones---7x04---the-spoils-of-war": 9,
-    "game-of-thrones---8x01---winterfell": 6,
-    "game-of-thrones---8x03---the-long-night": 4,
+    "game-of-thrones---7x04---the-spoils-of-war": 0,
+    "game-of-thrones---8x01---winterfell": 0,
+    "game-of-thrones---8x03---the-long-night": 0,
     "game-of-thrones---8x06---the-iron-throne": 0,
     "breaking-bad---5x03---hazard-pay": 0,
     "breaking-bad---3x02---caballo-sin-nombre": 0,
@@ -434,6 +440,12 @@
     "game-of-thrones---6x08---no-one": 0,
     "game-of-thrones---6x10---the-winds-of-winter": 0,
     "game-of-thrones---7x02---stormborn": 0,
-    "game-of-thrones---7x03---the-queens-justice": 0
+    "game-of-thrones---7x03---the-queens-justice": 0,
+    "game-of-thrones---7x05---eastwatch": 0,
+    "game-of-thrones---7x06---beyond-the-wall": 0,
+    "game-of-thrones---7x07---the-dragon-and-the-wolf": 0,
+    "game-of-thrones---8x02---a-knight-of-the-seven-kingdoms": 0,
+    "game-of-thrones---8x04---the-last-of-the-starks": 0,
+    "game-of-thrones---8x05---the-bells": 0
   }
 }

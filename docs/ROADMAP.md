@@ -43,7 +43,7 @@ Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone el
 
 **Shipped.** One title’s Readwise highlights into `stars-seed.json`, then a dry-run `content:stars-push`. Command: `content:vault-title`. Do not re-import the SRT after stars exist.
 
-**Shipped.** Sync, in Curate. Tap Sync, the first heard line starts the clock, and a running stretch is checked every few seconds so a late lock catches up. The mic stays on, and the next heard line snaps it forward. Stop holds the list. Tap Sync again after a pause, a seek, or a bad lock.
+**Shipped.** Sync, in Curate. Tap Sync, the first heard line starts the clock, and a finished line hands off to the next cue. Every few seconds the words just heard are matched again, behind the clock and ahead of it, so a drift gets pulled back. Stop holds the list. Tap Sync again after a pause, a seek, or a bad lock.
 
 ## 2.8 Line notes
 

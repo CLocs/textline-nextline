@@ -2196,6 +2196,37 @@ code {
   line-height: 1.35;
 }
 
+.curate-list-frame {
+  display: flex;
+  flex-direction: column;
+}
+
+.curate-current-line {
+  width: 100%;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.curate-current-line.is-top {
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+}
+
+.curate-current-line.is-bottom {
+  border-radius: 0 0 10px 10px;
+  border-top: none;
+}
+
+.curate-current-line:hover {
+  background: color-mix(in srgb, var(--ink) 6%, var(--surface));
+}
+
 .curate-list {
   max-height: calc(100vh - 16rem);
   overflow: auto;

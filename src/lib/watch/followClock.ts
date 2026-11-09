@@ -3,34 +3,58 @@ export type TimedLine = {
   startMs: number;
 };
 
-/** Movie time at a lock: that line's start, plus time since the phrase was heard. */
+/** Movie time at a lock, plus time since the phrase was heard. */
 export function movieMsSinceLock(startMs: number, heardAt: number, now: number): number {
   return startMs + Math.max(0, now - heardAt);
 }
 
-/** How far behind the running clock a later phrase may still be. */
-export const RESYNC_BEHIND_MS = 8_000;
-/** How far ahead of the running clock the next phrase is allowed to land. */
-export const RESYNC_AHEAD_MS = 90_000;
+/** How far behind the running clock a re-sync may look. */
+export const RESYNC_BEHIND_MS = 45_000;
+/** How far ahead of the running clock a re-sync may look. */
+export const RESYNC_AHEAD_MS = 30_000;
+/**
+ * A line that has just been said hands off to the next cue when that cue
+ * starts within this long. A longer pause stays on the line that finished.
+ */
+export const CUE_HANDOFF_MS = 1_500;
 
 /**
  * Playable lines the mic may re-lock while the clock is already running.
- * The line that started the clock is excluded. Lines far behind or far ahead are too.
+ * Lines behind the estimate are included, so a clock that ran ahead can be pulled back.
  */
-export function upcomingLines<T extends { startMs: number }>(
+export function linesNearClock<T extends { startMs: number }>(
   lines: readonly T[],
-  anchorStartMs: number,
   movieMs: number,
 ): T[] {
   const earliest = movieMs - RESYNC_BEHIND_MS;
   const latest = movieMs + RESYNC_AHEAD_MS;
   const near: T[] = [];
   for (const line of lines) {
-    if (line.startMs <= anchorStartMs) continue;
     if (line.startMs < earliest || line.startMs > latest) continue;
     near.push(line);
   }
   return near;
+}
+
+/**
+ * Movie time when the phrase was heard.
+ * A finished phrase is at the end of its cue, or on the next cue when that cue is already starting.
+ * A phrase dated from its first word stays at this cue's start, and elapsed time catches up.
+ */
+export function movieMsAtPhrase(
+  line: { startMs: number; endMs: number },
+  nextStartMs: number | null,
+  phraseComplete: boolean,
+): number {
+  if (!phraseComplete || line.endMs <= line.startMs) return line.startMs;
+  if (
+    nextStartMs != null &&
+    nextStartMs >= line.endMs &&
+    nextStartMs - line.endMs <= CUE_HANDOFF_MS
+  ) {
+    return nextStartMs;
+  }
+  return line.endMs;
 }
 
 /**

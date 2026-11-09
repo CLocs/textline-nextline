@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import {
   followScrollTop,
   offsetsForSizes,
-  scrolledAboveFollow,
   visibleWindow,
 } from "../src/lib/ui/virtualWindow.js";
 
@@ -46,8 +45,4 @@ describe("follow scroll", () => {
     expect(followScrollTop(40, 80, 400)).toBe(0);
   });
 
-  it("holds when the viewport is above the live line", () => {
-    expect(scrolledAboveFollow(100, 200)).toBe(true);
-    expect(scrolledAboveFollow(190, 200)).toBe(false);
-  });
 });

@@ -17,7 +17,6 @@ import { createParallelPack } from "../lib/parallels/api";
 import {
   followScrollTop,
   offsetsForSizes,
-  scrolledAboveFollow,
   VIRTUAL_LIST_GAP,
   visibleWindow,
 } from "../lib/ui/virtualWindow";
@@ -26,8 +25,9 @@ import { getStoredUser, isLocalDevSession } from "../lib/auth/session";
 import { sceneLinesFor } from "../lib/content/stillsLines";
 import {
   lineAtMovieMs,
+  linesNearClock,
+  movieMsAtPhrase,
   movieMsSinceLock,
-  upcomingLines,
   type TimedLine,
 } from "../lib/watch/followClock";
 import { getLineNotesForTitle, saveLineNote, type LineNote } from "../lib/watch/lineNotes";
@@ -51,6 +51,9 @@ const REVIEW_EVERY_MS = 5_000;
 const REVIEW_WINDOW_START_MS = 5_000;
 const REVIEW_WINDOW_STEP_MS = 5_000;
 const REVIEW_WINDOW_MAX_MS = 30_000;
+/** Once the clock is running, re-sync from the words just heard, not a long stretch. */
+const TRACK_REVIEW_START_MS = 8_000;
+const TRACK_REVIEW_MAX_MS = 16_000;
 /** A final that covers this much speech is a stretch, not one cue. */
 const LONG_PHRASE_MS = 4_000;
 const QUIET_HINT =
@@ -108,8 +111,9 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const syncPhaseRef = useRef<SyncPhase>({ kind: "idle" });
   const spokenLinesRef = useRef<Array<SpokenLine & TimedLine>>([]);
   const skipSpokenRef = useRef<{ heard: string; lineIndex: number } | null>(null);
-  /** They scrolled up to earlier lines. Sync keeps selecting, and does not pull the list back. */
+  /** They scrolled the list. Sync keeps selecting, and does not move the list until Current line. */
   const followHoldRef = useRef(false);
+  const [followPaused, setFollowPaused] = useState(false);
   const ignoreScrollUntilRef = useRef(0);
 
   useEffect(() => {
@@ -141,6 +145,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     window.clearTimeout(reviewTimerRef.current);
     heardLogRef.current.clear();
     followHoldRef.current = false;
+    setFollowPaused(false);
     setPinnedLine(null);
     skipSpokenRef.current = null;
     listenRef.current?.close();
@@ -299,7 +304,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     if (delta === 0) return;
     const next = Math.max(0, current + delta);
     if (next === current) return;
-    ignoreScrollUntilRef.current = performance.now() + 80;
+    ignoreScrollUntilRef.current = performance.now() + 300;
     el.scrollTop = next;
     setScrollTop(next);
   }, [offsets]);
@@ -329,6 +334,11 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     setPinnedLine((current) => (current === lineIndex ? current : lineIndex));
   }, []);
 
+  const scrollToCurrentLine = useCallback(() => {
+    followHoldRef.current = false;
+    setFollowPaused(false);
+  }, []);
+
   useLayoutEffect(() => {
     if (pinnedLine === null || followHoldRef.current) return;
     const pos = filteredIndices.indexOf(pinnedLine);
@@ -340,10 +350,10 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     const lineHeight = Math.max(0, nextTop - top - VIRTUAL_LIST_GAP);
     const next = followScrollTop(top, lineHeight, el.clientHeight);
     if (Math.abs(el.scrollTop - next) <= 1) return;
-    ignoreScrollUntilRef.current = performance.now() + 80;
+    ignoreScrollUntilRef.current = performance.now() + 300;
     el.scrollTop = next;
     setScrollTop(next);
-  }, [pinnedLine, filteredIndices, offsets]);
+  }, [pinnedLine, filteredIndices, offsets, followPaused]);
 
   useEffect(() => {
     if (syncPhase.kind !== "tracking" || pinnedLine === null) return;
@@ -379,29 +389,48 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     }, REVIEW_EVERY_MS);
   }
 
-  function lockHeardLine(lineIndex: number, heardAt: number) {
+  function nextCueStart(afterIndex: number, afterMs: number): number | null {
+    for (const row of spokenLinesRef.current) {
+      if (row.startMs < afterMs || row.index === afterIndex) continue;
+      return row.startMs;
+    }
+    return null;
+  }
+
+  function lockHeardLine(lineIndex: number, heardAt: number, phraseComplete: boolean) {
     const line = title ? getLine(title, lineIndex) : undefined;
     if (!line) return;
+    const movieAt = movieMsAtPhrase(line, nextCueStart(lineIndex, line.endMs), phraseComplete);
+    const phase = syncPhaseRef.current;
+    if (phase.kind === "tracking" && phase.lineIndex === lineIndex) {
+      const running = movieMsSinceLock(phase.startMs, phase.heardAt, heardAt);
+      // The same line dated from its first word would pull a finished cue backward.
+      if (movieAt < running - 500) {
+        reviewWindowRef.current = TRACK_REVIEW_START_MS;
+        scheduleReview();
+        return;
+      }
+    }
     skipSpokenRef.current = null;
     const next = {
       kind: "tracking" as const,
-      startMs: line.startMs,
+      startMs: movieAt,
       heardAt,
       lineIndex,
     };
     syncPhaseRef.current = next;
     setSyncPhase(next);
-    pinLine(lineIndex);
-    reviewWindowRef.current = REVIEW_WINDOW_START_MS;
+    const shown = lineAtMovieMs(followLines, movieAt) ?? lineIndex;
+    pinLine(shown);
+    reviewWindowRef.current = TRACK_REVIEW_START_MS;
     scheduleReview();
   }
 
   function spokenPool() {
     const phase = syncPhaseRef.current;
     if (phase.kind !== "tracking") return spokenLinesRef.current;
-    return upcomingLines(
+    return linesNearClock(
       spokenLinesRef.current,
-      phase.startMs,
       movieMsSinceLock(phase.startMs, phase.heardAt, Date.now()),
     );
   }
@@ -416,18 +445,17 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   reviewHeardRef.current = () => {
     const phase = syncPhaseRef.current;
     if (phase.kind !== "listening" && phase.kind !== "tracking") return;
-    const tokens = heardLogRef.current.tokensSince(Date.now() - reviewWindowRef.current);
+    const tracking = phase.kind === "tracking";
+    const cap = tracking ? TRACK_REVIEW_MAX_MS : REVIEW_WINDOW_MAX_MS;
+    const tokens = heardLogRef.current.tokensSince(Date.now() - Math.min(reviewWindowRef.current, cap));
     const joined = tokens.map((token) => token.token).join(" ");
     const match = matchHeardWindow(tokens, spokenPool(), skipFor(joined));
     if (!match) {
-      reviewWindowRef.current = Math.min(
-        REVIEW_WINDOW_MAX_MS,
-        reviewWindowRef.current + REVIEW_WINDOW_STEP_MS,
-      );
+      reviewWindowRef.current = Math.min(cap, reviewWindowRef.current + REVIEW_WINDOW_STEP_MS);
       scheduleReview();
       return;
     }
-    lockHeardLine(match.lineIndex, match.heardAt);
+    lockHeardLine(match.lineIndex, match.heardAt, false);
   };
 
   function beginListening() {
@@ -442,6 +470,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     heardLogRef.current.clear();
     reviewWindowRef.current = REVIEW_WINDOW_START_MS;
     followHoldRef.current = false;
+    setFollowPaused(false);
     setPinnedLine(null);
     if (!speechRecognitionSupported()) {
       setSyncPhase({ kind: "idle" });
@@ -474,7 +503,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
         }
         const match = matchSpokenLine(phrase, spokenPool(), skipFor(phrase));
         if (!match) return;
-        lockHeardLine(match.lineIndex, at);
+        lockHeardLine(match.lineIndex, at, true);
       },
       onNotice: (message) => setSyncHint(message),
       onError: (message) => {
@@ -684,7 +713,10 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
         ) : null}
         {syncPhase.kind === "tracking" && highlightLine !== null ? (
           <p className="muted curate-sync-status" role="status">
-            Following line {highlightLine + 1}. The mic stays on for the next line.
+            Following line {highlightLine + 1}.
+            {followPaused
+              ? " The list stays where you scrolled."
+              : " The mic stays on for the next line."}
           </p>
         ) : null}
         {syncPhase.kind === "tracking" ? (
@@ -754,6 +786,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
           {starredOnly || query ? "No lines match your filters." : "No quiz lines in this episode."}
         </p>
       ) : (
+        <div className="curate-list-frame">
+        {followPaused && pinnedLine !== null && (syncPhase.kind === "tracking" || syncPhase.kind === "held") ? (
+          <button type="button" className="curate-current-line is-top" onClick={scrollToCurrentLine}>
+            Current line
+          </button>
+        ) : null}
         <div
           className="curate-list"
           role="list"
@@ -764,22 +802,16 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
             if (performance.now() < ignoreScrollUntilRef.current) return;
             const phase = syncPhaseRef.current.kind;
             if (phase !== "tracking" && phase !== "held") return;
-            const line = pinnedLine;
-            if (line === null) return;
-            const pos = filteredIndices.indexOf(line);
+            if (pinnedLine === null || followHoldRef.current) return;
+            const pos = filteredIndices.indexOf(pinnedLine);
             if (pos < 0) return;
             const lineTop = offsets[pos] ?? 0;
             const nextTop = offsets[pos + 1] ?? lineTop;
             const lineHeight = Math.max(0, nextTop - lineTop - VIRTUAL_LIST_GAP);
             const target = followScrollTop(lineTop, lineHeight, event.currentTarget.clientHeight);
-            const above = scrolledAboveFollow(top, target);
-            const wasHeld = followHoldRef.current;
-            followHoldRef.current = above;
-            if (wasHeld && !above) {
-              ignoreScrollUntilRef.current = performance.now() + 80;
-              event.currentTarget.scrollTop = target;
-              setScrollTop(target);
-            }
+            if (Math.abs(top - target) <= 2) return;
+            followHoldRef.current = true;
+            setFollowPaused(true);
           }}
         >
           <div className="curate-list-canvas" style={{ height: totalSize }}>
@@ -904,6 +936,12 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
               );
             })}
           </div>
+        </div>
+        {followPaused && pinnedLine !== null && (syncPhase.kind === "tracking" || syncPhase.kind === "held") ? (
+          <button type="button" className="curate-current-line is-bottom" onClick={scrollToCurrentLine}>
+            Current line
+          </button>
+        ) : null}
         </div>
       )}
     </section>

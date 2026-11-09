@@ -1,5 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
-import { lineAtMovieMs, movieMsSinceLock, upcomingLines } from "../src/lib/watch/followClock.js";
+import {
+  lineAtMovieMs,
+  linesNearClock,
+  movieMsAtPhrase,
+  movieMsSinceLock,
+} from "../src/lib/watch/followClock.js";
 import { createHeardLog } from "../src/lib/watch/heardLog.js";
 import { getLineNotesForTitle, saveLineNote } from "../src/lib/watch/lineNotes.js";
 import { speechRetryNotice, speechStopReason } from "../src/lib/watch/speechListener.js";
@@ -136,7 +141,7 @@ describe("followClock", () => {
     expect(movieMsSinceLock(4000, 10_000, 9_000)).toBe(4000);
   });
 
-  it("offers only the next lines near the running clock", () => {
+  it("re-syncs to lines behind the clock as well as ahead of it", () => {
     const lines = [
       { index: 1, startMs: 0 },
       { index: 2, startMs: 10_000 },
@@ -144,8 +149,15 @@ describe("followClock", () => {
       { index: 4, startMs: 40_000 },
       { index: 9, startMs: 200_000 },
     ];
-    expect(upcomingLines(lines, 10_000, 12_000).map((line) => line.index)).toEqual([3, 4]);
-    expect(upcomingLines(lines, 10_000, 180_000).map((line) => line.index)).toEqual([9]);
+    expect(linesNearClock(lines, 12_000).map((line) => line.index)).toEqual([1, 2, 3, 4]);
+    expect(linesNearClock(lines, 180_000).map((line) => line.index)).toEqual([9]);
+  });
+
+  it("puts a finished phrase on the next cue when that cue is already starting", () => {
+    const line = { startMs: 2_677_467, endMs: 2_680_886 };
+    expect(movieMsAtPhrase(line, 2_680_970, true)).toBe(2_680_970);
+    expect(movieMsAtPhrase(line, 2_690_000, true)).toBe(2_680_886);
+    expect(movieMsAtPhrase(line, 2_680_970, false)).toBe(2_677_467);
   });
 
   it("stays on the line until the next cue, then the last cue", () => {
