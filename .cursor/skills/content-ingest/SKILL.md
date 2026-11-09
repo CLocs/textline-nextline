@@ -16,7 +16,7 @@ description: >-
 
 # Content ingest
 
-Run this whole pipeline in one go unless the user asks to stop after a step.
+Run this whole pipeline in one go unless the user asks to stop after a step. If they are watching now and want to highlight, star, or take w2g / Pocket notes, follow [watch-highlight](../watch-highlight/SKILL.md) and stop after import.
 
 ## Procedure
 
@@ -47,7 +47,7 @@ Run this whole pipeline in one go unless the user asks to stop after a step.
    5. Look at the JPEGs. The same slip on every lock is an `offsetMs`. Early locks right and late locks on the credits is the cue to try `0.96` on one late lock before recording it.
    6. Record `content/stills-sync.json`: `offsetMs`, `timeScale`, `fps`, `durationSec`, `source`, and a `note` that names the locks. Set `syncedAt` only when every lock is the right picture. Leave `syncedAt` off when one is wrong — the row stays **review** and waits. Delete `inbox/stills-preview/_check`. A synced row may be batched (`npm run content:stills:overnight` on this PC, or Batch remaining lines). Do not R2 from ingest. If the Stills tab is open, the user should refresh before the next extract. An open tab can write `timeScale: 0.96` back, and a batch uses the file.
 
-6. **Match Readwise** (vault is local; TV matches catalog episode names, not just Letterboxd):
+6. **Match Readwise** (vault is local; TV matches catalog episode names, not just Letterboxd). One title after a watch is `npm run content:vault-title` ([watch-highlight](../watch-highlight/SKILL.md)), which leaves the rest of the seed alone. This step rewrites the whole seed:
    ```bash
    npm run content:queue -- --from inbox/letterboxd --vault "C:\Users\dasco\Documents\clocs\Readwise"
    ```

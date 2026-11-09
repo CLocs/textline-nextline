@@ -1,5 +1,5 @@
-/** Pixel gap between curate rows — keep in sync with `.curate-item` margin-bottom. */
-export const VIRTUAL_LIST_GAP = 8;
+/** Pixel gap between curate rows. The list is absolutely positioned, so this is the only gap. */
+export const VIRTUAL_LIST_GAP = 4;
 
 export function offsetsForSizes(sizes: number[], gap: number): number[] {
   const offsets = new Array(sizes.length + 1);

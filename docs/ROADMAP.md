@@ -14,6 +14,43 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 2. **Content C3 hygiene** — strip leftover `.en` from Simpsons S4 titles/ids without breaking star `titleId`s; persist `year` / `tmdbId`. Details: [CONTENT.md](CONTENT.md#c3--import--movie-catalog-hygiene-this-repo-).
 3. **Security L1** — session TTL / logout, Bearer on runs/shares/me, Google JWT checks, magic-link rate limit, claim-anonymous cannot steal stars. Do this before inviting a much larger circle. Ladder: [Open spikes](#open-spikes).
 
+## Status
+
+| Item | Status |
+|------|--------|
+| 0 – 1.8 Foundation, MVP, stars, Curate, library browse | Shipped |
+| 2a Auth + share mini-game, Google Sign-In | Shipped |
+| 2.5 Runs, profile, Home rails, thumbs, exact mini replay | Shipped (weighted popular later) |
+| 2.6 Starred stills, R2, Catalog ops, protect curated stars | Shipped (every-cue / video later) |
+| Loved, star streaks, friends, inbox, groups, friend faces, Chats | Shipped |
+| Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
+| Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
+| **Send streaks from Curate** | **Now** |
+| **2.7 w2g Watch** | Started — one-title vault import. Sync is the spike: tap, mic until a line locks, then the clock |
+| **2.8 w2g Line notes** | Captured — type, Readwise, HeyPocket, or the Sync mic. Manual note is the first sprinkle |
+| Keep it going; C3 hygiene; security L1 | Next |
+| Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
+| C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |
+| C2 SRT acquisition | Inbox drop works; OpenSubtitles optional |
+| C3 Import hygiene | Next content polish |
+| C4 Ongoing Letterboxd delta | Whenever you re-export |
+
+Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone else can still play.
+
+## 2.7 Watch
+
+**w2g** highlight and sync. Plan: [W2G.md](W2G.md). Procedure: [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md).
+
+**This slice.** One title’s Readwise highlights into `stars-seed.json`, then a dry-run `content:stars-push`. Command: `content:vault-title`. Do not re-import the SRT after stars exist.
+
+**Spike.** Sync. Tap Sync, mic until a spoken line matches, the list jumps, the mic stops, the list follows the clock. Not built.
+
+## 2.8 Line notes
+
+The note half of **w2g**. Same plan: [W2G.md](W2G.md). Procedure: [line-notes](../.cursor/skills/line-notes/SKILL.md).
+
+**This slice.** A typed note on a starred or quoted line, shown in Curate. Not built. HeyPocket, the Sync mic, speakers, and a pointer at another line follow, one at a time.
+
 ## Later
 
 Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
@@ -74,7 +111,7 @@ Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
 
 **SRT and video automation.** Filling a [title request](SHIPPED.md#title-requests-light) automatically. Manual drop + paced OpenSubtitles already exist ([C2](CONTENT.md#c2--subtitle-acquisition-hybrid)). Daily cap, match quality, and copyright sit between requested and playable. Video has no licensed equivalent of the owner’s local file. Rights, source, rate limit, and file match all have to be true at once.
 
-**Obsidian → TL (remaining).** Weighted seed of `stars-seed.json` into D1 / Curate; watch-party metadata; login + group popularity. Vault scrape + fuzzy match already shipped.
+**Obsidian → TL (remaining).** Weighted seed of `stars-seed.json` into D1 / Curate; login + group popularity. Vault scrape + fuzzy match already shipped. Watch highlighting is [2.7](#27-watch).
 
 **Perfect mini confetti.** Short burst on the complete screen when a mini-game finishes all-correct.
 
@@ -144,24 +181,3 @@ Not this yet: Steamworks, a Windows build, or moving off the web app.
 ### Netflix / Amazon watch history
 
 Time-box whether a signed-in player’s history can be read at all: public API, then official export, then stop. Scraping is out. Expected outcome is **no**.
-
-## Status
-
-| Item | Status |
-|------|--------|
-| 0 – 1.8 Foundation, MVP, stars, Curate, library browse | Shipped |
-| 2a Auth + share mini-game, Google Sign-In | Shipped |
-| 2.5 Runs, profile, Home rails, thumbs, exact mini replay | Shipped (weighted popular later) |
-| 2.6 Starred stills, R2, Catalog ops, protect curated stars | Shipped (every-cue / video later) |
-| Loved, star streaks, friends, inbox, groups, friend faces, Chats | Shipped |
-| Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
-| Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
-| **Send streaks from Curate** | **Now** |
-| Keep it going; C3 hygiene; security L1 | Next |
-| Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
-| C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |
-| C2 SRT acquisition | Inbox drop works; OpenSubtitles optional |
-| C3 Import hygiene | Next content polish |
-| C4 Ongoing Letterboxd delta | Whenever you re-export |
-
-Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone else can still play.

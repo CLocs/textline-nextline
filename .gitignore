@@ -7,6 +7,8 @@ inbox/letterboxd/*
 !inbox/letterboxd/.gitkeep
 inbox/srt/*
 !inbox/srt/.gitkeep
+inbox/watch/*
+!inbox/watch/.gitkeep
 
 # Personal Readwise quotes / notes (regenerate with --vault)
 content/readwise-highlights.json

@@ -88,6 +88,22 @@ export function matchQuotesToTitle(
  * Union by titleId + lineIndex. The first seed for a line is kept, except a
  * Wikiquote note yields to a vault (or any other) note on the same line.
  */
+/**
+ * Refresh one title from a new vault match. Other titles stay. Wikiquote
+ * lines on this title stay unless the vault hits the same line.
+ */
+export function unionTitleStarSeeds(
+  existing: StarSeed[],
+  titleId: string,
+  incoming: StarSeed[],
+): StarSeed[] {
+  const others = existing.filter((star) => star.titleId !== titleId);
+  const wikiPrior = existing.filter(
+    (star) => star.titleId === titleId && star.note === "wikiquote",
+  );
+  return [...others, ...mergeStarSeeds(wikiPrior, incoming)];
+}
+
 export function mergeStarSeeds(base: StarSeed[], incoming: StarSeed[]): StarSeed[] {
   const byKey = new Map<string, StarSeed>();
   for (const star of base) byKey.set(seedKey(star), star);
