@@ -5093,7 +5093,7 @@
     "batchedAt": "2026-11-09T06:16:55.745Z"
   },
   "game-of-thrones---7x01---dragonstone": {
-    "offsetMs": -144629,
+    "offsetMs": -237,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5102,12 +5102,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 7\\Game of Thrones_S07E01_Dragonstone.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 144.6s early. Opening cues fall before the file and snap to frame 0. The last catalog cue runs past the end of the file.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog is 0.2s early. The Frey feast, Sam at the Citadel.",
+    "syncedAt": "2026-11-12T02:55:00.000Z",
+    "batchedAt": "2026-11-12T03:08:02.213Z"
   },
   "game-of-thrones---7x02---stormborn": {
-    "offsetMs": -75223,
+    "offsetMs": -387,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5116,12 +5116,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 7\\Game of Thrones_S07E02_Stormborn.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 75.2s early. Opening cues fall before the file and snap to frame 0.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog is 0.4s early.",
+    "syncedAt": "2026-11-12T02:55:00.000Z",
+    "batchedAt": "2026-11-12T03:08:02.213Z"
   },
   "game-of-thrones---7x03---the-queens-justice": {
-    "offsetMs": -86138,
+    "offsetMs": -57,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5130,12 +5130,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 7\\Game of Thrones_S07E03_The Queen's Justice.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 86.1s early. Opening cues fall before the file and snap to frame 0.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog is 0.1s early.",
+    "syncedAt": "2026-11-12T02:55:00.000Z",
+    "batchedAt": "2026-11-12T03:08:02.213Z"
   },
   "game-of-thrones---7x04---the-spoils-of-war": {
-    "offsetMs": -87159,
+    "offsetMs": 53,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5144,12 +5144,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 7\\Game of Thrones_S07E04_The Spoils of War.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 87.2s early. Opening cues fall before the file and snap to frame 0. The last catalog cue runs past the end of the file.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog is 0.1s late.",
+    "syncedAt": "2026-11-12T02:55:00.000Z",
+    "batchedAt": "2026-11-12T03:08:02.213Z"
   },
   "game-of-thrones---7x05---eastwatch": {
-    "offsetMs": -87229,
+    "offsetMs": -322,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5158,13 +5158,13 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 7\\Game of Thrones_S07E05_Eastwatch.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 87.2s early. Opening cues fall before the file and snap to frame 0. The last catalog cue runs past the end of the file.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog is 0.3s early.",
+    "syncedAt": "2026-11-12T02:55:00.000Z",
+    "batchedAt": "2026-11-12T03:08:02.213Z"
   },
   "game-of-thrones---7x06---beyond-the-wall": {
-    "offsetMs": -91292,
-    "timeScale": 1,
+    "offsetMs": -2113,
+    "timeScale": 1.0427083333333333,
     "seek": "start",
     "fps": 23.976023976023978,
     "lineOffsets": {},
@@ -5172,9 +5172,9 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 7\\Game of Thrones_S07E06_Beyond the Wall.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 91.3s early. Opening cues fall before the file and snap to frame 0. The last catalog cue runs past the end of the file.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New subtitle is 25fps against the 23.976 Blu-ray, so scale 25/23.976 and the catalog is 2.1s early.",
+    "syncedAt": "2026-11-12T02:55:00.000Z",
+    "batchedAt": "2026-11-12T03:08:02.213Z"
   },
   "game-of-thrones---7x07---the-dragon-and-the-wolf": {
     "offsetMs": -84775,
@@ -5191,7 +5191,7 @@
     "batchedAt": "2026-11-09T06:16:55.745Z"
   },
   "game-of-thrones---8x01---winterfell": {
-    "offsetMs": -120174,
+    "offsetMs": -3269,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5200,12 +5200,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 8\\Game of Thrones_S08E01_Winterfell.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 120.2s early. Opening cues fall before the file and snap to frame 0. The last catalog cue runs past the end of the file.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "Blu-ray SRT. Catalog is 3.3s early. Tyrion in the carriage, soldiers in the snow.",
+    "syncedAt": "2026-11-12T03:30:00.000Z",
+    "batchedAt": "2026-11-12T03:41:57.564Z"
   },
   "game-of-thrones---8x02---a-knight-of-the-seven-kingdoms": {
-    "offsetMs": -43180,
+    "offsetMs": -3228,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5214,12 +5214,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 8\\Game of Thrones_S08E02_A Knight of the Seven Kingdoms.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 43.2s early. Opening cues fall before the file and snap to frame 0. The last catalog cue runs past the end of the file.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "Blu-ray SRT. Catalog is 3.2s early.",
+    "syncedAt": "2026-11-12T03:30:00.000Z",
+    "batchedAt": "2026-11-12T03:41:57.564Z"
   },
   "game-of-thrones---8x03---the-long-night": {
-    "offsetMs": -4100,
+    "offsetMs": -3337,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5228,12 +5228,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 8\\Game of Thrones_S08E03_The Long Night.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 4.1s early. The last catalog cue runs past the end of the file.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "Blu-ray SRT. Catalog is 3.3s early. Bran in the godswood.",
+    "syncedAt": "2026-11-12T03:30:00.000Z",
+    "batchedAt": "2026-11-12T03:41:57.564Z"
   },
   "game-of-thrones---8x04---the-last-of-the-starks": {
-    "offsetMs": -73385,
+    "offsetMs": -3337,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5242,12 +5242,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 8\\Game of Thrones_S08E04_The Last of the Starks.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 73.4s early. Opening cues fall before the file and snap to frame 0.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "Blu-ray SRT. Catalog is 3.3s early.",
+    "syncedAt": "2026-11-12T03:30:00.000Z",
+    "batchedAt": "2026-11-12T03:41:57.564Z"
   },
   "game-of-thrones---8x05---the-bells": {
-    "offsetMs": -102199,
+    "offsetMs": -3379,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5256,12 +5256,12 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 8\\Game of Thrones_S08E05_The Bells.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 102.2s early. Opening cues fall before the file and snap to frame 0.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "Blu-ray SRT. Catalog is 3.4s early.",
+    "syncedAt": "2026-11-12T03:30:00.000Z",
+    "batchedAt": "2026-11-12T03:41:57.564Z"
   },
   "game-of-thrones---8x06---the-iron-throne": {
-    "offsetMs": -58062,
+    "offsetMs": -3202,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5270,9 +5270,9 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 8\\Game of Thrones_S08E06_The Iron Throne.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 58.1s early. Opening cues fall before the file and snap to frame 0.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "Blu-ray SRT. Catalog is 3.2s early. Sansa crowned.",
+    "syncedAt": "2026-11-12T03:30:00.000Z",
+    "batchedAt": "2026-11-12T03:41:57.564Z"
   },
   "breaking-bad---1x01---pilot": {
     "offsetMs": -194,
