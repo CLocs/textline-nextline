@@ -1,0 +1,4326 @@
+{
+  "id": "ted-lasso---2x03---do-the-right-est-thing",
+  "title": "Ted Lasso - 2x03 - Do the Right-est Thing",
+  "sourceFilename": "Ted Lasso - 2x03 - Do the Right-est Thing.en.srt",
+  "importedAt": "2026-11-13T04:13:09.131Z",
+  "lineCount": 616,
+  "lines": [
+    {
+      "index": 0,
+      "text": "Hi, how you doing?",
+      "kind": "dialogue",
+      "startMs": 11596,
+      "endMs": 13181
+    },
+    {
+      "index": 1,
+      "text": "You new around here?",
+      "kind": "dialogue",
+      "startMs": 14099,
+      "endMs": 15141
+    },
+    {
+      "index": 2,
+      "text": "To planet Earth?",
+      "kind": "dialogue",
+      "startMs": 15225,
+      "endMs": 16351
+    },
+    {
+      "index": 3,
+      "text": "No, I'm 13.",
+      "kind": "dialogue",
+      "startMs": 17394,
+      "endMs": 18687
+    },
+    {
+      "index": 4,
+      "text": "But I'm also fairly certain this is my third life reincarnated.",
+      "kind": "dialogue",
+      "startMs": 18770,
+      "endMs": 22190
+    },
+    {
+      "index": 5,
+      "text": "Well, color me impressed 'cause my third lap around this big blue marble I was nothing but a horsefly.",
+      "kind": "dialogue",
+      "startMs": 22899,
+      "endMs": 27237
+    },
+    {
+      "index": 6,
+      "text": "-Oh, I've never seen a horse fly. -No?",
+      "kind": "dialogue",
+      "startMs": 27320,
+      "endMs": 29906
+    },
+    {
+      "index": 7,
+      "text": "Saw a horse pee once.",
+      "kind": "dialogue",
+      "startMs": 29990,
+      "endMs": 32284
+    },
+    {
+      "index": 8,
+      "text": "That was a lot.",
+      "kind": "dialogue",
+      "startMs": 32366,
+      "endMs": 33577
+    },
+    {
+      "index": 9,
+      "text": "Yeah. Noisy too.",
+      "kind": "dialogue",
+      "startMs": 33660,
+      "endMs": 35453
+    },
+    {
+      "index": 10,
+      "text": "To be honest, now that my lower back tattoo's completely gone, I kinda miss it.",
+      "kind": "dialogue",
+      "startMs": 38331,
+      "endMs": 42878
+    },
+    {
+      "index": 11,
+      "text": "Here comes the biscuits train! Choo choo!",
+      "kind": "dialogue",
+      "startMs": 44087,
+      "endMs": 46840
+    },
+    {
+      "index": 12,
+      "text": "Sassy Smurf!",
+      "kind": "dialogue",
+      "startMs": 47799,
+      "endMs": 48925
+    },
+    {
+      "index": 13,
+      "text": "-Marlboro Man. -What?",
+      "kind": "dialogue",
+      "startMs": 49009,
+      "endMs": 50385
+    },
+    {
+      "index": 14,
+      "text": "Hey! Hey!",
+      "kind": "dialogue",
+      "startMs": 50468,
+      "endMs": 51386
+    },
+    {
+      "index": 15,
+      "text": "All right! How about that? Yeah.",
+      "kind": "dialogue",
+      "startMs": 52554,
+      "endMs": 55056
+    },
+    {
+      "index": 16,
+      "text": "-Here you go, boss. -Thank you.",
+      "kind": "dialogue",
+      "startMs": 55140,
+      "endMs": 56892
+    },
+    {
+      "index": 17,
+      "text": "Hey, who's the new receptionist?",
+      "kind": "dialogue",
+      "startMs": 56975,
+      "endMs": 58310
+    },
+    {
+      "index": 18,
+      "text": "That's Nora, my daughter.",
+      "kind": "dialogue",
+      "startMs": 58393,
+      "endMs": 59936
+    },
+    {
+      "index": 19,
+      "text": "Okay. Wait…",
+      "kind": "dialogue",
+      "startMs": 60020,
+      "endMs": 61396
+    },
+    {
+      "index": 20,
+      "text": "Is she mine?",
+      "kind": "dialogue",
+      "startMs": 64106,
+      "endMs": 65108
+    },
+    {
+      "index": 21,
+      "text": "Ted, we had sex like six months ago.",
+      "kind": "dialogue",
+      "startMs": 65190,
+      "endMs": 67903
+    },
+    {
+      "index": 22,
+      "text": "Right, right. Sorry. Yeah, bad math.",
+      "kind": "dialogue",
+      "startMs": 67986,
+      "endMs": 70280
+    },
+    {
+      "index": 23,
+      "text": "And if memory serves, you finished on my-- Hey! Yeah.",
+      "kind": "dialogue",
+      "startMs": 70363,
+      "endMs": 74200
+    },
+    {
+      "index": 24,
+      "text": "No reason to get into the science of it all in front of the boss here, you know.",
+      "kind": "dialogue",
+      "startMs": 74284,
+      "endMs": 78121
+    },
+    {
+      "index": 25,
+      "text": "So… anyhoo…",
+      "kind": "dialogue",
+      "startMs": 78204,
+      "endMs": 79539
+    },
+    {
+      "index": 26,
+      "text": "What's the hap, Sass? What brings your fun buns in town?",
+      "kind": "dialogue",
+      "startMs": 79623,
+      "endMs": 81708
+    },
+    {
+      "index": 27,
+      "text": "I'm speaking at a conference in Brighton. So Nora is staying with Stinky here.",
+      "kind": "dialogue",
+      "startMs": 81791,
+      "endMs": 86171
+    },
+    {
+      "index": 28,
+      "text": "Yes, and I am going to make good on every single one of her wishes from the last six years.",
+      "kind": "dialogue",
+      "startMs": 86254,
+      "endMs": 90800
+    },
+    {
+      "index": 29,
+      "text": "Just make sure one of those wishes is a spare tampon then, Miss Fairy Godmother.",
+      "kind": "dialogue",
+      "startMs": 91885,
+      "endMs": 95430
+    },
+    {
+      "index": 30,
+      "text": "That girl is an errant cobblestone away from her first period.",
+      "kind": "dialogue",
+      "startMs": 97682,
+      "endMs": 100769
+    },
+    {
+      "index": 31,
+      "text": "Well, bibbidi-bobbidi-booyah. You know.",
+      "kind": "dialogue",
+      "startMs": 102520,
+      "endMs": 104606
+    },
+    {
+      "index": 32,
+      "text": "Always good to see ya, Sass. Straight shooter.",
+      "kind": "dialogue",
+      "startMs": 105649,
+      "endMs": 108401
+    },
+    {
+      "index": 33,
+      "text": "Okay, I'll let you ladies get back to it. All right? TTFN. Yeah?",
+      "kind": "dialogue",
+      "startMs": 109236,
+      "endMs": 111446
+    },
+    {
+      "index": 34,
+      "text": "Hey, you know what?",
+      "kind": "dialogue",
+      "startMs": 112364,
+      "endMs": 113406
+    },
+    {
+      "index": 35,
+      "text": "What do you say we do what the man says and make today our masterpiece, yeah?",
+      "kind": "dialogue",
+      "startMs": 113490,
+      "endMs": 116826
+    },
+    {
+      "index": 36,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 118703,
+      "endMs": 119704
+    },
+    {
+      "index": 37,
+      "text": "-Did he talk like that when-- -The whole time and so eager to please.",
+      "kind": "dialogue",
+      "startMs": 122207,
+      "endMs": 125877
+    },
+    {
+      "index": 38,
+      "text": "It was fabulous.",
+      "kind": "dialogue",
+      "startMs": 127212,
+      "endMs": 128629
+    },
+    {
+      "index": 39,
+      "text": "-Ted! -Coach!",
+      "kind": "dialogue",
+      "startMs": 152654,
+      "endMs": 154072
+    },
+    {
+      "index": 40,
+      "text": "All right, Lloyd, why don't you go all Pat Benatar on me, yeah?",
+      "kind": "dialogue",
+      "startMs": 154155,
+      "endMs": 156074
+    },
+    {
+      "index": 41,
+      "text": "And hit you with my best shot?",
+      "kind": "dialogue",
+      "startMs": 156157,
+      "endMs": 157951
+    },
+    {
+      "index": 42,
+      "text": "-Fire away. -Yes!",
+      "kind": "dialogue",
+      "startMs": 158034,
+      "endMs": 159995
+    },
+    {
+      "index": 43,
+      "text": "So, you've got Coventry City this weekend, where you're heavily favored.",
+      "kind": "dialogue",
+      "startMs": 160078,
+      "endMs": 163748
+    },
+    {
+      "index": 44,
+      "text": "You think this'll end your team's embarrassing streak of draws?",
+      "kind": "dialogue",
+      "startMs": 163832,
+      "endMs": 166418
+    },
+    {
+      "index": 45,
+      "text": "Oh, Lloyd, I've never been embarrassed about having streaks in my drawers.",
+      "kind": "dialogue",
+      "startMs": 166501,
+      "endMs": 169838
+    },
+    {
+      "index": 46,
+      "text": "It's all part of growing up. Yeah?",
+      "kind": "dialogue",
+      "startMs": 169921,
+      "endMs": 172090
+    },
+    {
+      "index": 47,
+      "text": "All right, who else?",
+      "kind": "dialogue",
+      "startMs": 172173,
+      "endMs": 173383
+    },
+    {
+      "index": 48,
+      "text": "Yes, sir.",
+      "kind": "dialogue",
+      "startMs": 173466,
+      "endMs": 174467
+    },
+    {
+      "index": 49,
+      "text": "Trent Crimm, The Independent.",
+      "kind": "dialogue",
+      "startMs": 174551,
+      "endMs": 175927
+    },
+    {
+      "index": 50,
+      "text": "Hi, Trent. Make like Dunst and Union and bring it on, baby.",
+      "kind": "dialogue",
+      "startMs": 176011,
+      "endMs": 178555
+    },
+    {
+      "index": 51,
+      "text": "Ted, you're known for creating a great environment in the locker room, but do you think the return of the prodigal son, Jamie Tartt, will impact that so-called \"vibe\"?",
+      "kind": "dialogue",
+      "startMs": 179973,
+      "endMs": 189816
+    },
+    {
+      "index": 52,
+      "text": "Well, I don't think so, Trent.",
+      "kind": "dialogue",
+      "startMs": 189900,
+      "endMs": 192110
+    },
+    {
+      "index": 53,
+      "text": "Yeah. I believe that Jamie's on a path to becoming a better man and I'm just here to help him along that journey.",
+      "kind": "dialogue",
+      "startMs": 192193,
+      "endMs": 196448
+    },
+    {
+      "index": 54,
+      "text": "You know, think of me as his own personal Mr. Miyagi.",
+      "kind": "dialogue",
+      "startMs": 196531,
+      "endMs": 198825
+    },
+    {
+      "index": 55,
+      "text": "Except without all that extra yard work. Yeah.",
+      "kind": "dialogue",
+      "startMs": 200035,
+      "endMs": 202454
+    },
+    {
+      "index": 56,
+      "text": "-Knock knock! -Hey!",
+      "kind": "dialogue",
+      "startMs": 209419,
+      "endMs": 211671
+    },
+    {
+      "index": 57,
+      "text": "Sam, I think I have something you might wanna see.",
+      "kind": "dialogue",
+      "startMs": 211755,
+      "endMs": 214049
+    },
+    {
+      "index": 58,
+      "text": "Okay?",
+      "kind": "dialogue",
+      "startMs": 214132,
+      "endMs": 215133
+    },
+    {
+      "index": 59,
+      "text": "You wanna look at your photos from the Dubai Air shoot?",
+      "kind": "dialogue",
+      "startMs": 215217,
+      "endMs": 217928
+    },
+    {
+      "index": 60,
+      "text": "Yes, please.",
+      "kind": "dialogue",
+      "startMs": 218011,
+      "endMs": 219137
+    },
+    {
+      "index": 61,
+      "text": "Oh, God. I'm very nervous. But also very excited.",
+      "kind": "dialogue",
+      "startMs": 219221,
+      "endMs": 221306
+    },
+    {
+      "index": 62,
+      "text": "That's similar to whenever Colin drives me somewhere in his Lamborghini.",
+      "kind": "dialogue",
+      "startMs": 221389,
+      "endMs": 224142
+    },
+    {
+      "index": 63,
+      "text": "Aye, it's true. It's way too much car for me.",
+      "kind": "dialogue",
+      "startMs": 224226,
+      "endMs": 225977
+    },
+    {
+      "index": 64,
+      "text": "-Look at you! I mean, come on. -Wow!",
+      "kind": "dialogue",
+      "startMs": 226686,
+      "endMs": 230106
+    },
+    {
+      "index": 65,
+      "text": "You're a mood. You're a moment. You're a mantra.",
+      "kind": "dialogue",
+      "startMs": 230190,
+      "endMs": 232859
+    },
+    {
+      "index": 66,
+      "text": "Those sound like compliments. Thank you.",
+      "kind": "dialogue",
+      "startMs": 232943,
+      "endMs": 234611
+    },
+    {
+      "index": 67,
+      "text": "Bruh, I'm confused. Is this an ad for ugly people?",
+      "kind": "dialogue",
+      "startMs": 234694,
+      "endMs": 237072
+    },
+    {
+      "index": 68,
+      "text": "Congratulations, amigo. I can't wait to see these up in a tube station.",
+      "kind": "dialogue",
+      "startMs": 238615,
+      "endMs": 241368
+    },
+    {
+      "index": 69,
+      "text": "Yeah, so I can draw a dick on his face.",
+      "kind": "dialogue",
+      "startMs": 241451,
+      "endMs": 243411
+    },
+    {
+      "index": 70,
+      "text": "Yeah!",
+      "kind": "dialogue",
+      "startMs": 243495,
+      "endMs": 244913
+    },
+    {
+      "index": 71,
+      "text": "Bro, why you wearing your kit on the plane?",
+      "kind": "dialogue",
+      "startMs": 244996,
+      "endMs": 246873
+    },
+    {
+      "index": 72,
+      "text": "'Cause it's the only way they'll know he's a footballer.",
+      "kind": "dialogue",
+      "startMs": 248583,
+      "endMs": 250669
+    },
+    {
+      "index": 73,
+      "text": "Anyways, man. What are we…",
+      "kind": "dialogue",
+      "startMs": 254881,
+      "endMs": 257175
+    },
+    {
+      "index": 74,
+      "text": "-The pictures are so great. -Thank you so much.",
+      "kind": "dialogue",
+      "startMs": 257259,
+      "endMs": 259177
+    },
+    {
+      "index": 75,
+      "text": "-Yeah, I'm so proud of you! -Thanks.",
+      "kind": "dialogue",
+      "startMs": 259261,
+      "endMs": 260887
+    },
+    {
+      "index": 76,
+      "text": "-I'll see you later. -I'll see you later.",
+      "kind": "dialogue",
+      "startMs": 260971,
+      "endMs": 262347
+    },
+    {
+      "index": 77,
+      "text": "Oh, boys. Will you remember to sign up for that new dating app I emailed you all about?",
+      "kind": "dialogue",
+      "startMs": 262430,
+      "endMs": 267143
+    },
+    {
+      "index": 78,
+      "text": "It would really help draw some traction if there were some young, hot footballers on there.",
+      "kind": "dialogue",
+      "startMs": 267227,
+      "endMs": 271898
+    },
+    {
+      "index": 79,
+      "text": "Yeah, well…",
+      "kind": "dialogue",
+      "startMs": 271982,
+      "endMs": 273066
+    },
+    {
+      "index": 80,
+      "text": "Keeley, what was the name again?",
+      "kind": "dialogue",
+      "startMs": 273149,
+      "endMs": 274568
+    },
+    {
+      "index": 81,
+      "text": "Bantr. B-A-N-T-R.",
+      "kind": "dialogue",
+      "startMs": 274651,
+      "endMs": 277862
+    },
+    {
+      "index": 82,
+      "text": "Like Grindr.",
+      "kind": "dialogue",
+      "startMs": 277946,
+      "endMs": 279030
+    },
+    {
+      "index": 83,
+      "text": "Yeah.",
+      "kind": "dialogue",
+      "startMs": 280448,
+      "endMs": 281992
+    },
+    {
+      "index": 84,
+      "text": "Well, promise me you'll just check it out?",
+      "kind": "dialogue",
+      "startMs": 282075,
+      "endMs": 284077
+    },
+    {
+      "index": 85,
+      "text": "-Of course. -You're the best!",
+      "kind": "dialogue",
+      "startMs": 284160,
+      "endMs": 285954
+    },
+    {
+      "index": 86,
+      "text": "Bye!",
+      "kind": "dialogue",
+      "startMs": 286871,
+      "endMs": 287956
+    },
+    {
+      "index": 87,
+      "text": "Okay, fellas. Got a big game this weekend.",
+      "kind": "dialogue",
+      "startMs": 288039,
+      "endMs": 290500
+    },
+    {
+      "index": 88,
+      "text": "-What are we looking at, Coach? -Very physical.",
+      "kind": "dialogue",
+      "startMs": 290584,
+      "endMs": 292669
+    },
+    {
+      "index": 89,
+      "text": "-Okay. All right. Anything else? -Borderline violent.",
+      "kind": "dialogue",
+      "startMs": 292752,
+      "endMs": 295088
+    },
+    {
+      "index": 90,
+      "text": "You heard the man.",
+      "kind": "dialogue",
+      "startMs": 295171,
+      "endMs": 296464
+    },
+    {
+      "index": 91,
+      "text": "Still can't believe y'all don't have pads in this sport. It's amazing.",
+      "kind": "dialogue",
+      "startMs": 296548,
+      "endMs": 298675
+    },
+    {
+      "index": 92,
+      "text": "Sorry, Coach. Do you mind if I say something, please?",
+      "kind": "dialogue",
+      "startMs": 298758,
+      "endMs": 301386
+    },
+    {
+      "index": 93,
+      "text": "Yeah. No, sure, Jamie. Come on. Yeah.",
+      "kind": "dialogue",
+      "startMs": 301469,
+      "endMs": 304014
+    },
+    {
+      "index": 94,
+      "text": "Thanks.",
+      "kind": "dialogue",
+      "startMs": 305098,
+      "endMs": 306099
+    },
+    {
+      "index": 95,
+      "text": "I know I wasn't the greatest teammate.",
+      "kind": "dialogue",
+      "startMs": 310604,
+      "endMs": 312272
+    },
+    {
+      "index": 96,
+      "text": "I did some shitty things. I said some shitty things.",
+      "kind": "dialogue",
+      "startMs": 312856,
+      "endMs": 316026
+    },
+    {
+      "index": 97,
+      "text": "But I want each and every one of you to know that I'm truly sorry and I'm ready to do whatever it takes to make it up to ya. Yeah?",
+      "kind": "dialogue",
+      "startMs": 316109,
+      "endMs": 322699
+    },
+    {
+      "index": 98,
+      "text": "You called me a jaundiced worm.",
+      "kind": "dialogue",
+      "startMs": 324993,
+      "endMs": 326953
+    },
+    {
+      "index": 99,
+      "text": "Right, yeah. And I'm sorry about that, Colin.",
+      "kind": "dialogue",
+      "startMs": 327037,
+      "endMs": 328788
+    },
+    {
+      "index": 100,
+      "text": "In a profile for my hometown paper.",
+      "kind": "dialogue",
+      "startMs": 328872,
+      "endMs": 330707
+    },
+    {
+      "index": 101,
+      "text": "You hit on my mum.",
+      "kind": "dialogue",
+      "startMs": 331833,
+      "endMs": 333168
+    },
+    {
+      "index": 102,
+      "text": "In front of my dad.",
+      "kind": "dialogue",
+      "startMs": 334211,
+      "endMs": 335337
+    },
+    {
+      "index": 103,
+      "text": "I apologize for that, Bumbercatch.",
+      "kind": "dialogue",
+      "startMs": 335420,
+      "endMs": 338089
+    },
+    {
+      "index": 104,
+      "text": "Please tell your father I'm sorry.",
+      "kind": "dialogue",
+      "startMs": 338757,
+      "endMs": 340300
+    },
+    {
+      "index": 105,
+      "text": "And give Janet me best, yeah?",
+      "kind": "dialogue",
+      "startMs": 340800,
+      "endMs": 342344
+    },
+    {
+      "index": 106,
+      "text": "He said that you cupped a fart and put it in his face.",
+      "kind": "dialogue",
+      "startMs": 350352,
+      "endMs": 353313
+    },
+    {
+      "index": 107,
+      "text": "Sounds better in French.",
+      "kind": "dialogue",
+      "startMs": 355023,
+      "endMs": 356524
+    },
+    {
+      "index": 108,
+      "text": "Yeah. I know. I do remember that and I'm sorry.",
+      "kind": "dialogue",
+      "startMs": 356608,
+      "endMs": 360278
+    },
+    {
+      "index": 109,
+      "text": "Hey, is there anyone else?",
+      "kind": "dialogue",
+      "startMs": 360987,
+      "endMs": 362405
+    },
+    {
+      "index": 110,
+      "text": "You got us relegated, mate.",
+      "kind": "dialogue",
+      "startMs": 362489,
+      "endMs": 363740
+    },
+    {
+      "index": 111,
+      "text": "I don't know you, but I don't like you.",
+      "kind": "dialogue",
+      "startMs": 367786,
+      "endMs": 369579
+    },
+    {
+      "index": 112,
+      "text": "I am not a worm.",
+      "kind": "dialogue",
+      "startMs": 373750,
+      "endMs": 374876
+    },
+    {
+      "index": 113,
+      "text": "Okay, fellas. All right. That's good.",
+      "kind": "dialogue",
+      "startMs": 374960,
+      "endMs": 376628
+    },
+    {
+      "index": 114,
+      "text": "Good apology. Way to get the ball rolling. Okay. Come on, guys. Let's go.",
+      "kind": "dialogue",
+      "startMs": 376711,
+      "endMs": 378838
+    },
+    {
+      "index": 115,
+      "text": "Let's get out on the pitch. Settle it out there.",
+      "kind": "dialogue",
+      "startMs": 378922,
+      "endMs": 380131
+    },
+    {
+      "index": 116,
+      "text": "Let's go, Richmond!",
+      "kind": "dialogue",
+      "startMs": 380215,
+      "endMs": 381967
+    },
+    {
+      "index": 117,
+      "text": "Here we go now. Come on.",
+      "kind": "dialogue",
+      "startMs": 382050,
+      "endMs": 383718
+    },
+    {
+      "index": 118,
+      "text": "Oh, yeah, yeah. Okay.",
+      "kind": "dialogue",
+      "startMs": 387389,
+      "endMs": 390642
+    },
+    {
+      "index": 119,
+      "text": "I remember the last time I brought you here we played that contest of who could fit the most little sandwiches in their mouth.",
+      "kind": "dialogue",
+      "startMs": 394354,
+      "endMs": 399526
+    },
+    {
+      "index": 120,
+      "text": "Yeah. That was a while ago.",
+      "kind": "dialogue",
+      "startMs": 400318,
+      "endMs": 402529
+    },
+    {
+      "index": 121,
+      "text": "-This is silly, isn't it? -No, not at all.",
+      "kind": "dialogue",
+      "startMs": 409744,
+      "endMs": 412497
+    },
+    {
+      "index": 122,
+      "text": "Don't know what I was thinking. You're not six anymore, are you?",
+      "kind": "dialogue",
+      "startMs": 412581,
+      "endMs": 414666
+    },
+    {
+      "index": 123,
+      "text": "It's fine. Really.",
+      "kind": "dialogue",
+      "startMs": 415208,
+      "endMs": 416376
+    },
+    {
+      "index": 124,
+      "text": "Should we go somewhere else though?",
+      "kind": "dialogue",
+      "startMs": 416960,
+      "endMs": 418128
+    },
+    {
+      "index": 125,
+      "text": "-Yes. -I'll get the bill.",
+      "kind": "dialogue",
+      "startMs": 418712,
+      "endMs": 420714
+    },
+    {
+      "index": 126,
+      "text": "Then you're coming back, right?",
+      "kind": "dialogue",
+      "startMs": 421631,
+      "endMs": 424301
+    },
+    {
+      "index": 127,
+      "text": "Yes, why?",
+      "kind": "dialogue",
+      "startMs": 424384,
+      "endMs": 425468
+    },
+    {
+      "index": 128,
+      "text": "Just making sure you're not gonna disappear for another six years.",
+      "kind": "dialogue",
+      "startMs": 425552,
+      "endMs": 428597
+    },
+    {
+      "index": 129,
+      "text": "I'm joking.",
+      "kind": "dialogue",
+      "startMs": 430640,
+      "endMs": 431641
+    },
+    {
+      "index": 130,
+      "text": "Okay, I deserved that.",
+      "kind": "dialogue",
+      "startMs": 433268,
+      "endMs": 434769
+    },
+    {
+      "index": 131,
+      "text": "All right, fellas, I think we've all had enough of this amuse-bouche.",
+      "kind": "dialogue",
+      "startMs": 442777,
+      "endMs": 446865
+    },
+    {
+      "index": 132,
+      "text": "Time to move on to the main course.",
+      "kind": "dialogue",
+      "startMs": 446948,
+      "endMs": 449034
+    },
+    {
+      "index": 133,
+      "text": "-Chef Beard, what's on the menu? -11 v 11. Let's go!",
+      "kind": "dialogue",
+      "startMs": 449117,
+      "endMs": 451953
+    },
+    {
+      "index": 134,
+      "text": "Let's go! Let's go!",
+      "kind": "dialogue",
+      "startMs": 453246,
+      "endMs": 454539
+    },
+    {
+      "index": 135,
+      "text": "Hey, Jamie. Come here real quick.",
+      "kind": "dialogue",
+      "startMs": 456124,
+      "endMs": 458293
+    },
+    {
+      "index": 136,
+      "text": "Yeah, there you go. Yeah, keep them hips loose.",
+      "kind": "dialogue",
+      "startMs": 459252,
+      "endMs": 461630
+    },
+    {
+      "index": 137,
+      "text": "That's it. Take your time. Love it.",
+      "kind": "dialogue",
+      "startMs": 462255,
+      "endMs": 464132
+    },
+    {
+      "index": 138,
+      "text": "Boy, I wish I could move like that.",
+      "kind": "dialogue",
+      "startMs": 464216,
+      "endMs": 465675
+    },
+    {
+      "index": 139,
+      "text": "-To be so young. -Yeah.",
+      "kind": "dialogue",
+      "startMs": 465759,
+      "endMs": 467177
+    },
+    {
+      "index": 140,
+      "text": "So, hey, we're gonna start you out on the reserve squad, all right?",
+      "kind": "dialogue",
+      "startMs": 468011,
+      "endMs": 469804
+    },
+    {
+      "index": 141,
+      "text": "No problem, Coach. Yeah.",
+      "kind": "dialogue",
+      "startMs": 469888,
+      "endMs": 471139
+    },
+    {
+      "index": 142,
+      "text": "Figure it would be good for the fellas to see ya earn your spot back.",
+      "kind": "dialogue",
+      "startMs": 471223,
+      "endMs": 473808
+    },
+    {
+      "index": 143,
+      "text": "Smart. Yeah.",
+      "kind": "dialogue",
+      "startMs": 474935,
+      "endMs": 476478
+    },
+    {
+      "index": 144,
+      "text": "Nothing more likable than watching somebody humbly overcome adversity with their effortless God-given talent. Pow.",
+      "kind": "dialogue",
+      "startMs": 476561,
+      "endMs": 481566
+    },
+    {
+      "index": 145,
+      "text": "Hey, just do me a favor. Don't try to do too much out there, all right?",
+      "kind": "dialogue",
+      "startMs": 481650,
+      "endMs": 483818
+    },
+    {
+      "index": 146,
+      "text": "I know what you mean, Coach.",
+      "kind": "dialogue",
+      "startMs": 483902,
+      "endMs": 485195
+    },
+    {
+      "index": 147,
+      "text": "Yeah.",
+      "kind": "dialogue",
+      "startMs": 485278,
+      "endMs": 486529
+    },
+    {
+      "index": 148,
+      "text": "Mr. Kit man! Hit me!",
+      "kind": "dialogue",
+      "startMs": 488156,
+      "endMs": 490200
+    },
+    {
+      "index": 149,
+      "text": "-Hey, you think he heard me? -I do.",
+      "kind": "dialogue",
+      "startMs": 491117,
+      "endMs": 492869
+    },
+    {
+      "index": 150,
+      "text": "-Think he gonna listen to me? -I do not.",
+      "kind": "dialogue",
+      "startMs": 492953,
+      "endMs": 494871
+    },
+    {
+      "index": 151,
+      "text": "-Yeah. -They are going to kill him.",
+      "kind": "dialogue",
+      "startMs": 494955,
+      "endMs": 498667
+    },
+    {
+      "index": 152,
+      "text": "Sorry. He just wasn't very nice to me either, so…",
+      "kind": "dialogue",
+      "startMs": 501461,
+      "endMs": 504714
+    },
+    {
+      "index": 153,
+      "text": "Go, go!",
+      "kind": "dialogue",
+      "startMs": 507092,
+      "endMs": 508593
+    },
+    {
+      "index": 154,
+      "text": "Jamie! Jamie!",
+      "kind": "dialogue",
+      "startMs": 511721,
+      "endMs": 513056
+    },
+    {
+      "index": 155,
+      "text": "-Jamie! Jamie! -Yeah!",
+      "kind": "dialogue",
+      "startMs": 514349,
+      "endMs": 516810
+    },
+    {
+      "index": 156,
+      "text": "Hey, while you were off filming your little TV show, some things changed around here.",
+      "kind": "dialogue",
+      "startMs": 520772,
+      "endMs": 525360
+    },
+    {
+      "index": 157,
+      "text": "Don't bring that weak rubbish my way.",
+      "kind": "dialogue",
+      "startMs": 525443,
+      "endMs": 527070
+    },
+    {
+      "index": 158,
+      "text": "Let's go, boys! Let's go!",
+      "kind": "dialogue",
+      "startMs": 529781,
+      "endMs": 532534
+    },
+    {
+      "index": 159,
+      "text": "Come on, come on! Let's go!",
+      "kind": "dialogue",
+      "startMs": 532617,
+      "endMs": 534995
+    },
+    {
+      "index": 160,
+      "text": "-Let's go! Let's go! -Who's the worm now?",
+      "kind": "dialogue",
+      "startMs": 540166,
+      "endMs": 542752
+    },
+    {
+      "index": 161,
+      "text": "It's not me.",
+      "kind": "dialogue",
+      "startMs": 542836,
+      "endMs": 544045
+    },
+    {
+      "index": 162,
+      "text": "Fuck just happened?",
+      "kind": "dialogue",
+      "startMs": 545338,
+      "endMs": 546548
+    },
+    {
+      "index": 163,
+      "text": "We could go and see a show tonight. What about The Mouse Trap?",
+      "kind": "dialogue",
+      "startMs": 547257,
+      "endMs": 550302
+    },
+    {
+      "index": 164,
+      "text": "You know that Agatha Christie play where someone dies every performance?",
+      "kind": "dialogue",
+      "startMs": 550385,
+      "endMs": 553513
+    },
+    {
+      "index": 165,
+      "text": "Usually in the audience. Seeing as only old people go and see it.",
+      "kind": "dialogue",
+      "startMs": 554097,
+      "endMs": 556600
+    },
+    {
+      "index": 166,
+      "text": "Sure. If that's what you wanna do.",
+      "kind": "dialogue",
+      "startMs": 556683,
+      "endMs": 558602
+    },
+    {
+      "index": 167,
+      "text": "The British Girl Shop. Wanna pop in?",
+      "kind": "dialogue",
+      "startMs": 558685,
+      "endMs": 562439
+    },
+    {
+      "index": 168,
+      "text": "Don't really play with dolls much anymore.",
+      "kind": "dialogue",
+      "startMs": 562522,
+      "endMs": 564399
+    },
+    {
+      "index": 169,
+      "text": "No, of course not.",
+      "kind": "dialogue",
+      "startMs": 565358,
+      "endMs": 566735
+    },
+    {
+      "index": 170,
+      "text": "Besides, why do all their dolls have to be tragically orphaned?",
+      "kind": "dialogue",
+      "startMs": 566818,
+      "endMs": 570322
+    },
+    {
+      "index": 171,
+      "text": "Edith's parents died in the war.",
+      "kind": "dialogue",
+      "startMs": 570405,
+      "endMs": 572908
+    },
+    {
+      "index": 172,
+      "text": "-Emma's had scurvy. -Yes.",
+      "kind": "dialogue",
+      "startMs": 572991,
+      "endMs": 574659
+    },
+    {
+      "index": 173,
+      "text": "The Americans really do the historical doll concept better, don't they?",
+      "kind": "dialogue",
+      "startMs": 574743,
+      "endMs": 579080
+    },
+    {
+      "index": 174,
+      "text": "Must be their innate sense of triumph, however misguided.",
+      "kind": "dialogue",
+      "startMs": 579664,
+      "endMs": 582500
+    },
+    {
+      "index": 175,
+      "text": "Yeah, but no one does the orphans better than us Brits.",
+      "kind": "dialogue",
+      "startMs": 582584,
+      "endMs": 585253
+    },
+    {
+      "index": 176,
+      "text": "Thank you, Uncle Roy.",
+      "kind": "dialogue",
+      "startMs": 588006,
+      "endMs": 589132
+    },
+    {
+      "index": 177,
+      "text": "-I love her. -Oh, good.",
+      "kind": "dialogue",
+      "startMs": 590300,
+      "endMs": 592052
+    },
+    {
+      "index": 178,
+      "text": "Right, so how'd her parents die? Factory fire? Eaten by rats?",
+      "kind": "dialogue",
+      "startMs": 655824,
+      "endMs": 659828
+    },
+    {
+      "index": 179,
+      "text": "No. Zoe's from the modern line.",
+      "kind": "dialogue",
+      "startMs": 660328,
+      "endMs": 662706
+    },
+    {
+      "index": 180,
+      "text": "Her parents were canceled.",
+      "kind": "dialogue",
+      "startMs": 663206,
+      "endMs": 664708
+    },
+    {
+      "index": 181,
+      "text": "So, what's happening with what's-his-name, from the steakhouse?",
+      "kind": "dialogue",
+      "startMs": 666293,
+      "endMs": 669087
+    },
+    {
+      "index": 182,
+      "text": "Who, John?",
+      "kind": "dialogue",
+      "startMs": 669170,
+      "endMs": 670255
+    },
+    {
+      "index": 183,
+      "text": "-Yeah. -I dumped him.",
+      "kind": "dialogue",
+      "startMs": 670338,
+      "endMs": 672048
+    },
+    {
+      "index": 184,
+      "text": "-'Cause of what I said? -No.",
+      "kind": "dialogue",
+      "startMs": 673258,
+      "endMs": 674885
+    },
+    {
+      "index": 185,
+      "text": "'Cause you were right about what you said.",
+      "kind": "dialogue",
+      "startMs": 675760,
+      "endMs": 677888
+    },
+    {
+      "index": 186,
+      "text": "So what now?",
+      "kind": "dialogue",
+      "startMs": 677971,
+      "endMs": 678972
+    },
+    {
+      "index": 187,
+      "text": "Hell, I don't know.",
+      "kind": "dialogue",
+      "startMs": 679055,
+      "endMs": 681016
+    },
+    {
+      "index": 188,
+      "text": "Keeley's got me on that silly dating app she's promoting.",
+      "kind": "dialogue",
+      "startMs": 681725,
+      "endMs": 684644
+    },
+    {
+      "index": 189,
+      "text": "-The one with no pictures? -That's the one.",
+      "kind": "dialogue",
+      "startMs": 684728,
+      "endMs": 686771
+    },
+    {
+      "index": 190,
+      "text": "What? So now you just get a bunch of unsolicited descriptions of dicks?",
+      "kind": "dialogue",
+      "startMs": 687480,
+      "endMs": 691401
+    },
+    {
+      "index": 191,
+      "text": "Uncle Roy, can we have ice cream for dinner?",
+      "kind": "dialogue",
+      "startMs": 691943,
+      "endMs": 694571
+    },
+    {
+      "index": 192,
+      "text": "No, that's dumb.",
+      "kind": "dialogue",
+      "startMs": 694654,
+      "endMs": 696072
+    },
+    {
+      "index": 193,
+      "text": "You're right. Thank you for helping me set boundaries.",
+      "kind": "dialogue",
+      "startMs": 696156,
+      "endMs": 699075
+    },
+    {
+      "index": 194,
+      "text": "-Wow, she really loves you. -I know. It's fucking annoying.",
+      "kind": "dialogue",
+      "startMs": 700911,
+      "endMs": 704205
+    },
+    {
+      "index": 195,
+      "text": "It's been really gorgeous reconnecting with Nora.",
+      "kind": "dialogue",
+      "startMs": 705999,
+      "endMs": 708710
+    },
+    {
+      "index": 196,
+      "text": "And I had all these things organized. Loads of activities.",
+      "kind": "dialogue",
+      "startMs": 708793,
+      "endMs": 711379
+    },
+    {
+      "index": 197,
+      "text": "She's not interested in any of it.",
+      "kind": "dialogue",
+      "startMs": 711463,
+      "endMs": 713089
+    },
+    {
+      "index": 198,
+      "text": "Look, most adults think kids need to be constantly entertained.",
+      "kind": "dialogue",
+      "startMs": 713173,
+      "endMs": 717344
+    },
+    {
+      "index": 199,
+      "text": "It's bullshit.",
+      "kind": "dialogue",
+      "startMs": 717427,
+      "endMs": 718511
+    },
+    {
+      "index": 200,
+      "text": "I didn't need a fucking parade every day growing up, did you?",
+      "kind": "dialogue",
+      "startMs": 718595,
+      "endMs": 721223
+    },
+    {
+      "index": 201,
+      "text": "Truth is they just wanna feel like they're part of our lives.",
+      "kind": "dialogue",
+      "startMs": 721973,
+      "endMs": 724517
+    },
+    {
+      "index": 202,
+      "text": "Little idiots. Watch this.",
+      "kind": "dialogue",
+      "startMs": 724601,
+      "endMs": 726770
+    },
+    {
+      "index": 203,
+      "text": "Phoebe. Do you wanna come to my podiatrist appointment later?",
+      "kind": "dialogue",
+      "startMs": 728063,
+      "endMs": 731399
+    },
+    {
+      "index": 204,
+      "text": "Yes, please!",
+      "kind": "dialogue",
+      "startMs": 731483,
+      "endMs": 732943
+    },
+    {
+      "index": 205,
+      "text": "Hey, do you fancy watching a scary movie together?",
+      "kind": "dialogue",
+      "startMs": 742160,
+      "endMs": 745247
+    },
+    {
+      "index": 206,
+      "text": "I can make some popcorn.",
+      "kind": "dialogue",
+      "startMs": 745330,
+      "endMs": 746498
+    },
+    {
+      "index": 207,
+      "text": "You finally learned how to cook, did you?",
+      "kind": "dialogue",
+      "startMs": 746581,
+      "endMs": 748458
+    },
+    {
+      "index": 208,
+      "text": "Sounds fun. I'll be right down.",
+      "kind": "dialogue",
+      "startMs": 749751,
+      "endMs": 751836
+    },
+    {
+      "index": 209,
+      "text": "Great.",
+      "kind": "dialogue",
+      "startMs": 751920,
+      "endMs": 752921
+    },
+    {
+      "index": 210,
+      "text": "And for tomorrow I was wondering-- I mean, it could be a terrible idea.",
+      "kind": "dialogue",
+      "startMs": 754881,
+      "endMs": 760554
+    },
+    {
+      "index": 211,
+      "text": "Would you want to come to work with me for, like, the whole day and just join me for meetings and stuff?",
+      "kind": "dialogue",
+      "startMs": 761388,
+      "endMs": 767811
+    },
+    {
+      "index": 212,
+      "text": "It could be tremendously boring.",
+      "kind": "dialogue",
+      "startMs": 767894,
+      "endMs": 769688
+    },
+    {
+      "index": 213,
+      "text": "That would be amazing.",
+      "kind": "dialogue",
+      "startMs": 769771,
+      "endMs": 770814
+    },
+    {
+      "index": 214,
+      "text": "Would it?",
+      "kind": "dialogue",
+      "startMs": 771940,
+      "endMs": 772941
+    },
+    {
+      "index": 215,
+      "text": "Yeah, I've always wanted to see what it's like to run a football club.",
+      "kind": "dialogue",
+      "startMs": 773024,
+      "endMs": 775694
+    },
+    {
+      "index": 216,
+      "text": "Really? Since when?",
+      "kind": "dialogue",
+      "startMs": 775777,
+      "endMs": 777237
+    },
+    {
+      "index": 217,
+      "text": "Ever since you started doing it.",
+      "kind": "dialogue",
+      "startMs": 777320,
+      "endMs": 779155
+    },
+    {
+      "index": 218,
+      "text": "I'll be down in a sec.",
+      "kind": "dialogue",
+      "startMs": 780699,
+      "endMs": 782033
+    },
+    {
+      "index": 219,
+      "text": "Okay.",
+      "kind": "dialogue",
+      "startMs": 782659,
+      "endMs": 783660
+    },
+    {
+      "index": 220,
+      "text": "-Hey, Shannon. -Coach Beard asked me to give this to you.",
+      "kind": "dialogue",
+      "startMs": 792168,
+      "endMs": 794671
+    },
+    {
+      "index": 221,
+      "text": "He had to run off.",
+      "kind": "dialogue",
+      "startMs": 795297,
+      "endMs": 796381
+    },
+    {
+      "index": 222,
+      "text": "Okay. Everything all right?",
+      "kind": "dialogue",
+      "startMs": 796464,
+      "endMs": 798091
+    },
+    {
+      "index": 223,
+      "text": "I don't know.",
+      "kind": "dialogue",
+      "startMs": 798675,
+      "endMs": 799759
+    },
+    {
+      "index": 224,
+      "text": "He mumbled the name Jane and then sprinted away.",
+      "kind": "dialogue",
+      "startMs": 799843,
+      "endMs": 802304
+    },
+    {
+      "index": 225,
+      "text": "Okay. That makes sense.",
+      "kind": "dialogue",
+      "startMs": 802387,
+      "endMs": 803972
+    },
+    {
+      "index": 226,
+      "text": "What about you? You good?",
+      "kind": "dialogue",
+      "startMs": 804055,
+      "endMs": 805348
+    },
+    {
+      "index": 227,
+      "text": "When are you guys gonna finally win a match?",
+      "kind": "dialogue",
+      "startMs": 806016,
+      "endMs": 807851
+    },
+    {
+      "index": 228,
+      "text": "Geez louise, Shannon.",
+      "kind": "dialogue",
+      "startMs": 807934,
+      "endMs": 809728
+    },
+    {
+      "index": 229,
+      "text": "Not even Beard comes at me that strong this early, you know?",
+      "kind": "dialogue",
+      "startMs": 809811,
+      "endMs": 812439
+    },
+    {
+      "index": 230,
+      "text": "We like to start off with a little small talk, you know?",
+      "kind": "dialogue",
+      "startMs": 812522,
+      "endMs": 814441
+    },
+    {
+      "index": 231,
+      "text": "Like, I'll say, \"Hey, what's the word, Larry Bird?\"",
+      "kind": "dialogue",
+      "startMs": 814524,
+      "endMs": 816651
+    },
+    {
+      "index": 232,
+      "text": "Then he'll say-- \"Don't call me Larry Bird and when are we gonna finally win a fucking match?\"",
+      "kind": "dialogue",
+      "startMs": 816735,
+      "endMs": 821156
+    },
+    {
+      "index": 233,
+      "text": "Yeah. Like that. See, much better.",
+      "kind": "dialogue",
+      "startMs": 821823,
+      "endMs": 824492
+    },
+    {
+      "index": 234,
+      "text": "So, being the boss isn't just about reacting to situations.",
+      "kind": "dialogue",
+      "startMs": 827913,
+      "endMs": 830707
+    },
+    {
+      "index": 235,
+      "text": "It's also about anticipating them as well.",
+      "kind": "dialogue",
+      "startMs": 830790,
+      "endMs": 832834
+    },
+    {
+      "index": 236,
+      "text": "You need to be three, four steps ahead of everyone else around you.",
+      "kind": "dialogue",
+      "startMs": 832918,
+      "endMs": 836046
+    },
+    {
+      "index": 237,
+      "text": "Good morning, Higgins.",
+      "kind": "dialogue",
+      "startMs": 836129,
+      "endMs": 837214
+    },
+    {
+      "index": 238,
+      "text": "This is my goddaughter, Nora. She's going to be shadowing me today.",
+      "kind": "dialogue",
+      "startMs": 837297,
+      "endMs": 840383
+    },
+    {
+      "index": 239,
+      "text": "Outstanding! Welcome aboard.",
+      "kind": "dialogue",
+      "startMs": 840467,
+      "endMs": 842552
+    },
+    {
+      "index": 240,
+      "text": "And Miss Welton, I received your email.",
+      "kind": "dialogue",
+      "startMs": 843345,
+      "endMs": 846306
+    },
+    {
+      "index": 241,
+      "text": "And once again your suggestion fixed everything.",
+      "kind": "dialogue",
+      "startMs": 846389,
+      "endMs": 848975
+    },
+    {
+      "index": 242,
+      "text": "I mean, brilliant as always.",
+      "kind": "dialogue",
+      "startMs": 849059,
+      "endMs": 851186
+    },
+    {
+      "index": 243,
+      "text": "What are you talking about?",
+      "kind": "dialogue",
+      "startMs": 851811,
+      "endMs": 853021
+    },
+    {
+      "index": 244,
+      "text": "I was just trying to make you look good.",
+      "kind": "dialogue",
+      "startMs": 853688,
+      "endMs": 855440
+    },
+    {
+      "index": 245,
+      "text": "-You blew that. -Yeah, I did.",
+      "kind": "dialogue",
+      "startMs": 858526,
+      "endMs": 860445
+    },
+    {
+      "index": 246,
+      "text": "And obviously one of the perks of being in charge is having your own private sanctum.",
+      "kind": "dialogue",
+      "startMs": 862322,
+      "endMs": 866868
+    },
+    {
+      "index": 247,
+      "text": "Shit!",
+      "kind": "dialogue",
+      "startMs": 867577,
+      "endMs": 868912
+    },
+    {
+      "index": 248,
+      "text": "I didn't think you were coming in today.",
+      "kind": "dialogue",
+      "startMs": 868995,
+      "endMs": 870538
+    },
+    {
+      "index": 249,
+      "text": "When I know you're not gonna be here, sometimes I use your office.",
+      "kind": "dialogue",
+      "startMs": 870622,
+      "endMs": 873208
+    },
+    {
+      "index": 250,
+      "text": "I like the light and the absence of smells.",
+      "kind": "dialogue",
+      "startMs": 873291,
+      "endMs": 875377
+    },
+    {
+      "index": 251,
+      "text": "No worries. We had a change of plans.",
+      "kind": "dialogue",
+      "startMs": 875460,
+      "endMs": 878088
+    },
+    {
+      "index": 252,
+      "text": "-Keeley, this is Nora. -Hey.",
+      "kind": "dialogue",
+      "startMs": 878171,
+      "endMs": 879756
+    },
+    {
+      "index": 253,
+      "text": "Nora, this is Keeley Jones. Our head of marketing.",
+      "kind": "dialogue",
+      "startMs": 879839,
+      "endMs": 882801
+    },
+    {
+      "index": 254,
+      "text": "Cuppa?",
+      "kind": "dialogue",
+      "startMs": 883343,
+      "endMs": 884344
+    },
+    {
+      "index": 255,
+      "text": "I'm so excited to meet you.",
+      "kind": "dialogue",
+      "startMs": 885679,
+      "endMs": 887055
+    },
+    {
+      "index": 256,
+      "text": "I've heard a lot about you and I love your mum.",
+      "kind": "dialogue",
+      "startMs": 887138,
+      "endMs": 888974
+    },
+    {
+      "index": 257,
+      "text": "She's so cool.",
+      "kind": "dialogue",
+      "startMs": 889057,
+      "endMs": 890600
+    },
+    {
+      "index": 258,
+      "text": "What's \"Bantr\"?",
+      "kind": "dialogue",
+      "startMs": 893853,
+      "endMs": 895480
+    },
+    {
+      "index": 259,
+      "text": "It's just a little side hustle gig. It's a new dating app.",
+      "kind": "dialogue",
+      "startMs": 896064,
+      "endMs": 899401
+    },
+    {
+      "index": 260,
+      "text": "This venture capital firm asked if I can do some freelance PR for them.",
+      "kind": "dialogue",
+      "startMs": 899484,
+      "endMs": 902862
+    },
+    {
+      "index": 261,
+      "text": "Cool. What's the hook?",
+      "kind": "dialogue",
+      "startMs": 902946,
+      "endMs": 905073
+    },
+    {
+      "index": 262,
+      "text": "It's pretty groovy actually.",
+      "kind": "dialogue",
+      "startMs": 907659,
+      "endMs": 909619
+    },
+    {
+      "index": 263,
+      "text": "They wanna be a less superficial dating app alternative.",
+      "kind": "dialogue",
+      "startMs": 909703,
+      "endMs": 912122
+    },
+    {
+      "index": 264,
+      "text": "It's completely anonymous, no photos.",
+      "kind": "dialogue",
+      "startMs": 912205,
+      "endMs": 914374
+    },
+    {
+      "index": 265,
+      "text": "It's all about encouraging people to connect using their words and personalities.",
+      "kind": "dialogue",
+      "startMs": 914457,
+      "endMs": 918086
+    },
+    {
+      "index": 266,
+      "text": "Yeah, so you don't know if the person you're communicating with is remotely fit or not.",
+      "kind": "dialogue",
+      "startMs": 918169,
+      "endMs": 921590
+    },
+    {
+      "index": 267,
+      "text": "Horrifying, isn't it?",
+      "kind": "dialogue",
+      "startMs": 922173,
+      "endMs": 923216
+    },
+    {
+      "index": 268,
+      "text": "I think that's awesome.",
+      "kind": "dialogue",
+      "startMs": 923800,
+      "endMs": 924885
+    },
+    {
+      "index": 269,
+      "text": "Yeah, no. Me too.",
+      "kind": "dialogue",
+      "startMs": 924968,
+      "endMs": 927262
+    },
+    {
+      "index": 270,
+      "text": "Cool.",
+      "kind": "dialogue",
+      "startMs": 928763,
+      "endMs": 930015
+    },
+    {
+      "index": 271,
+      "text": "So, I downloaded Bantr last night.",
+      "kind": "dialogue",
+      "startMs": 930807,
+      "endMs": 933476
+    },
+    {
+      "index": 272,
+      "text": "Attaboy.",
+      "kind": "dialogue",
+      "startMs": 933560,
+      "endMs": 934603
+    },
+    {
+      "index": 273,
+      "text": "Looking for a lady, hey?",
+      "kind": "dialogue",
+      "startMs": 934686,
+      "endMs": 936313
+    },
+    {
+      "index": 274,
+      "text": "Oh, God, no. No, I deleted it immediately.",
+      "kind": "dialogue",
+      "startMs": 936396,
+      "endMs": 938732
+    },
+    {
+      "index": 275,
+      "text": "Besides, I am very picky when it comes to women.",
+      "kind": "dialogue",
+      "startMs": 939566,
+      "endMs": 942736
+    },
+    {
+      "index": 276,
+      "text": "-Oh, yeah? -Yeah. Oh, yeah.",
+      "kind": "dialogue",
+      "startMs": 943486,
+      "endMs": 946072
+    },
+    {
+      "index": 277,
+      "text": "But women are pretty picky too, so…",
+      "kind": "dialogue",
+      "startMs": 948074,
+      "endMs": 949868
+    },
+    {
+      "index": 278,
+      "text": "Yeah, I'm not really looking for anything romantic right now either.",
+      "kind": "dialogue",
+      "startMs": 950952,
+      "endMs": 953371
+    },
+    {
+      "index": 279,
+      "text": "But, boy, what if I did get on there and I met my soul mate and it changed the whole course of my life.",
+      "kind": "dialogue",
+      "startMs": 953455,
+      "endMs": 957250
+    },
+    {
+      "index": 280,
+      "text": "-That'd be pretty neato. Yeah? -Yeah.",
+      "kind": "dialogue",
+      "startMs": 957334,
+      "endMs": 959628
+    },
+    {
+      "index": 281,
+      "text": "What about you, Coach? You get on there yet?",
+      "kind": "dialogue",
+      "startMs": 959711,
+      "endMs": 961463
+    },
+    {
+      "index": 282,
+      "text": "No, no, no.",
+      "kind": "dialogue",
+      "startMs": 961546,
+      "endMs": 962881
+    },
+    {
+      "index": 283,
+      "text": "Jane and I took a big step forward in our relationship this weekend.",
+      "kind": "dialogue",
+      "startMs": 962964,
+      "endMs": 965800
+    },
+    {
+      "index": 284,
+      "text": "We are now sharing an iCloud account.",
+      "kind": "dialogue",
+      "startMs": 965884,
+      "endMs": 967761
+    },
+    {
+      "index": 285,
+      "text": "They call it digital intimacy.",
+      "kind": "dialogue",
+      "startMs": 968803,
+      "endMs": 970472
+    },
+    {
+      "index": 286,
+      "text": "So if she found out that you downloaded a dating app…",
+      "kind": "dialogue",
+      "startMs": 971389,
+      "endMs": 974184
+    },
+    {
+      "index": 287,
+      "text": "She would destroy my phone with pliers and a blowtorch. Yes.",
+      "kind": "dialogue",
+      "startMs": 974267,
+      "endMs": 977479
+    },
+    {
+      "index": 288,
+      "text": "Hi, darling.",
+      "kind": "dialogue",
+      "startMs": 979856,
+      "endMs": 980941
+    },
+    {
+      "index": 289,
+      "text": "Diamond Dogs adjourned?",
+      "kind": "dialogue",
+      "startMs": 982192,
+      "endMs": 983193
+    },
+    {
+      "index": 290,
+      "text": "Yeah, I was howling. Like a dog, yeah.",
+      "kind": "dialogue",
+      "startMs": 987113,
+      "endMs": 988907
+    },
+    {
+      "index": 291,
+      "text": "Hey, Jamie.",
+      "kind": "dialogue",
+      "startMs": 988990,
+      "endMs": 989950
+    },
+    {
+      "index": 292,
+      "text": "Hey, how you feeling today?",
+      "kind": "dialogue",
+      "startMs": 991826,
+      "endMs": 993286
+    },
+    {
+      "index": 293,
+      "text": "-Fucking great. -Yeah?",
+      "kind": "dialogue",
+      "startMs": 994246,
+      "endMs": 995580
+    },
+    {
+      "index": 294,
+      "text": "Yeah, I had this dope idea last night during me eyebrow threading.",
+      "kind": "dialogue",
+      "startMs": 995664,
+      "endMs": 998667
+    },
+    {
+      "index": 295,
+      "text": "I'm gonna buy the whole team PS5s. They'll fucking love me.",
+      "kind": "dialogue",
+      "startMs": 999584,
+      "endMs": 1003213
+    },
+    {
+      "index": 296,
+      "text": "Yeah, but, you know, some folks might also consider that buying affection, you know.",
+      "kind": "dialogue",
+      "startMs": 1005006,
+      "endMs": 1009010
+    },
+    {
+      "index": 297,
+      "text": "Exactly.",
+      "kind": "dialogue",
+      "startMs": 1009094,
+      "endMs": 1010220
+    },
+    {
+      "index": 298,
+      "text": "Yeah, what better thing to spend money on than love? Hey?",
+      "kind": "dialogue",
+      "startMs": 1010303,
+      "endMs": 1013014
+    },
+    {
+      "index": 299,
+      "text": "Boy. He sure does thread that needle sometimes, don't he?",
+      "kind": "dialogue",
+      "startMs": 1016351,
+      "endMs": 1018353
+    },
+    {
+      "index": 300,
+      "text": "Well, gentlemen, I think we might have ourselves a \"break glass in case of emergency\" situation here.",
+      "kind": "dialogue",
+      "startMs": 1019896,
+      "endMs": 1023942
+    },
+    {
+      "index": 301,
+      "text": "-You know what we gotta do? -Get Dr. Sharon?",
+      "kind": "dialogue",
+      "startMs": 1025193,
+      "endMs": 1027320
+    },
+    {
+      "index": 302,
+      "text": "What? No, no, no.",
+      "kind": "dialogue",
+      "startMs": 1027404,
+      "endMs": 1029155
+    },
+    {
+      "index": 303,
+      "text": "No, I think it's time for these young fellas to meet… that guy.",
+      "kind": "dialogue",
+      "startMs": 1029238,
+      "endMs": 1033535
+    },
+    {
+      "index": 304,
+      "text": "No. No, no.",
+      "kind": "dialogue",
+      "startMs": 1037455,
+      "endMs": 1039457
+    },
+    {
+      "index": 305,
+      "text": "Oh, yes.",
+      "kind": "dialogue",
+      "startMs": 1039541,
+      "endMs": 1041001
+    },
+    {
+      "index": 306,
+      "text": "Oh, yes. Oh, yes.",
+      "kind": "dialogue",
+      "startMs": 1041083,
+      "endMs": 1043587
+    },
+    {
+      "index": 307,
+      "text": "They don't need to meet that guy. They don't. Nobody does.",
+      "kind": "dialogue",
+      "startMs": 1043670,
+      "endMs": 1046506
+    },
+    {
+      "index": 308,
+      "text": "Don't worry, Coach. It's gonna be great.",
+      "kind": "dialogue",
+      "startMs": 1046590,
+      "endMs": 1047924
+    },
+    {
+      "index": 309,
+      "text": "All right. I'll see you in a little bit.",
+      "kind": "dialogue",
+      "startMs": 1048507,
+      "endMs": 1050302
+    },
+    {
+      "index": 310,
+      "text": "Who's \"that guy\"?",
+      "kind": "dialogue",
+      "startMs": 1051595,
+      "endMs": 1053138
+    },
+    {
+      "index": 311,
+      "text": "Led Tasso.",
+      "kind": "dialogue",
+      "startMs": 1053763,
+      "endMs": 1055348
+    },
+    {
+      "index": 312,
+      "text": "Who's Led Tasso?",
+      "kind": "dialogue",
+      "startMs": 1055432,
+      "endMs": 1056975
+    },
+    {
+      "index": 313,
+      "text": "The last resort.",
+      "kind": "dialogue",
+      "startMs": 1058852,
+      "endMs": 1060020
+    },
+    {
+      "index": 314,
+      "text": "Still doesn't really answer my question though, does it?",
+      "kind": "dialogue",
+      "startMs": 1061605,
+      "endMs": 1063690
+    },
+    {
+      "index": 315,
+      "text": "Who's Led Tasso?",
+      "kind": "dialogue",
+      "startMs": 1063773,
+      "endMs": 1065525
+    },
+    {
+      "index": 316,
+      "text": "So, our players have contracts that were signed when we were a premiership club.",
+      "kind": "dialogue",
+      "startMs": 1065609,
+      "endMs": 1069112
+    },
+    {
+      "index": 317,
+      "text": "But our current income is that of a championship club. Which means-- You're paying premiership rates for championship players, so financially the club's a bit fucked.",
+      "kind": "dialogue",
+      "startMs": 1069195,
+      "endMs": 1076953
+    },
+    {
+      "index": 318,
+      "text": "Sorry.",
+      "kind": "dialogue",
+      "startMs": 1078246,
+      "endMs": 1079331
+    },
+    {
+      "index": 319,
+      "text": "She got it quicker than Ted did.",
+      "kind": "dialogue",
+      "startMs": 1079956,
+      "endMs": 1081249
+    },
+    {
+      "index": 320,
+      "text": "Come in.",
+      "kind": "dialogue",
+      "startMs": 1082584,
+      "endMs": 1083627
+    },
+    {
+      "index": 321,
+      "text": "Sam! How nice to see you.",
+      "kind": "dialogue",
+      "startMs": 1084628,
+      "endMs": 1087088
+    },
+    {
+      "index": 322,
+      "text": "-I apologize for interrupting. -No, please.",
+      "kind": "dialogue",
+      "startMs": 1087172,
+      "endMs": 1089382
+    },
+    {
+      "index": 323,
+      "text": "Sam, this is my goddaughter, Nora.",
+      "kind": "dialogue",
+      "startMs": 1089466,
+      "endMs": 1091426
+    },
+    {
+      "index": 324,
+      "text": "-Nora, this is Sam-- -Sam Obisanya.",
+      "kind": "dialogue",
+      "startMs": 1091509,
+      "endMs": 1093470
+    },
+    {
+      "index": 325,
+      "text": "Hi, Sam Obisanya.",
+      "kind": "dialogue",
+      "startMs": 1094054,
+      "endMs": 1095305
+    },
+    {
+      "index": 326,
+      "text": "Oh, yes. You guys used to watch Frozen together.",
+      "kind": "dialogue",
+      "startMs": 1096348,
+      "endMs": 1098642
+    },
+    {
+      "index": 327,
+      "text": "I have now watched that movie many times myself.",
+      "kind": "dialogue",
+      "startMs": 1098725,
+      "endMs": 1100727
+    },
+    {
+      "index": 328,
+      "text": "It's a beautiful metaphor for many of life's journeys.",
+      "kind": "dialogue",
+      "startMs": 1101770,
+      "endMs": 1103813
+    },
+    {
+      "index": 329,
+      "text": "Yeah, especially puberty.",
+      "kind": "dialogue",
+      "startMs": 1103897,
+      "endMs": 1105357
+    },
+    {
+      "index": 330,
+      "text": "What can I help you with?",
+      "kind": "dialogue",
+      "startMs": 1108068,
+      "endMs": 1109277
+    },
+    {
+      "index": 331,
+      "text": "Well…",
+      "kind": "dialogue",
+      "startMs": 1110070,
+      "endMs": 1111071
+    },
+    {
+      "index": 332,
+      "text": "I would like to pull out of my campaign with Dubai Air.",
+      "kind": "dialogue",
+      "startMs": 1113782,
+      "endMs": 1115742
+    },
+    {
+      "index": 333,
+      "text": "What? Why?",
+      "kind": "dialogue",
+      "startMs": 1118078,
+      "endMs": 1119246
+    },
+    {
+      "index": 334,
+      "text": "Well, it has come to my attention that Dubai Air's parent company, Cerithium Oil, is destroying Nigeria's environment.",
+      "kind": "dialogue",
+      "startMs": 1119329,
+      "endMs": 1125168
+    },
+    {
+      "index": 335,
+      "text": "And at the same time bribing government officials to look the other way.",
+      "kind": "dialogue",
+      "startMs": 1125252,
+      "endMs": 1127837
+    },
+    {
+      "index": 336,
+      "text": "I can't be the face of one of their subsidiaries.",
+      "kind": "dialogue",
+      "startMs": 1129589,
+      "endMs": 1131466
+    },
+    {
+      "index": 337,
+      "text": "Hell, yeah.",
+      "kind": "dialogue",
+      "startMs": 1131550,
+      "endMs": 1133093
+    },
+    {
+      "index": 338,
+      "text": "Look, Keeley, I'm really sorry. I know how hard you worked for this.",
+      "kind": "dialogue",
+      "startMs": 1133176,
+      "endMs": 1135929
+    },
+    {
+      "index": 339,
+      "text": "It's okay.",
+      "kind": "dialogue",
+      "startMs": 1136012,
+      "endMs": 1137305
+    },
+    {
+      "index": 340,
+      "text": "Of course you don't have to do it, Sam.",
+      "kind": "dialogue",
+      "startMs": 1138014,
+      "endMs": 1140100
+    },
+    {
+      "index": 341,
+      "text": "I'll take care of it.",
+      "kind": "dialogue",
+      "startMs": 1140183,
+      "endMs": 1141476
+    },
+    {
+      "index": 342,
+      "text": "Thank you.",
+      "kind": "dialogue",
+      "startMs": 1141560,
+      "endMs": 1143311
+    },
+    {
+      "index": 343,
+      "text": "And lovely to meet you, Nora.",
+      "kind": "dialogue",
+      "startMs": 1143395,
+      "endMs": 1145313
+    },
+    {
+      "index": 344,
+      "text": "He remembered my name.",
+      "kind": "dialogue",
+      "startMs": 1146439,
+      "endMs": 1147983
+    },
+    {
+      "index": 345,
+      "text": "They are our sponsor.",
+      "kind": "dialogue",
+      "startMs": 1149109,
+      "endMs": 1150527
+    },
+    {
+      "index": 346,
+      "text": "We might need to give them a bell so we don't ruffle any feathers.",
+      "kind": "dialogue",
+      "startMs": 1150610,
+      "endMs": 1153655
+    },
+    {
+      "index": 347,
+      "text": "I will handle it.",
+      "kind": "dialogue",
+      "startMs": 1153738,
+      "endMs": 1154948
+    },
+    {
+      "index": 348,
+      "text": "The CEO of Cerithium Oil is an old friend of Rupert's.",
+      "kind": "dialogue",
+      "startMs": 1155031,
+      "endMs": 1158034
+    },
+    {
+      "index": 349,
+      "text": "Perhaps he'll still find me charming.",
+      "kind": "dialogue",
+      "startMs": 1159160,
+      "endMs": 1161288
+    },
+    {
+      "index": 350,
+      "text": "Come here, you.",
+      "kind": "dialogue",
+      "startMs": 1168211,
+      "endMs": 1169546
+    },
+    {
+      "index": 351,
+      "text": "That's Led Tasso.",
+      "kind": "dialogue",
+      "startMs": 1176177,
+      "endMs": 1178054
+    },
+    {
+      "index": 352,
+      "text": "Now I get it.",
+      "kind": "dialogue",
+      "startMs": 1178138,
+      "endMs": 1179180
+    },
+    {
+      "index": 353,
+      "text": "The Ted you know is gone for now.",
+      "kind": "dialogue",
+      "startMs": 1181683,
+      "endMs": 1183518
+    },
+    {
+      "index": 354,
+      "text": "Now listen up, you little turd birds!",
+      "kind": "dialogue",
+      "startMs": 1187647,
+      "endMs": 1189232
+    },
+    {
+      "index": 355,
+      "text": "Practice starts at 11 o'clock.",
+      "kind": "dialogue",
+      "startMs": 1189858,
+      "endMs": 1191568
+    },
+    {
+      "index": 356,
+      "text": "If you are not stretched five minutes early then you are 45 minutes late!",
+      "kind": "dialogue",
+      "startMs": 1191651,
+      "endMs": 1196531
+    },
+    {
+      "index": 357,
+      "text": "You understand me?",
+      "kind": "dialogue",
+      "startMs": 1196615,
+      "endMs": 1197949
+    },
+    {
+      "index": 358,
+      "text": "Do you understand me?",
+      "kind": "dialogue",
+      "startMs": 1198658,
+      "endMs": 1201077
+    },
+    {
+      "index": 359,
+      "text": "-Yes, Coach. -Okay, good!",
+      "kind": "dialogue",
+      "startMs": 1201161,
+      "endMs": 1203496
+    },
+    {
+      "index": 360,
+      "text": "Now start touching your toes!",
+      "kind": "dialogue",
+      "startMs": 1203580,
+      "endMs": 1204956
+    },
+    {
+      "index": 361,
+      "text": "Touch your toes! Those are your feet fingers.",
+      "kind": "dialogue",
+      "startMs": 1206416,
+      "endMs": 1208668
+    },
+    {
+      "index": 362,
+      "text": "Let's go, dummies. Touch your toes.",
+      "kind": "dialogue",
+      "startMs": 1208752,
+      "endMs": 1211338
+    },
+    {
+      "index": 363,
+      "text": "And touch each other's toes!",
+      "kind": "dialogue",
+      "startMs": 1211421,
+      "endMs": 1212839
+    },
+    {
+      "index": 364,
+      "text": "-What? -You heard me!",
+      "kind": "dialogue",
+      "startMs": 1212923,
+      "endMs": 1214799
+    },
+    {
+      "index": 365,
+      "text": "Touch each other's toes! I don't wanna hear it.",
+      "kind": "dialogue",
+      "startMs": 1214883,
+      "endMs": 1217093
+    },
+    {
+      "index": 366,
+      "text": "Hands on toes. Someone else's toes besides your own.",
+      "kind": "dialogue",
+      "startMs": 1217177,
+      "endMs": 1220764
+    },
+    {
+      "index": 367,
+      "text": "-What muscle is this working? -Don't worry about it.",
+      "kind": "dialogue",
+      "startMs": 1220847,
+      "endMs": 1222682
+    },
+    {
+      "index": 368,
+      "text": "The only muscle I don't wanna see working right now is your mouth, Colin.",
+      "kind": "dialogue",
+      "startMs": 1222766,
+      "endMs": 1226019
+    },
+    {
+      "index": 369,
+      "text": "-Rojas! -Yes.",
+      "kind": "dialogue",
+      "startMs": 1227520,
+      "endMs": 1228939
+    },
+    {
+      "index": 370,
+      "text": "-Richard. -Rojas!",
+      "kind": "dialogue",
+      "startMs": 1229689,
+      "endMs": 1231316
+    },
+    {
+      "index": 371,
+      "text": "-Bumbercatch! -Sorry, Coach.",
+      "kind": "dialogue",
+      "startMs": 1233610,
+      "endMs": 1235070
+    },
+    {
+      "index": 372,
+      "text": "Okay, you're sorry, hey?",
+      "kind": "dialogue",
+      "startMs": 1235153,
+      "endMs": 1236279
+    },
+    {
+      "index": 373,
+      "text": "I know y'all don't think it's a big deal messing up on these drills.",
+      "kind": "dialogue",
+      "startMs": 1236363,
+      "endMs": 1239741
+    },
+    {
+      "index": 374,
+      "text": "But let me tell you this right now.",
+      "kind": "dialogue",
+      "startMs": 1239824,
+      "endMs": 1240909
+    },
+    {
+      "index": 375,
+      "text": "The day we stop doing things the right way means we are one day closer to doing everything the wrong way.",
+      "kind": "dialogue",
+      "startMs": 1240992,
+      "endMs": 1246373
+    },
+    {
+      "index": 376,
+      "text": "Then what happens after that?",
+      "kind": "dialogue",
+      "startMs": 1247332,
+      "endMs": 1249292
+    },
+    {
+      "index": 377,
+      "text": "What, you wanna make this ball your girlfriend?",
+      "kind": "dialogue",
+      "startMs": 1249376,
+      "endMs": 1252045
+    },
+    {
+      "index": 378,
+      "text": "You gonna start taking it to places under your arm?",
+      "kind": "dialogue",
+      "startMs": 1252128,
+      "endMs": 1254297
+    },
+    {
+      "index": 379,
+      "text": "Having people compliment how y'all look together?",
+      "kind": "dialogue",
+      "startMs": 1254381,
+      "endMs": 1256675
+    },
+    {
+      "index": 380,
+      "text": "And then what?",
+      "kind": "dialogue",
+      "startMs": 1256758,
+      "endMs": 1258009
+    },
+    {
+      "index": 381,
+      "text": "You start caressing it and playing with, like, the little air hole nub?",
+      "kind": "dialogue",
+      "startMs": 1258093,
+      "endMs": 1260887
+    },
+    {
+      "index": 382,
+      "text": "Yeah? Messing around with that? Making out with it.",
+      "kind": "dialogue",
+      "startMs": 1260971,
+      "endMs": 1263056
+    },
+    {
+      "index": 383,
+      "text": "Making it your girlfriend. Is that what you wanna do?",
+      "kind": "dialogue",
+      "startMs": 1263139,
+      "endMs": 1265433
+    },
+    {
+      "index": 384,
+      "text": "Then when? You ask it to marry you?",
+      "kind": "dialogue",
+      "startMs": 1265517,
+      "endMs": 1267352
+    },
+    {
+      "index": 385,
+      "text": "-Y'all wanna be married to a ball? -No.",
+      "kind": "dialogue",
+      "startMs": 1268478,
+      "endMs": 1271898
+    },
+    {
+      "index": 386,
+      "text": "-What did you say? -I said no.",
+      "kind": "dialogue",
+      "startMs": 1274150,
+      "endMs": 1276861
+    },
+    {
+      "index": 387,
+      "text": "Congratulations, Isaac.",
+      "kind": "dialogue",
+      "startMs": 1276945,
+      "endMs": 1278280
+    },
+    {
+      "index": 388,
+      "text": "That smart mouth of yours just earned you and the entire team ten laps.",
+      "kind": "dialogue",
+      "startMs": 1278363,
+      "endMs": 1282534
+    },
+    {
+      "index": 389,
+      "text": "-Let's go! -What are you-- Guess what? Make it a thousand laps. That's your fault too.",
+      "kind": "dialogue",
+      "startMs": 1282617,
+      "endMs": 1287455
+    },
+    {
+      "index": 390,
+      "text": "A thousand laps. Off you go! Let's go. Run.",
+      "kind": "dialogue",
+      "startMs": 1287539,
+      "endMs": 1289624
+    },
+    {
+      "index": 391,
+      "text": "-What did we do? -Run, run, run. Run! Run!",
+      "kind": "dialogue",
+      "startMs": 1289708,
+      "endMs": 1292752
+    },
+    {
+      "index": 392,
+      "text": "Yeah, there you go.",
+      "kind": "dialogue",
+      "startMs": 1292836,
+      "endMs": 1294713
+    },
+    {
+      "index": 393,
+      "text": "Get them knees up! Get 'em by your nipples!",
+      "kind": "dialogue",
+      "startMs": 1294796,
+      "endMs": 1297173
+    },
+    {
+      "index": 394,
+      "text": "I hope y'all drank a lot of water today 'cause y'all are gonna be so dehydrated, that you're gonna look like one of them trees from a Tim Burton movie.",
+      "kind": "dialogue",
+      "startMs": 1297257,
+      "endMs": 1306057
+    },
+    {
+      "index": 395,
+      "text": "I'm talking any Tim Burton movie!",
+      "kind": "dialogue",
+      "startMs": 1306683,
+      "endMs": 1309102
+    },
+    {
+      "index": 396,
+      "text": "Even Dumbo!",
+      "kind": "dialogue",
+      "startMs": 1310103,
+      "endMs": 1311229
+    },
+    {
+      "index": 397,
+      "text": "Even freaking Dumbo.",
+      "kind": "dialogue",
+      "startMs": 1312564,
+      "endMs": 1313940
+    },
+    {
+      "index": 398,
+      "text": "Rebecca, what a lovely surprise.",
+      "kind": "dialogue",
+      "startMs": 1315942,
+      "endMs": 1318445
+    },
+    {
+      "index": 399,
+      "text": "Hello, Richard.",
+      "kind": "dialogue",
+      "startMs": 1318528,
+      "endMs": 1320238
+    },
+    {
+      "index": 400,
+      "text": "So, are you in your second, third or fourth house?",
+      "kind": "dialogue",
+      "startMs": 1320322,
+      "endMs": 1323199
+    },
+    {
+      "index": 401,
+      "text": "I'm actually back on the yacht. Care to join me?",
+      "kind": "dialogue",
+      "startMs": 1324284,
+      "endMs": 1327037
+    },
+    {
+      "index": 402,
+      "text": "I don't think your new wife would enjoy that.",
+      "kind": "dialogue",
+      "startMs": 1327120,
+      "endMs": 1329247
+    },
+    {
+      "index": 403,
+      "text": "As long as she can watch, she doesn't mind.",
+      "kind": "dialogue",
+      "startMs": 1329331,
+      "endMs": 1331833
+    },
+    {
+      "index": 404,
+      "text": "Okay, Richard, I need to ask you a favor.",
+      "kind": "dialogue",
+      "startMs": 1332500,
+      "endMs": 1334961
+    },
+    {
+      "index": 405,
+      "text": "One of our players, Sam Obisanya, no longer wishes to participate in a Dubai Air ad campaign.",
+      "kind": "dialogue",
+      "startMs": 1335045,
+      "endMs": 1340592
+    },
+    {
+      "index": 406,
+      "text": "And I was hoping you'd be able to make that go away without much fuss.",
+      "kind": "dialogue",
+      "startMs": 1340675,
+      "endMs": 1343929
+    },
+    {
+      "index": 407,
+      "text": "Understood, Rebecca. That won't be a problem.",
+      "kind": "dialogue",
+      "startMs": 1344012,
+      "endMs": 1347307
+    },
+    {
+      "index": 408,
+      "text": "Excellent. Thank you so much, Richard.",
+      "kind": "dialogue",
+      "startMs": 1347390,
+      "endMs": 1349392
+    },
+    {
+      "index": 409,
+      "text": "Of course. And now, darling, I just need a favor from you.",
+      "kind": "dialogue",
+      "startMs": 1349476,
+      "endMs": 1352354
+    },
+    {
+      "index": 410,
+      "text": "Okay. But nothing scandalous, yes?",
+      "kind": "dialogue",
+      "startMs": 1352437,
+      "endMs": 1355357
+    },
+    {
+      "index": 411,
+      "text": "Of course not. Get rid of him.",
+      "kind": "dialogue",
+      "startMs": 1355440,
+      "endMs": 1358693
+    },
+    {
+      "index": 412,
+      "text": "-I'm sorry? -Get rid of Obisanya.",
+      "kind": "dialogue",
+      "startMs": 1358777,
+      "endMs": 1361571
+    },
+    {
+      "index": 413,
+      "text": "Thank you, my dear. Lovely talking with you.",
+      "kind": "dialogue",
+      "startMs": 1362697,
+      "endMs": 1365158
+    },
+    {
+      "index": 414,
+      "text": "-It's on the left! -Richard, Richard!",
+      "kind": "dialogue",
+      "startMs": 1366493,
+      "endMs": 1368370
+    },
+    {
+      "index": 415,
+      "text": "-Richard! Richard! -Right! Right!",
+      "kind": "dialogue",
+      "startMs": 1368453,
+      "endMs": 1370205
+    },
+    {
+      "index": 416,
+      "text": "Richard!",
+      "kind": "dialogue",
+      "startMs": 1372040,
+      "endMs": 1373041
+    },
+    {
+      "index": 417,
+      "text": "I haven't seen a pass that soft since my high school drama teacher asked me to mow his lawn.",
+      "kind": "dialogue",
+      "startMs": 1373124,
+      "endMs": 1376628
+    },
+    {
+      "index": 418,
+      "text": "Is anybody on this pitch interested in not sucking at soccer?",
+      "kind": "dialogue",
+      "startMs": 1377629,
+      "endMs": 1381174
+    },
+    {
+      "index": 419,
+      "text": "All right, Coach. We get it. Just stop yelling at everyone.",
+      "kind": "dialogue",
+      "startMs": 1381258,
+      "endMs": 1383802
+    },
+    {
+      "index": 420,
+      "text": "I don't know whatever this Jekyll and Hyde thing you got going on but just leave it out, yeah.",
+      "kind": "dialogue",
+      "startMs": 1384970,
+      "endMs": 1389015
+    },
+    {
+      "index": 421,
+      "text": "Okay. Okay.",
+      "kind": "dialogue",
+      "startMs": 1389599,
+      "endMs": 1391017
+    },
+    {
+      "index": 422,
+      "text": "You know what, Tartt? Practice is canceled.",
+      "kind": "dialogue",
+      "startMs": 1391101,
+      "endMs": 1394104
+    },
+    {
+      "index": 423,
+      "text": "Hit the showers. All of you. Let's go. Run.",
+      "kind": "dialogue",
+      "startMs": 1394187,
+      "endMs": 1396481
+    },
+    {
+      "index": 424,
+      "text": "Jamie just blew y'all's chance to get better.",
+      "kind": "dialogue",
+      "startMs": 1396565,
+      "endMs": 1398400
+    },
+    {
+      "index": 425,
+      "text": "-Thanks, man. -That's how running looks. Let's run!",
+      "kind": "dialogue",
+      "startMs": 1398483,
+      "endMs": 1401236
+    },
+    {
+      "index": 426,
+      "text": "Let's go! Everybody to the showers!",
+      "kind": "dialogue",
+      "startMs": 1401319,
+      "endMs": 1403738
+    },
+    {
+      "index": 427,
+      "text": "Well, guess what? We start no people this weekend.",
+      "kind": "dialogue",
+      "startMs": 1403822,
+      "endMs": 1406700
+    },
+    {
+      "index": 428,
+      "text": "It'll be 11 versus zero.",
+      "kind": "dialogue",
+      "startMs": 1406783,
+      "endMs": 1408743
+    },
+    {
+      "index": 429,
+      "text": "What's the matter, O'Brien? Your butt still hurt?",
+      "kind": "dialogue",
+      "startMs": 1409494,
+      "endMs": 1412038
+    },
+    {
+      "index": 430,
+      "text": "Unbelievable.",
+      "kind": "dialogue",
+      "startMs": 1414124,
+      "endMs": 1415333
+    },
+    {
+      "index": 431,
+      "text": "What?",
+      "kind": "dialogue",
+      "startMs": 1417460,
+      "endMs": 1418461
+    },
+    {
+      "index": 432,
+      "text": "How long was I out?",
+      "kind": "dialogue",
+      "startMs": 1422257,
+      "endMs": 1423258
+    },
+    {
+      "index": 433,
+      "text": "-Doesn't matter. You're back now. -Okay.",
+      "kind": "dialogue",
+      "startMs": 1423341,
+      "endMs": 1425135
+    },
+    {
+      "index": 434,
+      "text": "Well, that was interesting.",
+      "kind": "dialogue",
+      "startMs": 1425844,
+      "endMs": 1427429
+    },
+    {
+      "index": 435,
+      "text": "Thank you, Doc.",
+      "kind": "dialogue",
+      "startMs": 1428555,
+      "endMs": 1429764
+    },
+    {
+      "index": 436,
+      "text": "Yeah, little something we came up with back in Kansas.",
+      "kind": "dialogue",
+      "startMs": 1429848,
+      "endMs": 1432601
+    },
+    {
+      "index": 437,
+      "text": "-See, what we're doing is-- -You pretend to be an asshole.",
+      "kind": "dialogue",
+      "startMs": 1432684,
+      "endMs": 1435312
+    },
+    {
+      "index": 438,
+      "text": "So the team make you their common enemy and not Jamie.",
+      "kind": "dialogue",
+      "startMs": 1435395,
+      "endMs": 1437814
+    },
+    {
+      "index": 439,
+      "text": "-Yeah. Spot on. -Oh, yeah. Got it right away.",
+      "kind": "dialogue",
+      "startMs": 1439024,
+      "endMs": 1441401
+    },
+    {
+      "index": 440,
+      "text": "Has it ever worked?",
+      "kind": "dialogue",
+      "startMs": 1441484,
+      "endMs": 1442652
+    },
+    {
+      "index": 441,
+      "text": "-Trying to remember. -Chuck E. Cheese?",
+      "kind": "dialogue",
+      "startMs": 1445196,
+      "endMs": 1446948
+    },
+    {
+      "index": 442,
+      "text": "Chuck E. Cheese. That's right!",
+      "kind": "dialogue",
+      "startMs": 1447032,
+      "endMs": 1448116
+    },
+    {
+      "index": 443,
+      "text": "Yeah, we were at a arcade/pizza joint in Lincoln, Nebraska.",
+      "kind": "dialogue",
+      "startMs": 1448199,
+      "endMs": 1451536
+    },
+    {
+      "index": 444,
+      "text": "And one of our offensive linemen got his head stuck in a VR machine.",
+      "kind": "dialogue",
+      "startMs": 1451620,
+      "endMs": 1454497
+    },
+    {
+      "index": 445,
+      "text": "Ended up getting the entire meal and all our beverages comped for free, so…",
+      "kind": "dialogue",
+      "startMs": 1454581,
+      "endMs": 1458043
+    },
+    {
+      "index": 446,
+      "text": "Maybe they don't have Chuck E. Cheese here.",
+      "kind": "dialogue",
+      "startMs": 1459794,
+      "endMs": 1461171
+    },
+    {
+      "index": 447,
+      "text": "Oh, yeah.",
+      "kind": "dialogue",
+      "startMs": 1461254,
+      "endMs": 1462214
+    },
+    {
+      "index": 448,
+      "text": "Y'all might call it something different here.",
+      "kind": "dialogue",
+      "startMs": 1462297,
+      "endMs": 1463757
+    },
+    {
+      "index": 449,
+      "text": "Like Charles Edgar Cheeserton III or something, right?",
+      "kind": "dialogue",
+      "startMs": 1463840,
+      "endMs": 1466551
+    },
+    {
+      "index": 450,
+      "text": "-He's a mouse but he's also a musician. -And he loves video games and pizza.",
+      "kind": "dialogue",
+      "startMs": 1467844,
+      "endMs": 1471181
+    },
+    {
+      "index": 451,
+      "text": "I'm sure.",
+      "kind": "dialogue",
+      "startMs": 1471264,
+      "endMs": 1472474
+    },
+    {
+      "index": 452,
+      "text": "Okay, we could release Sam. Which we're not gonna do.",
+      "kind": "dialogue",
+      "startMs": 1473850,
+      "endMs": 1475894
+    },
+    {
+      "index": 453,
+      "text": "Oh, no.",
+      "kind": "dialogue",
+      "startMs": 1475977,
+      "endMs": 1476978
+    },
+    {
+      "index": 454,
+      "text": "Or we can tell the CEO of our biggest sponsor to piss off.",
+      "kind": "dialogue",
+      "startMs": 1477062,
+      "endMs": 1480857
+    },
+    {
+      "index": 455,
+      "text": "Which I doubt we can do.",
+      "kind": "dialogue",
+      "startMs": 1480941,
+      "endMs": 1482067
+    },
+    {
+      "index": 456,
+      "text": "Yeah. This is just like the time I got in trouble for chewing gum in the bathroom.",
+      "kind": "dialogue",
+      "startMs": 1483068,
+      "endMs": 1487197
+    },
+    {
+      "index": 457,
+      "text": "You got in trouble for chewing gum?",
+      "kind": "dialogue",
+      "startMs": 1487280,
+      "endMs": 1488490
+    },
+    {
+      "index": 458,
+      "text": "No, I was smoking. But I don't want a lecture.",
+      "kind": "dialogue",
+      "startMs": 1488573,
+      "endMs": 1491034
+    },
+    {
+      "index": 459,
+      "text": "I'll allow it. Go on.",
+      "kind": "dialogue",
+      "startMs": 1491701,
+      "endMs": 1493119
+    },
+    {
+      "index": 460,
+      "text": "I was with my friend Sarah, who we call \"Pimp\", when a teach came in and busted her.",
+      "kind": "dialogue",
+      "startMs": 1493203,
+      "endMs": 1497415
+    },
+    {
+      "index": 461,
+      "text": "I was hiding in the loo and I could have just stayed there but he started to get a bit shitty with her.",
+      "kind": "dialogue",
+      "startMs": 1497499,
+      "endMs": 1502003
+    },
+    {
+      "index": 462,
+      "text": "So, I decided to come out and we both ended up getting suspended.",
+      "kind": "dialogue",
+      "startMs": 1502087,
+      "endMs": 1506299
+    },
+    {
+      "index": 463,
+      "text": "Mum freaked out and I had to watch a three-hour video about cancer.",
+      "kind": "dialogue",
+      "startMs": 1506383,
+      "endMs": 1510428
+    },
+    {
+      "index": 464,
+      "text": "Point is, Aunt Stinky, sometimes you have to do the right thing even if you lose.",
+      "kind": "dialogue",
+      "startMs": 1511513,
+      "endMs": 1519521
+    },
+    {
+      "index": 465,
+      "text": "Yes.",
+      "kind": "dialogue",
+      "startMs": 1520272,
+      "endMs": 1521273
+    },
+    {
+      "index": 466,
+      "text": "Yes, you do.",
+      "kind": "dialogue",
+      "startMs": 1522357,
+      "endMs": 1523775
+    },
+    {
+      "index": 467,
+      "text": "Hi, Jamie.",
+      "kind": "dialogue",
+      "startMs": 1526486,
+      "endMs": 1527571
+    },
+    {
+      "index": 468,
+      "text": "Hi.",
+      "kind": "dialogue",
+      "startMs": 1528154,
+      "endMs": 1529155
+    },
+    {
+      "index": 469,
+      "text": "-What's wrong? -Nothing.",
+      "kind": "dialogue",
+      "startMs": 1529614,
+      "endMs": 1531449
+    },
+    {
+      "index": 470,
+      "text": "Actually, Sam just quit the Dubai Air gig. So I'm scrambling a bit.",
+      "kind": "dialogue",
+      "startMs": 1536371,
+      "endMs": 1539708
+    },
+    {
+      "index": 471,
+      "text": "That's stupid of him.",
+      "kind": "dialogue",
+      "startMs": 1539791,
+      "endMs": 1540959
+    },
+    {
+      "index": 472,
+      "text": "Do you want me to do it?",
+      "kind": "dialogue",
+      "startMs": 1542127,
+      "endMs": 1543378
+    },
+    {
+      "index": 473,
+      "text": "What do you want, Jamie?",
+      "kind": "dialogue",
+      "startMs": 1543461,
+      "endMs": 1544838
+    },
+    {
+      "index": 474,
+      "text": "Well, just wanted to talk.",
+      "kind": "dialogue",
+      "startMs": 1545422,
+      "endMs": 1548008
+    },
+    {
+      "index": 475,
+      "text": "About what?",
+      "kind": "dialogue",
+      "startMs": 1548633,
+      "endMs": 1549968
+    },
+    {
+      "index": 476,
+      "text": "I'm just super frustrated 'cause I don't know how to let the team know I'm cool now, and it's just really fucking with me head.",
+      "kind": "dialogue",
+      "startMs": 1550051,
+      "endMs": 1557642
+    },
+    {
+      "index": 477,
+      "text": "Walk with me.",
+      "kind": "dialogue",
+      "startMs": 1558852,
+      "endMs": 1559978
+    },
+    {
+      "index": 478,
+      "text": "Come on.",
+      "kind": "dialogue",
+      "startMs": 1560854,
+      "endMs": 1561897
+    },
+    {
+      "index": 479,
+      "text": "I mean, if they wanna be little bitches about actually having someone on the pitch who can score a goal, then what?",
+      "kind": "dialogue",
+      "startMs": 1563607,
+      "endMs": 1569905
+    },
+    {
+      "index": 480,
+      "text": "Am I supposed to just walk around with me head down?",
+      "kind": "dialogue",
+      "startMs": 1569988,
+      "endMs": 1572240
+    },
+    {
+      "index": 481,
+      "text": "No.",
+      "kind": "dialogue",
+      "startMs": 1574200,
+      "endMs": 1575201
+    },
+    {
+      "index": 482,
+      "text": "It's like they're holding onto some silly grudge.",
+      "kind": "dialogue",
+      "startMs": 1575285,
+      "endMs": 1577370
+    },
+    {
+      "index": 483,
+      "text": "I mean, it's not my fault I'm special.",
+      "kind": "dialogue",
+      "startMs": 1577454,
+      "endMs": 1579414
+    },
+    {
+      "index": 484,
+      "text": "-Hi. -Hi.",
+      "kind": "dialogue",
+      "startMs": 1581499,
+      "endMs": 1582751
+    },
+    {
+      "index": 485,
+      "text": "Jamie, this is Dr. Fieldstone.",
+      "kind": "dialogue",
+      "startMs": 1582834,
+      "endMs": 1585879
+    },
+    {
+      "index": 486,
+      "text": "She's a brilliant therapist and, unlike me, she actually gets paid to listen to you complain.",
+      "kind": "dialogue",
+      "startMs": 1586463,
+      "endMs": 1592093
+    },
+    {
+      "index": 487,
+      "text": "So, what? Do I just… sit here and blather on and on about meself?",
+      "kind": "dialogue",
+      "startMs": 1602562,
+      "endMs": 1607359
+    },
+    {
+      "index": 488,
+      "text": "Basically.",
+      "kind": "dialogue",
+      "startMs": 1608318,
+      "endMs": 1609486
+    },
+    {
+      "index": 489,
+      "text": "Nice.",
+      "kind": "dialogue",
+      "startMs": 1611071,
+      "endMs": 1612072
+    },
+    {
+      "index": 490,
+      "text": "Hey, dick hole.",
+      "kind": "dialogue",
+      "startMs": 1613114,
+      "endMs": 1614449
+    },
+    {
+      "index": 491,
+      "text": "\"Dear Richard Cole.\"",
+      "kind": "dialogue",
+      "startMs": 1614532,
+      "endMs": 1615951
+    },
+    {
+      "index": 492,
+      "text": "You creepy old pedo.",
+      "kind": "dialogue",
+      "startMs": 1616034,
+      "endMs": 1618036
+    },
+    {
+      "index": 493,
+      "text": "\"My old friend.\"",
+      "kind": "dialogue",
+      "startMs": 1618119,
+      "endMs": 1620163
+    },
+    {
+      "index": 494,
+      "text": "Sam isn't going anywhere, asshole.",
+      "kind": "dialogue",
+      "startMs": 1620247,
+      "endMs": 1622415
+    },
+    {
+      "index": 495,
+      "text": "\"I have decided not to release Sam Obisanya.\"",
+      "kind": "dialogue",
+      "startMs": 1622499,
+      "endMs": 1625252
+    },
+    {
+      "index": 496,
+      "text": "You're a shitty old man with a tiny, shriveled penis.",
+      "kind": "dialogue",
+      "startMs": 1625335,
+      "endMs": 1628004
+    },
+    {
+      "index": 497,
+      "text": "I feel sorry for your wife. Her life must be a constant hell.",
+      "kind": "dialogue",
+      "startMs": 1628088,
+      "endMs": 1631299
+    },
+    {
+      "index": 498,
+      "text": "\"Please give Daphne my love.\"",
+      "kind": "dialogue",
+      "startMs": 1631383,
+      "endMs": 1633260
+    },
+    {
+      "index": 499,
+      "text": "Sincerely, boss ass bitch.",
+      "kind": "dialogue",
+      "startMs": 1633343,
+      "endMs": 1635679
+    },
+    {
+      "index": 500,
+      "text": "\"Sincerely, boss ass bitch.\"",
+      "kind": "dialogue",
+      "startMs": 1635762,
+      "endMs": 1638598
+    },
+    {
+      "index": 501,
+      "text": "Welcome to Soccer Saturday.",
+      "kind": "dialogue",
+      "startMs": 1645397,
+      "endMs": 1646982
+    },
+    {
+      "index": 502,
+      "text": "We have a massive afternoon of action for you today across all the divisions.",
+      "kind": "dialogue",
+      "startMs": 1647065,
+      "endMs": 1651111
+    },
+    {
+      "index": 503,
+      "text": "I'm your host, Jeff Stelling here with Mr. Unbelievable himself, Chris Kamara.",
+      "kind": "dialogue",
+      "startMs": 1651194,
+      "endMs": 1655532
+    },
+    {
+      "index": 504,
+      "text": "A man who's coached seemingly every club in England, including yours, George Cartrick.",
+      "kind": "dialogue",
+      "startMs": 1655615,
+      "endMs": 1661079
+    },
+    {
+      "index": 505,
+      "text": "And still getting comfortable in his new seat on our set, it's the legendary Chelsea hard man, Roy Kent.",
+      "kind": "dialogue",
+      "startMs": 1661162,
+      "endMs": 1667002
+    },
+    {
+      "index": 506,
+      "text": "Welcome, Roy.",
+      "kind": "dialogue",
+      "startMs": 1667085,
+      "endMs": 1668295
+    },
+    {
+      "index": 507,
+      "text": "Well said.",
+      "kind": "dialogue",
+      "startMs": 1670797,
+      "endMs": 1671882
+    },
+    {
+      "index": 508,
+      "text": "Of course, last time we saw Roy Kent on the pitch was with AFC Richmond, battling against relegation.",
+      "kind": "dialogue",
+      "startMs": 1671965,
+      "endMs": 1678680
+    },
+    {
+      "index": 509,
+      "text": "And occasionally against other Richmond players.",
+      "kind": "dialogue",
+      "startMs": 1678763,
+      "endMs": 1681683
+    },
+    {
+      "index": 510,
+      "text": "What is this?",
+      "kind": "dialogue",
+      "startMs": 1681766,
+      "endMs": 1683310
+    },
+    {
+      "index": 511,
+      "text": "Kent and Tartt are at each other's throats!",
+      "kind": "dialogue",
+      "startMs": 1683393,
+      "endMs": 1685520
+    },
+    {
+      "index": 512,
+      "text": "Well, the big story today is the return of that same teammate.",
+      "kind": "dialogue",
+      "startMs": 1688857,
+      "endMs": 1692611
+    },
+    {
+      "index": 513,
+      "text": "The controversial Jamie Tartt.",
+      "kind": "dialogue",
+      "startMs": 1692694,
+      "endMs": 1695155
+    },
+    {
+      "index": 514,
+      "text": "The ex-Manchester City starlet and Lust Conquers All reject has his first match back with Richmond.",
+      "kind": "dialogue",
+      "startMs": 1695238,
+      "endMs": 1702120
+    },
+    {
+      "index": 515,
+      "text": "Any thoughts, Roy?",
+      "kind": "dialogue",
+      "startMs": 1702704,
+      "endMs": 1703830
+    },
+    {
+      "index": 516,
+      "text": "Jamie Tartt is a muppet.",
+      "kind": "dialogue",
+      "startMs": 1704456,
+      "endMs": 1705916
+    },
+    {
+      "index": 517,
+      "text": "And I hope he dies of the incurable condition of being a little bitch.",
+      "kind": "dialogue",
+      "startMs": 1705999,
+      "endMs": 1709586
+    },
+    {
+      "index": 518,
+      "text": "Right.",
+      "kind": "dialogue",
+      "startMs": 1711213,
+      "endMs": 1712797
+    },
+    {
+      "index": 519,
+      "text": "Don't hold back, Roy.",
+      "kind": "dialogue",
+      "startMs": 1712881,
+      "endMs": 1714216
+    },
+    {
+      "index": 520,
+      "text": "Yeah, come on. Tell us how you really feel.",
+      "kind": "dialogue",
+      "startMs": 1714299,
+      "endMs": 1716051
+    },
+    {
+      "index": 521,
+      "text": "Okay. You're a shit manager.",
+      "kind": "dialogue",
+      "startMs": 1716134,
+      "endMs": 1717844
+    },
+    {
+      "index": 522,
+      "text": "Not about me, you twat!",
+      "kind": "dialogue",
+      "startMs": 1717928,
+      "endMs": 1719429
+    },
+    {
+      "index": 523,
+      "text": "Language, boys!",
+      "kind": "dialogue",
+      "startMs": 1719512,
+      "endMs": 1720931
+    },
+    {
+      "index": 524,
+      "text": "-Well, he asked for it. -He did ask for it.",
+      "kind": "dialogue",
+      "startMs": 1721014,
+      "endMs": 1723016
+    },
+    {
+      "index": 525,
+      "text": "Bantr's horrifying, is it?",
+      "kind": "dialogue",
+      "startMs": 1745914,
+      "endMs": 1747958
+    },
+    {
+      "index": 526,
+      "text": "I'm going to insult something and then try it because I'm a good friend.",
+      "kind": "dialogue",
+      "startMs": 1748458,
+      "endMs": 1752420
+    },
+    {
+      "index": 527,
+      "text": "A-hootie hoo.",
+      "kind": "dialogue",
+      "startMs": 1754089,
+      "endMs": 1756091
+    },
+    {
+      "index": 528,
+      "text": "Sassy!",
+      "kind": "dialogue",
+      "startMs": 1756174,
+      "endMs": 1757342
+    },
+    {
+      "index": 529,
+      "text": "I thought you weren't coming back till Sunday?",
+      "kind": "dialogue",
+      "startMs": 1757425,
+      "endMs": 1759219
+    },
+    {
+      "index": 530,
+      "text": "What? And miss 22 fit, sweaty men running around chasing one another?",
+      "kind": "dialogue",
+      "startMs": 1759302,
+      "endMs": 1763265
+    },
+    {
+      "index": 531,
+      "text": "Did you meet Sam Obisanya?",
+      "kind": "dialogue",
+      "startMs": 1764474,
+      "endMs": 1766142
+    },
+    {
+      "index": 532,
+      "text": "-That's her favorite player. -Oh, Mum.",
+      "kind": "dialogue",
+      "startMs": 1766226,
+      "endMs": 1768687
+    },
+    {
+      "index": 533,
+      "text": "What are you doing?",
+      "kind": "dialogue",
+      "startMs": 1811730,
+      "endMs": 1812981
+    },
+    {
+      "index": 534,
+      "text": "What, Dubai Air not paying you enough?",
+      "kind": "dialogue",
+      "startMs": 1813607,
+      "endMs": 1815108
+    },
+    {
+      "index": 535,
+      "text": "No, no. Dubai Air is owned by a horrible company.",
+      "kind": "dialogue",
+      "startMs": 1816443,
+      "endMs": 1819529
+    },
+    {
+      "index": 536,
+      "text": "One that has turned the southern coast of Nigeria, my home, into a hellish, fiery swamp.",
+      "kind": "dialogue",
+      "startMs": 1820322,
+      "endMs": 1826202
+    },
+    {
+      "index": 537,
+      "text": "I can no longer wear their name on my chest.",
+      "kind": "dialogue",
+      "startMs": 1828288,
+      "endMs": 1829956
+    },
+    {
+      "index": 538,
+      "text": "Never again.",
+      "kind": "dialogue",
+      "startMs": 1831499,
+      "endMs": 1832626
+    },
+    {
+      "index": 539,
+      "text": "Give me the tape, bruv.",
+      "kind": "dialogue",
+      "startMs": 1839466,
+      "endMs": 1840675
+    },
+    {
+      "index": 540,
+      "text": "Can I ask it?",
+      "kind": "dialogue",
+      "startMs": 1850644,
+      "endMs": 1851853
+    },
+    {
+      "index": 541,
+      "text": "Hey, listen. I do not expect you all to do this.",
+      "kind": "dialogue",
+      "startMs": 1861321,
+      "endMs": 1864074
+    },
+    {
+      "index": 542,
+      "text": "But I hope you understand why we as Nigerians must.",
+      "kind": "dialogue",
+      "startMs": 1865408,
+      "endMs": 1868286
+    },
+    {
+      "index": 543,
+      "text": "Throw me the tape?",
+      "kind": "dialogue",
+      "startMs": 1879005,
+      "endMs": 1880131
+    },
+    {
+      "index": 544,
+      "text": "What do you think you're doing?",
+      "kind": "dialogue",
+      "startMs": 1886471,
+      "endMs": 1887973
+    },
+    {
+      "index": 545,
+      "text": "We're a team, ain't we?",
+      "kind": "dialogue",
+      "startMs": 1889432,
+      "endMs": 1890475
+    },
+    {
+      "index": 546,
+      "text": "Gotta wear the same kit.",
+      "kind": "dialogue",
+      "startMs": 1891935,
+      "endMs": 1893228
+    },
+    {
+      "index": 547,
+      "text": "Live from the Dogtrack, it's Arlo White here with Chris Powell.",
+      "kind": "dialogue",
+      "startMs": 1904114,
+      "endMs": 1907784
+    },
+    {
+      "index": 548,
+      "text": "Today Coventry City take on the home team, AFC Richmond, who remain winless with eight straight draws.",
+      "kind": "dialogue",
+      "startMs": 1907867,
+      "endMs": 1914833
+    },
+    {
+      "index": 549,
+      "text": "Any predictions, Chris?",
+      "kind": "dialogue",
+      "startMs": 1914916,
+      "endMs": 1916084
+    },
+    {
+      "index": 550,
+      "text": "-Yeah, I think it's gonna be a draw. -Makes sense.",
+      "kind": "dialogue",
+      "startMs": 1916668,
+      "endMs": 1919629
+    },
+    {
+      "index": 551,
+      "text": "But the story everyone is talking about is the return of Jamie Tartt.",
+      "kind": "dialogue",
+      "startMs": 1919713,
+      "endMs": 1923300
+    },
+    {
+      "index": 552,
+      "text": "Chris, will the Richmond faithful welcome him back?",
+      "kind": "dialogue",
+      "startMs": 1923383,
+      "endMs": 1926469
+    },
+    {
+      "index": 553,
+      "text": "Tough to say, Arlo. Supporters are a notoriously fickle bunch.",
+      "kind": "dialogue",
+      "startMs": 1926553,
+      "endMs": 1929890
+    },
+    {
+      "index": 554,
+      "text": "Jamie Tartt Jamie Tartt Jamie Tartt If no one's passing to Jamie we can always drop him to midfield.",
+      "kind": "dialogue",
+      "startMs": 1929973,
+      "endMs": 1938481
+    },
+    {
+      "index": 555,
+      "text": "So the people not passing to Jamie can be closer to him?",
+      "kind": "dialogue",
+      "startMs": 1938565,
+      "endMs": 1941359
+    },
+    {
+      "index": 556,
+      "text": "-Cheers. -Thanks, mate.",
+      "kind": "dialogue",
+      "startMs": 1953038,
+      "endMs": 1954247
+    },
+    {
+      "index": 557,
+      "text": "What's that now?",
+      "kind": "dialogue",
+      "startMs": 1962964,
+      "endMs": 1963965
+    },
+    {
+      "index": 558,
+      "text": "What's going on here, Arlo?",
+      "kind": "dialogue",
+      "startMs": 1971556,
+      "endMs": 1973058
+    },
+    {
+      "index": 559,
+      "text": "It appears to be some sort of protest against Richmond's sponsor, Dubai Air.",
+      "kind": "dialogue",
+      "startMs": 1973141,
+      "endMs": 1978521
+    },
+    {
+      "index": 560,
+      "text": "This might become an issue.",
+      "kind": "dialogue",
+      "startMs": 1979272,
+      "endMs": 1981608
+    },
+    {
+      "index": 561,
+      "text": "Boss ass bitch.",
+      "kind": "dialogue",
+      "startMs": 1994871,
+      "endMs": 1996456
+    },
+    {
+      "index": 562,
+      "text": "Hey. Easy. Easy. Hey, take it easy, all right?",
+      "kind": "dialogue",
+      "startMs": 2005048,
+      "endMs": 2007759
+    },
+    {
+      "index": 563,
+      "text": "One at a time, please. Okay.",
+      "kind": "dialogue",
+      "startMs": 2007842,
+      "endMs": 2009177
+    },
+    {
+      "index": 564,
+      "text": "Go ahead, Gary, what have you got?",
+      "kind": "dialogue",
+      "startMs": 2009261,
+      "endMs": 2010470
+    },
+    {
+      "index": 565,
+      "text": "Yeah, Ted, did you know the team were gonna do that?",
+      "kind": "dialogue",
+      "startMs": 2010554,
+      "endMs": 2012347
+    },
+    {
+      "index": 566,
+      "text": "No, sir. No, no.",
+      "kind": "dialogue",
+      "startMs": 2012430,
+      "endMs": 2013848
+    },
+    {
+      "index": 567,
+      "text": "But I think what Sam and the team did today was courageous.",
+      "kind": "dialogue",
+      "startMs": 2013932,
+      "endMs": 2016893
+    },
+    {
+      "index": 568,
+      "text": "I've never needed to have that kind of courage.",
+      "kind": "dialogue",
+      "startMs": 2016977,
+      "endMs": 2019646
+    },
+    {
+      "index": 569,
+      "text": "'Cause, well, honestly when bad things happen to people like me y'all have a tendency to write about it without being asked.",
+      "kind": "dialogue",
+      "startMs": 2019729,
+      "endMs": 2026695
+    },
+    {
+      "index": 570,
+      "text": "Sam had to go and get y'all's attention, you know?",
+      "kind": "dialogue",
+      "startMs": 2026778,
+      "endMs": 2029114
+    },
+    {
+      "index": 571,
+      "text": "So, if you have any more you wanna know about it, you can ask him.",
+      "kind": "dialogue",
+      "startMs": 2030073,
+      "endMs": 2033243
+    },
+    {
+      "index": 572,
+      "text": "Come on, Sam.",
+      "kind": "dialogue",
+      "startMs": 2033326,
+      "endMs": 2034619
+    },
+    {
+      "index": 573,
+      "text": "Sam! Sam! Sam!",
+      "kind": "dialogue",
+      "startMs": 2034703,
+      "endMs": 2038164
+    },
+    {
+      "index": 574,
+      "text": "Hello.",
+      "kind": "dialogue",
+      "startMs": 2039791,
+      "endMs": 2041042
+    },
+    {
+      "index": 575,
+      "text": "Thank you. Trent Crimm, The Independent.",
+      "kind": "dialogue",
+      "startMs": 2042544,
+      "endMs": 2044921
+    },
+    {
+      "index": 576,
+      "text": "Sam, do you think that your protest may have distracted the team tonight and lead to the loss?",
+      "kind": "dialogue",
+      "startMs": 2045005,
+      "endMs": 2050385
+    },
+    {
+      "index": 577,
+      "text": "I'm not here to talk about football.",
+      "kind": "dialogue",
+      "startMs": 2051595,
+      "endMs": 2053762
+    },
+    {
+      "index": 578,
+      "text": "I'm here to ask the Nigerian government to put an end to decades of environmental destruction caused by Cerithium Oil.",
+      "kind": "dialogue",
+      "startMs": 2054389,
+      "endMs": 2059269
+    },
+    {
+      "index": 579,
+      "text": "Destruction that the powers that be have turned a blind eye towards for far too long.",
+      "kind": "dialogue",
+      "startMs": 2060644,
+      "endMs": 2064274
+    },
+    {
+      "index": 580,
+      "text": "Do you have any questions about that?",
+      "kind": "dialogue",
+      "startMs": 2066651,
+      "endMs": 2068193
+    },
+    {
+      "index": 581,
+      "text": "Yes, I do.",
+      "kind": "dialogue",
+      "startMs": 2068278,
+      "endMs": 2070070
+    },
+    {
+      "index": 582,
+      "text": "Follow-up question, please. Thank you.",
+      "kind": "dialogue",
+      "startMs": 2070155,
+      "endMs": 2071364
+    },
+    {
+      "index": 583,
+      "text": "Sam, are you openly accusing the Nigerian government of corruption?",
+      "kind": "dialogue",
+      "startMs": 2071448,
+      "endMs": 2075869
+    },
+    {
+      "index": 584,
+      "text": "Yes, I am.",
+      "kind": "dialogue",
+      "startMs": 2078038,
+      "endMs": 2079414
+    },
+    {
+      "index": 585,
+      "text": "Sam!",
+      "kind": "dialogue",
+      "startMs": 2079497,
+      "endMs": 2080707
+    },
+    {
+      "index": 586,
+      "text": "-How are you feeling? -Good. I think.",
+      "kind": "dialogue",
+      "startMs": 2087463,
+      "endMs": 2090675
+    },
+    {
+      "index": 587,
+      "text": "I just hope the rest of the team is not upset with me.",
+      "kind": "dialogue",
+      "startMs": 2091760,
+      "endMs": 2093678
+    },
+    {
+      "index": 588,
+      "text": "Hey, doing the right thing is never the wrong thing. Yeah.",
+      "kind": "dialogue",
+      "startMs": 2094846,
+      "endMs": 2098016
+    },
+    {
+      "index": 589,
+      "text": "There he is!",
+      "kind": "dialogue",
+      "startMs": 2100185,
+      "endMs": 2101311
+    },
+    {
+      "index": 590,
+      "text": "-What's going on? -We are celebrating!",
+      "kind": "dialogue",
+      "startMs": 2104231,
+      "endMs": 2106441
+    },
+    {
+      "index": 591,
+      "text": "-But we lost. -Yeah, but we broke the tie streak.",
+      "kind": "dialogue",
+      "startMs": 2106524,
+      "endMs": 2109069
+    },
+    {
+      "index": 592,
+      "text": "A toast to Sam, who did something incredible tonight.",
+      "kind": "dialogue",
+      "startMs": 2112447,
+      "endMs": 2115492
+    },
+    {
+      "index": 593,
+      "text": "The little Nigerian prick stole my thunder.",
+      "kind": "dialogue",
+      "startMs": 2115575,
+      "endMs": 2117661
+    },
+    {
+      "index": 594,
+      "text": "No, but seriously. To Sam.",
+      "kind": "dialogue",
+      "startMs": 2120455,
+      "endMs": 2122332
+    },
+    {
+      "index": 595,
+      "text": "To Sam!",
+      "kind": "dialogue",
+      "startMs": 2123166,
+      "endMs": 2124542
+    },
+    {
+      "index": 596,
+      "text": "-Thank you, guys. -Well done, bruv.",
+      "kind": "dialogue",
+      "startMs": 2125335,
+      "endMs": 2126920
+    },
+    {
+      "index": 597,
+      "text": "-I appreciate it. -Took a lot of courage, man.",
+      "kind": "dialogue",
+      "startMs": 2127754,
+      "endMs": 2130298
+    },
+    {
+      "index": 598,
+      "text": "-It's good to have you back. -Yeah, it's good to be back, bruv.",
+      "kind": "dialogue",
+      "startMs": 2130966,
+      "endMs": 2133385
+    },
+    {
+      "index": 599,
+      "text": "Please don't do this to me.",
+      "kind": "dialogue",
+      "startMs": 2133468,
+      "endMs": 2134970
+    },
+    {
+      "index": 600,
+      "text": "'Scuse me, chaps.",
+      "kind": "dialogue",
+      "startMs": 2135845,
+      "endMs": 2136972
+    },
+    {
+      "index": 601,
+      "text": "-Sam, could Nora get a picture, please? -Hello.",
+      "kind": "dialogue",
+      "startMs": 2137055,
+      "endMs": 2140058
+    },
+    {
+      "index": 602,
+      "text": "Oh, yes! Of course.",
+      "kind": "dialogue",
+      "startMs": 2140141,
+      "endMs": 2141393
+    },
+    {
+      "index": 603,
+      "text": "Hey, guys! Guys! We're gonna take a picture for Nora.",
+      "kind": "dialogue",
+      "startMs": 2141476,
+      "endMs": 2144229
+    },
+    {
+      "index": 604,
+      "text": "I want to be in the front.",
+      "kind": "dialogue",
+      "startMs": 2145730,
+      "endMs": 2146856
+    },
+    {
+      "index": 605,
+      "text": "Nora, you all right?",
+      "kind": "dialogue",
+      "startMs": 2149901,
+      "endMs": 2151486
+    },
+    {
+      "index": 606,
+      "text": "-You okay? Yeah? -Yeah! Yeah.",
+      "kind": "dialogue",
+      "startMs": 2151570,
+      "endMs": 2153113
+    },
+    {
+      "index": 607,
+      "text": "-She's gonna absolutely love this. -Oh, my God. Look.",
+      "kind": "dialogue",
+      "startMs": 2153196,
+      "endMs": 2155865
+    },
+    {
+      "index": 608,
+      "text": "Love it and hate it.",
+      "kind": "dialogue",
+      "startMs": 2155949,
+      "endMs": 2157117
+    },
+    {
+      "index": 609,
+      "text": "So cute!",
+      "kind": "dialogue",
+      "startMs": 2157951,
+      "endMs": 2159119
+    },
+    {
+      "index": 610,
+      "text": "Hide your beers!",
+      "kind": "dialogue",
+      "startMs": 2159202,
+      "endMs": 2160787
+    },
+    {
+      "index": 611,
+      "text": "Oh, shit.",
+      "kind": "dialogue",
+      "startMs": 2160870,
+      "endMs": 2162205
+    },
+    {
+      "index": 612,
+      "text": "Thank you.",
+      "kind": "dialogue",
+      "startMs": 2162789,
+      "endMs": 2163790
+    },
+    {
+      "index": 613,
+      "text": "Greyhounds on three! One, two, three!",
+      "kind": "dialogue",
+      "startMs": 2164416,
+      "endMs": 2166334
+    },
+    {
+      "index": 614,
+      "text": "Greyhounds!",
+      "kind": "dialogue",
+      "startMs": 2166418,
+      "endMs": 2168461
+    },
+    {
+      "index": 615,
+      "text": "Okay, got it!",
+      "kind": "dialogue",
+      "startMs": 2171256,
+      "endMs": 2172340
+    }
+  ],
+  "meta": {
+    "show": "Ted Lasso",
+    "season": 2,
+    "episode": 3
+  }
+}
