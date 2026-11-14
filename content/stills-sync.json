@@ -5193,7 +5193,7 @@
     "pushedAt": "2026-11-12T06:53:20.376Z"
   },
   "game-of-thrones---7x07---the-dragon-and-the-wolf": {
-    "offsetMs": -84775,
+    "offsetMs": -3503,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5202,10 +5202,9 @@
     "source": "H:\\videos\\shows\\Game of Thrones\\Season 7\\Game of Thrones_S07E07_The Dragon and the Wolf.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 84.8s early. Opening cues fall before the file and snap to frame 0.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z",
-    "pushedAt": "2026-11-12T06:53:20.376Z"
+    "note": "New Blu-ray SRT. Catalog is 3.5s early. Jaime and Bronn on the walls, and Sansa with Arya. The previous frames are already on R2.",
+    "syncedAt": "2026-11-14T19:20:44.644Z",
+    "batchedAt": "2026-11-14T19:32:40.505Z"
   },
   "game-of-thrones---8x01---winterfell": {
     "offsetMs": -3269,
@@ -5787,7 +5786,7 @@
     "batchedAt": "2026-11-09T06:16:55.745Z"
   },
   "breaking-bad---4x02---thirty-eight-snub": {
-    "offsetMs": -25584,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5796,12 +5795,12 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S04.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S04E02.Thirty-Eight.Snub.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 25.6s early. Timing drifts about 3.4s from start to end.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file. Walt at the gun dealer, and Jesse at the end.",
+    "syncedAt": "2026-11-14T18:52:54.628Z",
+    "batchedAt": "2026-11-14T19:11:22.235Z"
   },
   "breaking-bad---4x03---open-house": {
-    "offsetMs": -26284,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5810,12 +5809,12 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S04.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S04E03.Open.House.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 26.3s early. Timing drifts about 38.5s from start to end.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file. Skyler in the driveway, and Hank at the end.",
+    "syncedAt": "2026-11-14T19:20:44.644Z",
+    "batchedAt": "2026-11-14T19:32:40.505Z"
   },
   "breaking-bad---4x04---bullet-points": {
-    "offsetMs": -27105,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5824,12 +5823,12 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S04.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S04E04.Bullet.Points.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 27.1s early. Timing drifts about 2.9s from start to end.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file.",
+    "syncedAt": "2026-11-14T18:52:54.628Z",
+    "batchedAt": "2026-11-14T19:11:22.235Z"
   },
   "breaking-bad---4x05---shotgun": {
-    "offsetMs": -26440,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5838,9 +5837,9 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S04.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S04E05.Shotgun.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 26.4s early. Timing drifts about 79.2s from start to end.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file.",
+    "syncedAt": "2026-11-14T18:52:54.628Z",
+    "batchedAt": "2026-11-14T19:11:22.235Z"
   },
   "breaking-bad---4x06---cornered": {
     "offsetMs": 1292,
@@ -5885,7 +5884,7 @@
     "batchedAt": "2026-11-09T06:16:55.745Z"
   },
   "breaking-bad---4x09---bug": {
-    "offsetMs": 1948,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -5894,9 +5893,9 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S04.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S04E09.Bug.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 1.9s late.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file. Opening and closing cues are a TRONAR credit.",
+    "syncedAt": "2026-11-14T18:52:54.628Z",
+    "batchedAt": "2026-11-14T19:11:22.235Z"
   },
   "breaking-bad---4x10---salud": {
     "offsetMs": 626,
@@ -6067,7 +6066,7 @@
     "batchedAt": "2026-11-13T02:10:24.958Z"
   },
   "breaking-bad---5x09---blood-money": {
-    "offsetMs": -25500,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -6076,12 +6075,12 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S05.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S05E09.Blood.Money.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 25.5s early. Timing drifts about 2.6s from start to end.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file. Hank telling Walt to bring the kids.",
+    "syncedAt": "2026-11-14T19:20:44.644Z",
+    "batchedAt": "2026-11-14T19:32:40.505Z"
   },
   "breaking-bad---5x10---buried": {
-    "offsetMs": -25803,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -6090,12 +6089,12 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S05.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S05E10.Buried.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 25.8s early.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file.",
+    "syncedAt": "2026-11-14T18:52:54.628Z",
+    "batchedAt": "2026-11-14T19:11:22.235Z"
   },
   "breaking-bad---5x11---confessions": {
-    "offsetMs": -26604,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -6104,12 +6103,12 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S05.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S05E11.Confessions.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 26.6s early. Timing drifts about 3.1s from start to end.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file. Jesse at the motel, and Walt at the machine.",
+    "syncedAt": "2026-11-14T18:52:54.628Z",
+    "batchedAt": "2026-11-14T19:11:22.235Z"
   },
   "breaking-bad---5x12---rabid-dog": {
-    "offsetMs": -31416,
+    "offsetMs": 0,
     "timeScale": 1,
     "seek": "start",
     "fps": 23.976023976023978,
@@ -6118,9 +6117,9 @@
     "source": "H:\\videos\\shows\\Breaking Bad\\Breaking.Bad.S05.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws\\Breaking.Bad.S05E12.Rabid.Dog.1080p.BluRay.10bit.HEVC.6CH-MkvCage.ws.mkv",
     "methodId": "zero",
     "triedMethods": ["zero"],
-    "note": "Scale 1. Catalog is 31.4s early.",
-    "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "note": "New Blu-ray SRT. Catalog matches the file.",
+    "syncedAt": "2026-11-14T18:52:54.628Z",
+    "batchedAt": "2026-11-14T19:11:22.235Z"
   },
   "breaking-bad---5x13---tohajiilee": {
     "offsetMs": 0,
