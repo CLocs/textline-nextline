@@ -1,6 +1,15 @@
 import { describe, expect, it } from "vitest";
 import type { CatalogEntry } from "../src/types/content.js";
-import { buildCatalogOpsRows, coveragePct, formatCoveragePct, missingStills, sortCatalogOpsRows } from "../src/lib/content/catalogOps.js";
+import {
+  buildCatalogOpsRows,
+  coveragePct,
+  displayedStillCount,
+  formatCoveragePct,
+  formatRemoteStillStatus,
+  mergeStillCounts,
+  missingStills,
+  sortCatalogOpsRows,
+} from "../src/lib/content/catalogOps.js";
 import { canViewCatalogOps, isOwnerEmail } from "../src/lib/content/owner.js";
 import {
   formatUploadsMarkdown,
@@ -243,6 +252,48 @@ describe("owner email", () => {
     expect(isOwnerEmail("friend@gmail.com")).toBe(false);
     expect(canViewCatalogOps("local@dev", true)).toBe(true);
     expect(canViewCatalogOps("local@dev", false)).toBe(false);
+  });
+});
+
+describe("mergeStillCounts", () => {
+  it("keeps the larger of the local folder and the R2 tally", () => {
+    expect(displayedStillCount(0, 1472)).toBe(1472);
+    expect(displayedStillCount(1842, 44)).toBe(1842);
+    expect(displayedStillCount(0, 0)).toBe(0);
+    expect(
+      mergeStillCounts(
+        { "batman-begins-2005": 1382 },
+        { "batman-begins-2005": 79, "american-gangster-2007": 900 },
+      ),
+    ).toEqual({
+      "batman-begins-2005": 1382,
+      "american-gangster-2007": 900,
+    });
+  });
+});
+
+describe("formatRemoteStillStatus", () => {
+  const now = Date.parse("2026-11-14T18:00:00.000Z");
+
+  it("says when the saved R2 list is from", () => {
+    expect(
+      formatRemoteStillStatus(
+        { updatedAt: null, refreshing: false, listed: 0, error: null },
+        now,
+      ),
+    ).toMatch(/not loaded/);
+    expect(
+      formatRemoteStillStatus(
+        { updatedAt: null, refreshing: true, listed: 12000, error: null },
+        now,
+      ),
+    ).toBe("Listing R2… 12,000 objects");
+    expect(
+      formatRemoteStillStatus(
+        { updatedAt: "2026-11-14T15:00:00.000Z", refreshing: false, listed: 0, error: null },
+        now,
+      ),
+    ).toBe("R2 counts 3h ago");
   });
 });
 

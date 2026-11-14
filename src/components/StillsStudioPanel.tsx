@@ -18,6 +18,7 @@ import {
   type StudioQueueResponse,
 } from "../lib/content/stillsStudioApi";
 
+import { displayedStillCount } from "../lib/content/catalogOps";
 import { describeStudioMethod, pickNextStudioMethod, recordTriedMethodIds, studioMethodFromId, type StudioMethod, type StudioVote } from "../lib/content/stillsStudioMethods";
 import { DEFAULT_STUDIO_SHOW, type StudioExtractMode } from "../lib/content/stillsStudioTypes";
 
@@ -29,6 +30,7 @@ type Props = {
   initialShow?: string;
   initialTitleId?: string | null;
   initialAutoBatch?: boolean;
+  remoteStillCounts?: Record<string, number>;
 };
 
 function statusLabel(status: StudioEpisode["status"]): string {
@@ -75,6 +77,7 @@ export function StillsStudioPanel({
   initialShow = DEFAULT_STUDIO_SHOW,
   initialTitleId = null,
   initialAutoBatch = false,
+  remoteStillCounts = {},
 }: Props) {
   const [available, setAvailable] = useState<boolean | null>(null);
   const [shows, setShows] = useState<{ show: string; directory: string; directoryExists: boolean }[]>([]);
@@ -755,6 +758,11 @@ export function StillsStudioPanel({
                       {selected.stillCount.toLocaleString()} stills on disk. This page keeps the review frames.
                     </p>
                   ) : null}
+                  {(remoteStillCounts[selected.titleId] ?? 0) > selected.stillCount ? (
+                    <p className="muted">
+                      {(remoteStillCounts[selected.titleId] ?? 0).toLocaleString()} on R2.
+                    </p>
+                  ) : null}
                   <div className="row">
                     <button type="button" className="button" onClick={() => void openPreviewFolder()}>
                       Open result folder
@@ -872,7 +880,12 @@ export function StillsStudioPanel({
                 </td>
                 <td>{extracting[row.titleId] ? "extracting" : statusLabel(row.status)}</td>
                 <td>{row.starCount || ""}</td>
-                <td>{liveStillCount(row.stillCount, extractJobs[row.titleId]) || ""}</td>
+                <td>
+                  {displayedStillCount(
+                    liveStillCount(row.stillCount, extractJobs[row.titleId]),
+                    remoteStillCounts[row.titleId] ?? 0,
+                  ) || ""}
+                </td>
                 <td>{row.offsetMs / 1000}s</td>
                 <td>
                   {row.status === "no-file" ? null : (

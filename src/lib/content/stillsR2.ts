@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { STILLS_R2_BUCKET } from "./stillKeys.js";
+import { STILLS_R2_BUCKET, titleIdFromStillKey } from "./stillKeys.js";
 import type { RemoteStill } from "./stillsSyncPlan.js";
 
 const API = "https://api.cloudflare.com/client/v4";
@@ -74,14 +74,14 @@ function nextCursor(body: unknown): string | null {
   return info.cursor;
 }
 
-/** Every object under `prefix` (key, size, etag). Paginates 1000 at a time. */
-export async function listRemoteStills(
+/** Pages of objects under `prefix`. One Class A list call per page of 1000. */
+async function eachRemotePage(
   packageRoot: string,
   prefix: string,
+  visit: (objects: ListedObject[]) => void,
   bucket = STILLS_R2_BUCKET,
-): Promise<Map<string, RemoteStill>> {
+): Promise<void> {
   let auth = await cloudflareAuth(packageRoot);
-  const found = new Map<string, RemoteStill>();
   let cursor: string | null = null;
   let refreshed = false;
   for (;;) {
@@ -110,15 +110,52 @@ export async function listRemoteStills(
     if (success === false) {
       throw new Error(`R2 list failed: ${text.slice(0, 300)}`);
     }
-    for (const object of listedObjects(body)) {
-      if (typeof object.key !== "string" || !object.key) continue;
-      found.set(object.key, {
-        size: typeof object.size === "number" ? object.size : Number(object.size) || 0,
-        etag: typeof object.etag === "string" ? object.etag : "",
-      });
-    }
+    visit(listedObjects(body));
     cursor = nextCursor(body);
     if (!cursor) break;
   }
+}
+
+/** Every object under `prefix` (key, size, etag). Paginates 1000 at a time. */
+export async function listRemoteStills(
+  packageRoot: string,
+  prefix: string,
+  bucket = STILLS_R2_BUCKET,
+): Promise<Map<string, RemoteStill>> {
+  const found = new Map<string, RemoteStill>();
+  await eachRemotePage(
+    packageRoot,
+    prefix,
+    (objects) => {
+      for (const object of objects) {
+        if (typeof object.key !== "string" || !object.key) continue;
+        found.set(object.key, {
+          size: typeof object.size === "number" ? object.size : Number(object.size) || 0,
+          etag: typeof object.etag === "string" ? object.etag : "",
+        });
+      }
+    },
+    bucket,
+  );
   return found;
+}
+
+/** JPEG counts per title. Does not keep object bodies — a full bucket is only the tally. */
+export async function countRemoteStills(
+  packageRoot: string,
+  opts?: { onListed?: (listed: number) => void; prefix?: string },
+): Promise<{ titles: Record<string, number>; objects: number }> {
+  const titles: Record<string, number> = {};
+  let objects = 0;
+  await eachRemotePage(packageRoot, opts?.prefix ?? "", (page) => {
+    for (const object of page) {
+      if (typeof object.key !== "string" || !object.key) continue;
+      objects += 1;
+      const titleId = titleIdFromStillKey(object.key);
+      if (!titleId) continue;
+      titles[titleId] = (titles[titleId] ?? 0) + 1;
+    }
+    opts?.onListed?.(objects);
+  });
+  return { titles, objects };
 }

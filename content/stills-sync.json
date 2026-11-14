@@ -5308,7 +5308,8 @@
     "triedMethods": ["zero"],
     "note": "Catalog runs 0.2s late. Scale 1. Walt in his underwear by the RV, Walt and Skyler in bed.",
     "syncedAt": "2026-11-07T21:50:00.000Z",
-    "batchedAt": "2026-11-07T22:10:30.140Z"
+    "batchedAt": "2026-11-07T22:10:30.140Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---1x02---cats-in-the-bag": {
     "offsetMs": -943,
@@ -5322,7 +5323,8 @@
     "triedMethods": ["zero"],
     "note": "Catalog runs 0.9s late. Scale 1. The RV stuck off the road, the hole the acid ate through the floor.",
     "syncedAt": "2026-11-07T21:50:00.000Z",
-    "batchedAt": "2026-11-07T22:10:30.140Z"
+    "batchedAt": "2026-11-07T22:10:30.140Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---1x03---and-the-bags-in-the-river": {
     "offsetMs": -1020,
@@ -5336,7 +5338,8 @@
     "triedMethods": ["zero"],
     "note": "Catalog runs 1.0s late. Scale 1. Jesse at the chalkboard, Walt in the hospital waiting room.",
     "syncedAt": "2026-11-07T21:50:00.000Z",
-    "batchedAt": "2026-11-07T22:10:30.140Z"
+    "batchedAt": "2026-11-07T22:10:30.140Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---1x04---cancer-man": {
     "offsetMs": -27,
@@ -5350,7 +5353,8 @@
     "triedMethods": ["zero"],
     "note": "Catalog sits on the file, about a second of drift by the end. Scale 1. The DEA briefing, Walt in the car after Ken's BMW.",
     "syncedAt": "2026-11-07T21:50:00.000Z",
-    "batchedAt": "2026-11-07T22:10:30.140Z"
+    "batchedAt": "2026-11-07T22:10:30.140Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---1x05---gray-matter": {
     "offsetMs": 397,
@@ -5364,7 +5368,8 @@
     "triedMethods": ["zero"],
     "note": "Blu-ray subtitle is 0.4s after the catalog for the back half. Scale 1. The street with Badger, Walt on the phone in the car.",
     "syncedAt": "2026-11-07T21:50:00.000Z",
-    "batchedAt": "2026-11-07T22:10:30.140Z"
+    "batchedAt": "2026-11-07T22:10:30.140Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---1x06---crazy-handful-of-nothin": {
     "offsetMs": -404,
@@ -5378,7 +5383,8 @@
     "triedMethods": ["zero"],
     "note": "Catalog runs 0.4s late. Scale 1. The street outside the rules talk, Walt holding the fulminated mercury.",
     "syncedAt": "2026-11-07T21:50:00.000Z",
-    "batchedAt": "2026-11-07T22:10:30.140Z"
+    "batchedAt": "2026-11-07T22:10:30.140Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---1x07---a-no-rough-stuff-type-deal": {
     "offsetMs": -1594,
@@ -5392,7 +5398,8 @@
     "triedMethods": ["zero"],
     "note": "Catalog runs 1.6s late, drifting toward 3s by the junkyard. Scale 1. Walt at the school meeting, Jesse with Tuco in the junkyard.",
     "syncedAt": "2026-11-07T21:50:00.000Z",
-    "batchedAt": "2026-11-07T22:10:30.140Z"
+    "batchedAt": "2026-11-07T22:10:30.140Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---2x01---seven-thirty-seven": {
     "offsetMs": -292,
@@ -5601,7 +5608,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.3s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x02---caballo-sin-nombre": {
     "offsetMs": -292,
@@ -5615,7 +5623,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.3s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x03---ift": {
     "offsetMs": -250,
@@ -5629,7 +5638,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.3s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x04---green-light": {
     "offsetMs": -209,
@@ -5643,7 +5653,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.2s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x05---mas": {
     "offsetMs": -250,
@@ -5657,7 +5668,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.3s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x06---sunset": {
     "offsetMs": -209,
@@ -5671,7 +5683,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.2s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x07---one-minute": {
     "offsetMs": -250,
@@ -5685,7 +5698,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.3s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x08---i-see-you": {
     "offsetMs": -209,
@@ -5699,7 +5713,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.2s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x09---kafkaesque": {
     "offsetMs": -209,
@@ -5713,7 +5728,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.2s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x10---fly": {
     "offsetMs": -250,
@@ -5727,7 +5743,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.3s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x11---abiquiu": {
     "offsetMs": -125,
@@ -5741,7 +5758,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.1s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x12---half-measures": {
     "offsetMs": -42,
@@ -5755,7 +5773,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---3x13---full-measure": {
     "offsetMs": -209,
@@ -5769,7 +5788,8 @@
     "triedMethods": ["zero"],
     "note": "25/23.976. Catalog is 0.2s early.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x01---box-cutter": {
     "offsetMs": 1169,
@@ -5783,7 +5803,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 1.2s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x02---thirty-eight-snub": {
     "offsetMs": 0,
@@ -5797,7 +5818,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file. Walt at the gun dealer, and Jesse at the end.",
     "syncedAt": "2026-11-14T18:52:54.628Z",
-    "batchedAt": "2026-11-14T19:11:22.235Z"
+    "batchedAt": "2026-11-14T19:11:22.235Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x03---open-house": {
     "offsetMs": 0,
@@ -5811,7 +5833,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file. Skyler in the driveway, and Hank at the end.",
     "syncedAt": "2026-11-14T19:20:44.644Z",
-    "batchedAt": "2026-11-14T19:32:40.505Z"
+    "batchedAt": "2026-11-14T19:32:40.505Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x04---bullet-points": {
     "offsetMs": 0,
@@ -5825,7 +5848,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file.",
     "syncedAt": "2026-11-14T18:52:54.628Z",
-    "batchedAt": "2026-11-14T19:11:22.235Z"
+    "batchedAt": "2026-11-14T19:11:22.235Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x05---shotgun": {
     "offsetMs": 0,
@@ -5839,7 +5863,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file.",
     "syncedAt": "2026-11-14T18:52:54.628Z",
-    "batchedAt": "2026-11-14T19:11:22.235Z"
+    "batchedAt": "2026-11-14T19:11:22.235Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x06---cornered": {
     "offsetMs": 1292,
@@ -5853,7 +5878,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 1.3s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x07---problem-dog": {
     "offsetMs": 1229,
@@ -5867,7 +5893,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 1.2s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x08---hermanos": {
     "offsetMs": 1097,
@@ -5881,7 +5908,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 1.1s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x09---bug": {
     "offsetMs": 0,
@@ -5895,7 +5923,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file. Opening and closing cues are a TRONAR credit.",
     "syncedAt": "2026-11-14T18:52:54.628Z",
-    "batchedAt": "2026-11-14T19:11:22.235Z"
+    "batchedAt": "2026-11-14T19:11:22.235Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x10---salud": {
     "offsetMs": 626,
@@ -5909,7 +5938,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 0.6s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x11---crawl-space": {
     "offsetMs": 510,
@@ -5923,7 +5953,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 0.5s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x12---end-times": {
     "offsetMs": 794,
@@ -5937,7 +5968,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 0.8s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---4x13---face-off": {
     "offsetMs": 1059,
@@ -5951,7 +5983,8 @@
     "triedMethods": ["zero"],
     "note": "Scale 1. Catalog is 1.1s late.",
     "syncedAt": "2026-11-09T04:40:00.000Z",
-    "batchedAt": "2026-11-09T06:16:55.745Z"
+    "batchedAt": "2026-11-09T06:16:55.745Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---5x01---live-free-or-die": {
     "offsetMs": -2,
@@ -5965,7 +5998,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file. Denny's, and Walt holding Skyler.",
     "syncedAt": "2026-11-13T01:45:00.000Z",
-    "batchedAt": "2026-11-13T02:10:24.958Z"
+    "batchedAt": "2026-11-13T02:10:24.958Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---5x02---madrigal": {
     "offsetMs": -3,
@@ -5979,7 +6013,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file.",
     "syncedAt": "2026-11-13T01:45:00.000Z",
-    "batchedAt": "2026-11-13T02:10:24.958Z"
+    "batchedAt": "2026-11-13T02:10:24.958Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---5x03---hazard-pay": {
     "offsetMs": -1,
@@ -5993,7 +6028,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file.",
     "syncedAt": "2026-11-13T01:45:00.000Z",
-    "batchedAt": "2026-11-13T02:10:24.958Z"
+    "batchedAt": "2026-11-13T02:10:24.958Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---5x04---fifty-one": {
     "offsetMs": -1,
@@ -6007,7 +6043,8 @@
     "triedMethods": ["zero"],
     "note": "New Blu-ray SRT. Catalog matches the file.",
     "syncedAt": "2026-11-13T01:45:00.000Z",
-    "batchedAt": "2026-11-13T02:10:24.958Z"
+    "batchedAt": "2026-11-13T02:10:24.958Z",
+    "pushedAt": "2026-11-14T22:21:10.486Z"
   },
   "breaking-bad---5x05---dead-freight": {
     "offsetMs": 0,

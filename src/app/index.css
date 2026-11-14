@@ -2833,6 +2833,23 @@ code {
   font-size: 0.78rem;
 }
 
+.ops-r2-refresh {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.9rem;
+  align-items: center;
+  margin: 0.15rem 0 0.85rem;
+}
+
+.ops-r2-refresh .button {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.ops-r2-refresh .muted {
+  margin: 0;
+}
+
 .stills-studio-toolbar {
   display: flex;
   flex-wrap: wrap;

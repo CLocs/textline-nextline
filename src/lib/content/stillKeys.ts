@@ -23,3 +23,13 @@ export function stillKeyFromPathname(pathname: string): string | null {
   if (!match) return null;
   return stillObjectKey(match[1]!, match[2]!);
 }
+
+/** `oceans-thirteen-2007/1334.jpg` → title id. Anything else is ignored. */
+export function titleIdFromStillKey(key: string): string | null {
+  const slash = key.indexOf("/");
+  if (slash <= 0 || key.indexOf("/", slash + 1) !== -1) return null;
+  const titleId = key.slice(0, slash);
+  const file = key.slice(slash + 1);
+  if (stillObjectKey(titleId, file) == null) return null;
+  return titleId;
+}

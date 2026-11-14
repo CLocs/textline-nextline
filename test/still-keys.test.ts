@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { stillKeyFromPathname, stillObjectKey } from "../src/lib/content/stillKeys.js";
+import { stillKeyFromPathname, stillObjectKey, titleIdFromStillKey } from "../src/lib/content/stillKeys.js";
 
 describe("stillObjectKey", () => {
   it("accepts title id + line jpeg names", () => {
@@ -13,6 +13,18 @@ describe("stillObjectKey", () => {
     expect(stillObjectKey("../x", "1.jpg")).toBeNull();
     expect(stillObjectKey("oceans-thirteen-2007", "../1.jpg")).toBeNull();
     expect(stillObjectKey("oceans-thirteen-2007", "1.png")).toBeNull();
+  });
+});
+
+describe("titleIdFromStillKey", () => {
+  it("reads the title id from an R2 object key", () => {
+    expect(titleIdFromStillKey("american-gangster-2007/12.jpg")).toBe("american-gangster-2007");
+    expect(titleIdFromStillKey("the-simpsons---5x01---homers-barbershop-quartet/3.JPEG")).toBe(
+      "the-simpsons---5x01---homers-barbershop-quartet",
+    );
+    expect(titleIdFromStillKey("nested/title/1.jpg")).toBeNull();
+    expect(titleIdFromStillKey("notes.txt")).toBeNull();
+    expect(titleIdFromStillKey("american-gangster-2007/poster.png")).toBeNull();
   });
 });
 
