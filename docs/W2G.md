@@ -26,8 +26,8 @@ flowchart TD
   stars[Stars are the highlight]
   sync[Tap Sync]
   hear[Mic matches one line]
-  head[Playhead jumps there]
-  run[List advances on the clock]
+  head[List jumps and keeps listening]
+  run[Clock runs, next line snaps it forward]
   again[Tap Sync again after a pause or seek]
 
   watch --> known
@@ -43,17 +43,17 @@ flowchart TD
 
 ## Sync
 
-Not built. Tap Sync. The mic stays on until a spoken line matches the transcript. The list jumps to that line and the mic stops. The list then advances on the clock. Tap Sync again after a pause, a seek, or a bad lock. The movie file is not required. The transcript timings are the clock.
+In Curate. Tap Sync. The mic stays on. The first matching line is a rough start: the list jumps there and the clock runs from the moment that phrase was heard. The live line sits at the bottom of the list, so the lines just said stay on screen. Scrolling the list parks it there, and the highlight keeps moving. Current line, at the top and the bottom of the list, jumps back and follows again. A clean line locks as soon as it is said, and the clock moves to the end of that cue so the next line is the one on screen. If the speech runs on before the first lock, every 5 seconds the words already heard are checked again, against lines long enough to be a place in the movie. That stretch starts at 5 seconds and grows until one of those lines is close. The clock starts from when those words were heard, so a late lock catches up. While Sync is still searching, the words it hears stay on screen. After a lock, that line hides. The mic keeps listening. Every 5 seconds the words just heard are matched again, against lines a little behind the clock and a little ahead of it, and a hit pulls the highlight back onto the picture. Not this drops the rough start and keeps listening. Stop holds the list. Tap Sync again after a pause, a seek, or a bad lock. The movie file is not required. The transcript timings are the clock.
 
 ## Notes
 
 A line note is the room on one quote: a joke, a life story, another movie. Quote parallels stay analogy packs, a curated tie between lines. Friends are a later link for a person. The words can be stored before anyone is linked.
 
-There is no notes table and no note field in Curate. A watch session file can hold a note. The app does not read it.
+There is no notes table. Curate shows a typed note on any line and stores it in this browser. The note shows the person in this watch. For now that is you. Adding other people to the session, once, comes later. A watch session file can still hold a note. The app does not read that file.
 
 | Path | What you do | Now |
 | --- | --- | --- |
-| Type it | Write the note on the starred or quoted line | First sprinkle. Not built |
+| Type it | Write the note on the line | In Curate, this browser only. Your icon sits beside it |
 | Readwise | Highlight online. Vault-import after it reaches Obsidian | The star path works. The note stays on `stars-seed.json` |
 | HeyPocket after the watch | Drop the transcript. Confirm the mapping | Procedure only. The Odyssey recording with Matty Ice waits on the transcript |
 | The Sync mic | Keep the mic stretch as the note on the line it locked | Needs Sync. Still confirmed by you |

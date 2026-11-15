@@ -19,6 +19,7 @@ import {
   studioPushStatus,
   studioQueue,
 } from "./stillsStudioActions.js";
+import { readRemoteStillCounts, startRemoteStillCountRefresh } from "./stillsRemoteCounts.js";
 import type { StudioExtractMode } from "./stillsStudioTypes.js";
 import { DEFAULT_STUDIO_SHOW } from "./stillsStudioTypes.js";
 
@@ -74,6 +75,14 @@ export function stillsStudioPlugin() {
       }
       if (req.method === "GET" && path === "/coverage") {
         sendJson(res, 200, studioCoverage(ctx));
+        return;
+      }
+      if (req.method === "GET" && path === "/r2-counts") {
+        sendJson(res, 200, readRemoteStillCounts(packageRoot));
+        return;
+      }
+      if (req.method === "POST" && path === "/r2-counts") {
+        sendJson(res, 202, startRemoteStillCountRefresh(packageRoot));
         return;
       }
       if (req.method === "GET" && path === "/shows") {

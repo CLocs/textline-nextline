@@ -1962,6 +1962,114 @@ code {
   margin: 0;
 }
 
+.curate-sync {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.curate-sync-status,
+.curate-sync-line,
+.curate-sync-hint {
+  margin: 0;
+}
+
+.curate-sync-hint {
+  flex-basis: 100%;
+}
+
+.curate-sync-candidate {
+  flex: 1 1 16rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.curate-sync-actions,
+.curate-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.button.is-listening {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.curate-note {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  margin-top: 0.45rem;
+}
+
+.curate-note-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.curate-note-person {
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  background: color-mix(in srgb, var(--muted) 35%, var(--surface));
+  color: var(--surface);
+}
+
+.curate-note-person img,
+.curate-note-person svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.curate-note-person svg {
+  fill: color-mix(in srgb, var(--ink) 55%, var(--muted));
+}
+
+.curate-note-person svg circle:first-child {
+  fill: color-mix(in srgb, var(--muted) 45%, var(--surface));
+}
+
+.curate-note-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.curate-note textarea {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--surface);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.curate-note-open {
+  margin-top: 0;
+  padding: 0.12rem 0.45rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  border-radius: 8px;
+}
+
+.curate-note-open.has-note {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.curate-note-person svg .is-face {
+  fill: var(--surface);
+}
+
 .curate-item.focused {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
@@ -2088,6 +2196,37 @@ code {
   line-height: 1.35;
 }
 
+.curate-list-frame {
+  display: flex;
+  flex-direction: column;
+}
+
+.curate-current-line {
+  width: 100%;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.curate-current-line.is-top {
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+}
+
+.curate-current-line.is-bottom {
+  border-radius: 0 0 10px 10px;
+  border-top: none;
+}
+
+.curate-current-line:hover {
+  background: color-mix(in srgb, var(--ink) 6%, var(--surface));
+}
+
 .curate-list {
   max-height: calc(100vh - 16rem);
   overflow: auto;
@@ -2114,6 +2253,21 @@ code {
 }
 
 .curate-controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.curate-mark-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.curate-marks {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -2677,6 +2831,23 @@ code {
   margin-left: 0.45rem;
   padding: 0.15rem 0.55rem;
   font-size: 0.78rem;
+}
+
+.ops-r2-refresh {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.9rem;
+  align-items: center;
+  margin: 0.15rem 0 0.85rem;
+}
+
+.ops-r2-refresh .button {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.ops-r2-refresh .muted {
+  margin: 0;
 }
 
 .stills-studio-toolbar {

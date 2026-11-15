@@ -1,5 +1,13 @@
 /** Pixel gap between curate rows. The list is absolutely positioned, so this is the only gap. */
 export const VIRTUAL_LIST_GAP = 4;
+/** Keep a sliver of the row above the bottom edge while Sync is following. */
+export const FOLLOW_BOTTOM_PAD = 8;
+
+/** Scroll offset that puts a row's bottom on the viewport bottom. */
+export function followScrollTop(lineTop: number, lineHeight: number, viewportHeight: number): number {
+  if (viewportHeight <= 0) return Math.max(0, lineTop);
+  return Math.max(0, lineTop + lineHeight - viewportHeight + FOLLOW_BOTTOM_PAD);
+}
 
 export function offsetsForSizes(sizes: number[], gap: number): number[] {
   const offsets = new Array(sizes.length + 1);

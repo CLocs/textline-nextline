@@ -2,4383 +2,3305 @@
   "id": "breaking-bad---5x14---ozymandias",
   "title": "Breaking Bad - 5x14 - Ozymandias",
   "sourceFilename": "Breaking Bad - 5x14 - Ozymandias.en.srt",
-  "importedAt": "2026-11-08T19:36:34.514Z",
-  "lineCount": 625,
+  "importedAt": "2026-11-13T01:40:01.144Z",
+  "lineCount": 471,
   "lines": [
     {
       "index": 0,
-      "text": "Previously on AMC's Breaking Bad...",
+      "text": "Yo, so, what's next?",
       "kind": "dialogue",
-      "startMs": 7,
-      "endMs": 3025
+      "startMs": 20320,
+      "endMs": 23279
     },
     {
       "index": 1,
-      "text": "I think I may have another job for your uncle.",
+      "text": "We wait.",
       "kind": "dialogue",
-      "startMs": 4152,
-      "endMs": 6289
+      "startMs": 23480,
+      "endMs": 24755
     },
     {
       "index": 2,
-      "text": "Jesse Pinkman.",
+      "text": "We don't got like eight more anal things we gotta do first?",
       "kind": "dialogue",
-      "startMs": 6479,
-      "endMs": 7574
+      "startMs": 25000,
+      "endMs": 28835
     },
     {
       "index": 3,
-      "text": "That barrel look familiar? 'Cause I just got six more exactly like.",
+      "text": "The reaction has begun.",
       "kind": "dialogue",
-      "startMs": 7683,
-      "endMs": 11562
+      "startMs": 29600,
+      "endMs": 31398
     },
     {
       "index": 4,
-      "text": "I've got Jesse in sight, and he's coming for me right now.",
+      "text": "Yeah, I know. So how long?",
       "kind": "dialogue",
-      "startMs": 12196,
-      "endMs": 15123
+      "startMs": 31600,
+      "endMs": 34798
     },
     {
       "index": 5,
-      "text": "Where are you? Get a pen.",
+      "text": "Well, if we had a freezer, the condensed liquid would cool more quickly because, of course, this is an exothermic reaction, which means \"giving off heat.\"",
       "kind": "dialogue",
-      "startMs": 15314,
-      "endMs": 16719
+      "startMs": 35000,
+      "endMs": 44876
     },
     {
       "index": 6,
-      "text": "Jack, don't come.",
+      "text": "And our desired product is...",
       "kind": "dialogue",
-      "startMs": 16879,
-      "endMs": 18762
+      "startMs": 45080,
+      "endMs": 47117
     },
     {
       "index": 7,
-      "text": "I've got him.",
+      "text": "Put me into a coma, why don't you?",
       "kind": "dialogue",
-      "startMs": 18912,
-      "endMs": 20050
+      "startMs": 47320,
+      "endMs": 50518
     },
     {
       "index": 8,
-      "text": "Dead to rights. You got Walt?",
+      "text": "What did you just say?",
       "kind": "dialogue",
-      "startMs": 20231,
-      "endMs": 22498
+      "startMs": 51560,
+      "endMs": 53074
     },
     {
       "index": 9,
-      "text": "Police! Drop your weapons!",
+      "text": "What? What? Nothing.",
       "kind": "dialogue",
-      "startMs": 23681,
-      "endMs": 25544
+      "startMs": 53320,
+      "endMs": 56199
     },
     {
       "index": 10,
-      "text": "Jack, don't do it!",
+      "text": "Huh.",
       "kind": "dialogue",
-      "startMs": 25633,
-      "endMs": 27360
+      "startMs": 56960,
+      "endMs": 58519
     },
     {
       "index": 11,
-      "text": "Mm-hmm.",
+      "text": "No, no, no. Not in here.",
       "kind": "dialogue",
-      "startMs": 46853,
-      "endMs": 48487
+      "startMs": 63800,
+      "endMs": 67396
     },
     {
       "index": 12,
-      "text": "Yo, so what's next?",
+      "text": "Duh. Like I'm an idiot.",
       "kind": "dialogue",
-      "startMs": 48522,
-      "endMs": 51574
+      "startMs": 67600,
+      "endMs": 69876
     },
     {
       "index": 13,
-      "text": "We wait.",
+      "text": "Yeah. Like you're an idiot.",
       "kind": "dialogue",
-      "startMs": 51608,
-      "endMs": 53025
+      "startMs": 70080,
+      "endMs": 73118
     },
     {
       "index": 14,
-      "text": "You don't got, like, eight more anal things we gotta do first?",
+      "text": "Dick.",
       "kind": "dialogue",
-      "startMs": 53076,
-      "endMs": 57947
+      "startMs": 73320,
+      "endMs": 74879
     },
     {
       "index": 15,
-      "text": "The reaction has begun.",
+      "text": "Aah.",
       "kind": "dialogue",
-      "startMs": 57981,
-      "endMs": 59448
+      "startMs": 84320,
+      "endMs": 85356
     },
     {
       "index": 16,
-      "text": "Yeah, I-- I know.",
+      "text": "God. Jesus. God.",
       "kind": "dialogue",
-      "startMs": 59482,
-      "endMs": 62001
+      "startMs": 85600,
+      "endMs": 88911
     },
     {
       "index": 17,
-      "text": "So how long?",
+      "text": "Shut up.",
       "kind": "dialogue",
-      "startMs": 62035,
-      "endMs": 63452
+      "startMs": 89120,
+      "endMs": 90156
     },
     {
       "index": 18,
-      "text": "Well, if we had a freezer, the condensed liquid would cool more quickly, because, of course, this is an exothermic reaction, which means \"giving off heat,\" and our desired product is...",
+      "text": "Oh, wow.",
       "kind": "dialogue",
-      "startMs": 63486,
-      "endMs": 75514
+      "startMs": 90400,
+      "endMs": 92392
     },
     {
       "index": 19,
-      "text": "Put me into a coma, why don't you?",
+      "text": "Bogdan. Bogdan says I'm not doing the receipts right.",
       "kind": "dialogue",
-      "startMs": 75549,
-      "endMs": 79218
+      "startMs": 104880,
+      "endMs": 108430
     },
     {
       "index": 20,
-      "text": "What did you just say?",
+      "text": "Well, he's got a bug up his butt.",
       "kind": "dialogue",
-      "startMs": 79269,
-      "endMs": 81470
+      "startMs": 108640,
+      "endMs": 110916
     },
     {
       "index": 21,
-      "text": "What-- what? Nothing.",
+      "text": "He's got a stick up his butt?",
       "kind": "dialogue",
-      "startMs": 81504,
-      "endMs": 85140
+      "startMs": 111120,
+      "endMs": 113555
     },
     {
       "index": 22,
-      "text": "Huh.",
+      "text": "He's got a bug up his butt about the receipts, anyways.",
       "kind": "dialogue",
-      "startMs": 85174,
-      "endMs": 87476
+      "startMs": 113800,
+      "endMs": 116793
     },
     {
       "index": 23,
-      "text": "No, no, no. Not in here.",
+      "text": "So anyway, he's insisting that I-- He's demanding that I stay and look over his system and I cannot get out of it.",
       "kind": "dialogue",
-      "startMs": 91982,
-      "endMs": 95017
+      "startMs": 117000,
+      "endMs": 128990
     },
     {
       "index": 24,
-      "text": "Duh. Like I'm an idiot.",
+      "text": "Yeah.",
       "kind": "dialogue",
-      "startMs": 95035,
-      "endMs": 98237
+      "startMs": 131080,
+      "endMs": 132560
     },
     {
       "index": 25,
-      "text": "Yeah. Like you're an idiot.",
+      "text": "Hello. Hi, honey. It's me.",
       "kind": "dialogue",
-      "startMs": 98288,
-      "endMs": 101490
+      "startMs": 142600,
+      "endMs": 144671
     },
     {
       "index": 26,
-      "text": "Dick.",
+      "text": "Hey, you. What's going on? Nothing much.",
       "kind": "dialogue",
-      "startMs": 101524,
-      "endMs": 103292
+      "startMs": 144880,
+      "endMs": 147634
     },
     {
       "index": 27,
-      "text": "Ah, God. Jesus.",
+      "text": "I was just calling to say I'm sorry but I'm gonna be late tonight.",
       "kind": "dialogue",
-      "startMs": 112669,
-      "endMs": 115888
+      "startMs": 147840,
+      "endMs": 156071
     },
     {
       "index": 28,
-      "text": "God.",
+      "text": "Bogdan. He's got a bug up his butt.",
       "kind": "dialogue",
-      "startMs": 115922,
-      "endMs": 117473
+      "startMs": 156280,
+      "endMs": 158431
     },
     {
       "index": 29,
-      "text": "Shut up.",
+      "text": "That's okay. I wasn't planning anything special for dinner, so...",
       "kind": "dialogue",
-      "startMs": 117507,
-      "endMs": 118507
+      "startMs": 158640,
+      "endMs": 162714
     },
     {
       "index": 30,
-      "text": "Oh, wow.",
+      "text": "In fact, you could take pity on us and bring a pizza home.",
       "kind": "dialogue",
-      "startMs": 118541,
-      "endMs": 120709
+      "startMs": 162920,
+      "endMs": 167199
     },
     {
       "index": 31,
-      "text": "Huh.",
+      "text": "They're having a two-for-one at Venezia's.",
       "kind": "dialogue",
-      "startMs": 127817,
-      "endMs": 130069
+      "startMs": 167400,
+      "endMs": 169596
     },
     {
       "index": 32,
-      "text": "Bogdan-- Bogdan says I'm not doing the receipts right.",
+      "text": "At this point, I could eat a whole one by myself.",
       "kind": "dialogue",
-      "startMs": 132739,
-      "endMs": 136825
+      "startMs": 169800,
+      "endMs": 172315
     },
     {
       "index": 33,
-      "text": "Well, he's got a bug up his butt.",
+      "text": "Yeah, yeah, sure. I can pick up a pizza.",
       "kind": "dialogue",
-      "startMs": 136860,
-      "endMs": 139578
-    },
-    {
-      "index": 34,
-      "text": "He's-- he's got a stick up his butt?",
-      "kind": "dialogue",
-      "startMs": 139613,
-      "endMs": 142031
-    },
-    {
-      "index": 35,
-      "text": "He's got a bug up his butt about the receipts, anyways.",
-      "kind": "dialogue",
-      "startMs": 142065,
-      "endMs": 145117
-    },
-    {
-      "index": 36,
-      "text": "So anyway, he's insisting that I-- He's demanding that I stay and, uh, look over his system, and I cannot get out of it.",
-      "kind": "dialogue",
-      "startMs": 145168,
-      "endMs": 157262
-    },
-    {
-      "index": 37,
-      "text": "Yeah.",
-      "kind": "dialogue",
-      "startMs": 159132,
-      "endMs": 160132
-    },
-    {
-      "index": 38,
-      "text": "[Phone beeps]",
-      "kind": "sdh",
-      "startMs": 160183,
-      "endMs": 163969
-    },
-    {
-      "index": 39,
-      "text": "[Sighs]",
-      "kind": "sdh",
-      "startMs": 164020,
-      "endMs": 166421
-    },
-    {
-      "index": 40,
-      "text": "[Phone rings]",
-      "kind": "sdh",
-      "startMs": 166439,
-      "endMs": 170759
-    },
-    {
-      "index": 41,
-      "text": "Hello.",
-      "kind": "dialogue",
-      "startMs": 170777,
-      "endMs": 171777
-    },
-    {
-      "index": 42,
-      "text": "Hi, honey. It's me.",
-      "kind": "dialogue",
-      "startMs": 171811,
-      "endMs": 173261
-    },
-    {
-      "index": 43,
-      "text": "Hey, you. What's going on?",
-      "kind": "dialogue",
-      "startMs": 173279,
-      "endMs": 174780
-    },
-    {
-      "index": 44,
-      "text": "Nothing much.",
-      "kind": "dialogue",
-      "startMs": 174814,
+      "startMs": 172560,
       "endMs": 176031
     },
     {
-      "index": 45,
-      "text": "I-- I was-- I was just, um, calling to... say I'm sorry, but I'm gonna be late tonight.",
+      "index": 34,
+      "text": "Hopefully Bogdan won't keep me too late.",
       "kind": "dialogue",
-      "startMs": 176066,
-      "endMs": 184289
+      "startMs": 176280,
+      "endMs": 178317
+    },
+    {
+      "index": 35,
+      "text": "He better not. Trust me, he does not want to piss off a hungry pregnant woman.",
+      "kind": "dialogue",
+      "startMs": 178520,
+      "endMs": 182753
+    },
+    {
+      "index": 36,
+      "text": "Ooh, what's that sound? I just sold your favorite piece.",
+      "kind": "dialogue",
+      "startMs": 182960,
+      "endMs": 188080
+    },
+    {
+      "index": 37,
+      "text": "The hideous crying clown. Wow.",
+      "kind": "dialogue",
+      "startMs": 188280,
+      "endMs": 190875
+    },
+    {
+      "index": 38,
+      "text": "Yeah, and I got 9 bucks more than I paid for it.",
+      "kind": "dialogue",
+      "startMs": 191120,
+      "endMs": 194511
+    },
+    {
+      "index": 39,
+      "text": "Shows what I know about art.",
+      "kind": "dialogue",
+      "startMs": 194720,
+      "endMs": 196712
+    },
+    {
+      "index": 40,
+      "text": "Hey, what do you think about Holly?",
+      "kind": "dialogue",
+      "startMs": 196960,
+      "endMs": 199475
+    },
+    {
+      "index": 41,
+      "text": "For the baby's name.",
+      "kind": "dialogue",
+      "startMs": 200400,
+      "endMs": 202073
+    },
+    {
+      "index": 42,
+      "text": "Do you like it?",
+      "kind": "dialogue",
+      "startMs": 202280,
+      "endMs": 203839
+    },
+    {
+      "index": 43,
+      "text": "I think I really like it.",
+      "kind": "dialogue",
+      "startMs": 204040,
+      "endMs": 205679
+    },
+    {
+      "index": 44,
+      "text": "Holly. Yeah, it's nice.",
+      "kind": "dialogue",
+      "startMs": 206160,
+      "endMs": 209278
+    },
+    {
+      "index": 45,
+      "text": "Let me think about it.",
+      "kind": "dialogue",
+      "startMs": 209520,
+      "endMs": 210715
     },
     {
       "index": 46,
-      "text": "Bogdan. He's got a bug up his butt.",
+      "text": "Just feels right, you know? It's my new favorite.",
       "kind": "dialogue",
-      "startMs": 184324,
-      "endMs": 187076
+      "startMs": 210920,
+      "endMs": 214152
     },
     {
       "index": 47,
-      "text": "That's okay. I wasn't planning anything special for dinner.",
+      "text": "Well, it's a front-runner, for sure.",
       "kind": "dialogue",
-      "startMs": 187110,
-      "endMs": 190112
+      "startMs": 214400,
+      "endMs": 216676
     },
     {
       "index": 48,
-      "text": "So...",
+      "text": "Listen, I was thinking, um, maybe we can have a little family time this weekend.",
       "kind": "dialogue",
-      "startMs": 190130,
-      "endMs": 191130
+      "startMs": 223080,
+      "endMs": 228200
     },
     {
       "index": 49,
-      "text": "In fact, you could take pity on us and bring a pizza home.",
+      "text": "Oh, yeah? Yeah.",
       "kind": "dialogue",
-      "startMs": 191164,
-      "endMs": 194500
+      "startMs": 228400,
+      "endMs": 230392
     },
     {
       "index": 50,
-      "text": "They're having a two-for-one at Venezia's, and at this point I could eat a whole one by myself.",
+      "text": "You know, just take a drive.",
       "kind": "dialogue",
-      "startMs": 195885,
-      "endMs": 200639
+      "startMs": 230600,
+      "endMs": 232592
     },
     {
       "index": 51,
-      "text": "Yeah, yeah, sure.",
+      "text": "The almost four of us. Ha-ha-ha.",
       "kind": "dialogue",
-      "startMs": 200674,
-      "endMs": 201807
+      "startMs": 232800,
+      "endMs": 235110
     },
     {
       "index": 52,
-      "text": "I can-- I can pick up a pizza.",
+      "text": "Maybe we can head up the Turquoise Trail, stop at Tinkertown, maybe grab some lunch in Madrid.",
       "kind": "dialogue",
-      "startMs": 201841,
-      "endMs": 204059
+      "startMs": 235320,
+      "endMs": 240872
     },
     {
       "index": 53,
-      "text": "Hopefully Bogdan won't keep me too late.",
+      "text": "Oh, my God. We haven't been there in forever.",
       "kind": "dialogue",
-      "startMs": 204094,
-      "endMs": 206762
+      "startMs": 241080,
+      "endMs": 243390
     },
     {
       "index": 54,
-      "text": "He better not.",
+      "text": "I know. Yeah.",
       "kind": "dialogue",
-      "startMs": 206796,
-      "endMs": 207846
+      "startMs": 243600,
+      "endMs": 244670
     },
     {
       "index": 55,
-      "text": "Trust me. He does not want to piss off a hungry, pregnant woman.",
+      "text": "So why don't we just do that? Take a little break?",
       "kind": "dialogue",
-      "startMs": 207897,
-      "endMs": 211066
+      "startMs": 244880,
+      "endMs": 247600
     },
     {
       "index": 56,
-      "text": "Ooh. What's that sound?",
+      "text": "Sold. Sounds fun.",
       "kind": "dialogue",
-      "startMs": 211101,
-      "endMs": 212651
+      "startMs": 248280,
+      "endMs": 250556
     },
     {
       "index": 57,
-      "text": "I just sold your favorite piece.",
+      "text": "Holly. It's growing on me.",
       "kind": "dialogue",
-      "startMs": 212686,
-      "endMs": 216438
+      "startMs": 250760,
+      "endMs": 253514
     },
     {
       "index": 58,
-      "text": "The hideous crying clown.",
+      "text": "Yep. Me too.",
       "kind": "dialogue",
-      "startMs": 216473,
-      "endMs": 218640
+      "startMs": 253720,
+      "endMs": 256110
     },
     {
       "index": 59,
-      "text": "Wow.",
+      "text": "All right, well, I had better go and get this in the mail.",
       "kind": "dialogue",
-      "startMs": 218658,
-      "endMs": 219942
+      "startMs": 256360,
+      "endMs": 259910
     },
     {
       "index": 60,
-      "text": "Yeah, and I got nine bucks more than I paid for it.",
+      "text": "Why don't you call me when you're on your way home?",
       "kind": "dialogue",
-      "startMs": 219976,
-      "endMs": 222911
+      "startMs": 260120,
+      "endMs": 262794
     },
     {
       "index": 61,
-      "text": "Shows what I know about art.",
+      "text": "Will do. Love you. Love you too.",
       "kind": "dialogue",
-      "startMs": 222946,
-      "endMs": 225347
+      "startMs": 263000,
+      "endMs": 266277
     },
     {
       "index": 62,
-      "text": "Hey, what do you think about Holly?",
+      "text": "Whoa, simmer down there, sparky.",
       "kind": "dialogue",
-      "startMs": 225382,
-      "endMs": 226815
+      "startMs": 367320,
+      "endMs": 370074
     },
     {
       "index": 63,
-      "text": "For the baby's name.",
+      "text": "What the hell did we just walk into?",
       "kind": "dialogue",
-      "startMs": 226850,
-      "endMs": 230452
+      "startMs": 376240,
+      "endMs": 378311
     },
     {
       "index": 64,
-      "text": "Do you like it?",
+      "text": "Hey, Uncle Jack, I don't see Jesse Pinkman.",
       "kind": "dialogue",
-      "startMs": 230487,
-      "endMs": 231987
+      "startMs": 378560,
+      "endMs": 380950
     },
     {
       "index": 65,
-      "text": "I think I really like it.",
+      "text": "He was right here before.",
       "kind": "dialogue",
-      "startMs": 232022,
-      "endMs": 234023
+      "startMs": 381160,
+      "endMs": 382992
     },
     {
       "index": 66,
-      "text": "Holly. Yeah. It's nice.",
+      "text": "Anybody got eyes on Pinkman? No.",
       "kind": "dialogue",
-      "startMs": 234057,
-      "endMs": 237426
+      "startMs": 383200,
+      "endMs": 385476
     },
     {
       "index": 67,
-      "text": "Let me think about it.",
+      "text": "What do you figure? He maybe headed down that gully there?",
       "kind": "dialogue",
-      "startMs": 237460,
-      "endMs": 239094
+      "startMs": 385680,
+      "endMs": 388400
     },
     {
       "index": 68,
-      "text": "Just feels right, you know?",
+      "text": "That's the way I'd go.",
       "kind": "dialogue",
-      "startMs": 239129,
-      "endMs": 240879
+      "startMs": 389720,
+      "endMs": 391154
     },
     {
       "index": 69,
-      "text": "It's my new favorite.",
+      "text": "Frankie, Lester, go find him.",
       "kind": "dialogue",
-      "startMs": 240930,
-      "endMs": 242514
+      "startMs": 391360,
+      "endMs": 394273
     },
     {
       "index": 70,
-      "text": "Well, it's a front-runner, for sure.",
+      "text": "Jack.",
       "kind": "dialogue",
-      "startMs": 242549,
-      "endMs": 245333
+      "startMs": 394480,
+      "endMs": 396119
     },
     {
       "index": 71,
-      "text": "[Jesse] Hiyah!",
+      "text": "These guys are DEA.",
       "kind": "dialogue",
-      "startMs": 245351,
-      "endMs": 247169
+      "startMs": 396320,
+      "endMs": 397595
     },
     {
       "index": 72,
-      "text": "[Continues grunting]",
-      "kind": "sdh",
-      "startMs": 247187,
-      "endMs": 251273
+      "text": "No! Jack, no!",
+      "kind": "dialogue",
+      "startMs": 406600,
+      "endMs": 408159
     },
     {
       "index": 73,
-      "text": "Listen, I was thinking, um, maybe we can have a little family time this weekend?",
+      "text": "Jack! Jack! Jack!",
       "kind": "dialogue",
-      "startMs": 251307,
-      "endMs": 256695
+      "startMs": 408360,
+      "endMs": 410033
     },
     {
       "index": 74,
-      "text": "Oh, yeah?",
+      "text": "No! No, don't!",
       "kind": "dialogue",
-      "startMs": 256730,
-      "endMs": 258147
+      "startMs": 410240,
+      "endMs": 411993
     },
     {
       "index": 75,
-      "text": "Yeah, you know.",
+      "text": "Jack, don't. No.",
       "kind": "dialogue",
-      "startMs": 258181,
-      "endMs": 259181
+      "startMs": 412200,
+      "endMs": 414351
     },
     {
       "index": 76,
-      "text": "Just take a drive.",
+      "text": "No, Jack, Jack, Jack! Jack, no!",
       "kind": "dialogue",
-      "startMs": 259199,
-      "endMs": 260866
+      "startMs": 414600,
+      "endMs": 418196
     },
     {
       "index": 77,
-      "text": "The almost four of us.",
+      "text": "Jack, no. Don't kill him. Uh-uh-uh. Back it up.",
       "kind": "dialogue",
-      "startMs": 260900,
-      "endMs": 263485
+      "startMs": 419560,
+      "endMs": 421552
     },
     {
       "index": 78,
-      "text": "Maybe we can head up the Turquoise Trail, stop at tinker town, maybe grab some lunch in Madrid.",
+      "text": "Don't kill him, Jack. Get back here.",
       "kind": "dialogue",
-      "startMs": 263519,
-      "endMs": 268657
+      "startMs": 421760,
+      "endMs": 423752
     },
     {
       "index": 79,
-      "text": "Oh, my God. We haven't been there in forever.",
+      "text": "The hell not? He's DEA.",
       "kind": "dialogue",
-      "startMs": 268691,
-      "endMs": 272027
+      "startMs": 423960,
+      "endMs": 425235
     },
     {
       "index": 80,
-      "text": "I know. So why don't we just do that?",
+      "text": "No, he's family.",
       "kind": "dialogue",
-      "startMs": 272045,
-      "endMs": 274913
+      "startMs": 425480,
+      "endMs": 427915
     },
     {
       "index": 81,
-      "text": "Take a little break?",
+      "text": "Say again?",
       "kind": "dialogue",
-      "startMs": 274964,
-      "endMs": 275914
+      "startMs": 429240,
+      "endMs": 430276
     },
     {
       "index": 82,
-      "text": "Sold. Sounds fun.",
+      "text": "He's my family.",
       "kind": "dialogue",
-      "startMs": 275965,
-      "endMs": 278667
+      "startMs": 431040,
+      "endMs": 433032
     },
     {
       "index": 83,
-      "text": "Holly. It's growing on me.",
+      "text": "He's my brother-in-law.",
       "kind": "dialogue",
-      "startMs": 278701,
-      "endMs": 282054
+      "startMs": 433560,
+      "endMs": 435233
     },
     {
       "index": 84,
-      "text": "Yep. Me too.",
+      "text": "Didn't cross your mind to maybe tell us you had a DEA agent for a brother-in-law?",
       "kind": "dialogue",
-      "startMs": 282088,
-      "endMs": 284139
+      "startMs": 435440,
+      "endMs": 440269
     },
     {
       "index": 85,
-      "text": "All right, well, I had better go and get this in the mail.",
+      "text": "Did you know about this? I called you off, remember?",
       "kind": "dialogue",
-      "startMs": 284174,
-      "endMs": 288710
+      "startMs": 441720,
+      "endMs": 444679
     },
     {
       "index": 86,
-      "text": "Why don't you call me when you're on your way home, okay?",
+      "text": "I told you not to come. Well, it seems to me we did you a solid.",
       "kind": "dialogue",
-      "startMs": 288728,
-      "endMs": 291230
+      "startMs": 444920,
+      "endMs": 448357
     },
     {
       "index": 87,
-      "text": "Will do. Love you.",
+      "text": "You weren't supposed to be here. Too late now.",
       "kind": "dialogue",
-      "startMs": 291264,
-      "endMs": 292765
+      "startMs": 448560,
+      "endMs": 451234
     },
     {
       "index": 88,
-      "text": "Love you too.",
+      "text": "How's about you telling me what was going down out here? Hm?",
       "kind": "dialogue",
-      "startMs": 292816,
-      "endMs": 294883
+      "startMs": 451760,
+      "endMs": 455276
     },
     {
       "index": 89,
-      "text": "[Jesse continues grunting]",
-      "kind": "sdh",
-      "startMs": 296569,
-      "endMs": 299655
+      "text": "You and your brother-in-law don't seem to be getting along too well.",
+      "kind": "dialogue",
+      "startMs": 455480,
+      "endMs": 459030
     },
     {
       "index": 90,
-      "text": "Sync and corrections by n17t01 www.addic7ed.com",
+      "text": "It doesn't matter. It doesn't concern you.",
       "kind": "dialogue",
-      "startMs": 325979,
-      "endMs": 331668
+      "startMs": 459240,
+      "endMs": 462153
     },
     {
       "index": 91,
-      "text": "[Guns firing]",
-      "kind": "sdh",
-      "startMs": 336885,
-      "endMs": 338820
+      "text": "We just wasted his partner here, and he's wearing a bullet, so, yeah, I'd say it does concern me.",
+      "kind": "dialogue",
+      "startMs": 462360,
+      "endMs": 468400
     },
     {
       "index": 92,
-      "text": "[Glass breaks]",
-      "kind": "sdh",
-      "startMs": 338854,
-      "endMs": 341556
+      "text": "This is between him and me.",
+      "kind": "dialogue",
+      "startMs": 468760,
+      "endMs": 471320
     },
     {
       "index": 93,
-      "text": "[Firing stops]",
-      "kind": "sdh",
-      "startMs": 341590,
-      "endMs": 343925
+      "text": "No cavalry coming?",
+      "kind": "dialogue",
+      "startMs": 471520,
+      "endMs": 473034
     },
     {
       "index": 94,
-      "text": "[Breathing heavily]",
-      "kind": "sdh",
-      "startMs": 360309,
-      "endMs": 364378
+      "text": "No.",
+      "kind": "dialogue",
+      "startMs": 473280,
+      "endMs": 474634
     },
     {
       "index": 95,
-      "text": "[Groaning]",
-      "kind": "sdh",
-      "startMs": 376575,
-      "endMs": 380411
+      "text": "You bet your ass the cavalry's coming.",
+      "kind": "dialogue",
+      "startMs": 474840,
+      "endMs": 476320
     },
     {
       "index": 96,
-      "text": "Ah.",
+      "text": "No, no, no! Jack—107 00:07:59,640 --> 00:08:02,633 Jack! No, the DEA doesn't know about this.",
       "kind": "dialogue",
-      "startMs": 393792,
-      "endMs": 394792
+      "startMs": 476520,
+      "endMs": 478273
     },
     {
       "index": 97,
-      "text": "Whoa. Simmer down there, sparky.",
+      "text": "Not yet.",
       "kind": "dialogue",
-      "startMs": 394843,
-      "endMs": 397211
+      "startMs": 483440,
+      "endMs": 485159
     },
     {
       "index": 98,
-      "text": "What the hell did we just walk into?",
+      "text": "Hank.",
       "kind": "dialogue",
-      "startMs": 403135,
-      "endMs": 405386
+      "startMs": 488600,
+      "endMs": 490239
     },
     {
       "index": 99,
-      "text": "[Todd] Hey, Uncle Jack, I don't see Jesse Pinkman.",
+      "text": "Nothing can change what just happened, but you can walk out of here alive if you just promise us that you'll let this go.",
       "kind": "dialogue",
-      "startMs": 405420,
-      "endMs": 408106
+      "startMs": 490960,
+      "endMs": 502917
     },
     {
       "index": 100,
-      "text": "He was right here before.",
+      "text": "Yeah, I thought as much.",
       "kind": "dialogue",
-      "startMs": 408140,
-      "endMs": 409757
+      "startMs": 505720,
+      "endMs": 507916
     },
     {
       "index": 101,
-      "text": "[Jack] - Anybody got eyes on Pinkman? [Frankie] - No.",
+      "text": "Sorry, man. Just no scenario where this guy lives.",
       "kind": "dialogue",
-      "startMs": 409775,
-      "endMs": 412593
+      "startMs": 508160,
+      "endMs": 510800
     },
     {
       "index": 102,
-      "text": "What do you figure? He may be headed down that gully there?",
+      "text": "No, no, no, listen! I have money!",
       "kind": "dialogue",
-      "startMs": 412611,
-      "endMs": 416397
+      "startMs": 511000,
+      "endMs": 512957
     },
     {
       "index": 103,
-      "text": "That's the way I'd go.",
+      "text": "I have money! It's buried out here. It's...",
       "kind": "dialogue",
-      "startMs": 416431,
-      "endMs": 418232
+      "startMs": 513200,
+      "endMs": 517240
     },
     {
       "index": 104,
-      "text": "Frankie, Lester, go find him.",
+      "text": "It's $80 million.",
       "kind": "dialogue",
-      "startMs": 418266,
-      "endMs": 421285
+      "startMs": 520280,
+      "endMs": 522840
     },
     {
       "index": 105,
-      "text": "Jack.",
+      "text": "Eighty million.",
       "kind": "dialogue",
-      "startMs": 421320,
-      "endMs": 423071
+      "startMs": 527640,
+      "endMs": 530360
     },
     {
       "index": 106,
-      "text": "These guys are DEA.",
+      "text": "Hm. So that's what got this party started, huh?",
       "kind": "dialogue",
-      "startMs": 423105,
-      "endMs": 425656
+      "startMs": 533360,
+      "endMs": 538276
     },
     {
       "index": 107,
-      "text": "[Groans]",
-      "kind": "sdh",
-      "startMs": 429111,
-      "endMs": 433331
+      "text": "But this money of yours won't do me much good in prison.",
+      "kind": "dialogue",
+      "startMs": 539120,
+      "endMs": 542033
     },
     {
       "index": 108,
-      "text": "[Walt] No! Jack, no!",
+      "text": "You can go anywhere. You can do anything. Think about it.",
       "kind": "dialogue",
-      "startMs": 433382,
-      "endMs": 435666
+      "startMs": 542240,
+      "endMs": 545916
     },
     {
       "index": 109,
-      "text": "Jack! Jack! Jack!",
+      "text": "You can have any future that you want.",
       "kind": "dialogue",
-      "startMs": 435718,
-      "endMs": 437251
+      "startMs": 546120,
+      "endMs": 549431
     },
     {
       "index": 110,
-      "text": "No! No, don't!",
+      "text": "Jack.",
       "kind": "dialogue",
-      "startMs": 437285,
-      "endMs": 439253
+      "startMs": 551080,
+      "endMs": 552116
     },
     {
       "index": 111,
-      "text": "Jack, don't. No.",
+      "text": "Eighty million.",
       "kind": "dialogue",
-      "startMs": 439287,
-      "endMs": 441339
+      "startMs": 553280,
+      "endMs": 556478
     },
     {
       "index": 112,
-      "text": "No, Jack! Jack, no!",
+      "text": "And all you've got to do is let him go.",
       "kind": "dialogue",
-      "startMs": 441390,
-      "endMs": 444509
+      "startMs": 556680,
+      "endMs": 562278
     },
     {
       "index": 113,
-      "text": "[Groans]",
-      "kind": "sdh",
-      "startMs": 444560,
-      "endMs": 446394
+      "text": "That's a hell of an offer.",
+      "kind": "dialogue",
+      "startMs": 562480,
+      "endMs": 564312
     },
     {
       "index": 114,
-      "text": "Jack, no. Don't kill him.",
+      "text": "What do you think, fed?",
       "kind": "dialogue",
-      "startMs": 446428,
-      "endMs": 447512
+      "startMs": 564680,
+      "endMs": 566558
     },
     {
       "index": 115,
-      "text": "Uh-uh, back it up.",
+      "text": "Would you take that deal?",
       "kind": "dialogue",
-      "startMs": 447563,
-      "endMs": 448763
+      "startMs": 567080,
+      "endMs": 568594
     },
     {
       "index": 116,
-      "text": "Don't kill him. Don't kill him, Jack.",
+      "text": "It's Hank.",
       "kind": "dialogue",
-      "startMs": 448797,
-      "endMs": 450264
+      "startMs": 568800,
+      "endMs": 570553
     },
     {
       "index": 117,
-      "text": "Get back here.",
+      "text": "His name is Hank.",
       "kind": "dialogue",
-      "startMs": 450298,
-      "endMs": 451298
+      "startMs": 571560,
+      "endMs": 573995
     },
     {
       "index": 118,
-      "text": "The hell not? He's DEA.",
+      "text": "How about it, Hank?",
       "kind": "dialogue",
-      "startMs": 451316,
-      "endMs": 452517
+      "startMs": 576320,
+      "endMs": 578152
     },
     {
       "index": 119,
-      "text": "No, he's-- he's family.",
+      "text": "Should I let you go?",
       "kind": "dialogue",
-      "startMs": 452568,
-      "endMs": 455853
+      "startMs": 578800,
+      "endMs": 580757
     },
     {
       "index": 120,
-      "text": "Say again?",
+      "text": "My name is ASAC Schrader.",
       "kind": "dialogue",
-      "startMs": 455904,
-      "endMs": 458106
+      "startMs": 586040,
+      "endMs": 588794
     },
     {
       "index": 121,
-      "text": "He's my family.",
+      "text": "And you can go fuck yourself.",
       "kind": "dialogue",
-      "startMs": 458140,
-      "endMs": 460074
+      "startMs": 589720,
+      "endMs": 591791
     },
     {
       "index": 122,
-      "text": "He's my brother-in-law.",
+      "text": "Hank, listen to me.",
       "kind": "dialogue",
-      "startMs": 460109,
-      "endMs": 462410
+      "startMs": 594400,
+      "endMs": 597791
     },
     {
       "index": 123,
-      "text": "Didn't cross your mind to maybe tell us you had a DEA agent for a brother-in-law?",
+      "text": "You gotta tell him.",
       "kind": "dialogue",
-      "startMs": 462444,
-      "endMs": 468666
+      "startMs": 598560,
+      "endMs": 599835
     },
     {
       "index": 124,
-      "text": "Did you know about this?",
+      "text": "You gotta tell him now that we can work this out.",
       "kind": "dialogue",
-      "startMs": 468700,
-      "endMs": 469700
+      "startMs": 600040,
+      "endMs": 602600
     },
     {
       "index": 125,
-      "text": "I called you off, remember?",
+      "text": "Please. Please.",
       "kind": "dialogue",
-      "startMs": 469752,
-      "endMs": 471953
+      "startMs": 602800,
+      "endMs": 604996
     },
     {
       "index": 126,
-      "text": "I told you not to come.",
+      "text": "What? You want me to beg?",
       "kind": "dialogue",
-      "startMs": 471987,
-      "endMs": 473538
+      "startMs": 605480,
+      "endMs": 608951
     },
     {
       "index": 127,
-      "text": "Well, it seems to me we did you a solid.",
+      "text": "You're the smartest guy I ever met.",
       "kind": "dialogue",
-      "startMs": 473589,
-      "endMs": 475206
+      "startMs": 611600,
+      "endMs": 614399
     },
     {
       "index": 128,
-      "text": "You weren't supposed to be here.",
+      "text": "And you're too stupid to see...",
       "kind": "dialogue",
-      "startMs": 475257,
-      "endMs": 477375
+      "startMs": 615040,
+      "endMs": 617430
     },
     {
       "index": 129,
-      "text": "Too late now.",
+      "text": "he made up his mind 10 minutes ago.",
       "kind": "dialogue",
-      "startMs": 477426,
-      "endMs": 478726
+      "startMs": 619920,
+      "endMs": 621877
     },
     {
       "index": 130,
-      "text": "How's about you telling me what was going down out here.",
+      "text": "Do what you're gonna do.",
       "kind": "dialogue",
-      "startMs": 478761,
-      "endMs": 480928
+      "startMs": 632680,
+      "endMs": 633909
     },
     {
       "index": 131,
-      "text": "Hmm? Yeah, you and your brother-in-law don't seem to be getting along too well.",
+      "text": "Pretty specific directions.",
       "kind": "dialogue",
-      "startMs": 480963,
-      "endMs": 486267
+      "startMs": 670600,
+      "endMs": 672956
     },
     {
       "index": 132,
-      "text": "It doesn't-- doesn't matter.",
+      "text": "Most people tell me to be somewhere, they say, \"West on the 40, this or that exit, second gas station on the left.\" You know?",
       "kind": "dialogue",
-      "startMs": 486301,
-      "endMs": 488186
+      "startMs": 673160,
+      "endMs": 680674
     },
     {
       "index": 133,
-      "text": "It doesn't concern you.",
+      "text": "This here? This is a whole other story.",
       "kind": "dialogue",
-      "startMs": 488220,
-      "endMs": 489670
+      "startMs": 680880,
+      "endMs": 684351
     },
     {
       "index": 134,
-      "text": "We just wasted his partner here, and he's wearing a bullet.",
+      "text": "That fancy phone of yours, where does it say this is exactly?",
       "kind": "dialogue",
-      "startMs": 489688,
-      "endMs": 492023
+      "startMs": 684560,
+      "endMs": 688076
     },
     {
       "index": 135,
-      "text": "So, yeah, I'd say it does concern me.",
+      "text": "Yeah.",
       "kind": "dialogue",
-      "startMs": 492057,
-      "endMs": 495576
+      "startMs": 692480,
+      "endMs": 694278
     },
     {
       "index": 136,
-      "text": "This is... between him and me.",
+      "text": "Look at this. They even brought a shovel.",
       "kind": "dialogue",
-      "startMs": 495611,
-      "endMs": 498446
+      "startMs": 698680,
+      "endMs": 700990
     },
     {
       "index": 137,
-      "text": "No cavalry comin'?",
+      "text": "Jack, no sign of Pinkman.",
       "kind": "dialogue",
-      "startMs": 498480,
-      "endMs": 500148
+      "startMs": 703000,
+      "endMs": 704514
     },
     {
       "index": 138,
-      "text": "No.",
+      "text": "All right.",
       "kind": "dialogue",
-      "startMs": 500182,
-      "endMs": 501783
+      "startMs": 710320,
+      "endMs": 711993
     },
     {
       "index": 139,
-      "text": "You bet your ass the cavalry's comin'.",
+      "text": "Says this is it right here.",
       "kind": "dialogue",
-      "startMs": 501817,
-      "endMs": 503401
+      "startMs": 712200,
+      "endMs": 714556
     },
     {
       "index": 140,
-      "text": "No! No, no.",
+      "text": "Dig.",
       "kind": "dialogue",
-      "startMs": 503452,
-      "endMs": 504452
+      "startMs": 714760,
+      "endMs": 716274
     },
     {
       "index": 141,
-      "text": "Jack. [Grunts] Jack! No, the DEA doesn't know about this.",
+      "text": "What's that? A barrel? Couple barrels?",
       "kind": "dialogue",
-      "startMs": 504486,
-      "endMs": 509740
+      "startMs": 742560,
+      "endMs": 745871
     },
     {
       "index": 142,
-      "text": "Not yet.",
+      "text": "Oh, Jesus. Hell, yeah!",
       "kind": "dialogue",
-      "startMs": 509792,
-      "endMs": 513244
+      "startMs": 751840,
+      "endMs": 753559
     },
     {
       "index": 143,
-      "text": "Hank.",
+      "text": "Oh, Jesus. Would you look at that? Ha-ha-ha.",
       "kind": "dialogue",
-      "startMs": 515581,
-      "endMs": 517799
+      "startMs": 753760,
+      "endMs": 755672
     },
     {
       "index": 144,
-      "text": "Nothing can change what just happened, but you can walk out of here alive if you just promise us that you'll-- you'll let this go.",
+      "text": "Hell, yeah! Goddamn.",
       "kind": "dialogue",
-      "startMs": 517833,
-      "endMs": 531596
+      "startMs": 755880,
+      "endMs": 758111
     },
     {
       "index": 145,
-      "text": "[Scoffs]",
-      "kind": "sdh",
-      "startMs": 531647,
-      "endMs": 533181
+      "text": "Whoo!",
+      "kind": "dialogue",
+      "startMs": 758520,
+      "endMs": 760512
     },
     {
       "index": 146,
-      "text": "Yeah, I thought as much.",
+      "text": "What are you waiting for?",
       "kind": "dialogue",
-      "startMs": 533215,
-      "endMs": 535516
+      "startMs": 763440,
+      "endMs": 765193
     },
     {
       "index": 147,
-      "text": "Sorry, man.",
+      "text": "Yeah, boss. Hell, yeah.",
       "kind": "dialogue",
-      "startMs": 535550,
-      "endMs": 536517
+      "startMs": 766200,
+      "endMs": 768635
     },
     {
       "index": 148,
-      "text": "Just no scenario where this guy lives.",
+      "text": "Let me get on this side. Get that out of there, man.",
       "kind": "dialogue",
-      "startMs": 536551,
-      "endMs": 538552
+      "startMs": 768840,
+      "endMs": 771674
     },
     {
       "index": 149,
-      "text": "No, no, no, listen! I have money!",
+      "text": "Okay. Pull a barrel off the truck and load it in the Chrysler.",
       "kind": "dialogue",
-      "startMs": 538570,
-      "endMs": 540104
+      "startMs": 816200,
+      "endMs": 820274
     },
     {
       "index": 150,
-      "text": "I have money! It's buried out here. It's...",
+      "text": "Seriously? Jack.",
       "kind": "dialogue",
-      "startMs": 540155,
-      "endMs": 544325
+      "startMs": 820480,
+      "endMs": 823598
     },
     {
       "index": 151,
-      "text": "[Sighs]",
-      "kind": "sdh",
-      "startMs": 544359,
-      "endMs": 547195
+      "text": "That's like 10 or 11 million right there. You sure you wanna do that?",
+      "kind": "dialogue",
+      "startMs": 823840,
+      "endMs": 827595
     },
     {
       "index": 152,
-      "text": "It's $80 million.",
+      "text": "You gonna make me say it again? Go, go.",
       "kind": "dialogue",
-      "startMs": 547229,
-      "endMs": 549230
+      "startMs": 827840,
+      "endMs": 830196
     },
     {
       "index": 153,
-      "text": "80 million.",
+      "text": "Chop, chop.",
       "kind": "dialogue",
-      "startMs": 554402,
-      "endMs": 557455
+      "startMs": 830400,
+      "endMs": 831754
     },
     {
       "index": 154,
-      "text": "So that's what got this party started, huh?",
+      "text": "Jesus, what's with all the greed here?",
       "kind": "dialogue",
-      "startMs": 561844,
-      "endMs": 566047
+      "startMs": 831960,
+      "endMs": 833679
     },
     {
       "index": 155,
-      "text": "But this money of yours won't do me much good in prison.",
+      "text": "It's unattractive.",
       "kind": "dialogue",
-      "startMs": 566081,
-      "endMs": 568883
+      "startMs": 834920,
+      "endMs": 836673
     },
     {
       "index": 156,
-      "text": "[Walt] You can go anywhere.",
+      "text": "Hey.",
       "kind": "dialogue",
-      "startMs": 568917,
-      "endMs": 570518
+      "startMs": 840000,
+      "endMs": 841354
     },
     {
       "index": 157,
-      "text": "You can do anything. Think about it.",
+      "text": "Hey.",
       "kind": "dialogue",
-      "startMs": 570552,
-      "endMs": 573187
+      "startMs": 843320,
+      "endMs": 844674
     },
     {
       "index": 158,
-      "text": "You can have any future that you want.",
+      "text": "I'm leaving you a barrel.",
       "kind": "dialogue",
-      "startMs": 573222,
-      "endMs": 578109
+      "startMs": 845440,
+      "endMs": 847557
     },
     {
       "index": 159,
-      "text": "Jack.",
+      "text": "Boys are gonna load it for you.",
       "kind": "dialogue",
-      "startMs": 578143,
-      "endMs": 580228
+      "startMs": 847880,
+      "endMs": 849997
     },
     {
       "index": 160,
-      "text": "80... million.",
+      "text": "You got the keys to these cuffs?",
       "kind": "dialogue",
-      "startMs": 580262,
-      "endMs": 583614
+      "startMs": 850800,
+      "endMs": 853156
     },
     {
       "index": 161,
-      "text": "And all you've got to do is let him go.",
+      "text": "I'm sorry for your loss.",
       "kind": "dialogue",
-      "startMs": 583649,
-      "endMs": 589537
+      "startMs": 864240,
+      "endMs": 866072
     },
     {
       "index": 162,
-      "text": "That's a hell of an offer.",
+      "text": "My nephew here, he respects you.",
       "kind": "dialogue",
-      "startMs": 589571,
-      "endMs": 591272
+      "startMs": 870680,
+      "endMs": 873115
     },
     {
       "index": 163,
-      "text": "What do you think, Fed?",
+      "text": "He would never forgive me if things went another way.",
       "kind": "dialogue",
-      "startMs": 591290,
-      "endMs": 593958
+      "startMs": 873840,
+      "endMs": 879438
     },
     {
       "index": 164,
-      "text": "Would you take that deal?",
+      "text": "Also you caught me in a good mood.",
       "kind": "dialogue",
-      "startMs": 593992,
-      "endMs": 595710
+      "startMs": 880560,
+      "endMs": 882438
     },
     {
       "index": 165,
-      "text": "It's Hank.",
+      "text": "So here's what's gonna happen. You're gonna get in your car, and you're gonna drive out of here, all right?",
       "kind": "dialogue",
-      "startMs": 595744,
-      "endMs": 598279
+      "startMs": 882640,
+      "endMs": 889677
     },
     {
       "index": 166,
-      "text": "His name is Hank.",
+      "text": "No hard feelings.",
       "kind": "dialogue",
-      "startMs": 598297,
-      "endMs": 603084
+      "startMs": 890760,
+      "endMs": 892911
     },
     {
       "index": 167,
-      "text": "How about it, Hank?",
+      "text": "Understand me?",
       "kind": "dialogue",
-      "startMs": 603118,
-      "endMs": 606153
+      "startMs": 893320,
+      "endMs": 894993
     },
     {
       "index": 168,
-      "text": "Should I let you go?",
+      "text": "We square?",
       "kind": "dialogue",
-      "startMs": 606154,
-      "endMs": 607630
+      "startMs": 896840,
+      "endMs": 898399
     },
     {
       "index": 169,
-      "text": "My name is ASAC Schrader.",
+      "text": "Hey, man, I gotta know we're square, or we're gonna have to go that other way.",
       "kind": "dialogue",
-      "startMs": 612878,
-      "endMs": 616464
+      "startMs": 899480,
+      "endMs": 903713
     },
     {
       "index": 170,
-      "text": "And you can go fuck yourself.",
+      "text": "Pinkman.",
       "kind": "dialogue",
-      "startMs": 616498,
-      "endMs": 618966
+      "startMs": 918280,
+      "endMs": 919839
     },
     {
       "index": 171,
-      "text": "Hank... listen to me.",
+      "text": "Pinkman.",
       "kind": "dialogue",
-      "startMs": 620852,
-      "endMs": 624906
+      "startMs": 922920,
+      "endMs": 924718
     },
     {
       "index": 172,
-      "text": "You gotta tell him.",
+      "text": "You still owe me.",
       "kind": "dialogue",
-      "startMs": 624940,
-      "endMs": 627074
+      "startMs": 925560,
+      "endMs": 927756
     },
     {
       "index": 173,
-      "text": "You gotta tell him now that we can work this out.",
+      "text": "If you can find him, we'll kill him.",
       "kind": "dialogue",
-      "startMs": 627109,
-      "endMs": 629277
+      "startMs": 930240,
+      "endMs": 932596
     },
     {
       "index": 174,
-      "text": "Please. Please.",
+      "text": "Found him.",
       "kind": "dialogue",
-      "startMs": 629311,
-      "endMs": 632580
+      "startMs": 935440,
+      "endMs": 936840
     },
     {
       "index": 175,
-      "text": "What? You want me to beg?",
+      "text": "No!",
       "kind": "dialogue",
-      "startMs": 632614,
-      "endMs": 636050
+      "startMs": 945880,
+      "endMs": 947599
     },
     {
       "index": 176,
-      "text": "You're the smartest guy I ever met.",
+      "text": "Get off me!",
       "kind": "dialogue",
-      "startMs": 638253,
-      "endMs": 641655
+      "startMs": 948800,
+      "endMs": 950837
     },
     {
       "index": 177,
-      "text": "And you're too stupid to see... he made up his mind ten minutes ago.",
+      "text": "Get off!",
       "kind": "dialogue",
-      "startMs": 641673,
-      "endMs": 648963
+      "startMs": 951040,
+      "endMs": 952076
     },
     {
       "index": 178,
-      "text": "Do what you're gonna do.",
+      "text": "No, no.",
       "kind": "dialogue",
-      "startMs": 658941,
-      "endMs": 660224
+      "startMs": 955920,
+      "endMs": 957718
     },
     {
       "index": 179,
-      "text": "[Gunshot echoes]",
-      "kind": "sdh",
-      "startMs": 660275,
-      "endMs": 663444
+      "text": "Good to go?",
+      "kind": "dialogue",
+      "startMs": 973760,
+      "endMs": 974876
     },
     {
       "index": 180,
-      "text": "[Walt whimpers]",
-      "kind": "sdh",
-      "startMs": 693759,
-      "endMs": 697561
+      "text": "Hey, Uncle Jack.",
+      "kind": "dialogue",
+      "startMs": 980760,
+      "endMs": 981796
     },
     {
       "index": 181,
-      "text": "[Jack] Pretty specific directions.",
+      "text": "Well, he was out here with those feds.",
       "kind": "dialogue",
-      "startMs": 697596,
-      "endMs": 700014
+      "startMs": 989800,
+      "endMs": 993555
     },
     {
       "index": 182,
-      "text": "You know, most people tell me to be somewhere, they say, \"West on the 40, this or that exit, second gas station on the left.\"",
+      "text": "Right? Working with them. Should we maybe find out what he told them first?",
       "kind": "dialogue",
-      "startMs": 700048,
-      "endMs": 706404
+      "startMs": 994160,
+      "endMs": 998074
     },
     {
       "index": 183,
-      "text": "You know?",
+      "text": "Because, I mean, he had to have told them some stuff that might not be too good for us.",
       "kind": "dialogue",
-      "startMs": 706438,
-      "endMs": 707855
+      "startMs": 998280,
+      "endMs": 1003710
     },
     {
       "index": 184,
-      "text": "This here? This is a whole other story.",
+      "text": "And I'll bet we could get it out of him back home.",
       "kind": "dialogue",
-      "startMs": 707889,
-      "endMs": 711492
+      "startMs": 1004920,
+      "endMs": 1008680
     },
     {
       "index": 185,
-      "text": "That fancy phone of yours, where does it say this is exactly?",
+      "text": "I mean, I can do it.",
       "kind": "dialogue",
-      "startMs": 711526,
-      "endMs": 714862
+      "startMs": 1009080,
+      "endMs": 1010196
     },
     {
       "index": 186,
-      "text": "Yeah...",
+      "text": "Me and him, we got history.",
       "kind": "dialogue",
-      "startMs": 719567,
-      "endMs": 721369
+      "startMs": 1012400,
+      "endMs": 1016394
     },
     {
       "index": 187,
-      "text": "Look at this. Even brought a shovel.",
+      "text": "And then, you know, we'd take care of the job after that.",
       "kind": "dialogue",
-      "startMs": 725907,
-      "endMs": 729760
+      "startMs": 1018760,
+      "endMs": 1021912
     },
     {
       "index": 188,
-      "text": "[Frankie] Jack. No sign of Pinkman.",
+      "text": "Works for me. Work for you?",
       "kind": "dialogue",
-      "startMs": 729795,
-      "endMs": 732847
+      "startMs": 1024120,
+      "endMs": 1026077
     },
     {
       "index": 189,
-      "text": "All right.",
+      "text": "Let's go, pal. No.",
       "kind": "dialogue",
-      "startMs": 737302,
-      "endMs": 739220
+      "startMs": 1031360,
+      "endMs": 1033192
     },
     {
       "index": 190,
-      "text": "Says this is it right here.",
+      "text": "No!",
       "kind": "dialogue",
-      "startMs": 739254,
-      "endMs": 741389
+      "startMs": 1033400,
+      "endMs": 1034880
     },
     {
       "index": 191,
-      "text": "So dig.",
+      "text": "No!",
       "kind": "dialogue",
-      "startMs": 741423,
-      "endMs": 743557
+      "startMs": 1035080,
+      "endMs": 1036594
     },
     {
       "index": 192,
-      "text": "[Clunk]",
-      "kind": "sdh",
-      "startMs": 756405,
-      "endMs": 759240
+      "text": "No!",
+      "kind": "dialogue",
+      "startMs": 1036840,
+      "endMs": 1037990
     },
     {
       "index": 193,
-      "text": "[Laughter]",
-      "kind": "sdh",
-      "startMs": 759274,
-      "endMs": 761792
+      "text": "Wait.",
+      "kind": "dialogue",
+      "startMs": 1038200,
+      "endMs": 1039714
     },
     {
       "index": 194,
-      "text": "[Kenny] What's that? A barrel?",
+      "text": "I watched Jane die.",
       "kind": "dialogue",
-      "startMs": 769301,
-      "endMs": 771135
+      "startMs": 1050200,
+      "endMs": 1052760
     },
     {
       "index": 195,
-      "text": "Couple barrels?",
+      "text": "I was there.",
       "kind": "dialogue",
-      "startMs": 771169,
-      "endMs": 773971
+      "startMs": 1060480,
+      "endMs": 1062312
     },
     {
       "index": 196,
-      "text": "[Laughs] Jesus.",
+      "text": "And I watched her die.",
       "kind": "dialogue",
-      "startMs": 778626,
-      "endMs": 779844
+      "startMs": 1063600,
+      "endMs": 1065353
     },
     {
       "index": 197,
-      "text": "Hell yeah!",
+      "text": "I watched her overdose and choke to death.",
       "kind": "dialogue",
-      "startMs": 779895,
-      "endMs": 780895
+      "startMs": 1067000,
+      "endMs": 1071392
     },
     {
       "index": 198,
-      "text": "Oh, Jesus. Would you look at that?",
+      "text": "I could have saved her.",
       "kind": "dialogue",
-      "startMs": 780929,
-      "endMs": 782346
+      "startMs": 1073320,
+      "endMs": 1075437
     },
     {
       "index": 199,
-      "text": "[Laughter]",
-      "kind": "sdh",
-      "startMs": 782397,
-      "endMs": 783397
+      "text": "But I didn't.",
+      "kind": "dialogue",
+      "startMs": 1077320,
+      "endMs": 1079232
     },
     {
       "index": 200,
-      "text": "Hell yeah! Goddamn.",
+      "text": "Hi. Hello.",
       "kind": "dialogue",
-      "startMs": 783432,
-      "endMs": 785483
+      "startMs": 1352040,
+      "endMs": 1354794
     },
     {
       "index": 201,
-      "text": "Whoo!",
+      "text": "That truck belong to you?",
       "kind": "dialogue",
-      "startMs": 785517,
-      "endMs": 788269
+      "startMs": 1356800,
+      "endMs": 1358632
     },
     {
       "index": 202,
-      "text": "What are you waiting for?",
+      "text": "It does.",
       "kind": "dialogue",
-      "startMs": 790105,
-      "endMs": 793157
+      "startMs": 1360760,
+      "endMs": 1362240
     },
     {
       "index": 203,
-      "text": "Yeah, boss.",
+      "text": "I'd like to buy it.",
       "kind": "dialogue",
-      "startMs": 793191,
-      "endMs": 794909
+      "startMs": 1363320,
+      "endMs": 1364595
     },
     {
       "index": 204,
-      "text": "Hell yeah.",
+      "text": "It's not for sale.",
       "kind": "dialogue",
-      "startMs": 794943,
-      "endMs": 795943
+      "startMs": 1366240,
+      "endMs": 1368197
     },
     {
       "index": 205,
-      "text": "Let me get on this side.",
+      "text": "Hey, Walt, it's me. Um, just thought I'd try you again.",
       "kind": "dialogue",
-      "startMs": 795977,
-      "endMs": 796977
+      "startMs": 1393320,
+      "endMs": 1397393
     },
     {
       "index": 206,
-      "text": "Out of there, man.",
+      "text": "We were just wondering when you thought you'd be back, so just give us a call whenever you can.",
       "kind": "dialogue",
-      "startMs": 796995,
-      "endMs": 797995
+      "startMs": 1397600,
+      "endMs": 1404760
     },
     {
       "index": 207,
-      "text": "Oh...",
+      "text": "Bye.",
       "kind": "dialogue",
-      "startMs": 798029,
-      "endMs": 800664
+      "startMs": 1405560,
+      "endMs": 1406994
     },
     {
       "index": 208,
-      "text": "[Muttering quietly]",
-      "kind": "sdh",
-      "startMs": 821503,
-      "endMs": 824171
+      "text": "Hey, Aunt Marie.",
+      "kind": "dialogue",
+      "startMs": 1408480,
+      "endMs": 1410233
     },
     {
       "index": 209,
-      "text": "Okay.",
+      "text": "Hey, sweetie.",
       "kind": "dialogue",
-      "startMs": 843158,
-      "endMs": 844708
+      "startMs": 1410440,
+      "endMs": 1412272
     },
     {
       "index": 210,
-      "text": "Pull a barrel off the truck and load it in the Chrysler.",
+      "text": "Haven't seen you for a while. What have you been up to?",
       "kind": "dialogue",
-      "startMs": 844743,
-      "endMs": 847328
+      "startMs": 1413200,
+      "endMs": 1416034
     },
     {
       "index": 211,
-      "text": "Seriously?",
+      "text": "Oh, you know. This and that.",
       "kind": "dialogue",
-      "startMs": 847362,
-      "endMs": 848829
+      "startMs": 1416240,
+      "endMs": 1418436
     },
     {
       "index": 212,
-      "text": "Jack.",
+      "text": "Your mom and I need to talk, so thought I'd stop by.",
       "kind": "dialogue",
-      "startMs": 848863,
-      "endMs": 850998
+      "startMs": 1418680,
+      "endMs": 1422230
     },
     {
       "index": 213,
-      "text": "That's, like, 10 or 11 million right there.",
+      "text": "Well, I, uh, wish you'd called first.",
       "kind": "dialogue",
-      "startMs": 851032,
-      "endMs": 853200
+      "startMs": 1422480,
+      "endMs": 1425473
     },
     {
       "index": 214,
-      "text": "You sure you wanna do that?",
+      "text": "This isn't the best time.",
       "kind": "dialogue",
-      "startMs": 853218,
-      "endMs": 854718
+      "startMs": 1425680,
+      "endMs": 1428070
     },
     {
       "index": 215,
-      "text": "You gonna make me say it again?",
+      "text": "Well, Flynn looks like he can hold down the fort.",
       "kind": "dialogue",
-      "startMs": 854753,
-      "endMs": 856554
+      "startMs": 1428320,
+      "endMs": 1430835
     },
     {
       "index": 216,
-      "text": "Go. Go. Chop, chop.",
+      "text": "Why don't we go into your office?",
       "kind": "dialogue",
-      "startMs": 856588,
-      "endMs": 859056
+      "startMs": 1431040,
+      "endMs": 1433077
     },
     {
       "index": 217,
-      "text": "Jesus. What's with all the greed here?",
+      "text": "I got it.",
       "kind": "dialogue",
-      "startMs": 859090,
-      "endMs": 860758
+      "startMs": 1438960,
+      "endMs": 1440792
     },
     {
       "index": 218,
-      "text": "It's unattractive.",
+      "text": "Okay, honey. Thanks.",
       "kind": "dialogue",
-      "startMs": 860809,
-      "endMs": 863761
+      "startMs": 1441560,
+      "endMs": 1443950
     },
     {
       "index": 219,
-      "text": "Hey.",
+      "text": "Marie, I have nothing to say. Well, I do.",
       "kind": "dialogue",
-      "startMs": 867015,
-      "endMs": 870434
+      "startMs": 1458280,
+      "endMs": 1461398
     },
     {
       "index": 220,
-      "text": "Hey.",
+      "text": "So you can just sit there and listen.",
       "kind": "dialogue",
-      "startMs": 870485,
-      "endMs": 871902
+      "startMs": 1461640,
+      "endMs": 1464519
     },
     {
       "index": 221,
-      "text": "I'm leaving you a barrel.",
+      "text": "I got a call from Hank. He arrested Walt three hours ago.",
       "kind": "dialogue",
-      "startMs": 871937,
-      "endMs": 874104
+      "startMs": 1465800,
+      "endMs": 1470720
     },
     {
       "index": 222,
-      "text": "Boys are gonna load it for you.",
+      "text": "It's over.",
       "kind": "dialogue",
-      "startMs": 874156,
-      "endMs": 877775
+      "startMs": 1470920,
+      "endMs": 1472479
     },
     {
       "index": 223,
-      "text": "You got the keys for these cuffs?",
+      "text": "\"Dead to rights\" I believe is the expression.",
       "kind": "dialogue",
-      "startMs": 877826,
-      "endMs": 880027
+      "startMs": 1472680,
+      "endMs": 1475479
     },
     {
       "index": 224,
-      "text": "[Handcuffs rattle]",
-      "kind": "sdh",
-      "startMs": 885200,
-      "endMs": 887535
+      "text": "Hank and Steve Gomez are working with a former associate of Walt's, Jesse Pinkman, whom I know you know, and Pinkman has supplied them with everything they need.",
+      "kind": "dialogue",
+      "startMs": 1475680,
+      "endMs": 1486351
     },
     {
       "index": 225,
-      "text": "I'm sorry for your loss.",
+      "text": "Hank is booking Walt as we speak.",
       "kind": "dialogue",
-      "startMs": 891206,
-      "endMs": 893174
+      "startMs": 1487720,
+      "endMs": 1491430
     },
     {
       "index": 226,
-      "text": "My nephew here, he respects you.",
+      "text": "And I, for one, could not be happier.",
       "kind": "dialogue",
-      "startMs": 897679,
-      "endMs": 900247
+      "startMs": 1491640,
+      "endMs": 1494235
     },
     {
       "index": 227,
-      "text": "He would never forgive me if things... went another way.",
+      "text": "I almost didn't come here.",
       "kind": "dialogue",
-      "startMs": 900265,
-      "endMs": 907354
+      "startMs": 1500080,
+      "endMs": 1502117
     },
     {
       "index": 228,
-      "text": "Also, I'll be honest, you caught me in one hell of a good mood.",
+      "text": "Christ, I barely even know who you are, and I sure as hell don't know if I can ever trust you again.",
       "kind": "dialogue",
-      "startMs": 907389,
-      "endMs": 909890
+      "startMs": 1503040,
+      "endMs": 1509471
     },
     {
       "index": 229,
-      "text": "So here's what's gonna happen.",
+      "text": "And then I think about how you were so upset with Walt and how you wanted the kids out of the house, and all of this makes me believe that there has got to be hope for you, that whatever he did to you can be undone.",
       "kind": "dialogue",
-      "startMs": 909924,
-      "endMs": 911258
+      "startMs": 1514680,
+      "endMs": 1531309
     },
     {
       "index": 230,
-      "text": "You're gonna get in your car and you're gonna drive out of here.",
+      "text": "All I know, all I have been forcing myself to remember, is that you are my sister.",
       "kind": "dialogue",
-      "startMs": 911276,
-      "endMs": 915112
+      "startMs": 1534400,
+      "endMs": 1541639
     },
     {
       "index": 231,
-      "text": "All right?",
+      "text": "And so I'm here.",
       "kind": "dialogue",
-      "startMs": 915146,
-      "endMs": 917147
+      "startMs": 1543440,
+      "endMs": 1545238
     },
     {
       "index": 232,
-      "text": "No hard feelings.",
+      "text": "Marie—Everything changes now.",
       "kind": "dialogue",
-      "startMs": 917199,
-      "endMs": 920234
+      "startMs": 1550120,
+      "endMs": 1551793
     },
     {
       "index": 233,
-      "text": "Understand me?",
+      "text": "And you have got to prepare yourself.",
       "kind": "dialogue",
-      "startMs": 920268,
-      "endMs": 923270
+      "startMs": 1552000,
+      "endMs": 1555038
     },
     {
       "index": 234,
-      "text": "We square?",
+      "text": "Hank will help you as much as he can. I know he will.",
       "kind": "dialogue",
-      "startMs": 923288,
-      "endMs": 926373
+      "startMs": 1555280,
+      "endMs": 1558398
     },
     {
       "index": 235,
-      "text": "Hey, man, I gotta know we're square.",
+      "text": "And I will support you through this.",
       "kind": "dialogue",
-      "startMs": 926408,
-      "endMs": 928375
+      "startMs": 1558600,
+      "endMs": 1563436
     },
     {
       "index": 236,
-      "text": "Or we're gonna have to go that other way.",
+      "text": "But I have conditions.",
       "kind": "dialogue",
-      "startMs": 928410,
-      "endMs": 930611
+      "startMs": 1563640,
+      "endMs": 1565757
     },
     {
       "index": 237,
-      "text": "Pinkman.",
+      "text": "Give me every single copy of that obscenity that the two of you made to discredit Hank.",
       "kind": "dialogue",
-      "startMs": 945176,
-      "endMs": 947272
+      "startMs": 1566880,
+      "endMs": 1570880
     },
     {
       "index": 238,
-      "text": "Pinkman.",
+      "text": "That DVD. Every single copy.",
       "kind": "dialogue",
-      "startMs": 949814,
-      "endMs": 952516
+      "startMs": 1571040,
+      "endMs": 1575956
     },
     {
       "index": 239,
-      "text": "You still owe me.",
+      "text": "You understand me?",
       "kind": "dialogue",
-      "startMs": 952567,
-      "endMs": 955315
+      "startMs": 1576640,
+      "endMs": 1578393
     },
     {
       "index": 240,
-      "text": "If you can find him, we'll kill him.",
+      "text": "Answer me. Do you understand me?",
       "kind": "dialogue",
-      "startMs": 957105,
-      "endMs": 959440
+      "startMs": 1579240,
+      "endMs": 1580993
     },
     {
       "index": 241,
-      "text": "Found him.",
+      "text": "Yes.",
       "kind": "dialogue",
-      "startMs": 962477,
-      "endMs": 964811
+      "startMs": 1581200,
+      "endMs": 1582634
     },
     {
       "index": 242,
-      "text": "[Breathing heavily]",
-      "kind": "sdh",
-      "startMs": 968950,
-      "endMs": 972753
+      "text": "Good.",
+      "kind": "dialogue",
+      "startMs": 1584160,
+      "endMs": 1585753
     },
     {
       "index": 243,
-      "text": "[Jesse] No!",
+      "text": "Now dry your eyes and get Flynn in here.",
       "kind": "dialogue",
-      "startMs": 972787,
-      "endMs": 975422
+      "startMs": 1588520,
+      "endMs": 1590557
     },
     {
       "index": 244,
-      "text": "Get off me!",
+      "text": "You are going to tell him everything, and I mean everything.",
       "kind": "dialogue",
-      "startMs": 975457,
-      "endMs": 978125
+      "startMs": 1590720,
+      "endMs": 1593838
     },
     {
       "index": 245,
-      "text": "Get off!",
+      "text": "He deserves to know the truth from his family.",
       "kind": "dialogue",
-      "startMs": 978159,
-      "endMs": 979710
+      "startMs": 1594000,
+      "endMs": 1596390
     },
     {
       "index": 246,
-      "text": "[Grunts]",
-      "kind": "sdh",
-      "startMs": 979761,
-      "endMs": 982930
+      "text": "Not a bunch of uniformed strangers.",
+      "kind": "dialogue",
+      "startMs": 1596600,
+      "endMs": 1598557
     },
     {
       "index": 247,
-      "text": "No. No.",
+      "text": "No. No. No, he cannot know. You tell him, or I will.",
       "kind": "dialogue",
-      "startMs": 982964,
-      "endMs": 984798
+      "startMs": 1598760,
+      "endMs": 1604079
     },
     {
       "index": 248,
-      "text": "[Gun cocks]",
-      "kind": "sdh",
-      "startMs": 995110,
-      "endMs": 997695
+      "text": "There's no way around this.",
+      "kind": "dialogue",
+      "startMs": 1604720,
+      "endMs": 1606677
     },
     {
       "index": 249,
-      "text": "Good to go?",
+      "text": "He needs to know, and he needs to know now.",
       "kind": "dialogue",
-      "startMs": 999981,
-      "endMs": 1001949
+      "startMs": 1606880,
+      "endMs": 1610715
     },
     {
       "index": 250,
-      "text": "Hey, Uncle Jack.",
+      "text": "No.",
       "kind": "dialogue",
-      "startMs": 1007855,
-      "endMs": 1010074
+      "startMs": 1643680,
+      "endMs": 1645080
     },
     {
       "index": 251,
-      "text": "Well, he was out here with those feds.",
+      "text": "Look, I gave you what you wanted.",
       "kind": "dialogue",
-      "startMs": 1016665,
-      "endMs": 1021218
+      "startMs": 1663000,
+      "endMs": 1665720
     },
     {
       "index": 252,
-      "text": "Right? Working with them.",
+      "text": "Come on, please.",
       "kind": "dialogue",
-      "startMs": 1021252,
-      "endMs": 1022419
+      "startMs": 1666280,
+      "endMs": 1668158
     },
     {
       "index": 253,
-      "text": "Shouldn't we maybe find out what he told them first?",
+      "text": "Hey, please.",
       "kind": "dialogue",
-      "startMs": 1022470,
-      "endMs": 1025139
+      "startMs": 1668360,
+      "endMs": 1669714
     },
     {
       "index": 254,
-      "text": "'Cause, I mean, he had to have told them some stuff that might not be too good for us.",
+      "text": "I told you where to find the tape, okay? Yup.",
       "kind": "dialogue",
-      "startMs": 1025173,
-      "endMs": 1031895
+      "startMs": 1669920,
+      "endMs": 1672355
     },
     {
       "index": 255,
-      "text": "And I'll bet we could get it out of him back home.",
+      "text": "Hey, just go.",
       "kind": "dialogue",
-      "startMs": 1031930,
-      "endMs": 1036066
+      "startMs": 1672600,
+      "endMs": 1674876
     },
     {
       "index": 256,
-      "text": "I mean, I can do it.",
+      "text": "Just go there. Just go to his house and get it.",
       "kind": "dialogue",
-      "startMs": 1036101,
-      "endMs": 1039219
+      "startMs": 1675080,
+      "endMs": 1677595
     },
     {
       "index": 257,
-      "text": "Me and him, we got-- we got history.",
+      "text": "We're on it. Get it!",
       "kind": "dialogue",
-      "startMs": 1039237,
-      "endMs": 1043023
+      "startMs": 1677800,
+      "endMs": 1680599
     },
     {
       "index": 258,
-      "text": "And then, you know, we'd take care of the job after that.",
+      "text": "No one else knows about it. Just me and his partner.",
       "kind": "dialogue",
-      "startMs": 1045577,
-      "endMs": 1051081
+      "startMs": 1681720,
+      "endMs": 1685270
     },
     {
       "index": 259,
-      "text": "Works for me. Work for you?",
+      "text": "Okay. No one else knows, I swear!",
       "kind": "dialogue",
-      "startMs": 1051116,
-      "endMs": 1053117
+      "startMs": 1685480,
+      "endMs": 1688439
     },
     {
       "index": 260,
-      "text": "Let's go. No.",
+      "text": "Let's cook.",
       "kind": "dialogue",
-      "startMs": 1059073,
-      "endMs": 1060341
+      "startMs": 1801760,
+      "endMs": 1803353
     },
     {
       "index": 261,
-      "text": "No!",
+      "text": "You're completely out of your mind.",
       "kind": "dialogue",
-      "startMs": 1060375,
-      "endMs": 1062042
+      "startMs": 1814200,
+      "endMs": 1817557
     },
     {
       "index": 262,
-      "text": "No!",
+      "text": "It's the truth. It is, Flynn.",
       "kind": "dialogue",
-      "startMs": 1062076,
-      "endMs": 1063927
+      "startMs": 1818600,
+      "endMs": 1820637
     },
     {
       "index": 263,
-      "text": "No!",
+      "text": "Then both of you are out of your minds.",
       "kind": "dialogue",
-      "startMs": 1063962,
-      "endMs": 1065095
+      "startMs": 1820880,
+      "endMs": 1823111
     },
     {
       "index": 264,
-      "text": "Wait.",
+      "text": "You're full of shit, is what you are. Both of you.",
       "kind": "dialogue",
-      "startMs": 1065130,
-      "endMs": 1067014
+      "startMs": 1823320,
+      "endMs": 1825994
     },
     {
       "index": 265,
-      "text": "I watched Jane die.",
+      "text": "If this is true, then how could you keep this a secret?",
       "kind": "dialogue",
-      "startMs": 1077192,
-      "endMs": 1079860
+      "startMs": 1826200,
+      "endMs": 1830160
     },
     {
       "index": 266,
-      "text": "I was there.",
+      "text": "I mean, why? Why would you go along?",
       "kind": "dialogue",
-      "startMs": 1087435,
-      "endMs": 1090437
+      "startMs": 1830360,
+      "endMs": 1834718
     },
     {
       "index": 267,
-      "text": "And I watched her die.",
+      "text": "I'll be asking myself that for the rest of my life.",
       "kind": "dialogue",
-      "startMs": 1090455,
-      "endMs": 1093774
+      "startMs": 1836240,
+      "endMs": 1839233
     },
     {
       "index": 268,
-      "text": "I watched her overdose and choke to death.",
+      "text": "So you're saying all this time you were lying about this?",
       "kind": "dialogue",
-      "startMs": 1093792,
-      "endMs": 1100297
+      "startMs": 1839480,
+      "endMs": 1843156
     },
     {
       "index": 269,
-      "text": "I could have saved her.",
+      "text": "I mean, so you're saying you're a liar.",
       "kind": "dialogue",
-      "startMs": 1100331,
-      "endMs": 1103667
+      "startMs": 1843400,
+      "endMs": 1846711
     },
     {
       "index": 270,
-      "text": "But I didn't.",
+      "text": "You just admitted it.",
       "kind": "dialogue",
-      "startMs": 1103718,
-      "endMs": 1106754
+      "startMs": 1846920,
+      "endMs": 1848877
     },
     {
       "index": 271,
-      "text": "[Engine starts]",
-      "kind": "sdh",
-      "startMs": 1120602,
-      "endMs": 1123187
+      "text": "So were you lying then, or are you lying now?",
+      "kind": "dialogue",
+      "startMs": 1849080,
+      "endMs": 1852676
     },
     {
       "index": 272,
-      "text": "[Engine starts]",
-      "kind": "sdh",
-      "startMs": 1183834,
-      "endMs": 1186702
+      "text": "Which lie is it?",
+      "kind": "dialogue",
+      "startMs": 1852880,
+      "endMs": 1854280
     },
     {
       "index": 273,
-      "text": "[Bell dinging, engine faltering]",
-      "kind": "sdh",
-      "startMs": 1197130,
-      "endMs": 1200832
+      "text": "Flynn, honey, your mother is telling you the truth.",
+      "kind": "dialogue",
+      "startMs": 1854480,
+      "endMs": 1857154
     },
     {
       "index": 274,
-      "text": "[Sighs]",
-      "kind": "sdh",
-      "startMs": 1228662,
-      "endMs": 1231029
+      "text": "Right here, right now. Believe it.",
+      "kind": "dialogue",
+      "startMs": 1857360,
+      "endMs": 1860114
     },
     {
       "index": 275,
-      "text": "[Exhales]",
-      "kind": "sdh",
-      "startMs": 1236052,
-      "endMs": 1237887
+      "text": "You know what? This is bullshit. This is bullshit.",
+      "kind": "dialogue",
+      "startMs": 1860320,
+      "endMs": 1864280
     },
     {
       "index": 276,
-      "text": "[Coughs]",
-      "kind": "sdh",
-      "startMs": 1282799,
-      "endMs": 1285100
+      "text": "Baby—I wanna talk to Dad.",
+      "kind": "dialogue",
+      "startMs": 1864480,
+      "endMs": 1865994
     },
     {
       "index": 277,
-      "text": "[Breathing heavily]",
-      "kind": "sdh",
-      "startMs": 1286803,
-      "endMs": 1289087
+      "text": "Your dad's in custody. You can't talk to him for a while.",
+      "kind": "dialogue",
+      "startMs": 1866200,
+      "endMs": 1869238
     },
     {
       "index": 278,
-      "text": "[Groans]",
-      "kind": "sdh",
-      "startMs": 1304103,
-      "endMs": 1306155
+      "text": "I'm calling Uncle Hank. I've tried. He's not answering.",
+      "kind": "dialogue",
+      "startMs": 1869440,
+      "endMs": 1872433
     },
     {
       "index": 279,
-      "text": "[Coughs loudly]",
-      "kind": "sdh",
-      "startMs": 1374974,
-      "endMs": 1378027
+      "text": "He's probably in the thick of it with your father. Honey, I know this is a lot to process, Flynn, but if you could just breathe, just try to breathe and just trust—Really? Really? Try to breathe?",
+      "kind": "dialogue",
+      "startMs": 1872680,
+      "endMs": 1884352
     },
     {
       "index": 280,
-      "text": "Hi.",
+      "text": "Oh, my God.",
       "kind": "dialogue",
-      "startMs": 1378261,
-      "endMs": 1379761
+      "startMs": 1886680,
+      "endMs": 1888114
     },
     {
       "index": 281,
-      "text": "Hello.",
+      "text": "Go home.",
       "kind": "dialogue",
-      "startMs": 1379812,
-      "endMs": 1381565
+      "startMs": 1892520,
+      "endMs": 1893840
     },
     {
       "index": 282,
-      "text": "That truck belong to you?",
+      "text": "Just take the kids home, okay? Go home and regroup.",
       "kind": "dialogue",
-      "startMs": 1383049,
-      "endMs": 1384783
+      "startMs": 1894040,
+      "endMs": 1896714
     },
     {
       "index": 283,
-      "text": "It does.",
+      "text": "I'll stop by later.",
       "kind": "dialogue",
-      "startMs": 1387386,
-      "endMs": 1389605
+      "startMs": 1896920,
+      "endMs": 1898877
     },
     {
       "index": 284,
-      "text": "I'd like to buy it.",
+      "text": "Flynn?",
       "kind": "dialogue",
-      "startMs": 1389656,
-      "endMs": 1392608
+      "startMs": 1931800,
+      "endMs": 1933280
     },
     {
       "index": 285,
-      "text": "It's not for sale.",
+      "text": "Could you put your seatbelt on, please?",
       "kind": "dialogue",
-      "startMs": 1392659,
-      "endMs": 1394776
+      "startMs": 1935200,
+      "endMs": 1937840
     },
     {
       "index": 286,
-      "text": "[Coughs]",
-      "kind": "sdh",
-      "startMs": 1399332,
-      "endMs": 1403085
+      "text": "Please. It's not safe.",
+      "kind": "dialogue",
+      "startMs": 1941280,
+      "endMs": 1943715
     },
     {
       "index": 287,
-      "text": "Hey, Walt, it's me.",
+      "text": "You're shitting me, right?",
       "kind": "dialogue",
-      "startMs": 1419752,
-      "endMs": 1421386
+      "startMs": 1944440,
+      "endMs": 1946591
     },
     {
       "index": 288,
-      "text": "Um, just thought I'd try you again.",
+      "text": "If all this is true and you knew about it, then you're as bad as him.",
       "kind": "dialogue",
-      "startMs": 1421420,
-      "endMs": 1424222
+      "startMs": 1950800,
+      "endMs": 1958237
     },
     {
       "index": 289,
-      "text": "We were just wondering when you thought you'd be back, so, um, just give us a call whenever you can.",
+      "text": "Whose truck is that?",
       "kind": "dialogue",
-      "startMs": 1424256,
-      "endMs": 1431897
+      "startMs": 1968760,
+      "endMs": 1970877
     },
     {
       "index": 290,
-      "text": "Bye.",
+      "text": "Dad?",
       "kind": "dialogue",
-      "startMs": 1431931,
-      "endMs": 1434900
+      "startMs": 1976720,
+      "endMs": 1978313
     },
     {
       "index": 291,
-      "text": "Hey, Aunt Marie.",
+      "text": "Listen, I need you to come inside and pack right now.",
       "kind": "dialogue",
-      "startMs": 1434934,
-      "endMs": 1436868
+      "startMs": 1979880,
+      "endMs": 1984352
     },
     {
       "index": 292,
-      "text": "Hey, sweetie.",
+      "text": "Mom, Aunt Marie, they said that you were arrested? No, just—329 00:33:08,480 --> 00:33:10,153 You're some kind of drug dealer?",
       "kind": "dialogue",
-      "startMs": 1436903,
-      "endMs": 1439871
+      "startMs": 1984560,
+      "endMs": 1988313
     },
     {
       "index": 293,
-      "text": "I haven't seen you for a while.",
+      "text": "No, just come inside, please. Now.",
       "kind": "dialogue",
-      "startMs": 1439906,
-      "endMs": 1441490
+      "startMs": 1990360,
+      "endMs": 1992352
     },
     {
       "index": 294,
-      "text": "What have you been up to?",
+      "text": "Come inside. Come on.",
       "kind": "dialogue",
-      "startMs": 1441541,
-      "endMs": 1442708
+      "startMs": 1992560,
+      "endMs": 1993710
     },
     {
       "index": 295,
-      "text": "Oh, you know. This and that.",
+      "text": "Go, go, go.",
       "kind": "dialogue",
-      "startMs": 1442742,
-      "endMs": 1445043
+      "startMs": 1993920,
+      "endMs": 1995752
     },
     {
       "index": 296,
-      "text": "Your mom and I need to talk, so... thought I'd stop by.",
+      "text": "Dad, stop. Just talk to me, please. Our priority right now is to pack.",
       "kind": "dialogue",
-      "startMs": 1445078,
-      "endMs": 1448947
+      "startMs": 1995920,
+      "endMs": 1999709
     },
     {
       "index": 297,
-      "text": "Well, I, uh, wish you'd called first.",
+      "text": "Uncle Hank, they said he arrested you? I will discuss all of this later, okay?",
       "kind": "dialogue",
-      "startMs": 1448965,
-      "endMs": 1452117
+      "startMs": 1999880,
+      "endMs": 2004033
     },
     {
       "index": 298,
-      "text": "This isn't the best time.",
+      "text": "Just tell me what—336 00:33:25,560 --> 00:33:26,710 Just listen to me!",
       "kind": "dialogue",
-      "startMs": 1452135,
-      "endMs": 1454720
+      "startMs": 2004240,
+      "endMs": 2005356
     },
     {
       "index": 299,
-      "text": "Well, Flynn looks like he can hold down the fort.",
+      "text": "Go into your bedroom now, grab anything important.",
       "kind": "dialogue",
-      "startMs": 1454754,
-      "endMs": 1457255
+      "startMs": 2006920,
+      "endMs": 2009594
     },
     {
       "index": 300,
-      "text": "Why don't we go into your office?",
+      "text": "You understand? Go. Now. Both of you. Go.",
       "kind": "dialogue",
-      "startMs": 1457289,
-      "endMs": 1459290
+      "startMs": 2009800,
+      "endMs": 2012952
     },
     {
       "index": 301,
-      "text": "I-- I got it.",
+      "text": "Walt.",
       "kind": "dialogue",
-      "startMs": 1465431,
-      "endMs": 1467516
+      "startMs": 2013160,
+      "endMs": 2014276
     },
     {
       "index": 302,
-      "text": "Okay, honey. Thanks.",
+      "text": "Why are you here?",
       "kind": "dialogue",
-      "startMs": 1467567,
-      "endMs": 1470519
+      "startMs": 2016640,
+      "endMs": 2017710
     },
     {
       "index": 303,
-      "text": "Marie, I have nothing to say.",
+      "text": "Skyler, please, will you just go get your things?",
       "kind": "dialogue",
-      "startMs": 1484667,
-      "endMs": 1486484
+      "startMs": 2018280,
+      "endMs": 2020795
     },
     {
       "index": 304,
-      "text": "Well, I do.",
+      "text": "For you and the kids. Now. This is our priority.",
       "kind": "dialogue",
-      "startMs": 1486502,
-      "endMs": 1487669
+      "startMs": 2021000,
+      "endMs": 2023037
     },
     {
       "index": 305,
-      "text": "So you can just sit there and listen.",
+      "text": "Hank had you in custody. He wouldn't just let you go.",
       "kind": "dialogue",
-      "startMs": 1487704,
-      "endMs": 1490923
+      "startMs": 2023560,
+      "endMs": 2027076
     },
     {
       "index": 306,
-      "text": "I got a call from Hank.",
+      "text": "Where is he? I-- Where's Hank? I...",
       "kind": "dialogue",
-      "startMs": 1492208,
-      "endMs": 1494793
+      "startMs": 2027920,
+      "endMs": 2032199
     },
     {
       "index": 307,
-      "text": "He arrested Walt three hours ago.",
+      "text": "I negotiated—347 00:33:53,760 --> 00:33:55,399 Negotiated? Yes.",
       "kind": "dialogue",
-      "startMs": 1494827,
-      "endMs": 1497328
+      "startMs": 2032400,
+      "endMs": 2033516
     },
     {
       "index": 308,
-      "text": "It's over.",
+      "text": "What does that mean?",
       "kind": "dialogue",
-      "startMs": 1497347,
-      "endMs": 1498714
+      "startMs": 2035600,
+      "endMs": 2037478
     },
     {
       "index": 309,
-      "text": "\"Dead to rights\" I believe is the expression.",
+      "text": "It means we're fine, okay?",
       "kind": "dialogue",
-      "startMs": 1498765,
-      "endMs": 1501883
+      "startMs": 2039640,
+      "endMs": 2042712
     },
     {
       "index": 310,
-      "text": "Hank and Steve Gomez are working with a former associate of Walt's, Jesse Pinkman, whom I know you know, and Pinkman has supplied them with everything they need.",
+      "text": "We are. We're fine. Everything is gonna be fine, but we need to leave right now.",
       "kind": "dialogue",
-      "startMs": 1501934,
-      "endMs": 1514196
+      "startMs": 2042920,
+      "endMs": 2047598
     },
     {
       "index": 311,
-      "text": "Hank is booking Walt as we speak.",
+      "text": "All right? Can we do that?",
       "kind": "dialogue",
-      "startMs": 1514230,
-      "endMs": 1518066
+      "startMs": 2047800,
+      "endMs": 2048836
     },
     {
       "index": 312,
-      "text": "And I, for one, could not be happier.",
+      "text": "What happened?",
       "kind": "dialogue",
-      "startMs": 1518117,
-      "endMs": 1520569
+      "startMs": 2049000,
+      "endMs": 2050070
     },
     {
       "index": 313,
-      "text": "I almost didn't come here.",
+      "text": "Where is Hank?",
       "kind": "dialogue",
-      "startMs": 1526626,
-      "endMs": 1529327
+      "startMs": 2050920,
+      "endMs": 2052354
     },
     {
       "index": 314,
-      "text": "Christ, I barely even know who you are, and I sure as hell don't know if I can ever trust you again.",
+      "text": "Why do we need to leave?",
       "kind": "dialogue",
-      "startMs": 1529362,
-      "endMs": 1536001
+      "startMs": 2052560,
+      "endMs": 2053960
     },
     {
       "index": 315,
-      "text": "And then I think about how you are so upset with Walt and how you wanted the kids out of the house, and all of this makes me believe that there has got to be hope for you, that whatever he did to you can be undone.",
+      "text": "I need both of you to trust me.",
       "kind": "dialogue",
-      "startMs": 1541140,
-      "endMs": 1557255
+      "startMs": 2054160,
+      "endMs": 2057676
     },
     {
       "index": 316,
-      "text": "All I know-- all I have been forcing myself to remember, is that you are my sister.",
+      "text": "Right now, okay?",
       "kind": "dialogue",
-      "startMs": 1560827,
-      "endMs": 1568166
+      "startMs": 2057880,
+      "endMs": 2059837
     },
     {
       "index": 317,
-      "text": "And so I'm here.",
+      "text": "Please, just work with me here, and I promise I will explain everything later, okay?",
       "kind": "dialogue",
-      "startMs": 1569936,
-      "endMs": 1572304
+      "startMs": 2060040,
+      "endMs": 2065996
     },
     {
       "index": 318,
-      "text": "Marie.",
+      "text": "Where is Hank?",
       "kind": "dialogue",
-      "startMs": 1576309,
-      "endMs": 1577309
+      "startMs": 2066200,
+      "endMs": 2070797
     },
     {
       "index": 319,
-      "text": "Everything changes now.",
+      "text": "Skyler.",
       "kind": "dialogue",
-      "startMs": 1577343,
-      "endMs": 1578343
+      "startMs": 2074480,
+      "endMs": 2076039
     },
     {
       "index": 320,
-      "text": "And you have got to prepare yourself.",
+      "text": "I have $11 million in cash right outside.",
       "kind": "dialogue",
-      "startMs": 1578377,
-      "endMs": 1581680
+      "startMs": 2079200,
+      "endMs": 2085720
     },
     {
       "index": 321,
-      "text": "Hank will help you as much as he can.",
+      "text": "We can have a fresh start.",
       "kind": "dialogue",
-      "startMs": 1581714,
-      "endMs": 1584415
+      "startMs": 2086320,
+      "endMs": 2088516
     },
     {
       "index": 322,
-      "text": "I know he will.",
+      "text": "Whole new lives.",
       "kind": "dialogue",
-      "startMs": 1584434,
-      "endMs": 1585434
+      "startMs": 2089480,
+      "endMs": 2091756
     },
     {
       "index": 323,
-      "text": "And... I will support you through this.",
+      "text": "All we have to do is go.",
       "kind": "dialogue",
-      "startMs": 1585468,
-      "endMs": 1589971
+      "startMs": 2092720,
+      "endMs": 2095952
     },
     {
       "index": 324,
-      "text": "But I have conditions.",
+      "text": "We have to go right now.",
       "kind": "dialogue",
-      "startMs": 1590022,
-      "endMs": 1593442
+      "startMs": 2096160,
+      "endMs": 2098470
     },
     {
       "index": 325,
-      "text": "I want you to give me every single copy of that obscenity that the two of you made to discredit Hank.",
+      "text": "That's all we have to do.",
       "kind": "dialogue",
-      "startMs": 1593476,
-      "endMs": 1597596
+      "startMs": 2098680,
+      "endMs": 2101070
     },
     {
       "index": 326,
-      "text": "That DVD. Every single copy.",
+      "text": "You killed him.",
       "kind": "dialogue",
-      "startMs": 1597630,
-      "endMs": 1603101
+      "startMs": 2104320,
+      "endMs": 2107279
     },
     {
       "index": 327,
-      "text": "You understand me?",
+      "text": "You killed Hank.",
       "kind": "dialogue",
-      "startMs": 1603136,
-      "endMs": 1605737
+      "startMs": 2111480,
+      "endMs": 2113278
     },
     {
       "index": 328,
-      "text": "Answer me. Do you understand me?",
+      "text": "What? No, no, no.",
       "kind": "dialogue",
-      "startMs": 1605771,
-      "endMs": 1607572
+      "startMs": 2113480,
+      "endMs": 2115039
     },
     {
       "index": 329,
-      "text": "Yes.",
+      "text": "You killed him. Aah! No, no, no!",
       "kind": "dialogue",
-      "startMs": 1607607,
-      "endMs": 1610542
+      "startMs": 2115240,
+      "endMs": 2117800
     },
     {
       "index": 330,
-      "text": "Good.",
+      "text": "I tried to save him.",
       "kind": "dialogue",
-      "startMs": 1610576,
-      "endMs": 1614446
+      "startMs": 2118000,
+      "endMs": 2119719
     },
     {
       "index": 331,
-      "text": "Now dry your eyes and get Flynn in here, because you are going to tell him everything, and I mean everything, Skyler.",
+      "text": "Uncle Hank is dead? I-- Mom, it can't be true. It just can't be true. Just stop, please.",
       "kind": "dialogue",
-      "startMs": 1614480,
-      "endMs": 1619885
+      "startMs": 2119920,
+      "endMs": 2125831
     },
     {
       "index": 332,
-      "text": "He deserves to know the truth from his family.",
+      "text": "Everything is gonna be okay.",
       "kind": "dialogue",
-      "startMs": 1619919,
-      "endMs": 1623155
+      "startMs": 2126040,
+      "endMs": 2127997
     },
     {
       "index": 333,
-      "text": "Not a bunch of uniformed strangers.",
+      "text": "Everything's gonna be fine, I promise, but we need to leave right now.",
       "kind": "dialogue",
-      "startMs": 1623189,
-      "endMs": 1624656
+      "startMs": 2128200,
+      "endMs": 2131910
     },
     {
       "index": 334,
-      "text": "No. No. No, he cannot-- No.",
+      "text": "Dad, what's going on? Talk to me.",
       "kind": "dialogue",
-      "startMs": 1624690,
-      "endMs": 1627476
+      "startMs": 2132120,
+      "endMs": 2134589
     },
     {
       "index": 335,
-      "text": "You tell him. Or I will.",
+      "text": "Just stop for one second.",
       "kind": "dialogue",
-      "startMs": 1627510,
-      "endMs": 1631129
+      "startMs": 2134800,
+      "endMs": 2137156
     },
     {
       "index": 336,
-      "text": "There's no way around this.",
+      "text": "Look, I told you to get your things. Stop walking away.",
       "kind": "dialogue",
-      "startMs": 1631147,
-      "endMs": 1633265
+      "startMs": 2137400,
+      "endMs": 2140518
     },
     {
       "index": 337,
-      "text": "He needs to know, and he needs to know now.",
+      "text": "There is no time. Tell me about Uncle Hank.",
       "kind": "dialogue",
-      "startMs": 1633299,
-      "endMs": 1636935
+      "startMs": 2140720,
+      "endMs": 2143030
     },
     {
       "index": 338,
-      "text": "[Sighs]",
-      "kind": "sdh",
-      "startMs": 1636969,
-      "endMs": 1640205
+      "text": "No, just drop it! But what's wrong with you?",
+      "kind": "dialogue",
+      "startMs": 2143280,
+      "endMs": 2145636
     },
     {
       "index": 339,
-      "text": "[Whimpering]",
-      "kind": "sdh",
-      "startMs": 1653336,
-      "endMs": 1657622
+      "text": "We're going. We're going right now.",
+      "kind": "dialogue",
+      "startMs": 2145840,
+      "endMs": 2147832
     },
     {
       "index": 340,
-      "text": "No. [Groaning]",
+      "text": "You have to tell me. Dad, wait.",
       "kind": "dialogue",
-      "startMs": 1670002,
-      "endMs": 1673138
+      "startMs": 2148040,
+      "endMs": 2150032
     },
     {
       "index": 341,
-      "text": "Look, I gave you what you wanted.",
+      "text": "What happened to Uncle Hank? What--?",
       "kind": "dialogue",
-      "startMs": 1689372,
-      "endMs": 1692624
+      "startMs": 2150240,
+      "endMs": 2153677
     },
     {
       "index": 342,
-      "text": "Come on. Man, please.",
+      "text": "Get out.",
       "kind": "dialogue",
-      "startMs": 1692658,
-      "endMs": 1694993
+      "startMs": 2157880,
+      "endMs": 2159155
     },
     {
       "index": 343,
-      "text": "Hey, please.",
+      "text": "Skyler, I promise you, we will figure this out.",
       "kind": "dialogue",
-      "startMs": 1695027,
-      "endMs": 1696461
+      "startMs": 2160280,
+      "endMs": 2162749
     },
     {
       "index": 344,
-      "text": "I told you where to find the tape, okay?",
+      "text": "Enough. Mom, what are you doing?",
       "kind": "dialogue",
-      "startMs": 1696495,
-      "endMs": 1699047
+      "startMs": 2162960,
+      "endMs": 2166679
     },
     {
       "index": 345,
-      "text": "Hey, just-- just-- just go.",
+      "text": "Skyler, put the knife down, please.",
       "kind": "dialogue",
-      "startMs": 1699081,
-      "endMs": 1701416
+      "startMs": 2166880,
+      "endMs": 2169076
     },
     {
       "index": 346,
-      "text": "Just-- just go there.",
+      "text": "I promise you, everything—Don't say one more word.",
       "kind": "dialogue",
-      "startMs": 1701467,
-      "endMs": 1702751
+      "startMs": 2169280,
+      "endMs": 2174958
     },
     {
       "index": 347,
-      "text": "Just go to his house and get it.",
+      "text": "Get out of here now.",
       "kind": "dialogue",
-      "startMs": 1702802,
-      "endMs": 1704219
+      "startMs": 2175680,
+      "endMs": 2178798
     },
     {
       "index": 348,
-      "text": "We're on it.",
+      "text": "Skyler—Get out!",
       "kind": "dialogue",
-      "startMs": 1704253,
-      "endMs": 1705253
+      "startMs": 2179480,
+      "endMs": 2181711
     },
     {
       "index": 349,
-      "text": "Get it!",
+      "text": "Stop it! Just stop! Just stop!",
       "kind": "dialogue",
-      "startMs": 1705304,
-      "endMs": 1707756
+      "startMs": 2187160,
+      "endMs": 2191313
     },
     {
       "index": 350,
-      "text": "No one else knows about it.",
+      "text": "Let go! Let go! Get away from us!",
       "kind": "dialogue",
-      "startMs": 1707807,
-      "endMs": 1709925
+      "startMs": 2191520,
+      "endMs": 2195275
     },
     {
       "index": 351,
-      "text": "Just me and his partner.",
+      "text": "Just stop! Stop!",
       "kind": "dialogue",
-      "startMs": 1709976,
-      "endMs": 1711760
+      "startMs": 2195480,
+      "endMs": 2197312
     },
     {
       "index": 352,
-      "text": "[Todd] Okay.",
+      "text": "Dad, stop it! Stop!",
       "kind": "dialogue",
-      "startMs": 1711811,
-      "endMs": 1712811
+      "startMs": 2197760,
+      "endMs": 2200434
     },
     {
       "index": 353,
-      "text": "No one else knows! I swear!",
+      "text": "Mom, stop it.",
       "kind": "dialogue",
-      "startMs": 1712845,
-      "endMs": 1715013
+      "startMs": 2200640,
+      "endMs": 2202279
     },
     {
       "index": 354,
-      "text": "[Groans]",
-      "kind": "sdh",
-      "startMs": 1721487,
-      "endMs": 1724022
+      "text": "Stop, Dad. Stop it now. Stop.",
+      "kind": "dialogue",
+      "startMs": 2202880,
+      "endMs": 2205076
     },
     {
       "index": 355,
-      "text": "[Grunts]",
-      "kind": "sdh",
-      "startMs": 1796462,
-      "endMs": 1798563
+      "text": "Stop! Just, please, stop!",
+      "kind": "dialogue",
+      "startMs": 2205280,
+      "endMs": 2208034
     },
     {
       "index": 356,
-      "text": "Let's cook.",
+      "text": "Stop it! Stop! Stop it!",
       "kind": "dialogue",
-      "startMs": 1828227,
-      "endMs": 1829828
+      "startMs": 2208600,
+      "endMs": 2211991
     },
     {
       "index": 357,
-      "text": "You're completely out of your mind.",
+      "text": "What the hell is wrong with you?! We're a family!",
       "kind": "dialogue",
-      "startMs": 1839284,
-      "endMs": 1843854
+      "startMs": 2218360,
+      "endMs": 2222149
     },
     {
       "index": 358,
-      "text": "It's the truth.",
+      "text": "We're a family.",
       "kind": "dialogue",
-      "startMs": 1843888,
-      "endMs": 1845422
+      "startMs": 2227720,
+      "endMs": 2229439
     },
     {
       "index": 359,
-      "text": "It is, Flynn.",
+      "text": "What are you doing?",
       "kind": "dialogue",
-      "startMs": 1845457,
-      "endMs": 1846507
+      "startMs": 2233280,
+      "endMs": 2235272
     },
     {
       "index": 360,
-      "text": "Then both of you are out of your minds.",
+      "text": "What are you doing?",
       "kind": "dialogue",
-      "startMs": 1846541,
-      "endMs": 1848959
+      "startMs": 2235480,
+      "endMs": 2236960
     },
     {
       "index": 361,
-      "text": "You're full of shit, is what you are.",
+      "text": "Yeah, I need the police.",
       "kind": "dialogue",
-      "startMs": 1848993,
-      "endMs": 1850661
+      "startMs": 2237160,
+      "endMs": 2238389
     },
     {
       "index": 362,
-      "text": "Both of you.",
+      "text": "My dad, he pulled a knife on my mom.",
       "kind": "dialogue",
-      "startMs": 1850679,
-      "endMs": 1851679
+      "startMs": 2238600,
+      "endMs": 2241115
     },
     {
       "index": 363,
-      "text": "If-- if this is true, then how could you keep this a secret?",
+      "text": "He attacked her. He's dangerous.",
       "kind": "dialogue",
-      "startMs": 1851713,
-      "endMs": 1855883
+      "startMs": 2241320,
+      "endMs": 2243880
     },
     {
       "index": 364,
-      "text": "I mean, why? Why would you go along?",
+      "text": "I think he might have killed somebody.",
       "kind": "dialogue",
-      "startMs": 1855934,
-      "endMs": 1861555
+      "startMs": 2244080,
+      "endMs": 2247152
     },
     {
       "index": 365,
-      "text": "I'll be asking myself that for the rest of my life.",
+      "text": "Yeah.",
       "kind": "dialogue",
-      "startMs": 1861606,
-      "endMs": 1864858
+      "startMs": 2247360,
+      "endMs": 2249033
     },
     {
       "index": 366,
-      "text": "So you're saying all of this time you were lying about this?",
+      "text": "He's still here.",
       "kind": "dialogue",
-      "startMs": 1864893,
-      "endMs": 1869029
+      "startMs": 2250560,
+      "endMs": 2252552
     },
     {
       "index": 367,
-      "text": "I mean, so you're saying... you're a liar.",
+      "text": "Yeah, he's still in the house.",
       "kind": "dialogue",
-      "startMs": 1869064,
-      "endMs": 1872316
+      "startMs": 2252760,
+      "endMs": 2255594
     },
     {
       "index": 368,
-      "text": "You-- you just admitted it.",
+      "text": "We're at 308 Negra Arroyo Lane.",
       "kind": "dialogue",
-      "startMs": 1872350,
-      "endMs": 1874451
+      "startMs": 2256200,
+      "endMs": 2258760
     },
     {
       "index": 369,
-      "text": "So were you lying then, or are you lying now?",
+      "text": "308 Negra Arroyo Lane! You've gotta come quick.",
       "kind": "dialogue",
-      "startMs": 1874486,
-      "endMs": 1878288
+      "startMs": 2258960,
+      "endMs": 2262431
     },
     {
       "index": 370,
-      "text": "Which lie is it?",
+      "text": "Hurry, hurry. Oh, God, no, no!",
       "kind": "dialogue",
-      "startMs": 1878323,
-      "endMs": 1880040
+      "startMs": 2262640,
+      "endMs": 2267032
     },
     {
       "index": 371,
-      "text": "Flynn, honey, your mother is telling you the truth.",
+      "text": "Oh, my God. No.",
       "kind": "dialogue",
-      "startMs": 1880075,
-      "endMs": 1882793
+      "startMs": 2267920,
+      "endMs": 2269798
     },
     {
       "index": 372,
-      "text": "Right here, right now. Believe it.",
+      "text": "Walt, no! Walt! Mom!",
       "kind": "dialogue",
-      "startMs": 1882827,
-      "endMs": 1885412
+      "startMs": 2270000,
+      "endMs": 2272231
     },
     {
       "index": 373,
-      "text": "You know what?",
+      "text": "Walt, please, no!",
       "kind": "dialogue",
-      "startMs": 1885463,
-      "endMs": 1886863
+      "startMs": 2272440,
+      "endMs": 2274113
     },
     {
       "index": 374,
-      "text": "This-- this is bullshit.",
+      "text": "No! No! No!",
       "kind": "dialogue",
-      "startMs": 1886881,
-      "endMs": 1888865
+      "startMs": 2274320,
+      "endMs": 2277552
     },
     {
       "index": 375,
-      "text": "This is bullshit.",
+      "text": "Walt, no! Let her go!",
       "kind": "dialogue",
-      "startMs": 1888883,
-      "endMs": 1890501
+      "startMs": 2277760,
+      "endMs": 2279638
     },
     {
       "index": 376,
-      "text": "I wanna talk to dad.",
+      "text": "You can't take her!",
       "kind": "dialogue",
-      "startMs": 1890535,
-      "endMs": 1891969
+      "startMs": 2279880,
+      "endMs": 2281473
     },
     {
       "index": 377,
-      "text": "Your dad's in custody.",
+      "text": "Let her go, please! You can't take her!",
       "kind": "dialogue",
-      "startMs": 1892003,
-      "endMs": 1893537
+      "startMs": 2281680,
+      "endMs": 2284514
     },
     {
       "index": 378,
-      "text": "You won't be able to talk to him for a while, sweetie.",
+      "text": "Let her go! Walt!",
       "kind": "dialogue",
-      "startMs": 1893555,
-      "endMs": 1895639
+      "startMs": 2284760,
+      "endMs": 2286831
     },
     {
       "index": 379,
-      "text": "I'm calling Uncle Hank.",
+      "text": "Walt, please, no!",
       "kind": "dialogue",
-      "startMs": 1895674,
-      "endMs": 1896757
+      "startMs": 2287040,
+      "endMs": 2290317
     },
     {
       "index": 380,
-      "text": "I've tried. He's not answering.",
+      "text": "Walt, no! Walt, please!",
       "kind": "dialogue",
-      "startMs": 1896808,
-      "endMs": 1898142
+      "startMs": 2290520,
+      "endMs": 2292876
     },
     {
       "index": 381,
-      "text": "Probably because he is in the thick of it with your father.",
+      "text": "Walt, no!",
       "kind": "dialogue",
-      "startMs": 1898176,
-      "endMs": 1900978
+      "startMs": 2294200,
+      "endMs": 2295839
     },
     {
       "index": 382,
-      "text": "Honey, I know this is a lot to process, Flynn, but if you could just breathe.",
+      "text": "Walt, please, no!",
       "kind": "dialogue",
-      "startMs": 1901012,
-      "endMs": 1905099
+      "startMs": 2296040,
+      "endMs": 2298839
     },
     {
       "index": 383,
-      "text": "Just try to breathe, and just trust-- Really? Really? Try to breathe?",
+      "text": "Walt, please!",
       "kind": "dialogue",
-      "startMs": 1905150,
-      "endMs": 1909820
+      "startMs": 2299040,
+      "endMs": 2301919
     },
     {
       "index": 384,
-      "text": "Oh, my God.",
+      "text": "Please, stop! Walt!",
       "kind": "dialogue",
-      "startMs": 1912724,
-      "endMs": 1913724
+      "startMs": 2302120,
+      "endMs": 2305113
     },
     {
       "index": 385,
-      "text": "[Door closes]",
-      "kind": "sdh",
-      "startMs": 1913725,
-      "endMs": 1916577
+      "text": "Say, \"Da-da.\"",
+      "kind": "dialogue",
+      "startMs": 2318920,
+      "endMs": 2320513
     },
     {
       "index": 386,
-      "text": "Go home.",
+      "text": "Da-da. You say, \"Da-da\"?",
       "kind": "dialogue",
-      "startMs": 1918462,
-      "endMs": 1919595
+      "startMs": 2320720,
+      "endMs": 2323030
     },
     {
       "index": 387,
-      "text": "Just take the kids home, okay? Go home and regroup.",
+      "text": "There. Get rid of that stinky old diaper, huh?",
       "kind": "dialogue",
-      "startMs": 1919630,
-      "endMs": 1923047
+      "startMs": 2323240,
+      "endMs": 2327075
     },
     {
       "index": 388,
-      "text": "I'll stop by later.",
+      "text": "Don't be sad. Where's your belly button?",
       "kind": "dialogue",
-      "startMs": 1923082,
-      "endMs": 1924403
+      "startMs": 2327280,
+      "endMs": 2329954
     },
     {
       "index": 389,
-      "text": "[Bell dinging]",
-      "kind": "sdh",
-      "startMs": 1943788,
-      "endMs": 1947624
+      "text": "Where's your belly button?",
+      "kind": "dialogue",
+      "startMs": 2330160,
+      "endMs": 2332595
     },
     {
       "index": 390,
-      "text": "[Dinging continues]",
-      "kind": "sdh",
-      "startMs": 1953598,
-      "endMs": 1957634
+      "text": "There. Now, don't you feel better?",
+      "kind": "dialogue",
+      "startMs": 2332800,
+      "endMs": 2335076
     },
     {
       "index": 391,
-      "text": "Flynn?",
+      "text": "You're all nice and dry. Huh?",
       "kind": "dialogue",
-      "startMs": 1957668,
-      "endMs": 1961004
+      "startMs": 2335280,
+      "endMs": 2338273
     },
     {
       "index": 392,
-      "text": "Could you put your seatbelt on please?",
+      "text": "That feels good? Oh, I know.",
       "kind": "dialogue",
-      "startMs": 1961022,
-      "endMs": 1963807
+      "startMs": 2338480,
+      "endMs": 2340312
     },
     {
       "index": 393,
-      "text": "[Dinging continues]",
-      "kind": "sdh",
-      "startMs": 1963841,
-      "endMs": 1967027
+      "text": "You were so wet and so cranky, but now you feel better, don't you?",
+      "kind": "dialogue",
+      "startMs": 2340560,
+      "endMs": 2343997
     },
     {
       "index": 394,
-      "text": "Please. It's not safe.",
+      "text": "Next order of business is to get you a brand-new car seat.",
       "kind": "dialogue",
-      "startMs": 1967061,
-      "endMs": 1970363
+      "startMs": 2344200,
+      "endMs": 2348877
     },
     {
       "index": 395,
-      "text": "You're shittin' me, right?",
+      "text": "Won't that be nice, Holly?",
       "kind": "dialogue",
-      "startMs": 1970398,
-      "endMs": 1972649
+      "startMs": 2349080,
+      "endMs": 2351390
     },
     {
       "index": 396,
-      "text": "If all this is true and you knew about it, then-- then you're as bad as him.",
+      "text": "Mama.",
       "kind": "dialogue",
-      "startMs": 1976988,
-      "endMs": 1984127
+      "startMs": 2355360,
+      "endMs": 2357192
     },
     {
       "index": 397,
-      "text": "[Skyler] Whose truck is that?",
+      "text": "Mama.",
       "kind": "dialogue",
-      "startMs": 1994472,
-      "endMs": 1996890
+      "startMs": 2357400,
+      "endMs": 2359357
     },
     {
       "index": 398,
-      "text": "[Walter, Jr.] Dad?",
+      "text": "Mama.",
       "kind": "dialogue",
-      "startMs": 2002546,
-      "endMs": 2005649
+      "startMs": 2360040,
+      "endMs": 2361952
     },
     {
       "index": 399,
-      "text": "Listen.",
+      "text": "Mama.",
       "kind": "dialogue",
-      "startMs": 2005683,
-      "endMs": 2007017
+      "startMs": 2363280,
+      "endMs": 2365237
     },
     {
       "index": 400,
-      "text": "I need you to come inside and pack right now.",
+      "text": "Mama.",
       "kind": "dialogue",
-      "startMs": 2007051,
-      "endMs": 2010353
+      "startMs": 2370240,
+      "endMs": 2372118
     },
     {
       "index": 401,
-      "text": "Mom, Aunt Marie, they said that you were arrested?",
+      "text": "Mama.",
       "kind": "dialogue",
-      "startMs": 2010387,
-      "endMs": 2013440
+      "startMs": 2373600,
+      "endMs": 2375319
     },
     {
       "index": 402,
-      "text": "No, just-- They say that you're some kind of drug dealer?",
+      "text": "Mama.",
       "kind": "dialogue",
-      "startMs": 2013491,
-      "endMs": 2017027
+      "startMs": 2379840,
+      "endMs": 2381354
     },
     {
       "index": 403,
-      "text": "No, just come inside, please. Now.",
+      "text": "Confirming the abduction.",
       "kind": "dialogue",
-      "startMs": 2017061,
-      "endMs": 2018445
+      "startMs": 2392640,
+      "endMs": 2394279
     },
     {
       "index": 404,
-      "text": "Come inside. Come on.",
+      "text": "Amber Alert. Holly White.",
       "kind": "dialogue",
-      "startMs": 2018496,
-      "endMs": 2019663
+      "startMs": 2394480,
+      "endMs": 2397075
     },
     {
       "index": 405,
-      "text": "[Walt] Go, go, go, go.",
+      "text": "Female, 18 months.",
       "kind": "dialogue",
-      "startMs": 2019697,
-      "endMs": 2021698
+      "startMs": 2397280,
+      "endMs": 2399351
     },
     {
       "index": 406,
-      "text": "[Walter, Jr.] Dad, stop. Just talk to me please.",
+      "text": "Blond hair, blue eyes.",
       "kind": "dialogue",
-      "startMs": 2021732,
-      "endMs": 2024251
+      "startMs": 2399560,
+      "endMs": 2401472
     },
     {
       "index": 407,
-      "text": "Our priority right now is to pack.",
+      "text": "Was last seen wearing a pink and white jacket, pink pants.",
       "kind": "dialogue",
-      "startMs": 2024285,
-      "endMs": 2025619
+      "startMs": 2401680,
+      "endMs": 2406709
     },
     {
       "index": 408,
-      "text": "Uncle Hank, they said he arrested you?",
+      "text": "Abductor is the father...",
       "kind": "dialogue",
-      "startMs": 2025670,
-      "endMs": 2027570
+      "startMs": 2406960,
+      "endMs": 2408519
     },
     {
       "index": 409,
-      "text": "I will discuss all of this later, okay?",
+      "text": "He was in handcuffs. Hank had him in handcuffs.",
       "kind": "dialogue",
-      "startMs": 2027588,
-      "endMs": 2030240
+      "startMs": 2408760,
+      "endMs": 2414040
     },
     {
       "index": 410,
-      "text": "Just tell me what-- Just listen to me!",
+      "text": "Bald head, goatee, gold, wire-framed glasses.",
       "kind": "dialogue",
-      "startMs": 2030258,
-      "endMs": 2032759
+      "startMs": 2414360,
+      "endMs": 2418639
     },
     {
       "index": 411,
-      "text": "I need you to go into your bedroom right now and grab anything that's important.",
+      "text": "Are you expecting a call?",
       "kind": "dialogue",
-      "startMs": 2032793,
-      "endMs": 2035962
+      "startMs": 2420600,
+      "endMs": 2422478
     },
     {
       "index": 412,
-      "text": "You understand? Go. Now.",
+      "text": "Hi, you've reached the White family. Please leave a message.",
       "kind": "dialogue",
-      "startMs": 2036013,
-      "endMs": 2037214
+      "startMs": 2424800,
+      "endMs": 2428111
     },
     {
       "index": 413,
-      "text": "Both of you. Go.",
+      "text": "Skyler, it's me. Pick up. Pick up.",
       "kind": "dialogue",
-      "startMs": 2037248,
-      "endMs": 2038882
+      "startMs": 2428360,
+      "endMs": 2430556
     },
     {
       "index": 414,
-      "text": "Walt.",
+      "text": "That's him. That's my husband. I need you to pick up the phone.",
       "kind": "dialogue",
-      "startMs": 2038916,
-      "endMs": 2042585
+      "startMs": 2430760,
+      "endMs": 2434151
     },
     {
       "index": 415,
-      "text": "Why are you here?",
+      "text": "Start a trace on the landline.",
       "kind": "dialogue",
-      "startMs": 2042603,
-      "endMs": 2044271
+      "startMs": 2434360,
+      "endMs": 2435760
     },
     {
       "index": 416,
-      "text": "Skyler, please, will you just go get your things?",
+      "text": "The number's 505-177-8987. I know you're there, so pick it up.",
       "kind": "dialogue",
-      "startMs": 2044305,
-      "endMs": 2046756
+      "startMs": 2435960,
+      "endMs": 2441433
     },
     {
       "index": 417,
-      "text": "For you and the kids. Right now.",
+      "text": "Skyler, you hear me?",
       "kind": "dialogue",
-      "startMs": 2046774,
-      "endMs": 2048358
+      "startMs": 2441640,
+      "endMs": 2443472
     },
     {
       "index": 418,
-      "text": "This is our priority.",
+      "text": "Need the location of an incoming caller.",
       "kind": "dialogue",
-      "startMs": 2048392,
-      "endMs": 2049592
+      "startMs": 2443640,
+      "endMs": 2444960
     },
     {
       "index": 419,
-      "text": "Hank had you in custody.",
+      "text": "Answer the pho—464 00:40:50,840 --> 00:40:53,196 Walt, where's Holly?",
       "kind": "dialogue",
-      "startMs": 2049610,
-      "endMs": 2051061
+      "startMs": 2445120,
+      "endMs": 2446998
     },
     {
       "index": 420,
-      "text": "He wouldn't just let you go. I-- Where is he?",
+      "text": "Are you alone?",
       "kind": "dialogue",
-      "startMs": 2051095,
-      "endMs": 2054698
+      "startMs": 2453400,
+      "endMs": 2454993
     },
     {
       "index": 421,
-      "text": "I-- Where's Hank?",
+      "text": "No police?",
       "kind": "dialogue",
-      "startMs": 2054732,
-      "endMs": 2055899
+      "startMs": 2455200,
+      "endMs": 2456953
     },
     {
       "index": 422,
-      "text": "I...",
+      "text": "No. No police.",
       "kind": "dialogue",
-      "startMs": 2055933,
-      "endMs": 2057867
+      "startMs": 2458400,
+      "endMs": 2461359
     },
     {
       "index": 423,
-      "text": "I negotiated...",
+      "text": "Where are you? Where's Holly?",
       "kind": "dialogue",
-      "startMs": 2057902,
-      "endMs": 2059486
+      "startMs": 2461600,
+      "endMs": 2464991
     },
     {
       "index": 424,
-      "text": "Negotiated?",
+      "text": "Walt! What the hell is wrong with you?",
       "kind": "dialogue",
-      "startMs": 2059537,
-      "endMs": 2060537
+      "startMs": 2467440,
+      "endMs": 2470353
     },
     {
       "index": 425,
-      "text": "Uh, yes.",
+      "text": "Why can't you do one thing I say?",
       "kind": "dialogue",
-      "startMs": 2060571,
-      "endMs": 2061571
+      "startMs": 2470560,
+      "endMs": 2474520
     },
     {
       "index": 426,
-      "text": "What does that mean?",
+      "text": "What? This is your fault.",
       "kind": "dialogue",
-      "startMs": 2061605,
-      "endMs": 2065242
+      "startMs": 2474960,
+      "endMs": 2477236
     },
     {
       "index": 427,
-      "text": "It means... we're fine, okay?",
+      "text": "This is what comes of your disrespect.",
       "kind": "dialogue",
-      "startMs": 2065276,
-      "endMs": 2068662
+      "startMs": 2477440,
+      "endMs": 2480194
     },
     {
       "index": 428,
-      "text": "We are. We're fine.",
+      "text": "I told you, Skyler.",
       "kind": "dialogue",
-      "startMs": 2068713,
-      "endMs": 2070280
+      "startMs": 2480400,
+      "endMs": 2482119
     },
     {
       "index": 429,
-      "text": "Everything is gonna be fine, but we need to leave right now.",
+      "text": "I warned you for a solid year.",
       "kind": "dialogue",
-      "startMs": 2070298,
-      "endMs": 2073667
+      "startMs": 2482320,
+      "endMs": 2483879
     },
     {
       "index": 430,
-      "text": "All right? Can we do that?",
+      "text": "You cross me, there will be consequences.",
       "kind": "dialogue",
-      "startMs": 2073718,
-      "endMs": 2074918
+      "startMs": 2484120,
+      "endMs": 2486635
     },
     {
       "index": 431,
-      "text": "What happened?",
+      "text": "What part of that didn't you understand?",
       "kind": "dialogue",
-      "startMs": 2074952,
-      "endMs": 2076469
+      "startMs": 2486880,
+      "endMs": 2488917
     },
     {
       "index": 432,
-      "text": "Where is Hank?",
+      "text": "You took my child.",
       "kind": "dialogue",
-      "startMs": 2076504,
-      "endMs": 2078505
+      "startMs": 2489120,
+      "endMs": 2491840
     },
     {
       "index": 433,
-      "text": "Why do we need to leave?",
+      "text": "Because you need to learn.",
       "kind": "dialogue",
-      "startMs": 2078556,
-      "endMs": 2080173
+      "startMs": 2492040,
+      "endMs": 2493394
     },
     {
       "index": 434,
-      "text": "I need both of you to trust me.",
+      "text": "You bring her back.",
       "kind": "dialogue",
-      "startMs": 2080224,
-      "endMs": 2083843
+      "startMs": 2493600,
+      "endMs": 2495478
     },
     {
       "index": 435,
-      "text": "Right now, okay?",
+      "text": "Maybe now you'll listen. Maybe now you'll use your damn head.",
       "kind": "dialogue",
-      "startMs": 2083894,
-      "endMs": 2085929
+      "startMs": 2495720,
+      "endMs": 2499919
     },
     {
       "index": 436,
-      "text": "Please just work with me here and I promise I will explain everything later, okay?",
+      "text": "You know, you never believed in me.",
       "kind": "dialogue",
-      "startMs": 2085963,
-      "endMs": 2091935
+      "startMs": 2500120,
+      "endMs": 2502430
     },
     {
       "index": 437,
-      "text": "Where... is... hank?",
+      "text": "You were never grateful for anything I did for this family.",
       "kind": "dialogue",
-      "startMs": 2091969,
-      "endMs": 2095855
+      "startMs": 2502680,
+      "endMs": 2505752
     },
     {
       "index": 438,
-      "text": "Skyler.",
+      "text": "\"Oh, no. Walt. Walt, you have to stop.",
       "kind": "dialogue",
-      "startMs": 2100278,
-      "endMs": 2101854
+      "startMs": 2505960,
+      "endMs": 2509670
     },
     {
       "index": 439,
-      "text": "I have $11 million in cash right outside.",
+      "text": "You have to stop this. It's immoral. It's illegal.",
       "kind": "dialogue",
-      "startMs": 2104865,
-      "endMs": 2112088
+      "startMs": 2509880,
+      "endMs": 2513715
     },
     {
       "index": 440,
-      "text": "We can have a fresh start.",
+      "text": "Someone might get hurt.\"",
       "kind": "dialogue",
-      "startMs": 2112123,
-      "endMs": 2115091
+      "startMs": 2513920,
+      "endMs": 2516116
     },
     {
       "index": 441,
-      "text": "Whole new lives.",
+      "text": "You're always whining and complaining about how I make my money, just dragging me down, while I do everything.",
       "kind": "dialogue",
-      "startMs": 2115126,
-      "endMs": 2118461
+      "startMs": 2516360,
+      "endMs": 2524194
     },
     {
       "index": 442,
-      "text": "All we have to do is go.",
+      "text": "And now—489 00:42:08,080 --> 00:42:12,199 Now you tell my son what I do,",
       "kind": "dialogue",
-      "startMs": 2118495,
-      "endMs": 2121514
+      "startMs": 2526680,
+      "endMs": 2527830
     },
     {
       "index": 443,
-      "text": "We have to go right now.",
+      "text": "after I've told you and told you to keep your damn mouth shut.",
       "kind": "dialogue",
-      "startMs": 2121549,
-      "endMs": 2124384
+      "startMs": 2532400,
+      "endMs": 2539113
     },
     {
       "index": 444,
-      "text": "That's all we have to do.",
+      "text": "You stupid bitch.",
       "kind": "dialogue",
-      "startMs": 2124435,
-      "endMs": 2127053
+      "startMs": 2539320,
+      "endMs": 2543234
     },
     {
       "index": 445,
-      "text": "You killed him.",
+      "text": "How dare you?",
       "kind": "dialogue",
-      "startMs": 2130174,
-      "endMs": 2133026
+      "startMs": 2545280,
+      "endMs": 2547112
     },
     {
       "index": 446,
-      "text": "You killed Hank.",
+      "text": "I'm sorry.",
       "kind": "dialogue",
-      "startMs": 2136814,
-      "endMs": 2139282
+      "startMs": 2558840,
+      "endMs": 2560877
     },
     {
       "index": 447,
-      "text": "What?",
+      "text": "You have no right to discuss anything about what I do.",
       "kind": "dialogue",
-      "startMs": 2139317,
-      "endMs": 2140450
+      "startMs": 2566120,
+      "endMs": 2573357
     },
     {
       "index": 448,
-      "text": "No. No. No.",
+      "text": "What the hell do you know about it anyway?",
       "kind": "dialogue",
-      "startMs": 2140484,
-      "endMs": 2141484
+      "startMs": 2573560,
+      "endMs": 2575836
     },
     {
       "index": 449,
-      "text": "You killed him.",
+      "text": "Nothing. I built this.",
       "kind": "dialogue",
-      "startMs": 2141518,
-      "endMs": 2142485
+      "startMs": 2576040,
+      "endMs": 2578271
     },
     {
       "index": 450,
-      "text": "No, no. No! [Gasps] I tried to save him.",
+      "text": "Me. Me alone. Nobody else!",
       "kind": "dialogue",
-      "startMs": 2142519,
-      "endMs": 2145789
+      "startMs": 2578480,
+      "endMs": 2580551
     },
     {
       "index": 451,
-      "text": "Uncle Hank is dead? I-- Mom, it can't be true.",
+      "text": "You're right.",
       "kind": "dialogue",
-      "startMs": 2145823,
-      "endMs": 2149626
+      "startMs": 2580800,
+      "endMs": 2582359
     },
     {
       "index": 452,
-      "text": "Just stop, please. It just can't be true.",
+      "text": "You're right.",
       "kind": "dialogue",
-      "startMs": 2149660,
-      "endMs": 2151294
+      "startMs": 2584360,
+      "endMs": 2585999
     },
     {
       "index": 453,
-      "text": "Everything-- everything is gonna be okay.",
+      "text": "You mark my words, Skyler.",
       "kind": "dialogue",
-      "startMs": 2151329,
-      "endMs": 2153997
+      "startMs": 2587160,
+      "endMs": 2589675
     },
     {
       "index": 454,
-      "text": "Everything's gonna be fine. I promise you.",
+      "text": "Toe the line or you will wind up just like Hank.",
       "kind": "dialogue",
-      "startMs": 2154031,
-      "endMs": 2155715
+      "startMs": 2591720,
+      "endMs": 2597632
     },
     {
       "index": 455,
-      "text": "But we need to leave right now.",
+      "text": "Walt.",
       "kind": "dialogue",
-      "startMs": 2155750,
-      "endMs": 2157384
+      "startMs": 2600360,
+      "endMs": 2601760
     },
     {
       "index": 456,
-      "text": "Dad, what's going on? Talk to me.",
+      "text": "Tell me what happened.",
       "kind": "dialogue",
-      "startMs": 2157418,
-      "endMs": 2160470
+      "startMs": 2603560,
+      "endMs": 2605916
     },
     {
       "index": 457,
-      "text": "Just stop for one second.",
+      "text": "Where is Hank?",
       "kind": "dialogue",
-      "startMs": 2160504,
-      "endMs": 2163340
+      "startMs": 2606880,
+      "endMs": 2608997
     },
     {
       "index": 458,
-      "text": "Look, I told you to get your things.",
+      "text": "Please.",
       "kind": "dialogue",
-      "startMs": 2163374,
-      "endMs": 2165141
+      "startMs": 2609520,
+      "endMs": 2611273
     },
     {
       "index": 459,
-      "text": "Stop walking away.",
+      "text": "We need to know.",
       "kind": "dialogue",
-      "startMs": 2165176,
-      "endMs": 2166426
+      "startMs": 2611760,
+      "endMs": 2613672
     },
     {
       "index": 460,
-      "text": "There is no time tell me about Uncle Hank.",
+      "text": "You're never gonna see Hank again.",
       "kind": "dialogue",
-      "startMs": 2166477,
-      "endMs": 2168978
+      "startMs": 2619240,
+      "endMs": 2621835
     },
     {
       "index": 461,
-      "text": "No, just drop it!",
+      "text": "He crossed me.",
       "kind": "dialogue",
-      "startMs": 2169013,
-      "endMs": 2170013
+      "startMs": 2627240,
+      "endMs": 2629197
     },
     {
       "index": 462,
-      "text": "But-- what's wrong with you?",
+      "text": "You think about that.",
       "kind": "dialogue",
-      "startMs": 2170047,
-      "endMs": 2171547
+      "startMs": 2631280,
+      "endMs": 2632600
     },
     {
       "index": 463,
-      "text": "We're going. We're going right now.",
+      "text": "Family or no.",
       "kind": "dialogue",
-      "startMs": 2171565,
-      "endMs": 2173900
+      "startMs": 2634840,
+      "endMs": 2636832
     },
     {
       "index": 464,
-      "text": "You have to tell me. Dad, wait.",
+      "text": "You let that sink in.",
       "kind": "dialogue",
-      "startMs": 2173934,
-      "endMs": 2175352
+      "startMs": 2639040,
+      "endMs": 2641635
     },
     {
       "index": 465,
-      "text": "What happened to Uncle Hank? What--",
+      "text": "Walt.",
       "kind": "dialogue",
-      "startMs": 2175386,
-      "endMs": 2176986
+      "startMs": 2643880,
+      "endMs": 2645633
     },
     {
       "index": 466,
-      "text": "Get out.",
+      "text": "I just want Holly back.",
       "kind": "dialogue",
-      "startMs": 2183411,
-      "endMs": 2185895
+      "startMs": 2646680,
+      "endMs": 2649878
     },
     {
       "index": 467,
-      "text": "Skyler, I promise you, we will figure this out.",
+      "text": "Please, Walt.",
       "kind": "dialogue",
-      "startMs": 2185913,
-      "endMs": 2188865
+      "startMs": 2651880,
+      "endMs": 2654475
     },
     {
       "index": 468,
-      "text": "Enough.",
+      "text": "Just come home.",
       "kind": "dialogue",
-      "startMs": 2188899,
-      "endMs": 2189899
+      "startMs": 2657480,
+      "endMs": 2659437
     },
     {
       "index": 469,
-      "text": "Mom, what are you doing?",
+      "text": "I've still got things left to do.",
       "kind": "dialogue",
-      "startMs": 2189917,
-      "endMs": 2192802
+      "startMs": 2666800,
+      "endMs": 2669759
     },
     {
       "index": 470,
-      "text": "Skyler, put the knife down please.",
+      "text": "Hey.",
       "kind": "dialogue",
-      "startMs": 2192837,
-      "endMs": 2195038
-    },
-    {
-      "index": 471,
-      "text": "I promise you, everything-- Don't say one more word.",
-      "kind": "dialogue",
-      "startMs": 2195072,
-      "endMs": 2200927
-    },
-    {
-      "index": 472,
-      "text": "Get out of here. Now.",
-      "kind": "dialogue",
-      "startMs": 2200961,
-      "endMs": 2205348
-    },
-    {
-      "index": 473,
-      "text": "Skyler.",
-      "kind": "dialogue",
-      "startMs": 2205383,
-      "endMs": 2206633
-    },
-    {
-      "index": 474,
-      "text": "Get out.",
-      "kind": "dialogue",
-      "startMs": 2206684,
-      "endMs": 2207634
-    },
-    {
-      "index": 475,
-      "text": "Aah!",
-      "kind": "dialogue",
-      "startMs": 2207685,
-      "endMs": 2209636
-    },
-    {
-      "index": 476,
-      "text": "[Metallic whining]",
-      "kind": "sdh",
-      "startMs": 2209687,
-      "endMs": 2211888
-    },
-    {
-      "index": 477,
-      "text": "[Both grunting]",
-      "kind": "sdh",
-      "startMs": 2211922,
-      "endMs": 2212922
-    },
-    {
-      "index": 478,
-      "text": "[Walter, Jr.] Stop it. Just stop!",
-      "kind": "dialogue",
-      "startMs": 2212940,
-      "endMs": 2217444
-    },
-    {
-      "index": 479,
-      "text": "Stop please. Stop.",
-      "kind": "dialogue",
-      "startMs": 2217478,
-      "endMs": 2218862
-    },
-    {
-      "index": 480,
-      "text": "Get away from us!",
-      "kind": "dialogue",
-      "startMs": 2218896,
-      "endMs": 2221281
-    },
-    {
-      "index": 481,
-      "text": "[Walter, Jr.] Just stop! Stop!",
-      "kind": "dialogue",
-      "startMs": 2221315,
-      "endMs": 2224150
-    },
-    {
-      "index": 482,
-      "text": "Just stop it!",
-      "kind": "dialogue",
-      "startMs": 2224201,
-      "endMs": 2226569
-    },
-    {
-      "index": 483,
-      "text": "Mom, stop it.",
-      "kind": "dialogue",
-      "startMs": 2226603,
-      "endMs": 2228705
-    },
-    {
-      "index": 484,
-      "text": "Stop, dad.",
-      "kind": "dialogue",
-      "startMs": 2228739,
-      "endMs": 2229873
-    },
-    {
-      "index": 485,
-      "text": "Stop it now. Stop.",
-      "kind": "dialogue",
-      "startMs": 2229907,
-      "endMs": 2232041
-    },
-    {
-      "index": 486,
-      "text": "Just please stop!",
-      "kind": "dialogue",
-      "startMs": 2232076,
-      "endMs": 2234627
-    },
-    {
-      "index": 487,
-      "text": "Stop it! Stop!",
-      "kind": "dialogue",
-      "startMs": 2234662,
-      "endMs": 2236913
-    },
-    {
-      "index": 488,
-      "text": "Stop it. Aah!",
-      "kind": "dialogue",
-      "startMs": 2236947,
-      "endMs": 2238781
-    },
-    {
-      "index": 489,
-      "text": "What the hell is wrong with you!",
-      "kind": "dialogue",
-      "startMs": 2244171,
-      "endMs": 2245638
-    },
-    {
-      "index": 490,
-      "text": "We're a family!",
-      "kind": "dialogue",
-      "startMs": 2245673,
-      "endMs": 2247807
-    },
-    {
-      "index": 491,
-      "text": "We're a family.",
-      "kind": "dialogue",
-      "startMs": 2253431,
-      "endMs": 2254964
-    },
-    {
-      "index": 492,
-      "text": "[Skyler crying]",
-      "kind": "sdh",
-      "startMs": 2254982,
-      "endMs": 2259152
-    },
-    {
-      "index": 493,
-      "text": "What are you doing?",
-      "kind": "dialogue",
-      "startMs": 2259186,
-      "endMs": 2261271
-    },
-    {
-      "index": 494,
-      "text": "What are you doing?",
-      "kind": "dialogue",
-      "startMs": 2261305,
-      "endMs": 2262305
-    },
-    {
-      "index": 495,
-      "text": "Yeah, I-- I need the police.",
-      "kind": "dialogue",
-      "startMs": 2262323,
-      "endMs": 2264274
-    },
-    {
-      "index": 496,
-      "text": "My dad, he pulled a knife on my mom.",
-      "kind": "dialogue",
-      "startMs": 2264308,
-      "endMs": 2267193
-    },
-    {
-      "index": 497,
-      "text": "He attacked her. He's dangerous.",
-      "kind": "dialogue",
-      "startMs": 2267244,
-      "endMs": 2269829
-    },
-    {
-      "index": 498,
-      "text": "I-- I think he might have killed somebody.",
-      "kind": "dialogue",
-      "startMs": 2269864,
-      "endMs": 2273333
-    },
-    {
-      "index": 499,
-      "text": "Yeah.",
-      "kind": "dialogue",
-      "startMs": 2273334,
-      "endMs": 2275037
-    },
-    {
-      "index": 500,
-      "text": "He's still-- he's still here.",
-      "kind": "dialogue",
-      "startMs": 2276320,
-      "endMs": 2278538
-    },
-    {
-      "index": 501,
-      "text": "Yeah, he's-- he's still in the house.",
-      "kind": "dialogue",
-      "startMs": 2278589,
-      "endMs": 2282959
-    },
-    {
-      "index": 502,
-      "text": "We're at 308 Negra Arroyo Lane.",
-      "kind": "dialogue",
-      "startMs": 2282993,
-      "endMs": 2286296
-    },
-    {
-      "index": 503,
-      "text": "308 Negra Arroyo Lane! You've gotta come quick.",
-      "kind": "dialogue",
-      "startMs": 2286330,
-      "endMs": 2289499
-    },
-    {
-      "index": 504,
-      "text": "Hurry. Oh, God, no!",
-      "kind": "dialogue",
-      "startMs": 2289517,
-      "endMs": 2291634
-    },
-    {
-      "index": 505,
-      "text": "[Holly coos]",
-      "kind": "sdh",
-      "startMs": 2291668,
-      "endMs": 2293937
-    },
-    {
-      "index": 506,
-      "text": "Oh, my God. No.",
-      "kind": "dialogue",
-      "startMs": 2293971,
-      "endMs": 2295688
-    },
-    {
-      "index": 507,
-      "text": "Walt, no!",
-      "kind": "dialogue",
-      "startMs": 2295723,
-      "endMs": 2297724
-    },
-    {
-      "index": 508,
-      "text": "Walt! Walt! Please, no!",
-      "kind": "dialogue",
-      "startMs": 2297775,
-      "endMs": 2300310
-    },
-    {
-      "index": 509,
-      "text": "No! No! No!",
-      "kind": "dialogue",
-      "startMs": 2300344,
-      "endMs": 2303679
-    },
-    {
-      "index": 510,
-      "text": "Walt, no! Let her go!",
-      "kind": "dialogue",
-      "startMs": 2303697,
-      "endMs": 2305648
-    },
-    {
-      "index": 511,
-      "text": "You can't take her!",
-      "kind": "dialogue",
-      "startMs": 2305682,
-      "endMs": 2307484
-    },
-    {
-      "index": 512,
-      "text": "Let her go, please!",
-      "kind": "dialogue",
-      "startMs": 2307518,
-      "endMs": 2308735
-    },
-    {
-      "index": 513,
-      "text": "You can't take her!",
-      "kind": "dialogue",
-      "startMs": 2308786,
-      "endMs": 2310537
-    },
-    {
-      "index": 514,
-      "text": "Let her go!",
-      "kind": "dialogue",
-      "startMs": 2310571,
-      "endMs": 2312822
-    },
-    {
-      "index": 515,
-      "text": "Walt!",
-      "kind": "dialogue",
-      "startMs": 2312856,
-      "endMs": 2314190
-    },
-    {
-      "index": 516,
-      "text": "Please, no!",
-      "kind": "dialogue",
-      "startMs": 2314208,
-      "endMs": 2316326
-    },
-    {
-      "index": 517,
-      "text": "Walt, no! Walt, please!",
-      "kind": "dialogue",
-      "startMs": 2316360,
-      "endMs": 2319879
-    },
-    {
-      "index": 518,
-      "text": "Walt! No!",
-      "kind": "dialogue",
-      "startMs": 2319914,
-      "endMs": 2321798
-    },
-    {
-      "index": 519,
-      "text": "Walt, please, no!",
-      "kind": "dialogue",
-      "startMs": 2321832,
-      "endMs": 2324867
-    },
-    {
-      "index": 520,
-      "text": "Walt! Please! Please, stop!",
-      "kind": "dialogue",
-      "startMs": 2324885,
-      "endMs": 2328838
-    },
-    {
-      "index": 521,
-      "text": "Walt!",
-      "kind": "dialogue",
-      "startMs": 2328872,
-      "endMs": 2332008
-    },
-    {
-      "index": 522,
-      "text": "[Walt] Say \"da-da.\"",
-      "kind": "dialogue",
-      "startMs": 2343635,
-      "endMs": 2344902
-    },
-    {
-      "index": 523,
-      "text": "Da-da. You say \"da-da\"?",
-      "kind": "dialogue",
-      "startMs": 2344936,
-      "endMs": 2348005
-    },
-    {
-      "index": 524,
-      "text": "There.",
-      "kind": "dialogue",
-      "startMs": 2348039,
-      "endMs": 2349089
-    },
-    {
-      "index": 525,
-      "text": "Get rid of that stinky old diaper, huh?",
-      "kind": "dialogue",
-      "startMs": 2349140,
-      "endMs": 2352059
-    },
-    {
-      "index": 526,
-      "text": "Don't be sad.",
-      "kind": "dialogue",
-      "startMs": 2352093,
-      "endMs": 2353477
-    },
-    {
-      "index": 527,
-      "text": "Where's your belly button?",
-      "kind": "dialogue",
-      "startMs": 2353512,
-      "endMs": 2355145
-    },
-    {
-      "index": 528,
-      "text": "Where's your belly button?",
-      "kind": "dialogue",
-      "startMs": 2355180,
-      "endMs": 2357348
-    },
-    {
-      "index": 529,
-      "text": "There.",
-      "kind": "dialogue",
-      "startMs": 2357382,
-      "endMs": 2358382
-    },
-    {
-      "index": 530,
-      "text": "Now don't you feel better?",
-      "kind": "dialogue",
-      "startMs": 2358400,
-      "endMs": 2360150
-    },
-    {
-      "index": 531,
-      "text": "You're all nice and dry.",
-      "kind": "dialogue",
-      "startMs": 2360185,
-      "endMs": 2362069
-    },
-    {
-      "index": 532,
-      "text": "Huh? That feels good?",
-      "kind": "dialogue",
-      "startMs": 2362103,
-      "endMs": 2364605
-    },
-    {
-      "index": 533,
-      "text": "Oh, I know. You were so wet and so cranky, but now you feel better, don't you?",
-      "kind": "dialogue",
-      "startMs": 2364656,
-      "endMs": 2369109
-    },
-    {
-      "index": 534,
-      "text": "Next order of business is to get you a brand-new car seat.",
-      "kind": "dialogue",
-      "startMs": 2369160,
-      "endMs": 2373664
-    },
-    {
-      "index": 535,
-      "text": "Won't that be nice, Holly?",
-      "kind": "dialogue",
-      "startMs": 2373698,
-      "endMs": 2376700
-    },
-    {
-      "index": 536,
-      "text": "[Murmurs] Mamama.",
-      "kind": "dialogue",
-      "startMs": 2376734,
-      "endMs": 2380087
-    },
-    {
-      "index": 537,
-      "text": "Mama-- ma.",
-      "kind": "dialogue",
-      "startMs": 2380121,
-      "endMs": 2381956
-    },
-    {
-      "index": 538,
-      "text": "Mama.",
-      "kind": "dialogue",
-      "startMs": 2382007,
-      "endMs": 2384792
-    },
-    {
-      "index": 539,
-      "text": "Mama.",
-      "kind": "dialogue",
-      "startMs": 2384843,
-      "endMs": 2388012
-    },
-    {
-      "index": 540,
-      "text": "Mamama.",
-      "kind": "dialogue",
-      "startMs": 2388046,
-      "endMs": 2390286
-    },
-    {
-      "index": 541,
-      "text": "Mamama.",
-      "kind": "dialogue",
-      "startMs": 2395020,
-      "endMs": 2398105
-    },
-    {
-      "index": 542,
-      "text": "Mamama.",
-      "kind": "dialogue",
-      "startMs": 2398139,
-      "endMs": 2400724
-    },
-    {
-      "index": 543,
-      "text": "Mama.",
-      "kind": "dialogue",
-      "startMs": 2404613,
-      "endMs": 2406864
-    },
-    {
-      "index": 544,
-      "text": "[Man] Confirming the abduction.",
-      "kind": "dialogue",
-      "startMs": 2417409,
-      "endMs": 2419209
-    },
-    {
-      "index": 545,
-      "text": "Amber Alert. Holly White.",
-      "kind": "dialogue",
-      "startMs": 2419244,
-      "endMs": 2421962
-    },
-    {
-      "index": 546,
-      "text": "Female. 18 months.",
-      "kind": "dialogue",
-      "startMs": 2421997,
-      "endMs": 2424131
-    },
-    {
-      "index": 547,
-      "text": "Blond hair, blue eyes.",
-      "kind": "dialogue",
-      "startMs": 2424165,
-      "endMs": 2426300
-    },
-    {
-      "index": 548,
-      "text": "Last seen wearing a pink and white jacket... abductor is the father...",
-      "kind": "dialogue",
-      "startMs": 2426334,
-      "endMs": 2433507
-    },
-    {
-      "index": 549,
-      "text": "He was in handcuffs.",
-      "kind": "dialogue",
-      "startMs": 2433558,
-      "endMs": 2435142
-    },
-    {
-      "index": 550,
-      "text": "Hank had him in handcuffs.",
-      "kind": "dialogue",
-      "startMs": 2435176,
-      "endMs": 2438095
-    },
-    {
-      "index": 551,
-      "text": "[Man] Gold, wire-framed glasses.",
-      "kind": "dialogue",
-      "startMs": 2441182,
-      "endMs": 2442816
-    },
-    {
-      "index": 552,
-      "text": "[Phone rings]",
-      "kind": "sdh",
-      "startMs": 2442851,
-      "endMs": 2445436
-    },
-    {
-      "index": 553,
-      "text": "[Man] Are you expecting a call?",
-      "kind": "dialogue",
-      "startMs": 2445470,
-      "endMs": 2446904
-    },
-    {
-      "index": 554,
-      "text": "[Rings]",
-      "kind": "sdh",
-      "startMs": 2446938,
-      "endMs": 2448906
-    },
-    {
-      "index": 555,
-      "text": "[Skyler on answering machine] Hi, you've reached the White family.",
-      "kind": "dialogue",
-      "startMs": 2448940,
-      "endMs": 2451443
-    },
-    {
-      "index": 556,
-      "text": "Please, leave a message. [Mutters] [Walt] Skyler, it's me.",
-      "kind": "dialogue",
-      "startMs": 2451576,
-      "endMs": 2454244
-    },
-    {
-      "index": 557,
-      "text": "Pick up. Pick up.",
-      "kind": "dialogue",
-      "startMs": 2454279,
-      "endMs": 2455362
-    },
-    {
-      "index": 558,
-      "text": "That's him. That's my husband.",
-      "kind": "dialogue",
-      "startMs": 2455413,
-      "endMs": 2458248
-    },
-    {
-      "index": 559,
-      "text": "I need you to pick up the phone.",
-      "kind": "dialogue",
-      "startMs": 2458283,
-      "endMs": 2459483
-    },
-    {
-      "index": 560,
-      "text": "Start tracing the landline. Skyler...",
-      "kind": "dialogue",
-      "startMs": 2459501,
-      "endMs": 2460668
-    },
-    {
-      "index": 561,
-      "text": "The number's 505-177-8987. I know you're there, so pick it up.",
-      "kind": "dialogue",
-      "startMs": 2460702,
-      "endMs": 2466540
-    },
-    {
-      "index": 562,
-      "text": "[Walt] Skyler?",
-      "kind": "dialogue",
-      "startMs": 2466591,
-      "endMs": 2468459
-    },
-    {
-      "index": 563,
-      "text": "Need the location of an incoming caller. You hear me?",
-      "kind": "dialogue",
-      "startMs": 2468493,
-      "endMs": 2470377
-    },
-    {
-      "index": 564,
-      "text": "Answer the pho--",
-      "kind": "dialogue",
-      "startMs": 2470428,
-      "endMs": 2471865
-    },
-    {
-      "index": 565,
-      "text": "Walt. Where's Holly?",
-      "kind": "dialogue",
-      "startMs": 2475684,
-      "endMs": 2478435
-    },
-    {
-      "index": 566,
-      "text": "Are you alone?",
-      "kind": "dialogue",
-      "startMs": 2478470,
-      "endMs": 2479970
-    },
-    {
-      "index": 567,
-      "text": "No police?",
-      "kind": "dialogue",
-      "startMs": 2480004,
-      "endMs": 2483140
-    },
-    {
-      "index": 568,
-      "text": "No.",
-      "kind": "dialogue",
-      "startMs": 2483174,
-      "endMs": 2484608
-    },
-    {
-      "index": 569,
-      "text": "No police.",
-      "kind": "dialogue",
-      "startMs": 2484643,
-      "endMs": 2485859
-    },
-    {
-      "index": 570,
-      "text": "Where are you?",
-      "kind": "dialogue",
-      "startMs": 2485894,
-      "endMs": 2487511
-    },
-    {
-      "index": 571,
-      "text": "Where's Holly?",
-      "kind": "dialogue",
-      "startMs": 2487529,
-      "endMs": 2492032
-    },
-    {
-      "index": 572,
-      "text": "Walt!",
-      "kind": "dialogue",
-      "startMs": 2492067,
-      "endMs": 2493183
-    },
-    {
-      "index": 573,
-      "text": "What the hell is wrong with you?",
-      "kind": "dialogue",
-      "startMs": 2493201,
-      "endMs": 2495319
-    },
-    {
-      "index": 574,
-      "text": "Why can't you do one thing I say?",
-      "kind": "dialogue",
-      "startMs": 2495353,
-      "endMs": 2499957
-    },
-    {
-      "index": 575,
-      "text": "What?",
-      "kind": "dialogue",
-      "startMs": 2499991,
-      "endMs": 2500991
-    },
-    {
-      "index": 576,
-      "text": "This is your fault.",
-      "kind": "dialogue",
-      "startMs": 2501025,
-      "endMs": 2502209
-    },
-    {
-      "index": 577,
-      "text": "This is what comes of your disrespect.",
-      "kind": "dialogue",
-      "startMs": 2502243,
-      "endMs": 2505162
-    },
-    {
-      "index": 578,
-      "text": "I told you, Skyler.",
-      "kind": "dialogue",
-      "startMs": 2505196,
-      "endMs": 2507081
-    },
-    {
-      "index": 579,
-      "text": "I warned you for a solid year.",
-      "kind": "dialogue",
-      "startMs": 2507132,
-      "endMs": 2509049
-    },
-    {
-      "index": 580,
-      "text": "You cross me, there will be consequences.",
-      "kind": "dialogue",
-      "startMs": 2509084,
-      "endMs": 2511885
-    },
-    {
-      "index": 581,
-      "text": "What part of that didn't you understand?",
-      "kind": "dialogue",
-      "startMs": 2511920,
-      "endMs": 2513804
-    },
-    {
-      "index": 582,
-      "text": "You took my child.",
-      "kind": "dialogue",
-      "startMs": 2513838,
-      "endMs": 2516924
-    },
-    {
-      "index": 583,
-      "text": "'Cause you need to learn.",
-      "kind": "dialogue",
-      "startMs": 2516975,
-      "endMs": 2518559
-    },
-    {
-      "index": 584,
-      "text": "You bring her back.",
-      "kind": "dialogue",
-      "startMs": 2518593,
-      "endMs": 2520477
-    },
-    {
-      "index": 585,
-      "text": "Maybe now you'll listen.",
-      "kind": "dialogue",
-      "startMs": 2520512,
-      "endMs": 2521979
-    },
-    {
-      "index": 586,
-      "text": "Maybe now you'll use your damn head.",
-      "kind": "dialogue",
-      "startMs": 2522013,
-      "endMs": 2524848
-    },
-    {
-      "index": 587,
-      "text": "You know, you never believed in me.",
-      "kind": "dialogue",
-      "startMs": 2524882,
-      "endMs": 2527234
-    },
-    {
-      "index": 588,
-      "text": "You were never grateful for anything I did for this family.",
-      "kind": "dialogue",
-      "startMs": 2527268,
-      "endMs": 2530654
-    },
-    {
-      "index": 589,
-      "text": "\"Oh, no. Walt. Walt, you have to stop.",
-      "kind": "dialogue",
-      "startMs": 2530689,
-      "endMs": 2534575
-    },
-    {
-      "index": 590,
-      "text": "You have to stop this. It's immoral. It's illegal.",
-      "kind": "dialogue",
-      "startMs": 2534609,
-      "endMs": 2538729
-    },
-    {
-      "index": 591,
-      "text": "Someone might get hurt.\"",
-      "kind": "dialogue",
-      "startMs": 2538747,
-      "endMs": 2540614
-    },
-    {
-      "index": 592,
-      "text": "You're always whining and complaining about how I make my money, just dragging me down.",
-      "kind": "dialogue",
-      "startMs": 2540665,
-      "endMs": 2546954
-    },
-    {
-      "index": 593,
-      "text": "While I do everything.",
-      "kind": "dialogue",
-      "startMs": 2547005,
-      "endMs": 2551041
-    },
-    {
-      "index": 594,
-      "text": "And now-- now you tell my son what I do after I've told you and told you to keep your damn mouth shut.",
-      "kind": "dialogue",
-      "startMs": 2551075,
-      "endMs": 2564104
-    },
-    {
-      "index": 595,
-      "text": "You stupid bitch.",
-      "kind": "dialogue",
-      "startMs": 2564139,
-      "endMs": 2569943
-    },
-    {
-      "index": 596,
-      "text": "How dare you?",
-      "kind": "dialogue",
-      "startMs": 2569978,
-      "endMs": 2572479
-    },
-    {
-      "index": 597,
-      "text": "I'm sorry.",
-      "kind": "dialogue",
-      "startMs": 2583541,
-      "endMs": 2586410
-    },
-    {
-      "index": 598,
-      "text": "You, you have no right to discuss anything about what I do.",
-      "kind": "dialogue",
-      "startMs": 2590799,
-      "endMs": 2598422
-    },
-    {
-      "index": 599,
-      "text": "Oh, what-- what the hell do you know about it anyway?",
-      "kind": "dialogue",
-      "startMs": 2598456,
-      "endMs": 2600758
-    },
-    {
-      "index": 600,
-      "text": "Nothing. I built this.",
-      "kind": "dialogue",
-      "startMs": 2600792,
-      "endMs": 2603310
-    },
-    {
-      "index": 601,
-      "text": "Me. Me alone. Nobody else!",
-      "kind": "dialogue",
-      "startMs": 2603344,
-      "endMs": 2605479
-    },
-    {
-      "index": 602,
-      "text": "You're right.",
-      "kind": "dialogue",
-      "startMs": 2605513,
-      "endMs": 2608965
-    },
-    {
-      "index": 603,
-      "text": "You're right.",
-      "kind": "dialogue",
-      "startMs": 2608983,
-      "endMs": 2610934
-    },
-    {
-      "index": 604,
-      "text": "You mark my words, Skyler.",
-      "kind": "dialogue",
-      "startMs": 2610969,
-      "endMs": 2616640
-    },
-    {
-      "index": 605,
-      "text": "Tow the line, or you will wind up just like Hank.",
-      "kind": "dialogue",
-      "startMs": 2616658,
-      "endMs": 2622579
-    },
-    {
-      "index": 606,
-      "text": "Walt.",
-      "kind": "dialogue",
-      "startMs": 2625250,
-      "endMs": 2628001
-    },
-    {
-      "index": 607,
-      "text": "Tell me what happened.",
-      "kind": "dialogue",
-      "startMs": 2628036,
-      "endMs": 2631588
-    },
-    {
-      "index": 608,
-      "text": "Where is Hank?",
-      "kind": "dialogue",
-      "startMs": 2631623,
-      "endMs": 2634258
-    },
-    {
-      "index": 609,
-      "text": "Please.",
-      "kind": "dialogue",
-      "startMs": 2634292,
-      "endMs": 2636460
-    },
-    {
-      "index": 610,
-      "text": "We need to know.",
-      "kind": "dialogue",
-      "startMs": 2636494,
-      "endMs": 2638045
-    },
-    {
-      "index": 611,
-      "text": "You're never gonna see Hank again.",
-      "kind": "dialogue",
-      "startMs": 2643968,
-      "endMs": 2646770
-    },
-    {
-      "index": 612,
-      "text": "He crossed me.",
-      "kind": "dialogue",
-      "startMs": 2652176,
-      "endMs": 2656280
-    },
-    {
-      "index": 613,
-      "text": "You think about that.",
-      "kind": "dialogue",
-      "startMs": 2656314,
-      "endMs": 2659700
-    },
-    {
-      "index": 614,
-      "text": "Family or no.",
-      "kind": "dialogue",
-      "startMs": 2659734,
-      "endMs": 2663787
-    },
-    {
-      "index": 615,
-      "text": "You let that sink in.",
-      "kind": "dialogue",
-      "startMs": 2663822,
-      "endMs": 2666287
-    },
-    {
-      "index": 616,
-      "text": "Walt.",
-      "kind": "dialogue",
-      "startMs": 2668376,
-      "endMs": 2671361
-    },
-    {
-      "index": 617,
-      "text": "I just want Holly back.",
-      "kind": "dialogue",
-      "startMs": 2671379,
-      "endMs": 2676700
-    },
-    {
-      "index": 618,
-      "text": "Please, Walt.",
-      "kind": "dialogue",
-      "startMs": 2676718,
-      "endMs": 2679480
-    },
-    {
-      "index": 619,
-      "text": "Just come home.",
-      "kind": "dialogue",
-      "startMs": 2682206,
-      "endMs": 2684892
-    },
-    {
-      "index": 620,
-      "text": "I've still got things left to do.",
-      "kind": "dialogue",
-      "startMs": 2691566,
-      "endMs": 2695102
-    },
-    {
-      "index": 621,
-      "text": "_",
-      "kind": "dialogue",
-      "startMs": 2727466,
-      "endMs": 2729003
-    },
-    {
-      "index": 622,
-      "text": "[Distant woman speaking over PA system]",
-      "kind": "sdh",
-      "startMs": 2729137,
-      "endMs": 2732022
-    },
-    {
-      "index": 623,
-      "text": "[Man] Hey.",
-      "kind": "dialogue",
-      "startMs": 2739063,
-      "endMs": 2741064
-    },
-    {
-      "index": 624,
-      "text": "Sync and corrections by n17t01 www.addic7ed.com www.tvsubtitles.net",
-      "kind": "dialogue",
-      "startMs": 2814314,
-      "endMs": 2000
+      "startMs": 2714880,
+      "endMs": 2716155
     }
   ],
   "meta": {

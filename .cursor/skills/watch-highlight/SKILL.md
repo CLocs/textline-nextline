@@ -107,14 +107,15 @@ npm run content:stars-push -- --email dascolin@gmail.com --title TITLE_ID --remo
 
 ## Sync
 
-Not built. Do not add a player, and do not upload the movie. The movie file is not required. The transcript timings are the clock.
+Curate has Sync. Do not add a player, and do not upload the movie. The movie file is not required. The transcript timings are the clock.
 
-1. They tap **Sync**. The mic stays on until a spoken line matches a catalog line.
-2. Show that line. When they accept it, set `follow.source` to `mic`, `follow.confirmedAt` to now, and `follow.lineIndex` to that line. The list jumps there. The mic stops.
-3. The list advances on the clock from that lock: elapsed time since `confirmedAt` plus that line's `startMs`.
-4. They tap Sync again after a pause, a seek, or a bad lock. The mic runs only until the next match.
+1. They tap **Sync**. The mic stays on.
+2. The first matching line is a rough start. The list puts that line at the bottom and the clock runs from when that phrase was heard. Lines just said stay on screen. Scrolling the list parks it, and the highlight keeps moving. **Current line**, at the top and the bottom of the list, jumps back and follows again. The mic does not stop.
+3. If the speech runs on before the first lock, every 5 seconds the words already heard are checked again. The stretch grows until a long enough line is close. The clock uses when those words were heard, so a late lock catches up. A finished line hands the clock to the next cue. The heard words show only while Sync is still searching.
+4. Every 5 seconds after a lock, the words just heard are matched again, against lines a little behind the clock and a little ahead of it. A hit pulls the highlight back onto the picture. **Not this** drops the rough start and keeps listening.
+5. **Stop** holds the list. They tap Sync again after a pause, a seek, or a bad lock.
 
-When they ask to follow during a watch, say Sync is not built. If they name the line on screen, store it as the lock anyway. A stills `offsetMs` / `timeScale` can correct a clock that drifts the same way on every lock. Do not record `0.96` on a guess.
+A stills `offsetMs` / `timeScale` can correct a clock that drifts the same way on every lock. Do not record `0.96` on a guess. Do not apply that scale unless they ask.
 
 ## Report
 

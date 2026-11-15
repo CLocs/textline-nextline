@@ -5,6 +5,8 @@ import {
   buildCatalogOpsRows,
   defaultOpsSortDir,
   formatCoveragePct,
+  formatRemoteStillStatus,
+  mergeStillCounts,
   sortCatalogOpsRows,
   type CatalogOpsRow,
   type CatalogOpsSortDir,
@@ -17,7 +19,13 @@ import {
 } from "../lib/content/catalogOpsData";
 import { fetchOpsCatalog } from "../lib/ops/api";
 import { fetchTitleRequests, type TitleRequestListItem } from "../lib/content/titleRequestsApi";
-import { fetchStudioCoverage, studioHealth } from "../lib/content/stillsStudioApi";
+import {
+  fetchRemoteStillCounts,
+  fetchStudioCoverage,
+  startRemoteStillCountRefresh,
+  studioHealth,
+  type RemoteStillCounts,
+} from "../lib/content/stillsStudioApi";
 import { DEFAULT_STUDIO_SHOW } from "../lib/content/stillsStudioTypes";
 import { StillsStudioPanel } from "./StillsStudioPanel";
 
@@ -62,7 +70,14 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   const [stillsShow, setStillsShow] = useState(DEFAULT_STUDIO_SHOW);
   const [stillsTitleId, setStillsTitleId] = useState<string | null>(null);
   const [stillsAutoBatch, setStillsAutoBatch] = useState(false);
-  const [stillCounts, setStillCounts] = useState<Record<string, number>>(() => loadStillsCoverage());
+  const [diskCounts, setDiskCounts] = useState<Record<string, number> | null>(null);
+  const [remoteCounts, setRemoteCounts] = useState<RemoteStillCounts>({
+    updatedAt: null,
+    titles: {},
+    refreshing: false,
+    listed: 0,
+    error: null,
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -84,13 +99,48 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
   }, []);
 
   useEffect(() => {
+    let cancelled = false;
+    void studioHealth().then(async (ok) => {
+      if (!ok || cancelled) return;
+      try {
+        const counts = await fetchRemoteStillCounts();
+        if (!cancelled) setRemoteCounts(counts);
+      } catch {
+        /* bundled or on-disk counts remain until a refresh */
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!remoteCounts.refreshing) return;
+    let cancelled = false;
+    async function pull() {
+      try {
+        const counts = await fetchRemoteStillCounts();
+        if (!cancelled) setRemoteCounts(counts);
+      } catch {
+        /* keep the last snapshot */
+      }
+    }
+    void pull();
+    const timer = window.setInterval(() => void pull(), 1000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
+  }, [remoteCounts.refreshing]);
+
+  useEffect(() => {
     if (tab !== "catalog") return;
     let cancelled = false;
     void studioHealth().then(async (ok) => {
       if (!ok || cancelled) return;
       try {
         const titles = await fetchStudioCoverage();
-        if (!cancelled && Object.keys(titles).length > 0) setStillCounts(titles);
+        if (!cancelled) setDiskCounts(titles);
       } catch {
         /* bundled stills-coverage.json remains */
       }
@@ -110,6 +160,12 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
       cancelled = true;
     };
   }, [tab]);
+
+  const stillCounts = useMemo(() => {
+    if (remoteCounts.updatedAt) return mergeStillCounts(diskCounts ?? {}, remoteCounts.titles);
+    if (diskCounts && Object.keys(diskCounts).length > 0) return diskCounts;
+    return loadStillsCoverage();
+  }, [diskCounts, remoteCounts]);
 
   const rows = useMemo(() => {
     const built = buildCatalogOpsRows({
@@ -134,6 +190,18 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
     }
     setSortKey(key);
     setSortDir(defaultOpsSortDir(key));
+  }
+
+  async function refreshR2() {
+    try {
+      setRemoteCounts(await startRemoteStillCountRefresh());
+    } catch (err) {
+      setRemoteCounts((prev) => ({
+        ...prev,
+        refreshing: false,
+        error: err instanceof Error ? err.message : String(err),
+      }));
+    }
   }
 
   function openStills(row: CatalogOpsRow, autoBatch = false) {
@@ -190,12 +258,28 @@ export function CatalogOpsScreen({ user, entries, onBack }: Props) {
         </button>
       </div>
 
+      {tab === "catalog" || tab === "stills" ? (
+        <div className="ops-r2-refresh">
+          <button
+            type="button"
+            className="button"
+            disabled={remoteCounts.refreshing}
+            aria-busy={remoteCounts.refreshing}
+            onClick={() => void refreshR2()}
+          >
+            {remoteCounts.refreshing ? "Refreshing R2…" : "Refresh R2 counts"}
+          </button>
+          <p className="muted">{formatRemoteStillStatus(remoteCounts)}</p>
+        </div>
+      ) : null}
+
       {tab === "stills" ? (
         <StillsStudioPanel
           key={`${stillsShow}:${stillsTitleId ?? ""}:${stillsAutoBatch ? "batch" : ""}`}
           initialShow={stillsShow}
           initialTitleId={stillsTitleId}
           initialAutoBatch={stillsAutoBatch}
+          remoteStillCounts={remoteCounts.titles}
         />
       ) : null}
 

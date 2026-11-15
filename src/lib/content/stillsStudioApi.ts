@@ -68,6 +68,24 @@ export async function fetchStudioCoverage(): Promise<Record<string, number>> {
   return data.titles ?? {};
 }
 
+export type RemoteStillCounts = {
+  updatedAt: string | null;
+  titles: Record<string, number>;
+  refreshing: boolean;
+  listed: number;
+  error: string | null;
+};
+
+export async function fetchRemoteStillCounts(): Promise<RemoteStillCounts> {
+  const response = await studioFetch("/r2-counts");
+  return readJson<RemoteStillCounts>(response);
+}
+
+export async function startRemoteStillCountRefresh(): Promise<RemoteStillCounts> {
+  const response = await studioFetch("/r2-counts", { method: "POST" });
+  return readJson<RemoteStillCounts>(response);
+}
+
 export async function studioHealth(): Promise<boolean> {
   try {
     const response = await studioFetch("/health");
