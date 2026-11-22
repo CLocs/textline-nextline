@@ -196,7 +196,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 0 | [The Day After Tomorrow](https://boxd.it/2aog) | 2004 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [The French Connection](https://boxd.it/296g) | 1971 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [The Great Gatsby](https://boxd.it/JY) | 2013 | 5 |  | [ ] missing |
-| 2 | 1 | 0 | [The Hunger Games](https://boxd.it/2uds) | 2012 | 5 |  | [ ] missing |
+| 2 | 1 | 0 | [The Hunger Games](https://boxd.it/2uds) | 2012 | 5 |  | [x] |
 | 2 | 1 | 0 | [The Lighthouse](https://boxd.it/icFU) | 2019 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [The Lincoln Lawyer](https://boxd.it/DRM) | 2011 | 5 |  | [ ] missing |
 | 2 | 1 | 0 | [The Lord of the Rings: The War of the Rohirrim](https://boxd.it/vDNs) | 2024 | 5 |  | [ ] missing |

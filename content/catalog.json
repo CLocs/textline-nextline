@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T06:22:36.530Z",
+  "updatedAt": "2026-11-22T04:45:30.774Z",
   "titles": [
     {
       "id": "american-gangster-2007",
@@ -5080,6 +5080,46 @@
       "importedAt": "2026-09-13T03:48:41.921Z",
       "meta": {
         "year": 2014
+      }
+    },
+    {
+      "id": "the-hunger-games-2012",
+      "title": "The Hunger Games (2012)",
+      "lineCount": 824,
+      "sourceFilename": "The.Hunger.Games.2012.eng.srt",
+      "importedAt": "2026-11-22T04:45:30.754Z",
+      "meta": {
+        "year": 2012
+      }
+    },
+    {
+      "id": "the-hunger-games-catching-fire-2013",
+      "title": "The Hunger Games: Catching Fire (2013)",
+      "lineCount": 1542,
+      "sourceFilename": "The.Hunger.Games.Catching.Fire.2013.eng.srt",
+      "importedAt": "2026-11-22T04:45:30.761Z",
+      "meta": {
+        "year": 2013
+      }
+    },
+    {
+      "id": "the-hunger-games-mockingjay-part-1-2014",
+      "title": "The Hunger Games: Mockingjay Part 1 (2014)",
+      "lineCount": 1141,
+      "sourceFilename": "The.Hunger.Games.Mockingjay.Part.1.2014.eng.srt",
+      "importedAt": "2026-11-22T04:45:30.769Z",
+      "meta": {
+        "year": 2014
+      }
+    },
+    {
+      "id": "the-hunger-games-mockingjay-part-2-2015",
+      "title": "The Hunger Games: Mockingjay Part 2 (2015)",
+      "lineCount": 1293,
+      "sourceFilename": "The.Hunger.Games.Mockingjay.Part.2.2015.eng.srt",
+      "importedAt": "2026-11-22T04:45:30.772Z",
+      "meta": {
+        "year": 2015
       }
     },
     {
