@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T04:45:30.774Z",
+  "updatedAt": "2026-11-23T02:54:01.353Z",
   "titles": [
     {
       "id": "american-gangster-2007",
@@ -1800,6 +1800,16 @@
       "importedAt": "2026-10-28T01:39:35.568Z",
       "meta": {
         "year": 2010
+      }
+    },
+    {
+      "id": "independence-day-1996",
+      "title": "Independence Day (1996)",
+      "lineCount": 1895,
+      "sourceFilename": "Independence.Day.1996.eng.srt",
+      "importedAt": "2026-11-23T02:54:01.347Z",
+      "meta": {
+        "year": 1996
       }
     },
     {
