@@ -4,7 +4,7 @@ The tile on the phone home screen that shows the daily streak, whether today is 
 
 Add to Home Screen already pins the PWA. A website cannot draw a widget. Android draws the tile in the shell. iOS needs a WidgetKit extension in an App Store build. The site only feeds the data.
 
-Roadmap: [2.9](ROADMAP.md#29-home-widget). Nothing here is built. Do not scaffold a shell until that first slice is the work in front of you.
+Roadmap: [2.12](ROADMAP.md#212-home-widget). Nothing here is built. Do not scaffold a shell until that first slice is the work in front of you.
 
 ## Order
 

@@ -4,7 +4,7 @@ description: >-
   Stores the room's chatter on a quote: jokes, life stories, and other movies.
   Use when the user wants notes on a line, a HeyPocket or Pocket transcript
   of a watch, speaker labels, or to map a recording onto The Odyssey or
-  another title. Manual notes and the import procedure live here. 2.7 Watch
+  another title. Manual notes and the import procedure live here. 2.10 Watch
   stays highlighting and Sync. w2g is the watch: stars, Sync, and these notes.
 ---
 

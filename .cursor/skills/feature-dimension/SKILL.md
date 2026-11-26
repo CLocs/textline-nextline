@@ -15,7 +15,7 @@ A dimension is a release-shaped direction. A bugfix, a copy change, or a tweak t
 
 1. Read [ROADMAP.md](../../docs/ROADMAP.md): Now, Next, Later, Open spikes, Status. One idea lives there once. Do not copy it into the README.
 
-2. Number the next app sub-version. Shipped slices are 2.5 and 2.6. The next is 2.7, then 2.8. Leave Now on whatever it already says unless they say this direction replaces it.
+2. Number the next app sub-version. Shipped slices run through 2.11. 2.12 Home widget is open and not started. The next new number is 2.13. Leave Now on whatever it already says unless they say this direction replaces it.
 
 3. Add a short section for that number:
    - what is already usable

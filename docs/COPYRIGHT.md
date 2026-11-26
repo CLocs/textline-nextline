@@ -4,6 +4,20 @@ Saved from the October 2026 copyright review. Paths forward for a seeded game ad
 
 This is general information about US copyright, not legal advice. An IP lawyer should review anything you plan to charge for, open to the public, or run ads on. Copyright is territorial, so a US-only theory does not clear the same catalog in the EU or elsewhere.
 
+## Where this stands
+
+Options 3 and 4 stay set aside. The game only works if the transcripts are already seeded.
+
+The fear matches the catalog. Simpsons, Sunny, and the studio films are already on a public Pages site, with the transcripts bundled into the build. A wider launch of that catalog — ads on the site, or a campaign that sends strangers to it — is the step to hold.
+
+- **Option 5** keeps this game. The full private version (an allow-list, stills behind auth, no public share cards) is written below. That shrink is available. It is not the current plan.
+- **Option 1** is how a public push becomes possible later. You still seed full transcripts. The shelf changes to files you can clear. Early films will not feel like the current queue.
+- **Option 2** is a letter, not a launch. TMDB licenses their posters and metadata, not dialogue. A studio will not grant a full-transcript game of these series through a web form. The probe that might get a yes is one independent filmmaker or writer who still controls the work. Silence is not a license. Publish only the titles the paper covers.
+
+You can move forward without taking the site down and without a second deploy. On that choice, forward means the one site stays up, people you know can still have the link, and a cleared shelf starts growing on the same catalog. Ads and a marketing push still wait until the public build is cleared titles only, or a written license covers every title on it. A second site, or taking modern titles out of the build, is the gate in front of that later work. It is optional until you want that work.
+
+Working order: [Practical order](#practical-order). The same order is on the [roadmap](ROADMAP.md#rights).
+
 ## What this app actually publishes
 
 Textline is a next-line game over **full timed transcripts** in [content/titles](../content/titles), built from subtitle files, plus **frames pulled from local movie files** and served from R2 at `/stills/`. Posters sit at `/posters/`. Wikiquote is only a match needle for which lines to star ([src/lib/content/wikiquote.ts](../src/lib/content/wikiquote.ts)); the stored text is still the subtitle line.
@@ -76,11 +90,13 @@ The fear matches the analysis. Widening who can reach the catalog you have now �
 - **Option 1** publicizes a site. You still seed full transcripts. The movies change to ones you can actually clear.
 - **Option 2** publicizes nothing until a written yes. For the current studio catalog, that yes is unlikely, slow, and expensive. It is a letter, not a launch plan.
 
-Keep the three off the same domain. A public page that also contains the modern transcripts is the modern catalog, whatever else sits next to it.
+The current plan keeps one domain. A page that also contains the modern transcripts is still the modern catalog, whatever else sits next to it. That is acceptable while the site stays free and unadvertised. It stops being acceptable when ads or a campaign go on that same page. The split is the later gate, written in the [practical order](#practical-order).
 
 ## Option 5 — private, noncommercial, current catalog
 
-This is the path that keeps the game you already built. “A step forward” here means more friends playing, with the public surface getting smaller rather than larger. No ads, no subscription, no affiliate links, no sponsor posts. Popularity inside that circle does not graduate the catalog to public.
+Available, not the current plan. The current plan leaves the public site up. This section is the shrink, if we later choose it.
+
+This is the path that keeps the game you already built and makes the audience smaller. “A step forward” here means more friends playing, with the public surface getting smaller rather than larger. No ads, no subscription, no affiliate links, no sponsor posts. Popularity inside that circle does not graduate the catalog to public.
 
 An unlisted URL is still public. So is a Discord of strangers, a quote card on social media, and a Google sign-in that anyone can complete.
 
@@ -94,7 +110,7 @@ Before inviting anyone new, list the live surfaces:
 - Share links, quote-image export, daily email
 - Google OAuth, if the consent screen is published for anyone
 
-If those are world-readable, the catalog is already published. The next step is to shrink that, not announce it.
+If those are world-readable, the catalog is already published. Shrinking that surface is this option. The [practical order](#practical-order) leaves it up.
 
 ### Phase 1 — Name the circle
 
@@ -123,9 +139,9 @@ This keeps the product model: you ingest full transcripts and frames, then peopl
 
 Treat “I read that this movie is public domain” as a lead, not a clearance. *It’s a Wonderful Life* is the cautionary example: the film’s registration lapsed, and the underlying story was used to pull it back. A blog list is not a source.
 
-### Phase 0 — Freeze the modern catalog
+### Phase 0 — Same site is fine for the pilot
 
-Do the option 5 shrink first, or at least stop expanding the public deploy. New public pages should be unable to request a modern title by URL. One shared library with a “PD” tag is how the current catalog leaks into the public site.
+Do not take the modern catalog down to try these titles. Add them to the live catalog and tag them, so a later split is possible. One shared library does not clear the modern titles sitting beside them. Leave ads off, and do not send a campaign at the site, while both shelves share a domain.
 
 ### Phase 1 — Write a rule you can apply to every file
 
@@ -142,11 +158,11 @@ Run them through the pipeline you already have. Play them. The question to answe
 
 Prefer files an archive has already marked public domain, then confirm the title. Cult titles people can name (*Night of the Living Dead*, Keaton features, *Nosferatu*, *Metropolis*) are the interesting end of the shelf, and several of them have famous restorations or new scores you should not use. Confirm the specific file.
 
-### Phase 3 — A separate public site
+### Phase 3 — Play the pilot on the live site
 
-Deploy only the pilot. Hard-filter the catalog so a modern id cannot resolve. Skip TMDB posters until you are comfortable calling the site commercial and paying for TMDB’s commercial plan. Until then, no posters, or only images that came with the public-domain file.
+Leave it on the one domain. Skip TMDB posters for these titles until you are comfortable calling the site commercial and paying for TMDB’s commercial plan. Until then, no posters, or only images that came with the public-domain file.
 
-Leave ads off during the pilot. A free public-domain game is the thing you are testing. Ads are a later decision on a catalog that stayed clean.
+A separate deploy, or a build that cannot serve a modern id, is the later gate in the [practical order](#practical-order). It is the step before ads or a campaign. It is not required to find out whether these titles are fun.
 
 ### Phase 4 — Monetize the clean site
 
@@ -202,10 +218,12 @@ What Letterboxd-scale sites actually sell is mostly closed to a new app: studio 
 
 Ad creative, quote cards, and social posts are separate publications. A clean catalog with infringing promo images is still a problem.
 
-## A practical order
+## Practical order
 
-1. Shrink what is already public (option 5, phases 0–2). That is the step that matches the fear.
-2. Invite named friends (option 5, phase 3). That is the step toward more people playing the game you have.
-3. In parallel, pilot a handful of archive files under a written rule (option 1, phases 1–2). Play them before you design a launch.
-4. Send one careful license ask to an independent rightsholder (option 2, phases 1–2) only if you want *those* films in public. Do not wait on it to keep playing with friends.
-5. Advertise and add ads only after a separate site has stayed inside option 1 or a written option 2 grant.
+One site. Do not shrink what is already public, and do not stand up a second site, unless a later gate says so.
+
+1. **Leave the live site up.** `textlinenextline.com` stays the only catalog. People you already share the link with can keep playing. No allow-list and no second deploy.
+2. **Hold the two moves that widen the risk.** No ads, subscriptions, affiliates, or sponsorships on this site. No paid promotion, podcast reads, launch posts, or public quote cards that send strangers to the modern titles. Sharing the existing link with people you know can continue.
+3. **Pilot a public-domain shelf on that same site.** Write the file rule (option 1, phase 1), ingest five to ten archive titles, tag them, and play them (phases 2–3). The tag is what makes a later split possible. Playing them is how you learn whether next-line works when the lines are old. The modern titles beside them stay uncleared.
+4. **Optional: one license letter.** An independent rightsholder, one title, the one-page ask (option 2, phases 1–2). Describe the game. Leave the live URL and the existing corpus out of the email. Do not wait on an answer to keep playing.
+5. **Gate, only when you want ads or a public campaign.** Either the public build contains only cleared titles, or a written license covers every title on it. That is when a second site, or taking modern titles out of the build, becomes the work. Until then, product work on the one site continues.

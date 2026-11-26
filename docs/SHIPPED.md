@@ -236,6 +236,10 @@ Commands: [Extract stills](../README.md#extract-stills-local) and [Quote stills 
 
 ---
 
+## Phase 2.7 — Loved, friends, and Chats
+
+Shipped after 2.6. Love a line, play a star streak, and send questions to friends, groups, and Chats. Writeups follow.
+
 ## Loved / double-star quotes
 
 Today a mini-game fills 10 from your personal stars (shuffled), then crowd popular, then random. If a title has ~80 stars, the handful of **golden** lines often miss the queue.
@@ -308,6 +312,10 @@ Profile → Friends is a name list (Remove / Block) under the invite link.
 
 ---
 
+## Phase 2.8 — Teach, daily, and Play now
+
+Shipped. Teach mode, the similar-answer guard, parallels Light, image export, the daily email, and Play now.
+
 ## Teach mode
 
 **Fun (default):** skip lights the correct MCQ choice the same way a hit does, then holds **2s** before advancing. Correct answers use the same hold.
@@ -368,35 +376,6 @@ Medium (situation blurbs, Home rail, pack chat) is deferred — [ROADMAP.md](ROA
 
 ---
 
-## Standalone quotes (star a line, not a TLNL)
-
-**Input side.** A star means “this line is a **TL** — quiz whatever comes after it.” Plenty of lines are not setups: the quotable part *is* that line, and the cue after it is dead air. Starring one of those puts a bad question in the mini-game pool.
-
-**Quote** is a second mark, with the same Curate / Play chrome as Star and ♥, and a different meaning. It lives in its own `quotes` table, so a quote-only line cannot be read as a star.
-
-| Mark | Means | Feeds |
-|------|-------|-------|
-| **Star** | this line sets up the next one | mini-game pool, crowd popular, 1-line shares |
-| **♥ Love** (cap 5) | this setup is golden | queue bias, line of the day |
-| **Quote** | this line stands on its own | the daily mail and Home — **never** the quiz pool |
-
-- A quote mark does not reach `buildMiniGameQueue`, `/api/stars/popular`, or a frozen share unless the line is **also** starred. The marks are independent: a line can be both.
-- Keyed like stars (`title_id`, `line_index`, `player_id`) in `quotes`, not as a flag on `stars`.
-- Star counts don’t change meaning. A quote-only line is not a star, and the ♥ cap still belongs to setups.
-- Multi-cue quotes stay later. The unit is one cue.
-
-**Output side.** Same habit loop as the daily mail, except one card is not a question:
-
-1. **Daily mail** — alongside the three TLNL cards, one **standalone quote card**: still, line, title, no choices, nothing to guess. Pick a date-seeded framed quote mark of the player’s own, filling from the top crowd quote marks when the personal pool is thin, with the same 7-day no-repeat as the question cards.
-2. **In the app** — Home shows the day’s quote beside Today’s Daily Quotes. It does not gate the [day streak](#daily-quote-email); the streak stays the three questions.
-3. **Export** — the quote card opens [Share quote as image](#share-quote-as-image), which already renders a line with no quiz.
-
-Chat send, profile shelf, search filter, and seed backfill stay parked — [ROADMAP.md](ROADMAP.md#later).
-
-**Gates:** frame coverage (same limit as the mail). [Wikiquote](#spike-online-quotes-eg-imdb-research) matches are quote marks. Readwise matches stay stars.
-
----
-
 ## Daily quote email
 
 **Idea:** One email a day with **3 quote cards**. A mini-mini-game: three textline → nextline questions, then done.
@@ -450,6 +429,39 @@ Badges, liked-title bias, and favorite quote after a mini-game stay later — [R
 
 ---
 
+## Phase 2.9 — Quotes, search, and the home screen
+
+Shipped. A quote mark that is not a quiz, global search, clearer play, Add to Home Screen, and title requests.
+
+## Standalone quotes (star a line, not a TLNL)
+
+**Input side.** A star means “this line is a **TL** — quiz whatever comes after it.” Plenty of lines are not setups: the quotable part *is* that line, and the cue after it is dead air. Starring one of those puts a bad question in the mini-game pool.
+
+**Quote** is a second mark, with the same Curate / Play chrome as Star and ♥, and a different meaning. It lives in its own `quotes` table, so a quote-only line cannot be read as a star.
+
+| Mark | Means | Feeds |
+|------|-------|-------|
+| **Star** | this line sets up the next one | mini-game pool, crowd popular, 1-line shares |
+| **♥ Love** (cap 5) | this setup is golden | queue bias, line of the day |
+| **Quote** | this line stands on its own | the daily mail and Home — **never** the quiz pool |
+
+- A quote mark does not reach `buildMiniGameQueue`, `/api/stars/popular`, or a frozen share unless the line is **also** starred. The marks are independent: a line can be both.
+- Keyed like stars (`title_id`, `line_index`, `player_id`) in `quotes`, not as a flag on `stars`.
+- Star counts don’t change meaning. A quote-only line is not a star, and the ♥ cap still belongs to setups.
+- Multi-cue quotes stay later. The unit is one cue.
+
+**Output side.** Same habit loop as the daily mail, except one card is not a question:
+
+1. **Daily mail** — alongside the three TLNL cards, one **standalone quote card**: still, line, title, no choices, nothing to guess. Pick a date-seeded framed quote mark of the player’s own, filling from the top crowd quote marks when the personal pool is thin, with the same 7-day no-repeat as the question cards.
+2. **In the app** — Home shows the day’s quote beside Today’s Daily Quotes. It does not gate the [day streak](#daily-quote-email); the streak stays the three questions.
+3. **Export** — the quote card opens [Share quote as image](#share-quote-as-image), which already renders a line with no quiz.
+
+Chat send, profile shelf, search filter, and seed backfill stay parked — [ROADMAP.md](ROADMAP.md#later).
+
+**Gates:** frame coverage (same limit as the mail). [Wikiquote](#spike-online-quotes-eg-imdb-research) matches are quote marks. Readwise matches stay stars.
+
+---
+
 ## Global search
 
 **Why:** Finding a line used to mean picking a title first, then filtering that transcript in Curate. Browse is Movies \| TV. You already know the quote (“Let 'em watch”) or the episode name — you should not have to remember which film it is in.
@@ -493,7 +505,7 @@ Native iOS/Android store apps are an **ultimate** goal (App Store / Play, push, 
 
 **Not this (v1):** service-worker offline cache, Web Push, Capacitor / store listings. Regenerate icons with `node scripts/generate-pwa-icons.mjs` if the mark changes.
 
-The home-screen streak tile is [2.9](ROADMAP.md#29-home-widget). Add to Home Screen cannot draw it.
+The home-screen streak tile is [2.12](ROADMAP.md#212-home-widget). Add to Home Screen cannot draw it.
 
 ---
 
@@ -506,6 +518,25 @@ Players can ask for a movie we don’t have. Letterboxd connect can do that late
 **First cut:** that queue is the whole feature. You attend to it later by hand — find the subtitle, convert, import — the same way the content queue works today. Nothing is downloaded for you.
 
 **Not this:** OpenSubtitles, video pull, or auto-import. Those stay [SRT and video automation](ROADMAP.md#later).
+
+---
+
+## Phase 2.10 — Watch *(w2g)*
+
+**Goal:** While a film is playing, star lines in Curate and keep the list on the picture. Plan: [W2G.md](W2G.md). Procedure: [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md).
+
+- [x] **One title from Readwise** — highlights into `stars-seed.json`, then a dry-run `content:stars-push`. Command: `content:vault-title`. Do not re-import the SRT after stars exist.
+- [x] **Sync, in Curate** — tap Sync, the first heard line starts the clock, and a finished line hands off to the next cue. Every few seconds the words just heard are matched again, behind the clock and ahead of it, so a drift gets pulled back. Stop holds the list. Tap Sync again after a pause, a seek, or a bad lock.
+
+---
+
+## Phase 2.11 — Line notes *(w2g)*
+
+**Goal:** Keep what was said about one line. Plan: [W2G.md](W2G.md). Procedure: [line-notes](../.cursor/skills/line-notes/SKILL.md).
+
+- [x] **Typed note** — on a starred or quoted line, shown in Curate, stored in this browser. There is no notes table.
+
+Still later, one at a time: HeyPocket, the Sync mic note, speakers, and a pointer at another line. See [ROADMAP.md](ROADMAP.md#211-line-notes).
 
 ---
 
