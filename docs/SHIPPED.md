@@ -493,7 +493,7 @@ Native iOS/Android store apps are an **ultimate** goal (App Store / Play, push, 
 
 **Not this (v1):** service-worker offline cache, Web Push, Capacitor / store listings. Regenerate icons with `node scripts/generate-pwa-icons.mjs` if the mark changes.
 
-Native store apps stay later — [ROADMAP.md](ROADMAP.md#later).
+The home-screen streak tile is [2.9](ROADMAP.md#29-home-widget). Add to Home Screen cannot draw it.
 
 ---
 

@@ -28,6 +28,7 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 | **Send streaks from Curate** | **Now** |
 | **2.7 w2g Watch** | Sync is in Curate: tap, mic until a line locks, then the clock. One-title vault import stays |
 | **2.8 w2g Line notes** | Typed note on a starred or quoted line, in this browser. HeyPocket, speakers, and the Sync mic note are still later |
+| **2.9 Home widget** | Not started. PWA icon and the daily streak already exist. The tile needs a native shell |
 | Keep it going; C3 hygiene; security L1 | Next |
 | Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
 | C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |
@@ -50,6 +51,16 @@ Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone el
 The note half of **w2g**. Same plan: [W2G.md](W2G.md). Procedure: [line-notes](../.cursor/skills/line-notes/SKILL.md).
 
 **Shipped.** A typed note on a starred or quoted line, shown in Curate, stored in this browser. HeyPocket, the Sync mic, speakers, and a pointer at another line follow, one at a time.
+
+## 2.9 Home widget
+
+A home-screen tile that keeps the daily streak going, in the Duolingo style. Plan: [WIDGET.md](WIDGET.md).
+
+**Already usable.** [PWA-lite](SHIPPED.md#mobile-home-screen-pwa-lite-before-native-apps) pins an icon and opens without browser chrome. The daily streak is on Home, Profile, and friend faces, and the site already has the day’s line. Add to Home Screen cannot draw a tile. The site only feeds the data.
+
+**First slice, when we chip.** An Android tile inside a thin store shell (Capacitor or similar): streak, whether today is done, and the day’s line. iOS is that same tile as a WidgetKit extension beside the web view, in an App Store build. Not this slice: push, offline cache, or replacing the PWA as the way to open the app.
+
+**Spikes.** Which shell. A store account and review for a wrapper. The signed-out tile. Whether “till next time” is a countdown or just done / not yet. What the tile shows when the API is unreachable.
 
 ## Later
 
@@ -107,7 +118,7 @@ Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
 
 **Premium GIFs from selected lines.** Paid tier renders a capped (~6s) loop over selected cues from the local remux. Own bucket beside `/stills`. First feature that needs billing. GIF vs silent MP4/WebM is open. Rights is the Steam question again.
 
-**Native shell and home screen widget.** After PWA-lite has been in the wild. A thin shell (Capacitor or similar) if the store, iOS push, or offline become real needs. The widget is the glance that needs it: streak, “till next time,” and the day’s line, in the Duolingo style. Add to Home Screen only pins an icon. Android draws the tile in the shell; iOS needs a WidgetKit extension beside the web view, in an App Store build. The site feeds the data. It cannot draw the tile.
+**Home widget.** [2.9](#29-home-widget).
 
 **SRT and video automation.** Filling a [title request](SHIPPED.md#title-requests-light) automatically. Manual drop + paced OpenSubtitles already exist ([C2](CONTENT.md#c2--subtitle-acquisition-hybrid)). Daily cap, match quality, and copyright sit between requested and playable. Video has no licensed equivalent of the owner’s local file. Rights, source, rate limit, and file match all have to be true at once.
 

@@ -1922,9 +1922,29 @@ code {
 }
 
 .curate-hint {
-  margin: 0 0 1rem;
+  margin: 0 0 0.4rem;
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.curate-keys {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.curate-keys kbd {
+  display: inline-block;
+  margin: 0 0.12rem;
+  padding: 0.02rem 0.32rem;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.85em;
+  line-height: 1.4;
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .curate-toolbar {
@@ -2073,6 +2093,10 @@ code {
 .curate-item.focused {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.curate-item.kbd {
+  box-shadow: inset 3px 0 0 var(--ink);
 }
 
 .search-toolbar {
@@ -2231,6 +2255,10 @@ code {
   max-height: calc(100vh - 16rem);
   overflow: auto;
   overflow-anchor: none;
+}
+
+.curate-list:focus {
+  outline: none;
 }
 
 .curate-list-canvas {
