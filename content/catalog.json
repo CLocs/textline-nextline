@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-23T02:54:01.353Z",
+  "updatedAt": "2026-11-26T04:22:48.815Z",
   "titles": [
     {
       "id": "american-gangster-2007",
@@ -4182,6 +4182,16 @@
       "importedAt": "2026-08-30T21:31:24.762Z",
       "meta": {
         "year": 1990
+      }
+    },
+    {
+      "id": "seven-pounds-2008",
+      "title": "Seven Pounds (2008)",
+      "lineCount": 1028,
+      "sourceFilename": "Seven.Pounds.2008.eng.srt",
+      "importedAt": "2026-11-26T04:22:48.811Z",
+      "meta": {
+        "year": 2008
       }
     },
     {
