@@ -256,7 +256,7 @@ A **star streak** is two or more starred lines in a row (adjacent quiz prompts i
 
 **In:** `buildMiniGameQueue` finds personal-star streaks (loved ∪ starred), prefers the longest, and seeds the queue with that run (trimmed to mini size if needed). Chronological sort keeps the streak sequential in play. Loved lines still fill remaining slots next.
 
-Sending a streak from Curate is [now](ROADMAP.md#now).
+**Send from Curate.** On a line inside a streak, the send menu defaults to **Streak (N)** and can switch back to this line. The share is those prompts in transcript order, trimmed to mini size (10) around the line you opened. Inbox and incoming Chats show one **Play N-line streak** card (`#/play/{shareId}`), not N question cards.
 
 ---
 
@@ -266,7 +266,7 @@ Today’s 10-pack share is an **anonymous mini-game URL**. This is **directed**,
 
 **Friends (gate).** Mutual friendship via an unguessable **friend link**. Profile → Friends copies `#/friend/{token}`; they sign in and tap Accept. One live link per account; **Rotate** invalidates the old URL (tokens stored as `token_hash` only). List is `{ userId, displayName }` — never email. No `GET /api/users`, no search-by-name, no “who’s online.” Cannot friend yourself. **Remove** drops the pair; **Block** drops it and rejects future accepts from that person even with a new link. Cap ~50. Must be signed in (local Vite “Continue without signing in” has no graph).
 
-**Send.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later. Same line to several friends reuses one share; 10s debounce only applies to **same line → same person**. Sending a whole star streak from Curate is [now](ROADMAP.md#now).
+**Send.** Same overlay from **Curate** (top-right icon on each quiz line) and **Play** (next to Star on the current prompt). **Copy link** is a frozen 1-prompt `#/play/{shareId}`; **Send** goes to a friend or a **named group**. Recipient must already be a friend. Block still wins. Must be signed in. Notes stay later. Same line to several friends reuses one share; 10s debounce only applies to **same share → same person**. A star streak uses that same overlay, friend gate, and cooldown. See [Star streaks](#star-streaks-in-mini-games).
 
 **Inbox.** Home **From friends** and Profile → **Inbox** show a list of quiz cards (the line + choices). Guess right and the card compresses to textline + nextline. Group send is still one inbox row per person (same `shareId`).
 

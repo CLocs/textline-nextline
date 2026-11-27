@@ -9,6 +9,7 @@ import { isInboxItemSolved, markInboxItemSolvedEverywhere } from "../lib/inbox/s
 import type { InboxItem } from "../lib/inbox/api";
 import type { CatalogEntry } from "../types/content";
 import { setHash } from "../lib/routing/hash";
+import { markKeepGoing } from "../lib/inbox/keepGoing";
 import type { ChatReaction } from "../lib/chats/api";
 import { ChatQuoteActions } from "./ChatQuoteActions";
 import { ChatReactions } from "./ChatReactions";
@@ -178,6 +179,18 @@ export function InboxLineCard({
           </ul>
         </>
       )}
+      {!isStreak && item.continuationShareId && (item.continuationCount ?? 0) > 0 ? (
+        <button
+          type="button"
+          className="button ghost inbox-play-streak"
+          onClick={() => {
+            markKeepGoing(item.titleId);
+            setHash(`play/${item.continuationShareId}`);
+          }}
+        >
+          Keep it going ({item.continuationCount})
+        </button>
+      ) : null}
       {showQuoteActions && shareId && onReactions ? (
         <ChatReactions
           targetKind="quote"

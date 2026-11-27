@@ -141,6 +141,17 @@ export function streakForSend(
   return streak.slice(start, start + cap);
 }
 
+/**
+ * Starred prompts in this streak that come after `lineIndex`, in transcript order.
+ * Null when the line is not in a streak or nothing starred follows it.
+ * Does not include unstarred lines, or lines before this one.
+ */
+export function restOfStreak(streak: number[] | null, lineIndex: number): number[] | null {
+  if (!streak) return null;
+  const rest = streak.filter((index) => index > lineIndex).sort((a, b) => a - b);
+  return rest.length > 0 ? rest : null;
+}
+
 function pickStreak(
   streaks: number[][],
   size: number,

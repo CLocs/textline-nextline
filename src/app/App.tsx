@@ -48,6 +48,7 @@ import { ChatThreadScreen } from "../components/ChatThreadScreen";
 import { SearchScreen } from "../components/SearchScreen";
 import { DailyMailUnsub } from "../components/DailyMailUnsub";
 import { canViewCatalogOps } from "../lib/content/owner";
+import { takeKeepGoing } from "../lib/inbox/keepGoing";
 import bubblesLogo from "../assets/textline-nextline-logo-bubbles.png";
 import { dismissVisitQuote } from "../lib/game/visitQuote";
 import type { DailyLine } from "../lib/game/dailyPick";
@@ -72,6 +73,7 @@ export function App() {
   const [lastSetup, setLastSetup] = useState<GameSetup | null>(null);
   const [title, setTitle] = useState<Title | null>(null);
   const [run, setRun] = useState<GameRun | null>(null);
+  const [afterStreak, setAfterStreak] = useState(false);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | "skipped" | null>(null);
   const [skipReveal, setSkipReveal] = useState<string | null>(null);
   const [pendingRun, setPendingRun] = useState<GameRun | null>(null);
@@ -236,6 +238,7 @@ export function App() {
 
     setActiveShareId(shareId);
     setShareMeta(metaResult);
+    setAfterStreak(takeKeepGoing(queueResult.titleId));
     setPendingEntry(entry);
     setActiveEntry(entry);
     setLastSetup({ mode: "fun", length: "mini", crowdPopular: [] });
@@ -648,6 +651,7 @@ export function App() {
     setLastSetup(null);
     setTitle(null);
     setRun(null);
+    setAfterStreak(false);
     setPersistedRunId(null);
     setFeedback(null);
     setSkipReveal(null);
@@ -990,6 +994,16 @@ export function App() {
           persistedRunId={persistedRunId}
           onPlayAgain={handleRestart}
           onBack={handleBackToLibrary}
+          showKeepGoing={afterStreak}
+          onPlayThree={() => {
+            setAfterStreak(false);
+            setScreen("instant");
+            setHash("instant");
+          }}
+          onPlayMini={() => {
+            setAfterStreak(false);
+            if (activeEntry) beginGame(activeEntry, { mode: "fun", length: "mini", crowdPopular: [] });
+          }}
         />
       )}
     </div>

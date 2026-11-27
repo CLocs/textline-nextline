@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { isAuthApiEnabled } from "../lib/auth/api";
 import { isLocalDevSession } from "../lib/auth/session";
+import { getTitle } from "../lib/content/browser";
 import { fetchFriends, type FriendListItem } from "../lib/friends/api";
 import { fetchGroups, type FriendGroup } from "../lib/groups/api";
+import { getValidPromptIndices, restOfStreak, streakForSend } from "../lib/game/miniGame";
 import { copyLineShare, sendLineToFriend, sendLineToGroup } from "../lib/inbox/api";
+import { getMineLineIndices } from "../lib/stars/store";
 import { QuoteImageExportModal } from "./QuoteImageExportModal";
 
 const CLOSE_QUOTE_EXPORT = "tlnl:close-quote-export";
@@ -32,8 +35,14 @@ export function LineSendControl({
   streakIndices = null,
   autoOpen = false,
 }: Props) {
-  const streak =
+  const given =
     streakIndices && streakIndices.length >= 2 ? streakIndices : null;
+  const title = getTitle(titleId);
+  const streak =
+    given ??
+    (title
+      ? streakForSend(getValidPromptIndices(title), getMineLineIndices(titleId), lineIndex)
+      : null);
   const streakKey = streak ? streak.join(",") : "";
   const [sendStreak, setSendStreak] = useState(Boolean(streak));
   const apiReady = isAuthApiEnabled() && !isLocalDevSession();
@@ -139,6 +148,7 @@ export function LineSendControl({
   }
 
   const outgoing = sendStreak && streak ? streak : undefined;
+  const rest = sendStreak ? null : restOfStreak(streak, lineIndex);
   const outgoingCount = outgoing?.length ?? 1;
 
   async function handleCopy() {
@@ -164,7 +174,7 @@ export function LineSendControl({
     const key = `group:${group.id}`;
     markBusy(key, true);
     setError(null);
-    const result = await sendLineToGroup(titleId, lineIndex, group.id, outgoing);
+    const result = await sendLineToGroup(titleId, lineIndex, group.id, outgoing, rest ?? undefined);
     markBusy(key, false);
     if ("error" in result) {
       setError(result.error);
@@ -189,7 +199,13 @@ export function LineSendControl({
     const key = `friend:${friend.userId}`;
     markBusy(key, true);
     setError(null);
-    const result = await sendLineToFriend(titleId, lineIndex, friend.userId, outgoing);
+    const result = await sendLineToFriend(
+      titleId,
+      lineIndex,
+      friend.userId,
+      outgoing,
+      rest ?? undefined,
+    );
     markBusy(key, false);
     if ("error" in result) {
       setError(result.error);

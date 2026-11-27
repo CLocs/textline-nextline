@@ -6,13 +6,12 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 
 ## Now
 
-**Send streaks from Curate.** Curate Send is one line. Next: send a **star streak** (two or more starred lines in a row) to a friend or a named group. The share is those lines in transcript order, the same way a streak already plays in a mini-game. Same friend gate, Send overlay, and 10s same-share cooldown as a one-line send. Inbox and Chats show one Play N-line streak card (`#/play/{shareId}`), not N MCQ cards. Cap is mini size (10).
+**Keep it going.** A one-line send that sits in a star streak stays one card. A star streak is starred quiz lines with no other quiz prompt between them. **Keep it going** plays only the starred lines after this one, in the order they appear in the film. No button when the line is not in a streak, or when it is the last line of one. After that round, the bottom of the screen offers Play 3 or a mini-game of that title.
 
 ## Next
 
-1. **Keep it going** — after send streaks. A one-line send (random quote or DM) that sits in a star streak offers a button to play the rest in transcript order, from the next starred line. The card stays one line until they tap.
-2. **Content C3 hygiene** — strip leftover `.en` from Simpsons S4 titles/ids without breaking star `titleId`s; persist `year` / `tmdbId`. Details: [CONTENT.md](CONTENT.md#c3--import--movie-catalog-hygiene-this-repo-).
-3. **Security L1** — session TTL / logout, Bearer on runs/shares/me, Google JWT checks, magic-link rate limit, claim-anonymous cannot steal stars. Do this before inviting a much larger circle. Ladder: [Open spikes](#open-spikes).
+1. **Content C3 hygiene** — strip leftover `.en` from Simpsons S4 titles/ids without breaking star `titleId`s; persist `year` / `tmdbId`. Details: [CONTENT.md](CONTENT.md#c3--import--movie-catalog-hygiene-this-repo-).
+2. **Security L1** — session TTL / logout, Bearer on runs/shares/me, Google JWT checks, magic-link rate limit, claim-anonymous cannot steal stars. Do this before inviting a much larger circle. Ladder: [Open spikes](#open-spikes).
 
 ## Status
 
@@ -27,9 +26,10 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 | 2.9 Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
 | 2.10 w2g Watch | Shipped |
 | 2.11 w2g Line notes | Shipped (HeyPocket, speakers, the Sync mic note, and a pointer at another line later) |
-| **Send streaks from Curate** | **Now** |
+| Send streaks from Curate | Shipped |
 | **2.12 Home widget** | Not started. PWA icon and the daily streak already exist. The tile needs a native shell |
-| Keep it going; C3 hygiene; security L1 | Next |
+| **Keep it going** | **Now** |
+| C3 hygiene; security L1 | Next |
 | **Rights — one site, no shrink** | **Now.** No ads, no launch campaign. PD pilot on the live catalog. Split only before ads or a campaign. [Rights](#rights) |
 | Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
 | C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |

@@ -533,6 +533,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         titleId?: string;
         lineIndex?: number;
         lineIndices?: number[];
+        continuationIndices?: number[];
         toUserId?: string;
         groupId?: string;
       } | null;
@@ -551,6 +552,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
           body.lineIndex,
           body.groupId,
           body.lineIndices,
+          body.continuationIndices,
         );
         if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
         return jsonResponse(result, 200, origin, allowed);
@@ -566,6 +568,7 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         body.lineIndex,
         body.toUserId,
         body.lineIndices,
+        body.continuationIndices,
       );
       if ("error" in result) return errorResponse(result.error, result.status, origin, allowed);
       return jsonResponse(result, 200, origin, allowed);

@@ -207,6 +207,8 @@ function dmToInboxItem(message: DmQuoteMessage): InboxItem {
     titleId: message.titleId,
     lineIndex: message.lineIndex,
     promptCount: message.promptCount,
+    continuationShareId: message.continuationShareId,
+    continuationCount: message.continuationCount,
     from: message.from,
     createdAt: message.createdAt,
   };
@@ -220,6 +222,8 @@ function groupToInboxItem(message: GroupQuoteMessage): InboxItem | null {
     titleId: message.titleId,
     lineIndex: message.lineIndex,
     promptCount: message.promptCount,
+    continuationShareId: message.continuationShareId,
+    continuationCount: message.continuationCount,
     from: message.from,
     createdAt: message.createdAt,
   };

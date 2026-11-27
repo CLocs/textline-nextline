@@ -13,6 +13,10 @@ type Props = {
   persistedRunId?: string | null;
   onPlayAgain: () => void;
   onBack: () => void;
+  /** After playing the rest of a star streak, offer a bigger round. */
+  showKeepGoing?: boolean;
+  onPlayThree?: () => void;
+  onPlayMini?: () => void;
 };
 
 function playShareUrl(shareId: string): string {
@@ -36,6 +40,9 @@ export function CompleteScreen({
   persistedRunId,
   onPlayAgain,
   onBack,
+  showKeepGoing = false,
+  onPlayThree,
+  onPlayMini,
 }: Props) {
   const totalQuestions = questionTotal(run, title);
   const finished = run.endReason !== "miss";
@@ -220,6 +227,16 @@ export function CompleteScreen({
           )}
         </>
       )}
+      {showKeepGoing && onPlayThree && onPlayMini ? (
+        <div className="row complete-actions">
+          <button type="button" className="button primary" onClick={onPlayThree}>
+            Play 3
+          </button>
+          <button type="button" className="button ghost" onClick={onPlayMini}>
+            Mini-game
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }
