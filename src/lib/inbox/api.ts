@@ -44,14 +44,30 @@ export type InboxItem = {
   titleId: string;
   lineIndex: number;
   promptCount?: number;
+  /** Play link for the starred lines after this one. */
+  continuationShareId?: string | null;
+  continuationCount?: number;
   from: { userId: string; displayName: string };
   createdAt: string;
 };
 
-function shareBody(titleId: string, lineIndex: number, lineIndices?: number[]) {
-  return lineIndices && lineIndices.length > 1
-    ? { titleId, lineIndex, lineIndices }
-    : { titleId, lineIndex };
+function shareBody(
+  titleId: string,
+  lineIndex: number,
+  lineIndices?: number[],
+  continuationIndices?: number[],
+) {
+  const body: {
+    titleId: string;
+    lineIndex: number;
+    lineIndices?: number[];
+    continuationIndices?: number[];
+  } = { titleId, lineIndex };
+  if (lineIndices && lineIndices.length > 1) body.lineIndices = lineIndices;
+  else if (continuationIndices && continuationIndices.length > 0) {
+    body.continuationIndices = continuationIndices;
+  }
+  return body;
 }
 
 export async function copyLineShare(
@@ -74,10 +90,14 @@ export async function sendLineToFriend(
   lineIndex: number,
   toUserId: string,
   lineIndices?: number[],
+  continuationIndices?: number[],
 ): Promise<LineShare | { error: string }> {
   const response = await inboxFetch("/api/inbox", {
     method: "POST",
-    body: JSON.stringify({ ...shareBody(titleId, lineIndex, lineIndices), toUserId }),
+    body: JSON.stringify({
+      ...shareBody(titleId, lineIndex, lineIndices, continuationIndices),
+      toUserId,
+    }),
   });
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
@@ -90,10 +110,14 @@ export async function sendLineToGroup(
   lineIndex: number,
   groupId: string,
   lineIndices?: number[],
+  continuationIndices?: number[],
 ): Promise<GroupLineShare | { error: string }> {
   const response = await inboxFetch("/api/inbox", {
     method: "POST",
-    body: JSON.stringify({ ...shareBody(titleId, lineIndex, lineIndices), groupId }),
+    body: JSON.stringify({
+      ...shareBody(titleId, lineIndex, lineIndices, continuationIndices),
+      groupId,
+    }),
   });
   if (!response) return { error: "API unavailable" };
   if (response.status === 401) return { error: "Please sign in first" };
@@ -126,6 +150,12 @@ export async function fetchInbox(): Promise<
           ...item,
           promptCount:
             typeof item.promptCount === "number" && item.promptCount > 0 ? item.promptCount : 1,
+          continuationShareId:
+            typeof item.continuationShareId === "string" ? item.continuationShareId : null,
+          continuationCount:
+            typeof item.continuationCount === "number" && item.continuationCount > 0
+              ? item.continuationCount
+              : 0,
         }))
       : [],
     parallels: Array.isArray(data.parallels) ? data.parallels : [],

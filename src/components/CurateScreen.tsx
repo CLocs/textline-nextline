@@ -15,6 +15,13 @@ import { MAX_LOVED_PER_TITLE } from "../lib/stars/store";
 import { isLoggedIn } from "../lib/auth/session";
 import { createParallelPack } from "../lib/parallels/api";
 import {
+  curateActionLine,
+  curateHotkeyAction,
+  isCurateNoteField,
+  isTypingTarget,
+  stepCurateLine,
+} from "../lib/ui/curateHotkeys";
+import {
   followScrollTop,
   offsetsForSizes,
   VIRTUAL_LIST_GAP,
@@ -99,6 +106,10 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const [heardPreview, setHeardPreview] = useState("");
   /** Line the list should keep on screen while Sync is showing or following it. */
   const [pinnedLine, setPinnedLine] = useState<number | null>(null);
+  /** Row the keyboard has stepped to. Unset while following, so keys act on the Sync line. */
+  const [browseLine, setBrowseLine] = useState<number | null>(null);
+  /** One open note. The row that owns the textarea. */
+  const [editingLine, setEditingLine] = useState<number | null>(null);
   const notePerson = useSessionFace();
   const listenRef = useRef<SpeechListener | null>(null);
   const hintTimerRef = useRef(0);
@@ -147,6 +158,8 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     followHoldRef.current = false;
     setFollowPaused(false);
     setPinnedLine(null);
+    setBrowseLine(null);
+    setEditingLine(null);
     skipSpokenRef.current = null;
     listenRef.current?.close();
     listenRef.current = null;
@@ -337,6 +350,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
   const scrollToCurrentLine = useCallback(() => {
     followHoldRef.current = false;
     setFollowPaused(false);
+    setBrowseLine(null);
   }, []);
 
   useLayoutEffect(() => {
@@ -609,6 +623,112 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
     onOpenParallel(result.pack.id);
   }
 
+  function holdFollow() {
+    const phase = syncPhaseRef.current.kind;
+    if (phase !== "tracking" && phase !== "held") return;
+    followHoldRef.current = true;
+    setFollowPaused(true);
+  }
+
+  function revealFilteredPos(pos: number) {
+    const el = listRef.current;
+    if (!el || pos < 0) return;
+    const top = offsets[pos] ?? 0;
+    const nextTop = offsets[pos + 1] ?? top;
+    const lineHeight = Math.max(0, nextTop - top - VIRTUAL_LIST_GAP);
+    const viewTop = el.scrollTop;
+    const viewBottom = viewTop + el.clientHeight;
+    const lineBottom = top + lineHeight;
+    if (top >= viewTop - 1 && lineBottom <= viewBottom + 1) return;
+    const next =
+      lineBottom > viewBottom ? followScrollTop(top, lineHeight, el.clientHeight) : Math.max(0, top);
+    ignoreScrollUntilRef.current = performance.now() + 300;
+    el.scrollTop = next;
+    setScrollTop(next);
+  }
+
+  function closeNote(lineIndex: number) {
+    setEditingLine((current) => (current === lineIndex ? null : current));
+    listRef.current?.focus({ preventScroll: true });
+  }
+
+  const editingLineRef = useRef(editingLine);
+  editingLineRef.current = editingLine;
+  const pinnedLineRef = useRef(pinnedLine);
+  pinnedLineRef.current = pinnedLine;
+  const onHotkeyRef = useRef<(event: KeyboardEvent) => void>(() => {});
+  onHotkeyRef.current = (event: KeyboardEvent) => {
+    const noteFocused = isCurateNoteField(event.target);
+    const action = curateHotkeyAction({
+      key: event.key,
+      ctrlKey: event.ctrlKey,
+      metaKey: event.metaKey,
+      altKey: event.altKey,
+      repeat: event.repeat,
+      typing: isTypingTarget(event.target),
+      noteFocused,
+      noteOpen: editingLineRef.current !== null,
+      dialogOpen: document.querySelector("[role='dialog']") != null,
+      sendMenuOpen: document.querySelector(".curate-send-menu") != null,
+    });
+    if (!action || action === "save-note") return;
+    if (action === "cancel-note") {
+      if (noteFocused) return;
+      event.preventDefault();
+      event.stopPropagation();
+      setEditingLine(null);
+      listRef.current?.focus({ preventScroll: true });
+      return;
+    }
+    if (action === "current-line") {
+      const phase = syncPhaseRef.current.kind;
+      if (phase !== "tracking" && phase !== "held") return;
+      if (pinnedLineRef.current === null) return;
+      event.preventDefault();
+      event.stopPropagation();
+      scrollToCurrentLine();
+      listRef.current?.focus({ preventScroll: true });
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (action === "down" || action === "up") {
+      const next = stepCurateLine(filteredIndices, browseLine, pinnedLine, action === "down" ? 1 : -1);
+      if (next === null) return;
+      holdFollow();
+      setBrowseLine(next);
+      revealFilteredPos(filteredIndices.indexOf(next));
+      return;
+    }
+
+    const lineIndex = curateActionLine(filteredIndices, browseLine, pinnedLine);
+    if (lineIndex === null || !title) return;
+    if (action === "star") {
+      const line = getLine(title, lineIndex);
+      if (!line) return;
+      void handleToggle(lineIndex, line.text);
+      return;
+    }
+    if (action === "quote") {
+      void handleQuote(lineIndex);
+      return;
+    }
+    holdFollow();
+    revealFilteredPos(filteredIndices.indexOf(lineIndex));
+    setEditingLine(lineIndex);
+  };
+
+  useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      onHotkeyRef.current(event);
+    }
+    // Capture runs before the quote-image dialog's Escape handler removes the dialog.
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, []);
+
   if (!title) {
     return (
       <section className="panel curate-panel">
@@ -640,6 +760,10 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
           enabled. ♥ Love up to {MAX_LOVED_PER_TITLE} golden lines so they usually land in mini-games.
           Check {PACK_MIN}–{PACK_MAX} lines to save a quote-parallel pack (Shift+click to select a
           range).
+        </p>
+        <p className="curate-keys">
+          <kbd>j</kbd> <kbd>k</kbd> move <kbd>s</kbd> star <kbd>q</kbd> quote <kbd>n</kbd> note{" "}
+          <kbd>Ctrl+Enter</kbd> save <kbd>Esc</kbd> current line
         </p>
       </div>
 
@@ -795,6 +919,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
         <div
           className="curate-list"
           role="list"
+          tabIndex={-1}
           ref={listRef}
           onScroll={(event) => {
             const top = event.currentTarget.scrollTop;
@@ -825,6 +950,7 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
               const fromWikiquote = quotedLines.wikiquote.has(lineIndex);
               const isSelected = selectedSet.has(lineIndex);
               const isFocused = highlightLine === lineIndex;
+              const isKbd = browseLine === lineIndex && lineIndex !== highlightLine;
               const rowIndex = windowRange.start + visibleOffset;
 
               return (
@@ -835,12 +961,18 @@ export function CurateScreen({ entry, onBack, onOpenParallel, focusLineIndex }: 
                   setSize={filteredIndices.length}
                   offset={offsets[rowIndex] ?? 0}
                   layoutKey={layoutKey}
-                  className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${quoted ? " quoted" : ""}${isSelected ? " selected" : ""}${isFocused ? " focused" : ""}`}
+                  className={`curate-item${starred ? " starred" : ""}${loved ? " loved" : ""}${quoted ? " quoted" : ""}${isSelected ? " selected" : ""}${isFocused ? " focused" : ""}${isKbd ? " kbd" : ""}`}
                   onHeight={handleRowHeight}
                 >
                   <LineNoteField
                     text={notesByLine.get(lineIndex)?.text ?? ""}
                     person={notePerson}
+                    editing={editingLine === lineIndex}
+                    onEdit={() => {
+                      holdFollow();
+                      setEditingLine(lineIndex);
+                    }}
+                    onClose={() => closeNote(lineIndex)}
                     onSave={(words) => {
                       saveLineNote(entry.id, lineIndex, words);
                       setRevision((value) => value + 1);
@@ -999,6 +1131,9 @@ function CurateLineItem({
 function LineNoteField({
   text,
   person,
+  editing,
+  onEdit,
+  onClose,
   onSave,
   marks,
   icons,
@@ -1006,17 +1141,35 @@ function LineNoteField({
 }: {
   text: string;
   person: SessionFace;
+  editing: boolean;
+  onEdit: () => void;
+  onClose: () => void;
   onSave: (words: string) => void;
   marks: ReactNode;
   icons: ReactNode;
   children: ReactNode;
 }) {
-  const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(text);
+  const areaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (!editing) setDraft(text);
   }, [editing, text]);
+
+  useLayoutEffect(() => {
+    if (!editing) return;
+    areaRef.current?.focus({ preventScroll: true });
+  }, [editing]);
+
+  function commit() {
+    onSave(draft);
+    onClose();
+  }
+
+  function cancel() {
+    setDraft(text);
+    onClose();
+  }
 
   return (
     <>
@@ -1028,7 +1181,7 @@ function LineNoteField({
             type="button"
             className={`button ghost curate-note-open${text ? " has-note" : ""}`}
             aria-label={text ? "Edit note" : "Add a note"}
-            onClick={() => setEditing(true)}
+            onClick={onEdit}
           >
             Note
           </button>
@@ -1041,8 +1194,7 @@ function LineNoteField({
             className="curate-note"
             onSubmit={(event) => {
               event.preventDefault();
-              onSave(draft);
-              setEditing(false);
+              commit();
             }}
           >
             <PersonMark label={person.label} src={person.src} />
@@ -1050,9 +1202,32 @@ function LineNoteField({
               <label>
                 <span className="sr-only">Note on this line</span>
                 <textarea
+                  ref={areaRef}
                   rows={2}
                   value={draft}
+                  data-curate-note="true"
                   onChange={(event) => setDraft(event.target.value)}
+                  onKeyDown={(event) => {
+                    const action = curateHotkeyAction({
+                      key: event.key,
+                      ctrlKey: event.ctrlKey,
+                      metaKey: event.metaKey,
+                      altKey: event.altKey,
+                      repeat: event.repeat,
+                      typing: true,
+                      noteFocused: true,
+                      noteOpen: true,
+                    });
+                    if (action === "save-note") {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      commit();
+                    } else if (action === "cancel-note") {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      cancel();
+                    }
+                  }}
                   placeholder="What the room said"
                   autoFocus
                 />
@@ -1061,14 +1236,7 @@ function LineNoteField({
                 <button type="submit" className="button primary">
                   Save note
                 </button>
-                <button
-                  type="button"
-                  className="button ghost"
-                  onClick={() => {
-                    setDraft(text);
-                    setEditing(false);
-                  }}
-                >
+                <button type="button" className="button ghost" onClick={cancel}>
                   Cancel
                 </button>
               </div>

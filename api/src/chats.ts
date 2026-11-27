@@ -221,6 +221,8 @@ export type DmQuoteMessage = {
   titleId: string;
   lineIndex: number;
   promptCount: number;
+  continuationShareId: string | null;
+  continuationCount: number;
   direction: "in" | "out";
   from: { userId: string; displayName: string };
   createdAt: string;
@@ -240,6 +242,8 @@ export type GroupQuoteMessage = {
   titleId: string;
   lineIndex: number;
   promptCount: number;
+  continuationShareId: string | null;
+  continuationCount: number;
   from: { userId: string; displayName: string };
   createdAt: string;
   sentCount: number;
@@ -556,10 +560,12 @@ export async function listDmMessages(
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
               i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
-              su.display_name AS sender_name, s.line_indices
+              su.display_name AS sender_name, s.line_indices,
+              i.continuation_share_id, c.line_indices AS continuation_indices
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
        LEFT JOIN mini_shares s ON s.id = i.share_id
+       LEFT JOIN mini_shares c ON c.id = i.continuation_share_id
        WHERE i.group_id IS NULL
          AND ((i.sender_user_id = ? AND i.recipient_user_id = ?)
            OR (i.sender_user_id = ? AND i.recipient_user_id = ?))
@@ -579,6 +585,8 @@ export async function listDmMessages(
       solved_at: string | null;
       sender_name: string | null;
       line_indices: string | null;
+      continuation_share_id?: string | null;
+      continuation_indices?: string | null;
     }>();
 
   const quotes: DmQuoteMessage[] = (result.results ?? []).map((row) => {
@@ -590,6 +598,10 @@ export async function listDmMessages(
       titleId: row.title_id,
       lineIndex: Number(row.prompt_line_index),
       promptCount: countFrozenPrompts(row.line_indices),
+      continuationShareId: row.continuation_share_id ?? null,
+      continuationCount: row.continuation_share_id
+        ? countFrozenPrompts(row.continuation_indices)
+        : 0,
       direction,
       from: {
         userId: row.sender_user_id,
@@ -640,10 +652,12 @@ export async function listGroupMessages(
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
               i.sender_user_id, i.recipient_user_id, i.read_at, i.solved_at,
-              su.display_name AS sender_name, s.line_indices
+              su.display_name AS sender_name, s.line_indices,
+              i.continuation_share_id, c.line_indices AS continuation_indices
        FROM line_inbox i
        JOIN users su ON su.id = i.sender_user_id
        LEFT JOIN mini_shares s ON s.id = i.share_id
+       LEFT JOIN mini_shares c ON c.id = i.continuation_share_id
        WHERE i.group_id = ?
        ORDER BY i.created_at ASC
        LIMIT ?`,
@@ -661,6 +675,8 @@ export async function listGroupMessages(
       solved_at: string | null;
       sender_name: string | null;
       line_indices: string | null;
+      continuation_share_id?: string | null;
+      continuation_indices?: string | null;
     }>();
 
   type Acc = {
@@ -668,6 +684,8 @@ export async function listGroupMessages(
     titleId: string;
     lineIndex: number;
     promptCount: number;
+    continuationShareId: string | null;
+    continuationCount: number;
     from: { userId: string; displayName: string };
     createdAt: string;
     sentCount: number;
@@ -687,6 +705,10 @@ export async function listGroupMessages(
         titleId: row.title_id,
         lineIndex: Number(row.prompt_line_index),
         promptCount: countFrozenPrompts(row.line_indices),
+        continuationShareId: row.continuation_share_id ?? null,
+        continuationCount: row.continuation_share_id
+          ? countFrozenPrompts(row.continuation_indices)
+          : 0,
         from: {
           userId: row.sender_user_id,
           displayName: publicName(row.sender_name),
@@ -720,6 +742,8 @@ export async function listGroupMessages(
       titleId: acc.titleId,
       lineIndex: acc.lineIndex,
       promptCount: acc.promptCount,
+      continuationShareId: acc.continuationShareId,
+      continuationCount: acc.continuationCount,
       from: acc.from,
       createdAt: acc.createdAt,
       sentCount: acc.sentCount,

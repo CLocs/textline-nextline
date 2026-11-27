@@ -3,6 +3,7 @@ import { handleRequest } from "../api/src/index.js";
 import { canonicalPair } from "../api/src/friends.js";
 import {
   countFrozenPrompts,
+  parseContinuationIndices,
   parseShareLineIndices,
   STREAK_SEND_CAP,
 } from "../api/src/inbox.js";
@@ -32,6 +33,7 @@ type InboxRow = {
   title_id: string;
   prompt_line_index: number;
   created_at: string;
+  continuation_share_id: string | null;
 };
 
 function farFuture(): string {
@@ -118,6 +120,7 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCar
                   number,
                   string,
                 ];
+                const continuation = typeof args[8] === "string" ? args[8] : null;
                 if (!inbox.some((row) => row.recipient_user_id === recipient && row.share_id === shareId)) {
                   inbox.push({
                     id,
@@ -127,6 +130,7 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCar
                     title_id: titleId,
                     prompt_line_index: lineIndex,
                     created_at: createdAt,
+                    continuation_share_id: continuation,
                   });
                 }
               }
@@ -222,6 +226,7 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCar
                   .map((row) => {
                     const sender = users.find((u) => u.id === row.sender_user_id);
                     const share = shares.find((item) => item.id === row.share_id);
+                    const continuation = shares.find((item) => item.id === row.continuation_share_id);
                     return {
                       id: row.id,
                       share_id: row.share_id,
@@ -231,6 +236,8 @@ function createInboxDb(options?: { friends?: boolean; blocked?: boolean; withCar
                       sender_id: row.sender_user_id,
                       display_name: sender?.display_name ?? null,
                       line_indices: share?.line_indices ?? null,
+                      continuation_share_id: row.continuation_share_id,
+                      continuation_indices: continuation?.line_indices ?? null,
                     };
                   });
                 return { results: results as T[] };
@@ -450,6 +457,45 @@ describe("inbox API", () => {
     );
     expect(sent.status).toBe(400);
   });
+
+  it("keeps a one-line card and freezes only the later starred lines", async () => {
+    const { db } = createInboxDb({ friends: true });
+    const sent = await handleRequest(
+      jsonRequest("/api/inbox", {
+        method: "POST",
+        token: "sess-alice",
+        body: {
+          titleId: TITLE_ID,
+          lineIndex: 10,
+          continuationIndices: [12, 11],
+          toUserId: BOB_ID,
+        },
+      }),
+      envFor(db),
+    );
+    expect(sent.status).toBe(200);
+
+    const list = await handleRequest(jsonRequest("/api/inbox", { token: "sess-bob" }), envFor(db));
+    const data = (await list.json()) as {
+      items: Array<{
+        promptCount: number;
+        continuationShareId: string | null;
+        continuationCount: number;
+      }>;
+    };
+    expect(data.items).toHaveLength(1);
+    expect(data.items[0]?.promptCount).toBe(1);
+    expect(data.items[0]?.continuationCount).toBe(2);
+    const restId = data.items[0]?.continuationShareId;
+    expect(restId).toBeTruthy();
+
+    const queue = await handleRequest(
+      jsonRequest(`/api/shares/${restId}/queue`, { token: "sess-bob" }),
+      envFor(db),
+    );
+    const body = (await queue.json()) as { lineIndices: number[]; frozen: boolean };
+    expect(body).toEqual({ titleId: TITLE_ID, lineIndices: [11, 12], frozen: true });
+  });
 });
 
 describe("parseShareLineIndices", () => {
@@ -465,6 +511,14 @@ describe("parseShareLineIndices", () => {
     expect(parseShareLineIndices(0, [])).toBeNull();
     expect(parseShareLineIndices(0, Array.from({ length: STREAK_SEND_CAP + 1 }, (_, i) => i))).toBeNull();
     expect(parseShareLineIndices(0, [1, 1.5])).toBeNull();
+  });
+});
+
+describe("parseContinuationIndices", () => {
+  it("drops the sent line and sorts the rest", () => {
+    expect(parseContinuationIndices(undefined, 10)).toBeNull();
+    expect(parseContinuationIndices([10], 10)).toBeNull();
+    expect(parseContinuationIndices([12, 11, 10], 10)).toEqual([11, 12]);
   });
 });
 

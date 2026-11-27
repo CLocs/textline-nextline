@@ -77,6 +77,8 @@ export type DmQuoteMessage = {
   titleId: string;
   lineIndex: number;
   promptCount: number;
+  continuationShareId: string | null;
+  continuationCount: number;
   direction: "in" | "out";
   from: { userId: string; displayName: string };
   createdAt: string;
@@ -93,6 +95,8 @@ export type GroupQuoteMessage = {
   titleId: string;
   lineIndex: number;
   promptCount: number;
+  continuationShareId: string | null;
+  continuationCount: number;
   from: { userId: string; displayName: string };
   createdAt: string;
   sentCount: number;
@@ -166,6 +170,9 @@ function normalizeDmMessage(raw: Record<string, unknown>): DmThreadMessage | nul
     titleId: raw.titleId,
     lineIndex: typeof raw.lineIndex === "number" ? raw.lineIndex : 0,
     promptCount: typeof raw.promptCount === "number" && raw.promptCount > 0 ? raw.promptCount : 1,
+    continuationShareId: typeof raw.continuationShareId === "string" ? raw.continuationShareId : null,
+    continuationCount:
+      typeof raw.continuationCount === "number" && raw.continuationCount > 0 ? raw.continuationCount : 0,
     direction: raw.direction === "out" ? "out" : "in",
     from: {
       userId: typeof from?.userId === "string" ? from.userId : "",
@@ -205,6 +212,9 @@ function normalizeGroupMessage(raw: Record<string, unknown>): GroupThreadMessage
     titleId: raw.titleId,
     lineIndex: typeof raw.lineIndex === "number" ? raw.lineIndex : 0,
     promptCount: typeof raw.promptCount === "number" && raw.promptCount > 0 ? raw.promptCount : 1,
+    continuationShareId: typeof raw.continuationShareId === "string" ? raw.continuationShareId : null,
+    continuationCount:
+      typeof raw.continuationCount === "number" && raw.continuationCount > 0 ? raw.continuationCount : 0,
     from: {
       userId: typeof from?.userId === "string" ? from.userId : "",
       displayName: typeof from?.displayName === "string" ? from.displayName : "Friend",

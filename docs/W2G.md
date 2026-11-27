@@ -2,7 +2,7 @@
 
 Watch together done right. Highlight a line in Textline, keep the list on the picture, and keep what the room said on that line.
 
-2.7 is the highlight and the sync. 2.8 is the note. The roadmap indexes both. The steps an agent runs are [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md) and [line-notes](../.cursor/skills/line-notes/SKILL.md).
+2.10 (highlight and Sync) and 2.11 (a typed note in this browser) are shipped. HeyPocket, speakers, the Sync mic note, and a pointer at another line are still later. The roadmap indexes both. The steps an agent runs are [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md) and [line-notes](../.cursor/skills/line-notes/SKILL.md).
 
 Opened on a live watch of The Odyssey (1997).
 

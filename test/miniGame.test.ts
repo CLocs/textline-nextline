@@ -6,6 +6,7 @@ import {
   describeMiniGameStars,
   findStarStreaks,
   miniGameStarCounts,
+  restOfStreak,
   streakForSend,
   sequenceLabel,
   getValidPromptIndices,
@@ -148,6 +149,13 @@ describe("streakForSend", () => {
     expect(streakForSend(valid, starred, 0, 4)).toEqual([0, 1, 2, 3]);
     expect(streakForSend(valid, starred, 11, 4)).toEqual([8, 9, 10, 11]);
     expect(streakForSend(valid, starred, 5, 4)).toEqual([4, 5, 6, 7]);
+  });
+
+  it("keeps only the starred lines after this one", () => {
+    expect(restOfStreak(null, 2)).toBeNull();
+    expect(restOfStreak([1, 2, 3], 3)).toBeNull();
+    expect(restOfStreak([1, 2, 3], 1)).toEqual([2, 3]);
+    expect(restOfStreak([4, 5, 6, 7], 5)).toEqual([6, 7]);
   });
 });
 

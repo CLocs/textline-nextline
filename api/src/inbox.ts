@@ -23,6 +23,9 @@ export type InboxItem = {
   lineIndex: number;
   /** Frozen prompt count on the share. 1 = one-line send; 2+ = streak. */
   promptCount: number;
+  /** Frozen play of the starred lines after this one. Absent when there is no rest. */
+  continuationShareId: string | null;
+  continuationCount: number;
   from: { userId: string; displayName: string };
   createdAt: string;
 };
@@ -60,6 +63,32 @@ export function parseShareLineIndices(lineIndexRaw: unknown, lineIndicesRaw: unk
   }
   const one = parsePromptLineIndex(lineIndexRaw);
   return one == null ? null : [one];
+}
+
+/**
+ * Later lines of a one-line send's star streak. Null when absent.
+ * `"invalid"` when the payload is present but not a short list of line indices.
+ * The sent line is dropped. Order is transcript order (ascending index).
+ */
+export function parseContinuationIndices(
+  raw: unknown,
+  sentLine: number,
+): number[] | null | "invalid" {
+  if (raw == null) return null;
+  if (!Array.isArray(raw) || raw.length === 0) return null;
+  const seen = new Set<number>();
+  const indices: number[] = [];
+  for (const item of raw) {
+    const n = parsePromptLineIndex(item);
+    if (n == null) return "invalid";
+    if (n === sentLine || seen.has(n)) continue;
+    seen.add(n);
+    indices.push(n);
+  }
+  if (indices.length === 0) return null;
+  if (indices.length > STREAK_SEND_CAP) return "invalid";
+  indices.sort((a, b) => a - b);
+  return indices;
 }
 
 export function countFrozenPrompts(lineIndicesJson: string | null | undefined): number {
@@ -113,6 +142,24 @@ async function issueShare(
   return { shareId: share.id, url: playUrl(appOrigin, share.id) };
 }
 
+/** One frozen share of the lines after a one-line send. Null when this send is already a streak. */
+async function resolveContinuation(
+  db: D1Database,
+  user: User,
+  appOrigin: string,
+  titleId: string,
+  indices: number[],
+  continuationRaw: unknown,
+): Promise<string | null | ActionError> {
+  if (indices.length !== 1) return null;
+  const rest = parseContinuationIndices(continuationRaw, indices[0]!);
+  if (rest === "invalid") return { error: "Invalid continuation", status: 400 };
+  if (!rest) return null;
+  const share = await issueShare(db, user, appOrigin, titleId, rest);
+  if ("error" in share) return share;
+  return share.shareId;
+}
+
 async function recentSameShareSend(
   db: D1Database,
   senderId: string,
@@ -160,11 +207,15 @@ export async function sendLineToFriend(
   lineIndexRaw: unknown,
   toUserIdRaw: string,
   lineIndicesRaw?: unknown,
+  continuationRaw?: unknown,
 ): Promise<LineShare | ActionError> {
   const titleId = titleIdRaw.trim();
   const indices = parseShareLineIndices(lineIndexRaw, lineIndicesRaw);
   const toUserId = toUserIdRaw.trim();
   if (!titleId || !indices) return { error: "Invalid line", status: 400 };
+  if (indices.length === 1 && parseContinuationIndices(continuationRaw, indices[0]!) === "invalid") {
+    return { error: "Invalid continuation", status: 400 };
+  }
   if (!isValidFriendUserId(toUserId) || toUserId === user.id) {
     return { error: "Invalid recipient", status: 400 };
   }
@@ -199,12 +250,21 @@ export async function sendLineToFriend(
 
   const share = await issueShare(db, user, appOrigin, titleId, indices);
   if ("error" in share) return share;
+  const continuation = await resolveContinuation(
+    db,
+    user,
+    appOrigin,
+    titleId,
+    indices,
+    continuationRaw,
+  );
+  if (continuation && typeof continuation === "object") return continuation;
 
   await db
     .prepare(
       `INSERT OR IGNORE INTO line_inbox
-         (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+         (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at, group_id, continuation_share_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     )
     .bind(
       createId(),
@@ -214,6 +274,8 @@ export async function sendLineToFriend(
       titleId,
       indices[0],
       new Date().toISOString(),
+      null,
+      continuation,
     )
     .run();
 
@@ -233,11 +295,15 @@ export async function sendLineToGroup(
   lineIndexRaw: unknown,
   groupIdRaw: string,
   lineIndicesRaw?: unknown,
+  continuationRaw?: unknown,
 ): Promise<GroupLineShare | ActionError> {
   const titleId = titleIdRaw.trim();
   const indices = parseShareLineIndices(lineIndexRaw, lineIndicesRaw);
   const groupId = groupIdRaw.trim();
   if (!titleId || !indices) return { error: "Invalid line", status: 400 };
+  if (indices.length === 1 && parseContinuationIndices(continuationRaw, indices[0]!) === "invalid") {
+    return { error: "Invalid continuation", status: 400 };
+  }
   if (!isValidFriendUserId(groupId)) return { error: "Invalid group", status: 400 };
 
   const group = await userCanAccessGroup(db, groupId, user.id);
@@ -273,16 +339,35 @@ export async function sendLineToGroup(
 
   const share = await issueShare(db, user, appOrigin, titleId, indices);
   if ("error" in share) return share;
+  const continuation = await resolveContinuation(
+    db,
+    user,
+    appOrigin,
+    titleId,
+    indices,
+    continuationRaw,
+  );
+  if (continuation && typeof continuation === "object") return continuation;
 
   const createdAt = new Date().toISOString();
   for (const toUserId of eligible) {
     await db
       .prepare(
         `INSERT OR IGNORE INTO line_inbox
-           (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at, group_id)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+           (id, share_id, sender_user_id, recipient_user_id, title_id, prompt_line_index, created_at, group_id, continuation_share_id)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       )
-      .bind(createId(), share.shareId, user.id, toUserId, titleId, indices[0], createdAt, groupId)
+      .bind(
+        createId(),
+        share.shareId,
+        user.id,
+        toUserId,
+        titleId,
+        indices[0],
+        createdAt,
+        groupId,
+        continuation,
+      )
       .run();
   }
 
@@ -293,10 +378,12 @@ export async function listInbox(db: D1Database, userId: string): Promise<InboxIt
   const result = await db
     .prepare(
       `SELECT i.id, i.share_id, i.title_id, i.prompt_line_index, i.created_at,
-              u.id AS sender_id, u.display_name, s.line_indices
+              u.id AS sender_id, u.display_name, s.line_indices,
+              i.continuation_share_id, c.line_indices AS continuation_indices
        FROM line_inbox i
        JOIN users u ON u.id = i.sender_user_id
        LEFT JOIN mini_shares s ON s.id = i.share_id
+       LEFT JOIN mini_shares c ON c.id = i.continuation_share_id
        WHERE i.recipient_user_id = ?
        ORDER BY i.created_at DESC
        LIMIT ?`,
@@ -311,6 +398,8 @@ export async function listInbox(db: D1Database, userId: string): Promise<InboxIt
       sender_id: string;
       display_name: string | null;
       line_indices: string | null;
+      continuation_share_id?: string | null;
+      continuation_indices?: string | null;
     }>();
 
   return (result.results ?? []).map((row) => ({
@@ -319,6 +408,10 @@ export async function listInbox(db: D1Database, userId: string): Promise<InboxIt
     titleId: row.title_id,
     lineIndex: Number(row.prompt_line_index),
     promptCount: countFrozenPrompts(row.line_indices),
+    continuationShareId: row.continuation_share_id ?? null,
+    continuationCount: row.continuation_share_id
+      ? countFrozenPrompts(row.continuation_indices)
+      : 0,
     from: { userId: row.sender_id, displayName: publicName(row.display_name) },
     createdAt: row.created_at,
   }));

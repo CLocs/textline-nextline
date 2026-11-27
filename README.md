@@ -50,7 +50,8 @@ Growing the catalog: [content workstream](docs/CONTENT.md). Agent skill: [`.curs
 | Doc | What it's for |
 |-----|----------------|
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Now / next / later — the working plan |
-| [docs/SHIPPED.md](docs/SHIPPED.md) | How we got here (phases 1–2.6 and shipped features) |
+| [docs/SHIPPED.md](docs/SHIPPED.md) | How we got here (phases 1–2.11 and shipped features) |
+| [docs/W2G.md](docs/W2G.md) | Watch, Sync, and line notes (2.10–2.11, shipped) |
 | [docs/CONTENT.md](docs/CONTENT.md) | Letterboxd queue, convert, import (C0–C4) |
 | [docs/DEPLOY.md](docs/DEPLOY.md) | Cloudflare Pages + Worker + D1 + R2 |
 

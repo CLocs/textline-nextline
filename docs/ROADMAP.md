@@ -1,18 +1,17 @@
 # Roadmap
 
-Working plan. How we got here: [SHIPPED.md](SHIPPED.md). Library growth: [CONTENT.md](CONTENT.md). How to run the app: [README.md](../README.md).
+Working plan. How we got here: [SHIPPED.md](SHIPPED.md). Library growth: [CONTENT.md](CONTENT.md). Rights: [COPYRIGHT.md](COPYRIGHT.md). How to run the app: [README.md](../README.md).
 
 App work does **not** wait on new titles. One idea lives here once; do not copy it back into the README.
 
 ## Now
 
-**Send streaks from Curate.** Curate Send is one line. Next: send a **star streak** (two or more starred lines in a row) to a friend or a named group. The share is those lines in transcript order, the same way a streak already plays in a mini-game. Same friend gate, Send overlay, and 10s same-share cooldown as a one-line send. Inbox and Chats show one Play N-line streak card (`#/play/{shareId}`), not N MCQ cards. Cap is mini size (10).
+**Keep it going.** A one-line send that sits in a star streak stays one card. A star streak is starred quiz lines with no other quiz prompt between them. **Keep it going** plays only the starred lines after this one, in the order they appear in the film. No button when the line is not in a streak, or when it is the last line of one. After that round, the bottom of the screen offers Play 3 or a mini-game of that title.
 
 ## Next
 
-1. **Keep it going** — after send streaks. A one-line send (random quote or DM) that sits in a star streak offers a button to play the rest in transcript order, from the next starred line. The card stays one line until they tap.
-2. **Content C3 hygiene** — strip leftover `.en` from Simpsons S4 titles/ids without breaking star `titleId`s; persist `year` / `tmdbId`. Details: [CONTENT.md](CONTENT.md#c3--import--movie-catalog-hygiene-this-repo-).
-3. **Security L1** — session TTL / logout, Bearer on runs/shares/me, Google JWT checks, magic-link rate limit, claim-anonymous cannot steal stars. Do this before inviting a much larger circle. Ladder: [Open spikes](#open-spikes).
+1. **Content C3 hygiene** — strip leftover `.en` from Simpsons S4 titles/ids without breaking star `titleId`s; persist `year` / `tmdbId`. Details: [CONTENT.md](CONTENT.md#c3--import--movie-catalog-hygiene-this-repo-).
+2. **Security L1** — session TTL / logout, Bearer on runs/shares/me, Google JWT checks, magic-link rate limit, claim-anonymous cannot steal stars. Do this before inviting a much larger circle. Ladder: [Open spikes](#open-spikes).
 
 ## Status
 
@@ -22,13 +21,16 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 | 2a Auth + share mini-game, Google Sign-In | Shipped |
 | 2.5 Runs, profile, Home rails, thumbs, exact mini replay | Shipped (weighted popular later) |
 | 2.6 Starred stills, R2, Catalog ops, protect curated stars | Shipped (every-cue / video later) |
-| Loved, star streaks, friends, inbox, groups, friend faces, Chats | Shipped |
-| Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
-| Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
-| **Send streaks from Curate** | **Now** |
-| **2.7 w2g Watch** | Sync is in Curate: tap, mic until a line locks, then the clock. One-title vault import stays |
-| **2.8 w2g Line notes** | Typed note on a starred or quoted line, in this browser. HeyPocket, speakers, and the Sync mic note are still later |
-| Keep it going; C3 hygiene; security L1 | Next |
+| 2.7 Loved, star streaks, friends, inbox, groups, friend faces, Chats | Shipped |
+| 2.8 Teach, MCQ similarity, parallels Light, image export, daily email, Play now | Shipped |
+| 2.9 Standalone quotes, global search, play UX, PWA-lite, title requests | Shipped |
+| 2.10 w2g Watch | Shipped |
+| 2.11 w2g Line notes | Shipped (HeyPocket, speakers, the Sync mic note, and a pointer at another line later) |
+| Send streaks from Curate | Shipped |
+| **2.12 Home widget** | Not started. PWA icon and the daily streak already exist. The tile needs a native shell |
+| **Keep it going** | **Now** |
+| C3 hygiene; security L1 | Next |
+| **Rights — one site, no shrink** | **Now.** No ads, no launch campaign. PD pilot on the live catalog. Split only before ads or a campaign. [Rights](#rights) |
 | Rooms, popular-line room, Steam, YouTube titles, GIF billing | Open / later |
 | C0 – C1.5 Letterboxd queue, batch convert, `.sub` | Shipped — [CONTENT.md](CONTENT.md) |
 | C2 SRT acquisition | Inbox drop works; OpenSubtitles optional |
@@ -37,7 +39,21 @@ App work does **not** wait on new titles. One idea lives here once; do not copy 
 
 Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone else can still play.
 
-## 2.7 Watch
+## Rights
+
+One public site. Analysis and the longer options: [COPYRIGHT.md](COPYRIGHT.md).
+
+**Chosen.** Leave `textlinenextline.com` up. Do not take the current catalog down, and do not stand up a friends-only copy beside it. Product work on this site continues.
+
+**Hold.** No ads, subscriptions, affiliates, or sponsorships. No paid promotion, podcast reads, launch posts, or public quote cards aimed at the modern titles. Sharing the existing link with people you know can continue.
+
+**Next.** A public-domain pilot on this same catalog: a written file rule, five to ten archive titles, tagged so a later split is possible, then play them. Optional, and not a launch: one license letter to an independent rightsholder, with no live URL and no existing corpus attached.
+
+**Gate, later.** Ads or a public campaign wait until the public build is cleared titles only, or a written license covers every title on it. A second site, or cutting modern titles from the build, is that gate. It is not the next step.
+
+Steam, premium GIFs, and automatic SRT/video fill already stop on this same rights question. They stay parked.
+
+## 2.10 Watch
 
 **w2g** highlight and sync. Plan: [W2G.md](W2G.md). Procedure: [watch-highlight](../.cursor/skills/watch-highlight/SKILL.md).
 
@@ -45,11 +61,21 @@ Pilot: only `dascolin@gmail.com` and nalongi can star or love lines. Everyone el
 
 **Shipped.** Sync, in Curate. Tap Sync, the first heard line starts the clock, and a finished line hands off to the next cue. Every few seconds the words just heard are matched again, behind the clock and ahead of it, so a drift gets pulled back. Stop holds the list. Tap Sync again after a pause, a seek, or a bad lock.
 
-## 2.8 Line notes
+## 2.11 Line notes
 
 The note half of **w2g**. Same plan: [W2G.md](W2G.md). Procedure: [line-notes](../.cursor/skills/line-notes/SKILL.md).
 
 **Shipped.** A typed note on a starred or quoted line, shown in Curate, stored in this browser. HeyPocket, the Sync mic, speakers, and a pointer at another line follow, one at a time.
+
+## 2.12 Home widget
+
+A home-screen tile that keeps the daily streak going, in the Duolingo style. Plan: [WIDGET.md](WIDGET.md).
+
+**Already usable.** [PWA-lite](SHIPPED.md#mobile-home-screen-pwa-lite-before-native-apps) pins an icon and opens without browser chrome. The daily streak is on Home, Profile, and friend faces, and the site already has the day’s line. Add to Home Screen cannot draw a tile. The site only feeds the data.
+
+**First slice, when we chip.** An Android tile inside a thin store shell (Capacitor or similar): streak, whether today is done, and the day’s line. iOS is that same tile as a WidgetKit extension beside the web view, in an App Store build. Not this slice: push, offline cache, or replacing the PWA as the way to open the app.
+
+**Spikes.** Which shell. A store account and review for a wrapper. The signed-out tile. Whether “till next time” is a countdown or just done / not yet. What the tile shows when the API is unreachable.
 
 ## Later
 
@@ -107,11 +133,11 @@ Parked. Steer as we go. Full phase writeups stay in [SHIPPED.md](SHIPPED.md).
 
 **Premium GIFs from selected lines.** Paid tier renders a capped (~6s) loop over selected cues from the local remux. Own bucket beside `/stills`. First feature that needs billing. GIF vs silent MP4/WebM is open. Rights is the Steam question again.
 
-**Native shell and home screen widget.** After PWA-lite has been in the wild. A thin shell (Capacitor or similar) if the store, iOS push, or offline become real needs. The widget is the glance that needs it: streak, “till next time,” and the day’s line, in the Duolingo style. Add to Home Screen only pins an icon. Android draws the tile in the shell; iOS needs a WidgetKit extension beside the web view, in an App Store build. The site feeds the data. It cannot draw the tile.
+**Home widget.** [2.12](#212-home-widget).
 
 **SRT and video automation.** Filling a [title request](SHIPPED.md#title-requests-light) automatically. Manual drop + paced OpenSubtitles already exist ([C2](CONTENT.md#c2--subtitle-acquisition-hybrid)). Daily cap, match quality, and copyright sit between requested and playable. Video has no licensed equivalent of the owner’s local file. Rights, source, rate limit, and file match all have to be true at once.
 
-**Obsidian → TL (remaining).** Weighted seed of `stars-seed.json` into D1 / Curate; login + group popularity. Vault scrape + fuzzy match already shipped. Watch highlighting is [2.7](#27-watch).
+**Obsidian → TL (remaining).** Weighted seed of `stars-seed.json` into D1 / Curate; login + group popularity. Vault scrape + fuzzy match already shipped. Watch highlighting is [2.10](#210-watch).
 
 **Perfect mini confetti.** Short burst on the complete screen when a mini-game finishes all-correct.
 
