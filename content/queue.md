@@ -113,7 +113,7 @@ SRT: `[x]` downloaded into `inbox/srt/`, `[ ] missing`, `[x] short` if the file 
 | 2 | 1 | 45 | [Nuremberg](https://boxd.it/K6qU) | 2025 | 5 |  | [ ] missing |
 | 2 | 1 | 45 | [The Other Guys](https://boxd.it/1rtq) | 2010 | 5 |  | [ ] missing |
 | 2 | 1 | 39 | [Logan Lucky](https://boxd.it/dZrs) | 2017 | 5 |  | [ ] missing |
-| 2 | 1 | 36 | [The Odyssey](https://boxd.it/QFQU) | 2026 | 5 |  | [ ] missing |
+| 2 | 1 | 36 | [The Odyssey](https://boxd.it/QFQU) | 2026 | 5 |  | [x] |
 | 2 | 1 | 34 | [Blade Runner 2049](https://boxd.it/b8wK) | 2017 | 5 |  | [ ] missing |
 | 2 | 1 | 31 | [Tombstone](https://boxd.it/1SE6) | 1993 | 5 |  | [ ] missing |
 | 2 | 1 | 30 | [The Guard](https://boxd.it/2eBS) | 2011 | 5 |  | [ ] missing |

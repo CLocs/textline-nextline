@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-26T04:22:48.815Z",
+  "updatedAt": "2026-11-28T02:55:24.032Z",
   "titles": [
     {
       "id": "american-gangster-2007",
@@ -5183,6 +5183,16 @@
       }
     },
     {
+      "id": "the-odyssey-2026",
+      "title": "The Odyssey (2026)",
+      "lineCount": 1813,
+      "sourceFilename": "The.Odyssey.2026.eng.srt",
+      "importedAt": "2026-11-28T02:55:24.016Z",
+      "meta": {
+        "year": 2026
+      }
+    },
+    {
       "id": "the-simpsons---4x01---kamp-krustyen",
       "title": "The Simpsons - 4x01 - Kamp Krusty.en",
       "lineCount": 304,
@@ -6368,6 +6378,16 @@
       "importedAt": "2026-09-20T22:13:34.528Z",
       "meta": {
         "year": 2005
+      }
+    },
+    {
+      "id": "you-can-see-everything-2026",
+      "title": "You Can See Everything (2026)",
+      "lineCount": 2218,
+      "sourceFilename": "You.Can.See.Everything.2026.eng.srt",
+      "importedAt": "2026-11-28T02:55:24.027Z",
+      "meta": {
+        "year": 2026
       }
     },
     {
