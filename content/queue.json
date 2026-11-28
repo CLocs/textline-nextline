@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T04:45:30.794Z",
+  "updatedAt": "2026-11-28T02:55:24.045Z",
   "seed": "likes ∪ ratings>=4.5",
   "films": [
     {
@@ -3919,9 +3919,9 @@
       "playCount": 1,
       "highlightCount": 36,
       "tmdbId": null,
-      "srt": "missing",
-      "converted": false,
-      "imported": false
+      "srt": "manual",
+      "converted": true,
+      "imported": true
     }
   ],
   "shows": [
